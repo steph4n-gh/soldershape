@@ -1,0 +1,38 @@
+{
+  "url": "http://127.0.0.1:8765",
+  "browser": "Codex in-app browser",
+  "workflow": [
+    "Actual filechooser imported the included KiCad BGA-36 footprint",
+    "Selected C3; changed volume to0.007mm3 and offset to0.04mm; computed refinement-checked forces -32.447uN lateral and39.256uN vertical",
+    "Edited volume to0.006; started solve and edited offset before response; obsolete response discarded and download stayed disabled",
+    "Ran independent five-point sweep from -0.04 to0.04mm; all rows refinement checked",
+    "Selected 0.02mm row; downloaded ZIP via browser; verified hash manifest, five cases, selected pad C3, actual mesh and force values"
+  ],
+  "cases": 5,
+  "bundle_path": "output/browser-sweep.zip",
+  "bundle_sha256": "4a7e71b6715e91fe4563c5b5d00f7b5f1fcf0da7f17a5d4c59c14c10898b3f6d",
+  "screenshot": "evidence/workbench.jpg",
+  "browser_console_errors": [],
+  "selected_result": {
+    "offset_mm": 0.02,
+    "pad": "C3",
+    "forces": {
+      "x_uN": -19.633426678877793,
+      "z_uN": -43.77622003781667
+    },
+    "mesh_checks": {
+      "closed": true,
+      "edges": 9504,
+      "euler_characteristic": 2,
+      "minimum_triangle_area_mm2": 1.1194688647528213e-05,
+      "nondegenerate": true,
+      "oriented": true,
+      "self_intersections_checked": false,
+      "triangles": 6336,
+      "vertices": 3170,
+      "volume_mm3": 0.005995306776699781,
+      "volume_relative_error": 0.0007822038833699141
+    }
+  },
+  "stale_result_download_disabled": true
+}

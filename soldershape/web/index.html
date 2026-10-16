@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101923">
+  <title>SolderShape | Joint equilibrium workbench</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="app-header">
+    <a class="brand" href="/" aria-label="SolderShape home"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>Solder<span>Shape</span><span class="version">LOCAL WORKBENCH</span></a>
+    <div class="engine-state" id="engine-state"><span class="status-dot"></span><span id="engine-label">Connecting to engine</span></div>
+  </header>
+  <main>
+    <div class="intro"><div><p class="eyebrow">PCB DESIGN / CAPILLARY EQUILIBRIUM</p><h1>Inspect the shape. Compare the forces.</h1><p class="intro-copy">A single solder joint, from your footprint to a reproducible numerical model.</p></div><span class="local-note">Runs locally. No account required.</span></div>
+    <div class="workbench">
+      <aside class="setup-column" aria-label="Joint setup">
+        <section class="panel footprint-panel" aria-labelledby="footprint-heading">
+          <div class="panel-heading"><h2 id="footprint-heading"><span class="step">01</span> Board footprint</h2><span class="mini-label">KiCad .kicad_mod</span></div>
+          <div class="import-actions"><label class="button secondary file-button" for="footprint-file">Import footprint<input id="footprint-file" type="file" accept=".kicad_mod,text/plain"></label><button class="button quiet" id="example-button" type="button">Use example</button></div>
+          <p class="footprint-name" id="footprint-name">Choose a footprint</p>
+          <div class="footprint-canvas-wrap"><canvas id="footprint-canvas" aria-label="Footprint pad layout. Choose a pad using the select field below." role="img"></canvas><span class="canvas-corner" id="pad-count">NO PADS</span></div>
+          <div class="pad-select-row"><label for="pad-select">Selected pad</label><select id="pad-select" disabled><option>Import a footprint first</option></select></div>
+          <div class="pad-facts"><div><span>Board diameter</span><strong id="lower-diameter">—</strong></div><div><span>Nearest pad pitch</span><strong id="pad-pitch">—</strong></div></div>
+          <p class="pad-message" id="pad-message">Circular copper SMD pads are supported.</p>
+        </section>
+        <section class="panel parameters-panel" aria-labelledby="parameters-heading">
+          <div class="panel-heading"><h2 id="parameters-heading"><span class="step">02</span> Joint parameters</h2></div>
+          <form id="joint-form">
+            <div class="field"><label for="upper_diameter_mm">Upper pad diameter</label><div class="number-field"><input id="upper_diameter_mm" name="upper_diameter_mm" type="number" value="0.2" min="0.05" max="10" step="any" required><span>mm</span></div></div>
+            <div class="field"><label for="standoff_mm">Standoff</label><div class="number-field"><input id="standoff_mm" name="standoff_mm" type="number" value="0.15" min="0.02" max="10" step="any" required><span>mm</span></div></div>
+            <div class="field"><label for="volume_mm3">Solder volume</label><div class="number-field"><input id="volume_mm3" name="volume_mm3" type="number" value="0.006" min="0.000001" max="1000" step="any" required><span>mm³</span></div></div>
+            <div class="field"><label for="offset_mm">Lateral offset, X</label><div class="number-field"><input id="offset_mm" name="offset_mm" type="number" value="0.02" min="-5" max="5" step="any" required><span>mm</span></div></div>
+            <div class="parameter-divider"></div>
+            <div class="field"><label for="surface_tension_n_m">Surface tension</label><div class="number-field"><input id="surface_tension_n_m" name="surface_tension_n_m" type="number" value="0.48" min="0.01" max="2" step="any" required><span>N/m</span></div></div>
+            <div class="field"><label for="density_g_cm3">Solder density</label><div class="number-field"><input id="density_g_cm3" name="density_g_cm3" type="number" value="9" min="0.1" max="25" step="any" required><span>g/cm³</span></div></div>
+            <label class="checkbox-field" for="gravity"><input id="gravity" name="gravity" type="checkbox" checked><span>Include gravity</span><span class="field-note">9.8 m/s²</span></label>
+            <div class="compute-actions"><button class="button primary" id="solve-button" type="submit" disabled><span id="solve-label">Solve joint</span><span aria-hidden="true">↗</span></button><button class="button secondary" id="sweep-button" type="button" disabled>Run offset sweep <span class="button-detail">5 points</span></button></div>
+          </form>
+          <p class="sweep-note" id="sweep-note">Five independent solves between −0.02 and +0.02 mm.</p>
+        </section>
+      </aside>
+      <div class="results-column">
+        <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
+        <section class="panel model-panel" aria-labelledby="model-heading">
+          <div class="model-toolbar"><div><p class="eyebrow">THREE-DIMENSIONAL MODEL</p><h2 id="model-heading">Joint geometry</h2></div><div class="viewer-tools"><label class="mesh-toggle"><input id="mesh-edges" type="checkbox">Mesh edges</label><button class="icon-button" id="reset-view" type="button" title="Reset model view" aria-label="Reset model view">↺</button></div></div>
+          <div class="model-canvas-wrap"><canvas id="model-canvas" aria-label="Three-dimensional joint model. Drag to orbit. Scroll to zoom." role="img" tabindex="0"></canvas><div class="model-caption"><span class="model-caption-dot"></span><span id="model-caption">Boundary preview. Solve to compute the joint.</span></div><div class="viewer-hint">DRAG TO ORBIT <span>·</span> SCROLL TO ZOOM</div><div class="empty-model" id="empty-model"><span class="empty-mark" aria-hidden="true">◌</span><strong>Start with a board pad</strong><span>Import a footprint or load the example.</span></div></div>
+          <div class="model-footer"><span id="mesh-summary">Circular, fully wetted, pinned boundaries</span><span id="model-units">Geometry in millimeters</span></div>
+        </section>
+        <section class="panel force-panel" aria-labelledby="force-heading">
+          <div class="panel-heading"><h2 id="force-heading">Force on the upper pad</h2><span class="result-status" id="result-status">Awaiting computation</span></div>
+          <div class="force-content"><div class="force-readings"><div class="force-reading"><span class="axis-label x-axis">X <span>Lateral</span></span><strong id="force-x">—</strong><span class="force-unit">µN</span></div><div class="force-reading"><span class="axis-label z-axis">Z <span>Vertical</span></span><strong id="force-z">—</strong><span class="force-unit">µN</span></div></div><p class="force-convention">+X is positive local X. +Z points from the board toward the upper pad. Negative X opposes a positive offset.</p></div>
+          <div class="checks-grid"><div><span>Refinement force change</span><strong id="check-force">—</strong></div><div><span>Solver volume error</span><strong id="check-volume">—</strong></div><div><span>Negative Hessian modes</span><strong id="check-eigenvalues">—</strong></div><div><span>Closed triangle mesh</span><strong id="check-closed">—</strong></div><div><span>Mesh volume error</span><strong id="check-mesh-volume">—</strong></div></div>
+          <ul class="result-warnings" id="result-warnings" hidden></ul>
+          <details class="numerical-details"><summary>Numerical levels and engine provenance</summary><div class="table-scroll"><table><thead><tr><th>Level</th><th>Facets</th><th>X force · µN</th><th>Z force · µN</th><th>Volume error</th></tr></thead><tbody id="levels-body"><tr><td colspan="5">No computed result.</td></tr></tbody></table></div><p id="engine-provenance">The result bundle records the exact model, engine identity, and raw output.</p><p class="digest" id="input-digest"></p></details>
+        </section>
+        <section class="panel sweep-panel" aria-labelledby="sweep-heading">
+          <div class="panel-heading"><div><h2 id="sweep-heading">Offset response</h2><p class="section-copy" id="sweep-description">Compare independent equilibria at five offsets.</p></div><div class="chart-legend"><span><i class="legend-x"></i>X force</span><span><i class="legend-z"></i>Z force</span></div></div>
+          <div class="chart-wrap"><canvas id="force-chart" aria-label="Computed force versus lateral offset" role="img"></canvas><p class="empty-chart" id="empty-chart">Run a sweep to compare the restoring force.</p></div>
+          <div class="table-scroll"><table class="sweep-table"><thead><tr><th>Offset · mm</th><th>X force · µN</th><th>Z force · µN</th><th>Numerical status</th><th><span class="visually-hidden">View geometry</span></th></tr></thead><tbody id="sweep-body"><tr class="placeholder-row"><td colspan="5">Computed points will appear here.</td></tr></tbody></table></div>
+          <div class="export-bar"><div><strong>Reproduce this computation</strong><p>Inputs, mesh, CSV, model, and solver evidence in one ZIP.</p></div><button class="button secondary" id="download-button" type="button" disabled>Download case <span aria-hidden="true">↓</span></button></div>
+        </section>
+      </div>
+    </div>
+    <footer class="scope-note"><span class="scope-label">MODEL SCOPE</span><p>Equilibrium at prescribed pad positions, with fully wetted, pinned circular boundaries. Refinement checks assess numerical consistency. Thermal reflow, wetting chemistry, physical accuracy, and manufacturing readiness are unverified.</p></footer>
+  </main>
+</body>
+</html>

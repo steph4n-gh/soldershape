@@ -1,0 +1,10 @@
+ts	phase	decision	why	evidence	result
+2026-10-16T22:11:12Z	frame	Started two bounded feasibility investigations	Choose from upstream evidence before building a product or port	WORKFLOW.md	open
+2026-10-16T22:14:11Z	selection	Selected SolderShape for a focused local first version	The verified engine connects an existing KiCad input to a concrete geometry and force comparison	SELECTION.md	reference gate passed; demand remains unverified
+2026-10-16T22:17:23Z	architecture	Chose a loopback Python service and immutable result bundles	Interactive pad selection is required; native compute preserves the verified numerical engine	IMPLEMENTATION.md	independent design review accepted with corrections
+2026-10-16T22:19:24Z	verification	Passed the first complete numerical and export acceptance run	The actual footprint-to-solver-to-bundle path must agree with independent reference and analytic checks	evidence/acceptance.json	VERIFIED
+2026-10-16T22:19:24Z	verification	Corrected two reference constants to the values printed on the upstream page	Published values must not be replaced by earlier local measurements; the declared 0.1 percent gate still passes	evidence/upstream-reference.txt	VERIFIED
+2026-10-16T22:24:32Z	repair	Fixed per-row failure reporting during archive replay	A repeated solver failure must remain visible and must not prevent later cases from replaying	evidence/review.md	12 boundary tests pass
+2026-10-16T22:24:32Z	browser	Completed real import edit solve sweep row selection and ZIP download	Verify the actual browser flow and downloaded data rather than infer usability from source	evidence/browser-workflow.json	VERIFIED
+2026-10-16T22:24:32Z	replay	Replayed a bundle containing deliberately changed inert command text	Replay must execute only trusted regenerated models and never archived scripts	evidence/inert-archive-replay.json	passed; archived script did not execute
+2026-10-16T22:24:32Z	finish	Qualified the local first version and preserved both investigations	Useful end-to-end behavior is demonstrated while physical accuracy and demand remain unverified	WORKFLOW.md	VERIFIED

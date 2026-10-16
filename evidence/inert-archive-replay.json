@@ -1,0 +1,21 @@
+{
+  "exit_code": 0,
+  "replay": {
+    "replay": [
+      {
+        "input_sha256": "ea92580bd3559839abb3cf543c8b3db1e1822ee60580542ec46fbb4a594de73b",
+        "status": "refinement_checked",
+        "force_difference_uN": {
+          "x_uN": 0.0,
+          "z_uN": 0.0
+        },
+        "source_matches": true,
+        "binary_matches": true,
+        "passed": true
+      }
+    ],
+    "passed": true
+  },
+  "archived_script_executed": false,
+  "archive_contains_modified_inert_script": true
+}

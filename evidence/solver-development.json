@@ -1,0 +1,888 @@
+{
+  "cases": {
+    "cylinder": {
+      "input": {
+        "lower_diameter_mm": 0.5,
+        "upper_diameter_mm": 0.5,
+        "standoff_mm": 0.3,
+        "volume_mm3": 0.05890486225480862,
+        "offset_mm": 0,
+        "surface_tension_n_m": 0.48,
+        "density_g_cm3": 9.0,
+        "gravity": false
+      },
+      "input_sha256": "d9744cf0647204683670e70b636fa8ca3fc948fbe5dca8a1cf52f837a3ab1829",
+      "status": "refinement_checked",
+      "forces": {
+        "x_uN": -0.0,
+        "z_uN": -376.9897614080975
+      },
+      "diagnostics": {
+        "volume_relative_error": 1.1503742337469317e-16,
+        "force_change_relative": 5.417034214213917e-05,
+        "force_component_changes": {
+          "x": {
+            "absolute_uN": 8.88178419700125e-09,
+            "normalization_uN": 7.5398223686155035,
+            "relative": 1.1779832153568578e-09,
+            "capillary_relative": 1.1779832153568579e-11
+          },
+          "z": {
+            "absolute_uN": 0.020421664359560054,
+            "normalization_uN": 376.9897614080975,
+            "relative": 5.417034214213917e-05,
+            "capillary_relative": 2.70850735748964e-05
+          }
+        },
+        "force_normalization": "max(abs(final component), 0.01 * capillary force scale)",
+        "capillary_force_scale_uN": 753.9822368615503,
+        "negative_eigenvalues": 0,
+        "stationarity_energy_change_relative": 1.2241130280205788e-08,
+        "stationarity_threshold_relative": 1e-07,
+        "force_change_threshold_relative": 0.01,
+        "mesh_volume_error_relative": 0.0005364551890686409,
+        "finite_difference_displacement_mm": {
+          "x": 2.5e-06,
+          "z": 3e-06
+        },
+        "solver_termination": "completed",
+        "warnings": []
+      },
+      "levels": [
+        {
+          "level": 0,
+          "facets": 432,
+          "force_x_uN": 8.88178419700125e-09,
+          "force_z_uN": -376.9693397437379,
+          "energy_erg": 2.261947324761301,
+          "volume_mm3": 0.05890486225480863,
+          "volume_relative_error": 1.1503742337469317e-16,
+          "negative_eigenvalues": 0,
+          "stationarity_energy_change_erg": 1.8315895022880113e-06,
+          "stationarity_energy_change_relative": 8.097401218135331e-07
+        },
+        {
+          "level": 1,
+          "facets": 1632,
+          "force_x_uN": -0.0,
+          "force_z_uN": -376.9897614080975,
+          "energy_erg": 2.261946729154653,
+          "volume_mm3": 0.05890486225480863,
+          "volume_relative_error": 1.1503742337469317e-16,
+          "negative_eigenvalues": 0,
+          "stationarity_energy_change_erg": 2.7688784598467464e-08,
+          "stationarity_energy_change_relative": 1.2241130280205788e-08
+        }
+      ],
+      "mesh_checks": {
+        "closed": true,
+        "oriented": true,
+        "nondegenerate": true,
+        "volume_mm3": 0.058873262435790656,
+        "vertices": 3170,
+        "triangles": 6336,
+        "edges": 9504,
+        "euler_characteristic": 2,
+        "minimum_triangle_area_mm2": 4.4851017414846225e-05,
+        "volume_relative_error": 0.0005364551890686409,
+        "self_intersections_checked": false
+      },
+      "engine": {
+        "ready": true,
+        "version": "2.70a",
+        "source_url": "https://kenbrakke.com/evolver/downloads/evolver-2.70.tar.gz",
+        "source_sha256": "be7d60d9eb690f1fb124e2ecc12237a7a35be1935bfa5e92be3fe912207a3b6b",
+        "reference_url": "https://kenbrakke.com/evolver/downloads/bga-files.zip",
+        "reference_sha256": "96389e8200320cc8acfbf60b8ed23e2d05941613af5b55824c36890113c6e659",
+        "binary_sha256": "c930b47b33a4cafb3cf98b1c0cb7e3bd9805abcf67aceefe243daea091072f8e",
+        "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+        "build_commands": [
+          [
+            "/usr/bin/cc",
+            "-c",
+            "/Volumes/Storage/oct16project/.engine/headless-title.c",
+            "-o",
+            "/Volumes/Storage/oct16project/.engine/headless-title.o"
+          ],
+          [
+            "/usr/bin/make",
+            "-C",
+            "/Volumes/Storage/oct16project/.engine/src",
+            "-j4",
+            "CC=/usr/bin/cc -O2 -std=gnu89 -w",
+            "CFLAGS=-DGENERIC",
+            "GRAPH=nulgraph.o",
+            "GRAPHLIB=../headless-title.o"
+          ]
+        ],
+        "numerical_source_modified": false,
+        "patch": {
+          "purpose": "Supply missing no-op title callback for the headless graphics target.",
+          "source": "void set_graphics_title(int which, char *title) { (void)which; (void)title; }\n",
+          "sha256": "4f49b4ab182ffd99e0244abae08ea8e48d74ce2e24c57f1c40088ba18126526a"
+        },
+        "license_note": "Local upstream evaluation. Component notices require review before redistribution; upstream source is not vendored in this project."
+      },
+      "elapsed_seconds": 0.40122591610997915
+    },
+    "offset_positive": {
+      "input": {
+        "lower_diameter_mm": 0.5,
+        "upper_diameter_mm": 0.5,
+        "standoff_mm": 0.3,
+        "volume_mm3": 0.0765763209312512,
+        "offset_mm": 0.05,
+        "surface_tension_n_m": 0.48,
+        "density_g_cm3": 9.0,
+        "gravity": false
+      },
+      "input_sha256": "83642a93c3205a7f586682b72821244317efc9158d4fae978a9cc90d10681e10",
+      "status": "refinement_checked",
+      "forces": {
+        "x_uN": -55.302859305328404,
+        "z_uN": 91.36382593440592
+      },
+      "diagnostics": {
+        "volume_relative_error": 1.7698065134568183e-16,
+        "force_change_relative": 0.00020785730563505216,
+        "force_component_changes": {
+          "x": {
+            "absolute_uN": 0.0017113332972940043,
+            "normalization_uN": 55.302859305328404,
+            "relative": 3.094475256416115e-05,
+            "capillary_relative": 2.2697262795174408e-06
+          },
+          "z": {
+            "absolute_uN": 0.018990638691235517,
+            "normalization_uN": 91.36382593440592,
+            "relative": 0.00020785730563505216,
+            "capillary_relative": 2.518711683485279e-05
+          }
+        },
+        "force_normalization": "max(abs(final component), 0.01 * capillary force scale)",
+        "capillary_force_scale_uN": 753.9822368615503,
+        "negative_eigenvalues": 0,
+        "stationarity_energy_change_relative": 3.673969770553662e-08,
+        "stationarity_threshold_relative": 1e-07,
+        "force_change_threshold_relative": 0.01,
+        "mesh_volume_error_relative": 0.0008310294473587998,
+        "finite_difference_displacement_mm": {
+          "x": 2.5e-06,
+          "z": 3e-06
+        },
+        "solver_termination": "completed",
+        "warnings": []
+      },
+      "levels": [
+        {
+          "level": 0,
+          "facets": 432,
+          "force_x_uN": -55.30114797203111,
+          "force_z_uN": 91.38281657309716,
+          "energy_erg": 2.772458683537906,
+          "volume_mm3": 0.0765763209312512,
+          "volume_relative_error": 0.0,
+          "negative_eigenvalues": 0,
+          "stationarity_energy_change_erg": 2.3033417275275525e-05,
+          "stationarity_energy_change_relative": 8.307938874631964e-06
+        },
+        {
+          "level": 1,
+          "facets": 1632,
+          "force_x_uN": -55.302859305328404,
+          "force_z_uN": 91.36382593440592,
+          "energy_erg": 2.772442424670749,
+          "volume_mm3": 0.07657632093125122,
+          "volume_relative_error": 1.7698065134568183e-16,
+          "negative_eigenvalues": 0,
+          "stationarity_energy_change_erg": 1.0185869658840829e-07,
+          "stationarity_energy_change_relative": 3.673969770553662e-08
+        }
+      ],
+      "mesh_checks": {
+        "closed": true,
+        "oriented": true,
+        "nondegenerate": true,
+        "volume_mm3": 0.07651268375358694,
+        "vertices": 3170,
+        "triangles": 6336,
+        "edges": 9504,
+        "euler_characteristic": 2,
+        "minimum_triangle_area_mm2": 5.129269167289546e-05,
+        "volume_relative_error": 0.0008310294473587998,
+        "self_intersections_checked": false
+      },
+      "engine": {
+        "ready": true,
+        "version": "2.70a",
+        "source_url": "https://kenbrakke.com/evolver/downloads/evolver-2.70.tar.gz",
+        "source_sha256": "be7d60d9eb690f1fb124e2ecc12237a7a35be1935bfa5e92be3fe912207a3b6b",
+        "reference_url": "https://kenbrakke.com/evolver/downloads/bga-files.zip",
+        "reference_sha256": "96389e8200320cc8acfbf60b8ed23e2d05941613af5b55824c36890113c6e659",
+        "binary_sha256": "c930b47b33a4cafb3cf98b1c0cb7e3bd9805abcf67aceefe243daea091072f8e",
+        "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+        "build_commands": [
+          [
+            "/usr/bin/cc",
+            "-c",
+            "/Volumes/Storage/oct16project/.engine/headless-title.c",
+            "-o",
+            "/Volumes/Storage/oct16project/.engine/headless-title.o"
+          ],
+          [
+            "/usr/bin/make",
+            "-C",
+            "/Volumes/Storage/oct16project/.engine/src",
+            "-j4",
+            "CC=/usr/bin/cc -O2 -std=gnu89 -w",
+            "CFLAGS=-DGENERIC",
+            "GRAPH=nulgraph.o",
+            "GRAPHLIB=../headless-title.o"
+          ]
+        ],
+        "numerical_source_modified": false,
+        "patch": {
+          "purpose": "Supply missing no-op title callback for the headless graphics target.",
+          "source": "void set_graphics_title(int which, char *title) { (void)which; (void)title; }\n",
+          "sha256": "4f49b4ab182ffd99e0244abae08ea8e48d74ce2e24c57f1c40088ba18126526a"
+        },
+        "license_note": "Local upstream evaluation. Component notices require review before redistribution; upstream source is not vendored in this project."
+      },
+      "elapsed_seconds": 0.40348491724580526
+    },
+    "offset_negative": {
+      "input": {
+        "lower_diameter_mm": 0.5,
+        "upper_diameter_mm": 0.5,
+        "standoff_mm": 0.3,
+        "volume_mm3": 0.0765763209312512,
+        "offset_mm": -0.05,
+        "surface_tension_n_m": 0.48,
+        "density_g_cm3": 9.0,
+        "gravity": false
+      },
+      "input_sha256": "9774b31cac2f3e8ddccbc39c31adb5c913ee21e218127ad6cc060d4635b34930",
+      "status": "refinement_checked",
+      "forces": {
+        "x_uN": 55.30285926091948,
+        "z_uN": 91.36382594920889
+      },
+      "diagnostics": {
+        "volume_relative_error": 1.7698065134568183e-16,
+        "force_change_relative": 0.0002078569815567488,
+        "force_component_changes": {
+          "x": {
+            "absolute_uN": 0.0017112800065888223,
+            "normalization_uN": 55.30285926091948,
+            "relative": 3.094378897327867e-05,
+            "capillary_relative": 2.269655600524519e-06
+          },
+          "z": {
+            "absolute_uN": 0.01899060908527872,
+            "normalization_uN": 91.36382594920889,
+            "relative": 0.0002078569815567488,
+            "capillary_relative": 2.5187077568733047e-05
+          }
+        },
+        "force_normalization": "max(abs(final component), 0.01 * capillary force scale)",
+        "capillary_force_scale_uN": 753.9822368615503,
+        "negative_eigenvalues": 0,
+        "stationarity_energy_change_relative": 3.673969802589618e-08,
+        "stationarity_threshold_relative": 1e-07,
+        "force_change_threshold_relative": 0.01,
+        "mesh_volume_error_relative": 0.0008310294473578006,
+        "finite_difference_displacement_mm": {
+          "x": 2.5e-06,
+          "z": 3e-06
+        },
+        "solver_termination": "completed",
+        "warnings": []
+      },
+      "levels": [
+        {
+          "level": 0,
+          "facets": 432,
+          "force_x_uN": 55.301147980912894,
+          "force_z_uN": 91.38281655829417,
+          "energy_erg": 2.7724586835379066,
+          "volume_mm3": 0.07657632093125122,
+          "volume_relative_error": 1.7698065134568183e-16,
+          "negative_eigenvalues": 0,
+          "stationarity_energy_change_erg": 2.3033417273943257e-05,
+          "stationarity_energy_change_relative": 8.307938874151425e-06
+        },
+        {
+          "level": 1,
+          "facets": 1632,
+          "force_x_uN": 55.30285926091948,
+          "force_z_uN": 91.36382594920889,
+          "energy_erg": 2.772442424670748,
+          "volume_mm3": 0.07657632093125122,
+          "volume_relative_error": 1.7698065134568183e-16,
+          "negative_eigenvalues": 0,
+          "stationarity_energy_change_erg": 1.0185869747658671e-07,
+          "stationarity_energy_change_relative": 3.673969802589618e-08
+        }
+      ],
+      "mesh_checks": {
+        "closed": true,
+        "oriented": true,
+        "nondegenerate": true,
+        "volume_mm3": 0.07651268375358701,
+        "vertices": 3170,
+        "triangles": 6336,
+        "edges": 9504,
+        "euler_characteristic": 2,
+        "minimum_triangle_area_mm2": 5.12926916721178e-05,
+        "volume_relative_error": 0.0008310294473578006,
+        "self_intersections_checked": false
+      },
+      "engine": {
+        "ready": true,
+        "version": "2.70a",
+        "source_url": "https://kenbrakke.com/evolver/downloads/evolver-2.70.tar.gz",
+        "source_sha256": "be7d60d9eb690f1fb124e2ecc12237a7a35be1935bfa5e92be3fe912207a3b6b",
+        "reference_url": "https://kenbrakke.com/evolver/downloads/bga-files.zip",
+        "reference_sha256": "96389e8200320cc8acfbf60b8ed23e2d05941613af5b55824c36890113c6e659",
+        "binary_sha256": "c930b47b33a4cafb3cf98b1c0cb7e3bd9805abcf67aceefe243daea091072f8e",
+        "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+        "build_commands": [
+          [
+            "/usr/bin/cc",
+            "-c",
+            "/Volumes/Storage/oct16project/.engine/headless-title.c",
+            "-o",
+            "/Volumes/Storage/oct16project/.engine/headless-title.o"
+          ],
+          [
+            "/usr/bin/make",
+            "-C",
+            "/Volumes/Storage/oct16project/.engine/src",
+            "-j4",
+            "CC=/usr/bin/cc -O2 -std=gnu89 -w",
+            "CFLAGS=-DGENERIC",
+            "GRAPH=nulgraph.o",
+            "GRAPHLIB=../headless-title.o"
+          ]
+        ],
+        "numerical_source_modified": false,
+        "patch": {
+          "purpose": "Supply missing no-op title callback for the headless graphics target.",
+          "source": "void set_graphics_title(int which, char *title) { (void)which; (void)title; }\n",
+          "sha256": "4f49b4ab182ffd99e0244abae08ea8e48d74ce2e24c57f1c40088ba18126526a"
+        },
+        "license_note": "Local upstream evaluation. Component notices require review before redistribution; upstream source is not vendored in this project."
+      },
+      "elapsed_seconds": 0.39658462489023805
+    },
+    "double_tension": {
+      "input": {
+        "lower_diameter_mm": 0.5,
+        "upper_diameter_mm": 0.5,
+        "standoff_mm": 0.3,
+        "volume_mm3": 0.0765763209312512,
+        "offset_mm": 0.05,
+        "surface_tension_n_m": 0.96,
+        "density_g_cm3": 9.0,
+        "gravity": false
+      },
+      "input_sha256": "890136decae8bb60cf1c6b38d6b19b837bd23e861f8380aa8f133be6b00ed913",
+      "status": "refinement_checked",
+      "forces": {
+        "x_uN": -110.60571861065681,
+        "z_uN": 182.72765186881185
+      },
+      "diagnostics": {
+        "volume_relative_error": 1.7698065134568183e-16,
+        "force_change_relative": 0.00020785730563505216,
+        "force_component_changes": {
+          "x": {
+            "absolute_uN": 0.0034226665945880086,
+            "normalization_uN": 110.60571861065681,
+            "relative": 3.094475256416115e-05,
+            "capillary_relative": 2.2697262795174408e-06
+          },
+          "z": {
+            "absolute_uN": 0.037981277382471035,
+            "normalization_uN": 182.72765186881185,
+            "relative": 0.00020785730563505216,
+            "capillary_relative": 2.518711683485279e-05
+          }
+        },
+        "force_normalization": "max(abs(final component), 0.01 * capillary force scale)",
+        "capillary_force_scale_uN": 1507.9644737231006,
+        "negative_eigenvalues": 0,
+        "stationarity_energy_change_relative": 3.673969770553662e-08,
+        "stationarity_threshold_relative": 1e-07,
+        "force_change_threshold_relative": 0.01,
+        "mesh_volume_error_relative": 0.0008310294473587998,
+        "finite_difference_displacement_mm": {
+          "x": 2.5e-06,
+          "z": 3e-06
+        },
+        "solver_termination": "completed",
+        "warnings": []
+      },
+      "levels": [
+        {
+          "level": 0,
+          "facets": 432,
+          "force_x_uN": -110.60229594406222,
+          "force_z_uN": 182.76563314619432,
+          "energy_erg": 5.544917367075812,
+          "volume_mm3": 0.0765763209312512,
+          "volume_relative_error": 0.0,
+          "negative_eigenvalues": 0,
+          "stationarity_energy_change_erg": 4.606683455055105e-05,
+          "stationarity_energy_change_relative": 8.307938874631964e-06
+        },
+        {
+          "level": 1,
+          "facets": 1632,
+          "force_x_uN": -110.60571861065681,
+          "force_z_uN": 182.72765186881185,
+          "energy_erg": 5.544884849341498,
+          "volume_mm3": 0.07657632093125122,
+          "volume_relative_error": 1.7698065134568183e-16,
+          "negative_eigenvalues": 0,
+          "stationarity_energy_change_erg": 2.0371739317681659e-07,
+          "stationarity_energy_change_relative": 3.673969770553662e-08
+        }
+      ],
+      "mesh_checks": {
+        "closed": true,
+        "oriented": true,
+        "nondegenerate": true,
+        "volume_mm3": 0.07651268375358694,
+        "vertices": 3170,
+        "triangles": 6336,
+        "edges": 9504,
+        "euler_characteristic": 2,
+        "minimum_triangle_area_mm2": 5.129269167289546e-05,
+        "volume_relative_error": 0.0008310294473587998,
+        "self_intersections_checked": false
+      },
+      "engine": {
+        "ready": true,
+        "version": "2.70a",
+        "source_url": "https://kenbrakke.com/evolver/downloads/evolver-2.70.tar.gz",
+        "source_sha256": "be7d60d9eb690f1fb124e2ecc12237a7a35be1935bfa5e92be3fe912207a3b6b",
+        "reference_url": "https://kenbrakke.com/evolver/downloads/bga-files.zip",
+        "reference_sha256": "96389e8200320cc8acfbf60b8ed23e2d05941613af5b55824c36890113c6e659",
+        "binary_sha256": "c930b47b33a4cafb3cf98b1c0cb7e3bd9805abcf67aceefe243daea091072f8e",
+        "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+        "build_commands": [
+          [
+            "/usr/bin/cc",
+            "-c",
+            "/Volumes/Storage/oct16project/.engine/headless-title.c",
+            "-o",
+            "/Volumes/Storage/oct16project/.engine/headless-title.o"
+          ],
+          [
+            "/usr/bin/make",
+            "-C",
+            "/Volumes/Storage/oct16project/.engine/src",
+            "-j4",
+            "CC=/usr/bin/cc -O2 -std=gnu89 -w",
+            "CFLAGS=-DGENERIC",
+            "GRAPH=nulgraph.o",
+            "GRAPHLIB=../headless-title.o"
+          ]
+        ],
+        "numerical_source_modified": false,
+        "patch": {
+          "purpose": "Supply missing no-op title callback for the headless graphics target.",
+          "source": "void set_graphics_title(int which, char *title) { (void)which; (void)title; }\n",
+          "sha256": "4f49b4ab182ffd99e0244abae08ea8e48d74ce2e24c57f1c40088ba18126526a"
+        },
+        "license_note": "Local upstream evaluation. Component notices require review before redistribution; upstream source is not vendored in this project."
+      },
+      "elapsed_seconds": 0.4034406249411404
+    },
+    "unequal": {
+      "input": {
+        "lower_diameter_mm": 0.5,
+        "upper_diameter_mm": 0.4,
+        "standoff_mm": 0.3,
+        "volume_mm3": 0.0765763209312512,
+        "offset_mm": 0.05,
+        "surface_tension_n_m": 0.48,
+        "density_g_cm3": 9.0,
+        "gravity": false
+      },
+      "input_sha256": "6cbb8cb34af5c30e646f6c3501b953628eb1bb1ccf5aea5d4d69cb99958e368d",
+      "status": "not_converged",
+      "forces": {
+        "x_uN": -30.80572631430911,
+        "z_uN": 289.27933397593364
+      },
+      "diagnostics": {
+        "volume_relative_error": 0.0,
+        "force_change_relative": 3.241146382929113e-05,
+        "force_component_changes": {
+          "x": {
+            "absolute_uN": 0.0004777400697264511,
+            "normalization_uN": 30.80572631430911,
+            "relative": 1.550815795907864e-05,
+            "capillary_relative": 7.040249408336244e-07
+          },
+          "z": {
+            "absolute_uN": 0.009375966669722402,
+            "normalization_uN": 289.27933397593364,
+            "relative": 3.241146382929113e-05,
+            "capillary_relative": 1.3816957793992375e-05
+          }
+        },
+        "force_normalization": "max(abs(final component), 0.01 * capillary force scale)",
+        "capillary_force_scale_uN": 678.5840131753953,
+        "negative_eigenvalues": 0,
+        "stationarity_energy_change_relative": 1.4637290592230973e-07,
+        "stationarity_threshold_relative": 1e-07,
+        "force_change_threshold_relative": 0.01,
+        "mesh_volume_error_relative": 0.0011395366649830097,
+        "finite_difference_displacement_mm": {
+          "x": 2.0000000000000003e-06,
+          "z": 3e-06
+        },
+        "solver_termination": "completed",
+        "warnings": [
+          "Additional relaxation changed energy by more than 1e-7 relative.",
+          "Flat display/export tessellation volume differs from the requested volume by more than 0.1 percent."
+        ]
+      },
+      "levels": [
+        {
+          "level": 0,
+          "facets": 432,
+          "force_x_uN": -30.805248574239382,
+          "force_z_uN": 289.28870994260336,
+          "energy_erg": 3.034503259232632,
+          "volume_mm3": 0.0765763209312512,
+          "volume_relative_error": 0.0,
+          "negative_eigenvalues": 0,
+          "stationarity_energy_change_erg": 6.446627421707873e-05,
+          "stationarity_energy_change_relative": 2.1244424114865184e-05
+        },
+        {
+          "level": 1,
+          "facets": 1632,
+          "force_x_uN": -30.80572631430911,
+          "force_z_uN": 289.27933397593364,
+          "energy_erg": 3.034479482884832,
+          "volume_mm3": 0.0765763209312512,
+          "volume_relative_error": 0.0,
+          "negative_eigenvalues": 0,
+          "stationarity_energy_change_erg": 4.4416557987148053e-07,
+          "stationarity_energy_change_relative": 1.4637290592230973e-07
+        }
+      ],
+      "mesh_checks": {
+        "closed": true,
+        "oriented": true,
+        "nondegenerate": true,
+        "volume_mm3": 0.07648905940588054,
+        "vertices": 3170,
+        "triangles": 6336,
+        "edges": 9504,
+        "euler_characteristic": 2,
+        "minimum_triangle_area_mm2": 5.802015904650914e-05,
+        "volume_relative_error": 0.0011395366649830097,
+        "self_intersections_checked": false
+      },
+      "engine": {
+        "ready": true,
+        "version": "2.70a",
+        "source_url": "https://kenbrakke.com/evolver/downloads/evolver-2.70.tar.gz",
+        "source_sha256": "be7d60d9eb690f1fb124e2ecc12237a7a35be1935bfa5e92be3fe912207a3b6b",
+        "reference_url": "https://kenbrakke.com/evolver/downloads/bga-files.zip",
+        "reference_sha256": "96389e8200320cc8acfbf60b8ed23e2d05941613af5b55824c36890113c6e659",
+        "binary_sha256": "c930b47b33a4cafb3cf98b1c0cb7e3bd9805abcf67aceefe243daea091072f8e",
+        "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+        "build_commands": [
+          [
+            "/usr/bin/cc",
+            "-c",
+            "/Volumes/Storage/oct16project/.engine/headless-title.c",
+            "-o",
+            "/Volumes/Storage/oct16project/.engine/headless-title.o"
+          ],
+          [
+            "/usr/bin/make",
+            "-C",
+            "/Volumes/Storage/oct16project/.engine/src",
+            "-j4",
+            "CC=/usr/bin/cc -O2 -std=gnu89 -w",
+            "CFLAGS=-DGENERIC",
+            "GRAPH=nulgraph.o",
+            "GRAPHLIB=../headless-title.o"
+          ]
+        ],
+        "numerical_source_modified": false,
+        "patch": {
+          "purpose": "Supply missing no-op title callback for the headless graphics target.",
+          "source": "void set_graphics_title(int which, char *title) { (void)which; (void)title; }\n",
+          "sha256": "4f49b4ab182ffd99e0244abae08ea8e48d74ce2e24c57f1c40088ba18126526a"
+        },
+        "license_note": "Local upstream evaluation. Component notices require review before redistribution; upstream source is not vendored in this project."
+      },
+      "elapsed_seconds": 0.35248941695317626
+    }
+  },
+  "checks": {
+    "cylinder_expected_z_uN": -376.99111843077515,
+    "cylinder_z_relative_error": 3.5996144506222905e-06,
+    "mirror_x_relative_error": 8.030131089574148e-10,
+    "double_tension_relative_error": {
+      "x_uN": 0.0,
+      "z_uN": 0.0
+    }
+  },
+  "unequal_adaptive_refinement": {
+    "input": {
+      "lower_diameter_mm": 0.5,
+      "upper_diameter_mm": 0.4,
+      "standoff_mm": 0.3,
+      "volume_mm3": 0.0765763209312512,
+      "offset_mm": 0.05,
+      "surface_tension_n_m": 0.48,
+      "density_g_cm3": 9.0,
+      "gravity": false
+    },
+    "input_sha256": "6cbb8cb34af5c30e646f6c3501b953628eb1bb1ccf5aea5d4d69cb99958e368d",
+    "status": "refinement_checked",
+    "forces": {
+      "x_uN": -30.805918083132152,
+      "z_uN": 289.27885662444197
+    },
+    "diagnostics": {
+      "volume_relative_error": 1.7698065134568183e-16,
+      "force_change_relative": 6.225064369969442e-06,
+      "force_component_changes": {
+        "x": {
+          "absolute_uN": 0.0001917688230435033,
+          "normalization_uN": 30.805918083132152,
+          "relative": 6.225064369969442e-06,
+          "capillary_relative": 2.826014455397085e-07
+        },
+        "z": {
+          "absolute_uN": 0.0004773514916678323,
+          "normalization_uN": 289.27885662444197,
+          "relative": 1.6501430392735434e-06,
+          "capillary_relative": 7.034523101039371e-07
+        }
+      },
+      "force_normalization": "max(abs(final component), 0.01 * capillary force scale)",
+      "capillary_force_scale_uN": 678.5840131753953,
+      "negative_eigenvalues": 0,
+      "stationarity_energy_change_relative": 2.205748530381076e-09,
+      "stationarity_threshold_relative": 1e-07,
+      "force_change_threshold_relative": 0.01,
+      "mesh_volume_error_relative": 0.00028523675926761527,
+      "finite_difference_displacement_mm": {
+        "x": 2.0000000000000003e-06,
+        "z": 3e-06
+      },
+      "solver_termination": "completed",
+      "warnings": [],
+      "additional_refinement_reason": [
+        "Additional relaxation changed energy by more than 1e-7 relative.",
+        "Flat display/export tessellation volume differs from the requested volume by more than 0.1 percent."
+      ],
+      "initial_refinement_check": {
+        "status": "not_converged",
+        "force_change_relative": 3.241146382929113e-05,
+        "stationarity_energy_change_relative": 1.4637290592230973e-07,
+        "mesh_volume_error_relative": 0.0011395366649830097
+      }
+    },
+    "levels": [
+      {
+        "level": 0,
+        "facets": 432,
+        "force_x_uN": -30.805248574239382,
+        "force_z_uN": 289.28870994260336,
+        "energy_erg": 3.034503259232632,
+        "volume_mm3": 0.0765763209312512,
+        "volume_relative_error": 0.0,
+        "negative_eigenvalues": 0,
+        "stationarity_energy_change_erg": 6.446627421707873e-05,
+        "stationarity_energy_change_relative": 2.1244424114865184e-05
+      },
+      {
+        "level": 1,
+        "facets": 1632,
+        "force_x_uN": -30.80572631430911,
+        "force_z_uN": 289.27933397593364,
+        "energy_erg": 3.034479482884832,
+        "volume_mm3": 0.0765763209312512,
+        "volume_relative_error": 0.0,
+        "negative_eigenvalues": 0,
+        "stationarity_energy_change_erg": 4.4416557987148053e-07,
+        "stationarity_energy_change_relative": 1.4637290592230973e-07
+      },
+      {
+        "level": 2,
+        "facets": 6336,
+        "force_x_uN": -30.805918083132152,
+        "force_z_uN": 289.27885662444197,
+        "energy_erg": 3.0344783402861486,
+        "volume_mm3": 0.07657632093125122,
+        "volume_relative_error": 1.7698065134568183e-16,
+        "negative_eigenvalues": 0,
+        "stationarity_energy_change_erg": 6.693296139559379e-09,
+        "stationarity_energy_change_relative": 2.205748530381076e-09
+      }
+    ],
+    "mesh_checks": {
+      "closed": true,
+      "oriented": true,
+      "nondegenerate": true,
+      "volume_mm3": 0.07655447854963214,
+      "vertices": 12482,
+      "triangles": 24960,
+      "edges": 37440,
+      "euler_characteristic": 2,
+      "minimum_triangle_area_mm2": 1.4417391788416738e-05,
+      "volume_relative_error": 0.00028523675926761527,
+      "self_intersections_checked": false
+    },
+    "engine": {
+      "ready": true,
+      "version": "2.70a",
+      "source_url": "https://kenbrakke.com/evolver/downloads/evolver-2.70.tar.gz",
+      "source_sha256": "be7d60d9eb690f1fb124e2ecc12237a7a35be1935bfa5e92be3fe912207a3b6b",
+      "reference_url": "https://kenbrakke.com/evolver/downloads/bga-files.zip",
+      "reference_sha256": "96389e8200320cc8acfbf60b8ed23e2d05941613af5b55824c36890113c6e659",
+      "binary_sha256": "c930b47b33a4cafb3cf98b1c0cb7e3bd9805abcf67aceefe243daea091072f8e",
+      "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+      "build_commands": [
+        [
+          "/usr/bin/cc",
+          "-c",
+          "/Volumes/Storage/oct16project/.engine/headless-title.c",
+          "-o",
+          "/Volumes/Storage/oct16project/.engine/headless-title.o"
+        ],
+        [
+          "/usr/bin/make",
+          "-C",
+          "/Volumes/Storage/oct16project/.engine/src",
+          "-j4",
+          "CC=/usr/bin/cc -O2 -std=gnu89 -w",
+          "CFLAGS=-DGENERIC",
+          "GRAPH=nulgraph.o",
+          "GRAPHLIB=../headless-title.o"
+        ]
+      ],
+      "numerical_source_modified": false,
+      "patch": {
+        "purpose": "Supply missing no-op title callback for the headless graphics target.",
+        "source": "void set_graphics_title(int which, char *title) { (void)which; (void)title; }\n",
+        "sha256": "4f49b4ab182ffd99e0244abae08ea8e48d74ce2e24c57f1c40088ba18126526a"
+      },
+      "license_note": "Local upstream evaluation. Component notices require review before redistribution; upstream source is not vendored in this project."
+    }
+  },
+  "official_bga_replay": {
+    "commands": "gogo\nforces\nr\ng 5\nhessian\nhessian\nforces\nr\ng 5\nhessian\nhessian\nforces\nquit 0\n",
+    "returncode": 0,
+    "forces_dyn": [
+      24.583607832649193,
+      18.66847096915825,
+      17.19514942861707
+    ],
+    "official_forces_dyn": [
+      24.583607839182264,
+      18.668111551491222,
+      17.195067593386
+    ],
+    "relative_errors": [
+      2.657490894009129e-10,
+      1.925302760463765e-05,
+      4.759227064887739e-06
+    ],
+    "runtime_errors": false,
+    "stdout": "Surface Evolver Version 2.70a, August 27, 2013, 64-bit\n\nEnter command: \nEnter command: \nEnter command: hessian_normal\nhessian_normal  ON. (was on)\nEnter command: \nEnter command: read \"zforce.cmd\"  // contains a bunch of force calculations\nEnter command: // zforce.cmd\nEnter command: \nEnter command: // Some ways to calculate vertical force.\nEnter command: // zforce4 is the preferred way.\nEnter command: \nEnter command: dz := 1e-5 * height // perturbation size\nEnter command: \nEnter command: // Single difference, moving just top pad\nEnter command: zforce1 := { old_energy := total_energy;\nmore>              height := height + dz;\nmore>              recalc;\nmore>              new_energy := total_energy - body[1].pressure *\nmore>                       (body[1].volume - body[1].target);\nmore>              zforce := -(new_energy - old_energy)/dz;\nmore>              printf \"zforce: %18.15f  (single difference, top pad only)\\n\",\nmore> \t\tzforce;\nmore>              height := height - dz; // restore original\nmore>              recalc;\nmore>            }\nEnter command: \nEnter command: // Central difference, moving just top pad\nEnter command: zforce2 := { \nmore>              height := height + dz;\nmore>              recalc;\nmore>              new_energy_1 := total_energy - body[1].pressure *\nmore>                       (body[1].volume - body[1].target);\nmore>              height := height - 2*dz;\nmore>              recalc;\nmore>              new_energy_2 := total_energy - body[1].pressure *\nmore>                       (body[1].volume - body[1].target);\nmore>              zforce := -(new_energy_1 - new_energy_2)/2/dz;\nmore>              printf \"zforce: %18.15f  (central difference, top pad only)\\n\",\nmore> \t       zforce;\nmore>              height := height + dz; // restore original\nmore>              recalc;\nmore>            }\nEnter command: \nEnter command: // Single difference, moving linearly\nEnter command: zforce3 := { old_energy := total_energy;\nmore> \t     set vertex z z + dz*z/height; // do this before changing height\nmore>              height := height + dz;\nmore>              recalc;\nmore>              new_energy := total_energy - body[1].pressure *\nmore>                       (body[1].volume - body[1].target);\nmore>              zforce := -(new_energy - old_energy)/dz;\nmore>              printf \"zforce: %18.15f  (single difference, linear move)\\n\",\nmore> \t\tzforce;\nmore> \t     set vertex z z - dz*z/height; \nmore>              height := height - dz; // restore original\nmore>              recalc;\nmore>            }\nEnter command: \nEnter command: // Central difference, moving linearly\nEnter command: zforce4 := { \nmore> \t     set vertex z z + dz*z/height; // do this before changing height\nmore>              height := height + dz;\nmore>              recalc;\nmore>              new_energy_1 := total_energy - body[1].pressure *\nmore>                       (body[1].volume - body[1].target);\nmore> \t     set vertex z z - 2*dz*z/height; \nmore>              height := height - 2*dz;\nmore>              recalc;\nmore>              new_energy_2 := total_energy - body[1].pressure *\nmore>                       (body[1].volume - body[1].target);\nmore>              zforce := -(new_energy_1 - new_energy_2)/2/dz;\nmore>              printf \"zforce: %18.15f  (central difference, linear move)\\n\",\nmore> \t       zforce;\nmore> \t     set vertex z z + dz*z/height; \nmore>              height := height + dz; // restore original\nmore>              recalc;\nmore>            }\nEnter command: \nEnter command: \nEnter command: // Central difference, moving linearly, with re-convergence,\nEnter command: // so don't need volume corrections.\nEnter command: zforce5 := { \nmore> \t     set vertex z z + dz*z/height; // do this before changing height\nmore>              height := height + dz;\nmore>              recalc; hessian; hessian;\nmore>              new_energy_1 := total_energy; \nmore> \t     set vertex z z - 2*dz*z/height; \nmore>              height := height - 2*dz;\nmore>              recalc; hessian; hessian;\nmore>              new_energy_2 := total_energy;\nmore>              zforce := -(new_energy_1 - new_energy_2)/2/dz;\nmore>              printf \"zforce: %18.15f  (central difference, linear move, reconverge)\\n\",\nmore> \t       zforce;\nmore> \t     set vertex z z + dz*z/height; \nmore>              height := height + dz; // restore original\nmore>              recalc; hessian; hessian;  // reconverge\nmore>            }\nEnter command: \nEnter command: // Geometrical calculation of forces\nEnter command: // (not accurate since it leaves out effect of facets touching\nEnter command: // top pad at only one vertex)\nEnter command: \nEnter command: zforce6 := { // first, pressure on top, accounting for gravity \nmore> \t     zforce := sum(facet where on_constraint 2,area) *\nmore>                (body[1].pressure - gravity_constant*height*SOLDER_DENSITY);\nmore> \t     // add tension due to facets pulling on top\nmore> \t     foreach edge ee where on_constraint 2 do\nmore> \t     { zforce := zforce - sum(ee.facet ff where not fixed,\nmore> \t\t  ff.tension*ee.length*sqrt(ff.x^2+ff.y^2)/area);\nmore>              };\nmore>              printf \"zforce: %18.15f  (geometric)\\n\", zforce;\nmore>            }\nEnter command: \nEnter command: \nEnter command: // To set volume to spherical segment, for zforce = 0 test (requires no grav)\nEnter command: setvol := { body[1].target := pi*(radius^2+height^2/6)*height }\nEnter command: \nEnter command: // Typical evolution\nEnter command: gogo := { u; g 3; r; g 5; r; g 5; hessian; hessian }\nEnter command: \nEnter command: // command to calculate and print all the ways to do zforce\nEnter command: forces := { zforce1; zforce2; zforce3; zforce4; zforce5; zforce6;\nmore> \t    printf \"zforce: %18.15f  (variational integrands)\\n\",\nmore> \t      zforce7.value;\nmore>           }\nEnter command: \nEnter command: // A script for automatically generating force data for a range\nEnter command: // of volumes and heights.\nEnter command: read \"runforce.cmd\"\nEnter command: // runforce.cmd\nEnter command: \nEnter command: // Script to automatically run a two-parameter set of force\nEnter command: // calculations and print the results to a text file suitable\nEnter command: // for import into another program.\nEnter command: \nEnter command: // Usage: Initialize the bga to the minimum height and volume desired.\nEnter command: // Refine and evolve to the desired fineness.  Set delta_h, delta_vol,\nEnter command: // max_h, max_vol, and outfile if the defaults below are not acceptable.\nEnter command: // Run \"runforce\".\nEnter command: \nEnter command: outfile := \"runforce.out\";    // default output file\nEnter command: delta_h := .01;               // height increment\nEnter command: delta_vol := .0005;           // volume increment\nEnter command: max_h := .30;                 // maximum height\nEnter command: max_vol := 0.01;              // maximum volume\nEnter command: define vertex attribute old_coord real[3]  // for saving old coordinates.\nEnter command: \nEnter command: runforce := {\nmore>    start_height := height;\nmore>    // print header info\nmore>    printf \"volume                  height\\n                      \" >>> outfile; \nmore>    ht := height;\nmore>    while ( ht < max_h ) do \nmore>    { printf \"%20.15f \",ht >> outfile; ht := ht + delta_h; };\nmore>    printf \"\\n\" >> outfile;\nmore>    while ( body[1].target < max_vol ) do\nmore>    { printf \"%20.15f  \", body[1].target >> outfile;\nmore>      set vertex old_coord[1] x;  // save original coordinates\nmore>      set vertex old_coord[2] y;\nmore>      set vertex old_coord[3] z;\nmore>      eigen_flag := 0;\nmore>      while ( height < max_h ) do\nmore>      { \nmore>        // Use hessian to converge.  Test each time for onset of instability.\nmore>        { hessian; \nmore>          if ( eigen_neg == 0 ) then eigen_flag := 1; // onset of stability\nmore>          if ( eigen_neg && (eigen_flag==1) ) then break;  // out of while\nmore>        } 3;\nmore>        if ( eigen_neg == 0 ) then  // skip unstable configuration\nmore>        { zforce4; printf \"%20.15f \",zforce >> outfile; }\nmore>        else { printf \"                     \" >> outfile;};\nmore>        set vertex z z+delta_h*z/height;  // linear interpolation of stretch\nmore>        height := height + delta_h;\nmore>        recalc;\nmore>      };\nmore>      printf \"\\n\" >> outfile;\nmore>      height := start_height;   // prepare for next go-around\nmore>      set vertex x old_coord[1];\nmore>      set vertex y old_coord[2];\nmore>      set vertex z old_coord[3];\nmore>      body[1].target := body[1].target + delta_vol;\nmore>      hessian; hessian;\nmore>    }\nmore> }\nEnter command:      \nEnter command:     \nEnter command: \nEnter command: // Command used to create data in chart example.\nEnter command: // To be run right after loading.\nEnter command: chartdata := { u; height := .10; recalc; V; V; V;\nmore>                body[1].target := .002;\nmore>                gogo; r; g 5; hessian; hessian;\nmore>                runforce;\nmore>              }\nEnter command:               \nEnter command: Edges switched in equiangulation: 6\n  3. area: 0.159299663948646 energy:  54.1565783261622  scale: 0.00000\n  2. area: 0.157311517778086 energy:  53.1524893931661  scale: 0.00224081\n  1. area: 0.157302600066340 energy:  53.1480223710366  scale: 0.00240718\nVertices: 62  Edges: 180  Facets: 120  Bodies: 1  Facetedges: 360\nElement memory: 66 KB, or 0 MB\nTotal data memory: 3136 KB, or 3 MB.\n  5. area: 0.155343565311147 energy:  48.3532653355362  scale: 0.000463519\n  4. area: 0.154853458274352 energy:  48.1170081113612  scale: 0.000498431\n  3. area: 0.154827360944179 energy:  48.1046388152553  scale: 0.000416244\n  2. area: 0.154810821226499 energy:  48.0970847756018  scale: 0.00148726\n  1. area: 0.154798039722561 energy:  48.0907100724798  scale: 0.000453274\nVertices: 218  Edges: 648  Facets: 432  Bodies: 1  Facetedges: 1296\nElement memory: 237 KB, or 0 MB\nTotal data memory: 3144 KB, or 3 MB.\n  5. area: 0.154828410101515 energy:  47.0893843063419  scale: 0.000500205\n  4. area: 0.154785985487755 energy:  47.0690585961754  scale: 0.000384700\n  3. area: 0.154772889056003 energy:  47.0627547207193  scale: 0.000535626\n  2. area: 0.154767672900291 energy:  47.0602728868922  scale: 0.000403582\n  1. area: 0.154765330944071 energy:  47.0591379435363  scale: 0.000563163\nConverting to all named quantities...Done.\n  1. area: 0.154763593524921 energy:  47.0583164951773\n  1. area: 0.154763593383547 energy:  47.0583164928646\nEnter command: zforce: 24.194068473093463  (single difference, top pad only)\nzforce: 24.197468846409716  (central difference, top pad only)\nzforce: 24.583191535754164  (single difference, linear move)\nzforce: 24.583596731631015  (central difference, linear move)\n  1. area: 0.154763478043571 energy:  47.0582869997277\n  1. area: 0.154763478040983 energy:  47.0582869997277\n  1. area: 0.154763708747618 energy:  47.0583460003977\n  1. area: 0.154763708752804 energy:  47.0583460003976\nzforce: 24.583612464231422  (central difference, linear move, reconverge)\n  1. area: 0.154763593384510 energy:  47.0583164928812\n  1. area: 0.154763593381922 energy:  47.0583164928811\nzforce: 17.323186370295886  (geometric)\nzforce: 24.583607832649193  (variational integrands)\nEnter command: Vertices: 818  Edges: 2448  Facets: 1632  Bodies: 1  Facetedges: 4896\nElement memory: 938 KB, or 0 MB\nTotal data memory: 3505 KB, or 3 MB.\nEnter command:   5. area: 0.154793051447084 energy:  46.8151723592650  scale: 0.000496758\n  4. area: 0.154786774247295 energy:  46.8121662143794  scale: 0.000387470\n  3. area: 0.154784934753464 energy:  46.8112785107060  scale: 0.000527378\n  2. area: 0.154783930044454 energy:  46.8107979710758  scale: 0.000417900\n  1. area: 0.154783258026550 energy:  46.8104734625115  scale: 0.000549369\nEnter command:   1. area: 0.154781099653331 energy:  46.8094404984988\nEnter command:   1. area: 0.154781099751894 energy:  46.8094404967791\nEnter command: zforce: 18.550154952852910  (single difference, top pad only)\nzforce: 18.557227366618651  (central difference, top pad only)\nzforce: 18.668069792227012  (single difference, linear move)\nzforce: 18.668466159610372  (central difference, linear move)\n  1. area: 0.154780999228230 energy:  46.8094181017431\n  1. area: 0.154780999227552 energy:  46.8094181017431\n  1. area: 0.154781200303633 energy:  46.8094629060765\n  1. area: 0.154781200304997 energy:  46.8094629060765\nzforce: 18.668472237711359  (central difference, linear move, reconverge)\n  1. area: 0.154781099752095 energy:  46.8094404967834\n  1. area: 0.154781099751417 energy:  46.8094404967834\nzforce: 15.329483097790195  (geometric)\nzforce: 18.668470969158250  (variational integrands)\nEnter command: Vertices: 3170  Edges: 9504  Facets: 6336  Bodies: 1  Facetedges: 19008\nElement memory: 3639 KB, or 3 MB\nTotal data memory: 6372 KB, or 6 MB.\nEnter command:   5. area: 0.154789091197625 energy:  46.7487485775706  scale: 0.000492829\n  4. area: 0.154787814258330 energy:  46.7481364945855  scale: 0.000374598\n  3. area: 0.154787570403315 energy:  46.7480186719990  scale: 0.000501192\n  2. area: 0.154787453316251 energy:  46.7479624328034  scale: 0.000413604\n  1. area: 0.154787376179103 energy:  46.7479250497527  scale: 0.000522861\nEnter command:   1. area: 0.154786922652263 energy:  46.7477066378688\nEnter command:   1. area: 0.154786922716712 energy:  46.7477066377775\nEnter command: zforce: 17.150916757913134  (single difference, top pad only)\nzforce: 17.165481001057966  (central difference, top pad only)\nzforce: 17.194753875552728  (single difference, linear move)\nzforce: 17.195149129752469  (central difference, linear move)\n  1. area: 0.154786825883564 energy:  46.7476860107359\n  1. area: 0.154786825883393 energy:  46.7476860107359\n  1. area: 0.154787019579235 energy:  46.7477272790955\n  1. area: 0.154787019579582 energy:  46.7477272790955\nzforce: 17.195149798846877  (central difference, linear move, reconverge)\n  1. area: 0.154786922716827 energy:  46.7477066378021\n  1. area: 0.154786922716657 energy:  46.7477066378021\nzforce: 15.558123491221592  (geometric)\nzforce: 17.195149428617071  (variational integrands)\nEnter command: ",
+    "stderr": ""
+  },
+  "clean_rebuild": {
+    "command": "python3 tools/setup_engine.py",
+    "source_reextracted": true,
+    "engine": {
+      "ready": true,
+      "version": "2.70a",
+      "source_url": "https://kenbrakke.com/evolver/downloads/evolver-2.70.tar.gz",
+      "source_sha256": "be7d60d9eb690f1fb124e2ecc12237a7a35be1935bfa5e92be3fe912207a3b6b",
+      "reference_url": "https://kenbrakke.com/evolver/downloads/bga-files.zip",
+      "reference_sha256": "96389e8200320cc8acfbf60b8ed23e2d05941613af5b55824c36890113c6e659",
+      "binary_sha256": "c930b47b33a4cafb3cf98b1c0cb7e3bd9805abcf67aceefe243daea091072f8e",
+      "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+      "build_commands": [
+        [
+          "/usr/bin/cc",
+          "-c",
+          "/Volumes/Storage/oct16project/.engine/headless-title.c",
+          "-o",
+          "/Volumes/Storage/oct16project/.engine/headless-title.o"
+        ],
+        [
+          "/usr/bin/make",
+          "-C",
+          "/Volumes/Storage/oct16project/.engine/src",
+          "-j4",
+          "CC=/usr/bin/cc -O2 -std=gnu89 -w",
+          "CFLAGS=-DGENERIC",
+          "GRAPH=nulgraph.o",
+          "GRAPHLIB=../headless-title.o"
+        ]
+      ],
+      "numerical_source_modified": false,
+      "patch": {
+        "purpose": "Supply missing no-op title callback for the headless graphics target.",
+        "source": "void set_graphics_title(int which, char *title) { (void)which; (void)title; }\n",
+        "sha256": "4f49b4ab182ffd99e0244abae08ea8e48d74ce2e24c57f1c40088ba18126526a"
+      },
+      "license_note": "Local upstream evaluation. Component notices require review before redistribution; upstream source is not vendored in this project."
+    },
+    "post_rebuild_cylinder": {
+      "status": "refinement_checked",
+      "forces": {
+        "x_uN": -0.0,
+        "z_uN": -376.9897614080975
+      },
+      "diagnostics": {
+        "volume_relative_error": 1.1503742337469317e-16,
+        "force_change_relative": 5.417034214213917e-05,
+        "force_component_changes": {
+          "x": {
+            "absolute_uN": 8.88178419700125e-09,
+            "normalization_uN": 7.5398223686155035,
+            "relative": 1.1779832153568578e-09,
+            "capillary_relative": 1.1779832153568579e-11
+          },
+          "z": {
+            "absolute_uN": 0.020421664359560054,
+            "normalization_uN": 376.9897614080975,
+            "relative": 5.417034214213917e-05,
+            "capillary_relative": 2.70850735748964e-05
+          }
+        },
+        "force_normalization": "max(abs(final component), 0.01 * capillary force scale)",
+        "capillary_force_scale_uN": 753.9822368615503,
+        "negative_eigenvalues": 0,
+        "stationarity_energy_change_relative": 1.2241130280205788e-08,
+        "stationarity_threshold_relative": 1e-07,
+        "force_change_threshold_relative": 0.01,
+        "mesh_volume_error_relative": 0.0005364551890686409,
+        "finite_difference_displacement_mm": {
+          "x": 2.5e-06,
+          "z": 3e-06
+        },
+        "solver_termination": "completed",
+        "warnings": []
+      }
+    },
+    "binary_unchanged_from_development": true
+  }
+}

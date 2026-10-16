@@ -1,0 +1,244 @@
+Surface Evolver Version 2.70a, August 27, 2013, 64-bit
+
+Enter command: 
+Enter command: 
+Enter command: hessian_normal
+hessian_normal  ON. (was on)
+Enter command: 
+Enter command: read "zforce.cmd"  // contains a bunch of force calculations
+Enter command: // zforce.cmd
+Enter command: 
+Enter command: // Some ways to calculate vertical force.
+Enter command: // zforce4 is the preferred way.
+Enter command: 
+Enter command: dz := 1e-5 * height // perturbation size
+Enter command: 
+Enter command: // Single difference, moving just top pad
+Enter command: zforce1 := { old_energy := total_energy;
+more>              height := height + dz;
+more>              recalc;
+more>              new_energy := total_energy - body[1].pressure *
+more>                       (body[1].volume - body[1].target);
+more>              zforce := -(new_energy - old_energy)/dz;
+more>              printf "zforce: %18.15f  (single difference, top pad only)\n",
+more> 		zforce;
+more>              height := height - dz; // restore original
+more>              recalc;
+more>            }
+Enter command: 
+Enter command: // Central difference, moving just top pad
+Enter command: zforce2 := { 
+more>              height := height + dz;
+more>              recalc;
+more>              new_energy_1 := total_energy - body[1].pressure *
+more>                       (body[1].volume - body[1].target);
+more>              height := height - 2*dz;
+more>              recalc;
+more>              new_energy_2 := total_energy - body[1].pressure *
+more>                       (body[1].volume - body[1].target);
+more>              zforce := -(new_energy_1 - new_energy_2)/2/dz;
+more>              printf "zforce: %18.15f  (central difference, top pad only)\n",
+more> 	       zforce;
+more>              height := height + dz; // restore original
+more>              recalc;
+more>            }
+Enter command: 
+Enter command: // Single difference, moving linearly
+Enter command: zforce3 := { old_energy := total_energy;
+more> 	     set vertex z z + dz*z/height; // do this before changing height
+more>              height := height + dz;
+more>              recalc;
+more>              new_energy := total_energy - body[1].pressure *
+more>                       (body[1].volume - body[1].target);
+more>              zforce := -(new_energy - old_energy)/dz;
+more>              printf "zforce: %18.15f  (single difference, linear move)\n",
+more> 		zforce;
+more> 	     set vertex z z - dz*z/height; 
+more>              height := height - dz; // restore original
+more>              recalc;
+more>            }
+Enter command: 
+Enter command: // Central difference, moving linearly
+Enter command: zforce4 := { 
+more> 	     set vertex z z + dz*z/height; // do this before changing height
+more>              height := height + dz;
+more>              recalc;
+more>              new_energy_1 := total_energy - body[1].pressure *
+more>                       (body[1].volume - body[1].target);
+more> 	     set vertex z z - 2*dz*z/height; 
+more>              height := height - 2*dz;
+more>              recalc;
+more>              new_energy_2 := total_energy - body[1].pressure *
+more>                       (body[1].volume - body[1].target);
+more>              zforce := -(new_energy_1 - new_energy_2)/2/dz;
+more>              printf "zforce: %18.15f  (central difference, linear move)\n",
+more> 	       zforce;
+more> 	     set vertex z z + dz*z/height; 
+more>              height := height + dz; // restore original
+more>              recalc;
+more>            }
+Enter command: 
+Enter command: 
+Enter command: // Central difference, moving linearly, with re-convergence,
+Enter command: // so don't need volume corrections.
+Enter command: zforce5 := { 
+more> 	     set vertex z z + dz*z/height; // do this before changing height
+more>              height := height + dz;
+more>              recalc; hessian; hessian;
+more>              new_energy_1 := total_energy; 
+more> 	     set vertex z z - 2*dz*z/height; 
+more>              height := height - 2*dz;
+more>              recalc; hessian; hessian;
+more>              new_energy_2 := total_energy;
+more>              zforce := -(new_energy_1 - new_energy_2)/2/dz;
+more>              printf "zforce: %18.15f  (central difference, linear move, reconverge)\n",
+more> 	       zforce;
+more> 	     set vertex z z + dz*z/height; 
+more>              height := height + dz; // restore original
+more>              recalc; hessian; hessian;  // reconverge
+more>            }
+Enter command: 
+Enter command: // Geometrical calculation of forces
+Enter command: // (not accurate since it leaves out effect of facets touching
+Enter command: // top pad at only one vertex)
+Enter command: 
+Enter command: zforce6 := { // first, pressure on top, accounting for gravity 
+more> 	     zforce := sum(facet where on_constraint 2,area) *
+more>                (body[1].pressure - gravity_constant*height*SOLDER_DENSITY);
+more> 	     // add tension due to facets pulling on top
+more> 	     foreach edge ee where on_constraint 2 do
+more> 	     { zforce := zforce - sum(ee.facet ff where not fixed,
+more> 		  ff.tension*ee.length*sqrt(ff.x^2+ff.y^2)/area);
+more>              };
+more>              printf "zforce: %18.15f  (geometric)\n", zforce;
+more>            }
+Enter command: 
+Enter command: 
+Enter command: // To set volume to spherical segment, for zforce = 0 test (requires no grav)
+Enter command: setvol := { body[1].target := pi*(radius^2+height^2/6)*height }
+Enter command: 
+Enter command: // Typical evolution
+Enter command: gogo := { u; g 3; r; g 5; r; g 5; hessian; hessian }
+Enter command: 
+Enter command: // command to calculate and print all the ways to do zforce
+Enter command: forces := { zforce1; zforce2; zforce3; zforce4; zforce5; zforce6;
+more> 	    printf "zforce: %18.15f  (variational integrands)\n",
+more> 	      zforce7.value;
+more>           }
+Enter command: 
+Enter command: // A script for automatically generating force data for a range
+Enter command: // of volumes and heights.
+Enter command: read "runforce.cmd"
+Enter command: // runforce.cmd
+Enter command: 
+Enter command: // Script to automatically run a two-parameter set of force
+Enter command: // calculations and print the results to a text file suitable
+Enter command: // for import into another program.
+Enter command: 
+Enter command: // Usage: Initialize the bga to the minimum height and volume desired.
+Enter command: // Refine and evolve to the desired fineness.  Set delta_h, delta_vol,
+Enter command: // max_h, max_vol, and outfile if the defaults below are not acceptable.
+Enter command: // Run "runforce".
+Enter command: 
+Enter command: outfile := "runforce.out";    // default output file
+Enter command: delta_h := .01;               // height increment
+Enter command: delta_vol := .0005;           // volume increment
+Enter command: max_h := .30;                 // maximum height
+Enter command: max_vol := 0.01;              // maximum volume
+Enter command: define vertex attribute old_coord real[3]  // for saving old coordinates.
+Enter command: 
+Enter command: runforce := {
+more>    start_height := height;
+more>    // print header info
+more>    printf "volume                  height\n                      " >>> outfile; 
+more>    ht := height;
+more>    while ( ht < max_h ) do 
+more>    { printf "%20.15f ",ht >> outfile; ht := ht + delta_h; };
+more>    printf "\n" >> outfile;
+more>    while ( body[1].target < max_vol ) do
+more>    { printf "%20.15f  ", body[1].target >> outfile;
+more>      set vertex old_coord[1] x;  // save original coordinates
+more>      set vertex old_coord[2] y;
+more>      set vertex old_coord[3] z;
+more>      eigen_flag := 0;
+more>      while ( height < max_h ) do
+more>      { 
+more>        // Use hessian to converge.  Test each time for onset of instability.
+more>        { hessian; 
+more>          if ( eigen_neg == 0 ) then eigen_flag := 1; // onset of stability
+more>          if ( eigen_neg && (eigen_flag==1) ) then break;  // out of while
+more>        } 3;
+more>        if ( eigen_neg == 0 ) then  // skip unstable configuration
+more>        { zforce4; printf "%20.15f ",zforce >> outfile; }
+more>        else { printf "                     " >> outfile;};
+more>        set vertex z z+delta_h*z/height;  // linear interpolation of stretch
+more>        height := height + delta_h;
+more>        recalc;
+more>      };
+more>      printf "\n" >> outfile;
+more>      height := start_height;   // prepare for next go-around
+more>      set vertex x old_coord[1];
+more>      set vertex y old_coord[2];
+more>      set vertex z old_coord[3];
+more>      body[1].target := body[1].target + delta_vol;
+more>      hessian; hessian;
+more>    }
+more> }
+Enter command:      
+Enter command:     
+Enter command: 
+Enter command: // Command used to create data in chart example.
+Enter command: // To be run right after loading.
+Enter command: chartdata := { u; height := .10; recalc; V; V; V;
+more>                body[1].target := .002;
+more>                gogo; r; g 5; hessian; hessian;
+more>                runforce;
+more>              }
+Enter command:               
+Enter command: Edges switched in equiangulation: 6
+  3. area: 0.159299663948646 energy:  54.1565783261622  scale: 0.00000
+  2. area: 0.157311517778086 energy:  53.1524893931661  scale: 0.00224081
+  1. area: 0.157302600066340 energy:  53.1480223710366  scale: 0.00240718
+Vertices: 62  Edges: 180  Facets: 120  Bodies: 1  Facetedges: 360
+Element memory: 66 KB, or 0 MB
+Total data memory: 3136 KB, or 3 MB.
+  5. area: 0.155343565311147 energy:  48.3532653355362  scale: 0.000463519
+  4. area: 0.154853458274352 energy:  48.1170081113612  scale: 0.000498431
+  3. area: 0.154827360944179 energy:  48.1046388152553  scale: 0.000416244
+  2. area: 0.154810821226499 energy:  48.0970847756018  scale: 0.00148726
+  1. area: 0.154798039722561 energy:  48.0907100724798  scale: 0.000453274
+Vertices: 218  Edges: 648  Facets: 432  Bodies: 1  Facetedges: 1296
+Element memory: 237 KB, or 0 MB
+Total data memory: 3144 KB, or 3 MB.
+  5. area: 0.154828410101515 energy:  47.0893843063419  scale: 0.000500205
+  4. area: 0.154785985487755 energy:  47.0690585961754  scale: 0.000384700
+  3. area: 0.154772889056003 energy:  47.0627547207193  scale: 0.000535626
+  2. area: 0.154767672900291 energy:  47.0602728868922  scale: 0.000403582
+  1. area: 0.154765330944071 energy:  47.0591379435363  scale: 0.000563163
+Converting to all named quantities...Done.
+  1. area: 0.154763593524921 energy:  47.0583164951773
+  1. area: 0.154763593383547 energy:  47.0583164928646
+Enter command: REFERENCE 24.583596727025508
+Enter command: Vertices: 818  Edges: 2448  Facets: 1632  Bodies: 1  Facetedges: 4896
+Element memory: 938 KB, or 0 MB
+Total data memory: 3505 KB, or 3 MB.
+Enter command:   5. area: 0.154793051447949 energy:  46.8151723589340  scale: 0.000496758
+  4. area: 0.154786774247817 energy:  46.8121662139207  scale: 0.000387470
+  3. area: 0.154784934753959 energy:  46.8112785102812  scale: 0.000527378
+  2. area: 0.154783930045018 energy:  46.8107979707193  scale: 0.000417900
+  1. area: 0.154783258027173 energy:  46.8104734622269  scale: 0.000549369
+Enter command:   1. area: 0.154781099653325 energy:  46.8094404984948
+Enter command:   1. area: 0.154781099751887 energy:  46.8094404967750
+Enter command: REFERENCE 18.668466159393063
+Enter command: Vertices: 3170  Edges: 9504  Facets: 6336  Bodies: 1  Facetedges: 19008
+Element memory: 3639 KB, or 3 MB
+Total data memory: 6372 KB, or 6 MB.
+Enter command:   5. area: 0.154789091198350 energy:  46.7487485776880  scale: 0.000492829
+  4. area: 0.154787814258992 energy:  46.7481364946747  scale: 0.000374598
+  3. area: 0.154787570403920 energy:  46.7480186720635  scale: 0.000501192
+  2. area: 0.154787453316815 energy:  46.7479624328506  scale: 0.000413604
+  1. area: 0.154787376179634 energy:  46.7479250497874  scale: 0.000522861
+Enter command:   1. area: 0.154786922652260 energy:  46.7477066378668
+Enter command:   1. area: 0.154786922716708 energy:  46.7477066377755
+Enter command: REFERENCE 17.195149125886758
+Enter command: 
