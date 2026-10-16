@@ -1,0 +1,2427 @@
+{
+  "schema": 1,
+  "generated_at_UTC": "2026-10-16T22:37:42.247642+00:00",
+  "stage": "central",
+  "provenance": {
+    "files": {
+      "tools/validate_physical.py": "b82f866158521f0ced51818baa1133757c0a713d5c8718d6e602c0bb9c407068",
+      "soldershape/solver.py": "b1bfc098127c2e54db166807f957fb7457384cd9b6d06b6127d49ff652de4154",
+      "soldershape/model.py": "3546386a2b061239840c27cf57c278b8c3048154fc3eaab9b014268a3eabedf6",
+      "evidence/physical/protocol.json": "6071faced970e1b6f9dc5f7dc0c35dad9dd15432de4855ab1889991e69a6dc8f",
+      "evidence/physical/nist-extraction.json": "c9d27bbb23a70c9ecff211d63a054399da1037eb2f105885183f54bc2ca6220e"
+    },
+    "engine": {
+      "ready": true,
+      "version": "2.70a",
+      "source_url": "https://kenbrakke.com/evolver/downloads/evolver-2.70.tar.gz",
+      "source_sha256": "be7d60d9eb690f1fb124e2ecc12237a7a35be1935bfa5e92be3fe912207a3b6b",
+      "reference_url": "https://kenbrakke.com/evolver/downloads/bga-files.zip",
+      "reference_sha256": "96389e8200320cc8acfbf60b8ed23e2d05941613af5b55824c36890113c6e659",
+      "binary_sha256": "c930b47b33a4cafb3cf98b1c0cb7e3bd9805abcf67aceefe243daea091072f8e",
+      "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+      "build_commands": [
+        [
+          "/usr/bin/cc",
+          "-c",
+          "/Volumes/Storage/oct16project/.engine/headless-title.c",
+          "-o",
+          "/Volumes/Storage/oct16project/.engine/headless-title.o"
+        ],
+        [
+          "/usr/bin/make",
+          "-C",
+          "/Volumes/Storage/oct16project/.engine/src",
+          "-j4",
+          "CC=/usr/bin/cc -O2 -std=gnu89 -w",
+          "CFLAGS=-DGENERIC",
+          "GRAPH=nulgraph.o",
+          "GRAPHLIB=../headless-title.o"
+        ]
+      ],
+      "numerical_source_modified": false,
+      "patch": {
+        "purpose": "Supply missing no-op title callback for the headless graphics target.",
+        "source": "void set_graphics_title(int which, char *title) { (void)which; (void)title; }\n",
+        "sha256": "4f49b4ab182ffd99e0244abae08ea8e48d74ce2e24c57f1c40088ba18126526a"
+      },
+      "license_note": "Local upstream evaluation. Component notices require review before redistribution; upstream source is not vendored in this project."
+    }
+  },
+  "source": {
+    "source_url": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=853827",
+    "source_sha256": "4917aa35b4b804292826f8ce92b1f7c51eaed83e6f0777aeefb26195e7204990",
+    "doi": "10.1115/1.1463732",
+    "figure": 5
+  },
+  "held_out_calibration": {
+    "status": "inconclusive",
+    "reason": "All three frozen calibration rows must pass numerical checks.",
+    "calibration_ids": [
+      "h1-x1",
+      "h2-x2",
+      "h3-x3"
+    ],
+    "gamma_N_per_m": null
+  },
+  "surface_tension_scaling_check": {
+    "reference_case": "published_flat_substrate/h2-x2",
+    "actual_gamma_0_4_solve": {
+      "input": {
+        "lower_diameter_mm": 0.64,
+        "upper_diameter_mm": 0.64,
+        "standoff_mm": 0.0351,
+        "volume_mm3": 0.01181699087727595,
+        "offset_mm": 0.0070999999999999995,
+        "surface_tension_n_m": 0.4,
+        "density_g_cm3": 9,
+        "gravity": false
+      },
+      "input_sha256": "dd9886898ec6f7b77e83c5ee199d4f8609db4fe909a85d3f4ad1963b98c07591",
+      "status": "refinement_checked",
+      "forces": {
+        "x_uN": -39.83446538510099,
+        "z_uN": 6246.562517756529
+      },
+      "diagnostics": {
+        "volume_relative_error": 1.4335848373770738e-16,
+        "force_change_relative": 2.2907845892227702e-05,
+        "force_component_changes": {
+          "x": {
+            "absolute_uN": 0.0009125217942411723,
+            "normalization_uN": 39.83446538510099,
+            "relative": 2.2907845892227702e-05,
+            "capillary_relative": 1.1346277674419375e-06
+          },
+          "z": {
+            "absolute_uN": 0.08957234289573535,
+            "normalization_uN": 6246.562517756529,
+            "relative": 1.4339461526418135e-05,
+            "capillary_relative": 0.00011137407137639448
+          }
+        },
+        "force_normalization": "max(abs(final component), 0.01 * capillary force scale)",
+        "capillary_force_scale_uN": 804.2477193189872,
+        "negative_eigenvalues": 0,
+        "stationarity_energy_change_relative": 9.825367117724858e-08,
+        "stationarity_threshold_relative": 1e-07,
+        "force_change_threshold_relative": 0.01,
+        "mesh_volume_error_relative": 0.00013211501866361441,
+        "finite_difference_displacement_mm": {
+          "x": 3.2000000000000003e-06,
+          "z": 3.51e-07
+        },
+        "solver_termination": "completed",
+        "warnings": [],
+        "additional_refinement_reason": [
+          "Additional relaxation changed energy by more than 1e-7 relative."
+        ],
+        "initial_refinement_check": {
+          "status": "not_converged",
+          "force_change_relative": 0.001902699982077488,
+          "stationarity_energy_change_relative": 6.239452516680313e-06,
+          "mesh_volume_error_relative": 0.0005285874171275795
+        }
+      },
+      "levels": [
+        {
+          "level": 0,
+          "facets": 432,
+          "force_x_uN": -39.75776156298765,
+          "force_z_uN": 6246.587794371771,
+          "energy_erg": 0.35234125658747917,
+          "volume_mm3": 0.01181699087727595,
+          "volume_relative_error": 0.0,
+          "negative_eigenvalues": 0,
+          "stationarity_energy_change_erg": 3.809041735747254e-06,
+          "stationarity_energy_change_relative": 1.0810660586951578e-05
+        },
+        {
+          "level": 1,
+          "facets": 1632,
+          "force_x_uN": -39.83355286330675,
+          "force_z_uN": 6246.652090099425,
+          "energy_erg": 0.3522689522622301,
+          "volume_mm3": 0.01181699087727595,
+          "volume_relative_error": 0.0,
+          "negative_eigenvalues": 0,
+          "stationarity_energy_change_erg": 2.197965400740909e-06,
+          "stationarity_energy_change_relative": 6.239452516680313e-06
+        },
+        {
+          "level": 2,
+          "facets": 6336,
+          "force_x_uN": -39.83446538510099,
+          "force_z_uN": 6246.562517756529,
+          "energy_erg": 0.3522662332641069,
+          "volume_mm3": 0.011816990877275948,
+          "volume_relative_error": 1.4335848373770738e-16,
+          "negative_eigenvalues": 0,
+          "stationarity_energy_change_erg": 3.46114506499795e-08,
+          "stationarity_energy_change_relative": 9.825367117724858e-08
+        }
+      ],
+      "mesh_checks": {
+        "closed": true,
+        "oriented": true,
+        "nondegenerate": true,
+        "volume_mm3": 0.01181542967530565,
+        "vertices": 12482,
+        "triangles": 24960,
+        "edges": 37440,
+        "euler_characteristic": 2,
+        "minimum_triangle_area_mm2": 3.821372851031374e-07,
+        "volume_relative_error": 0.00013211501866361441,
+        "self_intersections_checked": false
+      },
+      "case": "scaling/gamma-0.4",
+      "receipt": "evidence/physical/prediction-receipts/7a029387e825be81e44ecc4628a5de86c27cbb97837f37c93f50cc73afba5c99.json.gz",
+      "receipt_sha256": "16da585ed07f86026e0d05a7dca4a760f2e50f7b37dc2b0afa66cba85fdaaed8",
+      "restoring_shear_uN_at_1N_per_m": 39.83446538510099,
+      "normal_force_uN_at_1N_per_m_diagnostic_only": 6246.562517756529
+    },
+    "force_relative_deviation_from_exact_scaling": {
+      "x_uN": -4.919651874768505e-08,
+      "z_uN": 3.5521341423816466e-10
+    },
+    "status": "numerically_checked"
+  },
+  "rows": [
+    {
+      "id": "h1-x1",
+      "height_id": "h1",
+      "offset_id": "x1",
+      "pairing": "unambiguous",
+      "phase": "calibration",
+      "h_um": 35.1,
+      "x_um": 1.2,
+      "observed_shear_uN": 15.850000000000001,
+      "observed_shear_interval_uN": [
+        15.4,
+        16.3
+      ],
+      "input_bounds": {
+        "h_um": [
+          33.800000000000004,
+          36.5
+        ],
+        "x_um": [
+          null,
+          7.3999999999999995
+        ]
+      },
+      "mappings": {
+        "published_flat_substrate": {
+          "input": {
+            "lower_diameter_mm": 0.64,
+            "upper_diameter_mm": 0.64,
+            "standoff_mm": 0.0351,
+            "volume_mm3": 0.01181699087727595,
+            "offset_mm": 0.0012,
+            "surface_tension_n_m": 1,
+            "density_g_cm3": 9,
+            "gravity": false
+          },
+          "input_sha256": "9c2d13411692c07ffec06155658317f32ce0e7eaea0805f35d42fab8afa3050b",
+          "status": "refinement_checked",
+          "forces": {
+            "x_uN": -16.90325066375231,
+            "z_uN": 15929.495641704945
+          },
+          "diagnostics": {
+            "volume_relative_error": 0.0,
+            "force_change_relative": 9.779784371880122e-06,
+            "force_component_changes": {
+              "x": {
+                "absolute_uN": 5.2308851692828284e-05,
+                "normalization_uN": 20.10619298297468,
+                "relative": 2.6016288482420242e-06,
+                "capillary_relative": 2.6016288482420245e-08
+              },
+              "z": {
+                "absolute_uN": 0.15578703252867854,
+                "normalization_uN": 15929.495641704945,
+                "relative": 9.779784371880122e-06,
+                "capillary_relative": 7.748211342674087e-05
+              }
+            },
+            "force_normalization": "max(abs(final component), 0.01 * capillary force scale)",
+            "capillary_force_scale_uN": 2010.6192982974678,
+            "negative_eigenvalues": 0,
+            "stationarity_energy_change_relative": 2.6850686448528436e-08,
+            "stationarity_threshold_relative": 1e-07,
+            "force_change_threshold_relative": 0.01,
+            "mesh_volume_error_relative": 0.00013583291949392784,
+            "finite_difference_displacement_mm": {
+              "x": 3.2000000000000003e-06,
+              "z": 3.51e-07
+            },
+            "solver_termination": "completed",
+            "warnings": [],
+            "additional_refinement_reason": [
+              "Additional relaxation changed energy by more than 1e-7 relative."
+            ],
+            "initial_refinement_check": {
+              "status": "not_converged",
+              "force_change_relative": 0.0005630970863076789,
+              "stationarity_energy_change_relative": 1.4674325314979578e-06,
+              "mesh_volume_error_relative": 0.0005423618906053029
+            }
+          },
+          "levels": [
+            {
+              "level": 0,
+              "facets": 432,
+              "force_x_uN": -16.891876616215164,
+              "force_z_uN": 15931.21673994513,
+              "energy_erg": 0.8773293522006237,
+              "volume_mm3": 0.01181699087727595,
+              "volume_relative_error": 0.0,
+              "negative_eigenvalues": 0,
+              "stationarity_energy_change_erg": 7.924001229842048e-05,
+              "stationarity_energy_change_relative": 9.031957280314523e-05
+            },
+            {
+              "level": 1,
+              "facets": 1632,
+              "force_x_uN": -16.903198354900617,
+              "force_z_uN": 15929.651428737474,
+              "energy_erg": 0.877229963219489,
+              "volume_mm3": 0.011816990877275946,
+              "volume_relative_error": 2.8671696747541476e-16,
+              "negative_eigenvalues": 0,
+              "stationarity_energy_change_erg": 1.2872757856330352e-06,
+              "stationarity_energy_change_relative": 1.4674325314979578e-06
+            },
+            {
+              "level": 2,
+              "facets": 6336,
+              "force_x_uN": -16.90325066375231,
+              "force_z_uN": 15929.495641704945,
+              "energy_erg": 0.8772245795028615,
+              "volume_mm3": 0.01181699087727595,
+              "volume_relative_error": 0.0,
+              "negative_eigenvalues": 0,
+              "stationarity_energy_change_erg": 2.3554082129173537e-08,
+              "stationarity_energy_change_relative": 2.6850686448528436e-08
+            }
+          ],
+          "mesh_checks": {
+            "closed": true,
+            "oriented": true,
+            "nondegenerate": true,
+            "volume_mm3": 0.011815385740905456,
+            "vertices": 12482,
+            "triangles": 24960,
+            "edges": 37440,
+            "euler_characteristic": 2,
+            "minimum_triangle_area_mm2": 8.043247669209576e-07,
+            "volume_relative_error": 0.00013583291949392784,
+            "self_intersections_checked": false
+          },
+          "case": "published_flat_substrate/h1-x1",
+          "receipt": "evidence/physical/prediction-receipts/774ecf0861de870900756ce0a8a2f89d6f5ca0b80ba2b74d1027517ab3d4467b.json.gz",
+          "receipt_sha256": "5629da01cb7688a9bc05ad5517e976fdf5b0b80990e9e265c4f748db95c465fa",
+          "restoring_shear_uN_at_1N_per_m": 16.90325066375231,
+          "normal_force_uN_at_1N_per_m_diagnostic_only": 15929.495641704945,
+          "scores": {
+            "prior_default": {
+              "status": "scored",
+              "gamma_N_per_m": 0.48,
+              "predicted_shear_uN": 8.113560318601108,
+              "error_uN": -7.736439681398894,
+              "absolute_error_uN": 7.736439681398894,
+              "relative_error": -0.4881034499305295,
+              "restoring_direction": true
+            },
+            "published_fit": {
+              "status": "scored",
+              "gamma_N_per_m": 0.4,
+              "predicted_shear_uN": 6.761300265500925,
+              "error_uN": -9.088699734499077,
+              "absolute_error_uN": 9.088699734499077,
+              "relative_error": -0.5734195416087745,
+              "restoring_direction": true
+            },
+            "held_out": {
+              "status": "inconclusive",
+              "numerical_status": "refinement_checked"
+            }
+          }
+        },
+        "literal_copper_rim": {
+          "input": {
+            "lower_diameter_mm": 0.64,
+            "upper_diameter_mm": 0.64,
+            "standoff_mm": 0.025099999999999997,
+            "volume_mm3": 0.0086,
+            "offset_mm": 0.0012,
+            "surface_tension_n_m": 1,
+            "density_g_cm3": 9,
+            "gravity": false
+          },
+          "input_sha256": "4598a0a969cae44d6676a45ee5065d2436601c257c40ed59852155d0eeeda3f8",
+          "status": "engine_error",
+          "error": "Engine reported a numerical or command error. Inspect the captured solver output.",
+          "case": "literal_copper_rim/h1-x1",
+          "receipt": "evidence/physical/prediction-receipts/44291822b2bf766cb8a5fcef4a61e50353f1dc2053575f3086a8b710e00b63df.json.gz",
+          "receipt_sha256": "52f442565da3f2465cf5a1ab2d765a36c6cd9bd102eee6f1be56bd6142f2e031",
+          "restoring_shear_uN_at_1N_per_m": null,
+          "normal_force_uN_at_1N_per_m_diagnostic_only": null,
+          "scores": {
+            "prior_default": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            },
+            "published_fit": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            },
+            "held_out": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            }
+          }
+        },
+        "uncorrected_interface_gap": {
+          "input": {
+            "lower_diameter_mm": 0.64,
+            "upper_diameter_mm": 0.64,
+            "standoff_mm": 0.0351,
+            "volume_mm3": 0.0086,
+            "offset_mm": 0.0012,
+            "surface_tension_n_m": 1,
+            "density_g_cm3": 9,
+            "gravity": false
+          },
+          "input_sha256": "f0e04dc9f9164947f85652d4f5562254f06dc759140e047b56a8d97180689f91",
+          "status": "engine_error",
+          "error": "Engine reported a numerical or command error. Inspect the captured solver output.",
+          "case": "uncorrected_interface_gap/h1-x1",
+          "receipt": "evidence/physical/prediction-receipts/25b15fc11e57f8e851b6c1d9ded9772f220b75da3f0a9188ab58119fa593d9c3.json.gz",
+          "receipt_sha256": "67ccb46aa12e1414c492e8846e4441a8ea74e9a250fca8c4a2f010d94c586970",
+          "restoring_shear_uN_at_1N_per_m": null,
+          "normal_force_uN_at_1N_per_m_diagnostic_only": null,
+          "scores": {
+            "prior_default": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            },
+            "published_fit": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            },
+            "held_out": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "h2-x2",
+      "height_id": "h2",
+      "offset_id": "x2",
+      "pairing": "unambiguous",
+      "phase": "calibration",
+      "h_um": 35.1,
+      "x_um": 7.1,
+      "observed_shear_uN": 48.0,
+      "observed_shear_interval_uN": [
+        47.6,
+        48.4
+      ],
+      "input_bounds": {
+        "h_um": [
+          33.800000000000004,
+          36.5
+        ],
+        "x_um": [
+          1.8,
+          12.5
+        ]
+      },
+      "mappings": {
+        "published_flat_substrate": {
+          "input": {
+            "lower_diameter_mm": 0.64,
+            "upper_diameter_mm": 0.64,
+            "standoff_mm": 0.0351,
+            "volume_mm3": 0.01181699087727595,
+            "offset_mm": 0.0070999999999999995,
+            "surface_tension_n_m": 1,
+            "density_g_cm3": 9,
+            "gravity": false
+          },
+          "input_sha256": "b3979e556ff1fba4821318abf87729a109ff631e784d314236e10dd46dd8220d",
+          "status": "refinement_checked",
+          "forces": {
+            "x_uN": -99.58616836204526,
+            "z_uN": 15616.406288844162
+          },
+          "diagnostics": {
+            "volume_relative_error": 1.4335848373770738e-16,
+            "force_change_relative": 2.165610103749922e-05,
+            "force_component_changes": {
+              "x": {
+                "absolute_uN": 0.0021566481239858604,
+                "normalization_uN": 99.58616836204526,
+                "relative": 2.165610103749922e-05,
+                "capillary_relative": 1.0726287795069139e-06
+              },
+              "z": {
+                "absolute_uN": 0.232784273022844,
+                "normalization_uN": 15616.406288844162,
+                "relative": 1.490639195197792e-05,
+                "capillary_relative": 0.00011577739914262175
+              }
+            },
+            "force_normalization": "max(abs(final component), 0.01 * capillary force scale)",
+            "capillary_force_scale_uN": 2010.6192982974678,
+            "negative_eigenvalues": 0,
+            "stationarity_energy_change_relative": 9.368176232822289e-08,
+            "stationarity_threshold_relative": 1e-07,
+            "force_change_threshold_relative": 0.01,
+            "mesh_volume_error_relative": 0.0001323622498329291,
+            "finite_difference_displacement_mm": {
+              "x": 3.2000000000000003e-06,
+              "z": 3.51e-07
+            },
+            "solver_termination": "completed",
+            "warnings": [],
+            "additional_refinement_reason": [
+              "Additional relaxation changed energy by more than 1e-7 relative."
+            ],
+            "initial_refinement_check": {
+              "status": "not_converged",
+              "force_change_relative": 0.0018806322183006925,
+              "stationarity_energy_change_relative": 5.809193854591817e-06,
+              "mesh_volume_error_relative": 0.0005295185611979836
+            }
+          },
+          "levels": [
+            {
+              "level": 0,
+              "facets": 432,
+              "force_x_uN": -99.39673081306444,
+              "force_z_uN": 15616.307160746852,
+              "energy_erg": 0.88084836819529,
+              "volume_mm3": 0.01181699087727595,
+              "volume_relative_error": 0.0,
+              "negative_eigenvalues": 0,
+              "stationarity_energy_change_erg": 0.00013239268701736862,
+              "stationarity_energy_change_relative": 0.00015030133652698812
+            },
+            {
+              "level": 1,
+              "facets": 1632,
+              "force_x_uN": -99.58401171392127,
+              "force_z_uN": 15616.639073117185,
+              "energy_erg": 0.8806723189223722,
+              "volume_mm3": 0.011816990877275948,
+              "volume_relative_error": 1.4335848373770738e-16,
+              "negative_eigenvalues": 0,
+              "stationarity_energy_change_erg": 5.115996222992969e-06,
+              "stationarity_energy_change_relative": 5.809193854591817e-06
+            },
+            {
+              "level": 2,
+              "facets": 6336,
+              "force_x_uN": -99.58616836204526,
+              "force_z_uN": 15616.406288844162,
+              "energy_erg": 0.8806655822447239,
+              "volume_mm3": 0.011816990877275948,
+              "volume_relative_error": 1.4335848373770738e-16,
+              "negative_eigenvalues": 0,
+              "stationarity_energy_change_erg": 8.250230376649625e-08,
+              "stationarity_energy_change_relative": 9.368176232822289e-08
+            }
+          ],
+          "mesh_checks": {
+            "closed": true,
+            "oriented": true,
+            "nondegenerate": true,
+            "volume_mm3": 0.011815426753777178,
+            "vertices": 12482,
+            "triangles": 24960,
+            "edges": 37440,
+            "euler_characteristic": 2,
+            "minimum_triangle_area_mm2": 4.80850000861434e-07,
+            "volume_relative_error": 0.0001323622498329291,
+            "self_intersections_checked": false
+          },
+          "case": "published_flat_substrate/h2-x2",
+          "receipt": "evidence/physical/prediction-receipts/45b4accc79b7f98c3a5c5cfd49f2bf1af4b738dff42c48d9f10fcd58bcf9be04.json.gz",
+          "receipt_sha256": "5b1a398d4ed7719e89f7681e879aa40424defd977c63a6b8791e986b01745062",
+          "restoring_shear_uN_at_1N_per_m": 99.58616836204526,
+          "normal_force_uN_at_1N_per_m_diagnostic_only": 15616.406288844162,
+          "scores": {
+            "prior_default": {
+              "status": "scored",
+              "gamma_N_per_m": 0.48,
+              "predicted_shear_uN": 47.80136081378172,
+              "error_uN": -0.19863918621827992,
+              "absolute_error_uN": 0.19863918621827992,
+              "relative_error": -0.004138316379547498,
+              "restoring_direction": true
+            },
+            "published_fit": {
+              "status": "scored",
+              "gamma_N_per_m": 0.4,
+              "predicted_shear_uN": 39.83446734481811,
+              "error_uN": -8.165532655181892,
+              "absolute_error_uN": 8.165532655181892,
+              "relative_error": -0.17011526364962273,
+              "restoring_direction": true
+            },
+            "held_out": {
+              "status": "inconclusive",
+              "numerical_status": "refinement_checked"
+            }
+          }
+        },
+        "literal_copper_rim": {
+          "input": {
+            "lower_diameter_mm": 0.64,
+            "upper_diameter_mm": 0.64,
+            "standoff_mm": 0.025099999999999997,
+            "volume_mm3": 0.0086,
+            "offset_mm": 0.0070999999999999995,
+            "surface_tension_n_m": 1,
+            "density_g_cm3": 9,
+            "gravity": false
+          },
+          "input_sha256": "718dba9c0464338f6160ed204a2aa8e4aeb48236d730f2f44b9a8a02ca9b506a",
+          "status": "engine_error",
+          "error": "Engine reported a numerical or command error. Inspect the captured solver output.",
+          "case": "literal_copper_rim/h2-x2",
+          "receipt": "evidence/physical/prediction-receipts/bdbbfde6d579b058541e75016eef6a68de66b07671dc58a54f9fc06ee6e5c10e.json.gz",
+          "receipt_sha256": "ccb840a3028fda6c38f359e68e67f20b170aed4ffa22254d7d615599733b62eb",
+          "restoring_shear_uN_at_1N_per_m": null,
+          "normal_force_uN_at_1N_per_m_diagnostic_only": null,
+          "scores": {
+            "prior_default": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            },
+            "published_fit": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            },
+            "held_out": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            }
+          }
+        },
+        "uncorrected_interface_gap": {
+          "input": {
+            "lower_diameter_mm": 0.64,
+            "upper_diameter_mm": 0.64,
+            "standoff_mm": 0.0351,
+            "volume_mm3": 0.0086,
+            "offset_mm": 0.0070999999999999995,
+            "surface_tension_n_m": 1,
+            "density_g_cm3": 9,
+            "gravity": false
+          },
+          "input_sha256": "c03db3ae0750d1df50d5b220264e6ecc585da84f46d5f61a3523c85e9165320b",
+          "status": "engine_error",
+          "error": "Engine reported a numerical or command error. Inspect the captured solver output.",
+          "case": "uncorrected_interface_gap/h2-x2",
+          "receipt": "evidence/physical/prediction-receipts/8179fb279373dbb780a2f539ea394f0acc3304535e00da0298698d338f578fbf.json.gz",
+          "receipt_sha256": "4fb1a889f5174aa5a9fc92a2467eb9887a96bb4089e3b10ec36deb7311696c7b",
+          "restoring_shear_uN_at_1N_per_m": null,
+          "normal_force_uN_at_1N_per_m_diagnostic_only": null,
+          "scores": {
+            "prior_default": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            },
+            "published_fit": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            },
+            "held_out": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "h3-x3",
+      "height_id": "h3",
+      "offset_id": "x3",
+      "pairing": "unambiguous",
+      "phase": "calibration",
+      "h_um": 34.7,
+      "x_um": 10.2,
+      "observed_shear_uN": 80.15,
+      "observed_shear_interval_uN": [
+        79.69999999999999,
+        80.60000000000001
+      ],
+      "input_bounds": {
+        "h_um": [
+          33.400000000000006,
+          36.0
+        ],
+        "x_um": [
+          3.9000000000000004,
+          16.6
+        ]
+      },
+      "mappings": {
+        "published_flat_substrate": {
+          "input": {
+            "lower_diameter_mm": 0.64,
+            "upper_diameter_mm": 0.64,
+            "standoff_mm": 0.0347,
+            "volume_mm3": 0.01181699087727595,
+            "offset_mm": 0.010199999999999999,
+            "surface_tension_n_m": 1,
+            "density_g_cm3": 9,
+            "gravity": false
+          },
+          "input_sha256": "f521be6e4f7268092e8d9e5babcc3abc38c54f7630cb8345be4eb2d09de49f41",
+          "status": "not_converged",
+          "forces": {
+            "x_uN": -90.77075174661331,
+            "z_uN": 17195.24802480301
+          },
+          "diagnostics": {
+            "volume_relative_error": 2.8671696747541476e-16,
+            "force_change_relative": 0.0007322673650917707,
+            "force_component_changes": {
+              "x": {
+                "absolute_uN": 0.06646845920889177,
+                "normalization_uN": 90.77075174661331,
+                "relative": 0.0007322673650917707,
+                "capillary_relative": 3.305869950874105e-05
+              },
+              "z": {
+                "absolute_uN": 0.42498459122361965,
+                "normalization_uN": 17195.24802480301,
+                "relative": 2.471523473291036e-05,
+                "capillary_relative": 0.0002113699950972737
+              }
+            },
+            "force_normalization": "max(abs(final component), 0.01 * capillary force scale)",
+            "capillary_force_scale_uN": 2010.6192982974678,
+            "negative_eigenvalues": 0,
+            "stationarity_energy_change_relative": 6.930350212622054e-07,
+            "stationarity_threshold_relative": 1e-07,
+            "force_change_threshold_relative": 0.01,
+            "mesh_volume_error_relative": 0.00014979651414848139,
+            "finite_difference_displacement_mm": {
+              "x": 3.2000000000000003e-06,
+              "z": 3.47e-07
+            },
+            "solver_termination": "completed",
+            "warnings": [
+              "Additional relaxation changed energy by more than 1e-7 relative."
+            ],
+            "additional_refinement_reason": [
+              "Additional relaxation changed energy by more than 1e-7 relative."
+            ],
+            "initial_refinement_check": {
+              "status": "not_converged",
+              "force_change_relative": 0.00951629422983228,
+              "stationarity_energy_change_relative": 4.434145103243244e-05,
+              "mesh_volume_error_relative": 0.0006000378915458349
+            }
+          },
+          "levels": [
+            {
+              "level": 0,
+              "facets": 432,
+              "force_x_uN": -89.84111463973542,
+              "force_z_uN": 17292.804812859173,
+              "energy_erg": 0.9500657134362311,
+              "volume_mm3": 0.011816990879457282,
+              "volume_relative_error": 1.8459297113215164e-10,
+              "negative_eigenvalues": 0,
+              "stationarity_energy_change_erg": 0.007973111298698377,
+              "stationarity_energy_change_relative": 0.008392168232090965
+            },
+            {
+              "level": 1,
+              "facets": 1632,
+              "force_x_uN": -90.70428328740442,
+              "force_z_uN": 17194.823040211788,
+              "energy_erg": 0.9496517919846814,
+              "volume_mm3": 0.011816990877275951,
+              "volume_relative_error": 1.4335848373770738e-16,
+              "negative_eigenvalues": 0,
+              "stationarity_energy_change_erg": 4.210893843215047e-05,
+              "stationarity_energy_change_relative": 4.434145103243244e-05
+            },
+            {
+              "level": 2,
+              "facets": 6336,
+              "force_x_uN": -90.77075174661331,
+              "force_z_uN": 17195.24802480301,
+              "energy_erg": 0.9496329977716869,
+              "volume_mm3": 0.011816990877275953,
+              "volume_relative_error": 2.8671696747541476e-16,
+              "negative_eigenvalues": 0,
+              "stationarity_energy_change_erg": 6.581289248019928e-07,
+              "stationarity_energy_change_relative": 6.930350212622054e-07
+            }
+          ],
+          "mesh_checks": {
+            "closed": true,
+            "oriented": true,
+            "nondegenerate": true,
+            "volume_mm3": 0.01181522073323481,
+            "vertices": 12482,
+            "triangles": 24960,
+            "edges": 37440,
+            "euler_characteristic": 2,
+            "minimum_triangle_area_mm2": 2.652567202788453e-07,
+            "volume_relative_error": 0.00014979651414848139,
+            "self_intersections_checked": false
+          },
+          "case": "published_flat_substrate/h3-x3",
+          "receipt": "evidence/physical/prediction-receipts/cfafa444bfd41778bcf442d109631e4904a6339ce0983438209dbf57a9663823.json.gz",
+          "receipt_sha256": "25b44f33b89e29f2dd725c1ff72ba96aca73c679a8fab05723df41d638cf05d9",
+          "restoring_shear_uN_at_1N_per_m": 90.77075174661331,
+          "normal_force_uN_at_1N_per_m_diagnostic_only": 17195.24802480301,
+          "scores": {
+            "prior_default": {
+              "status": "inconclusive",
+              "numerical_status": "not_converged"
+            },
+            "published_fit": {
+              "status": "inconclusive",
+              "numerical_status": "not_converged"
+            },
+            "held_out": {
+              "status": "inconclusive",
+              "numerical_status": "not_converged"
+            }
+          }
+        },
+        "literal_copper_rim": {
+          "input": {
+            "lower_diameter_mm": 0.64,
+            "upper_diameter_mm": 0.64,
+            "standoff_mm": 0.0247,
+            "volume_mm3": 0.0086,
+            "offset_mm": 0.010199999999999999,
+            "surface_tension_n_m": 1,
+            "density_g_cm3": 9,
+            "gravity": false
+          },
+          "input_sha256": "f30f6784bf6d8942b9d4848b9bccab0b74424d32bbd67aae1a5788feb5a0044e",
+          "status": "engine_error",
+          "error": "Engine reported a numerical or command error. Inspect the captured solver output.",
+          "case": "literal_copper_rim/h3-x3",
+          "receipt": "evidence/physical/prediction-receipts/532487103fda1d478dd7417a65f1697eac90df292c4ac67e62a8f909884f5cf9.json.gz",
+          "receipt_sha256": "55fbf8bb9f442d2eb5986657b45f3c6200ee2b4ab56b707fbd3bc23aa68ec2ea",
+          "restoring_shear_uN_at_1N_per_m": null,
+          "normal_force_uN_at_1N_per_m_diagnostic_only": null,
+          "scores": {
+            "prior_default": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            },
+            "published_fit": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            },
+            "held_out": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            }
+          }
+        },
+        "uncorrected_interface_gap": {
+          "input": {
+            "lower_diameter_mm": 0.64,
+            "upper_diameter_mm": 0.64,
+            "standoff_mm": 0.0347,
+            "volume_mm3": 0.0086,
+            "offset_mm": 0.010199999999999999,
+            "surface_tension_n_m": 1,
+            "density_g_cm3": 9,
+            "gravity": false
+          },
+          "input_sha256": "6ad9726441728f536219dba96c4c3bdde631506163c8f691dd3849b9ca45018d",
+          "status": "engine_error",
+          "error": "Engine reported a numerical or command error. Inspect the captured solver output.",
+          "case": "uncorrected_interface_gap/h3-x3",
+          "receipt": "evidence/physical/prediction-receipts/772f1eae2a20335648759d3050aab8fb9d875ef64647c84b75e48cdae0057e76.json.gz",
+          "receipt_sha256": "c2df2a54113ff80e9a8f7784d0c7b036d8fd30ac70fb8a0ccb4994dcd238f2e1",
+          "restoring_shear_uN_at_1N_per_m": null,
+          "normal_force_uN_at_1N_per_m_diagnostic_only": null,
+          "scores": {
+            "prior_default": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            },
+            "published_fit": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            },
+            "held_out": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "h6-x6",
+      "height_id": "h6",
+      "offset_id": "x6",
+      "pairing": "unambiguous",
+      "phase": "held_out",
+      "h_um": 35.1,
+      "x_um": 31.0,
+      "observed_shear_uN": 144.25,
+      "observed_shear_interval_uN": [
+        143.79999999999998,
+        144.70000000000002
+      ],
+      "input_bounds": {
+        "h_um": [
+          33.800000000000004,
+          36.4
+        ],
+        "x_um": [
+          25.8,
+          36.4
+        ]
+      },
+      "mappings": {
+        "published_flat_substrate": {
+          "input": {
+            "lower_diameter_mm": 0.64,
+            "upper_diameter_mm": 0.64,
+            "standoff_mm": 0.0351,
+            "volume_mm3": 0.01181699087727595,
+            "offset_mm": 0.031,
+            "surface_tension_n_m": 1,
+            "density_g_cm3": 9,
+            "gravity": false
+          },
+          "input_sha256": "2115040add4020a8d6c305e2ef908c6cfd6d5286c5812a43cdcbf66b2a80fda2",
+          "status": "engine_error",
+          "error": "Engine reported a numerical or command error. Inspect the captured solver output.",
+          "case": "published_flat_substrate/h6-x6",
+          "receipt": "evidence/physical/prediction-receipts/bc36bb58a70aec94bbf33a41cae0a65a0c3a2ab0ae32d7a053f3d0f71056d281.json.gz",
+          "receipt_sha256": "2040d15e9a76f8bd277d336dfff3cde2f6069fb94323503feedbb7fb4cf5dfe1",
+          "restoring_shear_uN_at_1N_per_m": null,
+          "normal_force_uN_at_1N_per_m_diagnostic_only": null,
+          "scores": {
+            "prior_default": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            },
+            "published_fit": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            },
+            "held_out": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            }
+          }
+        },
+        "literal_copper_rim": {
+          "input": {
+            "lower_diameter_mm": 0.64,
+            "upper_diameter_mm": 0.64,
+            "standoff_mm": 0.025099999999999997,
+            "volume_mm3": 0.0086,
+            "offset_mm": 0.031,
+            "surface_tension_n_m": 1,
+            "density_g_cm3": 9,
+            "gravity": false
+          },
+          "input_sha256": "1495aed4f0ec536fad46660dfb9a78e8da35cde7cb7d175344c91e4512ba49d9",
+          "status": "engine_error",
+          "error": "Engine reported a numerical or command error. Inspect the captured solver output.",
+          "case": "literal_copper_rim/h6-x6",
+          "receipt": "evidence/physical/prediction-receipts/ba303e33d0a01bda14226e84abf9580898c3c715d15195629f48f17e65828a77.json.gz",
+          "receipt_sha256": "a1474aeffe57b19f510c8152c7e6fbaf9f6dfb9ab943f1ffb89a8a92ca746ace",
+          "restoring_shear_uN_at_1N_per_m": null,
+          "normal_force_uN_at_1N_per_m_diagnostic_only": null,
+          "scores": {
+            "prior_default": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            },
+            "published_fit": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            },
+            "held_out": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            }
+          }
+        },
+        "uncorrected_interface_gap": {
+          "input": {
+            "lower_diameter_mm": 0.64,
+            "upper_diameter_mm": 0.64,
+            "standoff_mm": 0.0351,
+            "volume_mm3": 0.0086,
+            "offset_mm": 0.031,
+            "surface_tension_n_m": 1,
+            "density_g_cm3": 9,
+            "gravity": false
+          },
+          "input_sha256": "90611d26ab9bbdea4363a09071511fb1d386db41b1e26015dc4a590a58ce7fa8",
+          "status": "engine_error",
+          "error": "Engine reported a numerical or command error. Inspect the captured solver output.",
+          "case": "uncorrected_interface_gap/h6-x6",
+          "receipt": "evidence/physical/prediction-receipts/85537124c6a351d8928cda29b6e94fab8bff64e2724704801432ea3bc9d50b7f.json.gz",
+          "receipt_sha256": "1990fdac5bf2d4824b85e5cb717061fe1981bd89b1408a626b64a1fa0d6cac91",
+          "restoring_shear_uN_at_1N_per_m": null,
+          "normal_force_uN_at_1N_per_m_diagnostic_only": null,
+          "scores": {
+            "prior_default": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            },
+            "published_fit": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            },
+            "held_out": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "h4-x4",
+      "height_id": "h4",
+      "offset_id": "x4",
+      "pairing": "ambiguous_duplicate",
+      "phase": "held_out",
+      "h_um": 37.2,
+      "x_um": 15.1,
+      "observed_shear_uN": 112.05,
+      "observed_shear_interval_uN": [
+        111.6,
+        112.5
+      ],
+      "input_bounds": {
+        "h_um": [
+          34.900000000000006,
+          39.5
+        ],
+        "x_um": [
+          4.9,
+          25.5
+        ]
+      },
+      "mappings": {
+        "published_flat_substrate": {
+          "input": {
+            "lower_diameter_mm": 0.64,
+            "upper_diameter_mm": 0.64,
+            "standoff_mm": 0.037200000000000004,
+            "volume_mm3": 0.01181699087727595,
+            "offset_mm": 0.015099999999999999,
+            "surface_tension_n_m": 1,
+            "density_g_cm3": 9,
+            "gravity": false
+          },
+          "input_sha256": "5d49d2b0b585350114c4f6bc44d2b8455870da5d34c307d982727032e5c4352a",
+          "status": "refinement_checked",
+          "forces": {
+            "x_uN": -366.1301601863565,
+            "z_uN": -5675.287399201298
+          },
+          "diagnostics": {
+            "volume_relative_error": 1.4335848373770738e-16,
+            "force_change_relative": 5.121497996639461e-05,
+            "force_component_changes": {
+              "x": {
+                "absolute_uN": 0.0019853597931955846,
+                "normalization_uN": 366.1301601863565,
+                "relative": 5.422551892979964e-06,
+                "capillary_relative": 9.874369528218137e-07
+              },
+              "z": {
+                "absolute_uN": 0.29065973045362625,
+                "normalization_uN": 5675.287399201298,
+                "relative": 5.121497996639461e-05,
+                "capillary_relative": 0.00014456229018578912
+              }
+            },
+            "force_normalization": "max(abs(final component), 0.01 * capillary force scale)",
+            "capillary_force_scale_uN": 2010.6192982974678,
+            "negative_eigenvalues": 0,
+            "stationarity_energy_change_relative": 9.1579415912377e-09,
+            "stationarity_threshold_relative": 1e-07,
+            "force_change_threshold_relative": 0.01,
+            "mesh_volume_error_relative": 9.3958645505543e-05,
+            "finite_difference_displacement_mm": {
+              "x": 3.2000000000000003e-06,
+              "z": 3.7200000000000005e-07
+            },
+            "solver_termination": "completed",
+            "warnings": [],
+            "additional_refinement_reason": [
+              "Additional relaxation changed energy by more than 1e-7 relative."
+            ],
+            "initial_refinement_check": {
+              "status": "not_converged",
+              "force_change_relative": 0.0007722267994015299,
+              "stationarity_energy_change_relative": 2.855716672020283e-07,
+              "mesh_volume_error_relative": 0.00037550556787180334
+            }
+          },
+          "levels": [
+            {
+              "level": 0,
+              "facets": 432,
+              "force_x_uN": -366.1622070792736,
+              "force_z_uN": -5670.614354902109,
+              "energy_erg": 0.7844729095818188,
+              "volume_mm3": 0.011816990877275953,
+              "volume_relative_error": 2.8671696747541476e-16,
+              "negative_eigenvalues": 0,
+              "stationarity_energy_change_erg": 8.984393889410747e-06,
+              "stationarity_energy_change_relative": 1.145277775646846e-05
+            },
+            {
+              "level": 1,
+              "facets": 1632,
+              "force_x_uN": -366.1321455461497,
+              "force_z_uN": -5674.996739470845,
+              "energy_erg": 0.7844931275493336,
+              "volume_mm3": 0.011816990877275951,
+              "volume_relative_error": 1.4335848373770738e-16,
+              "negative_eigenvalues": 0,
+              "stationarity_energy_change_erg": 2.2402901034279665e-07,
+              "stationarity_energy_change_relative": 2.855716672020283e-07
+            },
+            {
+              "level": 2,
+              "facets": 6336,
+              "force_x_uN": -366.1301601863565,
+              "force_z_uN": -5675.287399201298,
+              "energy_erg": 0.7844944843945952,
+              "volume_mm3": 0.011816990877275951,
+              "volume_relative_error": 1.4335848373770738e-16,
+              "negative_eigenvalues": 0,
+              "stationarity_energy_change_erg": 7.184354666733839e-09,
+              "stationarity_energy_change_relative": 9.1579415912377e-09
+            }
+          ],
+          "mesh_checks": {
+            "closed": true,
+            "oriented": true,
+            "nondegenerate": true,
+            "volume_mm3": 0.01181588056881917,
+            "vertices": 12482,
+            "triangles": 24960,
+            "edges": 37440,
+            "euler_characteristic": 2,
+            "minimum_triangle_area_mm2": 4.3311240305991723e-07,
+            "volume_relative_error": 9.3958645505543e-05,
+            "self_intersections_checked": false
+          },
+          "case": "published_flat_substrate/h4-x4",
+          "receipt": "evidence/physical/prediction-receipts/2c6c8522185676335a74696abdce16f7ac4a625dca27c886494ff7d5268a578e.json.gz",
+          "receipt_sha256": "2bbc42320cf3b097067eab6d61decea77f3bd0912340635048af736821352d7c",
+          "restoring_shear_uN_at_1N_per_m": 366.1301601863565,
+          "normal_force_uN_at_1N_per_m_diagnostic_only": -5675.287399201298,
+          "scores": {
+            "prior_default": {
+              "status": "scored",
+              "gamma_N_per_m": 0.48,
+              "predicted_shear_uN": 175.7424768894511,
+              "error_uN": 63.6924768894511,
+              "absolute_error_uN": 63.6924768894511,
+              "relative_error": 0.5684290663940303,
+              "restoring_direction": true
+            },
+            "published_fit": {
+              "status": "scored",
+              "gamma_N_per_m": 0.4,
+              "predicted_shear_uN": 146.4520640745426,
+              "error_uN": 34.402064074542594,
+              "absolute_error_uN": 34.402064074542594,
+              "relative_error": 0.3070242219950254,
+              "restoring_direction": true
+            },
+            "held_out": {
+              "status": "inconclusive",
+              "numerical_status": "refinement_checked"
+            }
+          }
+        },
+        "literal_copper_rim": {
+          "input": {
+            "lower_diameter_mm": 0.64,
+            "upper_diameter_mm": 0.64,
+            "standoff_mm": 0.027200000000000002,
+            "volume_mm3": 0.0086,
+            "offset_mm": 0.015099999999999999,
+            "surface_tension_n_m": 1,
+            "density_g_cm3": 9,
+            "gravity": false
+          },
+          "input_sha256": "98ebe388a87ed0c3e34a9e1ffcd94e1c5618ea79f7641e46f157db4004bcdba0",
+          "status": "refinement_checked",
+          "forces": {
+            "x_uN": -434.42581939764915,
+            "z_uN": -11317.793146481565
+          },
+          "diagnostics": {
+            "volume_relative_error": 1.9698440633820936e-16,
+            "force_change_relative": 3.274231166449824e-05,
+            "force_component_changes": {
+              "x": {
+                "absolute_uN": 0.005303826822114388,
+                "normalization_uN": 434.42581939764915,
+                "relative": 1.220882043675116e-05,
+                "capillary_relative": 2.637907050134011e-06
+              },
+              "z": {
+                "absolute_uN": 0.37057071055642155,
+                "normalization_uN": 11317.793146481565,
+                "relative": 3.274231166449824e-05,
+                "capillary_relative": 0.00018430675109415776
+              }
+            },
+            "force_normalization": "max(abs(final component), 0.01 * capillary force scale)",
+            "capillary_force_scale_uN": 2010.6192982974678,
+            "negative_eigenvalues": 0,
+            "stationarity_energy_change_relative": 3.87586572875839e-08,
+            "stationarity_threshold_relative": 1e-07,
+            "force_change_threshold_relative": 0.01,
+            "mesh_volume_error_relative": 9.076038240574125e-05,
+            "finite_difference_displacement_mm": {
+              "x": 3.2000000000000003e-06,
+              "z": 2.7200000000000005e-07
+            },
+            "solver_termination": "completed",
+            "warnings": [],
+            "additional_refinement_reason": [
+              "Additional relaxation changed energy by more than 1e-7 relative."
+            ],
+            "initial_refinement_check": {
+              "status": "not_converged",
+              "force_change_relative": 0.0003520231361694459,
+              "stationarity_energy_change_relative": 1.8442493071341138e-06,
+              "mesh_volume_error_relative": 0.0003623580674675386
+            }
+          },
+          "levels": [
+            {
+              "level": 0,
+              "facets": 432,
+              "force_x_uN": -434.5030485269907,
+              "force_z_uN": -11313.43858118253,
+              "energy_erg": 0.6078782575782712,
+              "volume_mm3": 0.008599999999999997,
+              "volume_relative_error": 3.939688126764187e-16,
+              "negative_eigenvalues": 0,
+              "stationarity_energy_change_erg": 0.0036085097263764965,
+              "stationarity_energy_change_relative": 0.0059362375301140954
+            },
+            {
+              "level": 1,
+              "facets": 1632,
+              "force_x_uN": -434.43112322447126,
+              "force_z_uN": -11317.422575771008,
+              "energy_erg": 0.6078932254460736,
+              "volume_mm3": 0.008600000000000002,
+              "volume_relative_error": 1.9698440633820936e-16,
+              "negative_eigenvalues": 0,
+              "stationarity_energy_change_erg": 1.1211066598404429e-06,
+              "stationarity_energy_change_relative": 1.8442493071341138e-06
+            },
+            {
+              "level": 2,
+              "facets": 6336,
+              "force_x_uN": -434.42581939764915,
+              "force_z_uN": -11317.793146481565,
+              "energy_erg": 0.6078950779591256,
+              "volume_mm3": 0.008600000000000002,
+              "volume_relative_error": 1.9698440633820936e-16,
+              "negative_eigenvalues": 0,
+              "stationarity_energy_change_erg": 2.3561196993426847e-08,
+              "stationarity_energy_change_relative": 3.87586572875839e-08
+            }
+          ],
+          "mesh_checks": {
+            "closed": true,
+            "oriented": true,
+            "nondegenerate": true,
+            "volume_mm3": 0.008599219460711311,
+            "vertices": 12482,
+            "triangles": 24960,
+            "edges": 37440,
+            "euler_characteristic": 2,
+            "minimum_triangle_area_mm2": 2.93076422409594e-07,
+            "volume_relative_error": 9.076038240574125e-05,
+            "self_intersections_checked": false
+          },
+          "case": "literal_copper_rim/h4-x4",
+          "receipt": "evidence/physical/prediction-receipts/d9d6b50b68a4098d45d3bdce82c1a1a228e9cd2e75f39561f90c7318cf205682.json.gz",
+          "receipt_sha256": "cb4cdde03fdc89a5a054e6c38ed2f0166514fb7ee531c888c9ea1799b7962a79",
+          "restoring_shear_uN_at_1N_per_m": 434.42581939764915,
+          "normal_force_uN_at_1N_per_m_diagnostic_only": -11317.793146481565,
+          "scores": {
+            "prior_default": {
+              "status": "scored",
+              "gamma_N_per_m": 0.48,
+              "predicted_shear_uN": 208.52439331087157,
+              "error_uN": 96.47439331087158,
+              "absolute_error_uN": 96.47439331087158,
+              "relative_error": 0.8609941393205852,
+              "restoring_direction": true
+            },
+            "published_fit": {
+              "status": "scored",
+              "gamma_N_per_m": 0.4,
+              "predicted_shear_uN": 173.77032775905968,
+              "error_uN": 61.720327759059685,
+              "absolute_error_uN": 61.720327759059685,
+              "relative_error": 0.5508284494338214,
+              "restoring_direction": true
+            },
+            "held_out": {
+              "status": "inconclusive",
+              "numerical_status": "refinement_checked"
+            }
+          }
+        },
+        "uncorrected_interface_gap": {
+          "input": {
+            "lower_diameter_mm": 0.64,
+            "upper_diameter_mm": 0.64,
+            "standoff_mm": 0.037200000000000004,
+            "volume_mm3": 0.0086,
+            "offset_mm": 0.015099999999999999,
+            "surface_tension_n_m": 1,
+            "density_g_cm3": 9,
+            "gravity": false
+          },
+          "input_sha256": "81939a1d58a8ac8c6d6b4c68da311ccbcd7f6de26d1c9b0ed9de68225cc496e5",
+          "status": "engine_error",
+          "error": "Engine reported a numerical or command error. Inspect the captured solver output.",
+          "case": "uncorrected_interface_gap/h4-x4",
+          "receipt": "evidence/physical/prediction-receipts/df0002b9e92b0861769cf3605d8d814d6e97a65f6e22adedd00df47ae339dc82.json.gz",
+          "receipt_sha256": "9ace7bd77cf28011e11a5d8dd0f0f6ebb94f1e4f40a0bc2ad1115c09334a64de",
+          "restoring_shear_uN_at_1N_per_m": null,
+          "normal_force_uN_at_1N_per_m_diagnostic_only": null,
+          "scores": {
+            "prior_default": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            },
+            "published_fit": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            },
+            "held_out": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "h5-x5",
+      "height_id": "h5",
+      "offset_id": "x5",
+      "pairing": "ambiguous_duplicate",
+      "phase": "held_out",
+      "h_um": 34.2,
+      "x_um": 9.3,
+      "observed_shear_uN": 112.0,
+      "observed_shear_interval_uN": [
+        111.5,
+        112.5
+      ],
+      "input_bounds": {
+        "h_um": [
+          32.900000000000006,
+          35.5
+        ],
+        "x_um": [
+          5.9,
+          12.600000000000001
+        ]
+      },
+      "mappings": {
+        "published_flat_substrate": {
+          "input": {
+            "lower_diameter_mm": 0.64,
+            "upper_diameter_mm": 0.64,
+            "standoff_mm": 0.0342,
+            "volume_mm3": 0.01181699087727595,
+            "offset_mm": 0.009300000000000001,
+            "surface_tension_n_m": 1,
+            "density_g_cm3": 9,
+            "gravity": false
+          },
+          "input_sha256": "4e4b3cbc7c1eb123edf6098c1c08ea9a655886dbbcdcdc44627efe74e7d36a01",
+          "status": "engine_error",
+          "error": "Engine reported a numerical or command error. Inspect the captured solver output.",
+          "case": "published_flat_substrate/h5-x5",
+          "receipt": "evidence/physical/prediction-receipts/f8ead956d7b6e64c482848ed77f7cd8c8306ffbe6aa294afb7cb0f62d14d9755.json.gz",
+          "receipt_sha256": "2e24cd79174ae327849163ff5e795af2927856138caa87fb817b0313457f7cbd",
+          "restoring_shear_uN_at_1N_per_m": null,
+          "normal_force_uN_at_1N_per_m_diagnostic_only": null,
+          "scores": {
+            "prior_default": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            },
+            "published_fit": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            },
+            "held_out": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            }
+          }
+        },
+        "literal_copper_rim": {
+          "input": {
+            "lower_diameter_mm": 0.64,
+            "upper_diameter_mm": 0.64,
+            "standoff_mm": 0.0242,
+            "volume_mm3": 0.0086,
+            "offset_mm": 0.009300000000000001,
+            "surface_tension_n_m": 1,
+            "density_g_cm3": 9,
+            "gravity": false
+          },
+          "input_sha256": "3cdcd403bf0aafc2117838d5566ecef429777a4a4d78c02c6a72c1b68f66ee8e",
+          "status": "engine_error",
+          "error": "Engine reported a numerical or command error. Inspect the captured solver output.",
+          "case": "literal_copper_rim/h5-x5",
+          "receipt": "evidence/physical/prediction-receipts/697abdc6a8bb9caf0f195be3d3520c7a8495d96e549757c910eecc8bf3ac3d6f.json.gz",
+          "receipt_sha256": "0a8881272c37fcad8fee8926f6dcffa438b1437f930217cf05ce53cd3ca1d203",
+          "restoring_shear_uN_at_1N_per_m": null,
+          "normal_force_uN_at_1N_per_m_diagnostic_only": null,
+          "scores": {
+            "prior_default": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            },
+            "published_fit": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            },
+            "held_out": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            }
+          }
+        },
+        "uncorrected_interface_gap": {
+          "input": {
+            "lower_diameter_mm": 0.64,
+            "upper_diameter_mm": 0.64,
+            "standoff_mm": 0.0342,
+            "volume_mm3": 0.0086,
+            "offset_mm": 0.009300000000000001,
+            "surface_tension_n_m": 1,
+            "density_g_cm3": 9,
+            "gravity": false
+          },
+          "input_sha256": "e823cd22034d632b3748fc45604bd81f08f0ceee62cc77f18e92858c2f57eba8",
+          "status": "engine_error",
+          "error": "Engine reported a numerical or command error. Inspect the captured solver output.",
+          "case": "uncorrected_interface_gap/h5-x5",
+          "receipt": "evidence/physical/prediction-receipts/b3036e877efe84f7f77b61379c586caad83add7f28d8158726d2b186d2352cdc.json.gz",
+          "receipt_sha256": "6df46a398f1c046a8f14e968584823994c2a1c1e91c760b398353dc8a6af9128",
+          "restoring_shear_uN_at_1N_per_m": null,
+          "normal_force_uN_at_1N_per_m_diagnostic_only": null,
+          "scores": {
+            "prior_default": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            },
+            "published_fit": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            },
+            "held_out": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "h4-x5",
+      "height_id": "h4",
+      "offset_id": "x5",
+      "pairing": "ambiguous_duplicate",
+      "phase": "held_out",
+      "h_um": 37.2,
+      "x_um": 9.3,
+      "observed_shear_uN": 112.0,
+      "observed_shear_interval_uN": [
+        111.5,
+        112.5
+      ],
+      "input_bounds": {
+        "h_um": [
+          34.900000000000006,
+          39.5
+        ],
+        "x_um": [
+          5.9,
+          12.600000000000001
+        ]
+      },
+      "mappings": {
+        "published_flat_substrate": {
+          "input": {
+            "lower_diameter_mm": 0.64,
+            "upper_diameter_mm": 0.64,
+            "standoff_mm": 0.037200000000000004,
+            "volume_mm3": 0.01181699087727595,
+            "offset_mm": 0.009300000000000001,
+            "surface_tension_n_m": 1,
+            "density_g_cm3": 9,
+            "gravity": false
+          },
+          "input_sha256": "84eef85b8a70a310e115e8763df1088fadc8ecc8a02f497570627c8e35d3aa48",
+          "status": "refinement_checked",
+          "forces": {
+            "x_uN": -232.41438506550747,
+            "z_uN": -6084.376885994324
+          },
+          "diagnostics": {
+            "volume_relative_error": 0.0,
+            "force_change_relative": 5.142340093635388e-05,
+            "force_component_changes": {
+              "x": {
+                "absolute_uN": 0.0013661207582060797,
+                "normalization_uN": 232.41438506550747,
+                "relative": 5.877952682752532e-06,
+                "capillary_relative": 6.794527235279547e-07
+              },
+              "z": {
+                "absolute_uN": 0.3128793520563704,
+                "normalization_uN": 6084.376885994324,
+                "relative": 5.142340093635388e-05,
+                "capillary_relative": 0.00015561342334737723
+              }
+            },
+            "force_normalization": "max(abs(final component), 0.01 * capillary force scale)",
+            "capillary_force_scale_uN": 2010.6192982974678,
+            "negative_eigenvalues": 0,
+            "stationarity_energy_change_relative": 1.0968009752110488e-08,
+            "stationarity_threshold_relative": 1e-07,
+            "force_change_threshold_relative": 0.01,
+            "mesh_volume_error_relative": 9.243908405975887e-05,
+            "finite_difference_displacement_mm": {
+              "x": 3.2000000000000003e-06,
+              "z": 3.7200000000000005e-07
+            },
+            "solver_termination": "completed",
+            "warnings": [],
+            "additional_refinement_reason": [
+              "Additional relaxation changed energy by more than 1e-7 relative."
+            ],
+            "initial_refinement_check": {
+              "status": "not_converged",
+              "force_change_relative": 0.0007861795927266561,
+              "stationarity_energy_change_relative": 3.19206833061819e-07,
+              "mesh_volume_error_relative": 0.0003694632461072045
+            }
+          },
+          "levels": [
+            {
+              "level": 0,
+              "facets": 432,
+              "force_x_uN": -232.43645044107583,
+              "force_z_uN": -6079.280839679403,
+              "energy_erg": 0.7670555577083005,
+              "volume_mm3": 0.011816990877275953,
+              "volume_relative_error": 2.8671696747541476e-16,
+              "negative_eigenvalues": 0,
+              "stationarity_energy_change_erg": 1.0521680444353088e-05,
+              "stationarity_energy_change_relative": 1.3716973090956108e-05
+            },
+            {
+              "level": 1,
+              "facets": 1632,
+              "force_x_uN": -232.41575118626568,
+              "force_z_uN": -6084.0640066422675,
+              "energy_erg": 0.7670774103205635,
+              "volume_mm3": 0.01181699087727595,
+              "volume_relative_error": 0.0,
+              "negative_eigenvalues": 0,
+              "stationarity_energy_change_erg": 2.4485635086168855e-07,
+              "stationarity_energy_change_relative": 3.19206833061819e-07
+            },
+            {
+              "level": 2,
+              "facets": 6336,
+              "force_x_uN": -232.41438506550747,
+              "force_z_uN": -6084.376885994324,
+              "energy_erg": 0.7670788757043112,
+              "volume_mm3": 0.01181699087727595,
+              "volume_relative_error": 0.0,
+              "negative_eigenvalues": 0,
+              "stationarity_energy_change_erg": 8.413328589362834e-09,
+              "stationarity_energy_change_relative": 1.0968009752110488e-08
+            }
+          ],
+          "mesh_checks": {
+            "closed": true,
+            "oriented": true,
+            "nondegenerate": true,
+            "volume_mm3": 0.011815898525462911,
+            "vertices": 12482,
+            "triangles": 24960,
+            "edges": 37440,
+            "euler_characteristic": 2,
+            "minimum_triangle_area_mm2": 4.3852581971145677e-07,
+            "volume_relative_error": 9.243908405975887e-05,
+            "self_intersections_checked": false
+          },
+          "case": "published_flat_substrate/h4-x5",
+          "receipt": "evidence/physical/prediction-receipts/4e4a57eea9cd551497413d9e3b5fbd4613033335a502ccccb458c55eb9b32346.json.gz",
+          "receipt_sha256": "582b8b221497098c04e297918a6d770c45e154cc9616766b4aa40cf8a235fe15",
+          "restoring_shear_uN_at_1N_per_m": 232.41438506550747,
+          "normal_force_uN_at_1N_per_m_diagnostic_only": -6084.376885994324,
+          "scores": {
+            "prior_default": {
+              "status": "scored",
+              "gamma_N_per_m": 0.48,
+              "predicted_shear_uN": 111.55890483144358,
+              "error_uN": -0.44109516855641573,
+              "absolute_error_uN": 0.44109516855641573,
+              "relative_error": -0.003938349719253712,
+              "restoring_direction": true
+            },
+            "published_fit": {
+              "status": "scored",
+              "gamma_N_per_m": 0.4,
+              "predicted_shear_uN": 92.965754026203,
+              "error_uN": -19.034245973797,
+              "absolute_error_uN": 19.034245973797,
+              "relative_error": -0.16994862476604464,
+              "restoring_direction": true
+            },
+            "held_out": {
+              "status": "inconclusive",
+              "numerical_status": "refinement_checked"
+            }
+          }
+        },
+        "literal_copper_rim": {
+          "input": {
+            "lower_diameter_mm": 0.64,
+            "upper_diameter_mm": 0.64,
+            "standoff_mm": 0.027200000000000002,
+            "volume_mm3": 0.0086,
+            "offset_mm": 0.009300000000000001,
+            "surface_tension_n_m": 1,
+            "density_g_cm3": 9,
+            "gravity": false
+          },
+          "input_sha256": "fabfc7ce6d202ca203fe264b8b44887cc799cff872682dcd06bbd285990d9c97",
+          "status": "refinement_checked",
+          "forces": {
+            "x_uN": -277.67701528923214,
+            "z_uN": -12713.925243810467
+          },
+          "diagnostics": {
+            "volume_relative_error": 1.9698440633820936e-16,
+            "force_change_relative": 3.7133546715674114e-05,
+            "force_component_changes": {
+              "x": {
+                "absolute_uN": 0.00414675412065435,
+                "normalization_uN": 277.67701528923214,
+                "relative": 1.493373197034344e-05,
+                "capillary_relative": 2.06242630027758e-06
+              },
+              "z": {
+                "absolute_uN": 0.4721131369806244,
+                "normalization_uN": 12713.925243810467,
+                "relative": 3.7133546715674114e-05,
+                "capillary_relative": 0.0002348098107783983
+              }
+            },
+            "force_normalization": "max(abs(final component), 0.01 * capillary force scale)",
+            "capillary_force_scale_uN": 2010.6192982974678,
+            "negative_eigenvalues": 0,
+            "stationarity_energy_change_relative": 1.4852693303600567e-08,
+            "stationarity_threshold_relative": 1e-07,
+            "force_change_threshold_relative": 0.01,
+            "mesh_volume_error_relative": 9.120328261991162e-05,
+            "finite_difference_displacement_mm": {
+              "x": 3.2000000000000003e-06,
+              "z": 2.7200000000000005e-07
+            },
+            "solver_termination": "completed",
+            "warnings": [],
+            "additional_refinement_reason": [
+              "Additional relaxation changed energy by more than 1e-7 relative."
+            ],
+            "initial_refinement_check": {
+              "status": "not_converged",
+              "force_change_relative": 0.0005828491483864458,
+              "stationarity_energy_change_relative": 7.20051710837772e-07,
+              "mesh_volume_error_relative": 0.0003644470157223578
+            }
+          },
+          "levels": [
+            {
+              "level": 0,
+              "facets": 432,
+              "force_x_uN": -277.7414896196206,
+              "force_z_uN": -12706.043105343222,
+              "energy_erg": 0.5871266440610021,
+              "volume_mm3": 0.008600000000000003,
+              "volume_relative_error": 3.939688126764187e-16,
+              "negative_eigenvalues": 0,
+              "stationarity_energy_change_erg": 1.1555893085546387e-05,
+              "stationarity_energy_change_relative": 1.968211322452901e-05
+            },
+            {
+              "level": 1,
+              "facets": 1632,
+              "force_x_uN": -277.6811620433528,
+              "force_z_uN": -12713.453130673486,
+              "energy_erg": 0.587161252028077,
+              "volume_mm3": 0.008600000000000002,
+              "volume_relative_error": 1.9698440633820936e-16,
+              "negative_eigenvalues": 0,
+              "stationarity_energy_change_erg": 4.2278646406046505e-07,
+              "stationarity_energy_change_relative": 7.20051710837772e-07
+            },
+            {
+              "level": 2,
+              "facets": 6336,
+              "force_x_uN": -277.67701528923214,
+              "force_z_uN": -12713.925243810467,
+              "energy_erg": 0.5871637252236771,
+              "volume_mm3": 0.008600000000000002,
+              "volume_relative_error": 1.9698440633820936e-16,
+              "negative_eigenvalues": 0,
+              "stationarity_energy_change_erg": 8.720962729746873e-09,
+              "stationarity_energy_change_relative": 1.4852693303600567e-08
+            }
+          ],
+          "mesh_checks": {
+            "closed": true,
+            "oriented": true,
+            "nondegenerate": true,
+            "volume_mm3": 0.008599215651769469,
+            "vertices": 12482,
+            "triangles": 24960,
+            "edges": 37440,
+            "euler_characteristic": 2,
+            "minimum_triangle_area_mm2": 2.989798890075173e-07,
+            "volume_relative_error": 9.120328261991162e-05,
+            "self_intersections_checked": false
+          },
+          "case": "literal_copper_rim/h4-x5",
+          "receipt": "evidence/physical/prediction-receipts/6f13e54c0a01d81d224b311de54654597e14324a10aa70dccac2d1268d4fd79d.json.gz",
+          "receipt_sha256": "96a2452b3d43fda613276bb834ac2568d69d794376371a668b1d7f6c394bfb18",
+          "restoring_shear_uN_at_1N_per_m": 277.67701528923214,
+          "normal_force_uN_at_1N_per_m_diagnostic_only": -12713.925243810467,
+          "scores": {
+            "prior_default": {
+              "status": "scored",
+              "gamma_N_per_m": 0.48,
+              "predicted_shear_uN": 133.28496733883142,
+              "error_uN": 21.28496733883142,
+              "absolute_error_uN": 21.28496733883142,
+              "relative_error": 0.19004435123956626,
+              "restoring_direction": true
+            },
+            "published_fit": {
+              "status": "scored",
+              "gamma_N_per_m": 0.4,
+              "predicted_shear_uN": 111.07080611569286,
+              "error_uN": -0.9291938843071392,
+              "absolute_error_uN": 0.9291938843071392,
+              "relative_error": -0.008296373967028028,
+              "restoring_direction": true
+            },
+            "held_out": {
+              "status": "inconclusive",
+              "numerical_status": "refinement_checked"
+            }
+          }
+        },
+        "uncorrected_interface_gap": {
+          "input": {
+            "lower_diameter_mm": 0.64,
+            "upper_diameter_mm": 0.64,
+            "standoff_mm": 0.037200000000000004,
+            "volume_mm3": 0.0086,
+            "offset_mm": 0.009300000000000001,
+            "surface_tension_n_m": 1,
+            "density_g_cm3": 9,
+            "gravity": false
+          },
+          "input_sha256": "e4e39f47e4e166757e69cb1c458f74dbcba71025db04ca7933dd5ec6c84dd710",
+          "status": "engine_error",
+          "error": "Engine reported a numerical or command error. Inspect the captured solver output.",
+          "case": "uncorrected_interface_gap/h4-x5",
+          "receipt": "evidence/physical/prediction-receipts/f4c27c235fa19d0575c03904678c6707c3dc470f6ed1785b3d269c74ca1df385.json.gz",
+          "receipt_sha256": "2eb799aeaf6f0cac02c2c73590be1842f8eab3e64bf1996a2a2dcbcbd4ac6473",
+          "restoring_shear_uN_at_1N_per_m": null,
+          "normal_force_uN_at_1N_per_m_diagnostic_only": null,
+          "scores": {
+            "prior_default": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            },
+            "published_fit": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            },
+            "held_out": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "h5-x4",
+      "height_id": "h5",
+      "offset_id": "x4",
+      "pairing": "ambiguous_duplicate",
+      "phase": "held_out",
+      "h_um": 34.2,
+      "x_um": 15.1,
+      "observed_shear_uN": 112.05,
+      "observed_shear_interval_uN": [
+        111.6,
+        112.5
+      ],
+      "input_bounds": {
+        "h_um": [
+          32.900000000000006,
+          35.5
+        ],
+        "x_um": [
+          4.9,
+          25.5
+        ]
+      },
+      "mappings": {
+        "published_flat_substrate": {
+          "input": {
+            "lower_diameter_mm": 0.64,
+            "upper_diameter_mm": 0.64,
+            "standoff_mm": 0.0342,
+            "volume_mm3": 0.01181699087727595,
+            "offset_mm": 0.015099999999999999,
+            "surface_tension_n_m": 1,
+            "density_g_cm3": 9,
+            "gravity": false
+          },
+          "input_sha256": "c5e8127340490ce3f101448d881a5f7873ac4d614d2d9081dbb6bfff776c174b",
+          "status": "engine_error",
+          "error": "Engine reported a numerical or command error. Inspect the captured solver output.",
+          "case": "published_flat_substrate/h5-x4",
+          "receipt": "evidence/physical/prediction-receipts/a6ace242461911952c80e1f3f599ad7c00f35088b6032ccc29762cc48682bca3.json.gz",
+          "receipt_sha256": "570357e3e89e3ab312214b4034d34bd4536e128102ca5c102ae3ffe247b81754",
+          "restoring_shear_uN_at_1N_per_m": null,
+          "normal_force_uN_at_1N_per_m_diagnostic_only": null,
+          "scores": {
+            "prior_default": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            },
+            "published_fit": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            },
+            "held_out": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            }
+          }
+        },
+        "literal_copper_rim": {
+          "input": {
+            "lower_diameter_mm": 0.64,
+            "upper_diameter_mm": 0.64,
+            "standoff_mm": 0.0242,
+            "volume_mm3": 0.0086,
+            "offset_mm": 0.015099999999999999,
+            "surface_tension_n_m": 1,
+            "density_g_cm3": 9,
+            "gravity": false
+          },
+          "input_sha256": "5c4dca33b7e078d324376197e54a147a13c473be414c1976733ecded369bc2f0",
+          "status": "engine_error",
+          "error": "Engine reported a numerical or command error. Inspect the captured solver output.",
+          "case": "literal_copper_rim/h5-x4",
+          "receipt": "evidence/physical/prediction-receipts/f55bee075b708a07f438e9d34f4c50fcf2f15c738cac65065125139a25c57a16.json.gz",
+          "receipt_sha256": "9625e41c8db1314a9d8dea344e358f6ca576b53171aab1e58a1753fbbee18a76",
+          "restoring_shear_uN_at_1N_per_m": null,
+          "normal_force_uN_at_1N_per_m_diagnostic_only": null,
+          "scores": {
+            "prior_default": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            },
+            "published_fit": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            },
+            "held_out": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            }
+          }
+        },
+        "uncorrected_interface_gap": {
+          "input": {
+            "lower_diameter_mm": 0.64,
+            "upper_diameter_mm": 0.64,
+            "standoff_mm": 0.0342,
+            "volume_mm3": 0.0086,
+            "offset_mm": 0.015099999999999999,
+            "surface_tension_n_m": 1,
+            "density_g_cm3": 9,
+            "gravity": false
+          },
+          "input_sha256": "e91acf31eab04f73c4c66e92566b3de92a1b588653c85ef8483d96a2a35f7590",
+          "status": "engine_error",
+          "error": "Engine reported a numerical or command error. Inspect the captured solver output.",
+          "case": "uncorrected_interface_gap/h5-x4",
+          "receipt": "evidence/physical/prediction-receipts/cda6c9212ff099abb93fd5ebb04eeb6e9fcaf86bd2986480557ebed3257ae00d.json.gz",
+          "receipt_sha256": "b15ac73b27583b50681e81118aac56f21a13a310c92fd2e30ad2307f00e135fc",
+          "restoring_shear_uN_at_1N_per_m": null,
+          "normal_force_uN_at_1N_per_m_diagnostic_only": null,
+          "scores": {
+            "prior_default": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            },
+            "published_fit": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            },
+            "held_out": {
+              "status": "inconclusive",
+              "numerical_status": "engine_error"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "aggregates": {
+    "duplicate_pairing_1": {
+      "published_flat_substrate": {
+        "prior_default": {
+          "all": {
+            "scored": 3,
+            "inconclusive": 3,
+            "MAE_uN": 23.87585191902276,
+            "RMSE_uN": 37.04332404443697,
+            "maximum_absolute_error_uN": 63.6924768894511,
+            "incomplete": true
+          },
+          "calibration": {
+            "scored": 2,
+            "inconclusive": 1,
+            "MAE_uN": 3.9675394338085868,
+            "RMSE_uN": 5.472291863114799,
+            "maximum_absolute_error_uN": 7.736439681398894,
+            "incomplete": true
+          },
+          "held_out": {
+            "scored": 1,
+            "inconclusive": 2,
+            "MAE_uN": 63.6924768894511,
+            "RMSE_uN": 63.6924768894511,
+            "maximum_absolute_error_uN": 63.6924768894511,
+            "incomplete": true
+          }
+        },
+        "published_fit": {
+          "all": {
+            "scored": 3,
+            "inconclusive": 3,
+            "MAE_uN": 17.21876548807452,
+            "RMSE_uN": 21.077495099399734,
+            "maximum_absolute_error_uN": 34.402064074542594,
+            "incomplete": true
+          },
+          "calibration": {
+            "scored": 2,
+            "inconclusive": 1,
+            "MAE_uN": 8.627116194840484,
+            "RMSE_uN": 8.639455608043988,
+            "maximum_absolute_error_uN": 9.088699734499077,
+            "incomplete": true
+          },
+          "held_out": {
+            "scored": 1,
+            "inconclusive": 2,
+            "MAE_uN": 34.402064074542594,
+            "RMSE_uN": 34.402064074542594,
+            "maximum_absolute_error_uN": 34.402064074542594,
+            "incomplete": true
+          }
+        },
+        "held_out": {
+          "all": {
+            "scored": 0,
+            "inconclusive": 6,
+            "MAE_uN": null,
+            "RMSE_uN": null,
+            "maximum_absolute_error_uN": null,
+            "incomplete": true
+          },
+          "calibration": {
+            "scored": 0,
+            "inconclusive": 3,
+            "MAE_uN": null,
+            "RMSE_uN": null,
+            "maximum_absolute_error_uN": null,
+            "incomplete": true
+          },
+          "held_out": {
+            "scored": 0,
+            "inconclusive": 3,
+            "MAE_uN": null,
+            "RMSE_uN": null,
+            "maximum_absolute_error_uN": null,
+            "incomplete": true
+          }
+        }
+      },
+      "literal_copper_rim": {
+        "prior_default": {
+          "all": {
+            "scored": 1,
+            "inconclusive": 5,
+            "MAE_uN": 96.47439331087158,
+            "RMSE_uN": 96.47439331087158,
+            "maximum_absolute_error_uN": 96.47439331087158,
+            "incomplete": true
+          },
+          "calibration": {
+            "scored": 0,
+            "inconclusive": 3,
+            "MAE_uN": null,
+            "RMSE_uN": null,
+            "maximum_absolute_error_uN": null,
+            "incomplete": true
+          },
+          "held_out": {
+            "scored": 1,
+            "inconclusive": 2,
+            "MAE_uN": 96.47439331087158,
+            "RMSE_uN": 96.47439331087158,
+            "maximum_absolute_error_uN": 96.47439331087158,
+            "incomplete": true
+          }
+        },
+        "published_fit": {
+          "all": {
+            "scored": 1,
+            "inconclusive": 5,
+            "MAE_uN": 61.720327759059685,
+            "RMSE_uN": 61.720327759059685,
+            "maximum_absolute_error_uN": 61.720327759059685,
+            "incomplete": true
+          },
+          "calibration": {
+            "scored": 0,
+            "inconclusive": 3,
+            "MAE_uN": null,
+            "RMSE_uN": null,
+            "maximum_absolute_error_uN": null,
+            "incomplete": true
+          },
+          "held_out": {
+            "scored": 1,
+            "inconclusive": 2,
+            "MAE_uN": 61.720327759059685,
+            "RMSE_uN": 61.720327759059685,
+            "maximum_absolute_error_uN": 61.720327759059685,
+            "incomplete": true
+          }
+        },
+        "held_out": {
+          "all": {
+            "scored": 0,
+            "inconclusive": 6,
+            "MAE_uN": null,
+            "RMSE_uN": null,
+            "maximum_absolute_error_uN": null,
+            "incomplete": true
+          },
+          "calibration": {
+            "scored": 0,
+            "inconclusive": 3,
+            "MAE_uN": null,
+            "RMSE_uN": null,
+            "maximum_absolute_error_uN": null,
+            "incomplete": true
+          },
+          "held_out": {
+            "scored": 0,
+            "inconclusive": 3,
+            "MAE_uN": null,
+            "RMSE_uN": null,
+            "maximum_absolute_error_uN": null,
+            "incomplete": true
+          }
+        }
+      },
+      "uncorrected_interface_gap": {
+        "prior_default": {
+          "all": {
+            "scored": 0,
+            "inconclusive": 6,
+            "MAE_uN": null,
+            "RMSE_uN": null,
+            "maximum_absolute_error_uN": null,
+            "incomplete": true
+          },
+          "calibration": {
+            "scored": 0,
+            "inconclusive": 3,
+            "MAE_uN": null,
+            "RMSE_uN": null,
+            "maximum_absolute_error_uN": null,
+            "incomplete": true
+          },
+          "held_out": {
+            "scored": 0,
+            "inconclusive": 3,
+            "MAE_uN": null,
+            "RMSE_uN": null,
+            "maximum_absolute_error_uN": null,
+            "incomplete": true
+          }
+        },
+        "published_fit": {
+          "all": {
+            "scored": 0,
+            "inconclusive": 6,
+            "MAE_uN": null,
+            "RMSE_uN": null,
+            "maximum_absolute_error_uN": null,
+            "incomplete": true
+          },
+          "calibration": {
+            "scored": 0,
+            "inconclusive": 3,
+            "MAE_uN": null,
+            "RMSE_uN": null,
+            "maximum_absolute_error_uN": null,
+            "incomplete": true
+          },
+          "held_out": {
+            "scored": 0,
+            "inconclusive": 3,
+            "MAE_uN": null,
+            "RMSE_uN": null,
+            "maximum_absolute_error_uN": null,
+            "incomplete": true
+          }
+        },
+        "held_out": {
+          "all": {
+            "scored": 0,
+            "inconclusive": 6,
+            "MAE_uN": null,
+            "RMSE_uN": null,
+            "maximum_absolute_error_uN": null,
+            "incomplete": true
+          },
+          "calibration": {
+            "scored": 0,
+            "inconclusive": 3,
+            "MAE_uN": null,
+            "RMSE_uN": null,
+            "maximum_absolute_error_uN": null,
+            "incomplete": true
+          },
+          "held_out": {
+            "scored": 0,
+            "inconclusive": 3,
+            "MAE_uN": null,
+            "RMSE_uN": null,
+            "maximum_absolute_error_uN": null,
+            "incomplete": true
+          }
+        }
+      }
+    },
+    "duplicate_pairing_2": {
+      "published_flat_substrate": {
+        "prior_default": {
+          "all": {
+            "scored": 3,
+            "inconclusive": 3,
+            "MAE_uN": 2.792058012057863,
+            "RMSE_uN": 4.475359256266424,
+            "maximum_absolute_error_uN": 7.736439681398894,
+            "incomplete": true
+          },
+          "calibration": {
+            "scored": 2,
+            "inconclusive": 1,
+            "MAE_uN": 3.9675394338085868,
+            "RMSE_uN": 5.472291863114799,
+            "maximum_absolute_error_uN": 7.736439681398894,
+            "incomplete": true
+          },
+          "held_out": {
+            "scored": 1,
+            "inconclusive": 2,
+            "MAE_uN": 0.44109516855641573,
+            "RMSE_uN": 0.44109516855641573,
+            "maximum_absolute_error_uN": 0.44109516855641573,
+            "incomplete": true
+          }
+        },
+        "published_fit": {
+          "all": {
+            "scored": 3,
+            "inconclusive": 3,
+            "MAE_uN": 12.096159454492655,
+            "RMSE_uN": 13.058623028453047,
+            "maximum_absolute_error_uN": 19.034245973797,
+            "incomplete": true
+          },
+          "calibration": {
+            "scored": 2,
+            "inconclusive": 1,
+            "MAE_uN": 8.627116194840484,
+            "RMSE_uN": 8.639455608043988,
+            "maximum_absolute_error_uN": 9.088699734499077,
+            "incomplete": true
+          },
+          "held_out": {
+            "scored": 1,
+            "inconclusive": 2,
+            "MAE_uN": 19.034245973797,
+            "RMSE_uN": 19.034245973797,
+            "maximum_absolute_error_uN": 19.034245973797,
+            "incomplete": true
+          }
+        },
+        "held_out": {
+          "all": {
+            "scored": 0,
+            "inconclusive": 6,
+            "MAE_uN": null,
+            "RMSE_uN": null,
+            "maximum_absolute_error_uN": null,
+            "incomplete": true
+          },
+          "calibration": {
+            "scored": 0,
+            "inconclusive": 3,
+            "MAE_uN": null,
+            "RMSE_uN": null,
+            "maximum_absolute_error_uN": null,
+            "incomplete": true
+          },
+          "held_out": {
+            "scored": 0,
+            "inconclusive": 3,
+            "MAE_uN": null,
+            "RMSE_uN": null,
+            "maximum_absolute_error_uN": null,
+            "incomplete": true
+          }
+        }
+      },
+      "literal_copper_rim": {
+        "prior_default": {
+          "all": {
+            "scored": 1,
+            "inconclusive": 5,
+            "MAE_uN": 21.28496733883142,
+            "RMSE_uN": 21.28496733883142,
+            "maximum_absolute_error_uN": 21.28496733883142,
+            "incomplete": true
+          },
+          "calibration": {
+            "scored": 0,
+            "inconclusive": 3,
+            "MAE_uN": null,
+            "RMSE_uN": null,
+            "maximum_absolute_error_uN": null,
+            "incomplete": true
+          },
+          "held_out": {
+            "scored": 1,
+            "inconclusive": 2,
+            "MAE_uN": 21.28496733883142,
+            "RMSE_uN": 21.28496733883142,
+            "maximum_absolute_error_uN": 21.28496733883142,
+            "incomplete": true
+          }
+        },
+        "published_fit": {
+          "all": {
+            "scored": 1,
+            "inconclusive": 5,
+            "MAE_uN": 0.9291938843071392,
+            "RMSE_uN": 0.9291938843071392,
+            "maximum_absolute_error_uN": 0.9291938843071392,
+            "incomplete": true
+          },
+          "calibration": {
+            "scored": 0,
+            "inconclusive": 3,
+            "MAE_uN": null,
+            "RMSE_uN": null,
+            "maximum_absolute_error_uN": null,
+            "incomplete": true
+          },
+          "held_out": {
+            "scored": 1,
+            "inconclusive": 2,
+            "MAE_uN": 0.9291938843071392,
+            "RMSE_uN": 0.9291938843071392,
+            "maximum_absolute_error_uN": 0.9291938843071392,
+            "incomplete": true
+          }
+        },
+        "held_out": {
+          "all": {
+            "scored": 0,
+            "inconclusive": 6,
+            "MAE_uN": null,
+            "RMSE_uN": null,
+            "maximum_absolute_error_uN": null,
+            "incomplete": true
+          },
+          "calibration": {
+            "scored": 0,
+            "inconclusive": 3,
+            "MAE_uN": null,
+            "RMSE_uN": null,
+            "maximum_absolute_error_uN": null,
+            "incomplete": true
+          },
+          "held_out": {
+            "scored": 0,
+            "inconclusive": 3,
+            "MAE_uN": null,
+            "RMSE_uN": null,
+            "maximum_absolute_error_uN": null,
+            "incomplete": true
+          }
+        }
+      },
+      "uncorrected_interface_gap": {
+        "prior_default": {
+          "all": {
+            "scored": 0,
+            "inconclusive": 6,
+            "MAE_uN": null,
+            "RMSE_uN": null,
+            "maximum_absolute_error_uN": null,
+            "incomplete": true
+          },
+          "calibration": {
+            "scored": 0,
+            "inconclusive": 3,
+            "MAE_uN": null,
+            "RMSE_uN": null,
+            "maximum_absolute_error_uN": null,
+            "incomplete": true
+          },
+          "held_out": {
+            "scored": 0,
+            "inconclusive": 3,
+            "MAE_uN": null,
+            "RMSE_uN": null,
+            "maximum_absolute_error_uN": null,
+            "incomplete": true
+          }
+        },
+        "published_fit": {
+          "all": {
+            "scored": 0,
+            "inconclusive": 6,
+            "MAE_uN": null,
+            "RMSE_uN": null,
+            "maximum_absolute_error_uN": null,
+            "incomplete": true
+          },
+          "calibration": {
+            "scored": 0,
+            "inconclusive": 3,
+            "MAE_uN": null,
+            "RMSE_uN": null,
+            "maximum_absolute_error_uN": null,
+            "incomplete": true
+          },
+          "held_out": {
+            "scored": 0,
+            "inconclusive": 3,
+            "MAE_uN": null,
+            "RMSE_uN": null,
+            "maximum_absolute_error_uN": null,
+            "incomplete": true
+          }
+        },
+        "held_out": {
+          "all": {
+            "scored": 0,
+            "inconclusive": 6,
+            "MAE_uN": null,
+            "RMSE_uN": null,
+            "maximum_absolute_error_uN": null,
+            "incomplete": true
+          },
+          "calibration": {
+            "scored": 0,
+            "inconclusive": 3,
+            "MAE_uN": null,
+            "RMSE_uN": null,
+            "maximum_absolute_error_uN": null,
+            "incomplete": true
+          },
+          "held_out": {
+            "scored": 0,
+            "inconclusive": 3,
+            "MAE_uN": null,
+            "RMSE_uN": null,
+            "maximum_absolute_error_uN": null,
+            "incomplete": true
+          }
+        }
+      }
+    }
+  },
+  "central_status_counts": {
+    "engine_error": 17,
+    "not_converged": 1,
+    "refinement_checked": 6
+  },
+  "sensitivity_status_counts": {},
+  "verdict": "General absolute physical accuracy remains inconclusive. This comparison separates generic-default error, calibration-dependent published consistency, and a low-force-calibrated held-out test. Missing specimen and material information prevents a general physical pass."
+}

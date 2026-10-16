@@ -1,0 +1,288 @@
+{
+  "source_url": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=853827",
+  "source_sha256": "4917aa35b4b804292826f8ce92b1f7c51eaed83e6f0777aeefb26195e7204990",
+  "doi": "10.1115/1.1463732",
+  "journal_page": 230,
+  "pdf_page_one_based": 4,
+  "figure": 5,
+  "extracted_image": "Im5.tiff",
+  "image_size_px": [
+    989,
+    698
+  ],
+  "source_image_sha256": "b94f74557d2aa0ed45f8c885e8e3b775b82f044f09c263bf62ad79ec35f838a6",
+  "pixel_coordinates": "zero based x rightward, y downward in original PDF embedded Im5 raster",
+  "calibration": {
+    "origin_px": [
+      113.0,
+      594.0
+    ],
+    "force_150_uN_px": [
+      958.0,
+      589.0
+    ],
+    "height_60_um_px": [
+      109.0,
+      10.0
+    ]
+  },
+  "errorbars_confidence_level": "not stated in figure caption or experiment description; do not assume sigma",
+  "digitization_bound_definition": "conservative reading and calibration bounds, not a statistical confidence interval",
+  "paired_ids": [
+    [
+      "h1",
+      "x1"
+    ],
+    [
+      "h2",
+      "x2"
+    ],
+    [
+      "h3",
+      "x3"
+    ],
+    [
+      "h6",
+      "x6"
+    ]
+  ],
+  "duplicate_pairing_options": [
+    [
+      [
+        "h4",
+        "x4"
+      ],
+      [
+        "h5",
+        "x5"
+      ]
+    ],
+    [
+      [
+        "h4",
+        "x5"
+      ],
+      [
+        "h5",
+        "x4"
+      ]
+    ]
+  ],
+  "normal_force": {
+    "value_mN": null,
+    "reason": "1.95 +/- 0.03 mN is explicit only for Figure 3; Figure 5 has no per-specimen total mass or normal-load table"
+  },
+  "solder_volume_mm3": 0.0086,
+  "pad_diameter_mm": 0.64,
+  "pad_thickness_mm": 0.005,
+  "ball_nominal_diameter_um": 255,
+  "ball_supplier_tolerance_um": 25,
+  "ball_measured_mean_offset_from_nominal_bound_um": 5,
+  "ball_measured_diameter_rms_bound_um": 5,
+  "volume_uncertainty_note": "individual 10 mil ball volumes not reported; mean diameter within 5 um of nominal and diameter RMS <= 5 um for three largest ball sizes",
+  "measurement_sample": "three cross-sectioned joints per specimen; six lateral edge displacements and three standoff measurements averaged",
+  "physical_systematic_note": "solidified dimensions used as proxy for molten equilibrium; paper estimates 4.5 percent volume shrinkage and 1.5 percent linear shrinkage",
+  "measured_standoff_reference": "distance between upper and lower Si/Cu interfaces",
+  "flat_plane_effective_volume_mm3": 0.011816991,
+  "material": "eutectic Sn63-Pb37",
+  "hot_stage_C": 210,
+  "hot_stage_range_C": 10,
+  "contact_line_regime": "entire perimeter for all Figure 5 data, according to text and caption",
+  "gamma_0_4_N_per_m": "fitted jointly with thetaSi to all physical evaluation data, not independently measured",
+  "thetaSi_measured_deg": 149,
+  "thetaSi_2sigma_deg": 3,
+  "observations": [
+    {
+      "id": "h1",
+      "observable": "standoff",
+      "force_group": "g1",
+      "pixel_x": 200,
+      "pixel_y": 251.5,
+      "errorbar_top_pixel_y": 241.5,
+      "errorbar_bottom_pixel_y": 261.5,
+      "shear_uN": 15.9,
+      "value_um": 35.1,
+      "plotted_lower_um": 34.1,
+      "plotted_upper_um": 36.2,
+      "digitization_force_bound_uN": 0.4,
+      "digitization_dimension_bound_um": 0.3,
+      "note": "unambiguous"
+    },
+    {
+      "id": "h2",
+      "observable": "standoff",
+      "force_group": "g2",
+      "pixel_x": 381,
+      "pixel_y": 250.5,
+      "errorbar_top_pixel_y": 240.5,
+      "errorbar_bottom_pixel_y": 260.5,
+      "shear_uN": 48.0,
+      "value_um": 35.1,
+      "plotted_lower_um": 34.1,
+      "plotted_upper_um": 36.2,
+      "digitization_force_bound_uN": 0.4,
+      "digitization_dimension_bound_um": 0.3,
+      "note": "unambiguous"
+    },
+    {
+      "id": "h3",
+      "observable": "standoff",
+      "force_group": "g3",
+      "pixel_x": 562,
+      "pixel_y": 253.5,
+      "errorbar_top_pixel_y": 243.5,
+      "errorbar_bottom_pixel_y": 263.5,
+      "shear_uN": 80.1,
+      "value_um": 34.7,
+      "plotted_lower_um": 33.7,
+      "plotted_upper_um": 35.7,
+      "digitization_force_bound_uN": 0.4,
+      "digitization_dimension_bound_um": 0.3,
+      "note": "unambiguous"
+    },
+    {
+      "id": "h4",
+      "observable": "standoff",
+      "force_group": "g4",
+      "pixel_x": 742,
+      "pixel_y": 228.5,
+      "errorbar_top_pixel_y": 209.0,
+      "errorbar_bottom_pixel_y": 248.0,
+      "shear_uN": 112.1,
+      "value_um": 37.2,
+      "plotted_lower_um": 35.2,
+      "plotted_upper_um": 39.2,
+      "digitization_force_bound_uN": 0.4,
+      "digitization_dimension_bound_um": 0.3,
+      "note": "duplicate_force_pairing_unknown"
+    },
+    {
+      "id": "h5",
+      "observable": "standoff",
+      "force_group": "g4",
+      "pixel_x": 742,
+      "pixel_y": 257.5,
+      "errorbar_top_pixel_y": 247.5,
+      "errorbar_bottom_pixel_y": 267.5,
+      "shear_uN": 112.1,
+      "value_um": 34.2,
+      "plotted_lower_um": 33.2,
+      "plotted_upper_um": 35.2,
+      "digitization_force_bound_uN": 0.4,
+      "digitization_dimension_bound_um": 0.3,
+      "note": "duplicate_force_pairing_unknown"
+    },
+    {
+      "id": "h6",
+      "observable": "standoff",
+      "force_group": "g5",
+      "pixel_x": 923,
+      "pixel_y": 247.5,
+      "errorbar_top_pixel_y": 237.5,
+      "errorbar_bottom_pixel_y": 257.5,
+      "shear_uN": 144.2,
+      "value_um": 35.1,
+      "plotted_lower_um": 34.1,
+      "plotted_upper_um": 36.1,
+      "digitization_force_bound_uN": 0.4,
+      "digitization_dimension_bound_um": 0.3,
+      "note": "unambiguous"
+    },
+    {
+      "id": "x1",
+      "observable": "lateral_offset",
+      "force_group": "g1",
+      "pixel_x": 202,
+      "pixel_y": 582,
+      "errorbar_top_pixel_y": 524.0,
+      "errorbar_bottom_pixel_y": null,
+      "shear_uN": 15.8,
+      "value_um": 1.2,
+      "plotted_lower_um": null,
+      "plotted_upper_um": 7.1,
+      "digitization_force_bound_uN": 0.4,
+      "digitization_dimension_bound_um": 0.3,
+      "note": "lower_errorbar_clipped_at_plot_boundary"
+    },
+    {
+      "id": "x2",
+      "observable": "lateral_offset",
+      "force_group": "g2",
+      "pixel_x": 383,
+      "pixel_y": 523,
+      "errorbar_top_pixel_y": 474.0,
+      "errorbar_bottom_pixel_y": 572.0,
+      "shear_uN": 48.0,
+      "value_um": 7.1,
+      "plotted_lower_um": 2.1,
+      "plotted_upper_um": 12.2,
+      "digitization_force_bound_uN": 0.4,
+      "digitization_dimension_bound_um": 0.3,
+      "note": "unambiguous"
+    },
+    {
+      "id": "x3",
+      "observable": "lateral_offset",
+      "force_group": "g3",
+      "pixel_x": 564,
+      "pixel_y": 492,
+      "errorbar_top_pixel_y": 433.0,
+      "errorbar_bottom_pixel_y": 550.0,
+      "shear_uN": 80.2,
+      "value_um": 10.2,
+      "plotted_lower_um": 4.2,
+      "plotted_upper_um": 16.3,
+      "digitization_force_bound_uN": 0.4,
+      "digitization_dimension_bound_um": 0.3,
+      "note": "unambiguous"
+    },
+    {
+      "id": "x4",
+      "observable": "lateral_offset",
+      "force_group": "g4",
+      "pixel_x": 743,
+      "pixel_y": 443,
+      "errorbar_top_pixel_y": 345.0,
+      "errorbar_bottom_pixel_y": 540.0,
+      "shear_uN": 112.0,
+      "value_um": 15.1,
+      "plotted_lower_um": 5.2,
+      "plotted_upper_um": 25.2,
+      "digitization_force_bound_uN": 0.4,
+      "digitization_dimension_bound_um": 0.3,
+      "note": "duplicate_force_pairing_unknown"
+    },
+    {
+      "id": "x5",
+      "observable": "lateral_offset",
+      "force_group": "g4",
+      "pixel_x": 743,
+      "pixel_y": 500,
+      "errorbar_top_pixel_y": 471.0,
+      "errorbar_bottom_pixel_y": 530.0,
+      "shear_uN": 111.9,
+      "value_um": 9.3,
+      "plotted_lower_um": 6.2,
+      "plotted_upper_um": 12.3,
+      "digitization_force_bound_uN": 0.4,
+      "digitization_dimension_bound_um": 0.3,
+      "note": "duplicate_force_pairing_unknown"
+    },
+    {
+      "id": "x6",
+      "observable": "lateral_offset",
+      "force_group": "g5",
+      "pixel_x": 924,
+      "pixel_y": 287,
+      "errorbar_top_pixel_y": 238.0,
+      "errorbar_bottom_pixel_y": 335.0,
+      "shear_uN": 144.3,
+      "value_um": 31.0,
+      "plotted_lower_um": 26.1,
+      "plotted_upper_um": 36.1,
+      "digitization_force_bound_uN": 0.4,
+      "digitization_dimension_bound_um": 0.3,
+      "note": "unambiguous"
+    }
+  ]
+}

@@ -17,7 +17,7 @@ def json_bytes(value):
 
 def results_csv(results):
     output = io.StringIO(newline="")
-    fields = ["row", "status", "pad", "lower_diameter_mm", "upper_diameter_mm", "standoff_mm", "volume_mm3",
+    fields = ["row", "design", "status", "pad", "lower_diameter_mm", "upper_diameter_mm", "standoff_mm", "volume_mm3",
               "offset_mm", "surface_tension_n_m", "density_g_cm3", "gravity", "force_x_uN", "force_z_uN",
               "volume_relative_error", "force_change_relative", "error"]
     writer = csv.DictWriter(output, fieldnames=fields)
@@ -27,7 +27,7 @@ def results_csv(results):
         label = str(result.get("footprint", {}).get("pad", {}).get("identifier", ""))
         if label.startswith(("=", "+", "-", "@")):
             label = "'" + label
-        row.update(row=i, status=result["status"], pad=label,
+        row.update(row=i, design=result.get("design", ""), status=result["status"], pad=label,
                    force_x_uN=result.get("forces", {}).get("x_uN", ""),
                    force_z_uN=result.get("forces", {}).get("z_uN", ""),
                    volume_relative_error=result.get("diagnostics", {}).get("volume_relative_error", ""),
@@ -63,10 +63,14 @@ def mesh_stl(mesh):
     return ("\n".join(lines) + "\n").encode()
 
 
-def make_bundle(results, source=""):
+def make_bundle(results, source="", editable_case=None, comparison=None):
     files = {"results.csv": results_csv(results)}
     if source:
         files["source.kicad_mod"] = source.encode()
+    if editable_case is not None:
+        files["editable-case.json"] = json_bytes(editable_case)
+    if comparison is not None:
+        files["comparison.json"] = json_bytes(comparison)
     for i, result in enumerate(results):
         prefix = f"case-{i:02d}/"
         files[prefix + "input.json"] = json_bytes(result["input"])
@@ -78,9 +82,9 @@ def make_bundle(results, source=""):
         if "mesh" in result:
             files[prefix + "mesh-mm.obj"] = mesh_obj(result["mesh"])
             files[prefix + "mesh-mm.stl"] = mesh_stl(result["mesh"])
-    manifest = {"schema": 1, "application": "SolderShape 0.1.0", "case_count": len(results),
+    manifest = {"schema": 1, "application": "SolderShape 0.2.0", "case_count": len(results),
                 "units": {"length": "mm", "volume": "mm^3", "force": "micronewton", "energy": "erg"},
-                "assumptions": "Fully wetted pinned circular pads; prescribed gap and offset; equilibrium; no physical validation.",
+                "assumptions": "Fully wetted pinned circular pads; prescribed wetted-plane gap and offset; equilibrium. Material/process accuracy is not qualified. Numerical checks are not physical validation.",
                 "replay": "python3 -m soldershape replay FILE.zip; archived scripts are evidence and are never executed by replay",
                 "files": {name: hashlib.sha256(data).hexdigest() for name, data in sorted(files.items())}}
     files["manifest.json"] = json_bytes(manifest)

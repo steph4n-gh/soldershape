@@ -87,12 +87,12 @@ def _model(spec):
 
 
 def _commands(level_count=2):
-    lines = ["M 2", "u", "g 3", "r", "g 5", "r", "g 5", "hessian", "hessian"]
+    lines = ["M 2", "u", "g 3", "r", "g 30", "r", "g 30", "hessian_seek", "hessian_seek"]
     for level in range(level_count):
         if level:
-            lines.extend(["r", "g 10", "hessian", "hessian", "hessian"])
+            lines.extend(["r", "g 30", "hessian_seek", "hessian_seek", "hessian_seek"])
         lines.extend([
-            "energy_before := total_energy", "g 5", "hessian", "hessian",
+            "energy_before := total_energy", "g 30", "hessian_seek", "hessian_seek",
             "stationarity_delta := abs(total_energy-energy_before)",
             "do_xforce", "do_zforce", "eigenprobe 0",
             f'printf "SS_LEVEL {level} %d %.17g %.17g %.17g %.17g %.17g %d %.17g\\n",facet_count,xforce,zforce,total_energy,body[1].volume,(body[1].volume-body[1].target)/body[1].target,eigen_neg,stationarity_delta',

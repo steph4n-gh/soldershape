@@ -10,7 +10,9 @@ const state = {
   footprintText: "",
   footprint: null,
   padIndex: null,
+  baseline: null,
   importing: false,
+  caseAction: null,
   pending: null,
   response: null,
   resultIndex: -1,
@@ -98,6 +100,16 @@ function readParameters() {
   return parameters;
 }
 
+function editableCase(parameters = readParameters()) {
+  return {
+    schema: "soldershape.case.v1",
+    footprint_text: state.footprintText,
+    pad_index: state.padIndex,
+    parameters,
+    baseline: state.baseline,
+  };
+}
+
 function previewSpec() {
   const selected = pad();
   if (!selected?.supported) return null;
@@ -107,19 +119,31 @@ function previewSpec() {
 }
 
 function updateControls() {
-  const canCompute = !!state.token && state.engineReady && !!pad()?.supported && !state.importing && !state.pending;
+  const hasInputs = !!state.token && !!pad()?.supported && !state.importing && !state.caseAction;
+  const canCompute = hasInputs && state.engineReady && !state.pending;
   $("solve-button").disabled = !canCompute;
   $("sweep-button").disabled = !canCompute;
+  $("compare-button").disabled = !canCompute || !state.baseline;
+  $("compare-button").textContent = state.pending === "compare" ? "Computing both designs…" : "Compare reference and candidate";
+  $("reference-button").disabled = !hasInputs;
+  $("clear-reference-button").hidden = !state.baseline;
+  $("clear-reference-button").disabled = !!state.caseAction;
+  $("reference-values").textContent = state.baseline
+    ? `Upper pad Ø ${number(state.baseline.upper_diameter_mm, 5)} mm · solder ${number(state.baseline.volume_mm3, 6)} mm³`
+    : "No reference saved.";
+  $("save-case-button").disabled = !hasInputs;
+  $("save-case-button").textContent = state.caseAction === "save" ? "Saving case…" : "Save editable case";
+  $("case-file").disabled = !state.token || state.importing || !!state.caseAction;
   $("solve-label").textContent = state.pending === "solve" ? "Solving joint…" : "Solve joint";
   $("sweep-button").replaceChildren(document.createTextNode(state.pending === "sweep" ? "Computing sweep…" : "Run offset sweep"));
   const count = document.createElement("span");
   count.className = "button-detail";
   count.textContent = "5 points";
   $("sweep-button").append(count);
-  $("download-button").disabled = !state.response?.bundle_base64 || !!state.pending;
-  $("pad-select").disabled = !state.footprint || state.importing;
-  $("example-button").disabled = !state.token || state.importing;
-  $("footprint-file").disabled = !state.token;
+  $("download-button").disabled = !state.response?.bundle_base64 || !!state.pending || !!state.caseAction;
+  $("pad-select").disabled = !state.footprint || state.importing || !!state.caseAction;
+  $("example-button").disabled = !state.token || state.importing || !!state.caseAction;
+  $("footprint-file").disabled = !state.token || state.importing || !!state.caseAction;
   const offset = Math.abs($("offset_mm").valueAsNumber);
   $("sweep-note").textContent = Number.isFinite(offset)
     ? offset > 0
@@ -190,6 +214,7 @@ async function importText(text, revision) {
 function beginImport() {
   invalidate();
   state.importing = true;
+  state.baseline = null;
   state.footprintText = "";
   state.footprint = null;
   state.padIndex = null;
@@ -213,10 +238,13 @@ async function bootstrap() {
 }
 
 async function compute(kind) {
-  if (state.pending || !state.engineReady || !pad()?.supported) return;
+  if (state.pending || state.caseAction || !state.engineReady || !pad()?.supported) return;
   if (!form.reportValidity()) return;
   const parameters = readParameters();
-  const body = { footprint_text: state.footprintText, pad_index: state.padIndex, parameters };
+  const body = kind === "compare" ? editableCase(parameters) : {
+    footprint_text: state.footprintText, pad_index: state.padIndex, parameters, baseline: state.baseline,
+  };
+  if (kind === "compare" && !state.baseline) return;
   if (kind === "sweep") {
     const magnitude = Math.abs(parameters.offset_mm);
     if (magnitude === 0) {
@@ -230,7 +258,12 @@ async function compute(kind) {
   state.pending = kind;
   clearComputed();
   updateControls();
-  notice(kind === "sweep" ? "Computing five independent equilibria. Each point includes a mesh refinement check. This may take a few minutes." : "Computing the equilibrium and checking mesh refinement. This may take a minute.", "working");
+  const progress = {
+    solve: "Computing the equilibrium and checking mesh refinement. This may take a minute.",
+    sweep: "Computing five independent equilibria. Each point includes a mesh refinement check. This may take a few minutes.",
+    compare: "Recomputing the reference and candidate with the current shared conditions. Each design includes a mesh refinement check.",
+  };
+  notice(progress[kind], "working");
   try {
     const response = await api(`/api/${kind}`, body);
     if (revision !== state.revision) {
@@ -245,7 +278,8 @@ async function compute(kind) {
     const failures = response.results.filter((result) => result.status === "failed").length;
     const unchecked = response.results.filter((result) => result.status === "not_converged").length;
     if (failures || unchecked) notice(`${response.results.length} point${response.results.length === 1 ? "" : "s"} returned. ${failures} failed; ${unchecked} did not pass the numerical checks. Inspect each row before interpreting its forces.`, "working");
-    else notice("Computation complete. Inspect the refinement checks and download the reproducible case.");
+    else if (response.comparison?.status === "inconclusive") notice(response.comparison.reason || "The comparison is inconclusive. Inspect its numerical evidence.", "working");
+    else notice("Computation complete. Inspect the numerical checks and download the reproducible results. Physical accuracy remains unqualified.");
   } catch (error) {
     if (revision === state.revision) notice(error.message, "error");
   } finally {
@@ -256,7 +290,7 @@ async function compute(kind) {
 }
 
 function statusLabel(status) {
-  return { refinement_checked: "Refinement checked", not_converged: "Not converged", failed: "Failed" }[status] || "Awaiting computation";
+  return { refinement_checked: "Numerically checked", not_converged: "Not converged", failed: "Failed" }[status] || "Awaiting computation";
 }
 
 function statusClass(status) {
@@ -281,6 +315,13 @@ function renderResults() {
   const result = selectedResult();
   const hasMesh = !!result?.mesh;
   const diagnostics = result?.diagnostics || {};
+  const comparison = state.response?.comparison;
+  const comparisonChecked = !!comparison && comparison.status === "compared"
+    && state.response.results.length === 2
+    && state.response.results.every((item) => item.status === "refinement_checked"
+      && Number.isFinite(item.input?.offset_mm) && item.input.offset_mm !== 0
+      && Number.isFinite(item.forces?.x_uN) && Number.isFinite(item.forces?.z_uN));
+  $("force-heading").textContent = comparison && result?.design ? `${result.design} force on the upper pad` : "Force on the upper pad";
   $("force-x").textContent = number(result?.forces?.x_uN);
   $("force-z").textContent = number(result?.forces?.z_uN);
   $("result-status").textContent = statusLabel(result?.status);
@@ -292,7 +333,8 @@ function renderResults() {
   $("check-closed").className = result?.mesh_checks ? result.mesh_checks.closed ? "good" : "warn" : "";
   $("check-mesh-volume").textContent = percent(diagnostics.mesh_volume_error_relative);
   $("check-eigenvalues").className = Number.isFinite(diagnostics.negative_eigenvalues) ? diagnostics.negative_eigenvalues === 0 ? "good" : "warn" : "";
-  const warnings = result?.status === "failed" ? [result.error || "This point failed. No computed geometry is available."] : diagnostics.warnings || [];
+  const numericalWarnings = result?.status === "failed" ? [result.error || "This point failed. No computed geometry is available."] : diagnostics.warnings || [];
+  const warnings = [...numericalWarnings, ...(result?.model_warnings || [])];
   const warningList = $("result-warnings");
   warningList.replaceChildren();
   warningList.hidden = !warnings.length;
@@ -322,19 +364,46 @@ function renderResults() {
     : "The result bundle records the exact model, engine identity, and raw output.";
   $("input-digest").textContent = result?.input_sha256 ? `Input SHA-256 ${result.input_sha256}` : "";
   $("model-caption").textContent = hasMesh
-    ? `Computed mesh · offset ${number(result.input.offset_mm, 5)} mm · ${statusLabel(result.status).toLowerCase()}`
+    ? `${result.design ? `${result.design} · ` : ""}computed mesh · offset ${number(result.input.offset_mm, 5)} mm · ${statusLabel(result.status).toLowerCase()}`
     : result?.status === "failed" ? "Failed point. No computed mesh is available." : "Boundary preview. Solve to compute the joint.";
   $("mesh-summary").textContent = hasMesh
     ? `${result.mesh.vertices_mm.length.toLocaleString()} vertices · ${result.mesh.triangles.length.toLocaleString()} triangles · pinned pad boundaries`
     : "Circular, fully wetted, pinned boundaries";
   $("empty-model").hidden = !!previewSpec() || hasMesh;
+  $("sweep-heading").textContent = comparison ? "Reference and candidate" : "Offset response";
+  $("chart-wrap").hidden = !!comparison;
+  $("chart-legend").hidden = !!comparison;
+  $("comparison-summary").hidden = !comparison;
+  if (comparison) {
+    const delta = comparison.delta || {};
+    const signed = (value, digits = 3) => Number.isFinite(value) ? `${value > 0 ? "+" : ""}${number(value, digits)}` : "—";
+    $("comparison-delta").textContent = comparisonChecked
+      ? `Candidate minus reference: solder volume ${signed(delta.volume_mm3, 6)} mm³ (${signed(delta.volume_percent, 2)}%); restoring force ${signed(delta.restoring_force_uN)} µN; vertical force ${signed(delta.vertical_force_uN)} µN.`
+      : `Comparison inconclusive. ${comparison.reason || "Both designs must pass the numerical checks at a nonzero offset before comparing forces."}`;
+    $("comparison-scope").textContent = `${comparison.scope || "Both designs use the current board pad, gap, offset, and material."} A larger restoring force means a stronger force toward alignment in this prescribed geometry. This does not select a manufacturing design.`;
+  }
+  const head = $("results-head");
+  head.replaceChildren();
+  const headers = comparison
+    ? ["Design", "Upper pad · mm", "Volume · mm³", "X force · µN", "Z force · µN", "Numerical status", "View geometry"]
+    : ["Offset · mm", "X force · µN", "Z force · µN", "Numerical status", "View geometry"];
+  for (const label of headers) {
+    const cell = document.createElement("th");
+    cell.scope = "col";
+    cell.textContent = label;
+    head.append(cell);
+  }
   const sweepBody = $("sweep-body");
   sweepBody.replaceChildren();
   if (state.response) {
     state.response.results.forEach((item, index) => {
       const row = document.createElement("tr");
       row.className = `result-row${index === state.resultIndex ? " selected" : ""}`;
-      tableCell(row, number(item.input?.offset_mm, 5));
+      if (comparison) {
+        tableCell(row, item.design || comparison.designs?.[index]?.role || `Design ${index + 1}`);
+        tableCell(row, number(item.input?.upper_diameter_mm, 5));
+        tableCell(row, number(item.input?.volume_mm3, 6));
+      } else tableCell(row, number(item.input?.offset_mm, 5));
       tableCell(row, number(item.forces?.x_uN));
       tableCell(row, number(item.forces?.z_uN));
       const status = tableCell(row, statusLabel(item.status), `row-status ${statusClass(item.status)}`);
@@ -344,13 +413,15 @@ function renderResults() {
       button.type = "button";
       button.className = "view-row";
       button.textContent = index === state.resultIndex ? "Selected" : "View";
-      button.setAttribute("aria-label", `View result at offset ${number(item.input?.offset_mm, 5)} millimeters`);
+      button.setAttribute("aria-label", comparison ? `View ${item.design || `design ${index + 1}`} result` : `View result at offset ${number(item.input?.offset_mm, 5)} millimeters`);
       button.setAttribute("aria-pressed", String(index === state.resultIndex));
       action.append(button);
       row.addEventListener("click", () => selectResult(index));
       sweepBody.append(row);
     });
-    $("sweep-description").textContent = `${state.response.results.length} independently computed point${state.response.results.length === 1 ? ". Run a sweep to compare offsets." : "s. Select a row to inspect its mesh."}`;
+    $("sweep-description").textContent = comparison
+      ? `Both designs freshly computed at gap ${number(result?.input?.standoff_mm, 5)} mm and offset ${number(result?.input?.offset_mm, 5)} mm. Select a design to inspect its mesh.`
+      : `${state.response.results.length} independently computed point${state.response.results.length === 1 ? ". Run a sweep to compare offsets." : "s. Select a row to inspect its mesh."}`;
   } else {
     const row = document.createElement("tr");
     row.className = "placeholder-row";
@@ -608,6 +679,7 @@ function drawModel() {
 }
 
 function drawChart() {
+  if (state.response?.comparison) { chartHitAreas = []; return; }
   const { context: ctx, width, height } = canvasContext($("force-chart"));
   const results = state.response?.results || [];
   const points = results.map((result, index) => ({ result, index })).filter(({ result }) => Number.isFinite(result.input?.offset_mm));
@@ -733,8 +805,10 @@ $("example-button").addEventListener("click", async () => {
 });
 
 function choosePad(index) {
+  if (index === state.padIndex) return;
   invalidate();
   state.padIndex = index;
+  state.baseline = null;
   $("pad-select").value = String(index);
   renderFootprint();
   updateControls();
@@ -742,7 +816,7 @@ function choosePad(index) {
 
 $("pad-select").addEventListener("change", (event) => choosePad(Number(event.target.value)));
 $("footprint-canvas").addEventListener("click", (event) => {
-  if (state.importing) return;
+  if (state.importing || state.caseAction) return;
   const rect = event.currentTarget.getBoundingClientRect();
   const x = event.clientX - rect.left, y = event.clientY - rect.top;
   const match = footprintHitAreas.filter((area) => Math.hypot(area.x - x, area.y - y) <= area.radius).sort((a, b) => Math.hypot(a.x - x, a.y - y) - Math.hypot(b.x - x, b.y - y))[0];
@@ -754,6 +828,89 @@ for (const name of [...parameterNames, "gravity"]) {
 }
 form.addEventListener("submit", (event) => { event.preventDefault(); compute("solve"); });
 $("sweep-button").addEventListener("click", () => compute("sweep"));
+$("compare-button").addEventListener("click", () => compute("compare"));
+$("reference-button").addEventListener("click", () => {
+  if (!pad()?.supported || !form.reportValidity()) return;
+  const parameters = readParameters();
+  state.baseline = freeze({ upper_diameter_mm: parameters.upper_diameter_mm, volume_mm3: parameters.volume_mm3 });
+  invalidate();
+  notice("Reference dimensions saved. Change the upper pad diameter or solder volume, then compare. Both designs will use the current shared conditions.");
+});
+$("clear-reference-button").addEventListener("click", () => {
+  state.baseline = null;
+  invalidate();
+});
+
+function downloadBlob(blob, filename) {
+  const url = URL.createObjectURL(blob);
+  const anchor = document.createElement("a");
+  anchor.href = url;
+  anchor.download = filename;
+  document.body.append(anchor);
+  anchor.click();
+  anchor.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 30000);
+}
+
+$("save-case-button").addEventListener("click", async () => {
+  if (state.caseAction || !pad()?.supported || !form.reportValidity()) return;
+  const revision = state.revision;
+  const draft = editableCase();
+  state.caseAction = "save";
+  updateControls();
+  try {
+    const data = await api("/api/case", draft);
+    if (revision !== state.revision) {
+      notice("Inputs changed before the case was saved. Save again with the current inputs.");
+      return;
+    }
+    downloadBlob(new Blob([`${JSON.stringify(data.case, null, 2)}\n`], { type: "application/json" }), "soldershape-editable-case.json");
+    notice("Editable case saved. It contains the footprint, selected pad, parameters, and reference dimensions. Open it to resume and recompute.");
+  } catch (error) {
+    if (revision === state.revision) notice(`The case could not be saved. ${error.message}`, "error");
+  } finally {
+    state.caseAction = null;
+    updateControls();
+  }
+});
+
+$("case-file").addEventListener("change", async (event) => {
+  const file = event.target.files[0];
+  if (!file || state.caseAction) return;
+  const revision = state.revision;
+  state.caseAction = "open";
+  updateControls();
+  notice("Checking the editable case before opening it…", "working");
+  try {
+    if (file.size > 2100000) throw new Error("Editable cases are limited to 2.1 MB.");
+    let draft;
+    try { draft = JSON.parse(await file.text()); }
+    catch { throw new Error("Choose a SolderShape editable case JSON file."); }
+    const data = await api("/api/case", draft);
+    if (revision !== state.revision) {
+      notice("The current inputs changed while the file was checked. The case was not opened.");
+      return;
+    }
+    invalidate();
+    state.footprintText = data.case.footprint_text;
+    state.footprint = data.footprint;
+    state.padIndex = data.case.pad_index;
+    state.baseline = data.case.baseline ? freeze({ ...data.case.baseline }) : null;
+    for (const name of parameterNames) $(name).value = String(data.case.parameters[name]);
+    $("gravity").checked = data.case.parameters.gravity;
+    populatePads();
+    renderFootprint();
+    renderResults();
+    resetView();
+    notice("Editable case opened. These are saved inputs. Solve or compare to compute fresh forces and exports.");
+  } catch (error) {
+    if (revision === state.revision) notice(`Case not opened. Your current inputs and results are unchanged. ${error.message}`, "error");
+  } finally {
+    event.target.value = "";
+    state.caseAction = null;
+    updateControls();
+  }
+});
 $("mesh-edges").addEventListener("change", scheduleDraw);
 $("reset-view").addEventListener("click", resetView);
 
@@ -805,14 +962,7 @@ $("download-button").addEventListener("click", () => {
   try {
     const binary = atob(response.bundle_base64);
     const bytes = Uint8Array.from(binary, (character) => character.charCodeAt(0));
-    const url = URL.createObjectURL(new Blob([bytes], { type: "application/zip" }));
-    const anchor = document.createElement("a");
-    anchor.href = url;
-    anchor.download = response.bundle_filename || "soldershape-case.zip";
-    document.body.append(anchor);
-    anchor.click();
-    anchor.remove();
-    setTimeout(() => URL.revokeObjectURL(url), 30000);
+    downloadBlob(new Blob([bytes], { type: "application/zip" }), response.bundle_filename || "soldershape-case.zip");
   } catch (error) {
     notice(`The case could not be downloaded. ${error.message}`, "error");
   }

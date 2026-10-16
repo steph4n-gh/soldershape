@@ -1,0 +1,164 @@
+{"case": "published_flat_substrate/h2-x2", "status": "refinement_checked", "unit_shear_uN": 99.58637717764896, "cached": true}
+{"case": "published_flat_substrate/h1-x1", "status": "refinement_checked", "unit_shear_uN": 16.90326739516024, "cached": true}
+{"case": "published_flat_substrate/h6-x6", "status": "refinement_checked", "unit_shear_uN": 454.84730912433156, "cached": true}
+{"case": "published_flat_substrate/h3-x3", "status": "refinement_checked", "unit_shear_uN": 90.77080180032448, "cached": true}
+{"case": "published_flat_substrate/h5-x5", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "published_flat_substrate/h4-x4", "status": "refinement_checked", "unit_shear_uN": 366.13016066860956, "cached": true}
+{"case": "published_flat_substrate/h4-x5", "status": "refinement_checked", "unit_shear_uN": 232.41438498744492, "cached": true}
+{"case": "published_flat_substrate/h5-x4", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "literal_copper_rim/h1-x1", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "literal_copper_rim/h2-x2", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "literal_copper_rim/h3-x3", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "literal_copper_rim/h4-x4", "status": "refinement_checked", "unit_shear_uN": 434.4258272559465, "cached": true}
+{"case": "literal_copper_rim/h6-x6", "status": "not_converged", "unit_shear_uN": 255.33888057399645, "cached": true}
+{"case": "literal_copper_rim/h5-x5", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "literal_copper_rim/h5-x4", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "uncorrected_interface_gap/h1-x1", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "uncorrected_interface_gap/h2-x2", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "uncorrected_interface_gap/h3-x3", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "uncorrected_interface_gap/h6-x6", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "uncorrected_interface_gap/h4-x4", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "uncorrected_interface_gap/h5-x5", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "literal_copper_rim/h4-x5", "status": "refinement_checked", "unit_shear_uN": 277.67701574719916, "cached": true}
+{"case": "uncorrected_interface_gap/h4-x5", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "uncorrected_interface_gap/h5-x4", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "scaling/gamma-0.4", "status": "refinement_checked", "unit_shear_uN": 39.83455100844968, "cached": true}
+{"case": "h1-x1/volume-1.06", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "h1-x1/volume-0.94", "status": "refinement_checked", "unit_shear_uN": 34.359838810976704, "cached": true}
+{"case": "h1-x1/geometry-systematic-1.015", "status": "refinement_checked", "unit_shear_uN": 25.12515294428308, "cached": true}
+{"case": "h2-x2/volume-1.06", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "h2-x2/geometry-h33.8-x1.8", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "h2-x2/volume-0.94", "status": "refinement_checked", "unit_shear_uN": 200.32673279241072, "cached": true}
+{"case": "h2-x2/corner-h33.8-x1.8-v1.06", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "h2-x2/geometry-h33.8-x12.5", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "h2-x2/corner-h33.8-x1.8-v0.94", "status": "refinement_checked", "unit_shear_uN": 30.859273766545293, "cached": true}
+{"case": "h2-x2/corner-h33.8-x12.5-v1.06", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "h2-x2/corner-h33.8-x12.5-v0.94", "status": "refinement_checked", "unit_shear_uN": 211.76121286700658, "cached": true}
+{"case": "h2-x2/geometry-h36.5-x1.8", "status": "refinement_checked", "unit_shear_uN": 48.997630326327865, "cached": true}
+{"case": "h2-x2/corner-h36.5-x1.8-v0.94", "status": "refinement_checked", "unit_shear_uN": 30.64975060036723, "cached": true}
+{"case": "h2-x2/corner-h36.5-x1.8-v1.06", "status": "refinement_checked", "unit_shear_uN": 23.042594591085596, "cached": true}
+{"case": "h2-x2/geometry-h36.5-x12.5", "status": "refinement_checked", "unit_shear_uN": 326.6877206271196, "cached": true}
+{"case": "h2-x2/corner-h36.5-x12.5-v0.94", "status": "refinement_checked", "unit_shear_uN": 211.6856431186309, "cached": true}
+{"case": "h2-x2/corner-h36.5-x12.5-v1.06", "status": "refinement_checked", "unit_shear_uN": 159.05446467540108, "cached": true}
+{"case": "h2-x2/geometry-systematic-1.015", "status": "refinement_checked", "unit_shear_uN": 147.46048437701276, "cached": true}
+{"case": "h3-x3/volume-1.06", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "h3-x3/geometry-h33.4-x3.9", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "h3-x3/volume-0.94", "status": "refinement_checked", "unit_shear_uN": 272.6837648198838, "cached": true}
+{"case": "h3-x3/corner-h33.4-x3.9-v1.06", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "h3-x3/geometry-h33.4-x16.6", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "h3-x3/corner-h33.4-x3.9-v0.94", "status": "refinement_checked", "unit_shear_uN": 44.20958311587842, "cached": true}
+{"case": "h3-x3/corner-h33.4-x16.6-v1.06", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "h3-x3/corner-h33.4-x16.6-v0.94", "status": "refinement_checked", "unit_shear_uN": 191.858057467173, "cached": true}
+{"case": "h3-x3/geometry-h36-x3.9", "status": "refinement_checked", "unit_shear_uN": 95.06407568603271, "cached": true}
+{"case": "h3-x3/corner-h36-x3.9-v0.94", "status": "refinement_checked", "unit_shear_uN": 87.6347288486512, "cached": true}
+{"case": "h3-x3/corner-h36-x3.9-v1.06", "status": "refinement_checked", "unit_shear_uN": 28.095437282216196, "cached": true}
+{"case": "h3-x3/geometry-h36-x16.6", "status": "refinement_checked", "unit_shear_uN": 383.28870286159776, "cached": true}
+{"case": "h3-x3/corner-h36-x16.6-v0.94", "status": "refinement_checked", "unit_shear_uN": 359.06329071480616, "cached": true}
+{"case": "h3-x3/corner-h36-x16.6-v1.06", "status": "refinement_checked", "unit_shear_uN": 121.23661137508623, "cached": true}
+{"case": "h3-x3/geometry-systematic-1.015", "status": "refinement_checked", "unit_shear_uN": 160.4928356168517, "cached": true}
+{"case": "h6-x6/volume-1.06", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "h6-x6/geometry-h33.8-x25.8", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "h6-x6/volume-0.94", "status": "refinement_checked", "unit_shear_uN": 708.889417330022, "cached": true}
+{"case": "h6-x6/corner-h33.8-x25.8-v1.06", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "h6-x6/corner-h33.8-x25.8-v0.94", "status": "refinement_checked", "unit_shear_uN": 435.4296818456782, "cached": true}
+{"case": "h6-x6/geometry-h33.8-x36.4", "status": "not_converged", "unit_shear_uN": 208.30394113074965, "cached": true}
+{"case": "h6-x6/corner-h33.8-x36.4-v1.06", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "h6-x6/corner-h33.8-x36.4-v0.94", "status": "refinement_checked", "unit_shear_uN": 608.3333856515826, "cached": true}
+{"case": "h6-x6/geometry-h36.4-x25.8", "status": "refinement_checked", "unit_shear_uN": 597.4475049928818, "cached": true}
+{"case": "h6-x6/corner-h36.4-x25.8-v0.94", "status": "refinement_checked", "unit_shear_uN": 454.99896862005727, "cached": true}
+{"case": "h6-x6/corner-h36.4-x25.8-v1.06", "status": "refinement_checked", "unit_shear_uN": 317.9973412457265, "cached": true}
+{"case": "h6-x6/geometry-h36.4-x36.4", "status": "refinement_checked", "unit_shear_uN": 754.205183393225, "cached": true}
+{"case": "h6-x6/corner-h36.4-x36.4-v0.94", "status": "refinement_checked", "unit_shear_uN": 624.4037125836127, "cached": true}
+{"case": "h6-x6/corner-h36.4-x36.4-v1.06", "status": "refinement_checked", "unit_shear_uN": 478.7283792821728, "cached": true}
+{"case": "h6-x6/geometry-systematic-1.015", "status": "refinement_checked", "unit_shear_uN": 583.853425854472, "cached": true}
+{"case": "h4-x4/volume-0.94", "status": "refinement_checked", "unit_shear_uN": 155.87962485727468, "cached": true}
+{"case": "h4-x4/volume-1.06", "status": "refinement_checked", "unit_shear_uN": 299.01341629633146, "cached": true}
+{"case": "h4-x4/geometry-h34.9-x4.9", "status": "refinement_checked", "unit_shear_uN": 56.344670059868534, "cached": true}
+{"case": "h4-x4/corner-h34.9-x4.9-v1.06", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "h4-x4/corner-h34.9-x4.9-v0.94", "status": "refinement_checked", "unit_shear_uN": 138.3248858909808, "cached": true}
+{"case": "h4-x4/geometry-h34.9-x25.5", "status": "refinement_checked", "unit_shear_uN": 316.70270410517895, "cached": true}
+{"case": "h4-x4/corner-h34.9-x25.5-v1.06", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "h4-x4/corner-h34.9-x25.5-v0.94", "status": "refinement_checked", "unit_shear_uN": 616.1693798766022, "cached": true}
+{"case": "h4-x4/corner-h39.5-x4.9-v0.94", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "h4-x4/geometry-h39.5-x4.9", "status": "refinement_checked", "unit_shear_uN": 30.173173144049102, "cached": true}
+{"case": "h4-x4/corner-h39.5-x4.9-v1.06", "status": "refinement_checked", "unit_shear_uN": 95.60982495646074, "cached": true}
+{"case": "h4-x4/corner-h39.5-x25.5-v0.94", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "h4-x4/geometry-h39.5-x25.5", "status": "refinement_checked", "unit_shear_uN": 191.067441143028, "cached": true}
+{"case": "h4-x4/corner-h39.5-x25.5-v1.06", "status": "refinement_checked", "unit_shear_uN": 469.21095206084453, "cached": true}
+{"case": "h4-x4/geometry-systematic-1.015", "status": "refinement_checked", "unit_shear_uN": 310.35952801489185, "cached": true}
+{"case": "h5-x5/volume-1.06", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "h5-x5/geometry-h32.9-x5.9", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "h5-x5/volume-0.94", "status": "refinement_checked", "unit_shear_uN": 207.0845985420455, "cached": true}
+{"case": "h5-x5/corner-h32.9-x5.9-v1.06", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "h5-x5/geometry-h32.9-x12.6", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "h5-x5/corner-h32.9-x12.6-v0.94", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "h5-x5/corner-h32.9-x12.6-v1.06", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "h5-x5/corner-h32.9-x5.9-v0.94", "status": "refinement_checked", "unit_shear_uN": 24.713003414500445, "cached": true}
+{"case": "h5-x5/geometry-h35.5-x5.9", "status": "refinement_checked", "unit_shear_uN": 112.32998758763102, "cached": true}
+{"case": "h5-x5/corner-h35.5-x5.9-v1.06", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "h5-x5/corner-h35.5-x5.9-v0.94", "status": "refinement_checked", "unit_shear_uN": 158.26826958720287, "cached": true}
+{"case": "h5-x5/geometry-h35.5-x12.6", "status": "refinement_checked", "unit_shear_uN": 236.4576444542632, "cached": true}
+{"case": "h5-x5/corner-h35.5-x12.6-v1.06", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "h5-x5/corner-h35.5-x12.6-v0.94", "status": "refinement_checked", "unit_shear_uN": 327.7000796934881, "cached": true}
+{"case": "h5-x5/geometry-systematic-1.015", "status": "refinement_checked", "unit_shear_uN": 85.57031422155859, "cached": true}
+{"case": "h4-x5/volume-0.94", "status": "refinement_checked", "unit_shear_uN": 93.96945682346724, "cached": true}
+{"case": "h4-x5/volume-1.06", "status": "refinement_checked", "unit_shear_uN": 187.78014758934202, "cached": true}
+{"case": "h4-x5/geometry-h34.9-x5.9", "status": "refinement_checked", "unit_shear_uN": 67.76643388106685, "cached": true}
+{"case": "h4-x5/corner-h34.9-x5.9-v1.06", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "h4-x5/corner-h34.9-x5.9-v0.94", "status": "refinement_checked", "unit_shear_uN": 166.0183628696132, "cached": true}
+{"case": "h4-x5/geometry-h34.9-x12.6", "status": "refinement_checked", "unit_shear_uN": 144.70520574676183, "cached": true}
+{"case": "h4-x5/corner-h34.9-x12.6-v1.06", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "h4-x5/corner-h34.9-x12.6-v0.94", "status": "refinement_checked", "unit_shear_uN": 342.2386994512277, "cached": true}
+{"case": "h4-x5/corner-h39.5-x5.9-v0.94", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "h4-x5/geometry-h39.5-x5.9", "status": "refinement_checked", "unit_shear_uN": 36.28311281977936, "cached": true}
+{"case": "h4-x5/corner-h39.5-x5.9-v1.06", "status": "refinement_checked", "unit_shear_uN": 114.98197032520919, "cached": true}
+{"case": "h4-x5/corner-h39.5-x12.6-v0.94", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "h4-x5/geometry-h39.5-x12.6", "status": "refinement_checked", "unit_shear_uN": 78.2457077949661, "cached": true}
+{"case": "h4-x5/corner-h39.5-x12.6-v1.06", "status": "refinement_checked", "unit_shear_uN": 242.3357767580847, "cached": true}
+{"case": "h4-x5/geometry-systematic-1.015", "status": "refinement_checked", "unit_shear_uN": 194.47563852359463, "cached": true}
+{"case": "h5-x4/volume-1.06", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "h5-x4/geometry-h32.9-x4.9", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "h5-x4/volume-0.94", "status": "refinement_checked", "unit_shear_uN": 328.514569040983, "cached": true}
+{"case": "h5-x4/corner-h32.9-x4.9-v1.06", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "h5-x4/geometry-h32.9-x25.5", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "h5-x4/corner-h32.9-x4.9-v0.94", "status": "refinement_checked", "unit_shear_uN": 21.034005599773753, "cached": true}
+{"case": "h5-x4/corner-h32.9-x25.5-v1.06", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "h5-x4/corner-h32.9-x25.5-v0.94", "status": "not_converged", "unit_shear_uN": 177.59063612211858, "cached": true}
+{"case": "h5-x4/geometry-h35.5-x4.9", "status": "refinement_checked", "unit_shear_uN": 93.42728104350107, "cached": true}
+{"case": "h5-x4/corner-h35.5-x4.9-v1.06", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "h5-x4/corner-h35.5-x4.9-v0.94", "status": "refinement_checked", "unit_shear_uN": 131.81362470103542, "cached": true}
+{"case": "h5-x4/geometry-h35.5-x25.5", "status": "refinement_checked", "unit_shear_uN": 461.2257659478147, "cached": true}
+{"case": "h5-x4/corner-h35.5-x25.5-v1.06", "status": "engine_error", "unit_shear_uN": null, "cached": true}
+{"case": "h5-x4/corner-h35.5-x25.5-v0.94", "status": "refinement_checked", "unit_shear_uN": 597.7378356343543, "cached": true}
+{"case": "h5-x4/geometry-systematic-1.015", "status": "refinement_checked", "unit_shear_uN": 141.75552637968326, "cached": true}
+{
+  "report": "evidence/physical/predictions.json",
+  "central_status_counts": {
+    "engine_error": 15,
+    "not_converged": 1,
+    "refinement_checked": 8
+  },
+  "sensitivity_status_counts": {
+    "engine_error": 38,
+    "not_converged": 2,
+    "refinement_checked": 68
+  },
+  "held_out_calibration": {
+    "status": "fitted_on_calibration_only",
+    "gamma_N_per_m": 0.6682032821135863,
+    "calibration_ids": [
+      "h1-x1",
+      "h2-x2",
+      "h3-x3"
+    ],
+    "intercept_uN": 0,
+    "method": "Unweighted least squares, one multiplicative coefficient, zero intercept.",
+    "calibration_flat_plane_statuses": {
+      "published_flat_substrate/h1-x1": "no_sampled_vertex_violation_detected",
+      "published_flat_substrate/h2-x2": "no_sampled_vertex_violation_detected",
+      "published_flat_substrate/h3-x3": "no_sampled_vertex_violation_detected"
+    },
+    "scope": "Gamma is fitted only to the three central primary-mapping low-force rows. It is not refitted for sensitivities or held-out rows."
+  },
+  "verdict": "General absolute physical accuracy remains inconclusive. Raw force residuals are conditional on the declared mappings. Unresolved numerical cases, substrate intrusion, calibration dependence, and missing specimen and material information prevent a physical pass."
+}

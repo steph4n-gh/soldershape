@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "experimental_symbols": 12,
+  "pdf_sha256_checked": true,
+  "effective_volume_mm3": 0.011816991,
+  "scope": "Recalculation of recorded manual pixel readings, not an independent redigitization or physical validation."
+}

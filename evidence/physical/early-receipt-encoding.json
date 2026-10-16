@@ -1,0 +1,35 @@
+{
+  "encoding": "Lossless deterministic gzip of unchanged original early receipts. Small failed receipts remain plain JSON.",
+  "receipts": [
+    {
+      "original_path": "evidence/physical/prediction-receipts/h2-x2-early.json",
+      "uncompressed_sha256": "a58f6bba1ee69ebf300779a71fa428f9f1bed5f99f373781422fef3f0a3fd7df",
+      "compressed_path": "evidence/physical/prediction-receipts/h2-x2-early.json.gz",
+      "compressed_sha256": "aaa61673a9977702214a0ab55acb97435ddb428b91c72888c933a7dcbf10839e"
+    },
+    {
+      "original_path": "evidence/physical/prediction-receipts/h4-x4-early.json",
+      "uncompressed_sha256": "861b67c4ca7c0f5d869b5dbab365f2305b0f89f499498587ed2894b170ba50d4",
+      "compressed_path": "evidence/physical/prediction-receipts/h4-x4-early.json.gz",
+      "compressed_sha256": "af596015e55c31a05904420697bdafc4c72d566e560670de366035ed4853553d"
+    },
+    {
+      "original_path": "evidence/physical/prediction-receipts/h3-x3-early.json",
+      "uncompressed_sha256": "32d4c442b244051a18872ae8ebbd812a180ec518e3fec9b625b87e927bbde98c",
+      "compressed_path": "evidence/physical/prediction-receipts/h3-x3-early.json.gz",
+      "compressed_sha256": "7dad2fbeb05662b47732956963ddd9afda7bd95194d428fa3524973af71bbcd7"
+    },
+    {
+      "original_path": "evidence/physical/prediction-receipts/h4-x5-early.json",
+      "uncompressed_sha256": "7a41c741358dd39db92909fcadb388a245babc6eeecff6ad8f2d06ba53abf720",
+      "compressed_path": "evidence/physical/prediction-receipts/h4-x5-early.json.gz",
+      "compressed_sha256": "3a6561955a9bfabca6638042bee3e08fedb08a4a1788f5990dfa8eebfe96e445"
+    },
+    {
+      "original_path": "evidence/physical/prediction-receipts/h1-x1-early.json",
+      "uncompressed_sha256": "199e4f2e59f0f30ae60d3db6962adb77c5574963ca8c0f116dfe03ce35c7d7cd",
+      "compressed_path": "evidence/physical/prediction-receipts/h1-x1-early.json.gz",
+      "compressed_sha256": "ada4ea547b73a469747b342b78b28784245376b29f70a4eb73006d1380a90c0a"
+    }
+  ]
+}

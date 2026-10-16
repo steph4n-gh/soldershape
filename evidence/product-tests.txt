@@ -1,0 +1,29 @@
+test_actual_kicad_geometry (test_boundaries.Boundaries.test_actual_kicad_geometry) ... ok
+test_failed_row_evidence_and_csv_survive_export (test_boundaries.Boundaries.test_failed_row_evidence_and_csv_survive_export) ... ok
+test_malformed_footprints_are_rejected (test_boundaries.Boundaries.test_malformed_footprints_are_rejected) ... ok
+test_numeric_and_boolean_domains (test_boundaries.Boundaries.test_numeric_and_boolean_domains) ... ok
+test_quoted_labels_and_duplicate_identifiers_keep_distinct_indices (test_boundaries.Boundaries.test_quoted_labels_and_duplicate_identifiers_keep_distinct_indices) ... ok
+test_replay_reports_each_failed_case_and_continues (test_boundaries.Boundaries.test_replay_reports_each_failed_case_and_continues) ... ok
+test_selected_diameter_comes_from_footprint (test_boundaries.Boundaries.test_selected_diameter_comes_from_footprint) ... ok
+test_unsupported_pad_is_visible_but_cannot_be_solved (test_boundaries.Boundaries.test_unsupported_pad_is_visible_but_cannot_be_solved) ... ok
+test_foreign_origin_is_rejected_even_with_token (test_boundaries.LocalHTTP.test_foreign_origin_is_rejected_even_with_token) ... ok
+test_live_import_returns_actual_geometry (test_boundaries.LocalHTTP.test_live_import_returns_actual_geometry) ... ok
+test_missing_local_session_is_rejected (test_boundaries.LocalHTTP.test_missing_local_session_is_rejected) ... ok
+test_unknown_fields_are_rejected (test_boundaries.LocalHTTP.test_unknown_fields_are_rejected) ... ok
+test_case_rejects_nonfinite_and_unexpected_fields (test_cases.CaseHTTP.test_case_rejects_nonfinite_and_unexpected_fields) ... ok
+test_compare_exports_both_failed_rows_and_input_only_case (test_cases.CaseHTTP.test_compare_exports_both_failed_rows_and_input_only_case) ... ok
+test_live_case_open_normalizes_and_returns_original_pad_geometry (test_cases.CaseHTTP.test_live_case_open_normalizes_and_returns_original_pad_geometry) ... ok
+test_open_leaves_foreign_listener_alone (test_cases.CaseHTTP.test_open_leaves_foreign_listener_alone) ... ok
+test_open_reuses_verified_existing_workbench (test_cases.CaseHTTP.test_open_reuses_verified_existing_workbench) ... ok
+test_case_cannot_override_shared_conditions_or_execute_code (test_cases.EditableCases.test_case_cannot_override_shared_conditions_or_execute_code) ... ok
+test_comparison_is_fresh_and_preserves_fixed_conditions (test_cases.EditableCases.test_comparison_is_fresh_and_preserves_fixed_conditions) ... ok
+test_failed_or_zero_offset_comparison_has_no_improvement_verdict (test_cases.EditableCases.test_failed_or_zero_offset_comparison_has_no_improvement_verdict) ... ok
+test_pretty_saved_case_fits_the_reopen_limit (test_cases.EditableCases.test_pretty_saved_case_fits_the_reopen_limit) ... ok
+test_saved_inputs_round_trip_without_result_claims (test_cases.EditableCases.test_saved_inputs_round_trip_without_result_claims) ... ok
+test_surface_beyond_pad_planes_keeps_forces_but_blocks_design_verdict (test_cases.EditableCases.test_surface_beyond_pad_planes_keeps_forces_but_blocks_design_verdict) ... ok
+test_thin_bridges_and_re_equilibrated_energy_derivatives (test_solver.ThinBridgeRelaxation.test_thin_bridges_and_re_equilibrated_energy_derivatives) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 29.107s
+
+OK

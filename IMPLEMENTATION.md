@@ -45,3 +45,29 @@ The frontend owns `footprint_text`, selected pad index, physical form values, an
 Capture quadratic forces, volume, refinement changes, energy stationarity, and local Hessian sign before export. Refine the curved mesh once and convert to linear elements for display and export. Report tessellation volume error separately. A refinement check does not establish global minimality, unique equilibrium, physical accuracy, or manufacture readiness.
 
 Archive replay checks member hashes and sizes, parses normalized JSON inputs, and generates the current trusted templates. It never executes archived Evolver scripts. Representative mesh self-intersections receive a separate independent check during acceptance.
+
+## Editable cases and controlled comparison
+
+The release design compared two whole shapes. Two editable candidates would duplicate form ownership and invalidation. A frozen solved baseline would preserve an earlier operating point and require rules for differing gaps, offsets and materials. The selected smaller shape stores only the reference upper diameter and volume beside the current editor. Both designs always use the current shared conditions and compute afresh. There is no saved-result database.
+
+```json
+{
+  "schema": "soldershape.case.v1",
+  "footprint_text": "original KiCad text",
+  "pad_index": 0,
+  "parameters": {"upper_diameter_mm": 0.2, "standoff_mm": 0.15, "volume_mm3": 0.005, "offset_mm": 0.02, "surface_tension_n_m": 0.48, "density_g_cm3": 9, "gravity": true},
+  "baseline": {"upper_diameter_mm": 0.2, "volume_mm3": 0.006}
+}
+```
+
+`baseline` may be null. `parse_case(data)` in `model.py` validates the exact input-only shape through the existing footprint and joint validators. `normalize_case(data)` at the transport boundary checks that formatted saved JSON fits the same 2.1 MB limit used by Open case. No engine code, force claims or file paths are accepted in this format.
+
+`POST /api/case` takes this object and returns normalized `case` and imported `footprint`. It does not run the solver. The browser applies it only after complete validation and only if the draft revision is unchanged. Opening a case clears computed results. A rejected file preserves the current draft and result.
+
+`POST /api/compare` takes the same object and requires a reference. `calculate_comparison(case)` calls the existing public calculation path for Reference and Candidate. Each row keeps its own status, model, evidence, mesh and input digest. The response includes `comparison` with both designs and conditional deltas. A failed numerical check, zero offset, or detected pad-plane excursion suppresses the centering comparison verdict. Raw computed forces and failures remain inspectable. Ordinary solve/sweep also accept optional `baseline` so their exports preserve the editable draft.
+
+`make_bundle(results, source, editable_case, comparison)` reuses the existing archive format and adds hashed `editable-case.json` and `comparison.json` when supplied. Replay continues to regenerate trusted numeric inputs. The browser does not send previously computed forces back for acceptance.
+
+The engine now uses energy-decreasing `hessian_seek` steps and more bounded gradient relaxation. Numerical thresholds and strict native-warning rejection are unchanged. A separate product diagnostic reports sampled mesh excursions beyond the pad planes. It does not turn local numerical checks into physical clearance certification. The physical runner retains its own exact paper-specific plane and load-direction diagnostics.
+
+The standard-library server and existing numerical engine remain the entire runtime. Case files, comparisons and launcher reuse add no dependency, service or persistent shared state. This is the Laziness Protocol choice. Separate input-only case state and computed immutable evidence are the Model the Domain choice.

@@ -1,0 +1,64 @@
+{
+  "acceptance": {
+    "baseline_cylinder_limit_relative_tolerance": 1e-08,
+    "baseline_derivative_relative_tolerance": 1e-06,
+    "eligible_maximum_z_force_uN": 0.0,
+    "eligible_minimum_pitch_cell_clearance_mm": 0.0,
+    "every_case_restoring": true,
+    "every_case_status": "refinement_checked",
+    "export_reopen_required": true
+  },
+  "baseline": "A volume-equivalent sheared cylinder. Its radius is sqrt(V/(pi*h)); its lateral area is r times the integral of sqrt(h^2+x^2*cos(theta)^2) over a full turn. Forces are negative area derivatives at fixed volume. This approximation preserves volume and gap but relaxes the prescribed pad radius and omits gravity.",
+  "candidates": [
+    {
+      "id": "less-0.005",
+      "volume_mm3": 0.005
+    },
+    {
+      "id": "existing-0.006",
+      "volume_mm3": 0.006
+    },
+    {
+      "id": "more-0.007",
+      "volume_mm3": 0.007
+    }
+  ],
+  "component_volume_note": "The volume scenarios come from the workbench demonstration input. The footprint filename includes a nominal ball diameter, but this example does not establish the component's actual solder volume or recommend changing its ball specification.",
+  "decision": "Choose the tested nominal volume with the largest minimum lateral restoring force, among candidates that have no upward axial force and stay inside the pad pitch cell at every tested volume scenario.",
+  "excluded_claims": [
+    "A production solder volume recommendation",
+    "A measured process tolerance",
+    "Physical force accuracy for the selected alloy and flux",
+    "A prediction of free assembly height, placement yield, alignment time, or whole-package force",
+    "Certification of every volume between the sampled values",
+    "Wetting, bridging, thermal reflow, or long-term joint reliability"
+  ],
+  "existing_candidate": "existing-0.006",
+  "footprint": "examples/BGA-36_3.396x3.466mm_Layout6x6_P0.4mm_Ball0.25mm_Pad0.2mm_NSMD.kicad_mod",
+  "frozen_before_repaired_solver_runs": true,
+  "pad_index": 0,
+  "parameters": {
+    "density_g_cm3": 9.0,
+    "gravity": true,
+    "offset_mm": 0.02,
+    "standoff_mm": 0.15,
+    "surface_tension_n_m": 0.48,
+    "upper_diameter_mm": 0.2,
+    "volume_mm3": 0.006
+  },
+  "pitch_mm": 0.4,
+  "prior_information": "The earlier acceptance run already showed axial force changing sign between 0.006 and 0.007 mm^3. This protocol is not a blind discovery experiment.",
+  "rationale": "At a prescribed gap, an upward joint force adds a separating load that the fixture must resist. This example treats that load direction as unacceptable. The rule is an explicit example requirement, not a manufacturer specification.",
+  "schema": 1,
+  "scope": "Pinned, fully wetted circular rims. Prescribed wetted-plane gap and lateral offset. One isolated joint. Conditional forces at the supplied surface tension. The pitch cell check is a geometric envelope screen, not solder-bridge validation. The physical comparison uses a different pad diameter and gap, so its results do not qualify this design geometry.",
+  "title": "Screen solder volume for a fixture-held 0.4 mm-pitch joint",
+  "user": "A PCB or assembly engineer screening solder volume when a fixture prescribes the distance between wetted pad planes.",
+  "volume_factors": [
+    0.9,
+    0.95,
+    1.0,
+    1.05,
+    1.1
+  ],
+  "volume_uncertainty": "Declared illustrative +/-10 percent volume sensitivity. It is not a measured process capability or probability distribution. Five samples do not certify every point in the interval."
+}

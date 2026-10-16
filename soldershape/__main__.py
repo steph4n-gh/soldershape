@@ -12,13 +12,21 @@ import sys
 import threading
 import traceback
 from urllib.parse import urlsplit
+from urllib.request import urlopen
 
 from .artifacts import make_bundle, read_bundle
-from .model import InputError, import_footprint, request_from_footprint
+from .model import InputError, import_footprint, parse_case, request_from_footprint
 
 
 ROOT = Path(__file__).resolve().parents[1]
 WEB = Path(__file__).resolve().parent / "web"
+
+
+def normalize_case(data):
+    case = parse_case(data)
+    if len((json.dumps(case, indent=2) + "\n").encode()) > 2_100_000:
+        raise InputError("The formatted editable case exceeds 2.1 MB. Use a smaller footprint.")
+    return case
 
 
 def calculate(source, index, parameters, offsets=None):
@@ -36,9 +44,55 @@ def calculate(source, index, parameters, offsets=None):
         except SolverError as error:
             result = {"input": point.to_dict(), "input_sha256": point.sha256, "status": "failed",
                       "error": str(error), "evidence": getattr(error, "evidence", {})}
+        if "mesh" in result:
+            heights = [vertex[2] for vertex in result["mesh"]["vertices_mm"]]
+            below, above = max(0, -min(heights)), max(0, max(heights)-point.standoff_mm)
+            tolerance = max(1e-7, point.standoff_mm*1e-6)
+            result["diagnostics"]["pad_plane_excursion_mm"] = {"below_lower": below, "above_upper": above, "tolerance": tolerance}
+            result["model_warnings"] = []
+            if max(below, above) > tolerance:
+                result["model_warnings"].append("Model scope: the surface extends beyond the wetted pad planes. Substrate obstacles are not modeled; check physical clearance before interpreting these forces.")
         result["footprint"] = footprint
         results.append(result)
     return results
+
+
+def calculate_comparison(case):
+    if case["baseline"] is None:
+        raise InputError("Set a reference design before comparing.")
+    results = []
+    for role, parameters in (("Reference", {**case["parameters"], **case["baseline"]}), ("Candidate", case["parameters"])):
+        result = calculate(case["footprint_text"], case["pad_index"], parameters)[0]
+        result["design"] = role
+        results.append(result)
+    offset = case["parameters"]["offset_mm"]
+    checked = all(result["status"] == "refinement_checked" for result in results)
+    scope_clear = not any(result.get("model_warnings") for result in results)
+    comparable = checked and offset != 0 and scope_clear
+    designs = []
+    for result in results:
+        forces = result.get("forces", {})
+        lateral = forces.get("x_uN")
+        designs.append({"role": result["design"], "input_sha256": result["input_sha256"],
+                        "upper_diameter_mm": result["input"]["upper_diameter_mm"], "volume_mm3": result["input"]["volume_mm3"],
+                        "status": result["status"], "force_x_uN": lateral, "force_z_uN": forces.get("z_uN"),
+                        "restoring_force_uN": -math.copysign(1, offset)*lateral if lateral is not None and offset != 0 else None})
+    reference, candidate = designs
+    comparison = {"status": "compared" if comparable else "inconclusive", "designs": designs,
+                  "scope": "Both designs use the current board pad, wetted-plane gap, offset and material. Forces are conditional equilibrium predictions. Physical accuracy, free standoff, alignment time and manufacturing yield are not qualified."}
+    if comparable:
+        comparison["delta"] = {"volume_mm3": candidate["volume_mm3"]-reference["volume_mm3"],
+                               "volume_percent": (candidate["volume_mm3"]/reference["volume_mm3"]-1)*100,
+                               "restoring_force_uN": candidate["restoring_force_uN"]-reference["restoring_force_uN"],
+                               "vertical_force_uN": candidate["force_z_uN"]-reference["force_z_uN"]}
+    else:
+        if not checked:
+            comparison["reason"] = "Both designs must pass numerical checks."
+        elif not scope_clear:
+            comparison["reason"] = "A surface extends beyond the pad planes. Substrate clearance is unknown in this model."
+        else:
+            comparison["reason"] = "Use a nonzero offset to compare centering force."
+    return results, comparison
 
 
 class Server(ThreadingHTTPServer):
@@ -83,7 +137,7 @@ class Handler(BaseHTTPRequestHandler):
         if path == "/api/bootstrap":
             from .solver import engine_info
             example = next((ROOT / "examples").glob("*.kicad_mod"))
-            self.respond(200, {"token": self.server.token, "engine": engine_info(),
+            self.respond(200, {"application": "SolderShape", "token": self.server.token, "engine": engine_info(),
                                "example": {"filename": example.name, "text": example.read_text()}})
             return
         assets = {"/": ("index.html", "text/html"), "/index.html": ("index.html", "text/html"),
@@ -99,7 +153,7 @@ class Handler(BaseHTTPRequestHandler):
             self.respond(403, {"error": "Reload the workbench to establish a local session."})
             return
         path = urlsplit(self.path).path
-        if path not in {"/api/import", "/api/solve", "/api/sweep"}:
+        if path not in {"/api/import", "/api/case", "/api/solve", "/api/sweep", "/api/compare"}:
             self.respond(404, {"error": "Unknown operation."})
             return
         if self.headers.get_content_type() != "application/json":
@@ -112,22 +166,39 @@ class Handler(BaseHTTPRequestHandler):
             body = json.loads(self.rfile.read(length), parse_constant=lambda value: (_ for _ in ()).throw(InputError("Non-finite JSON numbers are not accepted.")))
             if not isinstance(body, dict):
                 raise InputError("Expected a JSON object.")
-            allowed = {"footprint_text"} if path == "/api/import" else {"footprint_text", "pad_index", "parameters"}
-            if path == "/api/sweep":
-                allowed.add("offsets_mm")
-            if set(body) != allowed:
-                raise InputError("Request fields do not match this operation.")
             if path == "/api/import":
+                if set(body) != {"footprint_text"}:
+                    raise InputError("Request fields do not match this operation.")
                 self.respond(200, {"footprint": import_footprint(body["footprint_text"])})
                 return
+            if path in {"/api/case", "/api/compare"}:
+                case = normalize_case(body)
+                if path == "/api/case":
+                    self.respond(200, {"case": case, "footprint": import_footprint(case["footprint_text"])})
+                    return
+                if case["baseline"] is None:
+                    raise InputError("Set a reference design before comparing.")
+            else:
+                required = {"footprint_text", "pad_index", "parameters"}
+                if path == "/api/sweep":
+                    required.add("offsets_mm")
+                if not required <= set(body) or set(body) - required - {"baseline"}:
+                    raise InputError("Request fields do not match this operation.")
+                case = normalize_case({"schema": "soldershape.case.v1", "footprint_text": body["footprint_text"],
+                                   "pad_index": body["pad_index"], "parameters": body["parameters"], "baseline": body.get("baseline")})
             if not self.server.computation.acquire(blocking=False):
                 self.respond(409, {"error": "Another computation is running. Wait for it to finish."})
                 return
             try:
-                results = calculate(body["footprint_text"], body["pad_index"], body["parameters"], body.get("offsets_mm"))
-                bundle = make_bundle(results, body["footprint_text"])
+                comparison = None
+                if path == "/api/compare":
+                    results, comparison = calculate_comparison(case)
+                else:
+                    results = calculate(case["footprint_text"], case["pad_index"], case["parameters"], body.get("offsets_mm"))
+                bundle = make_bundle(results, case["footprint_text"], case, comparison)
                 self.respond(200, {"results": results, "bundle_base64": base64.b64encode(bundle).decode(),
-                                   "bundle_filename": "soldershape-sweep.zip" if path == "/api/sweep" else "soldershape-case.zip"})
+                                   "comparison": comparison,
+                                   "bundle_filename": {"/api/sweep": "soldershape-sweep.zip", "/api/compare": "soldershape-comparison.zip"}.get(path, "soldershape-case.zip")})
             finally:
                 self.server.computation.release()
         except (InputError, ValueError, UnicodeError) as error:
@@ -169,6 +240,7 @@ def main():
     sub = parser.add_subparsers(dest="command", required=True)
     serve = sub.add_parser("serve", help="Open the loopback browser workbench.")
     serve.add_argument("--port", type=int, default=8765)
+    serve.add_argument("--open", action="store_true", help="Open the workbench in your default browser.")
     pads = sub.add_parser("pads", help="Inspect supported pads in a footprint.")
     pads.add_argument("footprint", type=Path)
     command = sub.add_parser("solve", help="Compute a footprint pad and export a reproducible ZIP.")
@@ -179,12 +251,34 @@ def main():
     command.add_argument("--output", type=Path, default=ROOT / "output" / "soldershape-case.zip")
     command = sub.add_parser("replay", help="Verify a bundle and recompute trusted inputs.")
     command.add_argument("bundle", type=Path)
+    command = sub.add_parser("solve-case", help="Recompute an editable case or its reference comparison.")
+    command.add_argument("case", type=Path)
+    command.add_argument("--output", type=Path, default=ROOT / "output" / "soldershape-case.zip")
     args = parser.parse_args()
     try:
         if args.command == "serve":
-            server = Server(("127.0.0.1", args.port))
+            try:
+                server = Server(("127.0.0.1", args.port))
+            except OSError:
+                if not args.open:
+                    raise
+                url = f"http://127.0.0.1:{args.port}"
+                try:
+                    with urlopen(url + "/api/bootstrap", timeout=2) as response:
+                        existing = json.loads(response.read(2_100_000))
+                    if not isinstance(existing, dict) or existing.get("application") != "SolderShape":
+                        raise ValueError("The port belongs to another application.")
+                except (OSError, ValueError) as error:
+                    raise InputError(f"Port {args.port} is occupied. Choose another port with --port.") from error
+                import webbrowser
+                webbrowser.open(url)
+                print(f"Opened the existing SolderShape workbench at {url}")
+                return 0
             print(f"SolderShape at http://127.0.0.1:{server.server_port}", flush=True)
-            print("Fully wetted circular pads. Equilibrium model. No physical validation.", flush=True)
+            print("Pinned circular pads. Numerical checks do not qualify physical accuracy.", flush=True)
+            if args.open:
+                import webbrowser
+                webbrowser.open(f"http://127.0.0.1:{server.server_port}")
             try:
                 server.serve_forever()
             except KeyboardInterrupt:
@@ -197,6 +291,20 @@ def main():
             return 0
         if args.command == "replay":
             return replay(args.bundle)
+        if args.command == "solve-case":
+            if args.case.stat().st_size > 2_100_000:
+                raise InputError("Editable cases are limited to 2.1 MB.")
+            case = normalize_case(json.loads(args.case.read_text()))
+            comparison = None
+            if case["baseline"] is not None:
+                results, comparison = calculate_comparison(case)
+            else:
+                results = calculate(case["footprint_text"], case["pad_index"], case["parameters"])
+            args.output.parent.mkdir(parents=True, exist_ok=True)
+            args.output.write_bytes(make_bundle(results, case["footprint_text"], case, comparison))
+            print(json.dumps({"results": [{key: row[key] for key in ("design", "input", "status", "forces", "error") if key in row} for row in results],
+                              "comparison": comparison, "output": str(args.output.resolve())}, indent=2))
+            return 0 if all(row["status"] == "refinement_checked" for row in results) else 1
         source = args.footprint.read_text()
         footprint = import_footprint(source)
         candidates = [p["index"] for p in footprint["pads"] if p["identifier"] == args.pad]

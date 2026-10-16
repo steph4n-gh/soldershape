@@ -1,0 +1,31 @@
+{
+  "application": "SolderShape 0.2.0",
+  "verification": {
+    "unit_and_native_regression": "24 tests pass",
+    "prior_numerical_suite": "11 generated cases plus upstream reference and mesh/export/replay pass",
+    "native_force_derivative_max_relative_error": 1.1787e-05,
+    "browser_archive_replay": "2/2 exact force matches, source and binary match",
+    "physical_accuracy": "not qualified; frozen campaign and negative results retained",
+    "review": "independent product and scientific reviews completed on inherited model family",
+    "browser_layout": "normal and narrow breakpoint tested; no document horizontal overflow"
+  },
+  "commands": [
+    "python3 -m unittest discover -s tests -v",
+    "python3 tools/verify.py",
+    "python3 tools/check_digitization.py",
+    "python3 tools/validate_physical.py --stage full --workers 2",
+    "python3 tools/compare_designs.py --solver-sha256 07b45f912cadedc9ae69313820a46a40248459696bbe70d9b769fea287deeb98",
+    "python3 -m soldershape solve-case examples/centering-volume.soldershape.json --output output/comparison.zip",
+    "python3 -m soldershape replay output/comparison.zip"
+  ],
+  "source_sha256": {
+    "soldershape/model.py": "3eef0883253f051c75cc5e67641924ec48f31eef17efd9b5ba265115269b3e91",
+    "soldershape/solver.py": "07b45f912cadedc9ae69313820a46a40248459696bbe70d9b769fea287deeb98",
+    "soldershape/__main__.py": "3870de483dc43e660b49dd1a6e20f8fd08cac96d73095834f0cd326639327739",
+    "soldershape/artifacts.py": "a819b4cc21cf5fc6864d87f6506d1a41c973f14107264dc2d5300e9ad26b3666",
+    "soldershape/web/app.js": "c03e92a7006d94373080ebed0a926f5de031b67ac53529e0e318e996dc166811",
+    "soldershape/web/index.html": "5c34894793191f72d0b12ac46f1ecc26ae9b49a9eefe0777b92a122db5d78d95",
+    "soldershape/web/style.css": "edf1b45bda782345967f7993f7c26ae552178f696a22f68a489d0d64ceac4cce",
+    "Start SolderShape.command": "eafc8e7acc5f1e8be81e74de122751c9dd0f1eb3e437d832788d02d00cff36c0"
+  }
+}

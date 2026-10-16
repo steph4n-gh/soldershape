@@ -1,0 +1,45 @@
+{"case": "published_flat_substrate/h2-x2", "status": "refinement_checked", "unit_shear_uN": 99.58616836204526, "cached": false}
+{"case": "published_flat_substrate/h1-x1", "status": "refinement_checked", "unit_shear_uN": 16.90325066375231, "cached": false}
+{"case": "published_flat_substrate/h6-x6", "status": "engine_error", "unit_shear_uN": null, "cached": false}
+{"case": "published_flat_substrate/h3-x3", "status": "not_converged", "unit_shear_uN": 90.77075174661331, "cached": false}
+{"case": "published_flat_substrate/h5-x5", "status": "engine_error", "unit_shear_uN": null, "cached": false}
+{"case": "published_flat_substrate/h4-x4", "status": "refinement_checked", "unit_shear_uN": 366.1301601863565, "cached": false}
+{"case": "published_flat_substrate/h5-x4", "status": "engine_error", "unit_shear_uN": null, "cached": false}
+{"case": "literal_copper_rim/h1-x1", "status": "engine_error", "unit_shear_uN": null, "cached": false}
+{"case": "literal_copper_rim/h2-x2", "status": "engine_error", "unit_shear_uN": null, "cached": false}
+{"case": "literal_copper_rim/h3-x3", "status": "engine_error", "unit_shear_uN": null, "cached": false}
+{"case": "literal_copper_rim/h6-x6", "status": "engine_error", "unit_shear_uN": null, "cached": false}
+{"case": "published_flat_substrate/h4-x5", "status": "refinement_checked", "unit_shear_uN": 232.41438506550747, "cached": false}
+{"case": "literal_copper_rim/h5-x5", "status": "engine_error", "unit_shear_uN": null, "cached": false}
+{"case": "literal_copper_rim/h4-x4", "status": "refinement_checked", "unit_shear_uN": 434.42581939764915, "cached": false}
+{"case": "literal_copper_rim/h5-x4", "status": "engine_error", "unit_shear_uN": null, "cached": false}
+{"case": "literal_copper_rim/h4-x5", "status": "refinement_checked", "unit_shear_uN": 277.67701528923214, "cached": false}
+{"case": "uncorrected_interface_gap/h1-x1", "status": "engine_error", "unit_shear_uN": null, "cached": false}
+{"case": "uncorrected_interface_gap/h2-x2", "status": "engine_error", "unit_shear_uN": null, "cached": false}
+{"case": "uncorrected_interface_gap/h3-x3", "status": "engine_error", "unit_shear_uN": null, "cached": false}
+{"case": "uncorrected_interface_gap/h6-x6", "status": "engine_error", "unit_shear_uN": null, "cached": false}
+{"case": "uncorrected_interface_gap/h4-x4", "status": "engine_error", "unit_shear_uN": null, "cached": false}
+{"case": "uncorrected_interface_gap/h5-x5", "status": "engine_error", "unit_shear_uN": null, "cached": false}
+{"case": "uncorrected_interface_gap/h4-x5", "status": "engine_error", "unit_shear_uN": null, "cached": false}
+{"case": "uncorrected_interface_gap/h5-x4", "status": "engine_error", "unit_shear_uN": null, "cached": false}
+{"case": "scaling/gamma-0.4", "status": "refinement_checked", "unit_shear_uN": 39.83446538510099, "cached": false}
+{
+  "report": "evidence/physical/predictions.json",
+  "central_status_counts": {
+    "engine_error": 17,
+    "not_converged": 1,
+    "refinement_checked": 6
+  },
+  "sensitivity_status_counts": {},
+  "held_out_calibration": {
+    "status": "inconclusive",
+    "reason": "All three frozen calibration rows must pass numerical checks.",
+    "calibration_ids": [
+      "h1-x1",
+      "h2-x2",
+      "h3-x3"
+    ],
+    "gamma_N_per_m": null
+  },
+  "verdict": "General absolute physical accuracy remains inconclusive. This comparison separates generic-default error, calibration-dependent published consistency, and a low-force-calibrated held-out test. Missing specimen and material information prevents a general physical pass."
+}

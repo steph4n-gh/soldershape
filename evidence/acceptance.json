@@ -62,34 +62,34 @@
   "cylinder": {
     "computed_uN": {
       "x_uN": -0.0,
-      "z_uN": -376.9897614080975
+      "z_uN": -376.9897656343465
     },
     "analytic_z_uN": -376.99111843077515,
-    "relative_z_error": 3.5996144506222905e-06,
+    "relative_z_error": 3.588403976961807e-06,
     "diagnostics": {
       "volume_relative_error": 1.1503742337469317e-16,
-      "force_change_relative": 5.417034214213917e-05,
+      "force_change_relative": 5.342188758022634e-05,
       "force_component_changes": {
         "x": {
-          "absolute_uN": 8.88178419700125e-09,
+          "absolute_uN": 0.0,
           "normalization_uN": 7.5398223686155035,
-          "relative": 1.1779832153568578e-09,
-          "capillary_relative": 1.1779832153568579e-11
+          "relative": 0.0,
+          "capillary_relative": 0.0
         },
         "z": {
-          "absolute_uN": 0.020421664359560054,
-          "normalization_uN": 376.9897614080975,
-          "relative": 5.417034214213917e-05,
-          "capillary_relative": 2.70850735748964e-05
+          "absolute_uN": 0.020139504878613934,
+          "normalization_uN": 376.9897656343465,
+          "relative": 5.342188758022634e-05,
+          "capillary_relative": 2.6710847940456247e-05
         }
       },
       "force_normalization": "max(abs(final component), 0.01 * capillary force scale)",
       "capillary_force_scale_uN": 753.9822368615503,
       "negative_eigenvalues": 0,
-      "stationarity_energy_change_relative": 1.2241130280205788e-08,
+      "stationarity_energy_change_relative": 9.80379605562412e-09,
       "stationarity_threshold_relative": 1e-07,
       "force_change_threshold_relative": 0.01,
-      "mesh_volume_error_relative": 0.0005364551890686409,
+      "mesh_volume_error_relative": 0.0005361261241046966,
       "finite_difference_displacement_mm": {
         "x": 2.5e-06,
         "z": 3e-06
@@ -102,34 +102,34 @@
     {
       "offset_mm": -0.04,
       "forces": {
-        "x_uN": 38.242370348218195,
-        "z_uN": -43.56531045912604
+        "x_uN": 38.24237229110849,
+        "z_uN": -43.56531656165194
       },
       "status": "refinement_checked",
       "diagnostics": {
-        "volume_relative_error": 1.4117215787571671e-16,
-        "force_change_relative": 0.00013734319573114687,
+        "volume_relative_error": 0.0,
+        "force_change_relative": 0.00012879946098974198,
         "force_component_changes": {
           "x": {
-            "absolute_uN": 0.0006625477944055547,
-            "normalization_uN": 38.242370348218195,
-            "relative": 1.7324966741671242e-05,
-            "capillary_relative": 2.1968282607141008e-06
+            "absolute_uN": 0.0006007416786246722,
+            "normalization_uN": 38.24237229110849,
+            "relative": 1.5708797405446187e-05,
+            "capillary_relative": 1.9918959932174873e-06
           },
           "z": {
-            "absolute_uN": 0.0059833989614759275,
-            "normalization_uN": 43.56531045912604,
-            "relative": 0.00013734319573114687,
-            "capillary_relative": 1.9839323358537643e-05
+            "absolute_uN": 0.00561118929098825,
+            "normalization_uN": 43.56531656165194,
+            "relative": 0.00012879946098974198,
+            "capillary_relative": 1.8605177339272657e-05
           }
         },
         "force_normalization": "max(abs(final component), 0.01 * capillary force scale)",
         "capillary_force_scale_uN": 301.59289474462014,
         "negative_eigenvalues": 0,
-        "stationarity_energy_change_relative": 2.2597830036038503e-08,
+        "stationarity_energy_change_relative": 1.2791429125559096e-08,
         "stationarity_threshold_relative": 1e-07,
         "force_change_threshold_relative": 0.01,
-        "mesh_volume_error_relative": 0.0007780167555391237,
+        "mesh_volume_error_relative": 0.0007765507670970395,
         "finite_difference_displacement_mm": {
           "x": 1.0000000000000002e-06,
           "z": 1.5e-06
@@ -141,34 +141,34 @@
     {
       "offset_mm": -0.02,
       "forces": {
-        "x_uN": 19.63342668442891,
-        "z_uN": -43.77622004151742
+        "x_uN": 19.633428055554344,
+        "z_uN": -43.77622502271805
       },
       "status": "refinement_checked",
       "diagnostics": {
-        "volume_relative_error": 0.0,
-        "force_change_relative": 0.000142992655720782,
+        "volume_relative_error": 2.8234431575143343e-16,
+        "force_change_relative": 0.00013482629313426653,
         "force_component_changes": {
           "x": {
-            "absolute_uN": 0.00038899994336816235,
-            "normalization_uN": 19.63342668442891,
-            "relative": 1.981314569385255e-05,
-            "capillary_relative": 1.2898179968647999e-06
+            "absolute_uN": 0.00034210412280799574,
+            "normalization_uN": 19.633428055554344,
+            "relative": 1.742457414161118e-05,
+            "capillary_relative": 1.1343242124376946e-06
           },
           "z": {
-            "absolute_uN": 0.006259677961153898,
-            "normalization_uN": 43.77622004151742,
-            "relative": 0.000142992655720782,
-            "capillary_relative": 2.0755389368355002e-05
+            "absolute_uN": 0.005902186147224597,
+            "normalization_uN": 43.77622502271805,
+            "relative": 0.00013482629313426653,
+            "capillary_relative": 1.9570043757902162e-05
           }
         },
         "force_normalization": "max(abs(final component), 0.01 * capillary force scale)",
         "capillary_force_scale_uN": 301.59289474462014,
         "negative_eigenvalues": 0,
-        "stationarity_energy_change_relative": 2.2133790758787864e-08,
+        "stationarity_energy_change_relative": 1.2832548730269103e-08,
         "stationarity_threshold_relative": 1e-07,
         "force_change_threshold_relative": 0.01,
-        "mesh_volume_error_relative": 0.000782203883369581,
+        "mesh_volume_error_relative": 0.0007805431081263636,
         "finite_difference_displacement_mm": {
           "x": 1.0000000000000002e-06,
           "z": 1.5e-06
@@ -180,34 +180,34 @@
     {
       "offset_mm": 0,
       "forces": {
-        "x_uN": -0.0,
-        "z_uN": -43.8591388503736
+        "x_uN": 5.551115123125783e-09,
+        "z_uN": -43.859143746457136
       },
       "status": "refinement_checked",
       "diagnostics": {
-        "volume_relative_error": 1.4117215787571671e-16,
-        "force_change_relative": 0.0001443600092494582,
+        "volume_relative_error": 4.2351647362715017e-16,
+        "force_change_relative": 0.00013669164319391646,
         "force_component_changes": {
           "x": {
-            "absolute_uN": 0.0,
+            "absolute_uN": 1.1102230246251565e-08,
             "normalization_uN": 3.0159289474462017,
-            "relative": 0.0,
-            "capillary_relative": 0.0
+            "relative": 3.681197547990181e-09,
+            "capillary_relative": 3.681197547990181e-11
           },
           "z": {
-            "absolute_uN": 0.006331505690113204,
-            "normalization_uN": 43.8591388503736,
-            "relative": 0.0001443600092494582,
-            "capillary_relative": 2.0993550579082885e-05
+            "absolute_uN": 0.005995178427781411,
+            "normalization_uN": 43.859143746457136,
+            "relative": 0.00013669164319391646,
+            "capillary_relative": 1.987838086456894e-05
           }
         },
         "force_normalization": "max(abs(final component), 0.01 * capillary force scale)",
         "capillary_force_scale_uN": 301.59289474462014,
         "negative_eigenvalues": 0,
-        "stationarity_energy_change_relative": 2.1433958750064852e-08,
+        "stationarity_energy_change_relative": 1.2607504976138775e-08,
         "stationarity_threshold_relative": 1e-07,
         "force_change_threshold_relative": 0.01,
-        "mesh_volume_error_relative": 0.0007836547191069076,
+        "mesh_volume_error_relative": 0.0007819201863155101,
         "finite_difference_displacement_mm": {
           "x": 1.0000000000000002e-06,
           "z": 1.5e-06
@@ -219,34 +219,34 @@
     {
       "offset_mm": 0.02,
       "forces": {
-        "x_uN": -19.633426678877793,
-        "z_uN": -43.77622003781667
+        "x_uN": -19.63342805000323,
+        "z_uN": -43.77622501901732
       },
       "status": "refinement_checked",
       "diagnostics": {
-        "volume_relative_error": 2.8234431575143343e-16,
-        "force_change_relative": 0.0001429926557328703,
+        "volume_relative_error": 1.4117215787571671e-16,
+        "force_change_relative": 0.00013482629314598904,
         "force_component_changes": {
           "x": {
-            "absolute_uN": 0.00038899994336816235,
-            "normalization_uN": 19.633426678877793,
-            "relative": 1.9813145699454476e-05,
-            "capillary_relative": 1.2898179968647999e-06
+            "absolute_uN": 0.0003420930205777495,
+            "normalization_uN": 19.63342805000323,
+            "relative": 1.742400867064543e-05,
+            "capillary_relative": 1.1342874004622146e-06
           },
           "z": {
-            "absolute_uN": 0.006259677961153898,
-            "normalization_uN": 43.77622003781667,
-            "relative": 0.0001429926557328703,
-            "capillary_relative": 2.0755389368355002e-05
+            "absolute_uN": 0.005902186147238808,
+            "normalization_uN": 43.77622501901732,
+            "relative": 0.00013482629314598904,
+            "capillary_relative": 1.957004375794928e-05
           }
         },
         "force_normalization": "max(abs(final component), 0.01 * capillary force scale)",
         "capillary_force_scale_uN": 301.59289474462014,
         "negative_eigenvalues": 0,
-        "stationarity_energy_change_relative": 2.213379055024475e-08,
+        "stationarity_energy_change_relative": 1.283270472051801e-08,
         "stationarity_threshold_relative": 1e-07,
         "force_change_threshold_relative": 0.01,
-        "mesh_volume_error_relative": 0.0007822038833699141,
+        "mesh_volume_error_relative": 0.0007805431073341085,
         "finite_difference_displacement_mm": {
           "x": 1.0000000000000002e-06,
           "z": 1.5e-06
@@ -258,34 +258,34 @@
     {
       "offset_mm": 0.04,
       "forces": {
-        "x_uN": -38.24237034266708,
-        "z_uN": -43.56531045912604
+        "x_uN": -38.24237228555737,
+        "z_uN": -43.56531656165194
       },
       "status": "refinement_checked",
       "diagnostics": {
-        "volume_relative_error": 1.4117215787571671e-16,
-        "force_change_relative": 0.00013734319573114687,
+        "volume_relative_error": 0.0,
+        "force_change_relative": 0.0001287995459368615,
         "force_component_changes": {
           "x": {
-            "absolute_uN": 0.0006625477944055547,
-            "normalization_uN": 38.24237034266708,
-            "relative": 1.7324966744186066e-05,
-            "capillary_relative": 2.1968282607141008e-06
+            "absolute_uN": 0.0006007250252793028,
+            "normalization_uN": 38.24237228555737,
+            "relative": 1.5708361939308164e-05,
+            "capillary_relative": 1.9918407752542674e-06
           },
           "z": {
-            "absolute_uN": 0.0059833989614759275,
-            "normalization_uN": 43.56531045912604,
-            "relative": 0.00013734319573114687,
-            "capillary_relative": 1.9839323358537643e-05
+            "absolute_uN": 0.005611192991736402,
+            "normalization_uN": 43.56531656165194,
+            "relative": 0.0001287995459368615,
+            "capillary_relative": 1.8605189609946856e-05
           }
         },
         "force_normalization": "max(abs(final component), 0.01 * capillary force scale)",
         "capillary_force_scale_uN": 301.59289474462014,
         "negative_eigenvalues": 0,
-        "stationarity_energy_change_relative": 2.259782982974764e-08,
+        "stationarity_energy_change_relative": 1.279134165823318e-08,
         "stationarity_threshold_relative": 1e-07,
         "force_change_threshold_relative": 0.01,
-        "mesh_volume_error_relative": 0.0007780167555339057,
+        "mesh_volume_error_relative": 0.0007765507668402449,
         "finite_difference_displacement_mm": {
           "x": 1.0000000000000002e-06,
           "z": 1.5e-06
@@ -303,24 +303,24 @@
     {
       "volume_mm3": 0.005,
       "forces": {
-        "x_uN": -20.36428855267669,
-        "z_uN": -128.77095057299098
+        "x_uN": -20.36428851937,
+        "z_uN": -128.77095172947327
       },
       "status": "refinement_checked"
     },
     {
       "volume_mm3": 0.006,
       "forces": {
-        "x_uN": -19.633426678877793,
-        "z_uN": -43.77622003781667
+        "x_uN": -19.63342805000323,
+        "z_uN": -43.77622501901732
       },
       "status": "refinement_checked"
     },
     {
       "volume_mm3": 0.007,
       "forces": {
-        "x_uN": -16.536738156602834,
-        "z_uN": 43.537281598412164
+        "x_uN": -16.536735197858473,
+        "z_uN": 43.53728264572254
       },
       "status": "refinement_checked"
     }
@@ -328,33 +328,33 @@
   "unequal_pad": {
     "upper_diameter_mm": 0.24,
     "forces": {
-      "x_uN": -21.659977272880937,
-      "z_uN": -140.2323041614177
+      "x_uN": -21.659977267329822,
+      "z_uN": -140.23230646328008
     },
     "diagnostics": {
-      "volume_relative_error": 1.4117215787571671e-16,
-      "force_change_relative": 5.1027406969305875e-05,
+      "volume_relative_error": 0.0,
+      "force_change_relative": 5.039095629194732e-05,
       "force_component_changes": {
         "x": {
-          "absolute_uN": 7.46680495211649e-05,
-          "normalization_uN": 21.659977272880937,
-          "relative": 3.4472819883634854e-06,
-          "capillary_relative": 2.2507176462734514e-07
+          "absolute_uN": 7.041034422172743e-05,
+          "normalization_uN": 21.659977267329822,
+          "relative": 3.25071182451926e-06,
+          "capillary_relative": 2.122377713577612e-07
         },
         "z": {
-          "absolute_uN": 0.007155690854688146,
-          "normalization_uN": 140.2323041614177,
-          "relative": 5.1027406969305875e-05,
-          "capillary_relative": 2.1569385809869088e-05
+          "absolute_uN": 0.007066440025710108,
+          "normalization_uN": 140.23230646328008,
+          "relative": 5.039095629194732e-05,
+          "capillary_relative": 2.130035719988984e-05
         }
       },
       "force_normalization": "max(abs(final component), 0.01 * capillary force scale)",
       "capillary_force_scale_uN": 331.75218421908215,
       "negative_eigenvalues": 0,
-      "stationarity_energy_change_relative": 1.1657995912807945e-08,
+      "stationarity_energy_change_relative": 9.002244105833053e-09,
       "stationarity_threshold_relative": 1e-07,
       "force_change_threshold_relative": 0.01,
-      "mesh_volume_error_relative": 0.00058632819560267,
+      "mesh_volume_error_relative": 0.0005856942385908948,
       "finite_difference_displacement_mm": {
         "x": 1.0000000000000002e-06,
         "z": 1.5e-06
@@ -373,32 +373,32 @@
         "closed": true,
         "oriented": true,
         "nondegenerate": true,
-        "volume_mm3": 0.005995306776699781,
+        "volume_mm3": 0.005995316741355995,
         "vertices": 3170,
         "triangles": 6336,
         "edges": 9504,
         "euler_characteristic": 2,
-        "minimum_triangle_area_mm2": 1.1194688647528213e-05,
-        "volume_relative_error": 0.0007822038833699141,
+        "minimum_triangle_area_mm2": 1.1629506596654498e-05,
+        "volume_relative_error": 0.0007805431073341085,
         "self_intersections_checked": false
       }
     },
     {
       "case": "unequal",
       "proper_intersections": 0,
-      "pairs_checked": 399,
+      "pairs_checked": 374,
       "scope": "Nonadjacent triangle pairs; proper transverse crossings. Coplanar overlaps and tangential contacts are not certified.",
       "topology": {
         "closed": true,
         "oriented": true,
         "nondegenerate": true,
-        "volume_mm3": 0.005996482030826384,
+        "volume_mm3": 0.0059964858345684545,
         "vertices": 3170,
         "triangles": 6336,
         "edges": 9504,
         "euler_characteristic": 2,
-        "minimum_triangle_area_mm2": 1.1156578621420564e-05,
-        "volume_relative_error": 0.00058632819560267,
+        "minimum_triangle_area_mm2": 1.1212823368649869e-05,
+        "volume_relative_error": 0.0005856942385908948,
         "self_intersections_checked": false
       }
     }
@@ -421,7 +421,7 @@
   },
   "artifacts": {
     "sweep": "output/acceptance-sweep.zip",
-    "sweep_sha256": "e1e947c9e81a633e9a91de835ef2da7a2c1dc390ed03b34593390f198d188cbd",
+    "sweep_sha256": "19bb6d149aeeb423cbf2abffed24a0a4f5d80967f7ec48cb8a218a3fa8eed4bb",
     "case": "output/acceptance-case.zip"
   },
   "passed": true

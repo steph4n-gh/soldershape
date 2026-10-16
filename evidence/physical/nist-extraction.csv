@@ -1,0 +1,13 @@
+id,observable,force_group,pixel_x,pixel_y,errorbar_top_pixel_y,errorbar_bottom_pixel_y,shear_uN,value_um,plotted_lower_um,plotted_upper_um,digitization_force_bound_uN,digitization_dimension_bound_um,note
+h1,standoff,g1,200,251.5,241.5,261.5,15.9,35.1,34.1,36.2,0.4,0.3,unambiguous
+h2,standoff,g2,381,250.5,240.5,260.5,48.0,35.1,34.1,36.2,0.4,0.3,unambiguous
+h3,standoff,g3,562,253.5,243.5,263.5,80.1,34.7,33.7,35.7,0.4,0.3,unambiguous
+h4,standoff,g4,742,228.5,209.0,248.0,112.1,37.2,35.2,39.2,0.4,0.3,duplicate_force_pairing_unknown
+h5,standoff,g4,742,257.5,247.5,267.5,112.1,34.2,33.2,35.2,0.4,0.3,duplicate_force_pairing_unknown
+h6,standoff,g5,923,247.5,237.5,257.5,144.2,35.1,34.1,36.1,0.4,0.3,unambiguous
+x1,lateral_offset,g1,202,582,524.0,,15.8,1.2,,7.1,0.4,0.3,lower_errorbar_clipped_at_plot_boundary
+x2,lateral_offset,g2,383,523,474.0,572.0,48.0,7.1,2.1,12.2,0.4,0.3,unambiguous
+x3,lateral_offset,g3,564,492,433.0,550.0,80.2,10.2,4.2,16.3,0.4,0.3,unambiguous
+x4,lateral_offset,g4,743,443,345.0,540.0,112.0,15.1,5.2,25.2,0.4,0.3,duplicate_force_pairing_unknown
+x5,lateral_offset,g4,743,500,471.0,530.0,111.9,9.3,6.2,12.3,0.4,0.3,duplicate_force_pairing_unknown
+x6,lateral_offset,g5,924,287,238.0,335.0,144.3,31.0,26.1,36.1,0.4,0.3,unambiguous

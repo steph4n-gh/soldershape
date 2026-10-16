@@ -38,3 +38,7 @@ The public numerical verification passed 11 generated numerical cases, the publi
 Independent review found one replay failure-handling defect. It is fixed and has a focused regression check. No material review findings remain open. Review used the configured inherited model, so no different-model-family review is claimed. A complete physical-validation or customer-demand check remains outside this release's qualification.
 
 Opening a pull request is skipped because this new local repository has no remote and publication was not requested.
+
+## Subsequent release
+
+The physical follow-up and the user-authorized local product completion are recorded in `PHYSICAL_VALIDATION.md` and `PRODUCT_RELEASE.md`. Their evidence supersedes the original statement that no published physical comparison had been attempted. Physical accuracy did not pass qualification. The original numerical and browser record remains preserved.

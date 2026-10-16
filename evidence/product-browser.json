@@ -1,0 +1,71 @@
+{
+  "workflow": "real file chooser, editable save and restore, invalid-case preservation, fresh two-design computation, candidate mesh selection, actual ZIP download",
+  "bundle_sha256": "ad3598e3043c8f39817041754cfc54414713be8fb50cd25c869ea31c7d6016bc",
+  "case_count": 2,
+  "manifest_members": 22,
+  "forces": [
+    {
+      "design": "Reference",
+      "input_sha256": "56e787e1a9c2148b133ba83b7a347410ccff8aed8787e1fb4085e751be82dc50",
+      "forces": {
+        "x_uN": -19.63342805000323,
+        "z_uN": -43.77622501901732
+      },
+      "status": "refinement_checked"
+    },
+    {
+      "design": "Candidate",
+      "input_sha256": "0b95fb87999f9cbf1494d9e469a8164f00e908956b56cc60fb2cadceb12dd6a5",
+      "forces": {
+        "x_uN": -20.36428851937,
+        "z_uN": -128.77095172947327
+      },
+      "status": "refinement_checked"
+    }
+  ],
+  "comparison": {
+    "delta": {
+      "restoring_force_uN": 0.7308604693667711,
+      "vertical_force_uN": -84.99472671045595,
+      "volume_mm3": -0.001,
+      "volume_percent": -16.666666666666664
+    },
+    "designs": [
+      {
+        "force_x_uN": -19.63342805000323,
+        "force_z_uN": -43.77622501901732,
+        "input_sha256": "56e787e1a9c2148b133ba83b7a347410ccff8aed8787e1fb4085e751be82dc50",
+        "restoring_force_uN": 19.63342805000323,
+        "role": "Reference",
+        "status": "refinement_checked",
+        "upper_diameter_mm": 0.2,
+        "volume_mm3": 0.006
+      },
+      {
+        "force_x_uN": -20.36428851937,
+        "force_z_uN": -128.77095172947327,
+        "input_sha256": "0b95fb87999f9cbf1494d9e469a8164f00e908956b56cc60fb2cadceb12dd6a5",
+        "restoring_force_uN": 20.36428851937,
+        "role": "Candidate",
+        "status": "refinement_checked",
+        "upper_diameter_mm": 0.2,
+        "volume_mm3": 0.005
+      }
+    ],
+    "scope": "Both designs use the current board pad, wetted-plane gap, offset and material. Forces are conditional equilibrium predictions. Physical accuracy, free standoff, alignment time and manufacturing yield are not qualified.",
+    "status": "compared"
+  },
+  "zip_integrity": "all declared hashes and normalized inputs verified",
+  "screenshot": "evidence/product-workbench.jpg",
+  "additional_checks": {
+    "stale_response": "input edit during native solve cleared forces and disabled export; obsolete response discarded",
+    "model_scope_warning": "published thin shape remained numerically checked and showed one explicit substrate-clearance warning",
+    "narrow_layout": {
+      "requested_viewport_width": 390,
+      "content_viewport_width": 375,
+      "document_scroll_width": 375,
+      "overflow_repair": "visible table header plus positioned scroll container; sticky design labels"
+    },
+    "browser_console_errors_or_warnings": []
+  }
+}

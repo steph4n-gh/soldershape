@@ -163,3 +163,21 @@ def request_from_footprint(source, pad_index, parameters):
         raise InputError("The board-pad diameter comes from the selected footprint pad.")
     spec = JointSpec.from_dict({**parameters, "lower_diameter_mm": pad["size_mm"][0]})
     return spec, {"name": footprint["name"], "sha256": footprint["sha256"], "pad": pad}
+
+
+def parse_case(data):
+    if not isinstance(data, dict) or set(data) != {"schema", "footprint_text", "pad_index", "parameters", "baseline"}:
+        raise InputError("A case must contain schema, footprint_text, pad_index, parameters and baseline.")
+    if data["schema"] != "soldershape.case.v1":
+        raise InputError("Unsupported editable case format.")
+    spec, _ = request_from_footprint(data["footprint_text"], data["pad_index"], data["parameters"])
+    parameters = spec.to_dict()
+    del parameters["lower_diameter_mm"]
+    baseline = data["baseline"]
+    if baseline is not None:
+        if not isinstance(baseline, dict) or set(baseline) != {"upper_diameter_mm", "volume_mm3"}:
+            raise InputError("A reference design contains only upper_diameter_mm and volume_mm3.")
+        reference, _ = request_from_footprint(data["footprint_text"], data["pad_index"], {**parameters, **baseline})
+        baseline = {key: getattr(reference, key) for key in ("upper_diameter_mm", "volume_mm3")}
+    return {"schema": data["schema"], "footprint_text": data["footprint_text"], "pad_index": data["pad_index"],
+            "parameters": parameters, "baseline": baseline}

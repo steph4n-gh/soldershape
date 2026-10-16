@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "frozen_before_predictions": true,
+  "source_doi": "10.1115/1.1463732",
+  "primary_figure": 5,
+  "selection_reason": "Publication explicitly says the contact line remains on the circular pad perimeter throughout this series.",
+  "primary_mapping": {"name": "published_flat_substrate", "pad_diameter_mm": 0.64, "solder_volume_mm3": 0.0086, "pad_thickness_mm": 0.005, "model_volume": "solder_volume + 2*pi*(pad_diameter/2)^2*pad_thickness", "model_gap": "measured Si/Cu interface separation"},
+  "sensitivity_mapping": {"name": "literal_copper_rim", "model_volume": "solder volume only", "model_gap": "measured Si/Cu separation - 2*pad_thickness", "interpretation": "A different physical approximation, not algebraically equivalent to the paper mapping."},
+  "negative_control_mapping": {"name": "uncorrected_interface_gap", "model_volume": "solder volume only", "model_gap": "measured Si/Cu separation", "interpretation": "Intentionally inconsistent reference-plane mapping, retained to demonstrate its effect."},
+  "gravity": false,
+  "surface_tension_tracks": {
+    "prior_default": {"N_per_m": 0.48, "interpretation": "Fixed before this physical dataset was inspected; generic uncalibrated default, not an independently measured same-process value."},
+    "published_fit": {"N_per_m": 0.4, "interpretation": "Fitted by the publication to every data point in Figures4-7. Calibration-dependent consistency only."},
+    "held_out": {"calibration": "Use only unambiguous observations with applied shear <=81uN. Least-squares single multiplicative gamma from predicted shear at1N/m; intercept fixed0.", "evaluation": "Observations above81uN, including the144uN observation and both possible pairings at112uN. Never refit on evaluation rows."}
+  },
+  "observations": "Experimental open-circle lateral offsets and cross-shaped heights only. Exclude simulation curves and small filled simulation nodes. Keep duplicate-load pairing ambiguity explicit.",
+  "uncertainty": {
+    "digitization": "Use the extraction record bounds from native figure pixels.",
+    "geometry": "Use plotted h/x error-bar extents plus digitization. Their confidence level is not stated, so do not call them95percent intervals.",
+    "volume_sensitivity_fraction": 0.06,
+    "volume_sensitivity_reason": "Approximately3*5um/255um from the paper's <=5um RMS ball-diameter variation. Sensitivity range only, not a joint confidence interval.",
+    "solidification": "Evaluate a separate1.5percent increase of measured h and x, reflecting the paper's approximate liquid-to-solid linear contraction discussion. Do not treat it as a measured correction for each specimen.",
+    "normal_force": "The explicitly reported1.95mN belongs to the cross-section set. Do not score Fig5 normal-force accuracy without its individual load provenance. Report model Fz only as a diagnostic."
+  },
+  "acceptance": {
+    "numerical": "Every scored prediction must pass existing numerical checks; otherwise physical comparison is inconclusive.",
+    "central_shear": "Report each absolute and relative error, aggregate MAE/RMSE, and all outliers. No universal pass from a fitted mean.",
+    "held_out": "Report unambiguous held-out point errors and whether observed force intersects the prescribed geometry/volume sensitivity envelope. Duplicate-load conclusions must hold under both pairings.",
+    "full_physical_validation": "Not established if same-process gamma, individual specimen volumes or pairing information remain unidentified. A successful restricted consistency or held-out test does not establish general material/process accuracy."
+  },
+  "design_comparison": "Compare candidate circular pad/volume choices under the same explicitly prescribed gap, placement error and material scale. State the objective and simple analytic or current-design baseline. Require conclusion to survive a declared solder-volume sensitivity range. Do not predict free standoff, yield, or self-alignment time from this fixed-geometry model."
+}
