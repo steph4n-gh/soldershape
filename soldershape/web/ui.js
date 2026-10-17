@@ -2,7 +2,7 @@
 
 (() => {
   const pages = [["/board", "Board explorer"], ["/", "Joint details"], ["/study", "Pad comparison"], ["/demo", "Worked example"], ["/lab", "Physical test"]];
-  const page = location.pathname === "/index.html" ? "/" : location.pathname;
+  const page = location.pathname.startsWith("/lab/") ? "/lab" : location.pathname === "/index.html" ? "/" : location.pathname;
   const prefix = "soldershape.ui.v1.";
   const limit = 4_600_000;
   const transferKey = prefix + "case";

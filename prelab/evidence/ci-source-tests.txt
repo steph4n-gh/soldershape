@@ -1,0 +1,19 @@
+test_all_rows_remain_accounted_for_when_native_inputs_recur (prelab.test_campaign.CouponRequests.test_all_rows_remain_accounted_for_when_native_inputs_recur) ... ok
+test_both_metal_cylinders_are_counted_once (prelab.test_campaign.CouponRequests.test_both_metal_cylinders_are_counted_once) ... ok
+test_identical_and_reversed_geometries_have_matching_native_requests (prelab.test_campaign.CouponRequests.test_identical_and_reversed_geometries_have_matching_native_requests) ... ok
+test_mass_changes_load_and_does_not_add_solder_weight (prelab.test_campaign.CouponRequests.test_mass_changes_load_and_does_not_add_solder_weight) ... ok
+test_nominal_units_and_liquid_volume (prelab.test_campaign.CouponRequests.test_nominal_units_and_liquid_volume) ... ok
+test_opposed_screened_spheres_are_not_a_second_volume_factor (prelab.test_campaign.CouponRequests.test_opposed_screened_spheres_are_not_a_second_volume_factor) ... ok
+test_published_paper_cannot_be_relabelled_as_actual_coupon (prelab.test_campaign.CouponRequests.test_published_paper_cannot_be_relabelled_as_actual_coupon) ... ok
+test_curved_patch_penetration_is_detected (prelab.test_finite.FinitePadTests.test_curved_patch_penetration_is_detected) ... ok
+test_exact_liquid_volume_bookkeeping (prelab.test_finite.FinitePadTests.test_exact_liquid_volume_bookkeeping) ... ok
+test_model_assigns_inherited_obstacles_only_to_free_interface (prelab.test_finite.FinitePadTests.test_model_assigns_inherited_obstacles_only_to_free_interface) ... ok
+test_prescribed_rim_samples_are_not_new_wall_contact (prelab.test_finite.FinitePadTests.test_prescribed_rim_samples_are_not_new_wall_contact) ... ok
+test_reject_unmodelled_gravity_and_invalid_depth (prelab.test_finite.FinitePadTests.test_reject_unmodelled_gravity_and_invalid_depth) ... ok
+test_relaxed_energy_units_and_sign_against_linear_energy (prelab.test_finite.FinitePadTests.test_relaxed_energy_units_and_sign_against_linear_energy) ... ok
+test_sampling_precedes_flattening_without_extra_mesh_refinement (prelab.test_finite.FinitePadTests.test_sampling_precedes_flattening_without_extra_mesh_refinement) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.003s
+
+OK

@@ -40,6 +40,8 @@ The application uses the existing Surface Evolver numerical engine. Its contribu
 
 The [validation reference](docs/model-and-validation.md) separates numerical agreement, published-data comparisons and unperformed physical tests. [Developer checks](docs/development.md) explain how to reproduce the evidence. Engineering reports retain failed cases and historical source identities.
 
+The [current pre-lab investigation](prelab/REPORT.md) tests the actual 220 versus 270 µm coupon under combined input changes and prescribed wetting hypotheses. It retains ranking reversals and finite-pad solver failures. Its [measurement addendum](prelab/LAB_ADDENDUM.md) identifies the observations needed before either design can receive a clearance qualification.
+
 ## Documentation
 
 [Documentation index](docs/README.md) points to the user guide, model reference, CLI and verification commands, and the engineering record. [CONTRIBUTING.md](CONTRIBUTING.md) describes useful contributions. [SECURITY.md](SECURITY.md) describes the local-only runtime boundary and pre-launch reporting status. [Launch readiness](launch/READINESS.md) records what is complete and what still needs a public release.

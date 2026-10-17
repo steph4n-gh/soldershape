@@ -1,0 +1,33 @@
+test_real_campaign_verifies_and_negative_control_is_retained (prelab.test_campaign.CompletedCampaign.test_real_campaign_verifies_and_negative_control_is_retained) ... ok
+test_rehashed_forged_conclusion_still_fails (prelab.test_campaign.CompletedCampaign.test_rehashed_forged_conclusion_still_fails) ... ok
+test_rehashed_success_without_native_engine_identity_is_rejected (prelab.test_campaign.CompletedCampaign.test_rehashed_success_without_native_engine_identity_is_rejected) ... ok
+test_removing_failed_control_cannot_improve_the_verdict (prelab.test_campaign.CompletedCampaign.test_removing_failed_control_cannot_improve_the_verdict) ... ok
+test_all_rows_remain_accounted_for_when_native_inputs_recur (prelab.test_campaign.CouponRequests.test_all_rows_remain_accounted_for_when_native_inputs_recur) ... ok
+test_both_metal_cylinders_are_counted_once (prelab.test_campaign.CouponRequests.test_both_metal_cylinders_are_counted_once) ... ok
+test_identical_and_reversed_geometries_have_matching_native_requests (prelab.test_campaign.CouponRequests.test_identical_and_reversed_geometries_have_matching_native_requests) ... ok
+test_mass_changes_load_and_does_not_add_solder_weight (prelab.test_campaign.CouponRequests.test_mass_changes_load_and_does_not_add_solder_weight) ... ok
+test_nominal_units_and_liquid_volume (prelab.test_campaign.CouponRequests.test_nominal_units_and_liquid_volume) ... ok
+test_opposed_screened_spheres_are_not_a_second_volume_factor (prelab.test_campaign.CouponRequests.test_opposed_screened_spheres_are_not_a_second_volume_factor) ... ok
+test_published_paper_cannot_be_relabelled_as_actual_coupon (prelab.test_campaign.CouponRequests.test_published_paper_cannot_be_relabelled_as_actual_coupon) ... ok
+test_forged_worker_identity_cannot_pass_by_preserving_forces (prelab.test_replay.ReplayIdentity.test_forged_worker_identity_cannot_pass_by_preserving_forces) ... ok
+test_axis_permutation_preserves_gaps_and_reactions (prelab.test_rigid_cap.RigidCapTests.test_axis_permutation_preserves_gaps_and_reactions) ... ok
+test_coupon_uniform_matches_literal_eq9_values (prelab.test_rigid_cap.RigidCapTests.test_coupon_uniform_matches_literal_eq9_values) ... ok
+test_invalid_stiffness_is_rejected (prelab.test_rigid_cap.RigidCapTests.test_invalid_stiffness_is_rejected) ... ok
+test_prescribed_gradient_exposes_three_micrometer_gate (prelab.test_rigid_cap.RigidCapTests.test_prescribed_gradient_exposes_three_micrometer_gate) ... ok
+test_singular_positions_are_rejected (prelab.test_rigid_cap.RigidCapTests.test_singular_positions_are_rejected) ... ok
+test_symmetric_volume_pattern_is_flat_with_retained_tension (prelab.test_rigid_cap.RigidCapTests.test_symmetric_volume_pattern_is_flat_with_retained_tension) ... ok
+test_tensile_reactions_are_retained (prelab.test_rigid_cap.RigidCapTests.test_tensile_reactions_are_retained) ... ok
+test_uniform_load_has_literal_equal_force_and_height (prelab.test_rigid_cap.RigidCapTests.test_uniform_load_has_literal_equal_force_and_height) ... ok
+test_unloaded_height_plane_is_inherited_as_cap_tilt (prelab.test_rigid_cap.RigidCapTests.test_unloaded_height_plane_is_inherited_as_cap_tilt) ... ok
+test_curved_patch_penetration_is_detected (prelab.test_finite.FinitePadTests.test_curved_patch_penetration_is_detected) ... ok
+test_exact_liquid_volume_bookkeeping (prelab.test_finite.FinitePadTests.test_exact_liquid_volume_bookkeeping) ... ok
+test_model_assigns_inherited_obstacles_only_to_free_interface (prelab.test_finite.FinitePadTests.test_model_assigns_inherited_obstacles_only_to_free_interface) ... ok
+test_prescribed_rim_samples_are_not_new_wall_contact (prelab.test_finite.FinitePadTests.test_prescribed_rim_samples_are_not_new_wall_contact) ... ok
+test_reject_unmodelled_gravity_and_invalid_depth (prelab.test_finite.FinitePadTests.test_reject_unmodelled_gravity_and_invalid_depth) ... ok
+test_relaxed_energy_units_and_sign_against_linear_energy (prelab.test_finite.FinitePadTests.test_relaxed_energy_units_and_sign_against_linear_energy) ... ok
+test_sampling_precedes_flattening_without_extra_mesh_refinement (prelab.test_finite.FinitePadTests.test_sampling_precedes_flattening_without_extra_mesh_refinement) ... ok
+
+----------------------------------------------------------------------
+Ran 28 tests in 16.097s
+
+OK

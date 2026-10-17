@@ -1,0 +1,8 @@
+{
+  "logical_requests_compared": 61,
+  "accepted_pairs": 60,
+  "same_statuses": true,
+  "maximum_absolute_gap_difference_um": 0.0,
+  "maximum_absolute_force_difference_uN": 0.0,
+  "scope": "Full fresh campaign after validation-only source repair. Original numerical equations and requests unchanged. Physical accuracy remains unqualified."
+}

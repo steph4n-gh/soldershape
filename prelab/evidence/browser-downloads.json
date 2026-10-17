@@ -1,0 +1,16 @@
+[
+  {
+    "download": "/Users/sarrington/Downloads/prelab-protocol.json",
+    "source": "prelab/protocol.json",
+    "sha256": "ed83ff11424914a0980d3b0ce35ac361698e295953561c4d4b81785467645d34",
+    "bytes": 10073,
+    "exact_match": true
+  },
+  {
+    "download": "/Users/sarrington/Downloads/SolderShape-prelab-measurements.md",
+    "source": "prelab/LAB_ADDENDUM.md",
+    "sha256": "9ae148dd494bc429d30a16f00f40ce54bd19e197267a14b1a835f9cdfa69eae1",
+    "bytes": 5150,
+    "exact_match": true
+  }
+]

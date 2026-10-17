@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "timestamp_utc": "2026-10-17T04:24:58.324863+00:00",
+  "copy": "output/prelab-offline-check",
+  "python": "3.14.4 (main, Apr  7 2026, 13:13:20) [Clang 21.0.0 (clang-2100.0.123.102)]",
+  "no_engine_directory": true,
+  "no_git_directory": true,
+  "scope": "Copied evidence verification and focused tests on the same macOS host. No fresh native solve and no cross-platform qualification.",
+  "checks": [
+    {
+      "name": "verify",
+      "exit_code": 0,
+      "log": "prelab/evidence/offline-verify.txt"
+    },
+    {
+      "name": "tests",
+      "exit_code": 0,
+      "log": "prelab/evidence/offline-tests.txt"
+    }
+  ]
+}

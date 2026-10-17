@@ -21,6 +21,7 @@ Reports under `evidence`, `refinement`, `cohesion`, `expansion` and `refinement2
 - [Numerical acceptance and upstream baseline](../ACCEPTANCE.md).
 - [Frozen physical-data validation](../evidence/physical/validation-report.md).
 - [Physical model root-cause work](../evidence/model-repair/report.md).
+- [Current coupon uncertainty and finite-pad investigation](../prelab/REPORT.md).
 - [Conditional volume experiment](../evidence/design-comparison/report.md).
 - [Connected workflow verification](../cohesion/RESULTS.md).
 - [Readable review verification](../refinement2/RESULTS.md).

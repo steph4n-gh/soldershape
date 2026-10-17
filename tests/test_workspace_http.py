@@ -66,6 +66,10 @@ class WorkspaceHTTP(unittest.TestCase):
             '/lab/bom.csv': ('force_lab/BOM.csv', 'text/csv'),
             '/lab/uncertainties.txt': ('force_lab/uncertainties.md', 'text/plain'),
             '/lab/height-coupon.zip': ('output/soldershape-coupon-r1-refined.zip', 'application/zip'),
+            '/lab/prelab.html': ('prelab/REPORT.html', 'text/html'),
+            '/lab/prelab-protocol.json': ('prelab/protocol.json', 'application/json'),
+            '/lab/prelab-results.json': ('prelab/evidence/campaign/report.json', 'application/json'),
+            '/lab/prelab-measurements.txt': ('prelab/LAB_ADDENDUM.md', 'text/plain'),
         }
         for route, (filename, mime) in resources.items():
             with self.subTest(route=route), urlopen(self.url+route) as response:
@@ -77,7 +81,7 @@ class WorkspaceHTTP(unittest.TestCase):
         unknown.exception.close()
 
     def test_all_tasks_load_common_shell(self):
-        for route in ('/', '/board', '/study', '/demo', '/lab'):
+        for route in ('/', '/board', '/study', '/demo', '/lab', '/lab/prelab.html'):
             with self.subTest(route=route), urlopen(self.url+route) as response:
                 html = response.read()
                 self.assertIn(b'href="/ui.css"', html)

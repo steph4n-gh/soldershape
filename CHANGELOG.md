@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased pre-lab investigation
+
+- Add source-identified native coupon stress scenarios, finite-copper research controls and a coupled twenty-joint analytical check.
+- Retain boundary-dependent clearance outcomes, ranking reversals, active-contact failures and the measurements needed for qualification.
+- Link the computational findings and measurement addendum from Physical test. Production numerical equations and frozen lab packages remain unchanged.
+
 ## 0.4.0 development snapshot
 
 This is an unreleased local snapshot. No public release tag or published binary is claimed.

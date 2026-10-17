@@ -1,0 +1,182 @@
+{
+  "campaign_manifest_sha256": "b1bbb6716f0250b749a0be9736adba0184002c0992bcb0e3d35c1b901f305914",
+  "engine": {
+    "binary_sha256": "c930b47b33a4cafb3cf98b1c0cb7e3bd9805abcf67aceefe243daea091072f8e",
+    "build_commands": [
+      [
+        "/usr/bin/cc",
+        "-c",
+        "/Volumes/Storage/oct16project/.engine/headless-title.c",
+        "-o",
+        "/Volumes/Storage/oct16project/.engine/headless-title.o"
+      ],
+      [
+        "/usr/bin/make",
+        "-C",
+        "/Volumes/Storage/oct16project/.engine/src",
+        "-j4",
+        "CC=/usr/bin/cc -O2 -std=gnu89 -w",
+        "CFLAGS=-DGENERIC",
+        "GRAPH=nulgraph.o",
+        "GRAPHLIB=../headless-title.o"
+      ]
+    ],
+    "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+    "license_note": "Local upstream evaluation. Component notices require review before redistribution; upstream source is not vendored in this project.",
+    "numerical_source_modified": false,
+    "patch": {
+      "purpose": "Supply missing no-op title callback for the headless graphics target.",
+      "sha256": "4f49b4ab182ffd99e0244abae08ea8e48d74ce2e24c57f1c40088ba18126526a",
+      "source": "void set_graphics_title(int which, char *title) { (void)which; (void)title; }\n"
+    },
+    "ready": true,
+    "reference_sha256": "96389e8200320cc8acfbf60b8ed23e2d05941613af5b55824c36890113c6e659",
+    "reference_url": "https://kenbrakke.com/evolver/downloads/bga-files.zip",
+    "source_sha256": "be7d60d9eb690f1fb124e2ecc12237a7a35be1935bfa5e92be3fe912207a3b6b",
+    "source_url": "https://kenbrakke.com/evolver/downloads/evolver-2.70.tar.gz",
+    "version": "2.70a"
+  },
+  "passed": true,
+  "receipt_sha256": {
+    "029ab83163bbd4b2f4edddd2fcdd5bb0a9287cfb8288036750790aee244da2a5.json.gz": "1023269c3f99cd213f18d1af6ac0dc934dfe8fc8417792e56b16e28baabfbc77",
+    "077e135e88849c45b03f8825e1064dff906d81b66ac44f2a7af8b24ccf06832a.json.gz": "101dcf29563ee92335d98587a6dbf59133fd8453d843ecfbb0b5ec6bea3dd076",
+    "0c7c3f0904a166e5524cd248d49160da838ffc6614520425ede40c8c8da473b1.json.gz": "08706be888a90bdb73c5578ce7bcbc63c5610b9348d39d42ec248c70ec192d7e",
+    "6dcf424832f722b212b0dee905ceb85fbf5051b57109096a7f34db1c5af78c61.json.gz": "4f459a65b83ddbd5918ec0b30a089dbda6541f5bb40237e47f09af9b3c31cb39",
+    "6fec207b6a9eb3f8239225b0dd931187f689d881bc41bc367f2040984f5c1bd5.json.gz": "6d1f501284bcc93f66f628f6b91b247e119d4d04881a6e3544595cb5e3db410e",
+    "7d598ea463904b6af2c47a1cf0d4a1fb9c25803b5967e5bd7fe202171412932a.json.gz": "ca90dd9d1be3c45ece62674aa37ae25c6eeaf0c807e49a61ffad29384db12ba6",
+    "94b7fce44a3648ecee456c361ca6beb51c595de3187183026ee21050060becd6.json.gz": "9de42c225390203b37d434ed1b6f4ba0fc4c1279ccd301246ffeac3f4531ef4f",
+    "b2b212f2fecb122a2559acc99af2b7b7c70182febeb6986069773dc92e328878.json.gz": "808315b51e9d0bc1ee7de6387efe2110a07928cecc3462af6b8f5b26ece67522",
+    "b5932b2683dc95eb31de6bbfa1ac607a379bbe1e0196227c38ae9a5676554fca.json.gz": "954ad9d25f61e7e4502d4db0249ee7346b75f965e82ddc43a247b6749bc8380a",
+    "ca9f953e589133f2c927b9ffd74377ca55e3525997796185f5e22fb286c15ece.json.gz": "5999dcb72208d5d9573563eeca6a14ee4b1487d965b428ecdf7223b485784813",
+    "df0414671c1b388c0206b2b13815b9a70198cb48807b93baa62a17980a21034f.json.gz": "be691e46085175940939357e8ca221525821dd61d27d8ceba8169769d427d927",
+    "ec5266391385b5578198227acdc65fe300a22af52b59d8510ddea1f23256ec30.json.gz": "dad4d12bfdeec786c2006a89448066701da3f19ed69376f63cdff93defaee06b",
+    "ef30e5d044ac7bb34479559df73415c1ea05d6bb1db7d125773a1240449dfe34.json.gz": "e81c0c7278ef99134c769930005957579b5486ce194277bd302b40f1bb8ad5d0"
+  },
+  "replay_code_sha256": "e3364c96e2175d103962c57b9c7cf67122afd2a332234e914dc4c3a51bd84319",
+  "requests": [
+    {
+      "force_difference_uN": {
+        "x_uN": 0.0,
+        "z_uN": 0.0
+      },
+      "gap_difference_um": 0.0,
+      "passed": true,
+      "request_sha256": "029ab83163bbd4b2f4edddd2fcdd5bb0a9287cfb8288036750790aee244da2a5"
+    },
+    {
+      "expected_rejection": true,
+      "fresh_status": "failed",
+      "original_status": "failed",
+      "passed": true,
+      "request_sha256": "077e135e88849c45b03f8825e1064dff906d81b66ac44f2a7af8b24ccf06832a"
+    },
+    {
+      "force_difference_uN": {
+        "x_uN": 0.0,
+        "z_uN": 0.0
+      },
+      "gap_difference_um": 0.0,
+      "passed": true,
+      "request_sha256": "0c7c3f0904a166e5524cd248d49160da838ffc6614520425ede40c8c8da473b1"
+    },
+    {
+      "force_difference_uN": {
+        "x_uN": 0.0,
+        "z_uN": 0.0
+      },
+      "gap_difference_um": 0.0,
+      "passed": true,
+      "request_sha256": "6dcf424832f722b212b0dee905ceb85fbf5051b57109096a7f34db1c5af78c61"
+    },
+    {
+      "force_difference_uN": {
+        "x_uN": 0.0,
+        "z_uN": 0.0
+      },
+      "gap_difference_um": 0.0,
+      "passed": true,
+      "request_sha256": "6fec207b6a9eb3f8239225b0dd931187f689d881bc41bc367f2040984f5c1bd5"
+    },
+    {
+      "force_difference_uN": {
+        "x_uN": 0.0,
+        "z_uN": 0.0
+      },
+      "gap_difference_um": 0.0,
+      "passed": true,
+      "request_sha256": "7d598ea463904b6af2c47a1cf0d4a1fb9c25803b5967e5bd7fe202171412932a"
+    },
+    {
+      "force_difference_uN": {
+        "x_uN": 0.0,
+        "z_uN": 0.0
+      },
+      "gap_difference_um": 0.0,
+      "passed": true,
+      "request_sha256": "94b7fce44a3648ecee456c361ca6beb51c595de3187183026ee21050060becd6"
+    },
+    {
+      "force_difference_uN": {
+        "x_uN": 0.0,
+        "z_uN": 0.0
+      },
+      "gap_difference_um": 0.0,
+      "passed": true,
+      "request_sha256": "b2b212f2fecb122a2559acc99af2b7b7c70182febeb6986069773dc92e328878"
+    },
+    {
+      "force_difference_uN": {
+        "x_uN": 0.0,
+        "z_uN": 0.0
+      },
+      "gap_difference_um": 0.0,
+      "passed": true,
+      "request_sha256": "b5932b2683dc95eb31de6bbfa1ac607a379bbe1e0196227c38ae9a5676554fca"
+    },
+    {
+      "force_difference_uN": {
+        "x_uN": 0.0,
+        "z_uN": 0.0
+      },
+      "gap_difference_um": 0.0,
+      "passed": true,
+      "request_sha256": "ca9f953e589133f2c927b9ffd74377ca55e3525997796185f5e22fb286c15ece"
+    },
+    {
+      "force_difference_uN": {
+        "x_uN": 0.0,
+        "z_uN": 0.0
+      },
+      "gap_difference_um": 0.0,
+      "passed": true,
+      "request_sha256": "df0414671c1b388c0206b2b13815b9a70198cb48807b93baa62a17980a21034f"
+    },
+    {
+      "force_difference_uN": {
+        "x_uN": 0.0,
+        "z_uN": 0.0
+      },
+      "gap_difference_um": 0.0,
+      "passed": true,
+      "request_sha256": "ec5266391385b5578198227acdc65fe300a22af52b59d8510ddea1f23256ec30"
+    },
+    {
+      "force_difference_uN": {
+        "x_uN": 0.0,
+        "z_uN": 0.0
+      },
+      "gap_difference_um": 0.0,
+      "passed": true,
+      "request_sha256": "ef30e5d044ac7bb34479559df73415c1ea05d6bb1db7d125773a1240449dfe34"
+    }
+  ],
+  "scope": "Fresh numerical replay with exact engine. No physical validation.",
+  "source_sha256": {
+    "coupons/experiment.json": "37032dfbc39ea9eae3e970be1e0de074f60095355ee55307cf19f774f67de3ed",
+    "coupons/tools/analyze.py": "1281e084bea82541b7b783506fa90acf6ae07f06c9b07bd3d7417063320cc45e",
+    "prelab/campaign.py": "a9c271c4f6f76e8fc9a520d3692a883e4804037cd2d393d46503aaeb373fdc2e",
+    "prelab/protocol.json": "ed83ff11424914a0980d3b0ce35ac361698e295953561c4d4b81785467645d34",
+    "soldershape/model.py": "543720e8a6999896410aaf22651846c71b4f4736923ffe0ada0767ce35619657",
+    "soldershape/solver.py": "c7bcfcc2c5f24e6e783540b3fcabc45a8d15308ded887aca2ae41442ddf4c8a6"
+  }
+}

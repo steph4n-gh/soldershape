@@ -25,6 +25,8 @@ Rectangular, oval, custom and through-hole pads remain visible but are not solve
 
 The [frozen physical campaign](../evidence/physical/validation-report.md) retains ambiguous pairings, failed solves, force discrepancies and substrate-plane excursions. The [root-cause report](../evidence/model-repair/report.md) retains the separate standoff investigation. Neither is a claim that the application predicts an actual assembly's forces accurately.
 
+The [pre-lab coupon investigation](../prelab/REPORT.md) adds native combined-input stress cases, a prescribed-wetting finite-copper experiment and a reduced-order twenty-joint cap calculation. It retains reversed rankings, a native moving-height failure and a penetrating obstacle control that remains unconverged. Neither pad choice has a qualified 185 µm whole-cap clearance pass. The [measurement addendum](../prelab/LAB_ADDENDUM.md) identifies the observations needed to decide the physical boundary and volume.
+
 ## What remains outside the model
 
 The application does not predict thermal reflow history, wetting chemistry, oxide or flux behavior, viscosity, alignment time, capture range, bridging, neighboring-joint coupling, cooled stress, fatigue, electrical reliability or manufacturing yield.

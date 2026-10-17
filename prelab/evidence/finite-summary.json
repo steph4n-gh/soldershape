@@ -1,0 +1,698 @@
+{
+  "C220_current_loaded_replay": {
+    "archived_expected_um": 178.203381224,
+    "difference_um": 5.49775520539697e-05,
+    "face_gap_um": 178.20343620155205,
+    "physical_eligibility": true,
+    "result": "v6-C220-full-loaded/result.json",
+    "status": "refinement_checked"
+  },
+  "adapter_snapshots": {
+    "5e1bc906dc91edda0c670f2199bc156fbc0454cfbe2007218d332284e5d09a35": "adapter-snapshots/5e1bc906dc91edda0c670f2199bc156fbc0454cfbe2007218d332284e5d09a35.py",
+    "5edeae07aa3f56c6cf930791d10d3aeaebb3de0a03483c2826b69cdbffea4830": "adapter-snapshots/v2-5edeae07aa3f56c6cf930791d10d3aeaebb3de0a03483c2826b69cdbffea4830.py",
+    "7db32ce8c26cb6ff71f81c4ffa4c92b48fa2d0aeb56c0b6daaf19667a6bbb687": "adapter-snapshots/v3-7db32ce8c26cb6ff71f81c4ffa4c92b48fa2d0aeb56c0b6daaf19667a6bbb687.py",
+    "b3c2e5e2a7210e73d9ea1d15e62daeb4547399d90e5352b3cc976574a384a811": "adapter-snapshots/current-b3c2e5e2a7210e73d9ea1d15e62daeb4547399d90e5352b3cc976574a384a811.py",
+    "c59a63e6f006996fd1c20cca3980ae6f82a215dd42af6cc7575f9bbc7441d285": "adapter-snapshots/v4-c59a63e6f006996fd1c20cca3980ae6f82a215dd42af6cc7575f9bbc7441d285.py",
+    "dea556beb5ab3c2d0149a4ad6d825e1d83facb9fd557931e11e18277bdeb8e09": "adapter-snapshots/v1-dea556beb5ab3c2d0149a4ad6d825e1d83facb9fd557931e11e18277bdeb8e09.py",
+    "e0926527fb8d811dee12cc9f37b8e910003dc2e03aa3eae0049aba0ea66efc2f": "adapter-snapshots/e0926527fb8d811dee12cc9f37b8e910003dc2e03aa3eae0049aba0ea66efc2f.py",
+    "edd4ac162d813fde3dcc77e62dbdfefea257ca3f91c2910c9c83a15bd80fc96a": "adapter-snapshots/edd4ac162d813fde3dcc77e62dbdfefea257ca3f91c2910c9c83a15bd80fc96a.py"
+  },
+  "attempted_isolated_jobs": 28,
+  "attempts": [
+    {
+      "accepted_face_gap_mm": null,
+      "adapter_sha256": "dea556beb5ab3c2d0149a4ad6d825e1d83facb9fd557931e11e18277bdeb8e09",
+      "adapter_snapshot": "adapter-snapshots/v1-dea556beb5ab3c2d0149a4ad6d825e1d83facb9fd557931e11e18277bdeb8e09.py",
+      "attempted_face_gap_mm": null,
+      "error": "Engine reported a numerical or command error. Inspect the captured solver output.",
+      "kind": "loaded",
+      "physical_eligibility": false,
+      "result": "C220-full/result.json",
+      "result_sha256": "032f05d0ca7d710f39c7968fb890066f60f7d2ab6fc557b4e8d6c4cde4a1ebe8",
+      "status": "failed"
+    },
+    {
+      "accepted_face_gap_mm": null,
+      "adapter_sha256": "dea556beb5ab3c2d0149a4ad6d825e1d83facb9fd557931e11e18277bdeb8e09",
+      "adapter_snapshot": "adapter-snapshots/v1-dea556beb5ab3c2d0149a4ad6d825e1d83facb9fd557931e11e18277bdeb8e09.py",
+      "attempted_face_gap_mm": null,
+      "error": "Engine reported a numerical or command error. Inspect the captured solver output.",
+      "kind": "loaded",
+      "physical_eligibility": false,
+      "result": "C220-zero/result.json",
+      "result_sha256": "4043a45252f1caef4579415ef3798214bcf17e02593fdce912e8fd0f08016fea",
+      "status": "failed"
+    },
+    {
+      "accepted_face_gap_mm": null,
+      "adapter_sha256": "dea556beb5ab3c2d0149a4ad6d825e1d83facb9fd557931e11e18277bdeb8e09",
+      "adapter_snapshot": "adapter-snapshots/v1-dea556beb5ab3c2d0149a4ad6d825e1d83facb9fd557931e11e18277bdeb8e09.py",
+      "attempted_face_gap_mm": null,
+      "error": "Engine reported a numerical or command error. Inspect the captured solver output.",
+      "kind": "loaded",
+      "physical_eligibility": false,
+      "result": "C270-full/result.json",
+      "result_sha256": "30f5d52abe229b902afa1c68c3429a21690ba70d3b40b4391cebb79974f3fc00",
+      "status": "failed"
+    },
+    {
+      "accepted_face_gap_mm": null,
+      "adapter_sha256": "dea556beb5ab3c2d0149a4ad6d825e1d83facb9fd557931e11e18277bdeb8e09",
+      "adapter_snapshot": "adapter-snapshots/v1-dea556beb5ab3c2d0149a4ad6d825e1d83facb9fd557931e11e18277bdeb8e09.py",
+      "attempted_face_gap_mm": null,
+      "error": "Engine reported a numerical or command error. Inspect the captured solver output.",
+      "kind": "loaded",
+      "physical_eligibility": false,
+      "result": "C270-zero/result.json",
+      "result_sha256": "ab23b6be24e375387475f4d73c5eba58ade02755490777442686b158fb7cbaab",
+      "status": "failed"
+    },
+    {
+      "accepted_face_gap_mm": null,
+      "adapter_sha256": "5edeae07aa3f56c6cf930791d10d3aeaebb3de0a03483c2826b69cdbffea4830",
+      "adapter_snapshot": "adapter-snapshots/v2-5edeae07aa3f56c6cf930791d10d3aeaebb3de0a03483c2826b69cdbffea4830.py",
+      "attempted_face_gap_mm": null,
+      "error": "Engine reported a numerical or command error. Inspect the captured solver output.",
+      "kind": "loaded",
+      "physical_eligibility": false,
+      "result": "v2-C220-full/result.json",
+      "result_sha256": "9ad5deefdbbbbfb62c06b6d71265b542c719d7acf94c921957bc0ad23ffc8089",
+      "status": "failed"
+    },
+    {
+      "accepted_face_gap_mm": null,
+      "adapter_sha256": "5edeae07aa3f56c6cf930791d10d3aeaebb3de0a03483c2826b69cdbffea4830",
+      "adapter_snapshot": "adapter-snapshots/v2-5edeae07aa3f56c6cf930791d10d3aeaebb3de0a03483c2826b69cdbffea4830.py",
+      "attempted_face_gap_mm": null,
+      "error": "Engine reported a numerical or command error. Inspect the captured solver output.",
+      "kind": "loaded",
+      "physical_eligibility": false,
+      "result": "v2-C220-zero/result.json",
+      "result_sha256": "b4f86f3f806533f075091dbb799747ad4867a0e33a0d9af7a9335a814732a3ea",
+      "status": "failed"
+    },
+    {
+      "accepted_face_gap_mm": null,
+      "adapter_sha256": "5edeae07aa3f56c6cf930791d10d3aeaebb3de0a03483c2826b69cdbffea4830",
+      "adapter_snapshot": "adapter-snapshots/v2-5edeae07aa3f56c6cf930791d10d3aeaebb3de0a03483c2826b69cdbffea4830.py",
+      "attempted_face_gap_mm": null,
+      "error": "Engine reported a numerical or command error. Inspect the captured solver output.",
+      "kind": "loaded",
+      "physical_eligibility": false,
+      "result": "v2-C270-full/result.json",
+      "result_sha256": "ae7d777cbcbb6abfb05792d410059b0913ea3ecc4d415a8a041e910e5383cfa0",
+      "status": "failed"
+    },
+    {
+      "accepted_face_gap_mm": null,
+      "adapter_sha256": "5edeae07aa3f56c6cf930791d10d3aeaebb3de0a03483c2826b69cdbffea4830",
+      "adapter_snapshot": "adapter-snapshots/v2-5edeae07aa3f56c6cf930791d10d3aeaebb3de0a03483c2826b69cdbffea4830.py",
+      "attempted_face_gap_mm": null,
+      "error": "Engine reported a numerical or command error. Inspect the captured solver output.",
+      "kind": "loaded",
+      "physical_eligibility": false,
+      "result": "v2-C270-zero/result.json",
+      "result_sha256": "01fa39f852daf82d9596ea911b692e64f686e4daad5327f27dcef17bf04580ea",
+      "status": "failed"
+    },
+    {
+      "accepted_face_gap_mm": null,
+      "adapter_sha256": "7db32ce8c26cb6ff71f81c4ffa4c92b48fa2d0aeb56c0b6daaf19667a6bbb687",
+      "adapter_snapshot": "adapter-snapshots/v3-7db32ce8c26cb6ff71f81c4ffa4c92b48fa2d0aeb56c0b6daaf19667a6bbb687.py",
+      "attempted_face_gap_mm": 0.17820343620155205,
+      "error": null,
+      "kind": "loaded",
+      "physical_eligibility": false,
+      "result": "v3-C220-full/result.json",
+      "result_sha256": "eb3c617c4f88038f4f6f44a7478c9ddeb3932058c9e61fe2dacb32b83aa049a9",
+      "status": "refinement_checked"
+    },
+    {
+      "accepted_face_gap_mm": null,
+      "adapter_sha256": "7db32ce8c26cb6ff71f81c4ffa4c92b48fa2d0aeb56c0b6daaf19667a6bbb687",
+      "adapter_snapshot": "adapter-snapshots/v3-7db32ce8c26cb6ff71f81c4ffa4c92b48fa2d0aeb56c0b6daaf19667a6bbb687.py",
+      "attempted_face_gap_mm": 0.22331894544315264,
+      "error": null,
+      "kind": "loaded",
+      "physical_eligibility": false,
+      "result": "v3-C220-zero/result.json",
+      "result_sha256": "8d312e781ddc607a8a25c165fd77febaeb52766a72e4a9384360dbc87443c6ea",
+      "status": "refinement_checked"
+    },
+    {
+      "accepted_face_gap_mm": null,
+      "adapter_sha256": "7db32ce8c26cb6ff71f81c4ffa4c92b48fa2d0aeb56c0b6daaf19667a6bbb687",
+      "adapter_snapshot": "adapter-snapshots/v3-7db32ce8c26cb6ff71f81c4ffa4c92b48fa2d0aeb56c0b6daaf19667a6bbb687.py",
+      "attempted_face_gap_mm": null,
+      "error": "Engine reported a numerical or command error. Inspect the captured solver output.",
+      "kind": "loaded",
+      "physical_eligibility": false,
+      "result": "v3-C270-full/result.json",
+      "result_sha256": "55c72452e8638529c87aab132dead8d7a5adf9a2ed658db586071f73b673424c",
+      "status": "failed"
+    },
+    {
+      "accepted_face_gap_mm": null,
+      "adapter_sha256": "7db32ce8c26cb6ff71f81c4ffa4c92b48fa2d0aeb56c0b6daaf19667a6bbb687",
+      "adapter_snapshot": "adapter-snapshots/v3-7db32ce8c26cb6ff71f81c4ffa4c92b48fa2d0aeb56c0b6daaf19667a6bbb687.py",
+      "attempted_face_gap_mm": null,
+      "error": "Engine reported a numerical or command error. Inspect the captured solver output.",
+      "kind": "loaded",
+      "physical_eligibility": false,
+      "result": "v3-C270-zero/result.json",
+      "result_sha256": "7ebd212eda8771f2d0231c135c0f5b8b819d97d38d73a7a2395c5647b6d7ec7c",
+      "status": "failed"
+    },
+    {
+      "accepted_face_gap_mm": 0.178203381224,
+      "adapter_sha256": "c59a63e6f006996fd1c20cca3980ae6f82a215dd42af6cc7575f9bbc7441d285",
+      "adapter_snapshot": "adapter-snapshots/v4-c59a63e6f006996fd1c20cca3980ae6f82a215dd42af6cc7575f9bbc7441d285.py",
+      "attempted_face_gap_mm": 0.178203381224,
+      "error": null,
+      "kind": "fixed",
+      "physical_eligibility": true,
+      "result": "v4-C220-full-fixed/result.json",
+      "result_sha256": "0785af92261b3912796fd3c55f234fbc2a76955045c400ea05cb00dd55143be1",
+      "status": "refinement_checked"
+    },
+    {
+      "accepted_face_gap_mm": 0.223318801601,
+      "adapter_sha256": "c59a63e6f006996fd1c20cca3980ae6f82a215dd42af6cc7575f9bbc7441d285",
+      "adapter_snapshot": "adapter-snapshots/v4-c59a63e6f006996fd1c20cca3980ae6f82a215dd42af6cc7575f9bbc7441d285.py",
+      "attempted_face_gap_mm": 0.223318801601,
+      "error": null,
+      "kind": "fixed",
+      "physical_eligibility": true,
+      "result": "v4-C220-zero-fixed/result.json",
+      "result_sha256": "1d71349d63351dacd025b8983a82f93a704d6a9f6ed2dba00c0eceb907d5749f",
+      "status": "refinement_checked"
+    },
+    {
+      "accepted_face_gap_mm": null,
+      "adapter_sha256": "c59a63e6f006996fd1c20cca3980ae6f82a215dd42af6cc7575f9bbc7441d285",
+      "adapter_snapshot": "adapter-snapshots/v4-c59a63e6f006996fd1c20cca3980ae6f82a215dd42af6cc7575f9bbc7441d285.py",
+      "attempted_face_gap_mm": 0.167313877971,
+      "error": null,
+      "kind": "fixed",
+      "physical_eligibility": false,
+      "result": "v4-C270-full-fixed/result.json",
+      "result_sha256": "27aed02496e14dbc567f3c234b961927047c9447b52e68a1d5785916ea7f6fc9",
+      "status": "refinement_checked"
+    },
+    {
+      "accepted_face_gap_mm": 0.20752181486,
+      "adapter_sha256": "c59a63e6f006996fd1c20cca3980ae6f82a215dd42af6cc7575f9bbc7441d285",
+      "adapter_snapshot": "adapter-snapshots/v4-c59a63e6f006996fd1c20cca3980ae6f82a215dd42af6cc7575f9bbc7441d285.py",
+      "attempted_face_gap_mm": 0.20752181486,
+      "error": null,
+      "kind": "fixed",
+      "physical_eligibility": true,
+      "result": "v4-C270-zero-fixed/result.json",
+      "result_sha256": "d1cbbcb15d2bcd26c82a205ab6447f59729e59e433ff865084b0d3d3ad7e7ed3",
+      "status": "refinement_checked"
+    },
+    {
+      "accepted_face_gap_mm": 0.177953381224,
+      "adapter_sha256": "5e1bc906dc91edda0c670f2199bc156fbc0454cfbe2007218d332284e5d09a35",
+      "adapter_snapshot": "adapter-snapshots/5e1bc906dc91edda0c670f2199bc156fbc0454cfbe2007218d332284e5d09a35.py",
+      "attempted_face_gap_mm": 0.177953381224,
+      "error": null,
+      "kind": "fixed",
+      "physical_eligibility": true,
+      "result": "v5-C220-full-energy/levels3-step0.000250000-minus/result.json",
+      "result_sha256": "00d375cb47abd58bdfb5be6c6e791e07e5020a85ac75c1c00ff7a7c1d191b0d0",
+      "status": "refinement_checked"
+    },
+    {
+      "accepted_face_gap_mm": 0.178453381224,
+      "adapter_sha256": "edd4ac162d813fde3dcc77e62dbdfefea257ca3f91c2910c9c83a15bd80fc96a",
+      "adapter_snapshot": "adapter-snapshots/edd4ac162d813fde3dcc77e62dbdfefea257ca3f91c2910c9c83a15bd80fc96a.py",
+      "attempted_face_gap_mm": 0.178453381224,
+      "error": null,
+      "kind": "fixed",
+      "physical_eligibility": true,
+      "result": "v5-C220-full-energy/levels3-step0.000250000-plus/result.json",
+      "result_sha256": "cf13370a9eba58967e2f82c507fe6d0907f1ba35a2f5ec99e6919d1f42f765f7",
+      "status": "refinement_checked"
+    },
+    {
+      "accepted_face_gap_mm": 0.177703381224,
+      "adapter_sha256": "5e1bc906dc91edda0c670f2199bc156fbc0454cfbe2007218d332284e5d09a35",
+      "adapter_snapshot": "adapter-snapshots/5e1bc906dc91edda0c670f2199bc156fbc0454cfbe2007218d332284e5d09a35.py",
+      "attempted_face_gap_mm": 0.177703381224,
+      "error": null,
+      "kind": "fixed",
+      "physical_eligibility": true,
+      "result": "v5-C220-full-energy/levels3-step0.000500000-minus/result.json",
+      "result_sha256": "f7ae3a369893f7d8ff6fd56fd5e3150fe959a7537f7348d766e1083db099fcdc",
+      "status": "refinement_checked"
+    },
+    {
+      "accepted_face_gap_mm": 0.178703381224,
+      "adapter_sha256": "5e1bc906dc91edda0c670f2199bc156fbc0454cfbe2007218d332284e5d09a35",
+      "adapter_snapshot": "adapter-snapshots/5e1bc906dc91edda0c670f2199bc156fbc0454cfbe2007218d332284e5d09a35.py",
+      "attempted_face_gap_mm": 0.178703381224,
+      "error": null,
+      "kind": "fixed",
+      "physical_eligibility": true,
+      "result": "v5-C220-full-energy/levels3-step0.000500000-plus/result.json",
+      "result_sha256": "9f099b0768eb3a61ec495a2ed05080f01f4173c7eb93bebc142b9ec32b4e3a98",
+      "status": "refinement_checked"
+    },
+    {
+      "accepted_face_gap_mm": 0.167063877971,
+      "adapter_sha256": "e0926527fb8d811dee12cc9f37b8e910003dc2e03aa3eae0049aba0ea66efc2f",
+      "adapter_snapshot": "adapter-snapshots/e0926527fb8d811dee12cc9f37b8e910003dc2e03aa3eae0049aba0ea66efc2f.py",
+      "attempted_face_gap_mm": 0.167063877971,
+      "error": null,
+      "kind": "fixed",
+      "physical_eligibility": true,
+      "result": "v5-C270-full-energy/levels3-step0.000250000-minus/result.json",
+      "result_sha256": "ca6e7a798eaa40ccc31b2387ad1a6b41d79af06b6dedd00d2a851f4515ffddd4",
+      "status": "refinement_checked"
+    },
+    {
+      "accepted_face_gap_mm": 0.167563877971,
+      "adapter_sha256": "e0926527fb8d811dee12cc9f37b8e910003dc2e03aa3eae0049aba0ea66efc2f",
+      "adapter_snapshot": "adapter-snapshots/e0926527fb8d811dee12cc9f37b8e910003dc2e03aa3eae0049aba0ea66efc2f.py",
+      "attempted_face_gap_mm": 0.167563877971,
+      "error": null,
+      "kind": "fixed",
+      "physical_eligibility": true,
+      "result": "v5-C270-full-energy/levels3-step0.000250000-plus/result.json",
+      "result_sha256": "b0886cf20f258904417a8d3f612504cb818c5aed4596bc64c3f06ef8adae89d6",
+      "status": "refinement_checked"
+    },
+    {
+      "accepted_face_gap_mm": 0.166813877971,
+      "adapter_sha256": "e0926527fb8d811dee12cc9f37b8e910003dc2e03aa3eae0049aba0ea66efc2f",
+      "adapter_snapshot": "adapter-snapshots/e0926527fb8d811dee12cc9f37b8e910003dc2e03aa3eae0049aba0ea66efc2f.py",
+      "attempted_face_gap_mm": 0.166813877971,
+      "error": null,
+      "kind": "fixed",
+      "physical_eligibility": true,
+      "result": "v5-C270-full-energy/levels3-step0.000500000-minus/result.json",
+      "result_sha256": "2de0e029e651bccee8f1560eb19b881282355089187c057f4f9ac95a6515fe78",
+      "status": "refinement_checked"
+    },
+    {
+      "accepted_face_gap_mm": 0.167813877971,
+      "adapter_sha256": "e0926527fb8d811dee12cc9f37b8e910003dc2e03aa3eae0049aba0ea66efc2f",
+      "adapter_snapshot": "adapter-snapshots/e0926527fb8d811dee12cc9f37b8e910003dc2e03aa3eae0049aba0ea66efc2f.py",
+      "attempted_face_gap_mm": 0.167813877971,
+      "error": null,
+      "kind": "fixed",
+      "physical_eligibility": true,
+      "result": "v5-C270-full-energy/levels3-step0.000500000-plus/result.json",
+      "result_sha256": "2072d91deceb2cf25b38a590d4cf5a674e371355ca257acdfb2440e8368638b8",
+      "status": "refinement_checked"
+    },
+    {
+      "accepted_face_gap_mm": 0.167313877971,
+      "adapter_sha256": "5e1bc906dc91edda0c670f2199bc156fbc0454cfbe2007218d332284e5d09a35",
+      "adapter_snapshot": "adapter-snapshots/5e1bc906dc91edda0c670f2199bc156fbc0454cfbe2007218d332284e5d09a35.py",
+      "attempted_face_gap_mm": 0.167313877971,
+      "error": null,
+      "kind": "fixed",
+      "physical_eligibility": true,
+      "result": "v5-C270-full-fixed-extra/result.json",
+      "result_sha256": "098aa597e8509dd3dc89320ef42a5321574d3e23325a01412dc544a198359cf1",
+      "status": "refinement_checked"
+    },
+    {
+      "accepted_face_gap_mm": null,
+      "adapter_sha256": "5e1bc906dc91edda0c670f2199bc156fbc0454cfbe2007218d332284e5d09a35",
+      "adapter_snapshot": "adapter-snapshots/5e1bc906dc91edda0c670f2199bc156fbc0454cfbe2007218d332284e5d09a35.py",
+      "attempted_face_gap_mm": 0.18,
+      "error": null,
+      "kind": "bare_fixed",
+      "physical_eligibility": false,
+      "result": "v5-penetrating-control-bare_fixed/result.json",
+      "result_sha256": "78872fb8c2e26f82a60eb579925c0b2311de418d45a0df8a5675208cd4488457",
+      "status": "refinement_checked"
+    },
+    {
+      "accepted_face_gap_mm": null,
+      "adapter_sha256": "5e1bc906dc91edda0c670f2199bc156fbc0454cfbe2007218d332284e5d09a35",
+      "adapter_snapshot": "adapter-snapshots/5e1bc906dc91edda0c670f2199bc156fbc0454cfbe2007218d332284e5d09a35.py",
+      "attempted_face_gap_mm": 0.18,
+      "error": null,
+      "kind": "fixed",
+      "physical_eligibility": false,
+      "result": "v5-penetrating-control-fixed/result.json",
+      "result_sha256": "35c74f8a5c011fc51db8ce00b1f2a1345bfe5e0c9043ba89394ca49b011b7b78",
+      "status": "not_converged"
+    },
+    {
+      "accepted_face_gap_mm": 0.17820343620155205,
+      "adapter_sha256": "e0926527fb8d811dee12cc9f37b8e910003dc2e03aa3eae0049aba0ea66efc2f",
+      "adapter_snapshot": "adapter-snapshots/e0926527fb8d811dee12cc9f37b8e910003dc2e03aa3eae0049aba0ea66efc2f.py",
+      "attempted_face_gap_mm": 0.17820343620155205,
+      "error": null,
+      "kind": "loaded",
+      "physical_eligibility": true,
+      "result": "v6-C220-full-loaded/result.json",
+      "result_sha256": "63bb6744edf41be64d8dcdc18da1e5bccf461fb21311484eefe21c14f11e49cb",
+      "status": "refinement_checked"
+    }
+  ],
+  "conclusions": [
+    "Declared nominal full-wetting fixed-gap equilibria pass unchanged numerical gates and finite sampled solid-clearance checks at extra refinement. Fresh relaxed energies balance the target load within0.01uN at two steps and the final two mesh levels.",
+    "C270 optimizing-height runs fail native active-set mechanics. Fixed-gap equilibria are admissible and balanced, so those failures do not establish physical infeasibility. No new loaded rootfinder is qualified.",
+    "Pointwise obstacle constraints do not guarantee curved-facet exclusion. The penetrating positive control remains intrusive and not converged and is rejected. Active new contact also lacks the required wetting energy and is never physically eligible.",
+    "Quadratic prescribed-rim interpolation is retained in all residuals. Extra refinement resolves nominal C270 full-wetting sub-nanometer sampling violations without changing any tolerance.",
+    "Physical eligibility means a conditional prescribed-wetting calculation is interpretable. No result is physically validated, no continuous geometric bound is certified, and no wetting depth is inferred."
+  ],
+  "fresh_relaxed_energy_checks": [
+    {
+      "arm": "C220",
+      "engineering_tolerance_uN": 0.01,
+      "maximum_load_residual_uN": 0.0024845580643946263,
+      "passed": true,
+      "source": "v5-C220-full-energy",
+      "spread_uN": 0.0017484392156319473,
+      "target_uN": 6.864655,
+      "two_final_mesh_levels_and_two_steps": [
+        {
+          "both_displaced_geometries_eligible": true,
+          "delta_mm": 0.0005,
+          "final_reaction_uN": 6.866894055224115,
+          "reaction_by_refinement": [
+            {
+              "minus_facets": 432,
+              "plus_facets": 432,
+              "reaction_uN": 6.871024680488169,
+              "refinement_level": 0
+            },
+            {
+              "minus_facets": 1632,
+              "plus_facets": 1632,
+              "reaction_uN": 6.867139558064395,
+              "refinement_level": 1
+            },
+            {
+              "minus_facets": 6336,
+              "plus_facets": 6336,
+              "reaction_uN": 6.866894055224115,
+              "refinement_level": 2
+            }
+          ]
+        },
+        {
+          "both_displaced_geometries_eligible": true,
+          "delta_mm": 0.00025,
+          "final_reaction_uN": 6.865391118848763,
+          "reaction_by_refinement": [
+            {
+              "minus_facets": 432,
+              "plus_facets": 432,
+              "reaction_uN": 6.869519221597287,
+              "refinement_level": 0
+            },
+            {
+              "minus_facets": 1632,
+              "plus_facets": 1632,
+              "reaction_uN": 6.865634638675289,
+              "refinement_level": 1
+            },
+            {
+              "minus_facets": 6336,
+              "plus_facets": 6336,
+              "reaction_uN": 6.865391118848763,
+              "refinement_level": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "arm": "C270",
+      "engineering_tolerance_uN": 0.01,
+      "maximum_load_residual_uN": 0.003471396897267276,
+      "passed": true,
+      "source": "v5-C270-full-energy",
+      "spread_uN": 0.002568949541981169,
+      "target_uN": 6.864655,
+      "two_final_mesh_levels_and_two_steps": [
+        {
+          "both_displaced_geometries_eligible": true,
+          "delta_mm": 0.0005,
+          "final_reaction_uN": 6.86776866689609,
+          "reaction_by_refinement": [
+            {
+              "minus_facets": 432,
+              "plus_facets": 432,
+              "reaction_uN": 6.873787457561953,
+              "refinement_level": 0
+            },
+            {
+              "minus_facets": 1632,
+              "plus_facets": 1632,
+              "reaction_uN": 6.868126396897267,
+              "refinement_level": 1
+            },
+            {
+              "minus_facets": 6336,
+              "plus_facets": 6336,
+              "reaction_uN": 6.86776866689609,
+              "refinement_level": 2
+            }
+          ]
+        },
+        {
+          "both_displaced_geometries_eligible": true,
+          "delta_mm": 0.00025,
+          "final_reaction_uN": 6.865557447355286,
+          "reaction_by_refinement": [
+            {
+              "minus_facets": 432,
+              "plus_facets": 432,
+              "reaction_uN": 6.871576147560177,
+              "refinement_level": 0
+            },
+            {
+              "minus_facets": 1632,
+              "plus_facets": 1632,
+              "reaction_uN": 6.865913350884156,
+              "refinement_level": 1
+            },
+            {
+              "minus_facets": 6336,
+              "plus_facets": 6336,
+              "reaction_uN": 6.865557447355286,
+              "refinement_level": 2
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "identities": {
+    "adapter_sha256": "b3c2e5e2a7210e73d9ea1d15e62daeb4547399d90e5352b3cc976574a384a811",
+    "baseline_commit": "33666d32c92b6753925bb2fd29dc62ce5fed618b",
+    "production": {
+      "soldershape/model.py": {
+        "baseline_sha256": "543720e8a6999896410aaf22651846c71b4f4736923ffe0ada0767ce35619657",
+        "matches_baseline": true,
+        "sha256": "543720e8a6999896410aaf22651846c71b4f4736923ffe0ada0767ce35619657"
+      },
+      "soldershape/solver.py": {
+        "baseline_sha256": "c7bcfcc2c5f24e6e783540b3fcabc45a8d15308ded887aca2ae41442ddf4c8a6",
+        "matches_baseline": true,
+        "sha256": "c7bcfcc2c5f24e6e783540b3fcabc45a8d15308ded887aca2ae41442ddf4c8a6"
+      }
+    }
+  },
+  "nominal_fixed_controls": [
+    {
+      "case": "v4-C220-zero-fixed",
+      "conditional_physical_eligibility": true,
+      "imposed_face_gap_um": 223.318801601,
+      "interface": {
+        "active_new_contact": false,
+        "continuous_clearance_certified": false,
+        "free_facets": 24576,
+        "intrusion_detected": false,
+        "method": "15 barycentric samples per curved quadratic liquid-air facet before flattening; zero-tension caps excluded",
+        "minimum_constraint_values_mm": {
+          "lower_copper": 0.0,
+          "lower_substrate": 0.035,
+          "upper_copper": 0.0,
+          "upper_substrate": 0.035
+        },
+        "new_contact_samples": {
+          "lower_copper": 0,
+          "lower_substrate": 0,
+          "upper_copper": 0,
+          "upper_substrate": 0
+        },
+        "penetrating_samples": 0,
+        "samples": 368640,
+        "tolerance_mm": 2.23318801601e-07
+      },
+      "interpretation": "Fixed-gap admissibility and reaction control. The imposed gap is not an independent loaded-height prediction.",
+      "normal_reaction_uN": 6.865148604189578,
+      "reaction_minus_load_uN": 0.0004936041895780008,
+      "status": "refinement_checked"
+    },
+    {
+      "case": "v4-C220-full-fixed",
+      "conditional_physical_eligibility": true,
+      "imposed_face_gap_um": 178.203381224,
+      "interface": {
+        "active_new_contact": false,
+        "continuous_clearance_certified": false,
+        "free_facets": 24576,
+        "intrusion_detected": false,
+        "method": "15 barycentric samples per curved quadratic liquid-air facet before flattening; zero-tension caps excluded",
+        "minimum_constraint_values_mm": {
+          "lower_copper": -4.954571159908706e-08,
+          "lower_substrate": 0.0,
+          "upper_copper": -6.305817840856645e-08,
+          "upper_substrate": 1.1102230246251565e-16
+        },
+        "new_contact_samples": {
+          "lower_copper": 0,
+          "lower_substrate": 0,
+          "upper_copper": 0,
+          "upper_substrate": 0
+        },
+        "penetrating_samples": 0,
+        "samples": 368640,
+        "tolerance_mm": 2.4820338122400003e-07
+      },
+      "interpretation": "Fixed-gap admissibility and reaction control. The imposed gap is not an independent loaded-height prediction.",
+      "normal_reaction_uN": 6.864914866559589,
+      "reaction_minus_load_uN": 0.0002598665595892058,
+      "status": "refinement_checked"
+    },
+    {
+      "case": "v4-C270-zero-fixed",
+      "conditional_physical_eligibility": true,
+      "imposed_face_gap_um": 207.52181486,
+      "interface": {
+        "active_new_contact": false,
+        "continuous_clearance_certified": false,
+        "free_facets": 6144,
+        "intrusion_detected": false,
+        "method": "15 barycentric samples per curved quadratic liquid-air facet before flattening; zero-tension caps excluded",
+        "minimum_constraint_values_mm": {
+          "lower_copper": 0.0,
+          "lower_substrate": 0.035,
+          "upper_copper": 0.0,
+          "upper_substrate": 0.035
+        },
+        "new_contact_samples": {
+          "lower_copper": 0,
+          "lower_substrate": 0,
+          "upper_copper": 0,
+          "upper_substrate": 0
+        },
+        "penetrating_samples": 0,
+        "samples": 92160,
+        "tolerance_mm": 2.0752181485999997e-07
+      },
+      "interpretation": "Fixed-gap admissibility and reaction control. The imposed gap is not an independent loaded-height prediction.",
+      "normal_reaction_uN": 6.8646371917545626,
+      "reaction_minus_load_uN": -1.780824543740067e-05,
+      "status": "refinement_checked"
+    },
+    {
+      "case": "v5-C270-full-fixed-extra",
+      "conditional_physical_eligibility": true,
+      "imposed_face_gap_um": 167.313877971,
+      "interface": {
+        "active_new_contact": false,
+        "continuous_clearance_certified": false,
+        "free_facets": 24576,
+        "intrusion_detected": false,
+        "method": "15 barycentric samples per curved quadratic liquid-air facet before flattening; zero-tension caps excluded",
+        "minimum_constraint_values_mm": {
+          "lower_copper": -6.080610057392333e-08,
+          "lower_substrate": 0.0,
+          "upper_copper": -6.305817838378469e-08,
+          "upper_substrate": -1.1102230246251565e-16
+        },
+        "new_contact_samples": {
+          "lower_copper": 0,
+          "lower_substrate": 0,
+          "upper_copper": 0,
+          "upper_substrate": 0
+        },
+        "penetrating_samples": 0,
+        "samples": 368640,
+        "tolerance_mm": 2.37313877971e-07
+      },
+      "interpretation": "Fixed-gap admissibility and reaction control. The imposed gap is not an independent loaded-height prediction.",
+      "normal_reaction_uN": 6.864844878842619,
+      "reaction_minus_load_uN": 0.00018987884261889576,
+      "status": "refinement_checked"
+    }
+  ],
+  "penetrating_control": {
+    "bare_fixed": {
+      "interface": {
+        "active_new_contact": false,
+        "continuous_clearance_certified": false,
+        "free_facets": 6144,
+        "intrusion_detected": true,
+        "method": "15 barycentric samples per curved quadratic liquid-air facet before flattening; zero-tension caps excluded",
+        "minimum_constraint_values_mm": {
+          "lower_copper": -0.006992724909209581,
+          "lower_substrate": 0.0,
+          "upper_copper": -0.007615680231097766,
+          "upper_substrate": 0.0
+        },
+        "new_contact_samples": {
+          "lower_copper": 0,
+          "lower_substrate": 0,
+          "upper_copper": 0,
+          "upper_substrate": 0
+        },
+        "penetrating_samples": 24390,
+        "samples": 92160,
+        "tolerance_mm": 2.5e-07
+      },
+      "physical_eligibility": false,
+      "status": "refinement_checked"
+    },
+    "fixed": {
+      "interface": {
+        "active_new_contact": true,
+        "continuous_clearance_certified": false,
+        "free_facets": 24576,
+        "intrusion_detected": true,
+        "method": "15 barycentric samples per curved quadratic liquid-air facet before flattening; zero-tension caps excluded",
+        "minimum_constraint_values_mm": {
+          "lower_copper": -0.0021253174428005873,
+          "lower_substrate": 0.0,
+          "upper_copper": -0.0024607251598061978,
+          "upper_substrate": 0.0
+        },
+        "new_contact_samples": {
+          "lower_copper": 2334,
+          "lower_substrate": 0,
+          "upper_copper": 2399,
+          "upper_substrate": 0
+        },
+        "penetrating_samples": 2670,
+        "samples": 368640,
+        "tolerance_mm": 2.5e-07
+      },
+      "physical_eligibility": false,
+      "status": "not_converged"
+    }
+  },
+  "retained_negative_versions": {
+    "v1": "Fixed rim overconstraint.",
+    "v2": "Native export command lexical error.",
+    "v3": "Loaded C270 active-set errors and incorrect interface selection/rim diagnostic. Outputs are preserved, not silently corrected.",
+    "v4-C270-full-fixed": "Numerically converged but sub-nanometer quadratic-rim intrusion exceeds declared tolerance. Extra-refinement case is separate."
+  },
+  "schema": "soldershape.prelab.finite-pilot.v1",
+  "unit_tests": {
+    "command": "python3 -m unittest prelab.test_finite -v",
+    "passed": 7,
+    "transcript": "tests.txt"
+  }
+}

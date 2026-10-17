@@ -1,0 +1,174 @@
+{
+  "campaign_manifest_sha256": "b1bbb6716f0250b749a0be9736adba0184002c0992bcb0e3d35c1b901f305914",
+  "engine": {
+    "binary_sha256": "c930b47b33a4cafb3cf98b1c0cb7e3bd9805abcf67aceefe243daea091072f8e",
+    "build_commands": [
+      [
+        "/usr/bin/cc",
+        "-c",
+        "/Volumes/Storage/oct16project/.engine/headless-title.c",
+        "-o",
+        "/Volumes/Storage/oct16project/.engine/headless-title.o"
+      ],
+      [
+        "/usr/bin/make",
+        "-C",
+        "/Volumes/Storage/oct16project/.engine/src",
+        "-j4",
+        "CC=/usr/bin/cc -O2 -std=gnu89 -w",
+        "CFLAGS=-DGENERIC",
+        "GRAPH=nulgraph.o",
+        "GRAPHLIB=../headless-title.o"
+      ]
+    ],
+    "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+    "license_note": "Local upstream evaluation. Component notices require review before redistribution; upstream source is not vendored in this project.",
+    "numerical_source_modified": false,
+    "patch": {
+      "purpose": "Supply missing no-op title callback for the headless graphics target.",
+      "sha256": "4f49b4ab182ffd99e0244abae08ea8e48d74ce2e24c57f1c40088ba18126526a",
+      "source": "void set_graphics_title(int which, char *title) { (void)which; (void)title; }\n"
+    },
+    "ready": true,
+    "reference_sha256": "96389e8200320cc8acfbf60b8ed23e2d05941613af5b55824c36890113c6e659",
+    "reference_url": "https://kenbrakke.com/evolver/downloads/bga-files.zip",
+    "source_sha256": "be7d60d9eb690f1fb124e2ecc12237a7a35be1935bfa5e92be3fe912207a3b6b",
+    "source_url": "https://kenbrakke.com/evolver/downloads/evolver-2.70.tar.gz",
+    "version": "2.70a"
+  },
+  "passed": true,
+  "receipt_sha256": {
+    "029ab83163bbd4b2f4edddd2fcdd5bb0a9287cfb8288036750790aee244da2a5.json.gz": "7f1ead31c1f5ea56ce9023482a0a7f8b37b6a17db137753c6c91afee70a445c8",
+    "077e135e88849c45b03f8825e1064dff906d81b66ac44f2a7af8b24ccf06832a.json.gz": "4b3f10c90e8c02f037a3f5ab8ac4a891e105d6924636cfaf10980dd50306d9b4",
+    "0c7c3f0904a166e5524cd248d49160da838ffc6614520425ede40c8c8da473b1.json.gz": "147aa51bd07f0d325747a19adf3bf2daf9cc0d34e2a47b8c5c61479a9dfeec0e",
+    "6dcf424832f722b212b0dee905ceb85fbf5051b57109096a7f34db1c5af78c61.json.gz": "a77318e19c459137c728fad17ccd17b126c2862911beba6eb930f9f0cff2a87e",
+    "6fec207b6a9eb3f8239225b0dd931187f689d881bc41bc367f2040984f5c1bd5.json.gz": "966d015a1b18b6fa5612864f5d96499a780a71528d82df0d51b1a5e912c4a551",
+    "7d598ea463904b6af2c47a1cf0d4a1fb9c25803b5967e5bd7fe202171412932a.json.gz": "ece41467998bfd7742c2ad458ddd14c3714a6c13748d4b7fb02110600d074e67",
+    "94b7fce44a3648ecee456c361ca6beb51c595de3187183026ee21050060becd6.json.gz": "390468b0259ae08c41fbdf54b607b9509c2b0d40f2506897d9970b7e9d0492a7",
+    "b2b212f2fecb122a2559acc99af2b7b7c70182febeb6986069773dc92e328878.json.gz": "a97190188c291fd886a982ec358fda1848e00d54f9b2237bfdb9239142fb01ae",
+    "b5932b2683dc95eb31de6bbfa1ac607a379bbe1e0196227c38ae9a5676554fca.json.gz": "fac32e3a740d2a524a5db93d01392b1b59d26f15f89490eab472ae32bee918cc",
+    "ca9f953e589133f2c927b9ffd74377ca55e3525997796185f5e22fb286c15ece.json.gz": "f138c09c6424416d75b693c2ef446c3689e881ae53d6ff9717c8a29694ee53fa",
+    "df0414671c1b388c0206b2b13815b9a70198cb48807b93baa62a17980a21034f.json.gz": "34b3fd2b59db53243fefdd9ba6a40958b03790c62d9c0192ba61b7e53b7d8631",
+    "ec5266391385b5578198227acdc65fe300a22af52b59d8510ddea1f23256ec30.json.gz": "dc9d5cc07391bcf64fc0c61fa012be90da505bfb1bd23cc3b9227caa8ce11da4",
+    "ef30e5d044ac7bb34479559df73415c1ea05d6bb1db7d125773a1240449dfe34.json.gz": "a539af0de6cb7205e958de560610937642657535f74ccc669d746dd5109e176c"
+  },
+  "replay_code_sha256": "d135ac42105de0ca1a7e7ef8acd7d84d98fe2f213650f231cc32a25fbdca57c3",
+  "requests": [
+    {
+      "force_difference_uN": {
+        "x_uN": 0.0,
+        "z_uN": 0.0
+      },
+      "gap_difference_um": 0.0,
+      "passed": true,
+      "request_sha256": "029ab83163bbd4b2f4edddd2fcdd5bb0a9287cfb8288036750790aee244da2a5"
+    },
+    {
+      "expected_rejection": true,
+      "fresh_status": "failed",
+      "original_status": "failed",
+      "passed": true,
+      "request_sha256": "077e135e88849c45b03f8825e1064dff906d81b66ac44f2a7af8b24ccf06832a"
+    },
+    {
+      "force_difference_uN": {
+        "x_uN": 0.0,
+        "z_uN": 0.0
+      },
+      "gap_difference_um": 0.0,
+      "passed": true,
+      "request_sha256": "0c7c3f0904a166e5524cd248d49160da838ffc6614520425ede40c8c8da473b1"
+    },
+    {
+      "force_difference_uN": {
+        "x_uN": 0.0,
+        "z_uN": 0.0
+      },
+      "gap_difference_um": 0.0,
+      "passed": true,
+      "request_sha256": "6dcf424832f722b212b0dee905ceb85fbf5051b57109096a7f34db1c5af78c61"
+    },
+    {
+      "force_difference_uN": {
+        "x_uN": 0.0,
+        "z_uN": 0.0
+      },
+      "gap_difference_um": 0.0,
+      "passed": true,
+      "request_sha256": "6fec207b6a9eb3f8239225b0dd931187f689d881bc41bc367f2040984f5c1bd5"
+    },
+    {
+      "force_difference_uN": {
+        "x_uN": 0.0,
+        "z_uN": 0.0
+      },
+      "gap_difference_um": 0.0,
+      "passed": true,
+      "request_sha256": "7d598ea463904b6af2c47a1cf0d4a1fb9c25803b5967e5bd7fe202171412932a"
+    },
+    {
+      "force_difference_uN": {
+        "x_uN": 0.0,
+        "z_uN": 0.0
+      },
+      "gap_difference_um": 0.0,
+      "passed": true,
+      "request_sha256": "94b7fce44a3648ecee456c361ca6beb51c595de3187183026ee21050060becd6"
+    },
+    {
+      "force_difference_uN": {
+        "x_uN": 0.0,
+        "z_uN": 0.0
+      },
+      "gap_difference_um": 0.0,
+      "passed": true,
+      "request_sha256": "b2b212f2fecb122a2559acc99af2b7b7c70182febeb6986069773dc92e328878"
+    },
+    {
+      "force_difference_uN": {
+        "x_uN": 0.0,
+        "z_uN": 0.0
+      },
+      "gap_difference_um": 0.0,
+      "passed": true,
+      "request_sha256": "b5932b2683dc95eb31de6bbfa1ac607a379bbe1e0196227c38ae9a5676554fca"
+    },
+    {
+      "force_difference_uN": {
+        "x_uN": 0.0,
+        "z_uN": 0.0
+      },
+      "gap_difference_um": 0.0,
+      "passed": true,
+      "request_sha256": "ca9f953e589133f2c927b9ffd74377ca55e3525997796185f5e22fb286c15ece"
+    },
+    {
+      "force_difference_uN": {
+        "x_uN": 0.0,
+        "z_uN": 0.0
+      },
+      "gap_difference_um": 0.0,
+      "passed": true,
+      "request_sha256": "df0414671c1b388c0206b2b13815b9a70198cb48807b93baa62a17980a21034f"
+    },
+    {
+      "force_difference_uN": {
+        "x_uN": 0.0,
+        "z_uN": 0.0
+      },
+      "gap_difference_um": 0.0,
+      "passed": true,
+      "request_sha256": "ec5266391385b5578198227acdc65fe300a22af52b59d8510ddea1f23256ec30"
+    },
+    {
+      "force_difference_uN": {
+        "x_uN": 0.0,
+        "z_uN": 0.0
+      },
+      "gap_difference_um": 0.0,
+      "passed": true,
+      "request_sha256": "ef30e5d044ac7bb34479559df73415c1ea05d6bb1db7d125773a1240449dfe34"
+    }
+  ],
+  "scope": "Fresh numerical replay with exact engine. No physical validation."
+}

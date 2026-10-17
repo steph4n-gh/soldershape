@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "campaign": {
+    "passed": true,
+    "expanded_rows": 64,
+    "distinct_requests": 61,
+    "accepted_requests": 60,
+    "failed_requests": 1,
+    "negative_control_rejected": true,
+    "physical_qualification": "unqualified"
+  },
+  "fresh_baseline_cases": 6,
+  "verification_code_sha256": "e9c43b8c4f520f1a9695f39612f50e85746b9fabc179c678de86bed6800ace0d",
+  "baseline_maximum_gap_difference_um": 0.0,
+  "identity_checked_fresh_replays": 13,
+  "rigid_cap_cases": 12,
+  "finite_pad": {
+    "retained_isolated_attempts": 28,
+    "full_wetting_maximum_load_residual_uN": 0.003471396897267276,
+    "active_contact_qualified": false,
+    "continuous_clearance_certified": false
+  },
+  "finite_confirmation": {
+    "fixed_controls": 6,
+    "relaxed_energy_checks": 2,
+    "passed": true
+  },
+  "physical_qualification": "unqualified",
+  "scope": "File integrity, trusted-source recomputation and numerical evidence. Not a trusted timestamp or physical validation."
+}

@@ -1,0 +1,342 @@
+{
+  "schema": "soldershape.prelab.protocol.v1",
+  "domain": "actual_SS-C220-C270-R1_coupon",
+  "baseline_commit": "33666d32c92b6753925bb2fd29dc62ce5fed618b",
+  "scope": "Deterministic stress scenarios, not measured probability distributions, certified interval bounds or physical validation. No confirmatory outcomes are inputs.",
+  "objectives": {
+    "pad_face_gap_threshold_um": 185.0,
+    "paired_measurement_budget_um": 3.0,
+    "future_height_error_budget_um": 5.0,
+    "whole_cap_minimum": "Not modeled by independent equal-load joints. Requires measured within-cap geometry and coupled mechanics."
+  },
+  "parameters": {
+    "joint_count": 20,
+    "g_m_s2": 9.80665,
+    "lower_nominal_mm": {
+      "C220": 0.22,
+      "C270": 0.27
+    },
+    "upper_nominal_mm": 0.28,
+    "gamma_n_m": 0.48,
+    "density_g_cm3": 8.5,
+    "gravity": false
+  },
+  "boundaries": {
+    "literal_rims": {
+      "depth_fraction": 0.0
+    },
+    "two_pad_cylinders": {
+      "depth_fraction": 1.0
+    }
+  },
+  "range_provenance": {
+    "diameter_and_sphere_endpoints": "Requested specifications in coupons/experiment.json, not demonstrated capability or a sampled distribution.",
+    "volume": "Alternative solid sphere geometry or liquid-volume factor, never sampled twice. No liquid-density validation.",
+    "material_mass_metal": "Unqualified stress assumptions from prelab/design/uncertainty.md. Density is not varied independently of direct volume.",
+    "hot_to_cold": "Unknown. No liquid prediction is a qualified cold clearance."
+  },
+  "scenarios": [
+    {
+      "id": "nominal",
+      "group": "baseline",
+      "purpose": "Exact artificial coupon planning inputs, not measured physical inputs.",
+      "common": {
+        "cap_mass_mg": 14.0,
+        "sphere_diameter_um": 320.0,
+        "liquid_volume_factor": 1.0,
+        "lower_bias_um": 0.0,
+        "upper_bias_um": 0.0,
+        "lower_metal_um": 35.0,
+        "upper_metal_um": 35.0,
+        "offset_mm": 0.0
+      },
+      "arms": {}
+    },
+    {
+      "id": "common-volume-low",
+      "group": "common",
+      "purpose": "Unqualified common liquid-volume stress.",
+      "common": {
+        "cap_mass_mg": 14.0,
+        "sphere_diameter_um": 320.0,
+        "liquid_volume_factor": 0.95,
+        "lower_bias_um": 0.0,
+        "upper_bias_um": 0.0,
+        "lower_metal_um": 35.0,
+        "upper_metal_um": 35.0,
+        "offset_mm": 0.0
+      },
+      "arms": {}
+    },
+    {
+      "id": "common-volume-high",
+      "group": "common",
+      "purpose": "Unqualified common liquid-volume stress.",
+      "common": {
+        "cap_mass_mg": 14.0,
+        "sphere_diameter_um": 320.0,
+        "liquid_volume_factor": 1.05,
+        "lower_bias_um": 0.0,
+        "upper_bias_um": 0.0,
+        "lower_metal_um": 35.0,
+        "upper_metal_um": 35.0,
+        "offset_mm": 0.0
+      },
+      "arms": {}
+    },
+    {
+      "id": "common-pads-small",
+      "group": "common",
+      "purpose": "Shared requested pad diameter endpoints.",
+      "common": {
+        "cap_mass_mg": 14.0,
+        "sphere_diameter_um": 320.0,
+        "liquid_volume_factor": 1.0,
+        "lower_bias_um": -5.0,
+        "upper_bias_um": -5.0,
+        "lower_metal_um": 35.0,
+        "upper_metal_um": 35.0,
+        "offset_mm": 0.0
+      },
+      "arms": {}
+    },
+    {
+      "id": "common-pads-large",
+      "group": "common",
+      "purpose": "Shared requested pad diameter endpoints.",
+      "common": {
+        "cap_mass_mg": 14.0,
+        "sphere_diameter_um": 320.0,
+        "liquid_volume_factor": 1.0,
+        "lower_bias_um": 5.0,
+        "upper_bias_um": 5.0,
+        "lower_metal_um": 35.0,
+        "upper_metal_um": 35.0,
+        "offset_mm": 0.0
+      },
+      "arms": {}
+    },
+    {
+      "id": "common-load-high-gamma-low",
+      "group": "common",
+      "purpose": "Combined unqualified material and cap-mass stress.",
+      "common": {
+        "cap_mass_mg": 16.8,
+        "sphere_diameter_um": 320.0,
+        "liquid_volume_factor": 1.0,
+        "lower_bias_um": 0.0,
+        "upper_bias_um": 0.0,
+        "lower_metal_um": 35.0,
+        "upper_metal_um": 35.0,
+        "offset_mm": 0.0,
+        "gamma_n_m": 0.35
+      },
+      "arms": {}
+    },
+    {
+      "id": "common-load-low-gamma-high",
+      "group": "common",
+      "purpose": "Combined unqualified material and cap-mass stress.",
+      "common": {
+        "cap_mass_mg": 11.2,
+        "sphere_diameter_um": 320.0,
+        "liquid_volume_factor": 1.0,
+        "lower_bias_um": 0.0,
+        "upper_bias_um": 0.0,
+        "lower_metal_um": 35.0,
+        "upper_metal_um": 35.0,
+        "offset_mm": 0.0,
+        "gamma_n_m": 0.55
+      },
+      "arms": {}
+    },
+    {
+      "id": "common-metal-thick",
+      "group": "common",
+      "purpose": "Unqualified finished-metal thickness stress, includes no finish certificate.",
+      "common": {
+        "cap_mass_mg": 14.0,
+        "sphere_diameter_um": 320.0,
+        "liquid_volume_factor": 1.0,
+        "lower_bias_um": 0.0,
+        "upper_bias_um": 0.0,
+        "lower_metal_um": 40.0,
+        "upper_metal_um": 40.0,
+        "offset_mm": 0.0
+      },
+      "arms": {}
+    },
+    {
+      "id": "common-metal-thin",
+      "group": "common",
+      "purpose": "Unqualified finished-metal thickness stress.",
+      "common": {
+        "cap_mass_mg": 14.0,
+        "sphere_diameter_um": 320.0,
+        "liquid_volume_factor": 1.0,
+        "lower_bias_um": 0.0,
+        "upper_bias_um": 0.0,
+        "lower_metal_um": 30.0,
+        "upper_metal_um": 30.0,
+        "offset_mm": 0.0
+      },
+      "arms": {}
+    },
+    {
+      "id": "common-offset",
+      "group": "common",
+      "purpose": "Requested pre-outcome offset domain endpoint; final offset is not observed.",
+      "common": {
+        "cap_mass_mg": 14.0,
+        "sphere_diameter_um": 320.0,
+        "liquid_volume_factor": 1.0,
+        "lower_bias_um": 0.0,
+        "upper_bias_um": 0.0,
+        "lower_metal_um": 35.0,
+        "upper_metal_um": 35.0,
+        "offset_mm": 0.01
+      },
+      "arms": {}
+    },
+    {
+      "id": "common-combined-low-gap",
+      "group": "common",
+      "purpose": "Joint low-gap stress, not an established continuous minimum.",
+      "common": {
+        "cap_mass_mg": 16.8,
+        "sphere_diameter_um": 320.0,
+        "liquid_volume_factor": 0.95,
+        "lower_bias_um": 5.0,
+        "upper_bias_um": 5.0,
+        "lower_metal_um": 40.0,
+        "upper_metal_um": 40.0,
+        "offset_mm": 0.01,
+        "gamma_n_m": 0.35
+      },
+      "arms": {}
+    },
+    {
+      "id": "common-combined-high-gap",
+      "group": "common",
+      "purpose": "Joint high-gap stress, not an established continuous maximum.",
+      "common": {
+        "cap_mass_mg": 11.2,
+        "sphere_diameter_um": 320.0,
+        "liquid_volume_factor": 1.05,
+        "lower_bias_um": -5.0,
+        "upper_bias_um": -5.0,
+        "lower_metal_um": 30.0,
+        "upper_metal_um": 30.0,
+        "offset_mm": 0.0,
+        "gamma_n_m": 0.55
+      },
+      "arms": {}
+    },
+    {
+      "id": "opposed-requested-endpoints",
+      "group": "opposed_spec",
+      "purpose": "Opposed diameter and sphere requested endpoints, before allowance for measurement uncertainty.",
+      "common": {
+        "cap_mass_mg": 14.0,
+        "sphere_diameter_um": 320.0,
+        "liquid_volume_factor": 1.0,
+        "lower_bias_um": 0.0,
+        "upper_bias_um": 0.0,
+        "lower_metal_um": 35.0,
+        "upper_metal_um": 35.0,
+        "offset_mm": 0.0
+      },
+      "arms": {
+        "C220": {
+          "lower_bias_um": 5.0,
+          "upper_bias_um": 5.0,
+          "sphere_diameter_um": 317.5
+        },
+        "C270": {
+          "lower_bias_um": -5.0,
+          "upper_bias_um": -5.0,
+          "sphere_diameter_um": 322.5
+        }
+      }
+    },
+    {
+      "id": "opposed-wider-volume",
+      "group": "opposed_stress",
+      "purpose": "Opposed plus/minus5% liquid-volume stress exceeds screened sphere geometry band. It is an unqualified process-loss hypothesis.",
+      "common": {
+        "cap_mass_mg": 14.0,
+        "sphere_diameter_um": 320.0,
+        "liquid_volume_factor": 1.0,
+        "lower_bias_um": 0.0,
+        "upper_bias_um": 0.0,
+        "lower_metal_um": 35.0,
+        "upper_metal_um": 35.0,
+        "offset_mm": 0.0
+      },
+      "arms": {
+        "C220": {
+          "lower_bias_um": 5.0,
+          "upper_bias_um": 5.0,
+          "liquid_volume_factor": 0.95
+        },
+        "C270": {
+          "lower_bias_um": -5.0,
+          "upper_bias_um": -5.0,
+          "liquid_volume_factor": 1.05
+        }
+      }
+    },
+    {
+      "id": "opposed-load-offset",
+      "group": "opposed_stress",
+      "purpose": "Opposed cap-lot and alignment stress.",
+      "common": {
+        "cap_mass_mg": 14.0,
+        "sphere_diameter_um": 320.0,
+        "liquid_volume_factor": 1.0,
+        "lower_bias_um": 0.0,
+        "upper_bias_um": 0.0,
+        "lower_metal_um": 35.0,
+        "upper_metal_um": 35.0,
+        "offset_mm": 0.0
+      },
+      "arms": {
+        "C220": {
+          "cap_mass_mg": 16.8,
+          "offset_mm": 0.01
+        },
+        "C270": {
+          "cap_mass_mg": 11.2,
+          "offset_mm": 0.0
+        }
+      }
+    },
+    {
+      "id": "common-liquid-expansion",
+      "group": "common",
+      "purpose": "Historical SnPb 4.5% solidification volume decrease inverted as a sensitivity only, not a certified molten density.",
+      "common": {
+        "cap_mass_mg": 14.0,
+        "sphere_diameter_um": 320.0,
+        "liquid_volume_factor": 1.0471204188481675,
+        "lower_bias_um": 0.0,
+        "upper_bias_um": 0.0,
+        "lower_metal_um": 35.0,
+        "upper_metal_um": 35.0,
+        "offset_mm": 0.0
+      },
+      "arms": {}
+    }
+  ],
+  "native_controls": {
+    "unattainable_load_uN": 10000.0,
+    "nominal_match_tolerance_um": 0.001,
+    "replay_gap_tolerance_um": 0.01,
+    "replay_force_tolerance_uN": 0.01
+  },
+  "source_links": [
+    "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=853016",
+    "https://imapsjmep.org/article/39820.pdf",
+    "https://kenbrakke.com/evolver/html/constrnt.htm"
+  ]
+}

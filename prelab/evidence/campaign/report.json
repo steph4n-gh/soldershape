@@ -1,0 +1,941 @@
+{
+  "accepted_distinct_requests": 60,
+  "distinct_requests": 61,
+  "domain": "actual_SS-C220-C270-R1_coupon",
+  "expanded_rows": 64,
+  "failed_distinct_requests": 1,
+  "hot_to_cold_transformation": "unqualified",
+  "negative_control": {
+    "rejected": true,
+    "request_sha256": "077e135e88849c45b03f8825e1064dff906d81b66ac44f2a7af8b24ccf06832a",
+    "status": "failed"
+  },
+  "nominal_cross_boundary_pairs": [
+    {
+      "C220_mapping": "literal_rims",
+      "C220_minus_C270_um": 15.796986741785815,
+      "C270_mapping": "literal_rims",
+      "scope": "Different wetting states are hypotheses, not observed arm differences."
+    },
+    {
+      "C220_mapping": "literal_rims",
+      "C220_minus_C270_um": 56.00492503095293,
+      "C270_mapping": "two_pad_cylinders",
+      "scope": "Different wetting states are hypotheses, not observed arm differences."
+    },
+    {
+      "C220_mapping": "two_pad_cylinders",
+      "C220_minus_C270_um": -29.31843363600646,
+      "C270_mapping": "literal_rims",
+      "scope": "Different wetting states are hypotheses, not observed arm differences."
+    },
+    {
+      "C220_mapping": "two_pad_cylinders",
+      "C220_minus_C270_um": 10.889504653160657,
+      "C270_mapping": "two_pad_cylinders",
+      "scope": "Different wetting states are hypotheses, not observed arm differences."
+    }
+  ],
+  "pairs": [
+    {
+      "C220_minus_C270_um": 15.796986741785815,
+      "arms": {
+        "C220": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 223.34907200981604,
+          "gap_um": 223.31880160132934,
+          "native_minus_analytical_um": -0.030270408486700262,
+          "numerical_threshold_margin_um": 38.31880160132934,
+          "request_sha256": "ec5266391385b5578198227acdc65fe300a22af52b59d8510ddea1f23256ec30",
+          "status": "refinement_checked"
+        },
+        "C270": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 207.51966907047608,
+          "gap_um": 207.52181485954353,
+          "native_minus_analytical_um": 0.0021457890674412283,
+          "numerical_threshold_margin_um": 22.521814859543525,
+          "request_sha256": "6dcf424832f722b212b0dee905ceb85fbf5051b57109096a7f34db1c5af78c61",
+          "status": "refinement_checked"
+        }
+      },
+      "exceeds_requested_pair_measurement_budget": true,
+      "group": "baseline",
+      "mapping": "literal_rims",
+      "ordering": "C220_higher",
+      "scenario": "nominal"
+    },
+    {
+      "C220_minus_C270_um": 10.889504653160657,
+      "arms": {
+        "C220": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 178.24975366079877,
+          "gap_um": 178.20338122353706,
+          "native_minus_analytical_um": -0.046372437261709365,
+          "numerical_threshold_margin_um": -6.796618776462935,
+          "request_sha256": "6fec207b6a9eb3f8239225b0dd931187f689d881bc41bc367f2040984f5c1bd5",
+          "status": "refinement_checked"
+        },
+        "C270": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 167.3180227910335,
+          "gap_um": 167.3138765703764,
+          "native_minus_analytical_um": -0.004146220657105459,
+          "numerical_threshold_margin_um": -17.686123429623592,
+          "request_sha256": "ef30e5d044ac7bb34479559df73415c1ea05d6bb1db7d125773a1240449dfe34",
+          "status": "refinement_checked"
+        }
+      },
+      "exceeds_requested_pair_measurement_budget": true,
+      "group": "baseline",
+      "mapping": "two_pad_cylinders",
+      "ordering": "C220_higher",
+      "scenario": "nominal"
+    },
+    {
+      "C220_minus_C270_um": 15.873840456312593,
+      "arms": {
+        "C220": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 216.66207521099494,
+          "gap_um": 216.63529274688761,
+          "native_minus_analytical_um": -0.02678246410732754,
+          "numerical_threshold_margin_um": 31.635292746887615,
+          "request_sha256": "7a2f162f1d7d9337e5cd2c918e125a556e63cff35a6daec48ef10a76cf0f610d",
+          "status": "refinement_checked"
+        },
+        "C270": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 200.75855753310518,
+          "gap_um": 200.76145229057502,
+          "native_minus_analytical_um": 0.002894757469846354,
+          "numerical_threshold_margin_um": 15.761452290575022,
+          "request_sha256": "c8207548300e669ed2e26436331026834de1b386efc5ddeffa9fa2f0d031781f",
+          "status": "refinement_checked"
+        }
+      },
+      "exceeds_requested_pair_measurement_budget": true,
+      "group": "common",
+      "mapping": "literal_rims",
+      "ordering": "C220_higher",
+      "scenario": "common-volume-low"
+    },
+    {
+      "C220_minus_C270_um": 10.852812658891224,
+      "arms": {
+        "C220": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 172.4258651142236,
+          "gap_um": 172.38377895519565,
+          "native_minus_analytical_um": -0.04208615902794577,
+          "numerical_threshold_margin_um": -12.616221044804348,
+          "request_sha256": "13e8d7c250f23332ed05981e1e3845df5f8fada4ae9b2dc203e4d765b0c85334",
+          "status": "refinement_checked"
+        },
+        "C270": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 161.5334846668445,
+          "gap_um": 161.53096629630443,
+          "native_minus_analytical_um": -0.0025183705400593226,
+          "numerical_threshold_margin_um": -23.469033703695573,
+          "request_sha256": "b14594662590507368a760af74ed07a055171dd5ac5a0a194f653491dff08ff0",
+          "status": "refinement_checked"
+        }
+      },
+      "exceeds_requested_pair_measurement_budget": true,
+      "group": "common",
+      "mapping": "two_pad_cylinders",
+      "ordering": "C220_higher",
+      "scenario": "common-volume-low"
+    },
+    {
+      "C220_minus_C270_um": 15.711277886918197,
+      "arms": {
+        "C220": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 229.7981042981717,
+          "gap_um": 229.7641381562574,
+          "native_minus_analytical_um": -0.03396614191430558,
+          "numerical_threshold_margin_um": 44.76413815625739,
+          "request_sha256": "58bb932a0a62850585f1d9edaa95632404417a4aa307eedf3bb794cbfc508bff",
+          "status": "refinement_checked"
+        },
+        "C270": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 214.05166579854296,
+          "gap_um": 214.0528602693392,
+          "native_minus_analytical_um": 0.0011944707962356915,
+          "numerical_threshold_margin_um": 29.05286026933919,
+          "request_sha256": "cb306144343ed507deab46aab3d5740d3ba9d528840894a488efdbc0dc5551bb",
+          "status": "refinement_checked"
+        }
+      },
+      "exceeds_requested_pair_measurement_budget": true,
+      "group": "common",
+      "mapping": "literal_rims",
+      "ordering": "C220_higher",
+      "scenario": "common-volume-high"
+    },
+    {
+      "C220_minus_C270_um": 10.915518586193286,
+      "arms": {
+        "C220": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 183.89773701941394,
+          "gap_um": 183.84694463982805,
+          "native_minus_analytical_um": -0.05079237958588578,
+          "numerical_threshold_margin_um": -1.1530553601719475,
+          "request_sha256": "5d8715d213002b2f4c28bb3cc1c6a1b4f39cab0e21e6ff00f25ba94e171c9168",
+          "status": "refinement_checked"
+        },
+        "C270": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 172.93737743298516,
+          "gap_um": 172.93142605363477,
+          "native_minus_analytical_um": -0.005951379350392472,
+          "numerical_threshold_margin_um": -12.068573946365234,
+          "request_sha256": "bc8eb0d571d34c0f4c27258bfa3cc370da588874cc989128e905bcd4f729bf9e",
+          "status": "refinement_checked"
+        }
+      },
+      "exceeds_requested_pair_measurement_budget": true,
+      "group": "common",
+      "mapping": "two_pad_cylinders",
+      "ordering": "C220_higher",
+      "scenario": "common-volume-high"
+    },
+    {
+      "C220_minus_C270_um": 15.660878763924472,
+      "arms": {
+        "C220": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 226.66320894841004,
+          "gap_um": 226.627704005412,
+          "native_minus_analytical_um": -0.03550494299804541,
+          "numerical_threshold_margin_um": 41.627704005412,
+          "request_sha256": "9dfd1321fe105b80347e8896fa6218ba506126496cf85948095cceaecea7e3d7",
+          "status": "refinement_checked"
+        },
+        "C270": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 210.96553807514783,
+          "gap_um": 210.96682524148753,
+          "native_minus_analytical_um": 0.0012871663396936128,
+          "numerical_threshold_margin_um": 25.966825241487527,
+          "request_sha256": "d9c0205033b4934ae14acb128b65197b169e551600e715927827f7a51eebe9c1",
+          "status": "refinement_checked"
+        }
+      },
+      "exceeds_requested_pair_measurement_budget": true,
+      "group": "common",
+      "mapping": "literal_rims",
+      "ordering": "C220_higher",
+      "scenario": "common-pads-small"
+    },
+    {
+      "C220_minus_C270_um": 10.811239931356681,
+      "arms": {
+        "C220": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 180.55143908448656,
+          "gap_um": 180.49837270462322,
+          "native_minus_analytical_um": -0.0530663798633384,
+          "numerical_threshold_margin_um": -4.501627295376778,
+          "request_sha256": "5ca5dfd7e2411c9a70df6f5fc88dd9930de687feebfb8897fbab2e2e4c334519",
+          "status": "refinement_checked"
+        },
+        "C270": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 169.6932063564722,
+          "gap_um": 169.68713277326654,
+          "native_minus_analytical_um": -0.006073583205647992,
+          "numerical_threshold_margin_um": -15.31286722673346,
+          "request_sha256": "f3f073d8d10c3eb3bed510fcdc6f474774c6ccec04f78c5a191f9f18458ce94c",
+          "status": "refinement_checked"
+        }
+      },
+      "exceeds_requested_pair_measurement_budget": true,
+      "group": "common",
+      "mapping": "two_pad_cylinders",
+      "ordering": "C220_higher",
+      "scenario": "common-pads-small"
+    },
+    {
+      "C220_minus_C270_um": 15.913528562227981,
+      "arms": {
+        "C220": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 220.00412137758644,
+          "gap_um": 219.97842768884914,
+          "native_minus_analytical_um": -0.02569368873730582,
+          "numerical_threshold_margin_um": 34.97842768884914,
+          "request_sha256": "4045e814db3384db318b95d913ae8fd36584e924e91bce38df851939eb73b111",
+          "status": "refinement_checked"
+        },
+        "C270": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 204.06215548781557,
+          "gap_um": 204.06489912662116,
+          "native_minus_analytical_um": 0.0027436388055832595,
+          "numerical_threshold_margin_um": 19.064899126621157,
+          "request_sha256": "63e3e45f2dace8eb5e6c8587e3c71834ca191f7bdfd98d4f5cdccdea29c4ca60",
+          "status": "refinement_checked"
+        }
+      },
+      "exceeds_requested_pair_measurement_budget": true,
+      "group": "common",
+      "mapping": "literal_rims",
+      "ordering": "C220_higher",
+      "scenario": "common-pads-large"
+    },
+    {
+      "C220_minus_C270_um": 10.956585355181971,
+      "arms": {
+        "C220": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 175.93138798920882,
+          "gap_um": 175.89096612782117,
+          "native_minus_analytical_um": -0.040421861387642366,
+          "numerical_threshold_margin_um": -9.109033872178827,
+          "request_sha256": "82ba0c6b01bb5ddd786161270ec0e65d6ba7b098a9e62c579a7795bff0019aeb",
+          "status": "refinement_checked"
+        },
+        "C270": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 164.93693737226084,
+          "gap_um": 164.9343807726392,
+          "native_minus_analytical_um": -0.0025565996216414533,
+          "numerical_threshold_margin_um": -20.0656192273608,
+          "request_sha256": "31b201062b111324e8d6f61eb1a4d7f5979e9295e09c8337532c15d5d3d88061",
+          "status": "refinement_checked"
+        }
+      },
+      "exceeds_requested_pair_measurement_budget": true,
+      "group": "common",
+      "mapping": "two_pad_cylinders",
+      "ordering": "C220_higher",
+      "scenario": "common-pads-large"
+    },
+    {
+      "C220_minus_C270_um": 15.521053966642427,
+      "arms": {
+        "C220": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 222.33567260537384,
+          "gap_um": 222.30628648183043,
+          "native_minus_analytical_um": -0.029386123543417852,
+          "numerical_threshold_margin_um": 37.306286481830426,
+          "request_sha256": "87a34c4d274680a03f7354c762ba51236b55f6be7f66e3f092f94d7ffa8c9af8",
+          "status": "refinement_checked"
+        },
+        "C270": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 206.7688990436647,
+          "gap_um": 206.785232515188,
+          "native_minus_analytical_um": 0.01633347152329634,
+          "numerical_threshold_margin_um": 21.785232515188,
+          "request_sha256": "eba47b1f90791e1f35c20e6648dcc0fe652085ec3f7eace8f2e92e968c706015",
+          "status": "refinement_checked"
+        }
+      },
+      "exceeds_requested_pair_measurement_budget": true,
+      "group": "common",
+      "mapping": "literal_rims",
+      "ordering": "C220_higher",
+      "scenario": "common-load-high-gamma-low"
+    },
+    {
+      "C220_minus_C270_um": 10.629570984047916,
+      "arms": {
+        "C220": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 177.06248536572815,
+          "gap_um": 177.01049661131876,
+          "native_minus_analytical_um": -0.05198875440939332,
+          "numerical_threshold_margin_um": -7.989503388681243,
+          "request_sha256": "fb6d2bc1ffd8f276f180029f0b671c31586addd930ccb6aa827f81bb1e9e14ec",
+          "status": "refinement_checked"
+        },
+        "C270": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 166.37074506499454,
+          "gap_um": 166.38092562727084,
+          "native_minus_analytical_um": 0.010180562276303817,
+          "numerical_threshold_margin_um": -18.61907437272916,
+          "request_sha256": "8701592969b8acf9fda5dcc54b441a1e4712b7ff7b7c47d9c0cd33601f3e6296",
+          "status": "refinement_checked"
+        }
+      },
+      "exceeds_requested_pair_measurement_budget": true,
+      "group": "common",
+      "mapping": "two_pad_cylinders",
+      "ordering": "C220_higher",
+      "scenario": "common-load-high-gamma-low"
+    },
+    {
+      "C220_minus_C270_um": 15.92794974959574,
+      "arms": {
+        "C220": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 223.82275266466795,
+          "gap_um": 223.79745683275516,
+          "native_minus_analytical_um": -0.025295831912785616,
+          "numerical_threshold_margin_um": 38.79745683275516,
+          "request_sha256": "543280f37c774ff57d048ac09de5bf89167a00abc9e5324a8c8d83c8fb118063",
+          "status": "refinement_checked"
+        },
+        "C270": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 207.87059214817313,
+          "gap_um": 207.86950708315942,
+          "native_minus_analytical_um": -0.001085065013711528,
+          "numerical_threshold_margin_um": 22.86950708315942,
+          "request_sha256": "d052100a7ba9c8ba61af4656568c4b3f4cf6f8ceb2e73ed131aabd68342c92f4",
+          "status": "refinement_checked"
+        }
+      },
+      "exceeds_requested_pair_measurement_budget": true,
+      "group": "common",
+      "mapping": "literal_rims",
+      "ordering": "C220_higher",
+      "scenario": "common-load-low-gamma-high"
+    },
+    {
+      "C220_minus_C270_um": 11.012957658706938,
+      "arms": {
+        "C220": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 178.80470368448022,
+          "gap_um": 178.76741278283492,
+          "native_minus_analytical_um": -0.03729090164529225,
+          "numerical_threshold_margin_um": -6.232587217165076,
+          "request_sha256": "adbcaf93f669da16585130ca14971b8b885e55749c626c0562a09b55c5c6260f",
+          "status": "refinement_checked"
+        },
+        "C270": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 167.7607970137436,
+          "gap_um": 167.754455124128,
+          "native_minus_analytical_um": -0.006341889615612217,
+          "numerical_threshold_margin_um": -17.245544875872014,
+          "request_sha256": "342b93fc87558f2107270607fe18f8e70be3b48be31d98953f345dd056b16bf5",
+          "status": "refinement_checked"
+        }
+      },
+      "exceeds_requested_pair_measurement_budget": true,
+      "group": "common",
+      "mapping": "two_pad_cylinders",
+      "ordering": "C220_higher",
+      "scenario": "common-load-low-gamma-high"
+    },
+    {
+      "C220_minus_C270_um": 15.796986741785815,
+      "arms": {
+        "C220": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 223.34907200981604,
+          "gap_um": 223.31880160132934,
+          "native_minus_analytical_um": -0.030270408486700262,
+          "numerical_threshold_margin_um": 38.31880160132934,
+          "request_sha256": "ec5266391385b5578198227acdc65fe300a22af52b59d8510ddea1f23256ec30",
+          "status": "refinement_checked"
+        },
+        "C270": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 207.51966907047608,
+          "gap_um": 207.52181485954353,
+          "native_minus_analytical_um": 0.0021457890674412283,
+          "numerical_threshold_margin_um": 22.521814859543525,
+          "request_sha256": "6dcf424832f722b212b0dee905ceb85fbf5051b57109096a7f34db1c5af78c61",
+          "status": "refinement_checked"
+        }
+      },
+      "exceeds_requested_pair_measurement_budget": true,
+      "group": "common",
+      "mapping": "literal_rims",
+      "ordering": "C220_higher",
+      "scenario": "common-metal-thick"
+    },
+    {
+      "C220_minus_C270_um": 10.278313858573796,
+      "arms": {
+        "C220": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 171.54874234027508,
+          "gap_um": 171.49987068619333,
+          "native_minus_analytical_um": -0.04887165408175065,
+          "numerical_threshold_margin_um": -13.500129313806667,
+          "request_sha256": "522b7327f5fe24a50cb090350ae115fc3e7e4e6fb812bf732fedb6995e241a9b",
+          "status": "refinement_checked"
+        },
+        "C270": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 161.22693469740176,
+          "gap_um": 161.22155682761954,
+          "native_minus_analytical_um": -0.005377869782222433,
+          "numerical_threshold_margin_um": -23.778443172380463,
+          "request_sha256": "6edfe47636e48216bbd8df643170d21a7ede826c46d6ef684b77fca73a64df04",
+          "status": "refinement_checked"
+        }
+      },
+      "exceeds_requested_pair_measurement_budget": true,
+      "group": "common",
+      "mapping": "two_pad_cylinders",
+      "ordering": "C220_higher",
+      "scenario": "common-metal-thick"
+    },
+    {
+      "C220_minus_C270_um": 15.796986741785815,
+      "arms": {
+        "C220": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 223.34907200981604,
+          "gap_um": 223.31880160132934,
+          "native_minus_analytical_um": -0.030270408486700262,
+          "numerical_threshold_margin_um": 38.31880160132934,
+          "request_sha256": "ec5266391385b5578198227acdc65fe300a22af52b59d8510ddea1f23256ec30",
+          "status": "refinement_checked"
+        },
+        "C270": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 207.51966907047608,
+          "gap_um": 207.52181485954353,
+          "native_minus_analytical_um": 0.0021457890674412283,
+          "numerical_threshold_margin_um": 22.521814859543525,
+          "request_sha256": "6dcf424832f722b212b0dee905ceb85fbf5051b57109096a7f34db1c5af78c61",
+          "status": "refinement_checked"
+        }
+      },
+      "exceeds_requested_pair_measurement_budget": true,
+      "group": "common",
+      "mapping": "literal_rims",
+      "ordering": "C220_higher",
+      "scenario": "common-metal-thin"
+    },
+    {
+      "C220_minus_C270_um": 11.520800085471024,
+      "arms": {
+        "C220": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 184.89152310575489,
+          "gap_um": 184.8476894887019,
+          "native_minus_analytical_um": -0.04383361705299649,
+          "numerical_threshold_margin_um": -0.15231051129811135,
+          "request_sha256": "10e5c3a268125c3bef580f9eafd1db9d45b45f539f1a7895171973fcb260a13e",
+          "status": "refinement_checked"
+        },
+        "C270": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 173.32989365378484,
+          "gap_um": 173.32688940323087,
+          "native_minus_analytical_um": -0.003004250553971133,
+          "numerical_threshold_margin_um": -11.673110596769135,
+          "request_sha256": "a960062431c1084cd468fd24c7e90f28a86f8b24523592b4d559f635ded46d60",
+          "status": "refinement_checked"
+        }
+      },
+      "exceeds_requested_pair_measurement_budget": true,
+      "group": "common",
+      "mapping": "two_pad_cylinders",
+      "ordering": "C220_higher",
+      "scenario": "common-metal-thin"
+    },
+    {
+      "C220_minus_C270_um": 15.777603805464565,
+      "arms": {
+        "C220": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 223.34907200981604,
+          "gap_um": 223.27469859109573,
+          "native_minus_analytical_um": -0.07437341872031311,
+          "numerical_threshold_margin_um": 38.27469859109573,
+          "request_sha256": "c55b5e538c83c4362d6a12bbf1f7df32104defaa3a5829c152311efadf17c6ec",
+          "status": "refinement_checked"
+        },
+        "C270": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 207.51966907047608,
+          "gap_um": 207.49709478563116,
+          "native_minus_analytical_um": -0.02257428484492152,
+          "numerical_threshold_margin_um": 22.497094785631162,
+          "request_sha256": "6dc035fa80928934cf836c8e522ea27afb76121d5708e3dd7b42b5cf1c492b35",
+          "status": "refinement_checked"
+        }
+      },
+      "exceeds_requested_pair_measurement_budget": true,
+      "group": "common",
+      "mapping": "literal_rims",
+      "ordering": "C220_higher",
+      "scenario": "common-offset"
+    },
+    {
+      "C220_minus_C270_um": 10.871895143198515,
+      "arms": {
+        "C220": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 178.24975366079877,
+          "gap_um": 178.15681911832723,
+          "native_minus_analytical_um": -0.09293454247153932,
+          "numerical_threshold_margin_um": -6.843180881672765,
+          "request_sha256": "c2d4e39b734a82501a98607e93ee4e419f592f101d85899a93f85a7e17e22370",
+          "status": "refinement_checked"
+        },
+        "C270": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 167.3180227910335,
+          "gap_um": 167.28492397512872,
+          "native_minus_analytical_um": -0.033098815904793355,
+          "numerical_threshold_margin_um": -17.71507602487128,
+          "request_sha256": "5bf9565d600a685533c556405fde2c11ca49996f90731b4e57464f6864fe5f87",
+          "status": "refinement_checked"
+        }
+      },
+      "exceeds_requested_pair_measurement_budget": true,
+      "group": "common",
+      "mapping": "two_pad_cylinders",
+      "ordering": "C220_higher",
+      "scenario": "common-offset"
+    },
+    {
+      "C220_minus_C270_um": 15.69408538807798,
+      "arms": {
+        "C220": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 212.38381673751618,
+          "gap_um": 212.32105473871283,
+          "native_minus_analytical_um": -0.06276199880335298,
+          "numerical_threshold_margin_um": 27.32105473871283,
+          "request_sha256": "26d16d31a121a5b6278d61f39468be711b65ebfca4c2f0639ae1e002c2d4581a",
+          "status": "refinement_checked"
+        },
+        "C270": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 196.634331837486,
+          "gap_um": 196.62696935063485,
+          "native_minus_analytical_um": -0.007362486851150152,
+          "numerical_threshold_margin_um": 11.626969350634852,
+          "request_sha256": "c512514ad445ebc5d9667c6de99e755f110550299ec0a9e79f277f2216fbafb4",
+          "status": "refinement_checked"
+        }
+      },
+      "exceeds_requested_pair_measurement_budget": true,
+      "group": "common",
+      "mapping": "literal_rims",
+      "ordering": "C220_higher",
+      "scenario": "common-combined-low-gap"
+    },
+    {
+      "C220_minus_C270_um": 10.019785549942071,
+      "arms": {
+        "C220": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 162.52410166148246,
+          "gap_um": 162.4363801298427,
+          "native_minus_analytical_um": -0.08772153163977237,
+          "numerical_threshold_margin_um": -22.56361987015731,
+          "request_sha256": "6c0879daa196f321dd59bbc1d6800a1ffdd48e95ea42ce9d819fb5cc261ac0b9",
+          "status": "refinement_checked"
+        },
+        "C270": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 152.43319211851767,
+          "gap_um": 152.41659457990062,
+          "native_minus_analytical_um": -0.016597538617048713,
+          "numerical_threshold_margin_um": -32.58340542009938,
+          "request_sha256": "22d3046aea654a338f4cbca643a34daad39921a01f769cacd578355e88be562f",
+          "status": "refinement_checked"
+        }
+      },
+      "exceeds_requested_pair_measurement_budget": true,
+      "group": "common",
+      "mapping": "two_pad_cylinders",
+      "ordering": "C220_higher",
+      "scenario": "common-combined-low-gap"
+    },
+    {
+      "C220_minus_C270_um": 15.699809934299111,
+      "arms": {
+        "C220": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 233.60844705716582,
+          "gap_um": 233.57601977968395,
+          "native_minus_analytical_um": -0.03242727748187235,
+          "numerical_threshold_margin_um": 48.576019779683946,
+          "request_sha256": "bbf03fd32f9de340e49bc210430d1f68566f9a66210db2a5f53efc8c75aa0554",
+          "status": "refinement_checked"
+        },
+        "C270": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 217.8792160805314,
+          "gap_um": 217.87620984538484,
+          "native_minus_analytical_um": -0.003006235146557401,
+          "numerical_threshold_margin_um": 32.876209845384835,
+          "request_sha256": "d9835cc8b434f168ca70af6757baee2776ebcc9bf76df109978106a3a4a1450b",
+          "status": "refinement_checked"
+        }
+      },
+      "exceeds_requested_pair_measurement_budget": true,
+      "group": "common",
+      "mapping": "literal_rims",
+      "ordering": "C220_higher",
+      "scenario": "common-combined-high-gap"
+    },
+    {
+      "C220_minus_C270_um": 11.570696272381781,
+      "arms": {
+        "C220": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 193.6577515808528,
+          "gap_um": 193.61386225331705,
+          "native_minus_analytical_um": -0.043889327535737266,
+          "numerical_threshold_margin_um": 8.613862253317052,
+          "request_sha256": "b8cc54847ca365a8d776dbaf1607dbe3b38d38bca026f4411791c014284f2903",
+          "status": "refinement_checked"
+        },
+        "C270": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 182.05164998133995,
+          "gap_um": 182.04316598093527,
+          "native_minus_analytical_um": -0.008484000404678227,
+          "numerical_threshold_margin_um": -2.956834019064729,
+          "request_sha256": "b2705f6622dd99fde1b92af68227881b8f2be596cfff302831c643280d97cd75",
+          "status": "refinement_checked"
+        }
+      },
+      "exceeds_requested_pair_measurement_budget": true,
+      "group": "common",
+      "mapping": "two_pad_cylinders",
+      "ordering": "C220_higher",
+      "scenario": "common-combined-high-gap"
+    },
+    {
+      "C220_minus_C270_um": 2.816093975727796,
+      "arms": {
+        "C220": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 216.91445476342602,
+          "gap_um": 216.89018730487385,
+          "native_minus_analytical_um": -0.024267458552174048,
+          "numerical_threshold_margin_um": 31.890187304873848,
+          "request_sha256": "df0414671c1b388c0206b2b13815b9a70198cb48807b93baa62a17980a21034f",
+          "status": "refinement_checked"
+        },
+        "C270": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 214.0733651338968,
+          "gap_um": 214.07409332914605,
+          "native_minus_analytical_um": 0.0007281952492519395,
+          "numerical_threshold_margin_um": 29.074093329146052,
+          "request_sha256": "7d598ea463904b6af2c47a1cf0d4a1fb9c25803b5967e5bd7fe202171412932a",
+          "status": "refinement_checked"
+        }
+      },
+      "exceeds_requested_pair_measurement_budget": false,
+      "group": "opposed_spec",
+      "mapping": "literal_rims",
+      "ordering": "C220_higher",
+      "scenario": "opposed-requested-endpoints"
+    },
+    {
+      "C220_minus_C270_um": 0.8431189064381215,
+      "arms": {
+        "C220": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 173.2473000423758,
+          "gap_um": 173.20864259403413,
+          "native_minus_analytical_um": -0.03865744834166662,
+          "numerical_threshold_margin_um": -11.791357405965869,
+          "request_sha256": "b5932b2683dc95eb31de6bbfa1ac607a379bbe1e0196227c38ae9a5676554fca",
+          "status": "refinement_checked"
+        },
+        "C270": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 172.37256970300317,
+          "gap_um": 172.365523687596,
+          "native_minus_analytical_um": -0.007046015407155437,
+          "numerical_threshold_margin_um": -12.63447631240399,
+          "request_sha256": "029ab83163bbd4b2f4edddd2fcdd5bb0a9287cfb8288036750790aee244da2a5",
+          "status": "refinement_checked"
+        }
+      },
+      "exceeds_requested_pair_measurement_budget": false,
+      "group": "opposed_spec",
+      "mapping": "two_pad_cylinders",
+      "ordering": "C220_higher",
+      "scenario": "opposed-requested-endpoints"
+    },
+    {
+      "C220_minus_C270_um": -4.21255193498763,
+      "arms": {
+        "C220": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 213.29528223888974,
+          "gap_um": 213.27259938211347,
+          "native_minus_analytical_um": -0.02268285677627091,
+          "numerical_threshold_margin_um": 28.27259938211347,
+          "request_sha256": "ca9f953e589133f2c927b9ffd74377ca55e3525997796185f5e22fb286c15ece",
+          "status": "refinement_checked"
+        },
+        "C270": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 217.4850879482134,
+          "gap_um": 217.4851513171011,
+          "native_minus_analytical_um": 6.336888770874793e-05,
+          "numerical_threshold_margin_um": 32.4851513171011,
+          "request_sha256": "94b7fce44a3648ecee456c361ca6beb51c595de3187183026ee21050060becd6",
+          "status": "refinement_checked"
+        }
+      },
+      "exceeds_requested_pair_measurement_budget": true,
+      "group": "opposed_stress",
+      "mapping": "literal_rims",
+      "ordering": "C270_higher",
+      "scenario": "opposed-wider-volume"
+    },
+    {
+      "C220_minus_C270_um": -5.238157627199513,
+      "arms": {
+        "C220": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 170.11228612272794,
+          "gap_um": 170.07554979517485,
+          "native_minus_analytical_um": -0.03673632755308631,
+          "numerical_threshold_margin_um": -14.924450204825149,
+          "request_sha256": "0c7c3f0904a166e5524cd248d49160da838ffc6614520425ede40c8c8da473b1",
+          "status": "refinement_checked"
+        },
+        "C270": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 175.32188662615658,
+          "gap_um": 175.31370742237436,
+          "native_minus_analytical_um": -0.008179203782219702,
+          "numerical_threshold_margin_um": -9.686292577625636,
+          "request_sha256": "b2b212f2fecb122a2559acc99af2b7b7c70182febeb6986069773dc92e328878",
+          "status": "refinement_checked"
+        }
+      },
+      "exceeds_requested_pair_measurement_budget": true,
+      "group": "opposed_stress",
+      "mapping": "two_pad_cylinders",
+      "ordering": "C270_higher",
+      "scenario": "opposed-wider-volume"
+    },
+    {
+      "C220_minus_C270_um": 15.206846404485447,
+      "arms": {
+        "C220": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 223.03518723852864,
+          "gap_um": 222.9588149324681,
+          "native_minus_analytical_um": -0.07637230606053436,
+          "numerical_threshold_margin_um": 37.9588149324681,
+          "request_sha256": "7cef0f35e37c88038714efc1129892bac90ef7df2c3c0b409565cf2bbec58cd9",
+          "status": "refinement_checked"
+        },
+        "C270": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 207.75220845931148,
+          "gap_um": 207.75196852798265,
+          "native_minus_analytical_um": -0.00023993132882083046,
+          "numerical_threshold_margin_um": 22.751968527982655,
+          "request_sha256": "b38f4232f57383b3600bce64fd5be482068685c05ce672c7181ea8afbb48add6",
+          "status": "refinement_checked"
+        }
+      },
+      "exceeds_requested_pair_measurement_budget": true,
+      "group": "opposed_stress",
+      "mapping": "literal_rims",
+      "ordering": "C220_higher",
+      "scenario": "opposed-load-offset"
+    },
+    {
+      "C220_minus_C270_um": 10.179278585283384,
+      "arms": {
+        "C220": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 177.88201569329902,
+          "gap_um": 177.78477329374388,
+          "native_minus_analytical_um": -0.09724239955514236,
+          "numerical_threshold_margin_um": -7.215226706256118,
+          "request_sha256": "f187baa9021ca7d6e5c73493f943c698f396c3d82749519f632c3aa030888765",
+          "status": "refinement_checked"
+        },
+        "C270": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 167.61142739644382,
+          "gap_um": 167.6054947084605,
+          "native_minus_analytical_um": -0.005932687983317919,
+          "numerical_threshold_margin_um": -17.394505291539502,
+          "request_sha256": "0be0705b5ce65bf995b20fa702a20db0743dbed0f45879e07354d772f6ee7c70",
+          "status": "refinement_checked"
+        }
+      },
+      "exceeds_requested_pair_measurement_budget": true,
+      "group": "opposed_stress",
+      "mapping": "two_pad_cylinders",
+      "ordering": "C220_higher",
+      "scenario": "opposed-load-offset"
+    },
+    {
+      "C220_minus_C270_um": 15.716412860108079,
+      "arms": {
+        "C220": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 229.43282727041404,
+          "gap_um": 229.39907950023266,
+          "native_minus_analytical_um": -0.0337477701813782,
+          "numerical_threshold_margin_um": 44.39907950023266,
+          "request_sha256": "64163b9fbe26bd28e65d38885078e9046afe3eea6da4b26c7e85d385495c363e",
+          "status": "refinement_checked"
+        },
+        "C270": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 213.68141268364437,
+          "gap_um": 213.68266664012458,
+          "native_minus_analytical_um": 0.001253956480212537,
+          "numerical_threshold_margin_um": 28.68266664012458,
+          "request_sha256": "84c97ffa1acc2346a4dc46a6d32bf28c2430e12fe3d89c3c17300d7da0765391",
+          "status": "refinement_checked"
+        }
+      },
+      "exceeds_requested_pair_measurement_budget": true,
+      "group": "common",
+      "mapping": "literal_rims",
+      "ordering": "C220_higher",
+      "scenario": "common-liquid-expansion"
+    },
+    {
+      "C220_minus_C270_um": 10.914057703555414,
+      "arms": {
+        "C220": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 183.5770250370261,
+          "gap_um": 183.5262679241835,
+          "native_minus_analytical_um": -0.05075711284260365,
+          "numerical_threshold_margin_um": -1.473732075816514,
+          "request_sha256": "47487a51a2404ed9cab5c423c9c9a589f1d0a2887ab2e0780bcbf6d7419cf97b",
+          "status": "refinement_checked"
+        },
+        "C270": {
+          "accepted_numerically": true,
+          "analytical_gap_um": 172.61805270583343,
+          "gap_um": 172.61221022062807,
+          "native_minus_analytical_um": -0.005842485205363346,
+          "numerical_threshold_margin_um": -12.387789779371928,
+          "request_sha256": "4eec64a93da56d2810fa3a1e1960ec89a2e2138bd1fc219cd8b4d377f7d3af18",
+          "status": "refinement_checked"
+        }
+      },
+      "exceeds_requested_pair_measurement_budget": true,
+      "group": "common",
+      "mapping": "two_pad_cylinders",
+      "ordering": "C220_higher",
+      "scenario": "common-liquid-expansion"
+    }
+  ],
+  "physical_qualification": "unqualified",
+  "schema": "soldershape.prelab.results.v1",
+  "scope": "Deterministic stress scenarios, not measured probability distributions, certified interval bounds or physical validation. No confirmatory outcomes are inputs.",
+  "whole_cap_minimum_clearance": "not established"
+}
