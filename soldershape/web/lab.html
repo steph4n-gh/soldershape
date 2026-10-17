@@ -23,10 +23,10 @@
       <p>This matches the <a href="/demo">Worked example</a>. It does not validate the 400 µm-pad assumptions in <a href="/board">Board explorer</a>. Your geometry or process needs its own measured-input plan.</p>
       <a class="button primary" href="/lab/kit.zip" download="soldershape-force-lab-r1-noticed.zip">Download complete lab kit · 18.8 MB ↓</a>
       <p>Includes editable fixture CAD, neutral exports, drawings, candidate parts, calibration and assembly instructions, blank data templates, analysis tools, numerical evidence and the printable handbook.</p>
-      <p class="lab-digest">Release ZIP SHA-256<br>b0d7f2ba7922a36afd571a27d26cd41c2b798e9630adfa45e746e242de9d2b5e</p>
+      <p>Each file’s SHA-256 and byte count are retained in <code>package-manifest.json</code>. This checks package integrity, not physical accuracy or an independent signature.</p>
       <p><a href="/lab/handbook.pdf" download="soldershape-force-lab-handoff.pdf">Printable handbook · 38 pages ↓</a></p>
       <p><a href="/lab/rfq.txt" download="RFQ.md">Lab request for quote ↓</a> · <a href="/lab/procedure.txt" download="PROCEDURE.md">Measurement procedure ↓</a> · <a href="/lab/bom.csv" download="BOM.csv">Parts and custom work ↓</a></p>
-      <details><summary>Check the download before sharing</summary><p>On macOS, run <code>shasum -a 256 soldershape-force-lab-r1-noticed.zip</code> and compare with the release identity above. Extract the ZIP, then start with <code>force_lab/README.md</code> and <code>force_lab/RFQ.md</code>. The kit includes the project MIT notice and separate third-party notices. This packaging update does not add physical validation. No browser session is needed.</p></details>
+      <details><summary>Check the download before sharing</summary><p>Extract the ZIP, then run <code>python3 force_lab/tools/package_lab.py verify /path/to/soldershape-force-lab-r1-noticed.zip</code> from the extracted package root. Replace the archive path with your actual download. Start with <code>force_lab/README.md</code> and <code>force_lab/RFQ.md</code>. The kit includes the project MIT grant and separate third-party notices. No browser session is needed.</p></details>
     </section>
     <div class="results-column">
       <section id="board-question" class="panel lab-panel" aria-labelledby="board-test-heading">

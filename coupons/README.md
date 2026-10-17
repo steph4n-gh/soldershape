@@ -48,8 +48,8 @@ python3 coupons/tools/analyze.py plan --output output/coupon-planning-new
 The printable guide is `output/pdf/soldershape-lab-handoff.pdf` in the project and archive root. To regenerate it, use Python with `reportlab` installed and run `python3 coupons/tools/make_lab_pdf.py`. This optional document dependency is not needed for CAD verification, model calculations, data collection, or scoring.
 
 ```sh
-python3 coupons/tools/package_lab.py --output output/soldershape-coupon-r1.zip
-python3 coupons/tools/package_lab.py --verify output/soldershape-coupon-r1.zip
+python3 coupons/tools/package_lab.py --output output/soldershape-coupon-r1-noticed.zip
+python3 coupons/tools/package_lab.py --verify output/soldershape-coupon-r1-noticed.zip
 ```
 
 The archive includes every coupon source file, the actual manufacturing outputs, the printable guide, the minimal existing solver source, its upstream setup script, and a SHA-256 manifest. It excludes the engine binary and upstream source archives. Build the engine from its pinned source only when running native calculations. After extraction, all paths and commands use the archive root.

@@ -69,8 +69,8 @@ The hash binds supplied bytes. It is not an external timestamp or proof that no 
 Build and verify the portable handoff from the project root with these commands.
 
 ```sh
-python3 force_lab/tools/package_lab.py build output/soldershape-force-lab-r1.zip
-python3 force_lab/tools/package_lab.py verify output/soldershape-force-lab-r1.zip
+python3 force_lab/tools/package_lab.py build output/soldershape-force-lab-r1-noticed.zip
+python3 force_lab/tools/package_lab.py verify output/soldershape-force-lab-r1-noticed.zip
 ```
 
 ## Report the actual status
