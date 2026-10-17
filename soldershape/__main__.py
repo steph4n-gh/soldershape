@@ -144,6 +144,22 @@ class Handler(BaseHTTPRequestHandler):
         if path == "/api/study/example":
             self.respond(200, json.loads((ROOT / "examples/coupon-planning.study.json").read_text()))
             return
+        resources = {
+            "/lab/kit.zip": ("output/soldershape-force-lab-r1.zip", "application/zip"),
+            "/lab/handbook.pdf": ("output/pdf/soldershape-force-lab-handoff.pdf", "application/pdf"),
+            "/lab/rfq.txt": ("force_lab/RFQ.md", "text/plain; charset=utf-8"),
+            "/lab/procedure.txt": ("force_lab/PROCEDURE.md", "text/plain; charset=utf-8"),
+            "/lab/bom.csv": ("force_lab/BOM.csv", "text/csv; charset=utf-8"),
+            "/lab/uncertainties.txt": ("force_lab/uncertainties.md", "text/plain; charset=utf-8"),
+            "/lab/height-coupon.zip": ("output/soldershape-coupon-r1-refined.zip", "application/zip"),
+        }
+        if path in resources:
+            filename, content_type = resources[path]
+            try:
+                self.respond(200, (ROOT / filename).read_bytes(), content_type)
+            except OSError:
+                self.respond(404, {"error": "This release file is unavailable in this checkout. See force_lab/README.md for preparation commands."})
+            return
         if path in {"/api/board", "/api/board/recorded", "/board/evidence.zip", "/board.svg", "/board/source.kicad_pcb", "/board/license.txt"}:
             from .board import DIRECTORY, default_request, read_board, recorded_board
             try:
@@ -182,6 +198,8 @@ class Handler(BaseHTTPRequestHandler):
                   "/demo.js": ("demo.js", "text/javascript"), "/demo.css": ("demo.css", "text/css"),
                   "/board": ("board.html", "text/html"), "/board.js": ("board.js", "text/javascript"),
                   "/board.css": ("board.css", "text/css"),
+                  "/ui.js": ("ui.js", "text/javascript"), "/ui.css": ("ui.css", "text/css"),
+                  "/lab": ("lab.html", "text/html"),
                   "/mesh-view.js": ("mesh-view.js", "text/javascript")}
         if path not in assets:
             self.respond(404, {"error": "Not found."})
@@ -194,7 +212,7 @@ class Handler(BaseHTTPRequestHandler):
             self.respond(403, {"error": "Reload the workbench to establish a local session."})
             return
         path = urlsplit(self.path).path
-        if path not in {"/api/import", "/api/case", "/api/solve", "/api/sweep", "/api/compare", "/api/study", "/api/study/case", "/api/board/compare"}:
+        if path not in {"/api/import", "/api/case", "/api/solve", "/api/sweep", "/api/compare", "/api/study", "/api/study/case", "/api/board/compare", "/api/board/case"}:
             self.respond(404, {"error": "Unknown operation."})
             return
         if self.headers.get_content_type() != "application/json":
@@ -208,6 +226,12 @@ class Handler(BaseHTTPRequestHandler):
             body = json.loads(self.rfile.read(length), parse_constant=lambda value: (_ for _ in ()).throw(InputError("Non-finite JSON numbers are not accepted.")))
             if not isinstance(body, dict):
                 raise InputError("Expected a JSON object.")
+            if path == "/api/board/case":
+                from .board import board_case
+                _, selection, case = board_case(body)
+                case = normalize_case(case)
+                self.respond(200, {"case": case, "selection": selection, "footprint": import_footprint(case["footprint_text"])})
+                return
             if path == "/api/board/compare":
                 from .board import board_case, bundle_board, response_payload, run_board
                 board_case(body)
@@ -370,14 +394,14 @@ def main():
                 except (OSError, ValueError) as error:
                     raise InputError(f"Port {args.port} is occupied. Choose another port with --port.") from error
                 import webbrowser
-                webbrowser.open(url)
-                print(f"Opened the existing SolderShape workbench at {url}")
+                webbrowser.open(url + "/board")
+                print(f"Opened the existing SolderShape at {url}/board")
                 return 0
-            print(f"SolderShape at http://127.0.0.1:{server.server_port}", flush=True)
+            print(f"SolderShape at http://127.0.0.1:{server.server_port}/board", flush=True)
             print("Pinned circular pads. Numerical checks do not qualify physical accuracy.", flush=True)
             if args.open:
                 import webbrowser
-                webbrowser.open(f"http://127.0.0.1:{server.server_port}")
+                webbrowser.open(f"http://127.0.0.1:{server.server_port}/board")
             try:
                 server.serve_forever()
             except KeyboardInterrupt:

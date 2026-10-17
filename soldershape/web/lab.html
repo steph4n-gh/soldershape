@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c191d">
+  <title>SolderShape | Physical test</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/board.css">
+  <link rel="stylesheet" href="/ui.css">
+  <script src="/ui.js" defer></script>
+</head>
+<body>
+<main>
+  <section class="intro" aria-labelledby="page-title">
+    <div><p class="eyebrow">FROM A CALCULATION TO A MEASUREMENT</p><h1 id="page-title">Test the forces.</h1><p class="subtitle">A build and measurement package for an outside lab. Find out whether the isolated-joint model predicts measured molten-solder forces under controlled conditions.</p></div>
+  </section>
+  <div class="lab-grid">
+    <section class="panel lab-panel" aria-labelledby="kit-heading">
+      <p class="eyebrow">01 / MATCHED FORCE EXPERIMENT</p>
+      <h2 id="kit-heading">200 µm pads. Two liquid volumes.</h2>
+      <p>The fixture holds two circular wettable rims at a 150 µm hot gap. Independent bridges compare 5 and 7 nL at 40 and 120 µm lateral offsets. Separate specimens measure lateral and normal force. The primary question is the restoring-force contrast at 120 µm.</p>
+      <p>This matches the <a href="/demo">Worked example</a>. It does not validate the 400 µm-pad assumptions in <a href="/board">Board explorer</a>. Your geometry or process needs its own measured-input plan.</p>
+      <a class="button primary" href="/lab/kit.zip" download="soldershape-force-lab-r1.zip">Download complete lab kit · 18.8 MB ↓</a>
+      <p>Includes editable fixture CAD, neutral exports, drawings, candidate parts, calibration and assembly instructions, blank data templates, analysis tools, numerical evidence and the printable handbook.</p>
+      <p class="lab-digest">Release ZIP SHA-256<br>0b4ee985fc0bde510385e92656bfac7c8df92e73f3be4a4e69e5770e9fa63274</p>
+      <p><a href="/lab/handbook.pdf" download="soldershape-force-lab-handoff.pdf">Printable handbook · 38 pages ↓</a></p>
+      <p><a href="/lab/rfq.txt" download="RFQ.md">Lab request for quote ↓</a> · <a href="/lab/procedure.txt" download="PROCEDURE.md">Measurement procedure ↓</a> · <a href="/lab/bom.csv" download="BOM.csv">Parts and custom work ↓</a></p>
+      <details><summary>Check the download before sharing</summary><p>On macOS, run <code>shasum -a 256 soldershape-force-lab-r1.zip</code> and compare with the release identity above. Extract the ZIP, then start with <code>force_lab/README.md</code> and <code>force_lab/RFQ.md</code>. The kit is self-contained; no browser session is needed.</p></details>
+    </section>
+    <div class="results-column">
+      <section class="panel lab-panel" aria-labelledby="status-heading">
+        <p class="eyebrow">02 / WHAT IS READY</p><h2 id="status-heading">Quote first. Qualify before fabrication.</h2>
+        <dl class="lab-status"><div><dt>Quote-ready package</dt><dd>Prepared</dd></div><div><dt>Lab integration accepted</dt><dd class="pending">Pending</dd></div><div><dt>Fabrication released</dt><dd class="pending">Pending</dd></div><div><dt>Physically validated</dt><dd class="pending">No</dd></div></dl>
+        <p>Ask the lab to assess hot-rim metrology, wetting, thermal isolation, sensor attachment and the assembled uncertainty budget. Supplier-approved interfaces and commissioning must precede a fabrication release. Reference geometry alone is not a purchase or fabrication instruction.</p>
+        <p>The initial assumed input uncertainties fail the difficult normal-force gate. A tighter unmeasured budget passes the numerical planning screen. That is a target for the lab to demonstrate, not established apparatus capability. <a href="/lab/uncertainties.txt" download="uncertainties.md">Read the targets and retained failure ↓</a></p>
+        <ol><li>Request a staged quote and integration review.</li><li>Commission with hot blanks, actual-rim metrology and transfer calibrations.</li><li>Characterize the actual material and freeze predictions before confirmation measurements.</li><li>Collect 48 independent bridges and score held-out outcomes against the frozen plan.</li></ol>
+      </section>
+      <section class="panel lab-panel" aria-labelledby="height-heading">
+        <p class="eyebrow">SEPARATE GAP EXPERIMENT</p><h2 id="height-heading">220 vs 270 µm pad comparison</h2>
+        <p>The earlier board coupon asks whether lower-pad diameter changes the resulting gap under a supported load. It measures height, not the force experiment above. Keep its protocol and acceptance checks separate.</p>
+        <p><a href="/study">Open the pad comparison tool →</a> · <a href="/lab/height-coupon.zip" download="soldershape-coupon-r1-refined.zip">Download height-coupon package ↓</a></p>
+      </section>
+    </div>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,38 @@
+:root { --page:#0c191d; --panel:#12252b; --panel-deep:#102027; --line:#2a4148; --border:#2a4148; --ink:#e5eeee; --muted:#92acb2; --copper:#f0b27c; --teal:#78d5cc; --amber:#ebc58c; --red:#f1a99d; }
+[hidden] { display:none!important; }
+.workspace-header { min-height:70px; display:flex; align-items:center; gap:30px; padding:0 34px; border-bottom:1px solid var(--border); background:#102027; }
+.workspace-brand { font-size:22px; font-weight:650; letter-spacing:-.8px; color:var(--copper); text-decoration:none; white-space:nowrap; }
+.workspace-header nav { display:flex; align-self:stretch; gap:24px; }
+.workspace-header nav a { display:flex; align-items:center; border-bottom:2px solid transparent; padding:19px 0; color:var(--muted); font-size:12px; text-decoration:none; white-space:nowrap; }
+.workspace-header nav a:hover { color:var(--ink); }
+.workspace-header nav a[aria-current="page"] { border-color:var(--copper); color:var(--ink); }
+.workspace-header .engine-state, .workspace-mode { margin-left:auto; font-size:10px; color:var(--muted); white-space:nowrap; }
+.workspace-purpose { display:flex; justify-content:space-between; align-items:center; gap:16px; border-bottom:1px solid var(--border); padding-bottom:16px; margin-bottom:28px; }
+.workspace-purpose p { font-size:13px; color:var(--ink); }
+.workspace-purpose span { color:var(--amber); font-size:11px; }
+.workspace-next { display:flex; align-items:center; justify-content:space-between; gap:24px; margin:30px 0 0; padding:22px 0 28px; border-top:1px solid var(--border); }
+.workspace-next p { max-width:680px; font-size:11px; color:var(--muted); }
+.workspace-next a, .workspace-link { color:var(--copper); font-size:12px; white-space:nowrap; text-decoration:underline; text-underline-offset:4px; }
+.workspace-notice { padding:12px 16px; margin-bottom:20px; border:1px solid #8b7450; border-radius:6px; color:var(--amber); background:#302d23; font-size:12px; }
+.skip-link { position:absolute; left:12px; top:-70px; padding:12px; background:var(--copper); color:#151b20; z-index:100; }
+.skip-link:focus { top:8px; }
+:focus-visible { outline:2px solid var(--copper); outline-offset:4px; }
+.lab-grid { display:grid; grid-template-columns:1.25fr 1fr; gap:22px; align-items:start; }
+.lab-panel { padding:24px; display:grid; gap:18px; }
+.lab-panel h2 { font-size:20px; }
+.lab-panel p, .lab-panel li { color:var(--muted); }
+.lab-panel ul { padding-left:20px; margin:0; }
+.lab-panel a { color:var(--copper); text-decoration:underline; text-underline-offset:3px; }
+.lab-panel .button { text-decoration:none; }
+.lab-status { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:0; }
+.lab-status div { border:1px solid var(--border); border-radius:5px; padding:12px; }
+.lab-status dt { color:var(--muted); font-size:11px; }
+.lab-status dd { margin:5px 0 0; font-weight:600; }
+.lab-status .pending { color:var(--amber); }
+.lab-digest { font:10px var(--mono); overflow-wrap:anywhere; color:var(--muted); }
+.lab-panel code { overflow-wrap:anywhere; }
+@media(max-width:1100px) { .workspace-header { flex-wrap:wrap; gap:0 24px; padding:15px 24px 0; } .workspace-header nav { order:3; flex-basis:100%; overflow-x:auto; gap:24px; } .workspace-header nav a { padding:14px 0; } }
+@media(max-width:650px) { main { padding:24px 18px 0; } .workspace-header { padding:14px 18px 0; } .workspace-header nav { gap:20px; } .workspace-header nav a { font-size:11px; } .workspace-header .engine-state, .workspace-mode { font-size:9px; } .workspace-purpose, .workspace-next { flex-direction:column; align-items:flex-start; gap:9px; } .workspace-purpose { margin-bottom:22px; } .lab-grid { grid-template-columns:1fr; } .lab-panel { padding:18px; } }
+.workspace-download { display:flex; flex-wrap:wrap; align-items:center; gap:8px; padding:13px 16px; border:1px solid #55726a; background:#193029; color:#badccd; margin-bottom:20px; border-radius:6px; font-size:12px; }
+.workspace-download a { color:var(--copper); text-decoration:underline; text-underline-offset:4px; overflow-wrap:anywhere; }
+.case-bar, .case-bar > div, .file-bar, .file-bar > div, .compute-row { flex-wrap:wrap; }

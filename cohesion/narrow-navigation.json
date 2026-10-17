@@ -1,0 +1,42 @@
+[
+  {
+    "current": [
+      "Joint details"
+    ],
+    "title": "SolderShape | Joint details",
+    "viewport": 390,
+    "width": 375
+  },
+  {
+    "current": [
+      "Pad comparison"
+    ],
+    "title": "SolderShape | Pad comparison",
+    "viewport": 390,
+    "width": 375
+  },
+  {
+    "current": [
+      "Worked example"
+    ],
+    "title": "SolderShape | Worked example",
+    "viewport": 390,
+    "width": 390
+  },
+  {
+    "current": [
+      "Physical test"
+    ],
+    "title": "SolderShape | Physical test",
+    "viewport": 390,
+    "width": 375
+  },
+  {
+    "current": [
+      "Board explorer"
+    ],
+    "title": "SolderShape | Board explorer",
+    "viewport": 390,
+    "width": 390
+  }
+]

@@ -1,0 +1,1 @@
+14/14 UI boundary checks passed. Mocked runtime only. Results in cohesion/state-checks.json.

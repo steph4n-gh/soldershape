@@ -4,21 +4,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0c191d">
-  <title>SolderShape | Real board, one joint</title>
+  <title>SolderShape | Board explorer</title>
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="/board.css">
+  <link rel="stylesheet" href="/ui.css">
+  <script src="/ui.js" defer></script>
   <script src="/mesh-view.js" defer></script>
   <script src="/board.js" defer></script>
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="/" aria-label="SolderShape home"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>Solder<span>Shape</span></a>
-    <nav aria-label="Workbench navigation"><a href="/">Joint workbench</a><a href="/study">Pad study</a><a href="/demo">Extreme demo</a><a href="/board" aria-current="page">Board explorer</a></nav>
-    <span class="local-label">LOCAL ENGINEERING EXPERIMENT</span>
-  </header>
   <main>
     <section class="intro" aria-labelledby="page-title">
-      <div><p class="eyebrow">A REAL BOARD. ONE TRACEABLE JOINT.</p><h1 id="page-title">Follow the copper. <br><span>Question the solder.</span></h1><p class="subtitle">Explore the ULX3S FPGA board. Attach a native equilibrium comparison to an actual pad, with every assumption and source byte in the record.</p></div>
+      <div><p class="eyebrow">BOARD EXPLORER / CHOOSE YOUR QUESTION</p><h1 id="page-title">Follow the copper. <br><span>Question the solder.</span></h1><p class="subtitle">Select an actual ULX3S pad, compare two solder volumes, then inspect the same joint in detail. Save the assumptions and numerical evidence for a reproducible test.</p></div>
       <div class="qualification"><span><i aria-hidden="true"></i>Selected joint computation</span><strong>Physical accuracy unqualified</strong><p>No package motion, bridging, or yield prediction.</p></div>
     </section>
     <p id="load-notice" class="notice" role="status" aria-live="polite">Loading the verified native board extraction.</p>
@@ -33,7 +30,7 @@
         </article>
         <article class="selection-panel panel">
           <header class="panel-heading"><div><p class="eyebrow">01 / SELECT AN ACTUAL PAD</p><h2 id="selected-heading">Select a component</h2></div><span id="selection-status" class="status-pill"></span></header>
-          <div class="selection-fields"><label>Find component<input id="component-search" type="search" placeholder="U1, SDRAM, connector…" autocomplete="off"></label><label>Component<select id="component-select"></select></label><label>Pad<select id="pad-select"></select></label></div>
+          <div class="selection-fields"><label>Find component<input id="component-search" type="search" placeholder="U1, SDRAM, connector…" autocomplete="off"></label><label>Component<select id="component-select" aria-label="Component"></select></label><label>Pad<select id="pad-select" aria-label="Pad"></select></label></div>
           <div class="pad-view"><canvas id="pad-canvas" role="img" tabindex="0" aria-label="Actual selected footprint pads. Click a pad or use the pad selector above."></canvas><span class="pad-view-hint">ACTUAL FOOTPRINT · LOCAL +X →</span></div>
           <div class="selection-details"><div><span>Net</span><strong id="pad-net"></strong></div><div><span>Source copper</span><strong id="pad-copper"></strong></div><div><span>Board position</span><strong id="pad-position"></strong></div><div><span>Local +X in board axes</span><strong id="pad-axis"></strong></div></div>
           <p class="selection-scope" id="selection-scope"></p>
@@ -52,7 +49,8 @@
             <label>Liquid density <span>g/cm³</span><input id="density" type="number" min="0.001" step="any" required></label>
             <label class="gravity-label"><input id="gravity" type="checkbox">Include gravity <span>Along model −Z</span></label>
           </div>
-          <div class="compute-row"><p id="run-notice" role="status" aria-live="polite">Choose a supported circular front pad.</p><button id="compute-button" type="submit" class="button primary" disabled>Compute selected comparison <span aria-hidden="true">↗</span></button></div>
+          <p id="engine-notice" class="selection-scope warn" hidden></p>
+          <div class="compute-row"><p id="run-notice" role="status" aria-live="polite">Choose a supported circular front pad.</p><button id="inspect-joint" type="button" class="button secondary" disabled>Inspect this joint</button><button id="compute-button" type="submit" class="button primary" disabled>Compute selected comparison <span aria-hidden="true">↗</span></button></div>
         </form>
       </section>
       <section class="results-section" aria-label="Selected joint computation">
@@ -64,7 +62,7 @@
         <section id="screen-panel" class="screen-panel" aria-live="polite"><span aria-hidden="true" class="screen-symbol">↔</span><div><p class="eyebrow" id="screen-status">DECLARED FIXTURE OBJECTIVE</p><h2 id="screen-headline">Seek lateral restoration without an upward separating force.</h2><ul id="screen-details"><li>The gap remains held by an external fixture. No assembly motion is simulated.</li></ul></div></section>
         <p class="force-convention">Forces act on the upper pad. Negative X opposes a positive local offset. Positive Z points away from the board. Force arrows indicate direction, not magnitude.</p>
       </section>
-      <section class="handoff panel" aria-labelledby="handoff-heading"><div><p class="eyebrow">04 / KEEP THE BOARD AND THE EVIDENCE TOGETHER</p><h2 id="handoff-heading">A reproducible question for the lab.</h2><p>The evidence archive binds the selected pad to its source board, editable case, two native meshes, signed forces and raw numerical receipts. A successful replay establishes numerical agreement.</p></div><div class="handoff-actions"><button id="case-download" class="button secondary" type="button" disabled>Save editable case</button><button id="bundle-download" class="button primary" type="button" disabled>Download board-bound evidence ↓</button></div><p id="result-identity" class="digest"></p></section>
+      <section class="handoff panel" aria-labelledby="handoff-heading"><div><p class="eyebrow">04 / KEEP THE BOARD AND THE EVIDENCE TOGETHER</p><h2 id="handoff-heading">A reproducible question for the lab.</h2><p>Save editable inputs at any time. After computation, the evidence archive binds the selected pad to its source board, two native meshes, signed forces and raw numerical receipts. A successful replay establishes numerical agreement.</p><p><a href="/lab">Prepare a physical test →</a> The existing 200 µm force fixture tests the worked example. It does not validate this board's default 400 µm joint.</p></div><div class="handoff-actions"><button id="case-download" class="button secondary" type="button" disabled>Save editable case</button><button id="bundle-download" class="button primary" type="button" disabled>Download board-bound evidence ↓</button></div><p id="result-identity" class="digest"></p></section>
       <div class="limits-grid"><section class="limits-panel"><p class="eyebrow">WHAT STILL NEEDS MEASUREMENT</p><h2>Copper size is only one boundary.</h2><p>Actual wettable rim and mask opening, liquid solder volume, opposing package pad, hot gap and offset, alloy, temperature and surface tension. Board mask rules and assembly conditions are not qualified by this view.</p></section><section class="limits-panel"><p class="eyebrow">PHYSICAL VALIDATION REMAINS OPEN</p><h2>This model has not earned production trust.</h2><p>Published-data force validation has unresolved failures. A hot force fixture must test the predictions with measured inputs and controlled pinned contact lines. No whole-board forces, self-alignment, capture range, bridging, or yield follow from one joint.</p></section></div>
       <footer class="source-footer"><p id="board-digest" class="digest"></p><p id="extraction-digest" class="digest"></p><p>The full original front silkscreen remains in the native view. ULX3S source uses its included modified MIT license. Board selection is engineering context. Unsolved pads carry no force or risk classification.</p></footer>
     </div>

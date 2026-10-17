@@ -1,0 +1,44 @@
+[
+  {
+    "name": "kit.zip",
+    "bytes": 18779732,
+    "sha256": "0b4ee985fc0bde510385e92656bfac7c8df92e73f3be4a4e69e5770e9fa63274",
+    "matches_release": true
+  },
+  {
+    "name": "handbook.pdf",
+    "bytes": 234759,
+    "sha256": "cf4bf5712ae9b15b44466ff22a584ad930d14b8eb132c6934a32c5c7acc8d08f",
+    "matches_release": true
+  },
+  {
+    "name": "rfq.txt",
+    "bytes": 7715,
+    "sha256": "398ef982f4bea22334a62b33ce99c3110b6d79cb9c68903b47530248fcd6551c",
+    "matches_release": true
+  },
+  {
+    "name": "procedure.txt",
+    "bytes": 13645,
+    "sha256": "0ac301b158f248c38f701818c72a9f16c632645da8aae667b254335e33ce54f4",
+    "matches_release": true
+  },
+  {
+    "name": "bom (1).csv",
+    "bytes": 9128,
+    "sha256": "41995b02f069194923977dd23726c24f54b5aa39b7478ac74f672858461f4070",
+    "matches_release": true
+  },
+  {
+    "name": "uncertainties.txt",
+    "bytes": 10711,
+    "sha256": "cffa1466ea05c6b68367ed7e5cfe6857f0cdb13d257d0a4bfb36f71f04e65c8c",
+    "matches_release": true
+  },
+  {
+    "name": "height-coupon.zip",
+    "bytes": 4157369,
+    "sha256": "f20c7e9cb70bb400c3ad2a6fbb97c088757a39f5ecdd9db3f6bf4683e16bb1ea",
+    "matches_release": true
+  }
+]

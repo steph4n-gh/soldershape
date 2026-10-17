@@ -2,7 +2,7 @@
 
 const $ = (id) => document.getElementById(id);
 const SVG_NS = "http://www.w3.org/2000/svg";
-const state = { context: null, component: null, padIndex: null, draft: null, revision: 0, phase: "loading", pending: null, response: null, bundleUrl: null, token: null, padHits: [] };
+const state = { context: null, component: null, padIndex: null, draft: null, revision: 0, phase: "loading", pending: null, response: null, bundleUrl: null, token: null, engineReady: false, caseAction: null, padHits: [] };
 const fields = [
   ["upper-diameter", "upper_diameter_mm", 1000], ["held-gap", "standoff_mm", 1000],
   ["offset", "offset_mm", 1000], ["candidate-volume", "volume_mm3", 1000],
@@ -25,6 +25,36 @@ function setList(element, values) {
   element.replaceChildren(...values.map((value) => { const item = document.createElement("li"); item.textContent = value; return item; }));
 }
 function notice(message, kind = "") { $("run-notice").textContent = message; $("run-notice").className = kind; }
+function sourceIdentity() {
+  return { board_sha256: state.context.source.board_sha256, extractor_sha256: state.context.extraction.extractor_sha256 };
+}
+function saveDraft() {
+  if (!state.context || !state.draft) return;
+  const values = Object.fromEntries([...fields.map(([id]) => id), "reference-volume"].map((id) => [id, $(id).value]));
+  window.SolderShapeUI.saveDraft("board", { component_uuid: state.component, pad_index: state.padIndex, search: $("component-search").value, values, gravity: $("gravity").checked }, sourceIdentity());
+}
+function restoreDraft() {
+  const saved = window.SolderShapeUI.readDraft("board");
+  if (!saved) return false;
+  const identity = sourceIdentity(), inputs = saved.inputs;
+  const selected = state.context.components.find((item) => item.uuid === inputs?.component_uuid);
+  const matchesSource = saved.sourceIdentity?.board_sha256 === identity.board_sha256 && saved.sourceIdentity?.extractor_sha256 === identity.extractor_sha256;
+  const ids = [...fields.map(([id]) => id), "reference-volume"];
+  const validSelection = selected && (selected.pads.some((item) => item.index === inputs.pad_index) || inputs.pad_index === null && !selected.pads.length);
+  const validInputs = typeof inputs?.search === "string" && typeof inputs?.gravity === "boolean" && ids.every((id) => typeof inputs?.values?.[id] === "string");
+  if (!matchesSource || !validSelection || !validInputs) {
+    window.SolderShapeUI.warn("The saved board inputs no longer match this source board or extraction. The initial comparison is shown instead. Save the previous raw draft below before replacing it.");
+    SolderShapeUI.downloadFile(new Blob([JSON.stringify(saved, null, 2) + "\n"], { type: "application/json" }), "soldershape-unmatched-board-draft.json");
+    return false;
+  }
+  state.component = selected.uuid;
+  state.padIndex = inputs.pad_index;
+  $("component-search").value = inputs.search;
+  for (const id of ids) $(id).value = inputs.values[id];
+  $("gravity").checked = inputs.gravity;
+  readDraft();
+  return true;
+}
 function svgElement(name, attributes = {}) {
   const element = document.createElementNS(SVG_NS, name);
   for (const [key, value] of Object.entries(attributes)) element.setAttribute(key, String(value));
@@ -37,6 +67,7 @@ async function api(url, body) {
   return data;
 }
 function clearResponse() {
+  SolderShapeUI.clearDownload();
   state.response = null;
   if (state.bundleUrl) URL.revokeObjectURL(state.bundleUrl);
   state.bundleUrl = null;
@@ -47,19 +78,29 @@ function invalidate() {
   clearResponse();
   renderResults();
   updateCompute();
+  saveDraft();
   if (state.pending !== null) notice("Inputs changed. The pending computation will be discarded.", "working");
   else notice(pad()?.supported ? "Inputs changed. Compute this selected joint to obtain current forces and exports." : "This selection is inspect-only. Choose a supported circular front pad.");
   scheduleDraw();
 }
 function updateCompute() {
-  $("compute-button").disabled = !state.token || !pad()?.supported || state.pending !== null || !$("comparison-form").checkValidity();
-  $("compute-button").textContent = state.pending !== null ? "Native engine running…" : "Compute selected comparison ↗";
+  const valid = !!state.token && !!pad()?.supported && $("comparison-form").checkValidity();
+  $("compute-button").disabled = !valid || !state.engineReady || state.pending !== null || !!state.caseAction;
+  $("compute-button").textContent = state.pending !== null ? "Native engine running…" : state.engineReady ? "Compute selected comparison ↗" : "Numerical engine unavailable";
+  $("inspect-joint").disabled = !valid || !!state.caseAction;
+  $("case-download").disabled = !valid || !!state.caseAction;
+  $("inspect-joint").textContent = state.caseAction === "inspect" ? "Opening joint details…" : "Inspect this joint";
+  $("case-download").textContent = state.caseAction === "save" ? "Preparing editable case…" : "Save editable case";
 }
 function readDraft() {
   for (const [id, key, scale] of fields) state.draft.parameters[key] = $(id).valueAsNumber / scale;
   state.draft.parameters.gravity = $("gravity").checked;
   state.draft.baseline.volume_mm3 = $("reference-volume").valueAsNumber / 1000;
   state.draft.baseline.upper_diameter_mm = state.draft.parameters.upper_diameter_mm;
+}
+function boardRequest() {
+  readDraft();
+  return { schema: "soldershape.board-request.v1", board_sha256: state.context.source.board_sha256, reference: component().reference, pad_index: state.padIndex, parameters: clone(state.draft.parameters), baseline: clone(state.draft.baseline) };
 }
 function renderComponentOptions() {
   const query = $("component-search").value.trim().toLowerCase();
@@ -152,7 +193,6 @@ function renderResults() {
   renderRecord("reference", report?.results[0]); renderRecord("candidate", report?.results[1]);
   $("computed-badge").textContent = report?.results.some((item) => item.mesh) ? "1 selected joint computed · neighbors unsolved" : "0 joints computed in this view";
   $("result-origin").textContent = report ? report.recorded ? "Verified native recording" : "Fresh native computation" : "No current computation";
-  $("case-download").disabled = !report?.editable_case;
   $("bundle-download").disabled = !state.bundleUrl;
   const screen = report?.screen;
   const labels = { conditional_comparison: "CONDITIONAL FORCE COMPARISON", outside_model_scope: "COMPARISON BLOCKED BY MODEL SCOPE", numerical_failure: "COMPARISON BLOCKED BY NUMERICAL FAILURE" };
@@ -160,7 +200,8 @@ function renderResults() {
   $("screen-status").textContent = screen ? labels[screen.status] || "CONDITIONAL FORCE COMPARISON" : "DECLARED FIXTURE OBJECTIVE";
   $("screen-headline").textContent = screen?.headline || "Seek lateral restoration without an upward separating force.";
   setList($("screen-details"), screen?.details || ["The gap remains held by an external fixture. No assembly motion is simulated."]);
-  $("result-identity").textContent = report ? `${report.selection.reference} / pad ${report.selection.pad_identifier || "unnumbered"} · net ${report.selection.pad_net || "unassigned"} · exact source board SHA-256 ${report.selection.board_sha256}` : "Exports become available only for the current selection and assumptions.";
+  $("result-identity").textContent = report ? `${report.selection.reference} / pad ${report.selection.pad_identifier || "unnumbered"} · net ${report.selection.pad_net || "unassigned"} · exact source board SHA-256 ${report.selection.board_sha256}` : "Inspect or save valid inputs now. Board-bound numerical evidence requires a current computation.";
+  updateCompute();
   for (const canvas of modelCanvases) { const ctx = canvas.getContext("2d"); ctx.clearRect(0, 0, canvas.width, canvas.height); }
   scheduleDraw();
 }
@@ -179,20 +220,41 @@ function acceptResponse(response, revision) {
 }
 async function compute(event) {
   event.preventDefault();
-  if (!pad()?.supported || state.pending !== null || !$("comparison-form").reportValidity()) return;
-  readDraft();
+  if (!state.engineReady || !pad()?.supported || state.pending !== null || state.caseAction || !$("comparison-form").reportValidity()) return;
+  const request = boardRequest();
+  saveDraft();
   state.revision += 1;
   const revision = state.revision;
   state.pending = revision;
   state.phase = "computing";
   clearResponse(); renderResults(); updateCompute();
   notice("Running two native equilibria and refinement checks. You can edit inputs; edited results will be discarded.", "working");
-  const request = { schema: "soldershape.board-request.v1", board_sha256: state.context.source.board_sha256, reference: component().reference, pad_index: state.padIndex, parameters: clone(state.draft.parameters), baseline: clone(state.draft.baseline) };
   try {
     const response = await api("/api/board/compare", request);
     if (acceptResponse(response, revision)) notice("Native computation complete. Inspect both force directions and the scope checks. Physical accuracy remains unqualified.");
   } catch (error) { if (revision === state.revision) { state.phase = "draft"; notice(`Computation unavailable. ${error.message}`, "error"); } }
   finally { if (state.pending === revision) state.pending = null; updateCompute(); if (revision !== state.revision) notice("Inputs changed. The previous response was discarded. Compute the current selection."); }
+}
+async function exportCase(action) {
+  if (!state.token || !pad()?.supported || state.caseAction || !$("comparison-form").reportValidity()) return;
+  const revision = state.revision;
+  const request = boardRequest();
+  saveDraft();
+  state.caseAction = action;
+  updateCompute();
+  try {
+    const response = await api("/api/board/case", request);
+    if (revision !== state.revision) { notice("Inputs changed. The previous editable case was discarded. Try the current selection."); return; }
+    if (action === "inspect") {
+      const label = `Board explorer · ${response.selection.reference} / pad ${response.selection.pad_identifier || "unnumbered"}`;
+      await window.SolderShapeUI.openCase(response.case, { label, href: "/board" }, state.token, () => revision === state.revision);
+    } else {
+      const blob = new Blob([JSON.stringify(response.case, null, 2) + "\n"], { type: "application/json" });
+      download(blob, `soldershape-${response.selection.reference}-pad-${response.selection.pad_identifier || "unnumbered"}.json`);
+      notice("Current editable inputs saved. The case needs fresh computation in Joint details.");
+    }
+  } catch (error) { notice(`Editable case unavailable. ${error.message}`, "error"); }
+  finally { state.caseAction = null; updateCompute(); }
 }
 function canvasContext(canvas) {
   const bounds = canvas.getBoundingClientRect(), ratio = window.devicePixelRatio || 1;
@@ -264,10 +326,10 @@ function scheduleDraw() {
   framePending = true;
   requestAnimationFrame(() => { framePending = false; drawPads(); const records = state.response?.report.results; if (records) { const view = pairView(records); drawModel(modelCanvases[0], records[0], view); drawModel(modelCanvases[1], records[1], view); } });
 }
-function download(url, filename) { const anchor = document.createElement("a"); anchor.href = url; anchor.download = filename; anchor.click(); }
+function download(url, filename) { SolderShapeUI.downloadFile(url, filename); }
 $("comparison-form").addEventListener("submit", compute);
 for (const input of $("comparison-form").querySelectorAll("input")) input.addEventListener("input", () => { readDraft(); invalidate(); });
-$("component-search").addEventListener("input", renderComponentOptions);
+$("component-search").addEventListener("input", () => { renderComponentOptions(); saveDraft(); });
 $("component-select").addEventListener("change", () => selectComponent($("component-select").value));
 $("pad-select").addEventListener("change", () => { state.padIndex = Number($("pad-select").value); invalidate(); renderSelection(); });
 $("pad-canvas").addEventListener("click", (event) => { const bounds = event.currentTarget.getBoundingClientRect(), x = event.clientX - bounds.left, y = event.clientY - bounds.top; const hit = state.padHits.map((item) => ({ ...item, distance: Math.hypot(item.x - x, item.y - y) })).sort((a, b) => a.distance - b.distance)[0]; if (hit && hit.distance <= Math.max(hit.radius + 4, 7)) { state.padIndex = hit.index; invalidate(); renderSelection(); } });
@@ -282,17 +344,20 @@ for (const canvas of modelCanvases) {
 $("reset-view").addEventListener("click", () => { Object.assign(camera, initialCamera); scheduleDraw(); });
 $("mesh-edges").addEventListener("change", scheduleDraw);
 $("bundle-download").addEventListener("click", () => { if (state.bundleUrl) download(state.bundleUrl, state.response.bundle_filename || "soldershape-board-evidence.zip"); });
-$("case-download").addEventListener("click", () => { if (!state.response) return; const url = URL.createObjectURL(new Blob([JSON.stringify(state.response.report.editable_case, null, 2) + "\n"], { type: "application/json" })); download(url, `soldershape-${component().reference}-pad-${pad().identifier || "unnumbered"}.json`); setTimeout(() => URL.revokeObjectURL(url), 1000); });
+$("case-download").addEventListener("click", () => exportCase("save"));
+$("inspect-joint").addEventListener("click", () => exportCase("inspect"));
+window.addEventListener("pagehide", saveDraft);
 window.addEventListener("resize", () => { if (state.context) renderBoardOverlay(); scheduleDraw(); });
 async function load() {
   try {
     const [bootstrap, data] = await Promise.all([api("/api/bootstrap"), api("/api/board")]);
-    state.token = bootstrap.token; state.context = data.context; state.draft = clone(data.default_request);
+    state.token = bootstrap.token; state.engineReady = !!bootstrap.engine.ready; state.context = data.context; state.draft = clone(data.default_request);
     for (const [id, key, scale] of fields) $(id).value = number(state.draft.parameters[key] * scale, 8);
     $("reference-volume").value = number(state.draft.baseline.volume_mm3 * 1000, 8); $("gravity").checked = state.draft.parameters.gravity;
     const initial = state.context.components.find((item) => item.reference === state.draft.reference && item.pads.some((item) => item.index === state.draft.pad_index)) || state.context.components.find((item) => item.pads.some((pad) => pad.supported));
     state.component = initial.uuid; state.padIndex = state.draft.pad_index;
     if (!initial.pads.some((item) => item.index === state.padIndex)) state.padIndex = initial.pads.find((item) => item.supported)?.index ?? initial.pads[0]?.index ?? null;
+    const restored = restoreDraft();
     state.phase = "draft";
     $("component-count").textContent = `${state.context.components.length} actual components`;
     $("pad-count").textContent = `${state.context.components.reduce((count, item) => count + item.pads.length, 0).toLocaleString()} actual pads`;
@@ -300,11 +365,14 @@ async function load() {
     $("board-digest").textContent = `Source commit ${state.context.source.commit} · Board SHA-256 ${state.context.source.board_sha256}`;
     $("extraction-digest").textContent = `Native KiCad ${state.context.extraction.kicad_version} · Extractor SHA-256 ${state.context.extraction.extractor_sha256}`;
     $("source-link").href = `${state.context.source.repository.replace(/\/$/, "")}/tree/${state.context.source.commit}`;
+    document.getElementById("workspace-engine").textContent = state.engineReady ? `Surface Evolver ${bootstrap.engine.version} · ready` : "Numerical engine unavailable";
+    $("engine-notice").hidden = state.engineReady;
+    $("engine-notice").textContent = bootstrap.engine.error || "The numerical engine is unavailable. You can still inspect and save editable inputs.";
     $("explorer").hidden = false; $("load-notice").hidden = true;
     renderSelection(); renderResults();
-    notice("The source pad is selected. Compute fresh native forces for these hypothetical process inputs.");
+    notice(restored ? "Board inputs restored in this tab. Prior forces were cleared. Inspect or compute the current joint." : "The source pad is selected. Inspect its editable inputs or compute fresh forces for these hypothetical process inputs.");
     const revision = state.revision;
-    if (data.recorded_preview) {
+    if (data.recorded_preview && !restored) {
       try { const recorded = await api("/api/board/recorded"); if (acceptResponse(recorded, revision)) notice("Verified recording of the initial hypothesis. Use Compute selected comparison for fresh native results."); }
       catch (error) { if (revision === state.revision && !state.response && state.pending === null) notice(`Initial recording unavailable. Fresh computation remains available. ${error.message}`); }
     }

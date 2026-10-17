@@ -1,0 +1,54 @@
+{
+  "archive_sha256": "2952c4a0042a85b59a20ce8b51615136d66f60600fac957de6a8ba5d7b16371a",
+  "parameters": {
+    "density_g_cm3": 9,
+    "gravity": true,
+    "offset_mm": 0.231,
+    "standoff_mm": 0.3,
+    "surface_tension_n_m": 0.48,
+    "upper_diameter_mm": 0.4,
+    "volume_mm3": 0.052
+  },
+  "baseline": {
+    "upper_diameter_mm": 0.4,
+    "volume_mm3": 0.04
+  },
+  "results": [
+    {
+      "design": "Reference",
+      "status": "refinement_checked",
+      "input": {
+        "density_g_cm3": 9,
+        "gravity": true,
+        "lower_diameter_mm": 0.4,
+        "offset_mm": 0.231,
+        "standoff_mm": 0.3,
+        "surface_tension_n_m": 0.48,
+        "upper_diameter_mm": 0.4,
+        "volume_mm3": 0.04
+      },
+      "forces": {
+        "x_uN": -180.9667321439612,
+        "z_uN": -185.36466152389391
+      }
+    },
+    {
+      "design": "Candidate",
+      "status": "refinement_checked",
+      "input": {
+        "density_g_cm3": 9,
+        "gravity": true,
+        "lower_diameter_mm": 0.4,
+        "offset_mm": 0.231,
+        "standoff_mm": 0.3,
+        "surface_tension_n_m": 0.48,
+        "upper_diameter_mm": 0.4,
+        "volume_mm3": 0.052
+      },
+      "forces": {
+        "x_uN": -170.2676444281792,
+        "z_uN": -34.314310563369574
+      }
+    }
+  ]
+}

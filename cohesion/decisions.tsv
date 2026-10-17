@@ -1,0 +1,10 @@
+Decision	Reason	Evidence	Result
+Preserve routes; board-led entry	Make guided entry useful without breaking deep links	architecture.md; judgment.md	Brand and CLI lead to /board
+Share one shell and explicit handoff	Different scientific contracts cannot be one form	Both candidate designs and actual source	Shared IIFE; existing case/study formats
+Save inputs per tab only	Navigation currently destroys edits; results must not appear current	Browser 0.0053 to 0.006 reproduction	Raw drafts; no result/token persistence
+Expose fixed lab release routes	Test planning was a UI dead end	Existing lab kit and package status	Fixed allowlist; no arbitrary file access
+Keep numerical sources and releases exact	UI repair must not change scientific evidence	Original identities in expansion/results	Pending final hash check
+Lock only initial restoration	Prevent initial edits replacing saved footprint sources	review.md; 14 mocked boundary checks	Startup locks release on success and failure
+Explicit quota replacement recovery	Saving a file does not free session storage	review.md; state-checks.json	Prior work preserved until explicit replace action
+Visible generated-file links	Temporary programmatic anchor did not produce an inspectable browser download	Actual downloaded archives in evidence/	Current link exposed and cleared on edits
+Finish live browser acceptance	Build success cannot establish connected flow	RESULTS.md; 74 Python tests; 14 fault checks; real native exports	All defined gates passed within physical scope

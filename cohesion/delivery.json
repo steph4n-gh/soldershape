@@ -1,0 +1,26 @@
+{
+  "base_commit": "4a54f86ee3d777efae68269615d7842796d83451",
+  "running_url": "http://127.0.0.1:8769/board",
+  "source_sha256": {
+    "soldershape/__main__.py": "08ba50f9b3c30335cfd9c0a6a03226005bcfdea73e998be33d5708ae9cb17333",
+    "soldershape/web/ui.js": "1af0ac0fd3a23d85324a1814714ae333cd0c5025fe24e40468cee12e2c0607b3",
+    "soldershape/web/ui.css": "c55218f9832cbef939a05bc42dd84c64e55f6402d3932bd6bca757eadd786483",
+    "soldershape/web/lab.html": "858327c57a44656da42754dc6a557b091ce32809900c39ac70ec4637213221c5",
+    "soldershape/web/app.js": "0691810919c6d936a5858e58e953c613545e058718a4e7d4197d755c062466db",
+    "soldershape/web/study.js": "d266362508775c0076a02e3bd7aa3360878caa593c9a7264f508ca855e1fc5ee",
+    "soldershape/web/board.js": "a141c8e8dcb1b1b157d8588a2f32374d87814addc16237fc0a5b495aabe82994",
+    "soldershape/web/demo.js": "48d23c2c5ce9284f6a0084e2a42c2971ea060028d2d801167053dd8859ac25f0"
+  },
+  "verification": {
+    "python_tests_passed": 74,
+    "node_vm_boundary_checks_passed": 14,
+    "internal_linked_routes_http_200": 15,
+    "lab_downloads_match_release": 7,
+    "generic_native_cases_in_browser_archives": 11,
+    "board_native_replay_cases": 2,
+    "board_replay_max_force_difference_uN": 0,
+    "physical_force_accuracy": "unqualified"
+  },
+  "scope": "One connected local investigation. No solver change, new physical validation, fabrication release or external publication.",
+  "report": "cohesion/RESULTS.md"
+}

@@ -1,23 +1,31 @@
 # SolderShape
 
-Review a PCB pad revision under explicit solder-joint assumptions. Version 0.4 compares two imported footprints, shows conditional gap margins and sampled assumption reversals, and exports a replayable decision brief. The local workbench also inspects individual equilibrium shapes and upper-pad forces using the pinned native Surface Evolver engine.
+Explore an actual PCB pad, compare solder-joint assumptions, inspect the same case in detail, and keep numerical evidence for a physical test. The connected local tools use the pinned native Surface Evolver engine. They help investigate one isolated joint and plan measurements. Physical force accuracy and production design approval remain unqualified.
 
 SolderShape was selected over KnotForge because it connects an existing PCB-design input to a specific parameter-comparison workflow. [SELECTION.md](SELECTION.md) records the alternatives, evidence, counterargument, and reversal condition. Practitioner demand remains untested.
 
 ## Explore a real complex board and commission a force test
 
-The [ULX3S board explorer](http://127.0.0.1:8768/board) connects an attributed routed board to an actual selected pad and two native joint calculations. Its 235 components and 1177 pads supply engineering context. Only the selected isolated joint is computed. Unknown package geometry, liquid volume, gap and material remain explicit hypothetical inputs. Change an input, compute afresh, and export the original board, exact pad mapping, native meshes and raw receipts together. [Board instructions](board_demo/APP.md) explain the comparison and numerical replay.
+The [ULX3S board explorer](http://127.0.0.1:8769/board) connects an attributed routed board to an actual selected pad and two native joint calculations. Its 235 components and 1177 pads supply engineering context. Only the selected isolated joint is computed. Unknown package geometry, liquid volume, gap and material remain explicit hypothetical inputs. Change an input, compute afresh, and export the original board, exact pad mapping, native meshes and raw receipts together. [Board instructions](board_demo/APP.md) explain the comparison and numerical replay.
 
 The separate [force-lab handoff](force_lab/README.md) matches the earlier 200 µm stress experiment. It includes editable mechanical CAD, four STEP configurations, thin-film DXF artwork, drawings, staged RFQ, instrumentation/BOM, calibration and uncertainty procedures, 48 independent specimens, blank data and prospective analysis. The native planning study demonstrates a failed initial uncertainty budget and a tighter unmeasured candidate. It does not establish lab capability. Sensor moments, complete rim visibility, wetting and hot metrology remain commissioning gates. No lab acceptance, fabrication release or physical validation is claimed.
 
 ```sh
 python3 tools/setup_engine.py
-python3 -m soldershape serve --port 8768
+python3 -m soldershape serve --port 8769
 python3 tools/verify_board.py board_demo/data/browser-comparison.zip --replay
 python3 force_lab/tools/analyze.py verify-plan force_lab/planning/native-120
 ```
 
 [Completion evidence](expansion/RESULTS.md) records the actual browser workflow, artifact checks, independent repairs and exact commands. [Product end-state](expansion/PRODUCT-ENDSTATE.md) bounds further investment around a measured operating domain and practitioner value. The solver remains unchanged. A Rust/WASM port, coupled package simulation and new physics have not earned their complexity.
+
+## One connected investigation
+
+Start in **Board explorer**. Select a supported pad and declare two volumes. **Inspect this joint** opens those exact inputs and reference in **Joint details**, even before a solve. A copied case carries its source context; board-bound evidence stays on Board explorer. **Worked example** opens its selected recorded case the same way, including the retained numerical failure. **Pad comparison** keeps its separate two-footprint, supported-load question and opens either literal-rim revision in Joint details.
+
+The same navigation leads to **Physical test**, where the existing kit, handbook, RFQ, procedure and parts list are downloadable. The 200 µm force fixture and earlier 220 vs 270 µm height coupon remain separate experiments. Neither establishes the physical validity of the board demonstration.
+
+Inputs survive navigation and reload in the current browser tab. Numerical results are never stored as draft data. Download editable JSON for a durable copy; closing the tab can discard its draft. A direct handoff retains one previous joint draft when browser storage permits. Generated exports expose a visible download link, which clears when inputs change. [UI verification](cohesion/RESULTS.md) records the tested flow, repairs and artifact identities.
 
 ## Run the workbench
 
@@ -34,7 +42,7 @@ python3 -m soldershape serve
 
 On macOS, you can also double-click `Start SolderShape.command`. It sets up a missing engine and opens the local workbench. Launching again reopens an existing SolderShape service. A port used by another application is left alone.
 
-Open [the local workbench](http://127.0.0.1:8765). Load the example footprint or import a `.kicad_mod`, select a circular copper pad, change the joint parameters, and compute. The example contains 36 circular 0.2 mm pads at 0.4 mm pitch. Set the upper package-pad diameter independently.
+Open [Board explorer](http://127.0.0.1:8765/board) for the guided example, or [Joint details](http://127.0.0.1:8765/) for your own footprint. Load the example footprint or import a `.kicad_mod`, select a circular copper pad, change the joint parameters, and compute. The example contains 36 circular 0.2 mm pads at 0.4 mm pitch. Set the upper package-pad diameter independently.
 
 Use **Save editable case** to keep the footprint, selected pad, all inputs, and optional reference dimensions in JSON. **Open case** restores inputs and clears old computed results. Invalid files leave the current draft intact. The editable case and its formatted representation are limited to 2.1 MB.
 

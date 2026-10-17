@@ -16,7 +16,11 @@ const state = {
   pending: null,
   response: null,
   resultIndex: -1,
+  origin: null,
+  pendingReplacement: null,
 };
+let draftReady = false;
+const draftFieldNames = [...parameterNames, "standoff_mm", "normal_load_uN", "load_mode"];
 const camera = { yaw: -0.57, elevation: 0.39, zoom: 1, drag: null };
 const colors = { copper: "#e8a975", teal: "#69c7c8", muted: "#8da3b7", grid: "#2a3c4d" };
 let footprintHitAreas = [];
@@ -102,12 +106,14 @@ async function api(path, body) {
 function clearComputed() {
   state.response = null;
   state.resultIndex = -1;
+  SolderShapeUI.clearDownload();
   renderResults();
 }
 
 function invalidate() {
   const hadResult = !!state.response;
   state.revision += 1;
+  clearPendingReplacement();
   clearComputed();
   if (state.pending) notice("Inputs changed while computation runs. Its response will be discarded.", "working");
   else if (hadResult) notice("Inputs changed. Solve again to update the geometry and downloads.");
@@ -135,6 +141,106 @@ function editableCase(parameters = readParameters()) {
   };
 }
 
+function captureDraft() {
+  return {
+    fields: Object.fromEntries(draftFieldNames.map((name) => [name, $(name).value])),
+    gravity: $("gravity").checked,
+    footprintText: state.footprintText,
+    padIndex: state.padIndex,
+    baseline: state.baseline,
+    origin: state.origin,
+  };
+}
+
+function saveDraft() {
+  if (draftReady) SolderShapeUI.saveDraft("joint", captureDraft());
+}
+
+function lockSetup(locked) {
+  document.querySelector(".setup-column").inert = locked;
+  document.querySelector(".case-bar").inert = locked;
+}
+
+function showOrigin() {
+  const element = $("case-origin");
+  element.replaceChildren();
+  element.hidden = !state.origin;
+  if (!state.origin || !["/board", "/demo", "/study", "/"].includes(state.origin.href) || typeof state.origin.label !== "string") return;
+  element.append(document.createTextNode(`Opened from ${state.origin.label}. These editable inputs require fresh computation. `));
+  const link = document.createElement("a");
+  link.href = state.origin.href;
+  link.textContent = "Return to source";
+  element.append(link);
+  if (state.origin.href === "/board") element.append(document.createTextNode(" Board-bound evidence stays in Board explorer."));
+}
+
+function applyEditableCase(data, origin = null) {
+  invalidate();
+  state.footprintText = data.case.footprint_text;
+  state.footprint = data.footprint;
+  state.padIndex = data.case.pad_index;
+  state.baseline = data.case.baseline ? freeze({ ...data.case.baseline }) : null;
+  state.origin = origin;
+  for (const name of parameterNames) $(name).value = String(data.case.parameters[name]);
+  const verticalCondition = Number.isFinite(data.case.parameters.normal_load_uN) ? "normal_load_uN" : "standoff_mm";
+  $("load_mode").value = verticalCondition === "normal_load_uN" ? "load" : "gap";
+  $(verticalCondition).value = String(data.case.parameters[verticalCondition]);
+  $("gravity").checked = data.case.parameters.gravity;
+  updateLoadMode();
+  populatePads();
+  renderFootprint();
+  renderResults();
+  showOrigin();
+  resetView();
+  draftReady = true;
+  saveDraft();
+}
+
+async function restoreDraft(draft, revision) {
+  if (!draft || typeof draft.fields !== "object" || typeof draft.footprintText !== "string") {
+    throw new Error("The saved draft could not be read. Open an editable case or choose a footprint.");
+  }
+  const imported = draft.footprintText ? await api("/api/import", { footprint_text: draft.footprintText }) : null;
+  if (revision !== state.revision) return false;
+  state.footprintText = draft.footprintText;
+  state.footprint = imported?.footprint || null;
+  state.padIndex = draft.padIndex;
+  state.baseline = draft.baseline ? freeze({ ...draft.baseline }) : null;
+  state.origin = draft.origin || null;
+  for (const name of draftFieldNames) {
+    if (typeof draft.fields[name] === "string") $(name).value = draft.fields[name];
+  }
+  $("gravity").checked = draft.gravity === true;
+  clearComputed();
+  updateLoadMode();
+  populatePads();
+  renderFootprint();
+  showOrigin();
+  updateControls();
+  draftReady = true;
+  return true;
+}
+
+function keepPreviousDraft() {
+  const previous = SolderShapeUI.readDraft("joint");
+  if (previous && !SolderShapeUI.saveDraft("joint-backup", previous.inputs)) return false;
+  $("restore-draft-button").hidden = !SolderShapeUI.readDraft("joint-backup");
+  return true;
+}
+
+function clearPendingReplacement() {
+  state.pendingReplacement = null;
+  $("replace-draft-button").hidden = true;
+  $("replacement-note").hidden = true;
+}
+
+function offerReplacement(data, origin = null, incoming = false) {
+  state.pendingReplacement = freeze({ data, origin, incoming });
+  $("replace-draft-button").hidden = false;
+  $("replacement-note").hidden = false;
+  notice("The case is ready, but browser storage could not keep a backup of your current joint. Save it to a file if you want to keep it, then choose Replace without browser backup.", "error");
+}
+
 function previewSpec() {
   const selected = pad();
   if (!selected?.supported || loadMode()) return null;
@@ -159,6 +265,8 @@ function updateControls() {
   $("save-case-button").disabled = !hasInputs;
   $("save-case-button").textContent = state.caseAction === "save" ? "Saving case…" : "Save editable case";
   $("case-file").disabled = !state.token || state.importing || !!state.caseAction;
+  $("restore-draft-button").disabled = !state.token || state.importing || !!state.caseAction;
+  $("replace-draft-button").disabled = !state.token || state.importing || !!state.caseAction;
   $("solve-label").textContent = state.pending === "solve" ? "Solving joint…" : "Solve joint";
   $("sweep-button").replaceChildren(document.createTextNode(state.pending === "sweep" ? "Computing sweep…" : "Run offset sweep"));
   const count = document.createElement("span");
@@ -225,6 +333,7 @@ async function importText(text, revision) {
     state.footprint = data.footprint;
     state.padIndex = data.footprint.pads.find((item) => item.supported)?.index ?? data.footprint.pads[0].index;
     populatePads();
+    draftReady = true;
     notice();
   } catch (error) {
     if (revision === state.revision) notice(error.message, "error");
@@ -233,6 +342,7 @@ async function importText(text, revision) {
     populatePads();
     renderFootprint();
     updateControls();
+    saveDraft();
   }
 }
 
@@ -243,6 +353,8 @@ function beginImport() {
   state.footprintText = "";
   state.footprint = null;
   state.padIndex = null;
+  state.origin = null;
+  showOrigin();
   populatePads();
   renderFootprint();
   updateControls();
@@ -831,6 +943,7 @@ function choosePad(index) {
   $("pad-select").value = String(index);
   renderFootprint();
   updateControls();
+  saveDraft();
 }
 
 $("pad-select").addEventListener("change", (event) => choosePad(Number(event.target.value)));
@@ -843,11 +956,12 @@ $("footprint-canvas").addEventListener("click", (event) => {
 });
 
 for (const name of [...parameterNames, "standoff_mm", "normal_load_uN", "gravity"]) {
-  $(name).addEventListener("input", invalidate);
+  $(name).addEventListener("input", () => { invalidate(); saveDraft(); });
 }
 $("load_mode").addEventListener("change", () => {
   updateLoadMode();
   invalidate();
+  saveDraft();
 });
 form.addEventListener("submit", (event) => { event.preventDefault(); compute("solve"); });
 $("sweep-button").addEventListener("click", () => compute("sweep"));
@@ -857,22 +971,17 @@ $("reference-button").addEventListener("click", () => {
   const parameters = readParameters();
   state.baseline = freeze({ upper_diameter_mm: parameters.upper_diameter_mm, volume_mm3: parameters.volume_mm3 });
   invalidate();
+  saveDraft();
   notice("Reference dimensions saved. Change the upper pad diameter or solder volume, then compare. Both designs will use the current shared conditions.");
 });
 $("clear-reference-button").addEventListener("click", () => {
   state.baseline = null;
   invalidate();
+  saveDraft();
 });
 
 function downloadBlob(blob, filename) {
-  const url = URL.createObjectURL(blob);
-  const anchor = document.createElement("a");
-  anchor.href = url;
-  anchor.download = filename;
-  document.body.append(anchor);
-  anchor.click();
-  anchor.remove();
-  setTimeout(() => URL.revokeObjectURL(url), 30000);
+  SolderShapeUI.downloadFile(blob, filename);
 }
 
 $("save-case-button").addEventListener("click", async () => {
@@ -902,6 +1011,8 @@ $("case-file").addEventListener("change", async (event) => {
   if (!file || state.caseAction) return;
   const revision = state.revision;
   state.caseAction = "open";
+  clearPendingReplacement();
+  lockSetup(true);
   updateControls();
   notice("Checking the editable case before opening it…", "working");
   try {
@@ -914,27 +1025,63 @@ $("case-file").addEventListener("change", async (event) => {
       notice("The current inputs changed while the file was checked. The case was not opened.");
       return;
     }
-    invalidate();
-    state.footprintText = data.case.footprint_text;
-    state.footprint = data.footprint;
-    state.padIndex = data.case.pad_index;
-    state.baseline = data.case.baseline ? freeze({ ...data.case.baseline }) : null;
-    for (const name of parameterNames) $(name).value = String(data.case.parameters[name]);
-    const verticalCondition = Number.isFinite(data.case.parameters.normal_load_uN) ? "normal_load_uN" : "standoff_mm";
-    $("load_mode").value = verticalCondition === "normal_load_uN" ? "load" : "gap";
-    $(verticalCondition).value = String(data.case.parameters[verticalCondition]);
-    updateLoadMode();
-    $("gravity").checked = data.case.parameters.gravity;
-    populatePads();
-    renderFootprint();
-    renderResults();
-    resetView();
+    if (!keepPreviousDraft()) {
+      offerReplacement(data);
+      return;
+    }
+    applyEditableCase(data);
     notice("Editable case opened. These are saved inputs. Solve or compare to compute fresh forces and exports.");
   } catch (error) {
     if (revision === state.revision) notice(`Case not opened. Your current inputs and results are unchanged. ${error.message}`, "error");
   } finally {
     event.target.value = "";
     state.caseAction = null;
+    lockSetup(false);
+    updateControls();
+  }
+});
+$("replace-draft-button").addEventListener("click", async () => {
+  const replacement = state.pendingReplacement;
+  if (!replacement || state.caseAction) return;
+  const revision = state.revision;
+  state.caseAction = "replace";
+  lockSetup(true);
+  updateControls();
+  try {
+    const data = await api("/api/case", replacement.data.case);
+    if (revision !== state.revision || replacement !== state.pendingReplacement) return;
+    applyEditableCase(data, replacement.origin);
+    if (replacement.incoming) SolderShapeUI.consumeCase();
+    saveDraft();
+    notice("Case opened without keeping a new browser backup. Solve or compare to create fresh results.");
+  } catch (error) {
+    notice(`The replacement was not opened. ${error.message}`, "error");
+  } finally {
+    state.caseAction = null;
+    lockSetup(false);
+    updateControls();
+  }
+});
+$("restore-draft-button").addEventListener("click", async () => {
+  const previous = SolderShapeUI.readDraft("joint-backup");
+  if (!previous || state.caseAction) return;
+  const revision = state.revision;
+  state.caseAction = "restore";
+  lockSetup(true);
+  updateControls();
+  try {
+    if (await restoreDraft(previous.inputs, revision)) {
+      invalidate();
+      saveDraft();
+      SolderShapeUI.discardDraft("joint-backup");
+      $("restore-draft-button").hidden = true;
+      notice("Previous joint inputs restored. Solve again to create matching results and exports.");
+    }
+  } catch (error) {
+    notice(`Previous draft could not be restored. ${error.message}`, "error");
+  } finally {
+    state.caseAction = null;
+    lockSetup(false);
     updateControls();
   }
 });
@@ -999,13 +1146,40 @@ const resizeObserver = new ResizeObserver(scheduleDraw);
 for (const id of ["footprint-canvas", "model-canvas", "force-chart"]) resizeObserver.observe($(id));
 updateLoadMode();
 renderResults();
-bootstrap().then((data) => {
-  if (state.revision === 0 && data.example?.text) {
-    const revision = beginImport();
-    return importText(data.example.text, revision);
+lockSetup(true);
+bootstrap().then(async (data) => {
+  if (state.revision !== 0) return;
+  const revision = state.revision;
+  const saved = SolderShapeUI.readDraft("joint");
+  $("restore-draft-button").hidden = !SolderShapeUI.readDraft("joint-backup");
+  let incoming = null;
+  try { incoming = await SolderShapeUI.receiveCase(state.token); }
+  catch (error) { SolderShapeUI.warn(`The linked case could not be opened. ${error.message}`); }
+  if (revision !== state.revision) return;
+  if (incoming) {
+    if (!keepPreviousDraft()) {
+      if (saved) await restoreDraft(saved.inputs, revision);
+      offerReplacement(incoming, incoming.origin, true);
+      return;
+    }
+    applyEditableCase(incoming, incoming.origin);
+    SolderShapeUI.consumeCase();
+    notice("Linked case opened with its exact source and parameters. Solve or compare to create fresh results.");
+  } else if (saved) {
+    if (await restoreDraft(saved.inputs, revision)) notice("Joint inputs restored in this tab. Compute again for fresh results and exports.");
+  } else if (data.example?.text) {
+    await importText(data.example.text, beginImport());
   }
+  saveDraft();
 }).catch((error) => {
-  $("engine-state").className = "engine-state unavailable";
-  $("engine-label").textContent = "Local service unavailable";
+  if (!state.token) {
+    $("engine-state").className = "engine-state unavailable";
+    $("engine-label").textContent = "Local service unavailable";
+  }
   notice(error.message, "error");
+  updateControls();
+}).finally(() => {
+  lockSetup(false);
+  updateControls();
 });
+window.addEventListener("pagehide", saveDraft);

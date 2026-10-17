@@ -1,0 +1,17 @@
+test_case_rejects_nonfinite_and_unexpected_fields (test_cases.CaseHTTP.test_case_rejects_nonfinite_and_unexpected_fields) ... ok
+test_compare_exports_both_failed_rows_and_input_only_case (test_cases.CaseHTTP.test_compare_exports_both_failed_rows_and_input_only_case) ... ok
+test_live_case_open_normalizes_and_returns_original_pad_geometry (test_cases.CaseHTTP.test_live_case_open_normalizes_and_returns_original_pad_geometry) ... ok
+test_open_leaves_foreign_listener_alone (test_cases.CaseHTTP.test_open_leaves_foreign_listener_alone) ... ok
+test_open_reuses_verified_existing_workbench (test_cases.CaseHTTP.test_open_reuses_verified_existing_workbench) ... ok
+test_case_cannot_override_shared_conditions_or_execute_code (test_cases.EditableCases.test_case_cannot_override_shared_conditions_or_execute_code) ... ok
+test_comparison_is_fresh_and_preserves_fixed_conditions (test_cases.EditableCases.test_comparison_is_fresh_and_preserves_fixed_conditions) ... ok
+test_failed_or_zero_offset_comparison_has_no_improvement_verdict (test_cases.EditableCases.test_failed_or_zero_offset_comparison_has_no_improvement_verdict) ... ok
+test_loaded_zero_offset_comparison_reports_height_without_centering_verdict (test_cases.EditableCases.test_loaded_zero_offset_comparison_reports_height_without_centering_verdict) ... ok
+test_pretty_saved_case_fits_the_reopen_limit (test_cases.EditableCases.test_pretty_saved_case_fits_the_reopen_limit) ... ok
+test_saved_inputs_round_trip_without_result_claims (test_cases.EditableCases.test_saved_inputs_round_trip_without_result_claims) ... ok
+test_surface_beyond_pad_planes_keeps_forces_but_blocks_design_verdict (test_cases.EditableCases.test_surface_beyond_pad_planes_keeps_forces_but_blocks_design_verdict) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.824s
+
+OK

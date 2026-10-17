@@ -1,7 +1,7 @@
 "use strict";
 
 const $ = (id) => document.getElementById(id);
-const state = { experiment: null, sampleId: "offset-120" };
+const state = { experiment: null, sampleId: "offset-120", token: null, opening: false };
 const initialCamera = { yaw: -0.58, elevation: 0.4, zoom: 1 };
 const camera = { ...initialCamera, drag: null };
 const canvases = [$("reference-canvas"), $("candidate-canvas")];
@@ -17,6 +17,9 @@ function signed(value) {
 
 function selectedSample() {
   return state.experiment.samples.find((sample) => sample.id === state.sampleId);
+}
+function saveDraft() {
+  if (state.experiment) window.SolderShapeUI.saveDraft("demo", { sampleId: state.sampleId, meshEdges: $("mesh-edges").checked });
 }
 
 function resultGeometry(record) {
@@ -90,6 +93,8 @@ function renderSelected() {
     row.classList.toggle("selected", [sample.reference.input_sha256, sample.candidate.input_sha256].includes(row.dataset.input));
   }
   $("editable-case").textContent = sample.kind === "compression_control" ? "Save compressed editable case" : "Save selected editable comparison";
+  $("open-joint").disabled = !state.token || state.opening;
+  $("open-joint").textContent = state.opening ? "Opening joint details…" : sample.kind === "compression_control" ? "Inspect compressed joint" : "Inspect this comparison";
   scheduleDraw();
 }
 
@@ -118,7 +123,7 @@ function renderCases() {
 
 function renderExperiment() {
   const experiment = state.experiment;
-  document.title = `${experiment.title} | SolderShape`;
+  document.title = "SolderShape | Worked example";
   $("demo-question").textContent = experiment.question;
   for (const sample of experiment.samples) {
     const button = document.createElement("button");
@@ -127,7 +132,9 @@ function renderExperiment() {
     button.textContent = sample.label;
     button.setAttribute("aria-pressed", "false");
     button.addEventListener("click", () => {
+      SolderShapeUI.clearDownload();
       state.sampleId = sample.id;
+      saveDraft();
       renderSelected();
     });
     $(sample.kind === "volume_comparison" ? "offset-buttons" : "control-buttons").append(button);
@@ -367,25 +374,43 @@ $("reset-view").addEventListener("click", () => {
   Object.assign(camera, initialCamera);
   scheduleDraw();
 });
-$("mesh-edges").addEventListener("change", scheduleDraw);
+$("mesh-edges").addEventListener("change", () => { saveDraft(); scheduleDraw(); });
+$("open-joint").addEventListener("click", async () => {
+  if (!state.token || state.opening) return;
+  const sample = selectedSample();
+  state.opening = true;
+  saveDraft();
+  renderSelected();
+  try {
+    await window.SolderShapeUI.openCase(sample.editable_case, { label: `Worked example · ${sample.label}`, href: "/demo" }, state.token, () => state.sampleId === sample.id);
+  } catch (error) { window.SolderShapeUI.warn(`The example could not open in Joint details. ${error.message}`); }
+  finally { state.opening = false; renderSelected(); }
+});
 $("editable-case").addEventListener("click", () => {
   const sample = selectedSample();
   const blob = new Blob([`${JSON.stringify(sample.editable_case, null, 2)}\n`], { type: "application/json" });
-  const url = URL.createObjectURL(blob);
-  const anchor = document.createElement("a");
-  anchor.href = url;
-  anchor.download = `soldershape-extreme-${sample.id}.json`;
-  anchor.click();
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
+  SolderShapeUI.downloadFile(blob, `soldershape-extreme-${sample.id}.json`);
 });
 window.addEventListener("resize", scheduleDraw);
+window.addEventListener("pagehide", saveDraft);
 
 async function loadExperiment() {
   try {
-    const response = await fetch("/api/demo", { cache: "no-store" });
-    const data = await response.json();
-    if (!response.ok) throw new Error(data.error);
-    state.experiment = data;
+    const [recording, bootstrap] = await Promise.allSettled(["/api/demo", "/api/bootstrap"].map(async (url) => {
+      const response = await fetch(url, { cache: "no-store" });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error || `Request failed with status ${response.status}.`);
+      return data;
+    }));
+    if (recording.status === "rejected") throw recording.reason;
+    state.experiment = recording.value;
+    if (bootstrap.status === "fulfilled") state.token = bootstrap.value.token;
+    else window.SolderShapeUI.warn("The recorded example is available, but the local session is unavailable. Save an editable case and reopen the app to inspect it.");
+    const saved = window.SolderShapeUI.readDraft("demo");
+    if (saved && state.experiment.samples.some((sample) => sample.id === saved.inputs?.sampleId)) {
+      state.sampleId = saved.inputs.sampleId;
+      $("mesh-edges").checked = saved.inputs.meshEdges === true;
+    }
     renderExperiment();
   } catch (error) {
     $("experiment").hidden = true;

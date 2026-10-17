@@ -40,7 +40,7 @@ class StudyHTTP(unittest.TestCase):
         self.assertNotEqual(accepted['reference']['footprint_text'], accepted['candidate']['footprint_text'])
         self.assertEqual(accepted['requirement']['pad_face_gap_um'], 185)
         with urlopen(self.url+'/study') as response:
-            self.assertIn(b'Compare pad revisions', response.read())
+            self.assertIn(b'SolderShape | Pad comparison', response.read())
 
     def test_native_failure_is_retained_in_real_export(self):
         study = json.loads((ROOT/'examples/coupon-planning.study.json').read_text())

@@ -12,6 +12,45 @@ const state = {
   reference: { text: "", footprint: null, padIndex: null },
   candidate: { text: "", footprint: null, padIndex: null },
 };
+let draftReady = false;
+const draftFieldNames = [...parameterNames, "reference-evidence", "candidate-evidence", "gap-requirement", "requirement-source", "volume-fraction", "lower-metal", "upper-metal", "two-pad-evidence", "input-evidence"];
+
+function lockSetup(locked) {
+  $("study-form").inert = locked;
+  document.querySelector(".file-bar").inert = locked;
+}
+
+function saveDraft() {
+  if (!draftReady) return;
+  SolderShapeUI.saveDraft("study", {
+    fields: Object.fromEntries(draftFieldNames.map((id) => [id, $(id).value])),
+    gravity: $("gravity").checked,
+    twoPad: $("two-pad-enabled").checked,
+    sources: Object.fromEntries(arms.map((arm) => [arm, { text: state[arm].text, padIndex: state[arm].padIndex }])),
+  });
+}
+
+async function restoreDraft(draft, revision) {
+  if (!draft || typeof draft.fields !== "object" || !draft.sources || arms.some((arm) => typeof draft.sources[arm]?.text !== "string")) {
+    throw new Error("The saved study draft could not be read. Open a study file or load the planning example.");
+  }
+  const imported = await Promise.all(arms.map((arm) => draft.sources[arm].text
+    ? api("/api/import", { footprint_text: draft.sources[arm].text }) : null));
+  if (revision !== state.revision) return false;
+  for (const [index, arm] of arms.entries()) {
+    state[arm] = { ...draft.sources[arm], footprint: imported[index]?.footprint || null };
+    renderArm(arm);
+  }
+  for (const id of draftFieldNames) {
+    if (typeof draft.fields[id] === "string") $(id).value = draft.fields[id];
+  }
+  $("gravity").checked = draft.gravity === true;
+  $("two-pad-enabled").checked = draft.twoPad === true;
+  clearResult();
+  updateControls();
+  draftReady = true;
+  return true;
+}
 
 function number(value, digits = 3) {
   return typeof value === "number" && Number.isFinite(value)
@@ -59,6 +98,7 @@ function updateControls() {
   for (const arm of arms) {
     $(`${arm}-file`).disabled = !session || !idle;
     $(`${arm}-pad`).disabled = !state[arm].footprint;
+    $(`${arm}-inspect`).disabled = !session || !idle || !selectedPad(arm)?.supported;
   }
   const twoPad = $("two-pad-enabled").checked;
   $("two-pad-fields").hidden = !twoPad;
@@ -70,6 +110,7 @@ function updateControls() {
 
 function clearResult() {
   state.response = null;
+  SolderShapeUI.clearDownload();
   $("decision-state").textContent = "Awaiting computation";
   $("decision-heading").textContent = "Can this comparison resolve your design question?";
   $("empty-result").hidden = false;
@@ -214,6 +255,8 @@ async function applyStudy(study, revision) {
   $("upper-metal").value = study.two_pad?.upper_metal_um ?? 35;
   $("two-pad-evidence").value = study.two_pad?.evidence ?? "";
   updateControls();
+  draftReady = true;
+  saveDraft();
   return true;
 }
 
@@ -232,6 +275,7 @@ async function loadExample() {
   } finally {
     state.phase = "idle";
     updateControls();
+    saveDraft();
   }
 }
 
@@ -247,6 +291,7 @@ async function importFootprint(arm, file) {
     const data = await api("/api/import", { footprint_text: text });
     if (revision !== state.revision) return;
     state[arm] = { text, footprint: data.footprint, padIndex: data.footprint.pads.find((pad) => pad.supported)?.index ?? data.footprint.pads[0].index };
+    draftReady = true;
     $(`${arm}-evidence`).value = "";
     renderArm(arm);
     notice(`Imported ${arm} footprint. Declare its boundary evidence or planning assumption before running the study.`);
@@ -255,6 +300,7 @@ async function importFootprint(arm, file) {
   } finally {
     state.phase = "idle";
     updateControls();
+    saveDraft();
   }
 }
 
@@ -341,12 +387,7 @@ async function runStudy(event) {
 }
 
 function download(blob, filename) {
-  const url = URL.createObjectURL(blob);
-  const anchor = document.createElement("a");
-  anchor.href = url;
-  anchor.download = filename;
-  anchor.click();
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
+  SolderShapeUI.downloadFile(blob, filename);
 }
 
 async function saveStudy() {
@@ -384,6 +425,34 @@ async function openStudy(file) {
   }
 }
 
+async function inspectArm(arm) {
+  if (state.phase !== "idle" || !selectedPad(arm)?.supported) return;
+  for (const name of parameterNames) {
+    if (!$(name).reportValidity()) return;
+  }
+  const revision = state.revision;
+  const parameters = Object.fromEntries(parameterNames.map((name) => [name, $(name).valueAsNumber]));
+  parameters.gravity = $("gravity").checked;
+  saveDraft();
+  state.phase = "opening";
+  updateControls();
+  notice(`Opening the ${arm} source pad with its literal copper rims. The two-pad cylinder hypothesis is excluded.`);
+  try {
+    await SolderShapeUI.openCase({
+      schema: "soldershape.case.v1",
+      footprint_text: state[arm].text,
+      pad_index: state[arm].padIndex,
+      parameters,
+      baseline: null,
+    }, { label: `Pad comparison, ${arm} literal rims`, href: "/study" }, state.token, () => revision === state.revision);
+  } catch (error) {
+    notice(error.message, true);
+  } finally {
+    state.phase = "idle";
+    updateControls();
+  }
+}
+
 $("study-form").addEventListener("input", (event) => {
   if (event.target.type === "file") return;
   for (const arm of arms) {
@@ -393,6 +462,7 @@ $("study-form").addEventListener("input", (event) => {
     }
   }
   invalidate();
+  saveDraft();
 });
 $("study-form").addEventListener("submit", runStudy);
 $("example-button").addEventListener("click", loadExample);
@@ -402,6 +472,7 @@ $("study-file").addEventListener("change", (event) => {
   event.target.value = "";
 });
 for (const arm of arms) {
+  $(`${arm}-inspect`).addEventListener("click", () => inspectArm(arm));
   $(`${arm}-file`).addEventListener("change", (event) => {
     importFootprint(arm, event.target.files[0]);
     event.target.value = "";
@@ -414,6 +485,7 @@ $("download-study-button").addEventListener("click", () => {
   download(new Blob([Uint8Array.from(decoded, (character) => character.charCodeAt(0))], { type: "application/zip" }), state.response.bundle_filename);
 });
 
+lockSetup(true);
 (async () => {
   try {
     const data = await api("/api/bootstrap");
@@ -423,11 +495,31 @@ $("download-study-button").addEventListener("click", () => {
     $("engine-label").textContent = state.engineReady ? `Surface Evolver ${engine.version} · ready` : "Numerical engine unavailable";
     $("engine-state").className = `engine-state ${state.engineReady ? "ready" : "unavailable"}`;
     updateControls();
-    await loadExample();
+    if (state.revision === 0) {
+      const saved = SolderShapeUI.readDraft("study");
+      if (saved) {
+        const revision = state.revision;
+        state.phase = "loading";
+        updateControls();
+        if (await restoreDraft(saved.inputs, revision)) notice("Study inputs and both footprint sources restored in this tab. Run again for fresh evidence.");
+        state.phase = "idle";
+      } else {
+        await loadExample();
+      }
+    }
+    saveDraft();
+    updateControls();
     if (!state.engineReady) notice(engine.error, true);
   } catch (error) {
     notice(error.message, true);
-    $("engine-label").textContent = "Local service unavailable";
-    $("engine-state").className = "engine-state unavailable";
+    if (!state.token) {
+      $("engine-label").textContent = "Local service unavailable";
+      $("engine-state").className = "engine-state unavailable";
+    }
+  } finally {
+    state.phase = "idle";
+    lockSetup(false);
+    updateControls();
   }
 })();
+window.addEventListener("pagehide", saveDraft);

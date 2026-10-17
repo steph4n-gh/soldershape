@@ -156,7 +156,7 @@ class CaseHTTP(unittest.TestCase):
         with patch("sys.argv", ["soldershape", "serve", "--port", str(self.server.server_port), "--open"]), patch("webbrowser.open") as opened, redirect_stdout(io.StringIO()):
             code = main()
         self.assertEqual(code, 0)
-        opened.assert_called_once_with(self.url)
+        opened.assert_called_once_with(self.url + "/board")
 
     def test_open_leaves_foreign_listener_alone(self):
         response = io.BytesIO(b'{"application":"Another service"}')

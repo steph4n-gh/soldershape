@@ -1,0 +1,64 @@
+{
+  "archive_sha256": "a34dc4d5d491b099a94c37b2395f42047c3f19ad62044cfc60ca8bd01b112e33",
+  "native_cases": 4,
+  "checked_cases": 4,
+  "samples": 12,
+  "nominal": [
+    {
+      "analytical_gap_um": 223.34907200981604,
+      "design": "Reference",
+      "lower_diameter_mm": 0.22,
+      "mapping": "literal_rims",
+      "margin_um": 37.31880160132934,
+      "native_gap_um": 223.31880160132934,
+      "native_minus_analytical_um": -0.030270408486700262,
+      "status": "refinement_checked"
+    },
+    {
+      "analytical_gap_um": 207.51966907047608,
+      "design": "Candidate",
+      "lower_diameter_mm": 0.27,
+      "mapping": "literal_rims",
+      "margin_um": 21.521814859543525,
+      "native_gap_um": 207.52181485954353,
+      "native_minus_analytical_um": 0.0021457890674412283,
+      "status": "refinement_checked"
+    },
+    {
+      "analytical_gap_um": 180.4859613589914,
+      "design": "Reference",
+      "lower_diameter_mm": 0.22,
+      "mapping": "two_pad_cylinders",
+      "margin_um": -5.559843279033146,
+      "native_gap_um": 180.44015672096685,
+      "native_minus_analytical_um": -0.04580463802454915,
+      "status": "refinement_checked"
+    },
+    {
+      "analytical_gap_um": 169.1733706717036,
+      "design": "Candidate",
+      "lower_diameter_mm": 0.27,
+      "mapping": "two_pad_cylinders",
+      "margin_um": -16.830434160433498,
+      "native_gap_um": 169.1695658395665,
+      "native_minus_analytical_um": -0.003804832137092262,
+      "status": "refinement_checked"
+    }
+  ],
+  "decision": {
+    "headline": "The decision depends on the declared assumptions.",
+    "next_actions": [
+      "Verify finished copper, mask openings and pinned wetting boundaries for both revisions.",
+      "Measure or justify liquid solder volume, per-joint load and material properties before using these planning inputs.",
+      "Run the controlled physical coupon pilot. Compare liquid-state measurements before claiming equilibrium accuracy."
+    ],
+    "reasons": [
+      "The declared pad-face-gap criterion changes sides across the sampled assumptions for Reference and Candidate.",
+      "A board choice would depend on unverified geometry or volume assumptions. No physical pass follows."
+    ],
+    "status": "assumption_sensitive"
+  },
+  "physical_qualification": "unqualified",
+  "editable_file_matches": true,
+  "case_and_source_binding": "verified via read_bundle and study footprint/code checks"
+}

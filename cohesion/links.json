@@ -1,0 +1,77 @@
+[
+  {
+    "href": "/",
+    "status": 200,
+    "mime": "text/html"
+  },
+  {
+    "href": "/board",
+    "status": 200,
+    "mime": "text/html"
+  },
+  {
+    "href": "/board/license.txt",
+    "status": 200,
+    "mime": "text/plain"
+  },
+  {
+    "href": "/board/source.kicad_pcb",
+    "status": 200,
+    "mime": "text/plain"
+  },
+  {
+    "href": "/demo",
+    "status": 200,
+    "mime": "text/html"
+  },
+  {
+    "href": "/demo/evidence.zip",
+    "status": 200,
+    "mime": "application/zip"
+  },
+  {
+    "href": "/lab",
+    "status": 200,
+    "mime": "text/html"
+  },
+  {
+    "href": "/lab/bom.csv",
+    "status": 200,
+    "mime": "text/csv"
+  },
+  {
+    "href": "/lab/handbook.pdf",
+    "status": 200,
+    "mime": "application/pdf"
+  },
+  {
+    "href": "/lab/height-coupon.zip",
+    "status": 200,
+    "mime": "application/zip"
+  },
+  {
+    "href": "/lab/kit.zip",
+    "status": 200,
+    "mime": "application/zip"
+  },
+  {
+    "href": "/lab/procedure.txt",
+    "status": 200,
+    "mime": "text/plain"
+  },
+  {
+    "href": "/lab/rfq.txt",
+    "status": 200,
+    "mime": "text/plain"
+  },
+  {
+    "href": "/lab/uncertainties.txt",
+    "status": 200,
+    "mime": "text/plain"
+  },
+  {
+    "href": "/study",
+    "status": 200,
+    "mime": "text/html"
+  }
+]

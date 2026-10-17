@@ -1,0 +1,284 @@
+[
+  {
+    "current": [
+      "Joint details"
+    ],
+    "links": [
+      {
+        "href": "#main-content",
+        "text": "Skip to content"
+      },
+      {
+        "href": "/board",
+        "text": "SolderShape"
+      },
+      {
+        "href": "/board",
+        "text": "Board explorer"
+      },
+      {
+        "href": "/",
+        "text": "Joint details"
+      },
+      {
+        "href": "/study",
+        "text": "Pad comparison"
+      },
+      {
+        "href": "/demo",
+        "text": "Worked example"
+      },
+      {
+        "href": "/lab",
+        "text": "Physical test"
+      },
+      {
+        "href": "https://imapsjmep.org/article/39820.pdf",
+        "text": "Read the independent standoff experiment"
+      },
+      {
+        "href": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=853827",
+        "text": "Read the earlier force experiment"
+      },
+      {
+        "href": "/lab",
+        "text": "Prepare a physical test →"
+      }
+    ],
+    "title": "SolderShape | Joint details",
+    "viewport": 1280,
+    "width": 1265
+  },
+  {
+    "current": [
+      "Pad comparison"
+    ],
+    "links": [
+      {
+        "href": "#main-content",
+        "text": "Skip to content"
+      },
+      {
+        "href": "/board",
+        "text": "SolderShape"
+      },
+      {
+        "href": "/board",
+        "text": "Board explorer"
+      },
+      {
+        "href": "/",
+        "text": "Joint details"
+      },
+      {
+        "href": "/study",
+        "text": "Pad comparison"
+      },
+      {
+        "href": "/demo",
+        "text": "Worked example"
+      },
+      {
+        "href": "/lab",
+        "text": "Physical test"
+      },
+      {
+        "href": "/lab",
+        "text": "Prepare a physical test →"
+      }
+    ],
+    "title": "SolderShape | Compare pad revisions",
+    "viewport": 1280,
+    "width": 1265
+  },
+  {
+    "current": [
+      "Worked example"
+    ],
+    "links": [
+      {
+        "href": "#main-content",
+        "text": "Skip to content"
+      },
+      {
+        "href": "/board",
+        "text": "SolderShape"
+      },
+      {
+        "href": "/board",
+        "text": "Board explorer"
+      },
+      {
+        "href": "/",
+        "text": "Joint details"
+      },
+      {
+        "href": "/study",
+        "text": "Pad comparison"
+      },
+      {
+        "href": "/demo",
+        "text": "Worked example"
+      },
+      {
+        "href": "/lab",
+        "text": "Physical test"
+      },
+      {
+        "href": "/lab",
+        "text": "Prepare the matching physical test →"
+      },
+      {
+        "href": "/demo/evidence.zip",
+        "text": "Download all native evidence ↓"
+      },
+      {
+        "href": "/lab",
+        "text": "Prepare a physical test →"
+      }
+    ],
+    "title": "SolderShape | Worked example",
+    "viewport": 1280,
+    "width": 1280
+  },
+  {
+    "current": [
+      "Physical test"
+    ],
+    "links": [
+      {
+        "href": "#main-content",
+        "text": "Skip to content"
+      },
+      {
+        "href": "/board",
+        "text": "SolderShape"
+      },
+      {
+        "href": "/board",
+        "text": "Board explorer"
+      },
+      {
+        "href": "/",
+        "text": "Joint details"
+      },
+      {
+        "href": "/study",
+        "text": "Pad comparison"
+      },
+      {
+        "href": "/demo",
+        "text": "Worked example"
+      },
+      {
+        "href": "/lab",
+        "text": "Physical test"
+      },
+      {
+        "href": "/demo",
+        "text": "Worked example"
+      },
+      {
+        "href": "/board",
+        "text": "Board explorer"
+      },
+      {
+        "href": "/lab/kit.zip",
+        "text": "Download complete lab kit · 18.8 MB ↓"
+      },
+      {
+        "href": "/lab/handbook.pdf",
+        "text": "Printable handbook · 38 pages ↓"
+      },
+      {
+        "href": "/lab/rfq.txt",
+        "text": "Lab request for quote ↓"
+      },
+      {
+        "href": "/lab/procedure.txt",
+        "text": "Measurement procedure ↓"
+      },
+      {
+        "href": "/lab/bom.csv",
+        "text": "Parts and custom work ↓"
+      },
+      {
+        "href": "/lab/uncertainties.txt",
+        "text": "Read the targets and retained failure ↓"
+      },
+      {
+        "href": "/study",
+        "text": "Open the pad comparison tool →"
+      },
+      {
+        "href": "/lab/height-coupon.zip",
+        "text": "Download height-coupon package ↓"
+      },
+      {
+        "href": "/board",
+        "text": "Return to Board explorer →"
+      }
+    ],
+    "title": "SolderShape | Physical test",
+    "viewport": 1280,
+    "width": 1265
+  },
+  {
+    "current": [
+      "Board explorer"
+    ],
+    "links": [
+      {
+        "href": "#main-content",
+        "text": "Skip to content"
+      },
+      {
+        "href": "/board",
+        "text": "SolderShape"
+      },
+      {
+        "href": "/board",
+        "text": "Board explorer"
+      },
+      {
+        "href": "/",
+        "text": "Joint details"
+      },
+      {
+        "href": "/study",
+        "text": "Pad comparison"
+      },
+      {
+        "href": "/demo",
+        "text": "Worked example"
+      },
+      {
+        "href": "/lab",
+        "text": "Physical test"
+      },
+      {
+        "href": "https://github.com/emard/ulx3s",
+        "text": "Inspect source ↗"
+      },
+      {
+        "href": "/board/source.kicad_pcb",
+        "text": "Original KiCad board ↓"
+      },
+      {
+        "href": "/board/license.txt",
+        "text": "License"
+      },
+      {
+        "href": "/lab",
+        "text": "Prepare a physical test →"
+      },
+      {
+        "href": "/lab",
+        "text": "Prepare a physical test →"
+      }
+    ],
+    "title": "SolderShape | Board explorer",
+    "viewport": 1280,
+    "width": 1280
+  }
+]

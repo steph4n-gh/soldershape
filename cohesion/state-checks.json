@@ -1,0 +1,69 @@
+{
+  "scope": "Node VM boundary checks against actual UI scripts with mocked DOM, fetch and browser storage. These are not browser interaction, rendering, native computation or physical-validation proof.",
+  "command": "node cohesion/verify-ui-state.cjs",
+  "source_sha256": {
+    "soldershape/web/ui.js": "1af0ac0fd3a23d85324a1814714ae333cd0c5025fe24e40468cee12e2c0607b3",
+    "soldershape/web/app.js": "0691810919c6d936a5858e58e953c613545e058718a4e7d4197d755c062466db",
+    "soldershape/web/study.js": "d266362508775c0076a02e3bd7aa3360878caa593c9a7264f508ca855e1fc5ee"
+  },
+  "passed": 14,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "normalized handoff round trip and single-use consumption",
+      "status": "pass"
+    },
+    {
+      "name": "late edit rejects handoff before storage or navigation",
+      "status": "pass"
+    },
+    {
+      "name": "bounded draft failure preserves old bytes",
+      "status": "pass"
+    },
+    {
+      "name": "quota failure offers explicit replacement without altering prior work",
+      "status": "pass"
+    },
+    {
+      "name": "linked quota replacement consumes the transfer only after explicit acceptance",
+      "status": "pass"
+    },
+    {
+      "name": "failed explicit replacement preserves the old draft and permits retry",
+      "status": "pass"
+    },
+    {
+      "name": "editing clears the pending replacement and rejects its late response",
+      "status": "pass"
+    },
+    {
+      "name": "unavailable storage blocks handoff but permits portable file opening",
+      "status": "pass"
+    },
+    {
+      "name": "app startup locks while restoring and unlocks after successful import",
+      "status": "pass"
+    },
+    {
+      "name": "app startup locks while restoring and unlocks after failed import",
+      "status": "pass"
+    },
+    {
+      "name": "app startup releases lock after bootstrap failure",
+      "status": "pass"
+    },
+    {
+      "name": "study startup locks while restoring and unlocks after successful import",
+      "status": "pass"
+    },
+    {
+      "name": "study startup locks while restoring and unlocks after failed import",
+      "status": "pass"
+    },
+    {
+      "name": "study startup releases lock after bootstrap failure",
+      "status": "pass"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/Volumes/Storage/oct16project/tools/verify_study.py", line 82, in <module>
+    main()
+    ~~~~^^
+  File "/Volumes/Storage/oct16project/tools/verify_study.py", line 42, in main
+    check(abs(row["native_gap_um"]-expected[(row["design"], row["mapping"])]) < .1,
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+          "The example gap changed by more than the 0.1 micrometer numerical replay check.")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Storage/oct16project/tools/verify_study.py", line 20, in check
+    raise AssertionError(message)
+AssertionError: The example gap changed by more than the 0.1 micrometer numerical replay check.
