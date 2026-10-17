@@ -2,7 +2,7 @@
 
 The current launch preparation follows the guided Board decision. The README, setup guide, validation reference, six actual application captures, captioned 36-second still sequence and static introduction use the same U1/J16 question. At a 300 µm held gap, only 40 nL meets the declared numerical fixture rule. At 330 µm, both 40 and 56 nL meet it. These are hypothetical process scenarios, not measured manufacturing limits.
 
-The project can be presented as a research preview. It is not a physically qualified PCB design authority. Practitioner demand and willingness to pay remain untested. The [current final-check record](../launch_sync/RESULTS.md) identifies the exact candidate, checks, saved Site source and remaining publication steps. Earlier receipts below qualify their own historical commits only.
+The project can be presented as a research preview. It is not a physically qualified PCB design authority. Practitioner demand and willingness to pay remain untested. The [publication record](../publication/RESULTS.md) identifies the public release and deployment. The [local final-check record](../launch_sync/RESULTS.md) preserves the preceding qualification. Earlier receipts qualify their own historical commits only.
 
 ## What is prepared
 
@@ -12,7 +12,7 @@ The project can be presented as a research preview. It is not a physically quali
 - A downloadable example with both unchanged native ZIPs, exact extracted review members, original Board and footprint notices and the project MIT grant.
 - Separate notice-bearing force and height-coupon packages. The app's fixed download routes select these new names. Older packages remain unchanged. The force kit uses 200 µm pads and needs adaptation for the 400 µm board question. Neither experiment is fabrication released or physically validated.
 - MIT for original project material. Third-party terms remain separate in [THIRD_PARTY.md](../THIRD_PARTY.md). No native engine binary or engine C source is redistributed.
-- Contributor instructions, runtime security scope and a prepared source/boundary CI workflow. Hosted CI has not run.
+- Contributor instructions, runtime security scope and the [source and boundary CI workflow](https://github.com/steph4n-gh/soldershape/actions/workflows/checks.yml). Hosted results and exact commit identity belong to the publication record.
 
 ## Reproduce the checks
 
@@ -36,21 +36,19 @@ python3 launch/build_candidate.py --output-dir output/launch-release-new --recei
 
 A raw Git clone omits the ignored prebuilt lab ZIPs and PDFs. The complete candidate includes the three advertised lab download files explicitly. Follow [getting started](../docs/getting-started.md) after extraction. The core Board workflow does not require prebuilt lab documents. Current application checks cover Apple Silicon macOS. Portable boundary checks are not native Linux qualification.
 
-## Publication steps still needed
+## Public release
 
-1. Create the intended public GitHub repository and set this checkout's remote. No repository URL is invented in the guides.
-2. Configure a working private vulnerability-reporting channel and update SECURITY.md and contributor links.
-3. Run the prepared workflow on hosted CI and qualify the exact public release commit. Other operating systems remain unqualified.
-4. Attach the complete source package, notices, media and hashes to a clearly labeled research release. A full source clone carries roughly 425 MB of retained evidence before Git compression. The largest two research archives are about 69 and 53 MB.
-5. Publish the reviewed Site version and change its audience when launch is requested. The existing hostname and TLS are active. Saving source does not change the live deployment or owner-only access.
+The owner authorized publication on 2026-10-17. The [GitHub repository](https://github.com/steph4n-gh/soldershape) is public. [Private vulnerability reporting](https://github.com/steph4n-gh/soldershape/security/advisories/new) is enabled. The current source and security docs identify those destinations.
 
-Physical qualification remains a separate investment step before production-accuracy claims. No public repository, release tag, hosted native solver or completed physical test is claimed here.
+The [publication record](../publication/RESULTS.md) is the authority for the exact CI run, research prerelease, asset hashes, Site version, deployment and public-access verification. The intended release is [v0.4.0-preview.1](https://github.com/steph4n-gh/soldershape/releases/tag/v0.4.0-preview.1). The release is marked as a prerelease because physical qualification and other native platforms remain open.
+
+A raw source clone omits ignored prebuilt lab ZIPs and PDFs. The complete release package includes those explicit assets. It also retains substantial numerical evidence, so the download is large. License notices remain separate from fabrication readiness and physical validation.
 
 ## Site and credentials
 
 `website/dist` is the canonical static source. Its exact Sites identity is tracked in `website/.openai/hosting.json`. The publishing mirror is `output/launch-site` with separate ignored Git metadata. Source commit, saved version and deployed version are distinct identities. Short-lived credentials pass through the source helper's hidden stdin, never source, arguments or receipts.
 
-The real hostname previously showed its owner identity gate. That access boundary remains in place. Local browser controls exercise the reviewed source without bypassing the Site authentication gate.
+The real hostname previously showed its owner identity gate. Public audience and deployment are separately verified during this publication. No bypass credential is used for anonymous launch checks.
 
 ## Historical evidence
 

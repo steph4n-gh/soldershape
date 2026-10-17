@@ -41,7 +41,7 @@ def main():
             if item.isfile():
                 hashes[item.name.removeprefix("soldershape/")] = hashlib.file_digest(archive.extractfile(item), "sha256").hexdigest()
     manifest = {"schema": "soldershape.release-candidate.v1", "source_commit": commit,
-                "status": "unpublished_research_preview_candidate", "physical_qualification": "unqualified", "sha256": hashes}
+                "status": "research_preview_candidate", "physical_qualification": "unqualified", "sha256": hashes}
     payload = (json.dumps(manifest, indent=2, sort_keys=True) + "\n").encode()
     with tarfile.open(raw, "a") as archive:
         member = tarfile.TarInfo("soldershape/RELEASE-MANIFEST.json")
@@ -53,7 +53,7 @@ def main():
             shutil.copyfileobj(source, destination)
     receipt = {"source_commit": commit, "candidate": str(target), "bytes": target.stat().st_size,
                "sha256": sha(target), "files": len(hashes), "prebuilt_lab_files": {name: hashes[name] for name in ASSETS},
-               "native_engine_included": False, "status": "unpublished_research_preview_candidate"}
+               "native_engine_included": False, "status": "research_preview_candidate"}
     args.receipt.parent.mkdir(parents=True, exist_ok=True)
     args.receipt.write_text(json.dumps(receipt, indent=2) + "\n")
     print(json.dumps(receipt, indent=2))

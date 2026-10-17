@@ -8,7 +8,7 @@ The question is whether adding solder helps a displaced joint restore laterally 
 
 Install Python 3.12 or newer, a C compiler and `make`. On macOS, Apple's command line developer tools provide the compiler and `make`. The initial engine setup needs internet access and builds pinned upstream source.
 
-From the extracted source directory, run these commands.
+Get the [public source](https://github.com/steph4n-gh/soldershape) or the [complete research-release package](https://github.com/steph4n-gh/soldershape/releases/tag/v0.4.0-preview.1). From the extracted source directory, run these commands.
 
 ```sh
 python3 tools/setup_engine.py
@@ -19,7 +19,7 @@ The setup prints `ready: true` in its JSON result. The service prints its local 
 
 If port 8765 is occupied, choose another port with `--port`. Use that same port in your browser. The macOS launcher reuses an identified SolderShape service and leaves another application alone.
 
-A raw Git clone does not include the ignored prebuilt lab ZIPs and handbook PDF. The complete release candidate includes them. They are optional for this Board workflow. See the force-lab and coupon build guides if you need to regenerate them.
+A raw Git clone does not include the ignored prebuilt lab ZIPs and handbook PDF. The [complete research-release package](https://github.com/steph4n-gh/soldershape/releases/tag/v0.4.0-preview.1) includes them. They are optional for this Board workflow. See the force-lab and coupon build guides if you need to regenerate them.
 
 ## Load the worked example
 

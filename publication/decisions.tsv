@@ -1,0 +1,4 @@
+decision	why	evidence	result
+Use steph4n-gh/soldershape	Authenticated owner and available name	GitHub API user and repository lookup	Verified account 284007938; no repository exists
+Preserve the prepared research scope	The current numerical workflow has already been independently reviewed	launch_sync/evidence/final-check.json	No physical qualification or hosted solver added
+Enable private vulnerability reporting before initial source push	Security reports need a real private destination	publication/evidence/private-reporting.json	PUT endpoint succeeds and GET returns enabled true; initial POST returned 404

@@ -1,6 +1,14 @@
 # Changelog
 
-## Unreleased pre-lab investigation
+## 0.4.0-preview.1 · 2026-10-17
+
+First public research preview. Physical force accuracy remains unqualified.
+
+- Publish the local workbench, two-gap Board walkthrough, captioned media and reproducible numerical evidence.
+- Enable private vulnerability reporting and run portable source checks in GitHub Actions.
+- Include notice-bearing optional lab packages in the complete source distribution. Native engine setup builds pinned upstream source locally.
+
+## Pre-lab investigation included in this preview
 
 - Add source-identified native coupon stress scenarios, finite-copper research controls and a coupled twenty-joint analytical check.
 - Retain boundary-dependent clearance outcomes, ranking reversals, active-contact failures and the measurements needed for qualification.

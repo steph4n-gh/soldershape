@@ -26,7 +26,7 @@ node --check soldershape/web/ui.js
 node --check website/dist/site.js
 ```
 
-The prepared GitHub Actions workflow runs this smaller boundary and syntax set, plus the pure request and finite-pad source checks from `prelab` and the offline two-gap walkthrough verifier. It has not been exercised on hosted CI before a repository is published. Native platform qualification remains a separate check.
+[GitHub Actions](https://github.com/steph4n-gh/soldershape/actions/workflows/checks.yml) runs this smaller boundary and syntax set, plus the pure request and finite-pad source checks from `prelab` and the offline two-gap walkthrough verifier. Its Ubuntu job checks portable source boundaries. Native platform qualification remains a separate check.
 
 ## Reproduce a numerical comparison
 

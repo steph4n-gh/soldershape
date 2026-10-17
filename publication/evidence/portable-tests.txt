@@ -1,0 +1,46 @@
+test_actual_kicad_geometry (tests.test_boundaries.Boundaries.test_actual_kicad_geometry) ... ok
+test_failed_row_evidence_and_csv_survive_export (tests.test_boundaries.Boundaries.test_failed_row_evidence_and_csv_survive_export) ... ok
+test_loaded_replay_rebalances_and_retains_current_failure (tests.test_boundaries.Boundaries.test_loaded_replay_rebalances_and_retains_current_failure) ... ok
+test_malformed_footprints_are_rejected (tests.test_boundaries.Boundaries.test_malformed_footprints_are_rejected) ... ok
+test_mask_defined_pad_cannot_be_solved_as_its_copper_rim (tests.test_boundaries.Boundaries.test_mask_defined_pad_cannot_be_solved_as_its_copper_rim) ... ok
+test_numeric_and_boolean_domains (tests.test_boundaries.Boundaries.test_numeric_and_boolean_domains) ... ok
+test_quoted_labels_and_duplicate_identifiers_keep_distinct_indices (tests.test_boundaries.Boundaries.test_quoted_labels_and_duplicate_identifiers_keep_distinct_indices) ... ok
+test_replay_reports_each_failed_case_and_continues (tests.test_boundaries.Boundaries.test_replay_reports_each_failed_case_and_continues) ... ok
+test_selected_diameter_comes_from_footprint (tests.test_boundaries.Boundaries.test_selected_diameter_comes_from_footprint) ... ok
+test_unsupported_pad_is_visible_but_cannot_be_solved (tests.test_boundaries.Boundaries.test_unsupported_pad_is_visible_but_cannot_be_solved) ... ok
+test_foreign_origin_is_rejected_even_with_token (tests.test_boundaries.LocalHTTP.test_foreign_origin_is_rejected_even_with_token) ... ok
+test_live_import_returns_actual_geometry (tests.test_boundaries.LocalHTTP.test_live_import_returns_actual_geometry) ... ok
+test_missing_local_session_is_rejected (tests.test_boundaries.LocalHTTP.test_missing_local_session_is_rejected) ... ok
+test_unknown_fields_are_rejected (tests.test_boundaries.LocalHTTP.test_unknown_fields_are_rejected) ... ok
+test_case_rejects_nonfinite_and_unexpected_fields (tests.test_cases.CaseHTTP.test_case_rejects_nonfinite_and_unexpected_fields) ... ok
+test_compare_exports_both_failed_rows_and_input_only_case (tests.test_cases.CaseHTTP.test_compare_exports_both_failed_rows_and_input_only_case) ... ok
+test_live_case_open_normalizes_and_returns_original_pad_geometry (tests.test_cases.CaseHTTP.test_live_case_open_normalizes_and_returns_original_pad_geometry) ... ok
+test_open_leaves_foreign_listener_alone (tests.test_cases.CaseHTTP.test_open_leaves_foreign_listener_alone) ... ok
+test_open_reuses_verified_existing_workbench (tests.test_cases.CaseHTTP.test_open_reuses_verified_existing_workbench) ... ok
+test_case_cannot_override_shared_conditions_or_execute_code (tests.test_cases.EditableCases.test_case_cannot_override_shared_conditions_or_execute_code) ... ok
+test_comparison_is_fresh_and_preserves_fixed_conditions (tests.test_cases.EditableCases.test_comparison_is_fresh_and_preserves_fixed_conditions) ... ok
+test_failed_or_zero_offset_comparison_has_no_improvement_verdict (tests.test_cases.EditableCases.test_failed_or_zero_offset_comparison_has_no_improvement_verdict) ... ok
+test_loaded_zero_offset_comparison_reports_height_without_centering_verdict (tests.test_cases.EditableCases.test_loaded_zero_offset_comparison_reports_height_without_centering_verdict) ... ok
+test_pretty_saved_case_fits_the_reopen_limit (tests.test_cases.EditableCases.test_pretty_saved_case_fits_the_reopen_limit) ... ok
+test_saved_inputs_round_trip_without_result_claims (tests.test_cases.EditableCases.test_saved_inputs_round_trip_without_result_claims) ... ok
+test_surface_beyond_pad_planes_keeps_forces_but_blocks_design_verdict (tests.test_cases.EditableCases.test_surface_beyond_pad_planes_keeps_forces_but_blocks_design_verdict) ... ok
+test_board_browser_range_matches_canonical_boundary (tests.test_web_inputs.BrowserInputRanges.test_board_browser_range_matches_canonical_boundary) ... ok
+test_all_rows_remain_accounted_for_when_native_inputs_recur (prelab.test_campaign.CouponRequests.test_all_rows_remain_accounted_for_when_native_inputs_recur) ... ok
+test_both_metal_cylinders_are_counted_once (prelab.test_campaign.CouponRequests.test_both_metal_cylinders_are_counted_once) ... ok
+test_identical_and_reversed_geometries_have_matching_native_requests (prelab.test_campaign.CouponRequests.test_identical_and_reversed_geometries_have_matching_native_requests) ... ok
+test_mass_changes_load_and_does_not_add_solder_weight (prelab.test_campaign.CouponRequests.test_mass_changes_load_and_does_not_add_solder_weight) ... ok
+test_nominal_units_and_liquid_volume (prelab.test_campaign.CouponRequests.test_nominal_units_and_liquid_volume) ... ok
+test_opposed_screened_spheres_are_not_a_second_volume_factor (prelab.test_campaign.CouponRequests.test_opposed_screened_spheres_are_not_a_second_volume_factor) ... ok
+test_published_paper_cannot_be_relabelled_as_actual_coupon (prelab.test_campaign.CouponRequests.test_published_paper_cannot_be_relabelled_as_actual_coupon) ... ok
+test_curved_patch_penetration_is_detected (prelab.test_finite.FinitePadTests.test_curved_patch_penetration_is_detected) ... ok
+test_exact_liquid_volume_bookkeeping (prelab.test_finite.FinitePadTests.test_exact_liquid_volume_bookkeeping) ... ok
+test_model_assigns_inherited_obstacles_only_to_free_interface (prelab.test_finite.FinitePadTests.test_model_assigns_inherited_obstacles_only_to_free_interface) ... ok
+test_prescribed_rim_samples_are_not_new_wall_contact (prelab.test_finite.FinitePadTests.test_prescribed_rim_samples_are_not_new_wall_contact) ... ok
+test_reject_unmodelled_gravity_and_invalid_depth (prelab.test_finite.FinitePadTests.test_reject_unmodelled_gravity_and_invalid_depth) ... ok
+test_relaxed_energy_units_and_sign_against_linear_energy (prelab.test_finite.FinitePadTests.test_relaxed_energy_units_and_sign_against_linear_energy) ... ok
+test_sampling_precedes_flattening_without_extra_mesh_refinement (prelab.test_finite.FinitePadTests.test_sampling_precedes_flattening_without_extra_mesh_refinement) ... ok
+
+----------------------------------------------------------------------
+Ran 41 tests in 1.356s
+
+OK

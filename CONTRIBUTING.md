@@ -10,4 +10,4 @@ For a change, explain the user-visible problem, resulting behavior and verificat
 
 Original contributions are offered under the repository's MIT license. Preserve separate third-party terms. Do not submit material you lack permission to distribute. This project currently has no promised response time or commercial support agreement.
 
-The public repository and issue channel are pending release. [Launch readiness](launch/READINESS.md) records that status. Security-sensitive reports follow [SECURITY.md](SECURITY.md).
+Use [GitHub issues](https://github.com/steph4n-gh/soldershape/issues) for ordinary bugs and [pull requests](https://github.com/steph4n-gh/soldershape/pulls) for proposed changes. Security-sensitive reports follow [SECURITY.md](SECURITY.md) and its private reporting channel.
