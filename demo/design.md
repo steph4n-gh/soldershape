@@ -1,0 +1,11 @@
+# Selected extreme demo
+
+Use candidate B's focused read-only `/demo` page. Root scores B19 and A16 of20 across engineering consequence, honest negative evidence, exact handoff, maintenance cost and visual clarity. The independent cross-judge runs alongside this decision and can challenge it. Graft A's editable-case handoff and reuse the workbench's triangle renderer through one shared drawing helper. Do not add a second editor, a board-wide solver or mesh interpolation.
+
+The selected data shape is one recorded experiment containing immutable native records, plus a table of named paired samples. Each pair owns both meshes, its request identities and one server-owned screen. Three comparison samples use40,120,200um offsets at150um gap,5/7nL solder,200um pad diameters and400um pitch. A separate compression control reuses the7nL/40um/150um reference and compares it with the failed7nL/40um/60um request. It is labeled a gap control, not a volume comparison. The80um probe remains in historical probe output and logs.
+
+A canonical seven-case ZIP retains all displayed native receipts and meshes. A small recording manifest binds that archive, the normalized protocol and numerical source identities. The reader verifies hashes, normalized requests, footprint and expected case roles before deriving display records. The browser never computes a favorable decision. The new page only reads recorded data. A downloaded existing editable case moves inputs into the old workbench for fresh computation.
+
+`mesh-view.js` exposes only `SolderMesh.drawSurface(ctx, mesh, project, standoffMm, wireframe)`. It draws the exact returned triangles with the workbench's shading. It owns no camera, input state or DOM. Old and new viewers own their projection and context.
+
+Before implementation, acceptance requires a native force contrast at40and120um, a blocked7nL200um scope result and a visible failed compression control. No motion, capture range, bridge or yield prediction is allowed. The footprint identifies one selected pad and neighboring context only. Both comparison views use one physical scale and camera. Discrete sample buttons do not interpolate shapes. All seven cases fit the existing replay limit. Failed/scope cases retain exports but no favorable screen. First view labels recorded native computation, fixture-held gap and physical accuracy unqualified.

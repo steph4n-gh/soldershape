@@ -1,0 +1,45 @@
+{
+  "surface": "http://127.0.0.1:8767/demo",
+  "default_sample": "offset-120",
+  "recorded_native_computation": true,
+  "archive_sha256": "914ef334f8850be64a1c5b325647c1d9bc6adf6acfdcac6a3d04920bd4f27f24",
+  "actual_download_sha256": "914ef334f8850be64a1c5b325647c1d9bc6adf6acfdcac6a3d04920bd4f27f24",
+  "samples_exercised": [
+    "offset-40",
+    "offset-120",
+    "offset-200",
+    "compressed"
+  ],
+  "positive_observations": [
+    "Both exact meshes render at one physical scale with signed forces and fixture objective visible.",
+    "Wireframe, keyboard orbit and reset controls were exercised.",
+    "The footprint plan shows one highlighted pad and labels neighbors as context.",
+    "Downloaded editable case retains5nL reference,7nL candidate,150um gap and120um offset.",
+    "Actual downloaded case reopened in original workbench and recomputed the same force pairs.",
+    "Shared renderer displayed actual mesh in original workbench after extraction."
+  ],
+  "negative_observations": [
+    "200um7nL retains its mesh and scope warning, but no favorable comparison.",
+    "Compressed60um gap control has no mesh or force values and blocks comparison.",
+    "Changing volume after fresh workbench computation cleared forces, results and download eligibility."
+  ],
+  "workbench_fresh_forces_uN": {
+    "reference": {
+      "x": -92.263283646421,
+      "z": -89.98074058445366
+    },
+    "candidate": {
+      "x": -82.19306382173386,
+      "z": 7.619480890674879
+    }
+  },
+  "console_errors_or_warnings": [],
+  "screenshots": [
+    "demo/stress-demo.png",
+    "demo/model-limit.png",
+    "demo/numerical-failure.png"
+  ],
+  "physical_qualification": "unqualified",
+  "temporary_workbench_tab_closed": true,
+  "existing_user_tabs_preserved": true
+}

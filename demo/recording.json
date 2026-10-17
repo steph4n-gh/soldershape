@@ -1,0 +1,10 @@
+{
+  "archive_sha256": "914ef334f8850be64a1c5b325647c1d9bc6adf6acfdcac6a3d04920bd4f27f24",
+  "calculation_code_sha256": {
+    "model.py": "543720e8a6999896410aaf22651846c71b4f4736923ffe0ada0767ce35619657",
+    "solver.py": "c7bcfcc2c5f24e6e783540b3fcabc45a8d15308ded887aca2ae41442ddf4c8a6"
+  },
+  "physical_qualification": "unqualified",
+  "protocol_sha256": "72642f699771b02a7c145b72047c12ce5b3432c04c2411928877763e9276f625",
+  "recording_method": "Fresh seven-case native computation"
+}

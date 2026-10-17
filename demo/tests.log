@@ -1,0 +1,13 @@
+test_recorded_route_never_runs_solver_and_download_matches_display (tests.test_demo.DemoHTTP.test_recorded_route_never_runs_solver_and_download_matches_display) ... ok
+test_actual_recording_shows_contrast_scope_limit_and_failed_control (tests.test_demo.RecordedDemo.test_actual_recording_shows_contrast_scope_limit_and_failed_control) ... ok
+test_editable_cases_preserve_volume_comparison_and_distinct_gap_control (tests.test_demo.RecordedDemo.test_editable_cases_preserve_volume_comparison_and_distinct_gap_control) ... ok
+test_resealed_source_copy_must_match_recorded_identity (tests.test_demo.RecordedDemo.test_resealed_source_copy_must_match_recorded_identity) ... ok
+test_resealed_wrong_request_cannot_reuse_native_receipt (tests.test_demo.RecordedDemo.test_resealed_wrong_request_cannot_reuse_native_receipt) ... ok
+test_unrelated_native_failure_cannot_match_hessian_warning (tests.test_demo.RecordedDemo.test_unrelated_native_failure_cannot_match_hessian_warning) ... ok
+test_unsealed_archive_edit_is_rejected (tests.test_demo.RecordedDemo.test_unsealed_archive_edit_is_rejected) ... ok
+test_verified_byte_snapshot_is_used_if_original_archive_changes (tests.test_demo.RecordedDemo.test_verified_byte_snapshot_is_used_if_original_archive_changes) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 3.230s
+
+OK

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0e1720">
+  <title>SolderShape | Extreme joint experiment</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/demo.css">
+  <script src="/mesh-view.js" defer></script>
+  <script src="/demo.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="SolderShape home"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>Solder<span>Shape</span></a>
+    <nav aria-label="Workbench navigation"><a href="/">Joint workbench</a><a href="/study">Pad study</a><a href="/demo" aria-current="page">Extreme demo</a></nav>
+    <span class="local-label">LOCAL EXPERIMENT</span>
+  </header>
+  <main>
+    <section class="intro" aria-labelledby="demo-question">
+      <div class="intro-copy"><p class="eyebrow">THE SOLDER VOLUME TRADEOFF</p><h1 id="demo-question">What changes when you add more solder?</h1><p id="demo-title" class="subtitle">A recorded native experiment on a single joint.</p></div>
+      <div class="evidence-labels"><span class="recorded-label"><i aria-hidden="true"></i>Recorded native computation</span><span class="qualification-label">Physical accuracy unqualified</span></div>
+    </section>
+    <div id="load-notice" class="load-notice" role="status" aria-live="polite">Loading the recorded experiment and verifying its evidence.</div>
+    <div id="experiment" hidden>
+      <section class="experiment-controls" aria-label="Recorded samples">
+        <div class="offset-selector"><span class="control-label">LATERAL OFFSET</span><div id="offset-buttons" class="sample-buttons" role="group" aria-label="Choose a recorded lateral offset"></div></div>
+        <div class="gap-selector"><span class="control-label">GAP CONTROL</span><div id="control-buttons" class="sample-buttons" role="group" aria-label="Choose a recorded compression control"></div></div>
+        <div class="viewer-controls"><span>LINKED VIEWS</span><label><input id="mesh-edges" type="checkbox">Mesh edges</label><button id="reset-view" type="button" title="Reset both model views">Reset view</button></div>
+      </section>
+      <section class="comparison" aria-label="Recorded native comparison">
+        <article class="joint-card reference-card" aria-labelledby="reference-heading">
+          <header class="joint-header"><div><p class="role-label" id="reference-role">REFERENCE</p><h2 id="reference-heading">Reference joint</h2></div><span class="numerical-status" id="reference-status"></span></header>
+          <div class="force-row"><div><span class="force-label">X <span>Lateral force</span></span><strong id="reference-force-x">Unavailable</strong><span class="unit">µN</span></div><div><span class="force-label z-label">Z <span>Vertical force</span></span><strong id="reference-force-z">Unavailable</strong><span class="unit">µN</span></div></div>
+          <div class="model-view"><canvas id="reference-canvas" role="img" tabindex="0" aria-label="Reference native mesh. Drag or use arrow keys to orbit both models. Scroll or use plus and minus to zoom."></canvas><span class="geometry-tag" id="reference-geometry"></span><div class="failed-geometry" id="reference-empty" hidden><strong>No computed geometry</strong><p></p></div><div class="canvas-hint">DRAG TO ORBIT <span>·</span> SCROLL TO ZOOM</div></div>
+          <div class="joint-footer"><span id="reference-conditions"></span><span id="reference-mesh"></span></div>
+          <ul class="joint-warnings" id="reference-warnings" hidden></ul>
+        </article>
+        <article class="joint-card candidate-card" aria-labelledby="candidate-heading">
+          <header class="joint-header"><div><p class="role-label" id="candidate-role">CANDIDATE</p><h2 id="candidate-heading">Candidate joint</h2></div><span class="numerical-status" id="candidate-status"></span></header>
+          <div class="force-row"><div><span class="force-label">X <span>Lateral force</span></span><strong id="candidate-force-x">Unavailable</strong><span class="unit">µN</span></div><div><span class="force-label z-label">Z <span>Vertical force</span></span><strong id="candidate-force-z">Unavailable</strong><span class="unit">µN</span></div></div>
+          <div class="model-view"><canvas id="candidate-canvas" role="img" tabindex="0" aria-label="Candidate native mesh. Drag or use arrow keys to orbit both models. Scroll or use plus and minus to zoom."></canvas><span class="geometry-tag" id="candidate-geometry"></span><div class="failed-geometry" id="candidate-empty" hidden><strong>No computed geometry</strong><p></p></div><div class="canvas-hint">SAME PHYSICAL SCALE <span>·</span> LINKED CAMERA</div></div>
+          <div class="joint-footer"><span id="candidate-conditions"></span><span id="candidate-mesh"></span></div>
+          <ul class="joint-warnings" id="candidate-warnings" hidden></ul>
+        </article>
+      </section>
+      <section class="screen-panel" id="screen-panel" aria-labelledby="screen-headline" aria-live="polite"><div class="screen-mark" aria-hidden="true" id="screen-mark">?</div><div><p class="eyebrow" id="screen-status">CONDITIONAL FORCE COMPARISON</p><h2 id="screen-headline"></h2><ul id="screen-details"></ul></div></section>
+      <p class="force-convention">Forces act on the upper pad. Negative X opposes the positive offset. Positive Z points away from the board. The gap is held by an external fixture. No assembly motion is simulated.</p>
+      <div class="context-grid">
+        <section class="context-panel" aria-labelledby="board-heading"><div class="section-heading"><div><p class="eyebrow">ACTUAL FOOTPRINT CONTEXT</p><h2 id="board-heading">One selected joint.</h2></div><span id="pitch-label" class="mono"></span></div><div class="footprint-view"><canvas id="footprint-canvas" role="img" aria-label="Actual footprint pad positions with the selected joint and its lateral offset highlighted."></canvas><div class="footprint-legend"><span><i class="copper-dot"></i>Board pad</span><span><i class="teal-ring"></i>Offset upper pad</span></div></div><p class="context-note" id="footprint-note"></p><p class="source-digest" id="footprint-digest"></p></section>
+        <section class="context-panel conditions-panel" aria-labelledby="conditions-heading"><div class="section-heading"><div><p class="eyebrow">WHAT THIS EXPERIMENT ASSUMES</p><h2 id="conditions-heading">Keep the boundary conditions in view.</h2></div></div><ul id="assumptions" class="assumptions"></ul><div class="baseline-note"><strong>The simpler alternative</strong><p id="baseline-note"></p></div></section>
+      </div>
+      <section class="native-panel" aria-labelledby="native-heading"><div class="section-heading"><div><p class="eyebrow">ALL SEVEN NATIVE CASES</p><h2 id="native-heading">The limits stay in the record.</h2></div><span class="table-note">Signed forces on the upper pad</span></div><div class="table-scroll"><table><thead><tr><th scope="col">Recorded case</th><th scope="col">Volume · nL</th><th scope="col">Offset · µm</th><th scope="col">Held gap · µm</th><th scope="col">X force · µN</th><th scope="col">Z force · µN</th><th scope="col">Numerical result / scope</th></tr></thead><tbody id="native-cases"></tbody></table></div><p class="table-footnote">A refinement check assesses numerical consistency. It does not establish physical accuracy. Scope warnings and solver failures block the force preference.</p></section>
+      <section class="handoff" aria-labelledby="handoff-heading"><div><p class="eyebrow">INSPECT. CHANGE. RECOMPUTE.</p><h2 id="handoff-heading">Take the exact experiment with you.</h2><p>Download the native evidence or open an editable case in the joint workbench. Choose Open case, then run a fresh Compare or Solve.</p></div><div class="handoff-actions"><button id="editable-case" class="button secondary" type="button">Save selected editable case</button><a id="evidence-download" class="button primary" href="/demo/evidence.zip" download>Download all native evidence <span aria-hidden="true">↓</span></a></div><p class="source-digest archive-digest" id="archive-digest"></p></section>
+      <footer class="scope-note"><span class="control-label">MODEL LIMITS</span><p>This is a static equilibrium comparison for one joint with pinned, fully wetted circular pad boundaries. It does not predict thermal reflow, self-alignment travel, capture range, solder bridges, or manufacturing yield. Use measured process inputs and physical testing before a PCB design decision.</p></footer>
+    </div>
+  </main>
+</body>
+</html>

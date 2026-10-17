@@ -1,0 +1,3 @@
+{"design": "5 nL at 200 um", "status": "refinement_checked", "forces": {"x_uN": -105.55166966574879, "z_uN": -59.312793584028384}, "model_warnings": [], "error": null}
+{"design": "7 nL at 200 um", "status": "refinement_checked", "forces": {"x_uN": -105.71470520082114, "z_uN": -15.852826951157084}, "model_warnings": ["Model scope: the surface extends beyond the wetted pad planes. Substrate obstacles are not modeled; check physical clearance before interpreting these forces."], "error": null}
+{"design": "Compressed 7 nL at 40 um", "status": "failed", "forces": null, "model_warnings": null, "error": "Engine reported a numerical or command error. Inspect the captured solver output."}

@@ -1,0 +1,96 @@
+{
+  "recording_verified": true,
+  "all_cases_numerically_successful": false,
+  "physical_qualification": "unqualified",
+  "tamper_rejected": true,
+  "archive_sha256": "8853757f6ab2b3aceb461e08616ead1ed8c60a9af96199f3eb328adef38db0f6",
+  "cases": 7,
+  "replayed": true,
+  "checks": [
+    {
+      "input_sha256": "83c1dcbae2f47ac96f9caaee052816f6fd7e367704446169926abe22e7935553",
+      "previous_status": "refinement_checked",
+      "current_status": "refinement_checked",
+      "expected_failure_reproduced": false,
+      "verified": true,
+      "force_difference_uN": {
+        "x_uN": 0.0,
+        "z_uN": 0.0
+      },
+      "model_scope_matches": true,
+      "exact_engine_provenance": true
+    },
+    {
+      "input_sha256": "fb833c2ff15803cbaf9883f418cd11471572ada7778f330464199c2372f55408",
+      "previous_status": "refinement_checked",
+      "current_status": "refinement_checked",
+      "expected_failure_reproduced": false,
+      "verified": true,
+      "force_difference_uN": {
+        "x_uN": 0.0,
+        "z_uN": 0.0
+      },
+      "model_scope_matches": true,
+      "exact_engine_provenance": true
+    },
+    {
+      "input_sha256": "d1d6de033337174dcc6ce0999a9015a596a5178f643f79b3fd9f35fe166ef749",
+      "previous_status": "refinement_checked",
+      "current_status": "refinement_checked",
+      "expected_failure_reproduced": false,
+      "verified": true,
+      "force_difference_uN": {
+        "x_uN": 0.0,
+        "z_uN": 0.0
+      },
+      "model_scope_matches": true,
+      "exact_engine_provenance": true
+    },
+    {
+      "input_sha256": "cf07cd24d9b241db392ecc2aa509334d6f93983aced63872226ee0a61b07d2c1",
+      "previous_status": "refinement_checked",
+      "current_status": "refinement_checked",
+      "expected_failure_reproduced": false,
+      "verified": true,
+      "force_difference_uN": {
+        "x_uN": 0.0,
+        "z_uN": 0.0
+      },
+      "model_scope_matches": true,
+      "exact_engine_provenance": true
+    },
+    {
+      "input_sha256": "055a6c42f4df200d2344fbbc06e2b4f71b228921c88f836672af3d46c6bbf14d",
+      "previous_status": "refinement_checked",
+      "current_status": "refinement_checked",
+      "expected_failure_reproduced": false,
+      "verified": true,
+      "force_difference_uN": {
+        "x_uN": 0.0,
+        "z_uN": 0.0
+      },
+      "model_scope_matches": true,
+      "exact_engine_provenance": true
+    },
+    {
+      "input_sha256": "9c384d4c908549364e68c0548116b0b4e54dd47e8d1ad1b5b79d5422b22f8eea",
+      "previous_status": "refinement_checked",
+      "current_status": "refinement_checked",
+      "expected_failure_reproduced": false,
+      "verified": true,
+      "force_difference_uN": {
+        "x_uN": 0.0,
+        "z_uN": 0.0
+      },
+      "model_scope_matches": true,
+      "exact_engine_provenance": true
+    },
+    {
+      "input_sha256": "0bd8eb3f2a5768f2f37737ffeaf8f899ebab331e7971e9b650f41a9dad3d67b1",
+      "previous_status": "failed",
+      "current_status": "failed",
+      "expected_failure_reproduced": true,
+      "verified": true
+    }
+  ]
+}

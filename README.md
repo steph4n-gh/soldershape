@@ -6,6 +6,8 @@ SolderShape was selected over KnotForge because it connects an existing PCB-desi
 
 ## Run the workbench
 
+For an immediate visual example, open [the misalignment stress demo](http://127.0.0.1:8765/demo) after starting the service. It compares exact native meshes for 5 and 7 nL solder at large placement offsets, preserves a substrate-plane limit and a numerical failure, and exports editable inputs. [Demo instructions](demo/README.md) and [computed results](demo/RESULTS.md) explain its conditional scope. Recorded inspection does not require a compiled engine.
+
 Requirements are Python 3.12 or newer, a C compiler, `make`, and a modern browser. Setup needs an internet connection to download two hash-pinned upstream archives. Computation and the browser interface work offline afterward. This checkout was qualified on Apple Silicon macOS with Python 3.14 and Apple clang 21. Other platforms remain unqualified.
 
 From the project directory, run:

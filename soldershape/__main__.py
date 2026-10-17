@@ -140,10 +140,22 @@ class Handler(BaseHTTPRequestHandler):
         if path == "/api/study/example":
             self.respond(200, json.loads((ROOT / "examples/coupon-planning.study.json").read_text()))
             return
+        if path in {"/api/demo", "/demo/evidence.zip"}:
+            from .demo import demo_archive, read_demo
+            try:
+                if path == "/api/demo":
+                    self.respond(200, read_demo())
+                else:
+                    self.respond(200, demo_archive()[0], "application/zip")
+            except (InputError, OSError, ValueError, KeyError, zipfile.BadZipFile) as error:
+                self.respond(422, {"error": "Recorded demo could not be verified. " + str(error)})
+            return
         assets = {"/": ("index.html", "text/html"), "/index.html": ("index.html", "text/html"),
                   "/app.js": ("app.js", "text/javascript"), "/style.css": ("style.css", "text/css"),
                   "/study": ("study.html", "text/html"), "/study.js": ("study.js", "text/javascript"),
-                  "/study.css": ("study.css", "text/css")}
+                  "/study.css": ("study.css", "text/css"), "/demo": ("demo.html", "text/html"),
+                  "/demo.js": ("demo.js", "text/javascript"), "/demo.css": ("demo.css", "text/css"),
+                  "/mesh-view.js": ("mesh-view.js", "text/javascript")}
         if path not in assets:
             self.respond(404, {"error": "Not found."})
             return

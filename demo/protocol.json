@@ -1,0 +1,35 @@
+{
+  "schema": "soldershape.extreme-demo.v1",
+  "title": "The misalignment stress test",
+  "question": "Does 40% more solder give you a better joint?",
+  "footprint": "BGA-36_3.396x3.466mm_Layout6x6_P0.4mm_Ball0.25mm_Pad0.2mm_NSMD.kicad_mod",
+  "pad_index": 0,
+  "pitch_mm": 0.4,
+  "parameters": {"upper_diameter_mm": 0.2, "standoff_mm": 0.15, "surface_tension_n_m": 0.48, "density_g_cm3": 9.0, "gravity": true},
+  "records": [
+    {"id":"less-40", "volume_mm3":0.005, "offset_mm":0.04, "standoff_mm":0.15},
+    {"id":"more-40", "volume_mm3":0.007, "offset_mm":0.04, "standoff_mm":0.15},
+    {"id":"less-120", "volume_mm3":0.005, "offset_mm":0.12, "standoff_mm":0.15},
+    {"id":"more-120", "volume_mm3":0.007, "offset_mm":0.12, "standoff_mm":0.15},
+    {"id":"less-200", "volume_mm3":0.005, "offset_mm":0.2, "standoff_mm":0.15},
+    {"id":"more-200", "volume_mm3":0.007, "offset_mm":0.2, "standoff_mm":0.15},
+    {"id":"compressed", "volume_mm3":0.007, "offset_mm":0.04, "standoff_mm":0.06}
+  ],
+  "samples": [
+    {"id":"offset-40", "label":"40 µm offset", "kind":"volume_comparison", "reference":"less-40", "candidate":"more-40"},
+    {"id":"offset-120", "label":"120 µm offset", "kind":"volume_comparison", "reference":"less-120", "candidate":"more-120"},
+    {"id":"offset-200", "label":"200 µm limit", "kind":"volume_comparison", "reference":"less-200", "candidate":"more-200"},
+    {"id":"compressed", "label":"60 µm gap failure", "kind":"compression_control", "reference":"more-40", "candidate":"compressed"}
+  ],
+  "assumptions": [
+    "Recorded native equilibria under artificial planning inputs. Physical accuracy is unqualified.",
+    "The declared fixture objective is lateral restoration without upward separating force. It is not a manufacturer requirement.",
+    "Only one isolated joint is solved. The footprint is geometric context, not a coupled board or package simulation.",
+    "The gap is held by an external fixture. It is not a prediction of free package height.",
+    "Fully wetted pinned circular rims and fixed liquid volume are assumptions. This does not predict initial wetting or whether a joint forms.",
+    "Discrete offsets are independent static equilibria. They do not predict motion, alignment time, capture range, bridges or yield.",
+    "Mesh topology and refinement checks do not prove a unique global equilibrium or certify self-intersection absence.",
+    "The existing physical force-validation failure remains unresolved. These cases do not qualify the example alloy or process."
+  ],
+  "baseline": "Published Eq. 9 is a strong simple alternative for aligned lightly loaded height. It does not answer this nonzero-offset, fixed-gap lateral and axial force question. Surface Evolver itself already supplies the numerical capability. This demo adds inspectable PCB context and a reproducible comparison."
+}

@@ -1,0 +1,10 @@
+{
+  "recording_verified": true,
+  "all_cases_numerically_successful": false,
+  "physical_qualification": "unqualified",
+  "tamper_rejected": true,
+  "archive_sha256": "914ef334f8850be64a1c5b325647c1d9bc6adf6acfdcac6a3d04920bd4f27f24",
+  "cases": 7,
+  "replayed": false,
+  "checks": []
+}
