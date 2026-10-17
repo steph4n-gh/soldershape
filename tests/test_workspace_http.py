@@ -59,13 +59,13 @@ class WorkspaceHTTP(unittest.TestCase):
 
     def test_fixed_resources_preserve_release_identity(self):
         resources = {
-            '/lab/kit.zip': ('output/soldershape-force-lab-r1.zip', 'application/zip'),
+            '/lab/kit.zip': ('output/soldershape-force-lab-r1-noticed.zip', 'application/zip'),
             '/lab/handbook.pdf': ('output/pdf/soldershape-force-lab-handoff.pdf', 'application/pdf'),
             '/lab/rfq.txt': ('force_lab/RFQ.md', 'text/plain'),
             '/lab/procedure.txt': ('force_lab/PROCEDURE.md', 'text/plain'),
             '/lab/bom.csv': ('force_lab/BOM.csv', 'text/csv'),
             '/lab/uncertainties.txt': ('force_lab/uncertainties.md', 'text/plain'),
-            '/lab/height-coupon.zip': ('output/soldershape-coupon-r1-refined.zip', 'application/zip'),
+            '/lab/height-coupon.zip': ('output/soldershape-coupon-r1-noticed.zip', 'application/zip'),
             '/lab/prelab.html': ('prelab/REPORT.html', 'text/html'),
             '/lab/prelab-protocol.json': ('prelab/protocol.json', 'application/json'),
             '/lab/prelab-results.json': ('prelab/evidence/campaign/report.json', 'application/json'),
