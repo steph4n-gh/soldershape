@@ -1,0 +1,29 @@
+{
+  "board_sha256": "1172f7b0fc262422bab01c62fb4dc84f16d9f1ea8902dc6fe2da859bba9035fc",
+  "board_xy_mm": [
+    142.88,
+    86.6
+  ],
+  "commit": "6a92cec6b177191c5b0f80e260013a1f8ec147dd",
+  "component_rotation_deg": 0.0,
+  "component_side": "front",
+  "component_uuid": "00000000-0000-0000-0000-000058d8d57e",
+  "footprint_file": "assets/footprints.pretty/U1--00000000-0000-0000-0000-000058d8d57e.kicad_mod",
+  "footprint_sha256": "14b691bcc05e1c93fa1ae8aeb70361e646a4f4ffba255ebd4b9002ae0ba2160a",
+  "license_sha256": "cdaaa3f0c2d1dbb538844077fd7a1d9d43c890d0745b20d8aa0717b583d6af9f",
+  "local_x_board": [
+    1.0,
+    -0.0
+  ],
+  "local_xy_mm": [
+    4.4,
+    -1.2
+  ],
+  "lower_diameter_mm": 0.4,
+  "pad_identifier": "J16",
+  "pad_index": 173,
+  "pad_net": "SDRAM_D0",
+  "reference": "U1",
+  "repository": "https://github.com/emard/ulx3s",
+  "value": "LFE5U-85F-6BG381C"
+}

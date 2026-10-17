@@ -1,0 +1,393 @@
+{
+  "application_ui_commit": "3644c08bbf0ef1976bc634bba323779055583e6b",
+  "physical_qualification": "unqualified",
+  "scenarios": [
+    {
+      "archive_sha256": "25c6bc2e128da589a2e113f68da4ce7eafdd69adbaea14c9a81f9236aa0e300e",
+      "evidence_url": "media/evidence/review.html",
+      "held_gap_um": 300,
+      "id": "gap-300",
+      "label": "300 \u00b5m held gap",
+      "rows": [
+        {
+          "equilibrium": {
+            "density_g_cm3": 9,
+            "gravity": true,
+            "lower_diameter_mm": 0.4,
+            "offset_mm": 0.24,
+            "standoff_mm": 0.3,
+            "surface_tension_n_m": 0.48,
+            "upper_diameter_mm": 0.4,
+            "volume_mm3": 0.04
+          },
+          "facts": [
+            "Solder volume 40 nL (0.04 mm\u00b3); offset 240 \u00b5m (0.24 mm).",
+            "Held wetted-plane gap 300 \u00b5m (0.3 mm).",
+            "X force -184.526 \u00b5N.",
+            "Restoring force 184.526 \u00b5N (toward alignment).",
+            "Z force -181.284 \u00b5N (downward).",
+            "The solder pulls the upper pad downward at this held gap."
+          ],
+          "forces": {
+            "x_uN": -184.52638094190732,
+            "z_uN": -181.28387853829275
+          },
+          "headline": "Checked prediction at a held gap.",
+          "input": {
+            "density_g_cm3": 9,
+            "gravity": true,
+            "lower_diameter_mm": 0.4,
+            "offset_mm": 0.24,
+            "standoff_mm": 0.3,
+            "surface_tension_n_m": 0.48,
+            "upper_diameter_mm": 0.4,
+            "volume_mm3": 0.04
+          },
+          "input_sha256": "60df5cfa24f690fdad0eed5ca0196cd7f885d8a2acbd63186dc1b7e11c00a007",
+          "inputs": [
+            {
+              "label": "Lower pad diameter",
+              "value": "400 \u00b5m (0.4 mm)"
+            },
+            {
+              "label": "Upper pad diameter",
+              "value": "400 \u00b5m (0.4 mm)"
+            },
+            {
+              "label": "Solder volume",
+              "value": "40 nL (0.04 mm\u00b3)"
+            },
+            {
+              "label": "Offset",
+              "value": "240 \u00b5m (0.24 mm)"
+            },
+            {
+              "label": "Held wetted-plane gap",
+              "value": "300 \u00b5m (0.3 mm)"
+            },
+            {
+              "label": "Surface tension",
+              "value": "0.48 N/m"
+            },
+            {
+              "label": "Density",
+              "value": "9 g/cm\u00b3"
+            },
+            {
+              "label": "Gravity",
+              "value": "Included"
+            }
+          ],
+          "label": "Reference",
+          "numerical_status": "refinement_checked",
+          "warnings": []
+        },
+        {
+          "equilibrium": {
+            "density_g_cm3": 9,
+            "gravity": true,
+            "lower_diameter_mm": 0.4,
+            "offset_mm": 0.24,
+            "standoff_mm": 0.3,
+            "surface_tension_n_m": 0.48,
+            "upper_diameter_mm": 0.4,
+            "volume_mm3": 0.056
+          },
+          "facts": [
+            "Solder volume 56 nL (0.056 mm\u00b3); offset 240 \u00b5m (0.24 mm).",
+            "Held wetted-plane gap 300 \u00b5m (0.3 mm).",
+            "X force -164.385 \u00b5N.",
+            "Restoring force 164.385 \u00b5N (toward alignment).",
+            "Z force 13.3859 \u00b5N (upward).",
+            "The solder pushes the upper pad upward at this held gap."
+          ],
+          "forces": {
+            "x_uN": -164.3854725452698,
+            "z_uN": 13.385897738397528
+          },
+          "headline": "Checked prediction at a held gap.",
+          "input": {
+            "density_g_cm3": 9,
+            "gravity": true,
+            "lower_diameter_mm": 0.4,
+            "offset_mm": 0.24,
+            "standoff_mm": 0.3,
+            "surface_tension_n_m": 0.48,
+            "upper_diameter_mm": 0.4,
+            "volume_mm3": 0.056
+          },
+          "input_sha256": "d390c18cbe600b8aebe02b95c65f2c4b864e3139cae5cc03ad4fbf8bd508d7eb",
+          "inputs": [
+            {
+              "label": "Lower pad diameter",
+              "value": "400 \u00b5m (0.4 mm)"
+            },
+            {
+              "label": "Upper pad diameter",
+              "value": "400 \u00b5m (0.4 mm)"
+            },
+            {
+              "label": "Solder volume",
+              "value": "56 nL (0.056 mm\u00b3)"
+            },
+            {
+              "label": "Offset",
+              "value": "240 \u00b5m (0.24 mm)"
+            },
+            {
+              "label": "Held wetted-plane gap",
+              "value": "300 \u00b5m (0.3 mm)"
+            },
+            {
+              "label": "Surface tension",
+              "value": "0.48 N/m"
+            },
+            {
+              "label": "Density",
+              "value": "9 g/cm\u00b3"
+            },
+            {
+              "label": "Gravity",
+              "value": "Included"
+            }
+          ],
+          "label": "Candidate",
+          "numerical_status": "refinement_checked",
+          "warnings": []
+        }
+      ],
+      "screen": {
+        "candidate_rule_met": false,
+        "details": [
+          "The objective requires lateral restoration and no upward separating force at the held gap.",
+          "This numerical screen does not select a production solder volume."
+        ],
+        "headline": "Less solder meets this declared fixture objective. More solder pushes upward.",
+        "reference_rule_met": true,
+        "status": "conditional_comparison"
+      }
+    },
+    {
+      "archive_sha256": "e04880f9666586e421ce17177ef04b00eb5498b96cc130425acac938ba935777",
+      "evidence_url": "media/gap-330-evidence/review.html",
+      "held_gap_um": 330,
+      "id": "gap-330",
+      "label": "330 \u00b5m held gap",
+      "rows": [
+        {
+          "equilibrium": {
+            "density_g_cm3": 9,
+            "gravity": true,
+            "lower_diameter_mm": 0.4,
+            "offset_mm": 0.24,
+            "standoff_mm": 0.33,
+            "surface_tension_n_m": 0.48,
+            "upper_diameter_mm": 0.4,
+            "volume_mm3": 0.04
+          },
+          "facts": [
+            "Solder volume 40 nL (0.04 mm\u00b3); offset 240 \u00b5m (0.24 mm).",
+            "Held wetted-plane gap 330 \u00b5m (0.33 mm).",
+            "X force -169.063 \u00b5N.",
+            "Restoring force 169.063 \u00b5N (toward alignment).",
+            "Z force -227.39 \u00b5N (downward).",
+            "The solder pulls the upper pad downward at this held gap."
+          ],
+          "forces": {
+            "x_uN": -169.062859622926,
+            "z_uN": -227.38953775806067
+          },
+          "headline": "Checked prediction at a held gap.",
+          "input": {
+            "density_g_cm3": 9,
+            "gravity": true,
+            "lower_diameter_mm": 0.4,
+            "offset_mm": 0.24,
+            "standoff_mm": 0.33,
+            "surface_tension_n_m": 0.48,
+            "upper_diameter_mm": 0.4,
+            "volume_mm3": 0.04
+          },
+          "input_sha256": "1b5cfcae284f3ad5d0b9a4c1ecd6ef60a5ebf666315cd963fc9cf3dbaf434e5d",
+          "inputs": [
+            {
+              "label": "Lower pad diameter",
+              "value": "400 \u00b5m (0.4 mm)"
+            },
+            {
+              "label": "Upper pad diameter",
+              "value": "400 \u00b5m (0.4 mm)"
+            },
+            {
+              "label": "Solder volume",
+              "value": "40 nL (0.04 mm\u00b3)"
+            },
+            {
+              "label": "Offset",
+              "value": "240 \u00b5m (0.24 mm)"
+            },
+            {
+              "label": "Held wetted-plane gap",
+              "value": "330 \u00b5m (0.33 mm)"
+            },
+            {
+              "label": "Surface tension",
+              "value": "0.48 N/m"
+            },
+            {
+              "label": "Density",
+              "value": "9 g/cm\u00b3"
+            },
+            {
+              "label": "Gravity",
+              "value": "Included"
+            }
+          ],
+          "label": "Reference",
+          "numerical_status": "refinement_checked",
+          "warnings": []
+        },
+        {
+          "equilibrium": {
+            "density_g_cm3": 9,
+            "gravity": true,
+            "lower_diameter_mm": 0.4,
+            "offset_mm": 0.24,
+            "standoff_mm": 0.33,
+            "surface_tension_n_m": 0.48,
+            "upper_diameter_mm": 0.4,
+            "volume_mm3": 0.056
+          },
+          "facts": [
+            "Solder volume 56 nL (0.056 mm\u00b3); offset 240 \u00b5m (0.24 mm).",
+            "Held wetted-plane gap 330 \u00b5m (0.33 mm).",
+            "X force -170.455 \u00b5N.",
+            "Restoring force 170.455 \u00b5N (toward alignment).",
+            "Z force -82.2761 \u00b5N (downward).",
+            "The solder pulls the upper pad downward at this held gap."
+          ],
+          "forces": {
+            "x_uN": -170.45539126847586,
+            "z_uN": -82.27612770208692
+          },
+          "headline": "Checked prediction at a held gap.",
+          "input": {
+            "density_g_cm3": 9,
+            "gravity": true,
+            "lower_diameter_mm": 0.4,
+            "offset_mm": 0.24,
+            "standoff_mm": 0.33,
+            "surface_tension_n_m": 0.48,
+            "upper_diameter_mm": 0.4,
+            "volume_mm3": 0.056
+          },
+          "input_sha256": "f2086caaea4c7e101a104d88858571fc03fa9684ead20f4e39ebb782a23ff466",
+          "inputs": [
+            {
+              "label": "Lower pad diameter",
+              "value": "400 \u00b5m (0.4 mm)"
+            },
+            {
+              "label": "Upper pad diameter",
+              "value": "400 \u00b5m (0.4 mm)"
+            },
+            {
+              "label": "Solder volume",
+              "value": "56 nL (0.056 mm\u00b3)"
+            },
+            {
+              "label": "Offset",
+              "value": "240 \u00b5m (0.24 mm)"
+            },
+            {
+              "label": "Held wetted-plane gap",
+              "value": "330 \u00b5m (0.33 mm)"
+            },
+            {
+              "label": "Surface tension",
+              "value": "0.48 N/m"
+            },
+            {
+              "label": "Density",
+              "value": "9 g/cm\u00b3"
+            },
+            {
+              "label": "Gravity",
+              "value": "Included"
+            }
+          ],
+          "label": "Candidate",
+          "numerical_status": "refinement_checked",
+          "warnings": []
+        }
+      ],
+      "screen": {
+        "candidate_rule_met": true,
+        "details": [
+          "The objective requires lateral restoration and no upward separating force at the held gap.",
+          "This numerical screen does not select a production solder volume."
+        ],
+        "headline": "Inspect both force directions against the declared fixture objective.",
+        "reference_rule_met": true,
+        "status": "conditional_comparison"
+      }
+    }
+  ],
+  "schema": "soldershape.launch-walkthrough.v1",
+  "source_capture": {
+    "capture_date": "2026-10-17",
+    "capture_ui_commit": "3644c08bbf0ef1976bc634bba323779055583e6b",
+    "duration_seconds": 36,
+    "files": [
+      "board-explorer.jpg",
+      "process-assumptions.jpg",
+      "comparison-review.jpg",
+      "changed-gap.jpg",
+      "result-inputs.jpg",
+      "lab-handoff.jpg",
+      "walkthrough.mp4",
+      "walkthrough.vtt"
+    ],
+    "frames": [
+      {
+        "end_seconds": 6,
+        "file": "board-explorer.jpg",
+        "sha256": "8cb640db61a2c7bf3e0f2d259f82320497116c98ce75da6a6b21b3f403fb1628",
+        "start_seconds": 0
+      },
+      {
+        "end_seconds": 12,
+        "file": "process-assumptions.jpg",
+        "sha256": "c15085e0864e418ed131ff8c0dc1af903798082da0b8ad1f1108efe547fff69c",
+        "start_seconds": 6
+      },
+      {
+        "end_seconds": 18,
+        "file": "comparison-review.jpg",
+        "sha256": "8b9e3106f908fe3e6d4ec1f12baf517ff51e6ecfd39969eeed6e71c462617e8c",
+        "start_seconds": 12
+      },
+      {
+        "end_seconds": 24,
+        "file": "changed-gap.jpg",
+        "sha256": "8902760f0a04a3ae7675990d920c27d3b473b5222e765a7eb1306bdfe25cea9f",
+        "start_seconds": 18
+      },
+      {
+        "end_seconds": 30,
+        "file": "result-inputs.jpg",
+        "sha256": "182620fe607b5c87e7a0192bdb37f86262e895dc99fa69b51d1f525c85919284",
+        "start_seconds": 24
+      },
+      {
+        "end_seconds": 36,
+        "file": "lab-handoff.jpg",
+        "sha256": "d6eb3eaed898e17e5c0590c6af5f35b45b650a14840d61ecc9e0ad6054d780d8",
+        "start_seconds": 30
+      }
+    ],
+    "observations": "launch_sync/evidence/capture-observations.json",
+    "schema": "soldershape.ui-capture.v1",
+    "video_kind": "Six actual UI still captures, six seconds each. No audio. Editorial timing, not solver latency."
+  }
+}

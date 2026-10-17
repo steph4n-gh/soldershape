@@ -1,0 +1,186 @@
+{
+  "passed": true,
+  "maintained_markdown_files": 20,
+  "markdown_local_links": 74,
+  "site_html_files": 7,
+  "site_local_references": 108,
+  "broken_links": [],
+  "served_asset_hashes": 100,
+  "inner_evidence_members_match": {
+    "gap-300": 42,
+    "gap-330": 42
+  },
+  "application_ui_commit": "78943a2c5e85866578decc1cfec5b222f9bd166d",
+  "scenarios": {
+    "gap-300": {
+      "passed": true,
+      "integrity_verified": true,
+      "selection_verified": true,
+      "archive_sha256": "25c6bc2e128da589a2e113f68da4ce7eafdd69adbaea14c9a81f9236aa0e300e",
+      "case_count": 2,
+      "selection": {
+        "repository": "https://github.com/emard/ulx3s",
+        "commit": "6a92cec6b177191c5b0f80e260013a1f8ec147dd",
+        "board_sha256": "1172f7b0fc262422bab01c62fb4dc84f16d9f1ea8902dc6fe2da859bba9035fc",
+        "license_sha256": "cdaaa3f0c2d1dbb538844077fd7a1d9d43c890d0745b20d8aa0717b583d6af9f",
+        "reference": "U1",
+        "value": "LFE5U-85F-6BG381C",
+        "component_uuid": "00000000-0000-0000-0000-000058d8d57e",
+        "component_rotation_deg": 0.0,
+        "component_side": "front",
+        "footprint_file": "assets/footprints.pretty/U1--00000000-0000-0000-0000-000058d8d57e.kicad_mod",
+        "footprint_sha256": "14b691bcc05e1c93fa1ae8aeb70361e646a4f4ffba255ebd4b9002ae0ba2160a",
+        "pad_index": 173,
+        "pad_identifier": "J16",
+        "pad_net": "SDRAM_D0",
+        "lower_diameter_mm": 0.4,
+        "local_xy_mm": [
+          4.4,
+          -1.2
+        ],
+        "board_xy_mm": [
+          142.88,
+          86.6
+        ],
+        "local_x_board": [
+          1.0,
+          -0.0
+        ]
+      },
+      "screen": {
+        "candidate_rule_met": false,
+        "details": [
+          "The objective requires lateral restoration and no upward separating force at the held gap.",
+          "This numerical screen does not select a production solder volume."
+        ],
+        "headline": "Less solder meets this declared fixture objective. More solder pushes upward.",
+        "reference_rule_met": true,
+        "status": "conditional_comparison"
+      },
+      "replayed": false,
+      "checks": [],
+      "physical_qualification": "unqualified",
+      "verification_kind": "archive_binding_to_trusted_native_extraction",
+      "native_board_readback": "Retained receipt verified by identity. Rerun board_demo/tools/verify_native.py for an independent native inspection."
+    },
+    "gap-330": {
+      "passed": true,
+      "integrity_verified": true,
+      "selection_verified": true,
+      "archive_sha256": "e04880f9666586e421ce17177ef04b00eb5498b96cc130425acac938ba935777",
+      "case_count": 2,
+      "selection": {
+        "repository": "https://github.com/emard/ulx3s",
+        "commit": "6a92cec6b177191c5b0f80e260013a1f8ec147dd",
+        "board_sha256": "1172f7b0fc262422bab01c62fb4dc84f16d9f1ea8902dc6fe2da859bba9035fc",
+        "license_sha256": "cdaaa3f0c2d1dbb538844077fd7a1d9d43c890d0745b20d8aa0717b583d6af9f",
+        "reference": "U1",
+        "value": "LFE5U-85F-6BG381C",
+        "component_uuid": "00000000-0000-0000-0000-000058d8d57e",
+        "component_rotation_deg": 0.0,
+        "component_side": "front",
+        "footprint_file": "assets/footprints.pretty/U1--00000000-0000-0000-0000-000058d8d57e.kicad_mod",
+        "footprint_sha256": "14b691bcc05e1c93fa1ae8aeb70361e646a4f4ffba255ebd4b9002ae0ba2160a",
+        "pad_index": 173,
+        "pad_identifier": "J16",
+        "pad_net": "SDRAM_D0",
+        "lower_diameter_mm": 0.4,
+        "local_xy_mm": [
+          4.4,
+          -1.2
+        ],
+        "board_xy_mm": [
+          142.88,
+          86.6
+        ],
+        "local_x_board": [
+          1.0,
+          -0.0
+        ]
+      },
+      "screen": {
+        "candidate_rule_met": true,
+        "details": [
+          "The objective requires lateral restoration and no upward separating force at the held gap.",
+          "This numerical screen does not select a production solder volume."
+        ],
+        "headline": "Inspect both force directions against the declared fixture objective.",
+        "reference_rule_met": true,
+        "status": "conditional_comparison"
+      },
+      "replayed": false,
+      "checks": [],
+      "physical_qualification": "unqualified",
+      "verification_kind": "archive_binding_to_trusted_native_extraction",
+      "native_board_readback": "Retained receipt verified by identity. Rerun board_demo/tools/verify_native.py for an independent native inspection."
+    }
+  },
+  "scenario_change": "held_wetted_plane_gap_only",
+  "caption_intervals": [
+    [
+      0.0,
+      6.0
+    ],
+    [
+      6.0,
+      12.0
+    ],
+    [
+      12.0,
+      18.0
+    ],
+    [
+      18.0,
+      24.0
+    ],
+    [
+      24.0,
+      30.0
+    ],
+    [
+      30.0,
+      36.0
+    ]
+  ],
+  "capture_manifest_sha256": "14aa37e5677a733fbf909c062f8ae5facea7afcded52dd582be7bcc5bd1fd35f",
+  "inventory_sha256": "bb023a8407c1752d2c0aaa2c056dbe8f85e348ffb72b800d8ff8517ab02d6b6a",
+  "example_sha256": "171075b7601db2e3907678652b6629004a0372c6db0ab2147337f306ca37989f",
+  "actual_browser_download_matches": false,
+  "http_targets_passed": [
+    "credits.html",
+    "favicon.svg",
+    "index.html",
+    "media/BOARD-LICENSE.md",
+    "media/KICAD-LICENSE.md",
+    "media/PROJECT-LICENSE.txt",
+    "media/THIRD_PARTY.md",
+    "media/board-explorer.jpg",
+    "media/board.svg",
+    "media/comparison-review.jpg",
+    "media/evidence/case-00/input.json",
+    "media/evidence/case-00/result.json",
+    "media/evidence/case-01/input.json",
+    "media/evidence/case-01/result.json",
+    "media/evidence/manifest.json",
+    "media/evidence/results.csv",
+    "media/evidence/review.html",
+    "media/evidence/source.kicad_mod",
+    "media/gap-330-evidence/case-00/input.json",
+    "media/gap-330-evidence/case-00/result.json",
+    "media/gap-330-evidence/case-01/input.json",
+    "media/gap-330-evidence/case-01/result.json",
+    "media/gap-330-evidence/manifest.json",
+    "media/gap-330-evidence/results.csv",
+    "media/gap-330-evidence/review.html",
+    "media/gap-330-evidence/source.kicad_mod",
+    "media/soldershape-recorded-example.zip",
+    "media/walkthrough.mp4",
+    "media/walkthrough.vtt",
+    "site.js",
+    "start.html",
+    "style.css",
+    "transcript.html",
+    "validation.html"
+  ],
+  "physical_qualification": "unqualified"
+}

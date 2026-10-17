@@ -1,0 +1,35 @@
+{
+  "delta": {
+    "gap_mm": 0.0,
+    "restoring_force_uN": 1.392531645549866,
+    "vertical_force_uN": 145.11341005597376,
+    "volume_mm3": 0.016,
+    "volume_percent": 39.99999999999999
+  },
+  "designs": [
+    {
+      "force_x_uN": -169.062859622926,
+      "force_z_uN": -227.38953775806067,
+      "gap_mm": 0.33,
+      "input_sha256": "1b5cfcae284f3ad5d0b9a4c1ecd6ef60a5ebf666315cd963fc9cf3dbaf434e5d",
+      "restoring_force_uN": 169.062859622926,
+      "role": "Reference",
+      "status": "refinement_checked",
+      "upper_diameter_mm": 0.4,
+      "volume_mm3": 0.04
+    },
+    {
+      "force_x_uN": -170.45539126847586,
+      "force_z_uN": -82.27612770208692,
+      "gap_mm": 0.33,
+      "input_sha256": "f2086caaea4c7e101a104d88858571fc03fa9684ead20f4e39ebb782a23ff466",
+      "restoring_force_uN": 170.45539126847586,
+      "role": "Candidate",
+      "status": "refinement_checked",
+      "upper_diameter_mm": 0.4,
+      "volume_mm3": 0.056
+    }
+  ],
+  "scope": "Both designs use the current board pad, prescribed wetted-plane gap, offset and material. Predictions assume pinned circular rims and an isolated joint. Process-specific accuracy, alignment time and manufacturing yield are not qualified.",
+  "status": "compared"
+}

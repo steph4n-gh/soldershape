@@ -1,0 +1,5 @@
+decision	why	evidence	result
+Keep a saved private launch candidate	User requested final review before publication	launch_sync/WORKFLOW.md	No public repository or audience change
+Use two native recorded scenarios	One assumption changes the fixture answer	decision_walkthrough/evidence/ui-gap-300.zip; decision_walkthrough/evidence/ui-gap-330.zip	Static selector reads original rows and screen booleans
+Rebuild separately named lab packages	Old standalone ZIPs omit the exact project MIT grant	launch_sync/release-audit.md; launch_sync/evidence/force-package.json; launch_sync/evidence/coupon-package.json	Old bytes preserved; noticed package routes pass HTTP checks
+Keep actual JPEG capture format	Browser screenshot bytes are JPEG despite old PNG names	launch_sync/evidence/capture-observations.json	Six new captures use .jpg and native pixels

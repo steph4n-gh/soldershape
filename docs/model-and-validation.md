@@ -27,6 +27,25 @@ The [frozen physical campaign](../evidence/physical/validation-report.md) retain
 
 The [pre-lab coupon investigation](../prelab/REPORT.md) adds native combined-input stress cases, a prescribed-wetting finite-copper experiment and a reduced-order twenty-joint cap calculation. It retains reversed rankings, a native moving-height failure and a penetrating obstacle control that remains unconverged. Neither pad choice has a qualified 185 µm whole-cap clearance pass. The [measurement addendum](../prelab/LAB_ADDENDUM.md) identifies the observations needed to decide the physical boundary and volume.
 
+## The Board decision example
+
+The walkthrough asks whether adding solder helps a displaced joint restore laterally without an upward separating force while a fixture holds the gap. Actual ULX3S U1/J16 copper supplies the 400 µm lower diameter. All other joints remain unsolved.
+
+The assumed upper diameter is 400 µm. The liquid volumes are 40 and 56 nL, the offset is +240 µm, the surface tension is 0.48 N/m, and the density is 9 g/cm³ with gravity enabled. The retained native results are as follows.
+
+| Held gap | Volume | X force on upper pad | Z force on upper pad | Numerical fixture outcome |
+| --- | --- | ---: | ---: | --- |
+| 300 µm | 40 nL | −184.526 µN | −181.284 µN | Meets the rule |
+| 300 µm | 56 nL | −164.385 µN | +13.386 µN | Upward separation fails the rule |
+| 330 µm | 40 nL | −169.063 µN | −227.390 µN | Meets the rule |
+| 330 µm | 56 nL | −170.455 µN | −82.276 µN | Meets the rule |
+
+Changing gap alone removes the original upward-force reason to exclude 56 nL. Neither the numerical fixture rule nor these two sampled hypotheses establishes a production volume. The samples are not a manufacturing uncertainty interval or a physical error bound. A free package needs a weight-support objective instead of the held-gap rule.
+
+The [walkthrough record](../decision_walkthrough/RESULTS.md) preserves both native archives, browser observations and replay checks. The app labels a verified recording separately from fresh native computation. Changing the selected pad or any assumption clears the current result and its export links. A checked result belongs to its exact input snapshot.
+
+The lab needs independent hot wetting boundaries, upper-pad geometry, liquid volume, held gap, offset, alloy, temperature, density, surface tension and measured force versus displacement. The existing 200 µm fixture requires adaptation and qualification for this 400 µm joint. The separate 220 versus 270 µm loaded-height coupon has a 185 µm clearance target. It cannot qualify this board example's forces.
+
 ## What remains outside the model
 
 The application does not predict thermal reflow history, wetting chemistry, oxide or flux behavior, viscosity, alignment time, capture range, bridging, neighboring-joint coupling, cooled stress, fatigue, electrical reliability or manufacturing yield.

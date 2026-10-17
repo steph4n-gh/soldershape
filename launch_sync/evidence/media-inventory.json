@@ -1,0 +1,568 @@
+{
+  "application_ui_commit": "3644c08bbf0ef1976bc634bba323779055583e6b",
+  "capture_manifest_sha256": "39046d8b8b204ca7841d6da0c2aadb424e4dffeed73cbbe191f0821f8dd3a0ff",
+  "files": {
+    "BOARD-LICENSE.md": {
+      "bytes": 1214,
+      "sha256": "cdaaa3f0c2d1dbb538844077fd7a1d9d43c890d0745b20d8aa0717b583d6af9f"
+    },
+    "KICAD-LICENSE.md": {
+      "bytes": 2105,
+      "sha256": "285b027a721577d0bc0198f36e948c6c282ddaa4b58fef8ed826749576eb0aef"
+    },
+    "PROJECT-LICENSE.txt": {
+      "bytes": 1081,
+      "sha256": "8e7caa3bf9ffb672ee5c5442a34c04e266cc7a85c1f2a79f45f6d61a5f5674cc"
+    },
+    "THIRD_PARTY.md": {
+      "bytes": 5209,
+      "sha256": "3c0f4cc5dfba402e50b7fd411dfd947c9f4eaae53a1baeb6e98ff38b4ea4b162"
+    },
+    "board-explorer.jpg": {
+      "bytes": 141173,
+      "sha256": "8cb640db61a2c7bf3e0f2d259f82320497116c98ce75da6a6b21b3f403fb1628"
+    },
+    "board.svg": {
+      "bytes": 888925,
+      "sha256": "11b3ee0e214b7312b652629cf8168df0a7b18edf23a6fed8a5427ece469f9bda"
+    },
+    "capture-manifest.json": {
+      "bytes": 1692,
+      "sha256": "39046d8b8b204ca7841d6da0c2aadb424e4dffeed73cbbe191f0821f8dd3a0ff"
+    },
+    "changed-gap.jpg": {
+      "bytes": 76342,
+      "sha256": "8902760f0a04a3ae7675990d920c27d3b473b5222e765a7eb1306bdfe25cea9f"
+    },
+    "comparison-review.jpg": {
+      "bytes": 77201,
+      "sha256": "8b9e3106f908fe3e6d4ec1f12baf517ff51e6ecfd39969eeed6e71c462617e8c"
+    },
+    "evidence/BOARD-LICENSE.md": {
+      "bytes": 1214,
+      "sha256": "cdaaa3f0c2d1dbb538844077fd7a1d9d43c890d0745b20d8aa0717b583d6af9f"
+    },
+    "evidence/PROJECT-LICENSE.txt": {
+      "bytes": 1081,
+      "sha256": "8e7caa3bf9ffb672ee5c5442a34c04e266cc7a85c1f2a79f45f6d61a5f5674cc"
+    },
+    "evidence/board-context.json": {
+      "bytes": 780943,
+      "sha256": "4a32d07a6e3b4697295d5ef41c2568ee5deefb1ae1f510d85955b83b7ca8bf85"
+    },
+    "evidence/board-extraction-manifest.json": {
+      "bytes": 47581,
+      "sha256": "f915b4ff8f3566eb4867bf4caff846009cb775a3cd826f2addd278b0dd152c97"
+    },
+    "evidence/board-extractor.py": {
+      "bytes": 9737,
+      "sha256": "336207d52913c53a5c2208a471d821884709086a57db5cc2683f6092bc02267b"
+    },
+    "evidence/board-native-verification.json": {
+      "bytes": 4514,
+      "sha256": "25e84cd3213c284ff0c3a64dd5dabf28c4221e8b79aa4f1a3a5f6fcb2b3e26c6"
+    },
+    "evidence/board-native-verifier.py": {
+      "bytes": 14164,
+      "sha256": "5e88abe83b7d3c2e9a2cc16087c415bfd6275bfed18d471a11eedf0b6e42c1e6"
+    },
+    "evidence/board-report.json": {
+      "bytes": 4459870,
+      "sha256": "decc8b45be8854af6a797b17ee0f5d390a30336bde66b3dfbef0284d5772cd59"
+    },
+    "evidence/board-selection.json": {
+      "bytes": 878,
+      "sha256": "d62c208c1a8a74c325d2bf789f86ecd41d919d5f587a95db22663f6d5aefda8d"
+    },
+    "evidence/board-source-provenance.json": {
+      "bytes": 973,
+      "sha256": "0dea8cdd5c847bed1cf54dc1c02bce68996859bb2ce46ca4a7a5c84e1ef70554"
+    },
+    "evidence/board-source.kicad_pcb": {
+      "bytes": 4490683,
+      "sha256": "1172f7b0fc262422bab01c62fb4dc84f16d9f1ea8902dc6fe2da859bba9035fc"
+    },
+    "evidence/calculation-source/__main__.py": {
+      "bytes": 27370,
+      "sha256": "28e8583e1dbe4e164fa4123de51340e0dbcaf049d7e3472ae573afe0d8594dfc"
+    },
+    "evidence/calculation-source/artifacts.py": {
+      "bytes": 28178,
+      "sha256": "928e157a18b0ee524b11a7d40d49f440f7a71547c4e68dbe9c41e63b17adbd1e"
+    },
+    "evidence/calculation-source/board.py": {
+      "bytes": 21536,
+      "sha256": "244acf76b99785c09ff270c27210920b7179c7022738a7cfb54d97c8c558ff44"
+    },
+    "evidence/calculation-source/demo.py": {
+      "bytes": 4399,
+      "sha256": "d442660064e02e0bd647c1fdcacfed3669d289c51730ea694205e98b228a00b2"
+    },
+    "evidence/calculation-source/model.py": {
+      "bytes": 11681,
+      "sha256": "543720e8a6999896410aaf22651846c71b4f4736923ffe0ada0767ce35619657"
+    },
+    "evidence/calculation-source/solver.py": {
+      "bytes": 23580,
+      "sha256": "c7bcfcc2c5f24e6e783540b3fcabc45a8d15308ded887aca2ae41442ddf4c8a6"
+    },
+    "evidence/case-00/evidence.json": {
+      "bytes": 19844,
+      "sha256": "604364ada5519b0b88dd095a2abef9231d6a9db73e5f6ac9c9a1d4d364b0c32e"
+    },
+    "evidence/case-00/input.json": {
+      "bytes": 196,
+      "sha256": "5e4bcf2709f36b1b7d10c2c028180ab0212cac0247305cd449db3a2e85edf0ea"
+    },
+    "evidence/case-00/mesh-mm.obj": {
+      "bytes": 300489,
+      "sha256": "10fe1860675d362a4fefd0b04e632c01b928eb4ea271e764427becd4de930633"
+    },
+    "evidence/case-00/mesh-mm.stl": {
+      "bytes": 1979734,
+      "sha256": "1fa7ca8027d5ddc6d806a9afe638300cb710971aaf3ad941e35cffadcc190947"
+    },
+    "evidence/case-00/model.fe": {
+      "bytes": 3094,
+      "sha256": "5ed14a76cedffe30dd576ca78d7f1c770830a2b44f7d7cf7f5308ea65b4b1354"
+    },
+    "evidence/case-00/result.json": {
+      "bytes": 692069,
+      "sha256": "4434903034a4918db71343efbb764ad958610a32e72caeb18307d15bdcb5c72a"
+    },
+    "evidence/case-00/run.cmd": {
+      "bytes": 1066,
+      "sha256": "4155c6066dafd116c0609ea44df2afa10a615cb8d3511050ca0144d24e567264"
+    },
+    "evidence/case-00/stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/case-00/stdout.txt": {
+      "bytes": 15247,
+      "sha256": "65104a331c4915309cba280f6d7f356dd1fc7cdeea423a1e1711641abf7b3297"
+    },
+    "evidence/case-01/evidence.json": {
+      "bytes": 45719,
+      "sha256": "0121b3058e72d96ee325152b2bf871e41b52be5a3326378bb120ee6195f76770"
+    },
+    "evidence/case-01/input.json": {
+      "bytes": 197,
+      "sha256": "9445eff7f072114a723165558211c304c0ca67ed96280b6330d1b97e84720e5e"
+    },
+    "evidence/case-01/mesh-mm.obj": {
+      "bytes": 1221159,
+      "sha256": "1aa995e991f160bc161b29b181b612fa8ed24e67a62fd609e9ef4f4f5091a0ef"
+    },
+    "evidence/case-01/mesh-mm.stl": {
+      "bytes": 7843109,
+      "sha256": "63975ba78f025325949f41d292415ec3114d589265527580ed327bd2aa67adfb"
+    },
+    "evidence/case-01/model.fe": {
+      "bytes": 3094,
+      "sha256": "69f1b42fa5cbf7c411c596c522979c46e7b0fec16cbf79c8ef0773797ea71849"
+    },
+    "evidence/case-01/result.json": {
+      "bytes": 2748045,
+      "sha256": "90809bfaf7e02548f1f0e01dab036d7dc554de89c1b529d6ab5860441c8abf48"
+    },
+    "evidence/case-01/run.cmd": {
+      "bytes": 1454,
+      "sha256": "4d54fca7c19008b06bdb6dafe664e3056f4ae4d1b1fb892f32f8c92fb8924cb6"
+    },
+    "evidence/case-01/stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evidence/case-01/stdout.txt": {
+      "bytes": 20769,
+      "sha256": "d2446468695e694b495614d384b67c5cea68bc84dba9b775b210d06fae274ff1"
+    },
+    "evidence/comparison.json": {
+      "bytes": 1242,
+      "sha256": "1dc4a35ba0f679a419e626de550706cc7eb8a9da61f0c4e4d72a4a772513ab41"
+    },
+    "evidence/editable-case.json": {
+      "bytes": 74787,
+      "sha256": "0055e142f2c9038fc0e2acb3265a8e67d16c385c5859fb6c7559340612f1cd50"
+    },
+    "evidence/manifest.json": {
+      "bytes": 4716,
+      "sha256": "53fcf5e3c870366309264c77ff19ef0d2d07ffe96aa101ce9f4b1490e784ec53"
+    },
+    "evidence/results.csv": {
+      "bytes": 553,
+      "sha256": "91c1ed1bf0ba7c25b7a9bf5dedf7da1f62ec4c9e03b07160043e7ea4f041722f"
+    },
+    "evidence/review.html": {
+      "bytes": 7094,
+      "sha256": "aad09d14ac50682d9c38c3c090e5ace81932679af6217884b42d69e0f70525fb"
+    },
+    "evidence/review.json": {
+      "bytes": 6916,
+      "sha256": "5fa29cee910fc764173152f3a2e876940eac109ebe1dcbe00fa7641344306759"
+    },
+    "evidence/source.kicad_mod": {
+      "bytes": 63037,
+      "sha256": "14b691bcc05e1c93fa1ae8aeb70361e646a4f4ffba255ebd4b9002ae0ba2160a"
+    },
+    "gap-330-evidence/BOARD-LICENSE.md": {
+      "bytes": 1214,
+      "sha256": "cdaaa3f0c2d1dbb538844077fd7a1d9d43c890d0745b20d8aa0717b583d6af9f"
+    },
+    "gap-330-evidence/PROJECT-LICENSE.txt": {
+      "bytes": 1081,
+      "sha256": "8e7caa3bf9ffb672ee5c5442a34c04e266cc7a85c1f2a79f45f6d61a5f5674cc"
+    },
+    "gap-330-evidence/board-context.json": {
+      "bytes": 780943,
+      "sha256": "4a32d07a6e3b4697295d5ef41c2568ee5deefb1ae1f510d85955b83b7ca8bf85"
+    },
+    "gap-330-evidence/board-extraction-manifest.json": {
+      "bytes": 47581,
+      "sha256": "f915b4ff8f3566eb4867bf4caff846009cb775a3cd826f2addd278b0dd152c97"
+    },
+    "gap-330-evidence/board-extractor.py": {
+      "bytes": 9737,
+      "sha256": "336207d52913c53a5c2208a471d821884709086a57db5cc2683f6092bc02267b"
+    },
+    "gap-330-evidence/board-native-verification.json": {
+      "bytes": 4514,
+      "sha256": "25e84cd3213c284ff0c3a64dd5dabf28c4221e8b79aa4f1a3a5f6fcb2b3e26c6"
+    },
+    "gap-330-evidence/board-native-verifier.py": {
+      "bytes": 14164,
+      "sha256": "5e88abe83b7d3c2e9a2cc16087c415bfd6275bfed18d471a11eedf0b6e42c1e6"
+    },
+    "gap-330-evidence/board-report.json": {
+      "bytes": 1841717,
+      "sha256": "29d45a934ffbe605162b2d28e09b55e836f4dbd80ebaa3876ede8ce0606f6baf"
+    },
+    "gap-330-evidence/board-selection.json": {
+      "bytes": 878,
+      "sha256": "d62c208c1a8a74c325d2bf789f86ecd41d919d5f587a95db22663f6d5aefda8d"
+    },
+    "gap-330-evidence/board-source-provenance.json": {
+      "bytes": 973,
+      "sha256": "0dea8cdd5c847bed1cf54dc1c02bce68996859bb2ce46ca4a7a5c84e1ef70554"
+    },
+    "gap-330-evidence/board-source.kicad_pcb": {
+      "bytes": 4490683,
+      "sha256": "1172f7b0fc262422bab01c62fb4dc84f16d9f1ea8902dc6fe2da859bba9035fc"
+    },
+    "gap-330-evidence/calculation-source/__main__.py": {
+      "bytes": 27370,
+      "sha256": "28e8583e1dbe4e164fa4123de51340e0dbcaf049d7e3472ae573afe0d8594dfc"
+    },
+    "gap-330-evidence/calculation-source/artifacts.py": {
+      "bytes": 28178,
+      "sha256": "928e157a18b0ee524b11a7d40d49f440f7a71547c4e68dbe9c41e63b17adbd1e"
+    },
+    "gap-330-evidence/calculation-source/board.py": {
+      "bytes": 21536,
+      "sha256": "244acf76b99785c09ff270c27210920b7179c7022738a7cfb54d97c8c558ff44"
+    },
+    "gap-330-evidence/calculation-source/demo.py": {
+      "bytes": 4399,
+      "sha256": "d442660064e02e0bd647c1fdcacfed3669d289c51730ea694205e98b228a00b2"
+    },
+    "gap-330-evidence/calculation-source/model.py": {
+      "bytes": 11681,
+      "sha256": "543720e8a6999896410aaf22651846c71b4f4736923ffe0ada0767ce35619657"
+    },
+    "gap-330-evidence/calculation-source/solver.py": {
+      "bytes": 23580,
+      "sha256": "c7bcfcc2c5f24e6e783540b3fcabc45a8d15308ded887aca2ae41442ddf4c8a6"
+    },
+    "gap-330-evidence/case-00/evidence.json": {
+      "bytes": 19804,
+      "sha256": "73171ee3b6f8c8c155c43950b5b6e414c9b9c36f54eb7c7405bdcff214d47286"
+    },
+    "gap-330-evidence/case-00/input.json": {
+      "bytes": 197,
+      "sha256": "0bf6e12c8413f79a1c4a443fea7d41c0d971621ca8d0f581e297d82a1be9374c"
+    },
+    "gap-330-evidence/case-00/mesh-mm.obj": {
+      "bytes": 300470,
+      "sha256": "71bb50dd2e5156589df87175f6d245aa3378e139d9cb7739e1d23e119fb054d5"
+    },
+    "gap-330-evidence/case-00/mesh-mm.stl": {
+      "bytes": 1979719,
+      "sha256": "c68ffccbe66adb0432b84e75cdae1116bb3e198d42c77feff6d9068f09a27438"
+    },
+    "gap-330-evidence/case-00/model.fe": {
+      "bytes": 3094,
+      "sha256": "0f2458f2f0d4121e9c83480c67bf94a457fb98f83970ae07d69459ee14608a74"
+    },
+    "gap-330-evidence/case-00/result.json": {
+      "bytes": 690353,
+      "sha256": "849fc25be3f57d76a261f462b0ce73b953ba1eafb609490f704427e11c1fff1a"
+    },
+    "gap-330-evidence/case-00/run.cmd": {
+      "bytes": 1066,
+      "sha256": "4155c6066dafd116c0609ea44df2afa10a615cb8d3511050ca0144d24e567264"
+    },
+    "gap-330-evidence/case-00/stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "gap-330-evidence/case-00/stdout.txt": {
+      "bytes": 15207,
+      "sha256": "f90d3ca3fc54d4493fd3d0b9eb6b8d509776b0a6c8bb5ecfa90406ba9cdf1522"
+    },
+    "gap-330-evidence/case-01/evidence.json": {
+      "bytes": 19859,
+      "sha256": "7f7367ede2e4187f31620baa1072ec1f1fc17b632b3a11c22cfea6aa0fdf16df"
+    },
+    "gap-330-evidence/case-01/input.json": {
+      "bytes": 198,
+      "sha256": "f216c4fcb9f4932351c0848240ed3b626b14d4a5574b33015f42eb4e476e2e65"
+    },
+    "gap-330-evidence/case-01/mesh-mm.obj": {
+      "bytes": 300326,
+      "sha256": "0e576942246b8e7d0820f8f22b3f8694fce41fa25b705046945c1b99a2652a2b"
+    },
+    "gap-330-evidence/case-01/mesh-mm.stl": {
+      "bytes": 1978819,
+      "sha256": "82307e94501df2d5473773947fae8ff791ff889db3dadd7b2324f2aafbefd747"
+    },
+    "gap-330-evidence/case-01/model.fe": {
+      "bytes": 3094,
+      "sha256": "64d8b08fb80379e68d0b7270beebf0a934d4d3ff2709fe5d9f5a26483b4322b7"
+    },
+    "gap-330-evidence/case-01/result.json": {
+      "bytes": 690421,
+      "sha256": "139483e58a0b2844a6518068437c50d66b4e2cd9716037fb1b256e2daa563df5"
+    },
+    "gap-330-evidence/case-01/run.cmd": {
+      "bytes": 1066,
+      "sha256": "4155c6066dafd116c0609ea44df2afa10a615cb8d3511050ca0144d24e567264"
+    },
+    "gap-330-evidence/case-01/stderr.txt": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "gap-330-evidence/case-01/stdout.txt": {
+      "bytes": 15262,
+      "sha256": "47d672f3202eae5e7fe3f5e6a3667aa5ae0cacab184fd4d19a7289537e041e4d"
+    },
+    "gap-330-evidence/comparison.json": {
+      "bytes": 1240,
+      "sha256": "f232bb81dd90228dc87aa20bf73df18dd01baecd26594f9b0d65d6954032edd2"
+    },
+    "gap-330-evidence/editable-case.json": {
+      "bytes": 74788,
+      "sha256": "509f5141f63b96791e709ef99d76d9b8d64ae5728da7b90505b12297d029bb81"
+    },
+    "gap-330-evidence/manifest.json": {
+      "bytes": 4716,
+      "sha256": "493bcc515f0f803216f262b9930e8be4ddbfab8c16bb1339406968de37970e52"
+    },
+    "gap-330-evidence/results.csv": {
+      "bytes": 537,
+      "sha256": "f4db9ce0a48a2d381aafce9f15387b7709b08ed0ccf768c3a58dd6220999a883"
+    },
+    "gap-330-evidence/review.html": {
+      "bytes": 7096,
+      "sha256": "4b2e9223d714937d32ab96d9f9ea74ae3703bbfe1a5f165e6993ce6ea5d1a2a1"
+    },
+    "gap-330-evidence/review.json": {
+      "bytes": 6918,
+      "sha256": "89a49a5d0054680c6154eb795d5c33db075aae92bfee94f4031439a82dcd4f46"
+    },
+    "gap-330-evidence/source.kicad_mod": {
+      "bytes": 63037,
+      "sha256": "14b691bcc05e1c93fa1ae8aeb70361e646a4f4ffba255ebd4b9002ae0ba2160a"
+    },
+    "lab-handoff.jpg": {
+      "bytes": 103794,
+      "sha256": "d6eb3eaed898e17e5c0590c6af5f35b45b650a14840d61ecc9e0ad6054d780d8"
+    },
+    "process-assumptions.jpg": {
+      "bytes": 70559,
+      "sha256": "c15085e0864e418ed131ff8c0dc1af903798082da0b8ad1f1108efe547fff69c"
+    },
+    "result-inputs.jpg": {
+      "bytes": 68263,
+      "sha256": "182620fe607b5c87e7a0192bdb37f86262e895dc99fa69b51d1f525c85919284"
+    },
+    "soldershape-recorded-example.zip": {
+      "bytes": 17091424,
+      "sha256": "dafe4a60ea0f1146856b67b39638af88272b580c35052b36690f9362b735883f"
+    },
+    "walkthrough.json": {
+      "bytes": 12863,
+      "sha256": "46971e3037c324d8ff9e55cee9e9f7ec5a9f94b2d8469865c6b74e9bbb09305c"
+    },
+    "walkthrough.mp4": {
+      "bytes": 1250379,
+      "sha256": "5a165a975a38f253798138801e6e6ef319efb374765e63bac343950bc23f9b22"
+    },
+    "walkthrough.vtt": {
+      "bytes": 763,
+      "sha256": "37e5fc503b4c3a4bfd5f44f1e10e43158aaa1d90928e93992fc259d3484700b0"
+    }
+  },
+  "physical_qualification": "unqualified",
+  "scenarios": {
+    "gap-300": {
+      "archive_sha256": "25c6bc2e128da589a2e113f68da4ce7eafdd69adbaea14c9a81f9236aa0e300e",
+      "case_count": 2,
+      "checks": [],
+      "integrity_verified": true,
+      "native_board_readback": "Retained receipt verified by identity. Rerun board_demo/tools/verify_native.py for an independent native inspection.",
+      "passed": true,
+      "physical_qualification": "unqualified",
+      "replayed": false,
+      "screen": {
+        "candidate_rule_met": false,
+        "details": [
+          "The objective requires lateral restoration and no upward separating force at the held gap.",
+          "This numerical screen does not select a production solder volume."
+        ],
+        "headline": "Less solder meets this declared fixture objective. More solder pushes upward.",
+        "reference_rule_met": true,
+        "status": "conditional_comparison"
+      },
+      "selection": {
+        "board_sha256": "1172f7b0fc262422bab01c62fb4dc84f16d9f1ea8902dc6fe2da859bba9035fc",
+        "board_xy_mm": [
+          142.88,
+          86.6
+        ],
+        "commit": "6a92cec6b177191c5b0f80e260013a1f8ec147dd",
+        "component_rotation_deg": 0.0,
+        "component_side": "front",
+        "component_uuid": "00000000-0000-0000-0000-000058d8d57e",
+        "footprint_file": "assets/footprints.pretty/U1--00000000-0000-0000-0000-000058d8d57e.kicad_mod",
+        "footprint_sha256": "14b691bcc05e1c93fa1ae8aeb70361e646a4f4ffba255ebd4b9002ae0ba2160a",
+        "license_sha256": "cdaaa3f0c2d1dbb538844077fd7a1d9d43c890d0745b20d8aa0717b583d6af9f",
+        "local_x_board": [
+          1.0,
+          -0.0
+        ],
+        "local_xy_mm": [
+          4.4,
+          -1.2
+        ],
+        "lower_diameter_mm": 0.4,
+        "pad_identifier": "J16",
+        "pad_index": 173,
+        "pad_net": "SDRAM_D0",
+        "reference": "U1",
+        "repository": "https://github.com/emard/ulx3s",
+        "value": "LFE5U-85F-6BG381C"
+      },
+      "selection_verified": true,
+      "verification_kind": "archive_binding_to_trusted_native_extraction"
+    },
+    "gap-330": {
+      "archive_sha256": "e04880f9666586e421ce17177ef04b00eb5498b96cc130425acac938ba935777",
+      "case_count": 2,
+      "checks": [],
+      "integrity_verified": true,
+      "native_board_readback": "Retained receipt verified by identity. Rerun board_demo/tools/verify_native.py for an independent native inspection.",
+      "passed": true,
+      "physical_qualification": "unqualified",
+      "replayed": false,
+      "screen": {
+        "candidate_rule_met": true,
+        "details": [
+          "The objective requires lateral restoration and no upward separating force at the held gap.",
+          "This numerical screen does not select a production solder volume."
+        ],
+        "headline": "Inspect both force directions against the declared fixture objective.",
+        "reference_rule_met": true,
+        "status": "conditional_comparison"
+      },
+      "selection": {
+        "board_sha256": "1172f7b0fc262422bab01c62fb4dc84f16d9f1ea8902dc6fe2da859bba9035fc",
+        "board_xy_mm": [
+          142.88,
+          86.6
+        ],
+        "commit": "6a92cec6b177191c5b0f80e260013a1f8ec147dd",
+        "component_rotation_deg": 0.0,
+        "component_side": "front",
+        "component_uuid": "00000000-0000-0000-0000-000058d8d57e",
+        "footprint_file": "assets/footprints.pretty/U1--00000000-0000-0000-0000-000058d8d57e.kicad_mod",
+        "footprint_sha256": "14b691bcc05e1c93fa1ae8aeb70361e646a4f4ffba255ebd4b9002ae0ba2160a",
+        "license_sha256": "cdaaa3f0c2d1dbb538844077fd7a1d9d43c890d0745b20d8aa0717b583d6af9f",
+        "local_x_board": [
+          1.0,
+          -0.0
+        ],
+        "local_xy_mm": [
+          4.4,
+          -1.2
+        ],
+        "lower_diameter_mm": 0.4,
+        "pad_identifier": "J16",
+        "pad_index": 173,
+        "pad_net": "SDRAM_D0",
+        "reference": "U1",
+        "repository": "https://github.com/emard/ulx3s",
+        "value": "LFE5U-85F-6BG381C"
+      },
+      "selection_verified": true,
+      "verification_kind": "archive_binding_to_trusted_native_extraction"
+    }
+  },
+  "schema": "soldershape.launch-assets.v2",
+  "source_capture": {
+    "capture_date": "2026-10-17",
+    "capture_ui_commit": "3644c08bbf0ef1976bc634bba323779055583e6b",
+    "duration_seconds": 36,
+    "files": [
+      "board-explorer.jpg",
+      "process-assumptions.jpg",
+      "comparison-review.jpg",
+      "changed-gap.jpg",
+      "result-inputs.jpg",
+      "lab-handoff.jpg",
+      "walkthrough.mp4",
+      "walkthrough.vtt"
+    ],
+    "frames": [
+      {
+        "end_seconds": 6,
+        "file": "board-explorer.jpg",
+        "sha256": "8cb640db61a2c7bf3e0f2d259f82320497116c98ce75da6a6b21b3f403fb1628",
+        "start_seconds": 0
+      },
+      {
+        "end_seconds": 12,
+        "file": "process-assumptions.jpg",
+        "sha256": "c15085e0864e418ed131ff8c0dc1af903798082da0b8ad1f1108efe547fff69c",
+        "start_seconds": 6
+      },
+      {
+        "end_seconds": 18,
+        "file": "comparison-review.jpg",
+        "sha256": "8b9e3106f908fe3e6d4ec1f12baf517ff51e6ecfd39969eeed6e71c462617e8c",
+        "start_seconds": 12
+      },
+      {
+        "end_seconds": 24,
+        "file": "changed-gap.jpg",
+        "sha256": "8902760f0a04a3ae7675990d920c27d3b473b5222e765a7eb1306bdfe25cea9f",
+        "start_seconds": 18
+      },
+      {
+        "end_seconds": 30,
+        "file": "result-inputs.jpg",
+        "sha256": "182620fe607b5c87e7a0192bdb37f86262e895dc99fa69b51d1f525c85919284",
+        "start_seconds": 24
+      },
+      {
+        "end_seconds": 36,
+        "file": "lab-handoff.jpg",
+        "sha256": "d6eb3eaed898e17e5c0590c6af5f35b45b650a14840d61ecc9e0ad6054d780d8",
+        "start_seconds": 30
+      }
+    ],
+    "observations": "launch_sync/evidence/capture-observations.json",
+    "schema": "soldershape.ui-capture.v1",
+    "video_kind": "Six actual UI still captures, six seconds each. No audio. Editorial timing, not solver latency."
+  }
+}

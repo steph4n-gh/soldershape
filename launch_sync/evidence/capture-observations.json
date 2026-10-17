@@ -1,0 +1,141 @@
+[
+  {
+    "file": "board-explorer.jpg",
+    "observed_utc": "2026-10-17T16:11:24.178Z",
+    "forces": [
+      "-184.526",
+      "-181.284",
+      "-164.385",
+      "+13.386"
+    ],
+    "origin": "Fresh native computation",
+    "selected": "U1 / pad J16",
+    "title": "SolderShape | Board explorer",
+    "url": "http://127.0.0.1:8769/board#source-pad",
+    "values": {
+      "candidate-volume": "56",
+      "held-gap": "300",
+      "offset": "240",
+      "reference-volume": "40"
+    },
+    "viewport": {
+      "height": 720,
+      "width": 1280
+    }
+  },
+  {
+    "file": "process-assumptions.jpg",
+    "observed_utc": "2026-10-17T16:11:24.277Z",
+    "forces": [
+      "-184.526",
+      "-181.284",
+      "-164.385",
+      "+13.386"
+    ],
+    "origin": "Fresh native computation",
+    "selected": "U1 / pad J16",
+    "title": "SolderShape | Board explorer",
+    "url": "http://127.0.0.1:8769/board#process-inputs",
+    "values": {
+      "candidate-volume": "56",
+      "held-gap": "300",
+      "offset": "240",
+      "reference-volume": "40"
+    },
+    "viewport": {
+      "height": 720,
+      "width": 1280
+    }
+  },
+  {
+    "file": "comparison-review.jpg",
+    "observed_utc": "2026-10-17T16:11:24.378Z",
+    "forces": [
+      "-184.526",
+      "-181.284",
+      "-164.385",
+      "+13.386"
+    ],
+    "origin": "Fresh native computation",
+    "selected": "U1 / pad J16",
+    "title": "SolderShape | Board explorer",
+    "url": "http://127.0.0.1:8769/board#joint-results",
+    "values": {
+      "candidate-volume": "56",
+      "held-gap": "300",
+      "offset": "240",
+      "reference-volume": "40"
+    },
+    "viewport": {
+      "height": 720,
+      "width": 1280
+    }
+  },
+  {
+    "file": "changed-gap.jpg",
+    "observed_utc": "2026-10-17T16:11:48.889Z",
+    "forces": [
+      "-169.063",
+      "-227.39",
+      "-170.455",
+      "-82.276"
+    ],
+    "origin": "Fresh native computation",
+    "selected": "U1 / pad J16",
+    "title": "SolderShape | Board explorer",
+    "url": "http://127.0.0.1:8769/board#joint-results",
+    "values": {
+      "candidate-volume": "56",
+      "held-gap": "330",
+      "offset": "240",
+      "reference-volume": "40"
+    },
+    "viewport": {
+      "height": 720,
+      "width": 1280
+    }
+  },
+  {
+    "file": "result-inputs.jpg",
+    "observed_utc": "2026-10-17T16:11:49.206Z",
+    "forces": [
+      "-169.063",
+      "-227.39",
+      "-170.455",
+      "-82.276"
+    ],
+    "origin": "Fresh native computation",
+    "selected": "U1 / pad J16",
+    "title": "SolderShape | Board explorer",
+    "url": "http://127.0.0.1:8769/board#joint-results",
+    "values": {
+      "candidate-volume": "56",
+      "held-gap": "330",
+      "offset": "240",
+      "reference-volume": "40"
+    },
+    "viewport": {
+      "height": 720,
+      "width": 1280
+    }
+  },
+  {
+    "file": "lab-handoff.jpg",
+    "observed_utc": "2026-10-17T16:11:49.298Z",
+    "forces": [],
+    "origin": null,
+    "selected": null,
+    "title": "SolderShape | Physical test",
+    "url": "http://127.0.0.1:8769/lab#board-question",
+    "values": {
+      "candidate-volume": null,
+      "held-gap": null,
+      "offset": null,
+      "reference-volume": null
+    },
+    "viewport": {
+      "height": 720,
+      "width": 1280
+    }
+  }
+]

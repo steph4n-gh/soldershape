@@ -1,0 +1,67 @@
+evolver_version "2.70"
+parameter S_TENSION = 480
+parameter SOLDER_DENSITY = 9
+gravity_constant 980
+parameter height = 0.033000000000000002
+parameter lower_radius = 0.02
+parameter upper_radius = 0.02
+parameter offset = 0.024
+constraint 1
+formula: z = 0
+constraint 2
+formula: z = height
+constraint 3
+formula: x^2 + y^2 = lower_radius^2
+constraint 4
+formula: (x-offset)^2 + y^2 = upper_radius^2
+vertices
+1 lower_radius*cos(0*pi/3) lower_radius*sin(0*pi/3) 0 constraints 1,3 fixed
+2 lower_radius*cos(1*pi/3) lower_radius*sin(1*pi/3) 0 constraints 1,3 fixed
+3 lower_radius*cos(2*pi/3) lower_radius*sin(2*pi/3) 0 constraints 1,3 fixed
+4 lower_radius*cos(3*pi/3) lower_radius*sin(3*pi/3) 0 constraints 1,3 fixed
+5 lower_radius*cos(4*pi/3) lower_radius*sin(4*pi/3) 0 constraints 1,3 fixed
+6 lower_radius*cos(5*pi/3) lower_radius*sin(5*pi/3) 0 constraints 1,3 fixed
+7 offset+upper_radius*cos(0*pi/3) upper_radius*sin(0*pi/3) height constraints 2,4 fixed
+8 offset+upper_radius*cos(1*pi/3) upper_radius*sin(1*pi/3) height constraints 2,4 fixed
+9 offset+upper_radius*cos(2*pi/3) upper_radius*sin(2*pi/3) height constraints 2,4 fixed
+10 offset+upper_radius*cos(3*pi/3) upper_radius*sin(3*pi/3) height constraints 2,4 fixed
+11 offset+upper_radius*cos(4*pi/3) upper_radius*sin(4*pi/3) height constraints 2,4 fixed
+12 offset+upper_radius*cos(5*pi/3) upper_radius*sin(5*pi/3) height constraints 2,4 fixed
+edges
+1 1 2 constraints 1,3 fixed
+2 2 3 constraints 1,3 fixed
+3 3 4 constraints 1,3 fixed
+4 4 5 constraints 1,3 fixed
+5 5 6 constraints 1,3 fixed
+6 6 1 constraints 1,3 fixed
+7 7 8 constraints 2,4 fixed
+8 8 9 constraints 2,4 fixed
+9 9 10 constraints 2,4 fixed
+10 10 11 constraints 2,4 fixed
+11 11 12 constraints 2,4 fixed
+12 12 7 constraints 2,4 fixed
+13 1 7
+14 2 8
+15 3 9
+16 4 10
+17 5 11
+18 6 12
+faces
+1 1 14 -7 -13 tension S_TENSION
+2 2 15 -8 -14 tension S_TENSION
+3 3 16 -9 -15 tension S_TENSION
+4 4 17 -10 -16 tension S_TENSION
+5 5 18 -11 -17 tension S_TENSION
+6 6 13 -12 -18 tension S_TENSION
+7 -6 -5 -4 -3 -2 -1 fixed no_refine tension 0
+8 7 8 9 10 11 12 fixed no_refine tension 0 constraint 2
+bodies
+1 1 2 3 4 5 6 7 8 volume 4.0000000000000003e-05 density SOLDER_DENSITY
+read
+hessian_normal
+dx := 2.0000000000000002e-07
+dz := 3.3000000000000007e-07
+new_offset := offset;
+do_offset := { doff := new_offset-offset; offset := new_offset; set vertex x x+doff*z/height; recalc; }
+do_xforce := { new_offset := offset+dx; do_offset; energy_plus := total_energy-body[1].pressure*(body[1].volume-body[1].target); new_offset := offset-2*dx; do_offset; energy_minus := total_energy-body[1].pressure*(body[1].volume-body[1].target); xforce := -(energy_plus-energy_minus)/(2*dx); new_offset := offset+dx; do_offset; }
+do_zforce := { set vertex z z+dz*z/height; height := height+dz; recalc; energy_plus := total_energy-body[1].pressure*(body[1].volume-body[1].target); set vertex z z-2*dz*z/height; height := height-2*dz; recalc; energy_minus := total_energy-body[1].pressure*(body[1].volume-body[1].target); zforce := -(energy_plus-energy_minus)/(2*dz); set vertex z z+dz*z/height; height := height+dz; recalc; }

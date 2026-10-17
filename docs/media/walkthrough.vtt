@@ -1,10 +1,25 @@
 WEBVTT
 
-00:00.000 --> 00:08.000
-Select an actual ULX3S pad. Only this isolated joint is computed.
+00:00.000 --> 00:06.000
+Actual UI still. Start at ULX3S U1/J16 copper.
+Only the selected isolated joint is computed.
 
-00:08.000 --> 00:16.000
-Recorded comparison. More solder produces an upward force at this held gap.
+00:06.000 --> 00:12.000
+Declare the hypothetical process inputs.
+Compare 40 and 56 nL at a 300 µm held gap.
 
-00:16.000 --> 00:24.000
-Inspect exact inputs and keep the evidence. Physical force accuracy is unqualified.
+00:12.000 --> 00:18.000
+At 300 µm, only 40 nL meets the numerical fixture rule.
+Physical force accuracy remains unqualified.
+
+00:18.000 --> 00:24.000
+Change only held gap to 330 µm. Both now meet that rule.
+Two sampled gaps do not establish process tolerance.
+
+00:24.000 --> 00:30.000
+Inspect the current candidate inputs and signed forces.
+An input edit clears the result and its exports.
+
+00:30.000 --> 00:36.000
+Plan matching hot-force and input measurements.
+The existing 200 µm fixture needs adaptation for this joint.

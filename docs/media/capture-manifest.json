@@ -1,0 +1,56 @@
+{
+  "schema": "soldershape.ui-capture.v1",
+  "capture_ui_commit": "3644c08bbf0ef1976bc634bba323779055583e6b",
+  "capture_date": "2026-10-17",
+  "video_kind": "Six actual UI still captures, six seconds each. No audio. Editorial timing, not solver latency.",
+  "duration_seconds": 36,
+  "files": [
+    "board-explorer.jpg",
+    "process-assumptions.jpg",
+    "comparison-review.jpg",
+    "changed-gap.jpg",
+    "result-inputs.jpg",
+    "lab-handoff.jpg",
+    "walkthrough.mp4",
+    "walkthrough.vtt"
+  ],
+  "observations": "launch_sync/evidence/capture-observations.json",
+  "frames": [
+    {
+      "file": "board-explorer.jpg",
+      "start_seconds": 0,
+      "end_seconds": 6,
+      "sha256": "8cb640db61a2c7bf3e0f2d259f82320497116c98ce75da6a6b21b3f403fb1628"
+    },
+    {
+      "file": "process-assumptions.jpg",
+      "start_seconds": 6,
+      "end_seconds": 12,
+      "sha256": "c15085e0864e418ed131ff8c0dc1af903798082da0b8ad1f1108efe547fff69c"
+    },
+    {
+      "file": "comparison-review.jpg",
+      "start_seconds": 12,
+      "end_seconds": 18,
+      "sha256": "8b9e3106f908fe3e6d4ec1f12baf517ff51e6ecfd39969eeed6e71c462617e8c"
+    },
+    {
+      "file": "changed-gap.jpg",
+      "start_seconds": 18,
+      "end_seconds": 24,
+      "sha256": "8902760f0a04a3ae7675990d920c27d3b473b5222e765a7eb1306bdfe25cea9f"
+    },
+    {
+      "file": "result-inputs.jpg",
+      "start_seconds": 24,
+      "end_seconds": 30,
+      "sha256": "182620fe607b5c87e7a0192bdb37f86262e895dc99fa69b51d1f525c85919284"
+    },
+    {
+      "file": "lab-handoff.jpg",
+      "start_seconds": 30,
+      "end_seconds": 36,
+      "sha256": "d6eb3eaed898e17e5c0590c6af5f35b45b650a14840d61ecc9e0ad6054d780d8"
+    }
+  ]
+}

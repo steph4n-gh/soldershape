@@ -13,4 +13,5 @@ jobs:
       - run: python3 -m compileall -q soldershape tools
       - run: python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v
       - run: python3 -m unittest prelab.test_campaign.CouponRequests prelab.test_finite -v
-      - run: node --check soldershape/web/app.js && node --check soldershape/web/board.js && node --check soldershape/web/study.js && node --check soldershape/web/ui.js
+      - run: python3 decision_walkthrough/verify.py
+      - run: node --check soldershape/web/app.js && node --check soldershape/web/board.js && node --check soldershape/web/study.js && node --check soldershape/web/ui.js && node --check website/dist/site.js

@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "canonical_static_files": 108,
+  "packaged_config_path": "dist/.openai/hosting.json",
+  "logical_files": 109,
+  "appledouble_metadata_members": 120,
+  "archive_sha256": "e8622ad243ed349b01a6e75a1d8de9897857c8e7c0a4e6eba6e3651bde07fb47",
+  "site_source_commit": "b79a95f6ecac61838ee468eabcc522a05bce2d75",
+  "matches_canonical_static_source": true,
+  "initial_check": "Rejected a root-config layout assumption and macOS AppleDouble entries; corrected to the helper static-output layout without changing archive bytes."
+}

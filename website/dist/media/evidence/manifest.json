@@ -5,17 +5,18 @@
   "case_count": 2,
   "files": {
     "BOARD-LICENSE.md": "cdaaa3f0c2d1dbb538844077fd7a1d9d43c890d0745b20d8aa0717b583d6af9f",
+    "PROJECT-LICENSE.txt": "8e7caa3bf9ffb672ee5c5442a34c04e266cc7a85c1f2a79f45f6d61a5f5674cc",
     "board-context.json": "4a32d07a6e3b4697295d5ef41c2568ee5deefb1ae1f510d85955b83b7ca8bf85",
     "board-extraction-manifest.json": "f915b4ff8f3566eb4867bf4caff846009cb775a3cd826f2addd278b0dd152c97",
     "board-extractor.py": "336207d52913c53a5c2208a471d821884709086a57db5cc2683f6092bc02267b",
     "board-native-verification.json": "25e84cd3213c284ff0c3a64dd5dabf28c4221e8b79aa4f1a3a5f6fcb2b3e26c6",
     "board-native-verifier.py": "5e88abe83b7d3c2e9a2cc16087c415bfd6275bfed18d471a11eedf0b6e42c1e6",
-    "board-report.json": "1558693ed3b8ffd3216486626b24cfb11deb2bc20739e4c02de52e3a1aa24280",
+    "board-report.json": "decc8b45be8854af6a797b17ee0f5d390a30336bde66b3dfbef0284d5772cd59",
     "board-selection.json": "d62c208c1a8a74c325d2bf789f86ecd41d919d5f587a95db22663f6d5aefda8d",
     "board-source-provenance.json": "0dea8cdd5c847bed1cf54dc1c02bce68996859bb2ce46ca4a7a5c84e1ef70554",
     "board-source.kicad_pcb": "1172f7b0fc262422bab01c62fb4dc84f16d9f1ea8902dc6fe2da859bba9035fc",
-    "calculation-source/__main__.py": "a4e85019b4f3816f163969b0bb798cc35d512ef54f08ed80d939cdfd522774db",
-    "calculation-source/artifacts.py": "5c04c55b6befadaa75b495059ce83cb1acbbad57e9ee7911f52c4b5f82c25fd6",
+    "calculation-source/__main__.py": "28e8583e1dbe4e164fa4123de51340e0dbcaf049d7e3472ae573afe0d8594dfc",
+    "calculation-source/artifacts.py": "928e157a18b0ee524b11a7d40d49f440f7a71547c4e68dbe9c41e63b17adbd1e",
     "calculation-source/board.py": "244acf76b99785c09ff270c27210920b7179c7022738a7cfb54d97c8c558ff44",
     "calculation-source/demo.py": "d442660064e02e0bd647c1fdcacfed3669d289c51730ea694205e98b228a00b2",
     "calculation-source/model.py": "543720e8a6999896410aaf22651846c71b4f4736923ffe0ada0767ce35619657",
@@ -44,6 +45,10 @@
     "review.html": "aad09d14ac50682d9c38c3c090e5ace81932679af6217884b42d69e0f70525fb",
     "review.json": "5fa29cee910fc764173152f3a2e876940eac109ebe1dcbe00fa7641344306759",
     "source.kicad_mod": "14b691bcc05e1c93fa1ae8aeb70361e646a4f4ffba255ebd4b9002ae0ba2160a"
+  },
+  "project_license": {
+    "file": "PROJECT-LICENSE.txt",
+    "scope": "SolderShape code and documentation only. User inputs and third-party material retain their own terms."
   },
   "replay": "python3 tools/verify_board.py FILE.zip --replay; native board readback is separate from numerical replay",
   "schema": 1,

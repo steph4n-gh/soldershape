@@ -1,10 +1,10 @@
 # SolderShape
 
-Compare solder-joint assumptions at an actual KiCad pad. Inspect the predicted equilibrium shape and forces, then keep the exact inputs and numerical evidence for a physical test.
+Would adding solder help this joint? Follow that design question on an actual KiCad pad, change one assumption, and keep the numerical evidence for a matching physical test.
 
 **Research preview. Physical force accuracy is unqualified.** The full board supplies context. Only the selected isolated joint is calculated.
 
-![SolderShape inspecting an actual ULX3S pad](docs/media/board-explorer.png)
+![SolderShape inspecting an actual ULX3S pad](docs/media/board-explorer.jpg)
 
 The example board is ULX3S by EMARD and its contributors. Its original silkscreen and [modified MIT notice](board_demo/source/LICENSE.md) are retained. The board authors do not endorse this solder comparison.
 
@@ -21,7 +21,7 @@ python3 -m soldershape serve --port 8765
 
 Open [Board explorer](http://127.0.0.1:8765/board). On macOS, you can also double-click `Start SolderShape.command`. This checkout was exercised on Apple Silicon macOS with Python 3.14 and Apple clang 21. Other systems remain unqualified. A separate Node.js runtime is useful for development checks, not application use. A raw Git clone omits prebuilt lab ZIPs and the handbook PDF. The complete release candidate includes those optional files; the core Board comparison works without them.
 
-[Start with one complete comparison](docs/getting-started.md). [Watch the 24-second visual walkthrough](docs/media/walkthrough.mp4), assembled from actual application captures. A [text transcript](docs/media/README.md) covers the same steps.
+[Follow the Board decision walkthrough](docs/getting-started.md). [Watch the 36-second visual walkthrough](docs/media/walkthrough.mp4), assembled from six actual application captures. Each still lasts six seconds. The video has no audio, and its editorial timing does not represent solver speed. A [text transcript](docs/media/README.md) covers the same steps.
 
 ## What you can do
 
@@ -32,7 +32,15 @@ Open [Board explorer](http://127.0.0.1:8765/board). On macOS, you can also doubl
 - Save input-only cases. Export readable HTML, CSV, OBJ, STL and the native numerical receipts together.
 - Plan a pad revision or an outside-lab measurement using the separate study and fixture materials.
 
-The default Board example asks whether 40% more solder improves a held-gap force tradeoff. At its hypothetical inputs, 56 nL produces weaker lateral restoration and an upward separating force compared with 40 nL. This is an inspectable model comparison, not a manufacturing recommendation. [Inspect the result and its limits](docs/model-and-validation.md).
+## Follow a decision that changes with an assumption
+
+The worked example uses actual ULX3S U1/J16 lower copper, 400 µm in diameter. The opposing pad and process inputs are hypothetical. Choose **Load U1 / J16 worked example** to load the 40 versus 56 nL comparison. The app keeps one prior input snapshot for **Restore my previous inputs**.
+
+At the 300 µm held gap, only 40 nL meets the numerical fixture rule of lateral restoration without upward separation. Choose **Try a 330 µm held gap** to change that input alone and compute both volumes again. At 330 µm, both meet the rule. A freely supported package needs a different weight-support objective.
+
+The result identifies source copper, process assumptions, numerical check status and absent physical qualification. Editing an input clears the prior result and its exports. A verified recording is labeled separately from a fresh native computation. Save the review and board-bound evidence, then use the matching **Physical test** handoff to identify the required measurements.
+
+These two sampled gap hypotheses do not establish manufacturing tolerance, physical force accuracy or a production volume. [Inspect both outcomes and their limits](docs/model-and-validation.md).
 
 ## What is established
 
@@ -40,7 +48,7 @@ The application uses the existing Surface Evolver numerical engine. Its contribu
 
 The [validation reference](docs/model-and-validation.md) separates numerical agreement, published-data comparisons and unperformed physical tests. [Developer checks](docs/development.md) explain how to reproduce the evidence. Engineering reports retain failed cases and historical source identities.
 
-The [current pre-lab investigation](prelab/REPORT.md) tests the actual 220 versus 270 µm coupon under combined input changes and prescribed wetting hypotheses. It retains ranking reversals and finite-pad solver failures. Its [measurement addendum](prelab/LAB_ADDENDUM.md) identifies the observations needed before either design can receive a clearance qualification.
+The [current pre-lab investigation](prelab/REPORT.md) tests the separate 220 versus 270 µm height-coupon design under combined input changes and prescribed wetting hypotheses. It retains ranking reversals and finite-pad solver failures. Its declared clearance target is 185 µm. Its [measurement addendum](prelab/LAB_ADDENDUM.md) identifies the observations needed before either design can receive a clearance qualification. That coupon does not validate the 400 µm Board example's forces. The existing 200 µm force fixture also needs adaptation and qualification for this board question.
 
 ## Documentation
 

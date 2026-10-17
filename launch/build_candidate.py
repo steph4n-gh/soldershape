@@ -1,5 +1,6 @@
 """Build the committed source plus the three optional prebuilt lab downloads."""
 
+import argparse
 import gzip
 import hashlib
 import io
@@ -10,8 +11,8 @@ import subprocess
 import tarfile
 
 ROOT = Path(__file__).resolve().parents[1]
-ASSETS = ("output/soldershape-force-lab-r1.zip", "output/pdf/soldershape-force-lab-handoff.pdf",
-          "output/soldershape-coupon-r1-refined.zip")
+ASSETS = ("output/soldershape-force-lab-r1-noticed.zip", "output/pdf/soldershape-force-lab-handoff.pdf",
+          "output/soldershape-coupon-r1-noticed.zip")
 
 
 def sha(path):
@@ -20,10 +21,14 @@ def sha(path):
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output-dir", type=Path, default=ROOT / "output/launch-release")
+    parser.add_argument("--receipt", type=Path, default=ROOT / "launch/candidate-receipt.json")
+    args = parser.parse_args()
     if subprocess.check_output(["git", "status", "--porcelain", "--untracked-files=no"], cwd=ROOT).strip():
         raise RuntimeError("Commit the source changes before building a release candidate.")
     commit = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
-    directory = ROOT / "output/launch-release"
+    directory = args.output_dir.resolve()
     directory.mkdir(parents=True, exist_ok=True)
     raw = directory / "candidate.tar"
     subprocess.run(["git", "archive", "--format=tar", "--prefix=soldershape/", "--output", str(raw), commit], cwd=ROOT, check=True)
@@ -49,7 +54,8 @@ def main():
     receipt = {"source_commit": commit, "candidate": str(target), "bytes": target.stat().st_size,
                "sha256": sha(target), "files": len(hashes), "prebuilt_lab_files": {name: hashes[name] for name in ASSETS},
                "native_engine_included": False, "status": "unpublished_research_preview_candidate"}
-    (ROOT / "launch/candidate-receipt.json").write_text(json.dumps(receipt, indent=2) + "\n")
+    args.receipt.parent.mkdir(parents=True, exist_ok=True)
+    args.receipt.write_text(json.dumps(receipt, indent=2) + "\n")
     print(json.dumps(receipt, indent=2))
 
 

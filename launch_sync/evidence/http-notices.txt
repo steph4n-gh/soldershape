@@ -1,0 +1,9 @@
+test_all_tasks_load_common_shell (tests.test_workspace_http.WorkspaceHTTP.test_all_tasks_load_common_shell) ... ok
+test_board_draft_opens_exact_case_without_computation (tests.test_workspace_http.WorkspaceHTTP.test_board_draft_opens_exact_case_without_computation) ... ok
+test_board_handoff_rejects_forged_source_and_missing_token (tests.test_workspace_http.WorkspaceHTTP.test_board_handoff_rejects_forged_source_and_missing_token) ... ok
+test_fixed_resources_preserve_release_identity (tests.test_workspace_http.WorkspaceHTTP.test_fixed_resources_preserve_release_identity) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.838s
+
+OK

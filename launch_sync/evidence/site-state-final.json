@@ -1,0 +1,12 @@
+{
+  "project_id": "appgprj_6ad2e53e69d4819198ce8a1bc6913741",
+  "current_live_url": "https://soldershape.steph4n.dev",
+  "latest_version_number": 2,
+  "current_user_role": "owner",
+  "access_mode": "custom",
+  "external_visitors": 0,
+  "allowed_roles": [
+    "owner"
+  ],
+  "saved_version_deployment_id": null
+}

@@ -1,0 +1,12 @@
+{
+  "currentTime": 36,
+  "duration": 36,
+  "ended": true,
+  "paused": true,
+  "tracks": [
+    {
+      "kind": "captions",
+      "mode": "showing"
+    }
+  ]
+}

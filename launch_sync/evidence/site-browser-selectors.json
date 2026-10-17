@@ -1,0 +1,62 @@
+[
+  {
+    "documentWidth": 1265,
+    "explanation": "Reference · 40 nLRestoring force 184.526 µN (toward alignment). Z force -181.284 µN (downward). The solder pulls the upper pad downward at this held gap.Numerical fixture rule met. Physical accuracy unqualified.",
+    "gap": "300 µm held gap",
+    "headline": "Less solder meets this declared fixture objective. More solder pushes upward.",
+    "image": "media/comparison-review.jpg",
+    "pressed": [
+      "Start at 300 µm",
+      "Reference 40 nL"
+    ],
+    "review": "media/evidence/review.html",
+    "viewport": 1280,
+    "x": "−184.526",
+    "z": "−181.284"
+  },
+  {
+    "documentWidth": 1265,
+    "explanation": "Candidate · 56 nLRestoring force 164.385 µN (toward alignment). Z force 13.3859 µN (upward). The solder pushes the upper pad upward at this held gap.Numerical fixture rule not met. Physical accuracy unqualified.",
+    "gap": "300 µm held gap",
+    "headline": "Less solder meets this declared fixture objective. More solder pushes upward.",
+    "image": "media/comparison-review.jpg",
+    "pressed": [
+      "Start at 300 µm",
+      "Candidate 56 nL"
+    ],
+    "review": "media/evidence/review.html",
+    "viewport": 1280,
+    "x": "−164.385",
+    "z": "+13.386"
+  },
+  {
+    "documentWidth": 1265,
+    "explanation": "Candidate · 56 nLRestoring force 170.455 µN (toward alignment). Z force -82.2761 µN (downward). The solder pulls the upper pad downward at this held gap.Numerical fixture rule met. Physical accuracy unqualified.",
+    "gap": "330 µm held gap",
+    "headline": "Inspect both force directions against the declared fixture objective.",
+    "image": "media/changed-gap.jpg",
+    "pressed": [
+      "Change only the gap to 330 µm",
+      "Candidate 56 nL"
+    ],
+    "review": "media/gap-330-evidence/review.html",
+    "viewport": 1280,
+    "x": "−170.455",
+    "z": "−82.276"
+  },
+  {
+    "documentWidth": 1265,
+    "explanation": "Reference · 40 nLRestoring force 169.063 µN (toward alignment). Z force -227.39 µN (downward). The solder pulls the upper pad downward at this held gap.Numerical fixture rule met. Physical accuracy unqualified.",
+    "gap": "330 µm held gap",
+    "headline": "Inspect both force directions against the declared fixture objective.",
+    "image": "media/changed-gap.jpg",
+    "pressed": [
+      "Change only the gap to 330 µm",
+      "Reference 40 nL"
+    ],
+    "review": "media/gap-330-evidence/review.html",
+    "viewport": 1280,
+    "x": "−169.063",
+    "z": "−227.390"
+  }
+]

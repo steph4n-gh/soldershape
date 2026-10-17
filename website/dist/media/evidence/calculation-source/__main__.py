@@ -152,6 +152,10 @@ class Handler(BaseHTTPRequestHandler):
             "/lab/bom.csv": ("force_lab/BOM.csv", "text/csv; charset=utf-8"),
             "/lab/uncertainties.txt": ("force_lab/uncertainties.md", "text/plain; charset=utf-8"),
             "/lab/height-coupon.zip": ("output/soldershape-coupon-r1-refined.zip", "application/zip"),
+            "/lab/prelab.html": ("prelab/REPORT.html", "text/html; charset=utf-8"),
+            "/lab/prelab-protocol.json": ("prelab/protocol.json", "application/json"),
+            "/lab/prelab-results.json": ("prelab/evidence/campaign/report.json", "application/json"),
+            "/lab/prelab-measurements.txt": ("prelab/LAB_ADDENDUM.md", "text/plain; charset=utf-8"),
         }
         if path in resources:
             filename, content_type = resources[path]

@@ -1,0 +1,12 @@
+{
+  "verified": true,
+  "archive_sha256": "8f464edcfff0ce3b871050d76dc3a540a2c9fd590abd44f676fbc75a531a7f98",
+  "members": 132,
+  "bytes": 18801781,
+  "status": {
+    "fabrication_released": false,
+    "lab_accepted": false,
+    "physically_validated": false,
+    "prepared_for_quote": true
+  }
+}

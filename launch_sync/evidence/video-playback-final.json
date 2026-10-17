@@ -1,0 +1,13 @@
+{
+  "currentTime": 36,
+  "duration": 36,
+  "ended": true,
+  "paused": true,
+  "source": "http://127.0.0.1:8770/media/walkthrough.mp4",
+  "tracks": [
+    {
+      "kind": "captions",
+      "mode": "showing"
+    }
+  ]
+}

@@ -1,8 +1,14 @@
 ffconcat version 1.0
-file 'board-explorer.png'
-duration 8
-file 'comparison-review.png'
-duration 8
-file 'result-inputs.png'
-duration 8
-file 'result-inputs.png'
+file 'board-explorer.jpg'
+duration 6
+file 'process-assumptions.jpg'
+duration 6
+file 'comparison-review.jpg'
+duration 6
+file 'changed-gap.jpg'
+duration 6
+file 'result-inputs.jpg'
+duration 6
+file 'lab-handoff.jpg'
+duration 6
+file 'lab-handoff.jpg'

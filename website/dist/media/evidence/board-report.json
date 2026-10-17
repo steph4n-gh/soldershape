@@ -1,7 +1,7 @@
 {
   "calculation_code_sha256": {
-    "__main__.py": "a4e85019b4f3816f163969b0bb798cc35d512ef54f08ed80d939cdfd522774db",
-    "artifacts.py": "5c04c55b6befadaa75b495059ce83cb1acbbad57e9ee7911f52c4b5f82c25fd6",
+    "__main__.py": "28e8583e1dbe4e164fa4123de51340e0dbcaf049d7e3472ae573afe0d8594dfc",
+    "artifacts.py": "928e157a18b0ee524b11a7d40d49f440f7a71547c4e68dbe9c41e63b17adbd1e",
     "board.py": "244acf76b99785c09ff270c27210920b7179c7022738a7cfb54d97c8c558ff44",
     "demo.py": "d442660064e02e0bd647c1fdcacfed3669d289c51730ea694205e98b228a00b2",
     "model.py": "543720e8a6999896410aaf22651846c71b4f4736923ffe0ada0767ce35619657",

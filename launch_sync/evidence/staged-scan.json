@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "tool": "gitleaks 8.30.1",
+  "scope": "staged source diff before launch source freeze; no archive expansion",
+  "findings": 0,
+  "limits": "Pattern scan, not proof that every possible secret is absent. Full baseline history and expanded archives are covered separately."
+}

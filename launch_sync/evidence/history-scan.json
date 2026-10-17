@@ -1,0 +1,760 @@
+{
+  "baseline_commit": "9c1cced6ff0dd037963d828e4e4eef3ede32a3db",
+  "commit_count": 15,
+  "commits": [
+    "9c1cced6ff0dd037963d828e4e4eef3ede32a3db",
+    "e98f8028db15e57a060bd683be8e2fac96e0551e",
+    "33666d32c92b6753925bb2fd29dc62ce5fed618b",
+    "ac8b3a1eb72a01b2c72f12190ada1e7fa7eb70ac",
+    "e89f071fe1265adef4a244597b8cbbd30f9bd24c",
+    "79170fc6cb339ef787a029c02892d92829724203",
+    "11379f8d8eb0b3503387f0226e2dce835d1f6697",
+    "4a54f86ee3d777efae68269615d7842796d83451",
+    "f4bfa6b1b456c5822b119ea30b1768f399c99f13",
+    "65b983908241ffc3bb30df7ae537e84a12da49a6",
+    "ffe314f5c88abb0a461a5bf690f5d6e332311d6d",
+    "f2cfd9b21da04b49f0512506964d34c31abbcf54",
+    "3f6ff5c2246a3f62c37f9cab4bd59bc4679d4f79",
+    "dccbcf633bfde8264b95a1414bcf36a7168588bf",
+    "fc384a0c900b6b1c132345f28728b7b5523abcbc"
+  ],
+  "history_scanner": {
+    "tool": "gitleaks 8.30.1",
+    "command": [
+      "gitleaks",
+      "git",
+      "--no-banner",
+      "--no-color",
+      "--log-level",
+      "error",
+      "--redact=100",
+      "--report-format",
+      "json",
+      "--report-path",
+      "-",
+      "--log-opts=--all",
+      "."
+    ],
+    "exit_code": 1,
+    "elapsed_seconds": 4.003,
+    "findings": 22,
+    "classification": [
+      {
+        "rule": "generic-api-key",
+        "file": "evidence/model-repair/axisymmetric.json",
+        "line": 75,
+        "commit": "3f6ff5c2246a3f62c37f9cab4bd59bc4679d4f79",
+        "classification": "scientific JSON numeric value, not a credential"
+      },
+      {
+        "rule": "generic-api-key",
+        "file": "evidence/physical/prediction-receipts/baseline-predictions.json",
+        "line": 1054,
+        "commit": "dccbcf633bfde8264b95a1414bcf36a7168588bf",
+        "classification": "scientific JSON numeric value, not a credential"
+      },
+      {
+        "rule": "generic-api-key",
+        "file": "evidence/physical/solver-repair.json",
+        "line": 643,
+        "commit": "dccbcf633bfde8264b95a1414bcf36a7168588bf",
+        "classification": "scientific JSON numeric value, not a credential"
+      },
+      {
+        "rule": "generic-api-key",
+        "file": "evidence/physical/solver-repair.json",
+        "line": 903,
+        "commit": "dccbcf633bfde8264b95a1414bcf36a7168588bf",
+        "classification": "scientific JSON numeric value, not a credential"
+      },
+      {
+        "rule": "generic-api-key",
+        "file": "evidence/physical/solver-repair.json",
+        "line": 1854,
+        "commit": "dccbcf633bfde8264b95a1414bcf36a7168588bf",
+        "classification": "scientific JSON numeric value, not a credential"
+      },
+      {
+        "rule": "generic-api-key",
+        "file": "evidence/solver-development.json",
+        "line": 159,
+        "commit": "fc384a0c900b6b1c132345f28728b7b5523abcbc",
+        "classification": "scientific JSON numeric value, not a credential"
+      },
+      {
+        "rule": "generic-api-key",
+        "file": "evidence/solver-development.json",
+        "line": 409,
+        "commit": "fc384a0c900b6b1c132345f28728b7b5523abcbc",
+        "classification": "scientific JSON numeric value, not a credential"
+      },
+      {
+        "rule": "generic-api-key",
+        "file": "evidence/solver-development.json",
+        "line": 666,
+        "commit": "fc384a0c900b6b1c132345f28728b7b5523abcbc",
+        "classification": "scientific JSON numeric value, not a credential"
+      },
+      {
+        "rule": "generic-api-key",
+        "file": "evidence/physical/predictions.json",
+        "line": 100,
+        "commit": "dccbcf633bfde8264b95a1414bcf36a7168588bf",
+        "classification": "scientific JSON numeric value, not a credential"
+      },
+      {
+        "rule": "generic-api-key",
+        "file": "evidence/physical/predictions.json",
+        "line": 1460,
+        "commit": "dccbcf633bfde8264b95a1414bcf36a7168588bf",
+        "classification": "scientific JSON numeric value, not a credential"
+      },
+      {
+        "rule": "generic-api-key",
+        "file": "evidence/physical/predictions.json",
+        "line": 2050,
+        "commit": "dccbcf633bfde8264b95a1414bcf36a7168588bf",
+        "classification": "scientific JSON numeric value, not a credential"
+      },
+      {
+        "rule": "generic-api-key",
+        "file": "evidence/physical/predictions.json",
+        "line": 5196,
+        "commit": "dccbcf633bfde8264b95a1414bcf36a7168588bf",
+        "classification": "scientific JSON numeric value, not a credential"
+      },
+      {
+        "rule": "generic-api-key",
+        "file": "evidence/physical/predictions.json",
+        "line": 5835,
+        "commit": "dccbcf633bfde8264b95a1414bcf36a7168588bf",
+        "classification": "scientific JSON numeric value, not a credential"
+      },
+      {
+        "rule": "generic-api-key",
+        "file": "evidence/physical/predictions.json",
+        "line": 8687,
+        "commit": "dccbcf633bfde8264b95a1414bcf36a7168588bf",
+        "classification": "scientific JSON numeric value, not a credential"
+      },
+      {
+        "rule": "generic-api-key",
+        "file": "evidence/physical/predictions.json",
+        "line": 8823,
+        "commit": "dccbcf633bfde8264b95a1414bcf36a7168588bf",
+        "classification": "scientific JSON numeric value, not a credential"
+      },
+      {
+        "rule": "generic-api-key",
+        "file": "evidence/physical/predictions.json",
+        "line": 8829,
+        "commit": "dccbcf633bfde8264b95a1414bcf36a7168588bf",
+        "classification": "scientific JSON numeric value, not a credential"
+      },
+      {
+        "rule": "generic-api-key",
+        "file": "evidence/physical/predictions.json",
+        "line": 8969,
+        "commit": "dccbcf633bfde8264b95a1414bcf36a7168588bf",
+        "classification": "scientific JSON numeric value, not a credential"
+      },
+      {
+        "rule": "generic-api-key",
+        "file": "evidence/physical/predictions.json",
+        "line": 11356,
+        "commit": "dccbcf633bfde8264b95a1414bcf36a7168588bf",
+        "classification": "scientific JSON numeric value, not a credential"
+      },
+      {
+        "rule": "generic-api-key",
+        "file": "evidence/physical/predictions.json",
+        "line": 12149,
+        "commit": "dccbcf633bfde8264b95a1414bcf36a7168588bf",
+        "classification": "scientific JSON numeric value, not a credential"
+      },
+      {
+        "rule": "generic-api-key",
+        "file": "evidence/physical/predictions.json",
+        "line": 12665,
+        "commit": "dccbcf633bfde8264b95a1414bcf36a7168588bf",
+        "classification": "scientific JSON numeric value, not a credential"
+      },
+      {
+        "rule": "generic-api-key",
+        "file": "evidence/physical/predictions.json",
+        "line": 13557,
+        "commit": "dccbcf633bfde8264b95a1414bcf36a7168588bf",
+        "classification": "scientific JSON numeric value, not a credential"
+      },
+      {
+        "rule": "generic-api-key",
+        "file": "evidence/physical/predictions.json",
+        "line": 14966,
+        "commit": "dccbcf633bfde8264b95a1414bcf36a7168588bf",
+        "classification": "scientific JSON numeric value, not a credential"
+      }
+    ],
+    "unresolved_structural_findings": 0,
+    "limits": "Default rule pattern scan of all reachable committed diffs. Binary and compressed archive payloads are not covered by the default git diff scan. No secret values or credential-store data are retained."
+  },
+  "tracked_inventory": {
+    "files": 1375,
+    "bytes": 424924658,
+    "largest_files": [
+      {
+        "path": "prelab/evidence/finite-pilot.tar.gz",
+        "bytes": 68705162
+      },
+      {
+        "path": "prelab/evidence/finite-confirmation.tar.gz",
+        "bytes": 53354859
+      },
+      {
+        "path": "cohesion/evidence/custom-study.zip",
+        "bytes": 12388890
+      },
+      {
+        "path": "demo/data/stress-cases.zip",
+        "bytes": 12122007
+      },
+      {
+        "path": "evidence/design-comparison/more-0.007.zip",
+        "bytes": 8792953
+      },
+      {
+        "path": "website/dist/media/evidence/case-01/mesh-mm.stl",
+        "bytes": 7843109
+      },
+      {
+        "path": "decision_walkthrough/evidence/ui-gap-300.zip",
+        "bytes": 5707970
+      },
+      {
+        "path": "refinement2/evidence/board-comparison.zip",
+        "bytes": 5706655
+      },
+      {
+        "path": "board_demo/data/default-comparison.zip",
+        "bytes": 5697470
+      },
+      {
+        "path": "website/dist/media/soldershape-recorded-example.zip",
+        "bytes": 5656812
+      },
+      {
+        "path": "board_demo/source/ulx3s.kicad_pcb",
+        "bytes": 4490683
+      },
+      {
+        "path": "website/dist/media/evidence/board-source.kicad_pcb",
+        "bytes": 4490683
+      },
+      {
+        "path": "website/dist/media/evidence/board-report.json",
+        "bytes": 4459870
+      },
+      {
+        "path": "refinement2/evidence/joint-comparison.zip",
+        "bytes": 3989983
+      },
+      {
+        "path": "evidence/design-comparison/existing-0.006.zip",
+        "bytes": 3917535
+      },
+      {
+        "path": "evidence/design-comparison/less-0.005.zip",
+        "bytes": 3909831
+      },
+      {
+        "path": "cohesion/evidence/offset-sweep.zip",
+        "bytes": 3790921
+      },
+      {
+        "path": "refinement2/evidence/offset-sweep.zip",
+        "bytes": 3789075
+      },
+      {
+        "path": "decision_walkthrough/evidence/gap-330-probe.zip",
+        "bytes": 2870207
+      },
+      {
+        "path": "decision_walkthrough/evidence/ui-gap-330.zip",
+        "bytes": 2870207
+      }
+    ],
+    "engine_or_output_tracked": [],
+    "native_source_or_binary_files": []
+  },
+  "reachable_blob_inventory": {
+    "objects": 1439,
+    "bytes": 416010434,
+    "largest_blobs": [
+      {
+        "object": "ad5817304baeedfc7cc5fd8f6e5b4819f1a5ab02",
+        "bytes": 68705162,
+        "path": "prelab/evidence/finite-pilot.tar.gz"
+      },
+      {
+        "object": "cf5ba864ba4a9693804f401874f57a09615805ed",
+        "bytes": 53354859,
+        "path": "prelab/evidence/finite-confirmation.tar.gz"
+      },
+      {
+        "object": "43d7d1c8ee77d63adab750c704d3eabc5ddd96ce",
+        "bytes": 12388890,
+        "path": "cohesion/evidence/custom-study.zip"
+      },
+      {
+        "object": "df87e04a90fc34da1f6633f65b04e65d591ad29f",
+        "bytes": 12122007,
+        "path": "demo/data/stress-cases.zip"
+      },
+      {
+        "object": "744201f67059c03bc4efc3dd93083d8bb4b8efb3",
+        "bytes": 8792953,
+        "path": "evidence/design-comparison/more-0.007.zip"
+      },
+      {
+        "object": "b83a8e0055495b927c43b73dc636b78a13e6a79c",
+        "bytes": 7843109,
+        "path": "website/dist/media/evidence/case-01/mesh-mm.stl"
+      },
+      {
+        "object": "27f941f7b671d4803ae93fcdcbe5fc1c48bdada4",
+        "bytes": 5707970,
+        "path": "decision_walkthrough/evidence/ui-gap-300.zip"
+      },
+      {
+        "object": "91d967b8ff0238412100da2f0dc0f036b90ad5f7",
+        "bytes": 5706655,
+        "path": "refinement2/evidence/board-comparison.zip"
+      },
+      {
+        "object": "1d1e19be6a5955ecad786992ea04e145cb99b649",
+        "bytes": 5697470,
+        "path": "board_demo/data/default-comparison.zip"
+      },
+      {
+        "object": "9fb2779081dd36eb8e962027bbd41e5cde9b6548",
+        "bytes": 5656812,
+        "path": "website/dist/media/soldershape-recorded-example.zip"
+      },
+      {
+        "object": "8f3b2ec64530375454bb2416996b3233d2b52d0c",
+        "bytes": 4490683,
+        "path": "board_demo/source/ulx3s.kicad_pcb"
+      },
+      {
+        "object": "16a2f058e05992e0318bad492b4b4de8b7e1e50b",
+        "bytes": 4459870,
+        "path": "website/dist/media/evidence/board-report.json"
+      },
+      {
+        "object": "9d9421c6a125069afec09e5301b03b3a6077276e",
+        "bytes": 3989983,
+        "path": "refinement2/evidence/joint-comparison.zip"
+      },
+      {
+        "object": "3bac1c49bb593e3ac6a341add4209986c9e972b8",
+        "bytes": 3917535,
+        "path": "evidence/design-comparison/existing-0.006.zip"
+      },
+      {
+        "object": "6da7ebeb071b76563dce7dc7d6cd3bdb17cc1980",
+        "bytes": 3909831,
+        "path": "evidence/design-comparison/less-0.005.zip"
+      },
+      {
+        "object": "96a7f1333c2a83956e409503d307cbe736610bbb",
+        "bytes": 3790921,
+        "path": "cohesion/evidence/offset-sweep.zip"
+      },
+      {
+        "object": "0b193e5646639e1f30704c879cbf6d69c7789ecb",
+        "bytes": 3789075,
+        "path": "refinement2/evidence/offset-sweep.zip"
+      },
+      {
+        "object": "e9ffca50f7b210cf8a91c136cc5be344fccc3312",
+        "bytes": 2870207,
+        "path": "decision_walkthrough/evidence/gap-330-probe.zip"
+      },
+      {
+        "object": "9b12a1c7e0a016e813d62487e9b2f99f7b017a21",
+        "bytes": 2863286,
+        "path": "cohesion/evidence/current-board.zip"
+      },
+      {
+        "object": "4c33414e5d32e2c31658bbeb3017080f9e0df84b",
+        "bytes": 2862067,
+        "path": "board_demo/data/browser-comparison.zip"
+      }
+    ]
+  },
+  "git_objects_disk_bytes": 366485504,
+  "limits": [
+    "Reachable refs only. Unreachable objects, reflogs, ignored workspaces, credential stores and external hosting credentials are excluded.",
+    "Worktree source is changing concurrently. This history result pins the committed baseline; final staged tree requires a separate final pass.",
+    "A pattern scan and structural classification do not prove the absence of every possible secret."
+  ],
+  "worktree_and_archive_pattern_scan": {
+    "patterns": [
+      "private-key",
+      "github-token",
+      "slack-token",
+      "aws-access-key",
+      "google-api-key",
+      "literal-bearer",
+      "literal-credential-assignment"
+    ],
+    "scope": "Current tracked and nonignored new worktree files, recursively expanded ZIP and TAR.GZ payloads to depth 3. The source is changing concurrently.",
+    "elapsed_seconds": 73.663,
+    "counts": {
+      "scanned_payloads": 2731,
+      "scanned_bytes": 1257385180
+    },
+    "findings": [],
+    "archive_inventory": [
+      {
+        "path": "board_demo/data/browser-comparison.zip",
+        "members": 39,
+        "notices": {
+          "project": [],
+          "kicad": [],
+          "board": [
+            "BOARD-LICENSE.md"
+          ]
+        },
+        "sha256": "598e1bb2aa8b573ec8eeed8fd2cd54528c325f5ec589b07b58af8479244ff7b2"
+      },
+      {
+        "path": "board_demo/data/default-comparison.zip",
+        "members": 39,
+        "notices": {
+          "project": [],
+          "kicad": [],
+          "board": [
+            "BOARD-LICENSE.md"
+          ]
+        },
+        "sha256": "1b87dca00de964b62cce902e071dad063b2f935f79d340817ff9e810bfff9604"
+      },
+      {
+        "path": "cohesion/evidence/board-to-joint-comparison.zip",
+        "members": 23,
+        "notices": {
+          "project": [],
+          "kicad": [],
+          "board": []
+        },
+        "sha256": "2952c4a0042a85b59a20ce8b51615136d66f60600fac957de6a8ba5d7b16371a"
+      },
+      {
+        "path": "cohesion/evidence/current-board.zip",
+        "members": 39,
+        "notices": {
+          "project": [],
+          "kicad": [],
+          "board": [
+            "BOARD-LICENSE.md"
+          ]
+        },
+        "sha256": "0d28dc60e9d5e3f26a88c7a9c1afe525d871ed780d945ccb0a93c959552ce8be"
+      },
+      {
+        "path": "cohesion/evidence/custom-study.zip",
+        "members": 63,
+        "notices": {
+          "project": [],
+          "kicad": [],
+          "board": []
+        },
+        "sha256": "a34dc4d5d491b099a94c37b2395f42047c3f19ad62044cfc60ca8bd01b112e33"
+      },
+      {
+        "path": "cohesion/evidence/offset-sweep.zip",
+        "members": 49,
+        "notices": {
+          "project": [],
+          "kicad": [],
+          "board": []
+        },
+        "sha256": "82bb493f9ffd4b74b1bd28e9c1a19709411baeba634adc377d8b5890b49aa135"
+      },
+      {
+        "path": "decision_walkthrough/evidence/gap-330-probe.zip",
+        "members": 42,
+        "notices": {
+          "project": [
+            "PROJECT-LICENSE.txt"
+          ],
+          "kicad": [],
+          "board": [
+            "BOARD-LICENSE.md"
+          ]
+        },
+        "sha256": "e04880f9666586e421ce17177ef04b00eb5498b96cc130425acac938ba935777"
+      },
+      {
+        "path": "decision_walkthrough/evidence/ui-gap-300.zip",
+        "members": 42,
+        "notices": {
+          "project": [
+            "PROJECT-LICENSE.txt"
+          ],
+          "kicad": [],
+          "board": [
+            "BOARD-LICENSE.md"
+          ]
+        },
+        "sha256": "25c6bc2e128da589a2e113f68da4ce7eafdd69adbaea14c9a81f9236aa0e300e"
+      },
+      {
+        "path": "decision_walkthrough/evidence/ui-gap-330.zip",
+        "members": 42,
+        "notices": {
+          "project": [
+            "PROJECT-LICENSE.txt"
+          ],
+          "kicad": [],
+          "board": [
+            "BOARD-LICENSE.md"
+          ]
+        },
+        "sha256": "e04880f9666586e421ce17177ef04b00eb5498b96cc130425acac938ba935777"
+      },
+      {
+        "path": "demo/data/stress-cases.zip",
+        "members": 71,
+        "notices": {
+          "project": [],
+          "kicad": [
+            "KICAD-LICENSE.md"
+          ],
+          "board": []
+        },
+        "sha256": "914ef334f8850be64a1c5b325647c1d9bc6adf6acfdcac6a3d04920bd4f27f24"
+      },
+      {
+        "path": "evidence/design-comparison/existing-0.006.zip",
+        "members": 48,
+        "notices": {
+          "project": [],
+          "kicad": [],
+          "board": []
+        },
+        "sha256": "088040954c28013f48b74687c07eba0f2312b28bf1fcef145ef86885e8f1fabc"
+      },
+      {
+        "path": "evidence/design-comparison/gravity-controls.zip",
+        "members": 30,
+        "notices": {
+          "project": [],
+          "kicad": [],
+          "board": []
+        },
+        "sha256": "3f29e789025613d0d6b653665223adb26353e4b81c39348c7f2c7b0104bb3696"
+      },
+      {
+        "path": "evidence/design-comparison/less-0.005.zip",
+        "members": 48,
+        "notices": {
+          "project": [],
+          "kicad": [],
+          "board": []
+        },
+        "sha256": "3fb734a1c725f2deb9436fae9427c902e8f39763bf5befd143a3dba3c38f36d0"
+      },
+      {
+        "path": "evidence/design-comparison/more-0.007.zip",
+        "members": 48,
+        "notices": {
+          "project": [],
+          "kicad": [],
+          "board": []
+        },
+        "sha256": "320bb1693fe0315ed8613c4366310e67b264b8a43dba91719377706f8c124f65"
+      },
+      {
+        "path": "prelab/evidence/finite-confirmation.tar.gz",
+        "members": 163,
+        "notices": {
+          "project": [
+            "PROJECT-LICENSE.txt"
+          ],
+          "kicad": [],
+          "board": []
+        },
+        "sha256": "0e46cff44aa6b650910a12f7b8778f443e9f8ab350d4630ecad67c612495d840"
+      },
+      {
+        "path": "prelab/evidence/finite-pilot.tar.gz",
+        "members": 352,
+        "notices": {
+          "project": [
+            "PROJECT-LICENSE.txt"
+          ],
+          "kicad": [],
+          "board": []
+        },
+        "sha256": "0b9e948a27dbc6177267f2813abec760614724500997b6e967feb8b2c2e9a607"
+      },
+      {
+        "path": "refinement2/evidence/board-comparison.zip",
+        "members": 41,
+        "notices": {
+          "project": [],
+          "kicad": [],
+          "board": [
+            "BOARD-LICENSE.md"
+          ]
+        },
+        "sha256": "b6bf18f68ce868fa1a1cd1151be0360f1c7d20667b25154d569af1a825e16d64"
+      },
+      {
+        "path": "refinement2/evidence/failed-single.zip",
+        "members": 13,
+        "notices": {
+          "project": [],
+          "kicad": [],
+          "board": []
+        },
+        "sha256": "09390c591343a52ccf267dcb8fffcf65fee303e2a58797ea941ee9474488190a"
+      },
+      {
+        "path": "refinement2/evidence/joint-comparison.zip",
+        "members": 25,
+        "notices": {
+          "project": [],
+          "kicad": [],
+          "board": []
+        },
+        "sha256": "0df51e43bd82eaba2b105363a80476ebd7b81b0cd26f81788eb41743d44e228d"
+      },
+      {
+        "path": "refinement2/evidence/loaded-comparison.zip",
+        "members": 33,
+        "notices": {
+          "project": [],
+          "kicad": [],
+          "board": []
+        },
+        "sha256": "bb60fa370b82a19a91ef246bb8022ac3c47474875b66d15799e76ac49254773a"
+      },
+      {
+        "path": "refinement2/evidence/offset-sweep.zip",
+        "members": 51,
+        "notices": {
+          "project": [],
+          "kicad": [],
+          "board": []
+        },
+        "sha256": "a1fd0dc30a6a944915f66b9a8763fc7137af1f9a18d9bd8e7da624a2ccc0bb88"
+      },
+      {
+        "path": "website/dist/media/soldershape-recorded-example.zip!board-comparison.zip",
+        "members": 41,
+        "notices": {
+          "project": [],
+          "kicad": [],
+          "board": [
+            "BOARD-LICENSE.md"
+          ]
+        },
+        "sha256": "b6bf18f68ce868fa1a1cd1151be0360f1c7d20667b25154d569af1a825e16d64"
+      },
+      {
+        "path": "website/dist/media/soldershape-recorded-example.zip",
+        "members": 9,
+        "notices": {
+          "project": [
+            "PROJECT-LICENSE.txt"
+          ],
+          "kicad": [
+            "KICAD-LICENSE.md"
+          ],
+          "board": [
+            "BOARD-LICENSE.md"
+          ]
+        },
+        "sha256": "924471875954a19199b68f5330a6772fcf4a1fb9d013026babdbc106b66855fa"
+      }
+    ],
+    "privacy_metadata": {
+      "occurrences": {
+        "local_user_path": 3,
+        "storage_path": 726,
+        "attachment_reference": 1
+      },
+      "files_with_local_paths": 194,
+      "classification": "Local absolute paths are embedded in reproducibility receipts. They disclose workstation path structure; they are not credentials. No proprietary board was identified in the board-input inventory.",
+      "limits": "This is a filename, structural and credential-pattern review. It is not a visual review of every screenshot or a semantic review of every log line.",
+      "path_classifications": [
+        {
+          "file": "expansion/design-brief.md",
+          "line": 3,
+          "classification": "attachment_reference"
+        },
+        {
+          "file": "expansion/design-brief.md",
+          "line": 3,
+          "classification": "local_user_path"
+        },
+        {
+          "file": "prelab/evidence/browser-downloads.json",
+          "line": 3,
+          "classification": "local_user_path"
+        }
+      ]
+    },
+    "limits": "Seven high-confidence literal patterns complement the default gitleaks history scan. This archive scan is not a complete gitleaks rule run and does not cover deleted archive payloads from every historical commit."
+  },
+  "independent_walkthrough_check": {
+    "passed": true,
+    "original_archive_sha256": "1b87dca00de964b62cce902e071dad063b2f935f79d340817ff9e810bfff9604",
+    "changed_archive_sha256": "e04880f9666586e421ce17177ef04b00eb5498b96cc130425acac938ba935777",
+    "only_changed_input": "standoff_mm",
+    "cases": [
+      {
+        "held_gap_um": 300,
+        "forces_uN": [
+          {
+            "x_uN": -184.52638094190732,
+            "z_uN": -181.28387853829275
+          },
+          {
+            "x_uN": -164.3854725452698,
+            "z_uN": 13.385897738397528
+          }
+        ],
+        "reference_rule_met": true,
+        "candidate_rule_met": false
+      },
+      {
+        "held_gap_um": 330,
+        "forces_uN": [
+          {
+            "x_uN": -169.062859622926,
+            "z_uN": -227.38953775806067
+          },
+          {
+            "x_uN": -170.45539126847586,
+            "z_uN": -82.27612770208692
+          }
+        ],
+        "reference_rule_met": true,
+        "candidate_rule_met": true
+      }
+    ],
+    "physical_qualification": "unqualified",
+    "scope": "Two sampled held-gap hypotheses on one identified source pad. Not a process tolerance or physical error bound."
+  },
+  "source_notice_hashes": {
+    "kicad_footprint_manifest_matches": true,
+    "ulx3s_board_readme_license_manifests_match": true,
+    "walkthrough_new_zip_project_notices_match": true,
+    "walkthrough_new_zip_board_notices_match": true,
+    "finite_archive_project_notices_match": true
+  },
+  "scan_date": "2026-10-17"
+}

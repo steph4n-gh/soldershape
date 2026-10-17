@@ -1,63 +1,61 @@
 # Launch readiness
 
-The project is suitable for a clearly labeled research preview after the publication steps below. It is not a physically qualified PCB design authority. Practitioner demand remains untested.
+The current launch preparation follows the guided Board decision. The README, setup guide, validation reference, six actual application captures, captioned 36-second still sequence and static introduction use the same U1/J16 question. At a 300 µm held gap, only 40 nL meets the declared numerical fixture rule. At 330 µm, both 40 and 56 nL meet it. These are hypothetical process scenarios, not measured manufacturing limits.
 
-## Prepared
+The project can be presented as a research preview. It is not a physically qualified PCB design authority. Practitioner demand and willingness to pay remain untested. The [current final-check record](../launch_sync/RESULTS.md) identifies the exact candidate, checks, saved Site source and remaining publication steps. Earlier receipts below qualify their own historical commits only.
 
-- Short README with actual screenshot and one consistent default port.
-- One complete getting-started comparison, model/validation reference and developer guide.
-- Contributor instructions, local runtime security boundary, unreleased changelog and prepared source/boundary CI workflow.
-- MIT license for original project material, selected under the owner's authorization. Third-party terms remain separate.
-- Three actual UI screenshots, a 24-second still-capture walkthrough, captions and transcript. Editorial timing is explicit.
-- Static Sites introduction, a recorded comparison selector, local guide, validation explanation and attribution pages. It does not run the native solver or accept board uploads.
-- Attributed example wrapper with an unchanged original Board ZIP and all notices. The website also serves that ZIP's original extracted evidence, so its review links work.
-- New known-source generic exports retain the exact original KiCad or ULX3S notice in their existing manifest. All new evidence archives also carry the project MIT notice with an explicit scope excluding user and third-party input rights. Unknown user sources receive no assigned third-party source license. Historical archives remain untouched.
-- New coupon package builds include the project license. Existing frozen lab packages remain unchanged.
+## What is prepared
 
-## Verification
+- A complete local workflow from actual source copper through assumptions, native computation, readable review, editable inputs, numerical evidence and a matching lab question.
+- A recorded introduction that selects both held-gap scenarios and both volumes from exact retained native evidence. It does not run a solver or accept board uploads.
+- Six actual JPEG screenshots, a captioned 36-second video assembled from those stills, and an equivalent transcript. Timing is editorial and there is no audio.
+- A downloadable example with both unchanged native ZIPs, exact extracted review members, original Board and footprint notices and the project MIT grant.
+- Separate notice-bearing force and height-coupon packages. The app's fixed download routes select these new names. Older packages remain unchanged. The force kit uses 200 µm pads and needs adaptation for the 400 µm board question. Neither experiment is fabrication released or physically validated.
+- MIT for original project material. Third-party terms remain separate in [THIRD_PARTY.md](../THIRD_PARTY.md). No native engine binary or engine C source is redistributed.
+- Contributor instructions, runtime security scope and a prepared source/boundary CI workflow. Hosted CI has not run.
 
-The initial application suite passed 99 tests in `launch/tests-full.txt`. The final suite passes 100 tests in `launch/tests-final.txt`; eight independent notice/capacity/compatibility checks also pass in `launch/project-notice-review.md`. The portable boundary/case/input set passes 27 tests in `launch/portable-tests.txt`. JavaScript syntax checks pass. The CI workflow is prepared; hosted GitHub CI has not run because no public repository is configured.
+## Reproduce the checks
 
-The provenance and documentation audits describe the pre-repair state. `launch/review.md` independently checks the repairs and bounded claims. `launch/media-inventory.json` records the served files. `launch/site-receipt.json` records actual deployment and DNS state. `launch/checks.json` records doc links, evidence/media identities and package checks when complete.
+From the repository root, keep new receipts separate from historical records.
 
-The history scan examined all 10 prior commits. Its 22 pattern matches are scientific JSON `capillary_relative` numeric values, not credentials. `launch/secret-scan.json` retains per-finding structural classification without secret content. Pattern scanning is not proof that every possible secret is absent. No hosted write credential is stored in source.
+```sh
+python3 tools/setup_engine.py
+python3 -m unittest discover -s tests -v
+python3 decision_walkthrough/verify.py
+python3 prelab/verify.py
+python3 tools/prepare_launch_assets.py --receipt launch_sync/evidence/media-inventory.json
+python3 launch/check_launch.py --inventory launch_sync/evidence/media-inventory.json --receipt output/launch-check-new.json
+python3 -m http.server 8770 --bind 127.0.0.1 --directory website/dist
+```
 
-## Public launch steps still needed
+After committing source, build the complete distribution with its optional lab downloads.
+
+```sh
+python3 launch/build_candidate.py --output-dir output/launch-release-new --receipt output/candidate-new.json
+```
+
+A raw Git clone omits the ignored prebuilt lab ZIPs and PDFs. The complete candidate includes the three advertised lab download files explicitly. Follow [getting started](../docs/getting-started.md) after extraction. The core Board workflow does not require prebuilt lab documents. Current application checks cover Apple Silicon macOS. Portable boundary checks are not native Linux qualification.
+
+## Publication steps still needed
 
 1. Create the intended public GitHub repository and set this checkout's remote. No repository URL is invented in the guides.
 2. Configure a working private vulnerability-reporting channel and update SECURITY.md and contributor links.
 3. Run the prepared workflow on hosted CI and qualify the exact public release commit. Other operating systems remain unqualified.
-4. Attach the complete source/distribution package, original notices, media and hashes to a clearly labeled research release. A raw Git clone omits the ignored prebuilt lab ZIPs and PDF. Include those explicit assets in the complete release package or build them separately. The core Board workflow does not require them.
-5. Change the Sites audience only when public publication is requested. The prepared site preserves owner-private access and truthfully identifies source publication as pending.
+4. Attach the complete source package, notices, media and hashes to a clearly labeled research release. A full source clone carries roughly 425 MB of retained evidence before Git compression. The largest two research archives are about 69 and 53 MB.
+5. Publish the reviewed Site version and change its audience when launch is requested. The existing hostname and TLS are active. Saving source does not change the live deployment or owner-only access.
 
-Physical qualification is a separate investment step. It is required before a production-accuracy claim, not an implied outcome of open-sourcing an experimental workbench. No public source repository, release tag, binary distribution, hosted native solver or completed physical test is claimed here.
+Physical qualification remains a separate investment step before production-accuracy claims. No public repository, release tag, hosted native solver or completed physical test is claimed here.
 
-## Reproduce the preparation
+## Site and credentials
 
-```sh
-python3 -m unittest discover -s tests -v
-python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v
-python3 tools/prepare_launch_assets.py
-python3 launch/check_launch.py
-python3 -m http.server 8770 --bind 127.0.0.1 --directory website/dist
-```
+`website/dist` is the canonical static source. Its exact Sites identity is tracked in `website/.openai/hosting.json`. The publishing mirror is `output/launch-site` with separate ignored Git metadata. Source commit, saved version and deployed version are distinct identities. Short-lived credentials pass through the source helper's hidden stdin, never source, arguments or receipts.
 
-The Sites publishing mirror is `output/launch-site`. It has independent ignored Git metadata. `website/dist` and its exact hosting identity remain tracked in the application repository. Short-lived write credentials pass through the source helper's hidden stdin only. The site's source commit and deployment receipt are distinct from the application's source commit.
+The real hostname previously showed its owner identity gate. That access boundary remains in place. Local browser controls exercise the reviewed source without bypassing the Site authentication gate.
 
-Experience First replaced an engineering-history introduction with a complete newcomer path. Prove It Works required actual downloads, playback and packaging checks. The existing numerical algorithms and physical claims are unchanged.
+## Historical evidence
 
-The custom hostname is active with TLS. Sites access remains owner-only. Its identity gate was observed at the real hostname. The owner sign-in flow encountered the identity provider's browser security verification; deployed content was not visually inspected beyond that gate. The same exact pushed static source passed local browser controls, full video playback, actual download, narrow-layout and HTTP link checks. No bypass token or security-warning workaround was used.
+[Initial provenance audit](provenance-audit.md), [earlier review](review.md), [earlier Site deployment](site-receipt.json) and [earlier complete candidate](candidate-receipt.json) remain unchanged. Their older screenshots, counts, source commits and numerical evidence are not the current launch inventory. The previous complete candidate pinned `ac8b3a1` before the pre-lab work and Board walkthrough.
 
-Original Board notices and extracted native logs retain trailing spaces. The staged whitespace checker reports those preserved bytes. Source formatting passes with only `website/dist/media/evidence` and the copied original `BOARD-LICENSE.md` excluded; their exact bytes are verified against the archived source.
+The [current independent release audit](../launch_sync/release-audit.md) inspected the full 15-commit baseline and recursively expanded current archives. Its 22 Gitleaks matches were scientific JSON numbers, with no verified credential finding. Pattern scans have explicit scope limits and cannot prove every possible secret absent. Reproducibility receipts retain absolute local paths as public metadata if the history is released.
 
-## Clean candidate evidence
-
-The first complete candidate at source commit `e89f071` extracted without Git metadata or an engine cache. All 1,100 members matched its release manifest. It downloaded and built the pinned native engine, solved and replayed the two-volume CLI example, and completed the default Board comparison through the actual browser. The downloaded Board archive passed identity verification and reproduced the recorded X/Z forces with zero difference. All five workbench pages and three prebuilt lab download routes returned HTTP 200. Receipts are in `launch/fresh-candidate.json`, `launch/fresh-http.json` and `launch/fresh-replay.json`.
-
-The final project-license attachment is a subsequent packaging correction. It adds a notice and scope metadata, not numerical logic. Seven fully evidenced loaded rows with a known footprint use exactly 100 members under the unchanged limit. The final complete candidate and its separate smoke check are recorded in `launch/candidate-receipt.json` and `launch/final-candidate-check.json`.
-
-The final complete candidate pins source commit `ac8b3a1eb72a01b2c72f12190ada1e7fa7eb70ac`. Its 1,110 members pass the release manifest check. All 27 portable checks pass in the extracted tree before an engine exists. A fresh pinned engine build then solves both cases, exports exact project and KiCad notices, and replays both with zero force difference. See `launch/final-portable-tests.txt`, `launch/final-engine.json`, `launch/final-solve.json`, `launch/final-replay.json` and `launch/final-candidate-check.json`. The browser/HTTP checks belong to the preceding candidate; the final change affects archive notices and scope metadata only. Physical qualification remains unqualified.
-
-Rebuild a complete candidate from a clean committed checkout using `python3 launch/build_candidate.py`. The receipt records its exact path, source commit and SHA-256. Extract that archive into a new directory, then follow `docs/getting-started.md`. The native engine is downloaded and built locally rather than included as a binary. Receipt-only commits made after candidate qualification do not alter the candidate source.
-
-The local workbench remains running on port 8769 with the final application code. Temporary launch-preview servers on 8770 and 8771 were stopped. Existing browser drafts and the original recorded evidence were preserved.
+Laziness Protocol kept the static Site and immutable numerical records. Prove It Works requires actual browser selectors, downloads, playback and a newly extracted candidate, rather than treating successful source packaging as physical validation.
