@@ -1,0 +1,36 @@
+{
+  "ready": true,
+  "version": "2.70a",
+  "source_url": "https://kenbrakke.com/evolver/downloads/evolver-2.70.tar.gz",
+  "source_sha256": "be7d60d9eb690f1fb124e2ecc12237a7a35be1935bfa5e92be3fe912207a3b6b",
+  "reference_url": "https://kenbrakke.com/evolver/downloads/bga-files.zip",
+  "reference_sha256": "96389e8200320cc8acfbf60b8ed23e2d05941613af5b55824c36890113c6e659",
+  "binary_sha256": "c930b47b33a4cafb3cf98b1c0cb7e3bd9805abcf67aceefe243daea091072f8e",
+  "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+  "build_commands": [
+    [
+      "/usr/bin/cc",
+      "-c",
+      "/Volumes/Storage/oct16project/output/launch-smoke-ac8b3a1/soldershape/.engine/headless-title.c",
+      "-o",
+      "/Volumes/Storage/oct16project/output/launch-smoke-ac8b3a1/soldershape/.engine/headless-title.o"
+    ],
+    [
+      "/usr/bin/make",
+      "-C",
+      "/Volumes/Storage/oct16project/output/launch-smoke-ac8b3a1/soldershape/.engine/src",
+      "-j4",
+      "CC=/usr/bin/cc -O2 -std=gnu89 -w",
+      "CFLAGS=-DGENERIC",
+      "GRAPH=nulgraph.o",
+      "GRAPHLIB=../headless-title.o"
+    ]
+  ],
+  "numerical_source_modified": false,
+  "patch": {
+    "purpose": "Supply missing no-op title callback for the headless graphics target.",
+    "source": "void set_graphics_title(int which, char *title) { (void)which; (void)title; }\n",
+    "sha256": "4f49b4ab182ffd99e0244abae08ea8e48d74ce2e24c57f1c40088ba18126526a"
+  },
+  "license_note": "Local upstream evaluation. Component notices require review before redistribution; upstream source is not vendored in this project."
+}

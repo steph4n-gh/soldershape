@@ -1,0 +1,32 @@
+{
+  "replay": [
+    {
+      "input_sha256": "ea92580bd3559839abb3cf543c8b3db1e1822ee60580542ec46fbb4a594de73b",
+      "status": "refinement_checked",
+      "force_difference_uN": {
+        "x_uN": 0.0,
+        "z_uN": 0.0
+      },
+      "gap_difference_mm": null,
+      "source_matches": true,
+      "binary_matches": true,
+      "passed": true
+    },
+    {
+      "input_sha256": "53f398e8cd9b5212fad425cdb49567af253df26fe7970e9712a56353192fcc13",
+      "status": "refinement_checked",
+      "force_difference_uN": {
+        "x_uN": 0.0,
+        "z_uN": 0.0
+      },
+      "gap_difference_mm": null,
+      "source_matches": true,
+      "binary_matches": true,
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "verification_kind": "numerical_equivalence",
+  "exact_engine_provenance": true,
+  "scope": "Passing numerical replay does not establish matching engine identity or physical accuracy."
+}

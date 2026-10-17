@@ -1,0 +1,39 @@
+{
+  "source_commit": "ac8b3a1eb72a01b2c72f12190ada1e7fa7eb70ac",
+  "candidate_sha256": "296b16c5c730e0ff5e4ad3eac13899e5a1b8e29a87ff94a250511d926f81c896",
+  "source_root": "output/launch-smoke-ac8b3a1/soldershape",
+  "source_members_verified": 1110,
+  "initial_engine_cache_present": false,
+  "initial_git_metadata_present": false,
+  "portable_checks_passed_before_engine_setup": 27,
+  "engine_ready": true,
+  "project_and_kicad_notice_bytes_match": true,
+  "export_manifest_verified": true,
+  "statuses": [
+    "refinement_checked",
+    "refinement_checked"
+  ],
+  "forces_uN": [
+    {
+      "x_uN": -19.63342805000323,
+      "z_uN": -43.77622501901732
+    },
+    {
+      "x_uN": -20.36428851937,
+      "z_uN": -128.77095172947327
+    }
+  ],
+  "replay_passed": true,
+  "force_difference_uN": [
+    {
+      "x_uN": 0.0,
+      "z_uN": 0.0
+    },
+    {
+      "x_uN": 0.0,
+      "z_uN": 0.0
+    }
+  ],
+  "browser_http_verification": "Prior candidate e89f071; final difference limited to archive notice and scope metadata. No final-candidate browser rerun claimed.",
+  "physical_qualification": "unqualified"
+}
