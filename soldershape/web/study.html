@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101923">
+  <title>SolderShape | Compare pad revisions</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/study.css">
+  <script src="/study.js" defer></script>
+</head>
+<body>
+  <header class="app-header">
+    <a class="brand" href="/study" aria-label="SolderShape pad revision study"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>Solder<span>Shape</span></a>
+    <nav aria-label="Workbench"><a href="/study" aria-current="page">Compare pad revisions</a><a href="/">Single-joint viewer</a></nav>
+    <p class="engine-state" id="engine-state"><span class="status-dot"></span><span id="engine-label">Connecting to engine</span></p>
+  </header>
+  <main>
+    <div class="intro">
+      <div><p class="eyebrow">PAD REVISION STUDY</p><h1>Find what changes your pad decision.</h1><p class="intro-copy">Compare two actual KiCad pad revisions against a gap requirement. See whether solder volume or the pad geometry assumption changes the result. Keep the inputs and computation in one reviewable file.</p></div>
+      <span class="local-note">LOCAL COMPUTATION<br>No account or upload service.</span>
+    </div>
+    <div class="qualification"><strong>Physical qualification remains unqualified.</strong><span>This study screens assumptions for an isolated, fully wetted joint with pinned contact lines. It helps plan a coupon test. It does not approve a board for manufacture.</span></div>
+    <div class="file-bar"><button id="example-button" class="button secondary" type="button" disabled>Load 220 vs 270 µm planning example</button><div><label class="button secondary file-button" for="study-file">Open study<input id="study-file" type="file" accept=".json,application/json" disabled></label><button id="save-study-button" class="button secondary" type="button" disabled>Save editable study</button></div></div>
+    <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
+    <form id="study-form">
+      <section aria-labelledby="revisions-heading">
+        <div class="section-heading"><h2 id="revisions-heading"><span class="step">01</span> Choose the two board revisions</h2><p>Each diameter comes from its own selected copper pad.</p></div>
+        <div class="revision-grid">
+          <article class="panel revision-card" data-arm="reference">
+            <div class="card-heading"><div><p class="eyebrow">REFERENCE</p><h3 id="reference-name">Choose a footprint</h3></div><label class="button secondary file-button" for="reference-file">Import footprint<input id="reference-file" type="file" accept=".kicad_mod,text/plain" disabled></label></div>
+            <div class="pad-preview"><canvas id="reference-canvas" role="img" aria-label="Reference footprint layout. Select a pad using the field below."></canvas><span id="reference-count">NO PADS</span><div class="pad-diameter"><small>Selected copper diameter</small><strong id="reference-diameter">No pad selected</strong></div></div>
+            <div class="pad-row"><label for="reference-pad">Selected pad</label><select id="reference-pad" disabled><option>Import a footprint first</option></select></div>
+            <p class="source-identity digest" id="reference-identity">No footprint source loaded.</p>
+            <p class="pad-message" id="reference-pad-message">Circular copper SMD pads are supported.</p>
+            <details class="source-details"><summary>Footprint source and identity</summary><p id="reference-hash" class="digest">No source loaded.</p><p>Footprint imports do not resolve board-level mask settings, drawn mask geometry, or final CAM.</p></details>
+            <label class="text-field" for="reference-evidence"><span>Boundary evidence or explicit planning assumption</span><textarea id="reference-evidence" rows="2" maxlength="4000" required placeholder="Identify the mask/CAM evidence, or state that copper-rim wetting is an unverified planning assumption."></textarea></label>
+          </article>
+          <article class="panel revision-card candidate-card" data-arm="candidate">
+            <div class="card-heading"><div><p class="eyebrow">CANDIDATE</p><h3 id="candidate-name">Choose a footprint</h3></div><label class="button secondary file-button" for="candidate-file">Import footprint<input id="candidate-file" type="file" accept=".kicad_mod,text/plain" disabled></label></div>
+            <div class="pad-preview"><canvas id="candidate-canvas" role="img" aria-label="Candidate footprint layout. Select a pad using the field below."></canvas><span id="candidate-count">NO PADS</span><div class="pad-diameter"><small>Selected copper diameter</small><strong id="candidate-diameter">No pad selected</strong></div></div>
+            <div class="pad-row"><label for="candidate-pad">Selected pad</label><select id="candidate-pad" disabled><option>Import a footprint first</option></select></div>
+            <p class="source-identity digest" id="candidate-identity">No footprint source loaded.</p>
+            <p class="pad-message" id="candidate-pad-message">Circular copper SMD pads are supported.</p>
+            <details class="source-details"><summary>Footprint source and identity</summary><p id="candidate-hash" class="digest">No source loaded.</p><p>Footprint imports do not resolve board-level mask settings, drawn mask geometry, or final CAM.</p></details>
+            <label class="text-field" for="candidate-evidence"><span>Boundary evidence or explicit planning assumption</span><textarea id="candidate-evidence" rows="2" maxlength="4000" required placeholder="Identify the mask/CAM evidence, or state that copper-rim wetting is an unverified planning assumption."></textarea></label>
+          </article>
+        </div>
+      </section>
+      <div class="study-grid">
+        <section class="panel conditions" aria-labelledby="conditions-heading">
+          <div class="panel-heading"><h2 id="conditions-heading"><span class="step">02</span> Set the shared conditions</h2></div>
+          <p class="section-copy">The upper pad, liquid volume, material, offset, and supported load are the same for both revisions.</p>
+          <div class="fields">
+            <label class="number-field" for="upper_diameter_mm"><span>Upper pad diameter</span><span class="number-input"><input id="upper_diameter_mm" type="number" value="0.28" min="0.05" max="10" step="any" required><small>mm</small></span></label>
+            <label class="number-field" for="volume_mm3"><span>Liquid solder volume</span><span class="number-input"><input id="volume_mm3" type="number" value="0.01715728467880506" min="0.000001" max="1000" step="any" required><small>mm³</small></span></label>
+            <label class="number-field" for="normal_load_uN"><span>Normal load per joint</span><span class="number-input"><input id="normal_load_uN" type="number" value="6.864655" min="0" max="100000" step="any" required><small>µN</small></span></label>
+            <p class="input-help">Supply the external load carried by one joint. Equal sharing between isolated joints is an assumption. The solver finds the gap.</p>
+            <label class="number-field" for="offset_mm"><span>Lateral offset</span><span class="number-input"><input id="offset_mm" type="number" value="0" min="-5" max="5" step="any" required><small>mm</small></span></label>
+            <label class="number-field" for="surface_tension_n_m"><span>Surface tension</span><span class="number-input"><input id="surface_tension_n_m" type="number" value="0.48" min="0.01" max="2" step="any" required><small>N/m</small></span></label>
+            <label class="number-field" for="density_g_cm3"><span>Liquid solder density</span><span class="number-input"><input id="density_g_cm3" type="number" value="8.5" min="0.1" max="25" step="any" required><small>g/cm³</small></span></label>
+            <label class="checkbox-field" for="gravity"><input id="gravity" type="checkbox"><span>Include gravity</span></label>
+            <p class="input-help">The analytical screen requires zero offset, gravity off, and a small supported load. The server reports when it cannot apply.</p>
+            <div class="field-group"><h3>Declared design question</h3>
+              <label class="number-field" for="gap-requirement"><span>Minimum pad-face gap</span><span class="number-input"><input id="gap-requirement" type="number" value="185" min="1" max="10000" step="any" required><small>µm</small></span></label>
+              <label class="text-field" for="requirement-source"><span>Requirement source</span><textarea id="requirement-source" rows="2" maxlength="4000" required placeholder="State why this gap matters and where the criterion comes from."></textarea></label>
+              <p class="input-help">Pad-face gap is the separation of the wetted pad planes. It is not clearance from the board mask to the package body.</p>
+              <label class="number-field" for="volume-fraction"><span>Volume sample fraction</span><span class="number-input"><input id="volume-fraction" type="number" value="0.05" min="0" max="0.20" step="any" required><small>± frac.</small></span></label>
+              <p class="input-help" id="volume-help">0.05 samples the nominal volume and volumes 5% below and above it. These are three points, not a tolerance bound or yield prediction.</p>
+            </div>
+            <div class="field-group"><label class="checkbox-field" for="two-pad-enabled"><input id="two-pad-enabled" type="checkbox"><span>Compare the two-pad geometry hypothesis</span></label>
+              <p class="input-help">This approximation adds equivalent pad cylinders to the computational domain, then subtracts both metal thicknesses from the solved height. Its mesh is not the physical solder shape. Gravity must be off.</p>
+              <div id="two-pad-fields" hidden>
+                <label class="number-field" for="lower-metal"><span>Lower finished metal</span><span class="number-input"><input id="lower-metal" type="number" value="35" min="0" max="500" step="any" disabled><small>µm</small></span></label>
+                <label class="number-field" for="upper-metal"><span>Upper finished metal</span><span class="number-input"><input id="upper-metal" type="number" value="35" min="0" max="500" step="any" disabled><small>µm</small></span></label>
+                <label class="text-field" for="two-pad-evidence"><span>Thickness and geometry evidence</span><textarea id="two-pad-evidence" rows="2" maxlength="4000" disabled placeholder="Cite finished-metal measurements or identify the planning assumption."></textarea></label>
+              </div>
+            </div>
+            <label class="text-field" for="input-evidence"><span>Input provenance</span><textarea id="input-evidence" rows="3" maxlength="4000" required placeholder="Record alloy, flux, temperature, volume and load sources. Label assumed inputs explicitly."></textarea></label>
+            <button id="run-study-button" class="button primary" type="submit" disabled><span id="run-label">Run pad revision study</span><span aria-hidden="true">↗</span></button>
+            <p class="input-help run-note">Two native nominal calculations. Four with the two-pad hypothesis. The analytical screen samples the declared volumes.</p>
+          </div>
+        </section>
+        <div class="results-column">
+          <section class="panel decision-panel" aria-labelledby="decision-heading">
+            <div class="decision-heading"><p class="eyebrow">STUDY CONCLUSION</p><span id="decision-state" class="state-label">Awaiting computation</span></div>
+            <h2 id="decision-heading">Can this comparison resolve your design question?</h2>
+            <div id="empty-result"><p>Run the study to see whether the two revisions meet the declared pad-face gap at the sampled volumes, and whether that result depends on the geometry hypothesis.</p><div class="empty-method"><span>Actual source pads</span><i aria-hidden="true">→</i><span>Native nominal + analytical samples</span><i aria-hidden="true">→</i><span>Evidence to collect next</span></div></div>
+            <div id="decision-result" hidden><ul id="decision-reasons"></ul><div class="next-actions"><h3>What to do next</h3><ul id="decision-actions"></ul></div></div>
+            <div class="qualification-strip"><span class="status-dot"></span>Physical qualification <strong>Unqualified</strong></div>
+          </section>
+          <div id="computed-results" hidden>
+            <section class="panel table-panel" aria-labelledby="nominal-heading"><div class="panel-heading"><h2 id="nominal-heading">Nominal gap and independent baseline</h2></div><p class="section-copy">Native results are numerical calculations. Published Eq. 9 is a strong simpler alternative for aligned joints under a small load.</p><div class="table-scroll"><table><thead><tr><th scope="col">Revision / mapping</th><th scope="col">Lower pad</th><th scope="col">Native gap</th><th scope="col">Eq. 9 gap</th><th scope="col">Native − Eq. 9</th><th scope="col">Native margin</th><th scope="col">Numerical status</th></tr></thead><tbody id="nominal-body"></tbody></table></div><p class="table-note">Positive margin means the computed pad-face gap is above the declared criterion. It does not establish physical clearance.</p></section>
+            <section class="panel table-panel" aria-labelledby="samples-heading"><div class="panel-heading"><h2 id="samples-heading">Declared volume samples</h2><span class="state-label">Finite points only</span></div><p class="section-copy">Analytical samples are not native sensitivity solves. Their extrema do not bound the unsampled interval.</p><div class="table-scroll"><table><thead><tr><th scope="col">Revision / mapping</th><th scope="col">Liquid volume</th><th scope="col">Eq. 9 gap</th><th scope="col">Margin</th><th scope="col">Applicability</th></tr></thead><tbody id="samples-body"></tbody></table></div></section>
+            <section class="panel evidence-panel" aria-labelledby="evidence-heading"><div class="panel-heading"><h2 id="evidence-heading">Keep the decision reviewable</h2></div><p class="section-copy">The archive includes both footprint sources, inputs, native evidence, sampled values, and a static decision brief. Reopen editable JSON to change assumptions.</p><div class="export-actions"><button id="download-study-button" class="button primary" type="button" disabled>Download study archive</button></div><p id="study-digest" class="digest"></p><details><summary>Scope and limitations</summary><ul id="scope-list"></ul></details></section>
+          </div>
+        </div>
+      </div>
+    </form>
+    <footer><span>SolderShape</span><p>Use the <a href="/">single-joint viewer</a> to inspect a mesh or offset sweep. A checked solver result establishes numerical agreement. Process-specific physical accuracy remains unqualified.</p></footer>
+  </main>
+</body>
+</html>

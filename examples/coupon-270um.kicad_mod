@@ -1,0 +1,2 @@
+(footprint "SS-Coupon-270um" (layer "F.Cu")
+  (pad "A1" smd circle (at 0 0) (size 0.27 0.27) (layers "F.Cu" "F.Mask")))

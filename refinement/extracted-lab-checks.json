@@ -1,0 +1,39 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "command": [
+        "python3",
+        "coupons/tools/package_lab.py",
+        "--verify",
+        "/Volumes/Storage/oct16project/output/soldershape-coupon-r1-refined.zip"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"status\": \"all_members_verified\",\n  \"files\": 83,\n  \"archive_sha256\": \"f20c7e9cb70bb400c3ad2a6fbb97c088757a39f5ecdd9db3f6bf4683e16bb1ea\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3",
+        "coupons/tools/verify_boards.py"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"status\": \"files_geometry_verified\",\n  \"fabrication_released\": false,\n  \"checks\": [\n    {\n      \"board\": \"carrier\",\n      \"copper_flashes\": 83,\n      \"mask_array_windows\": 4,\n      \"dimensions_mm\": [\n        40,\n        40\n      ],\n      \"drc_violations\": 0\n    },\n    {\n      \"board\": \"cap\",\n      \"copper_flashes\": 20,\n      \"mask_array_windows\": 1,\n      \"dimensions_mm\": [\n        3,\n        3\n      ],\n      \"drc_violations\": 0\n    }\n  ],\n  \"geometry_sha256\": \"9015bd4a21b7a26b3b89d791e19c4d54c504a6e759faf402d01f85bec561eb96\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "coupons/tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_archived_snapshot_changes_during_native_work_prevent_completed_freeze (test_analysis.AnalysisChecks.test_archived_snapshot_changes_during_native_work_prevent_completed_freeze) ... ok\ntest_blank_inputs_and_unqualified_pilot_rejected_before_native (test_analysis.AnalysisChecks.test_blank_inputs_and_unqualified_pilot_rejected_before_native) ... ok\ntest_boundary_mismatch_keeps_observed_process_pair (test_analysis.AnalysisChecks.test_boundary_mismatch_keeps_observed_process_pair) ... ok\ntest_code_change_during_validation_prevents_completed_freeze (test_analysis.AnalysisChecks.test_code_change_during_validation_prevents_completed_freeze) ... ok\ntest_cold_only_cannot_qualify_liquid_model (test_analysis.AnalysisChecks.test_cold_only_cannot_qualify_liquid_model) ... ok\ntest_definition_change_after_validation_prevents_completed_freeze (test_analysis.AnalysisChecks.test_definition_change_after_validation_prevents_completed_freeze) ... ok\ntest_duplicate_unknown_or_early_outcomes_rejected (test_analysis.AnalysisChecks.test_duplicate_unknown_or_early_outcomes_rejected) ... ok\ntest_freeze_preserves_validated_inputs_if_source_changes (test_analysis.AnalysisChecks.test_freeze_preserves_validated_inputs_if_source_changes) ... ok\ntest_freeze_preserves_validated_metadata_if_source_changes (test_analysis.AnalysisChecks.test_freeze_preserves_validated_metadata_if_source_changes) ... ok\ntest_frozen_input_tampering_rejected (test_analysis.AnalysisChecks.test_frozen_input_tampering_rejected) ... ok\ntest_frozen_solid_temperature_cannot_be_called_molten (test_analysis.AnalysisChecks.test_frozen_solid_temperature_cannot_be_called_molten) ... ok\ntest_gap_range_includes_uncertainty (test_analysis.AnalysisChecks.test_gap_range_includes_uncertainty) ... ok\ntest_lab_supplied_correlated_range_budget_requires_evidence (test_analysis.AnalysisChecks.test_lab_supplied_correlated_range_budget_requires_evidence) ... ok\ntest_matching_boundary_and_wetting_counts_require_evidence (test_analysis.AnalysisChecks.test_matching_boundary_and_wetting_counts_require_evidence) ... ok\ntest_missing_and_failed_caps_remain_attempted (test_analysis.AnalysisChecks.test_missing_and_failed_caps_remain_attempted) ... ok\ntest_missing_uncertainty_and_partial_minimum_cannot_pass (test_analysis.AnalysisChecks.test_missing_uncertainty_and_partial_minimum_cannot_pass) ... ok\ntest_molten_temperature_interval_must_fit_frozen_plateau (test_analysis.AnalysisChecks.test_molten_temperature_interval_must_fit_frozen_plateau) ... ok\ntest_native_failure_is_retained_not_replaced_by_formula (test_analysis.AnalysisChecks.test_native_failure_is_retained_not_replaced_by_formula) ... ok\ntest_numeric_metadata_strings_remain_scoreable (test_analysis.AnalysisChecks.test_numeric_metadata_strings_remain_scoreable) ... ok\ntest_offset_drift_keeps_clearance_but_blocks_model_agreement (test_analysis.AnalysisChecks.test_offset_drift_keeps_clearance_but_blocks_model_agreement) ... ok\ntest_outcome_leakage_in_inputs_and_duplicate_inputs_rejected (test_analysis.AnalysisChecks.test_outcome_leakage_in_inputs_and_duplicate_inputs_rejected) ... ok\ntest_score_hashes_the_exact_outcome_bytes_it_parses (test_analysis.AnalysisChecks.test_score_hashes_the_exact_outcome_bytes_it_parses) ... ok\ntest_score_uses_the_verified_prediction_bytes_when_archive_changes_after_read (test_analysis.AnalysisChecks.test_score_uses_the_verified_prediction_bytes_when_archive_changes_after_read) ... ok\ntest_synthetic_positive_is_cap_level_and_run_blocked (test_analysis.AnalysisChecks.test_synthetic_positive_is_cap_level_and_run_blocked) ... ok\ntest_twenty_micrometer_error_is_preserved_as_disagreement (test_analysis.AnalysisChecks.test_twenty_micrometer_error_is_preserved_as_disagreement) ... ok\ntest_two_slab_conversion_and_solder_excluded_from_external_load (test_analysis.AnalysisChecks.test_two_slab_conversion_and_solder_excluded_from_external_load) ... ok\ntest_uncertainty_screen_blocks_model_agreement_but_keeps_measured_comparison (test_analysis.AnalysisChecks.test_uncertainty_screen_blocks_model_agreement_but_keeps_measured_comparison) ... ok\ntest_unknown_boundary_with_twenty_wetted_joints_keeps_process_comparison (test_analysis.AnalysisChecks.test_unknown_boundary_with_twenty_wetted_joints_keeps_process_comparison) ... ok\ntest_unobserved_wetting_cannot_qualify_model_or_process_pair (test_analysis.AnalysisChecks.test_unobserved_wetting_cannot_qualify_model_or_process_pair) ... ok\ntest_unqualified_hot_method_keeps_cold_decision (test_analysis.AnalysisChecks.test_unqualified_hot_method_keeps_cold_decision) ... ok\ntest_delivered_exports_match_controlled_comparison (test_fabrication.ManufacturingChecks.test_delivered_exports_match_controlled_comparison) ... ok\ntest_smaller_cap_mask_window_is_rejected (test_fabrication.ManufacturingChecks.test_smaller_cap_mask_window_is_rejected) ... ok\ntest_unexpected_opposite_side_copper_is_rejected (test_fabrication.ManufacturingChecks.test_unexpected_opposite_side_copper_is_rejected) ... ok\ntest_wrong_lower_pad_size_is_rejected (test_fabrication.ManufacturingChecks.test_wrong_lower_pad_size_is_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 34 tests in 0.502s\n\nOK\n"
+    }
+  ]
+}

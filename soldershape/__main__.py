@@ -11,6 +11,7 @@ import secrets
 import sys
 import threading
 import traceback
+import zipfile
 from urllib.parse import urlsplit
 from urllib.request import urlopen
 
@@ -132,12 +133,17 @@ class Handler(BaseHTTPRequestHandler):
         path = urlsplit(self.path).path
         if path == "/api/bootstrap":
             from .solver import engine_info
-            example = next((ROOT / "examples").glob("*.kicad_mod"))
+            example = (ROOT / "examples" / json.loads((ROOT / "examples/provenance.json").read_text())["filename"])
             self.respond(200, {"application": "SolderShape", "token": self.server.token, "engine": engine_info(),
                                "example": {"filename": example.name, "text": example.read_text()}})
             return
+        if path == "/api/study/example":
+            self.respond(200, json.loads((ROOT / "examples/coupon-planning.study.json").read_text()))
+            return
         assets = {"/": ("index.html", "text/html"), "/index.html": ("index.html", "text/html"),
-                  "/app.js": ("app.js", "text/javascript"), "/style.css": ("style.css", "text/css")}
+                  "/app.js": ("app.js", "text/javascript"), "/style.css": ("style.css", "text/css"),
+                  "/study": ("study.html", "text/html"), "/study.js": ("study.js", "text/javascript"),
+                  "/study.css": ("study.css", "text/css")}
         if path not in assets:
             self.respond(404, {"error": "Not found."})
             return
@@ -149,7 +155,7 @@ class Handler(BaseHTTPRequestHandler):
             self.respond(403, {"error": "Reload the workbench to establish a local session."})
             return
         path = urlsplit(self.path).path
-        if path not in {"/api/import", "/api/case", "/api/solve", "/api/sweep", "/api/compare"}:
+        if path not in {"/api/import", "/api/case", "/api/solve", "/api/sweep", "/api/compare", "/api/study", "/api/study/case"}:
             self.respond(404, {"error": "Unknown operation."})
             return
         if self.headers.get_content_type() != "application/json":
@@ -157,8 +163,9 @@ class Handler(BaseHTTPRequestHandler):
             return
         try:
             length = int(self.headers.get("Content-Length", "0"))
-            if not 0 < length <= 2_100_000:
-                raise InputError("Request body must be between 1 byte and 2.1 MB.")
+            limit = 4_300_000 if path in {"/api/study", "/api/study/case"} else 2_100_000
+            if not 0 < length <= limit:
+                raise InputError(f"Request body must be between 1 byte and {limit/1_000_000:g} MB.")
             body = json.loads(self.rfile.read(length), parse_constant=lambda value: (_ for _ in ()).throw(InputError("Non-finite JSON numbers are not accepted.")))
             if not isinstance(body, dict):
                 raise InputError("Expected a JSON object.")
@@ -166,6 +173,23 @@ class Handler(BaseHTTPRequestHandler):
                 if set(body) != {"footprint_text"}:
                     raise InputError("Request fields do not match this operation.")
                 self.respond(200, {"footprint": import_footprint(body["footprint_text"])})
+                return
+            if path in {"/api/study", "/api/study/case"}:
+                from .study import bundle_study, read_study, run_study
+                study = read_study(body)
+                if path == "/api/study/case":
+                    self.respond(200, {"study": study})
+                    return
+                if not self.server.computation.acquire(blocking=False):
+                    self.respond(409, {"error": "Another computation is running. Wait for it to finish."})
+                    return
+                try:
+                    report = run_study(study)
+                    bundle = bundle_study(report)
+                    self.respond(200, {"report": report, "bundle_base64": base64.b64encode(bundle).decode(),
+                                       "bundle_filename": "soldershape-design-study.zip"})
+                finally:
+                    self.server.computation.release()
                 return
             if path in {"/api/case", "/api/compare"}:
                 case = normalize_case(body)
@@ -208,8 +232,15 @@ class Handler(BaseHTTPRequestHandler):
 
 def replay(path):
     from .solver import SolverError, solve
+    cases = read_bundle(path)
+    with zipfile.ZipFile(path) as archive:
+        if "study.json" in archive.namelist():
+            from .study import replay_study
+            report = replay_study(path)
+            print(json.dumps(report, indent=2))
+            return 0 if report["passed"] else 1
     checks = []
-    for spec, saved in read_bundle(path):
+    for spec, saved in cases:
         try:
             current = solve(spec)
         except SolverError as error:
@@ -235,9 +266,12 @@ def replay(path):
             passed = passed and current["load_balance"]["status"] == saved["load_balance"]["status"]
         checks.append({"input_sha256": spec.sha256, "status": current["status"], "force_difference_uN": differences,
                        "gap_difference_mm": gap_difference,
-                       "source_matches": current["engine"].get("source_sha256") == saved["engine"].get("source_sha256"),
-                       "binary_matches": current["engine"].get("binary_sha256") == saved["engine"].get("binary_sha256"), "passed": passed})
-    print(json.dumps({"replay": checks, "passed": all(row["passed"] for row in checks)}, indent=2))
+                       "source_matches": bool(current["engine"].get("source_sha256")) and current["engine"].get("source_sha256") == saved["engine"].get("source_sha256"),
+                       "binary_matches": bool(current["engine"].get("binary_sha256")) and current["engine"].get("binary_sha256") == saved["engine"].get("binary_sha256"), "passed": passed})
+    print(json.dumps({"replay": checks, "passed": all(row["passed"] for row in checks),
+                      "verification_kind": "numerical_equivalence",
+                      "exact_engine_provenance": all(row.get("source_matches") and row.get("binary_matches") for row in checks),
+                      "scope": "Passing numerical replay does not establish matching engine identity or physical accuracy."}, indent=2))
     return 0 if all(row["passed"] for row in checks) else 1
 
 
@@ -260,6 +294,9 @@ def main():
     command = sub.add_parser("solve-case", help="Recompute an editable case or its reference comparison.")
     command.add_argument("case", type=Path)
     command.add_argument("--output", type=Path, default=ROOT / "output" / "soldershape-case.zip")
+    command = sub.add_parser("study", help="Compare two board revisions and export a decision study.")
+    command.add_argument("study", type=Path)
+    command.add_argument("--output", type=Path, default=ROOT / "output" / "soldershape-design-study.zip")
     args = parser.parse_args()
     try:
         if args.command == "serve":
@@ -297,6 +334,17 @@ def main():
             return 0
         if args.command == "replay":
             return replay(args.bundle)
+        if args.command == "study":
+            from .study import bundle_study, run_study
+            if args.study.stat().st_size > 4_300_000:
+                raise InputError("Design studies are limited to 4.3 MB.")
+            report = run_study(json.loads(args.study.read_text()))
+            args.output.parent.mkdir(parents=True, exist_ok=True)
+            args.output.write_bytes(bundle_study(report))
+            print(json.dumps({"decision": report["decision"], "nominal": report["nominal"],
+                              "physical_qualification": report["physical_qualification"],
+                              "output": str(args.output.resolve())}, indent=2))
+            return 1 if report["decision"]["status"] in {"numerical_failure", "model_scope_inconclusive"} else 0
         if args.command == "solve-case":
             if args.case.stat().st_size > 2_100_000:
                 raise InputError("Editable cases are limited to 2.1 MB.")

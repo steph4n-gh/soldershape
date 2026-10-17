@@ -133,7 +133,7 @@ def main():
     (ROOT / "evidence").mkdir(exist_ok=True)
     out = ROOT / "output"
     out.mkdir(exist_ok=True)
-    source = next((ROOT / "examples").glob("*.kicad_mod")).read_text()
+    source = (ROOT / "examples" / json.loads((ROOT / "examples/provenance.json").read_text())["filename"]).read_text()
     footprint = import_footprint(source)
     check(len(footprint["pads"]) == 36 and footprint["pads"][0]["identifier"] == "A1", "Real KiCad example import differs")
     check(footprint["pads"][0]["size_mm"] == [.2, .2] and footprint["pads"][0]["x_mm"] == -1, "Pad units or position lost")

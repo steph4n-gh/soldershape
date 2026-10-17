@@ -16,7 +16,7 @@ from soldershape.model import InputError, JointSpec, LoadSpec, import_footprint,
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = next((ROOT / "examples").glob("*.kicad_mod")).read_text()
+SOURCE = (ROOT / "examples" / json.loads((ROOT / "examples/provenance.json").read_text())["filename"]).read_text()
 PARAMETERS = json.loads((ROOT / "examples" / "parameters.json").read_text())
 
 
@@ -57,6 +57,16 @@ class Boundaries(unittest.TestCase):
         for changes in ({"offset_mm": float("nan")}, {"offset_mm": True}, {"volume_mm3": 0}, {"gravity": "false"}, {"unknown": 1}):
             with self.subTest(changes=changes), self.assertRaises(InputError):
                 JointSpec.from_dict({**spec.to_dict(), **changes})
+
+    def test_mask_defined_pad_cannot_be_solved_as_its_copper_rim(self):
+        for outer, inner in (("", "(solder_mask_margin -0.025)"),
+                             ("(solder_mask_margin -0.025)", ""),
+                             ("(solder_mask_margin -0.025)", "(solder_mask_margin 0)")):
+            source = f'(footprint "masked" {outer} (pad "1" smd circle (at 0 0) (size .27 .27) (layers "F.Cu" "F.Mask") {inner}))'
+            with self.subTest(outer=outer, inner=inner):
+                self.assertFalse(import_footprint(source)["pads"][0]["supported"])
+                with self.assertRaisesRegex(InputError, "mask"):
+                    request_from_footprint(source, 0, PARAMETERS)
 
     def test_failed_row_evidence_and_csv_survive_export(self):
         spec, _ = request_from_footprint(SOURCE, 0, PARAMETERS)

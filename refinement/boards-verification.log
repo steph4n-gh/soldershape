@@ -1,0 +1,27 @@
+{
+  "status": "files_geometry_verified",
+  "fabrication_released": false,
+  "checks": [
+    {
+      "board": "carrier",
+      "copper_flashes": 83,
+      "mask_array_windows": 4,
+      "dimensions_mm": [
+        40,
+        40
+      ],
+      "drc_violations": 0
+    },
+    {
+      "board": "cap",
+      "copper_flashes": 20,
+      "mask_array_windows": 1,
+      "dimensions_mm": [
+        3,
+        3
+      ],
+      "drc_violations": 0
+    }
+  ],
+  "geometry_sha256": "9015bd4a21b7a26b3b89d791e19c4d54c504a6e759faf402d01f85bec561eb96"
+}

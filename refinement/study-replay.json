@@ -1,0 +1,154 @@
+{
+  "passed": true,
+  "archive_sha256": "7a4c5025ef30daf2c83c1b0336f595bff2f97aaa9e00f0020070d7d23ece87da",
+  "native_cases": 4,
+  "analytical_samples": 12,
+  "tamper_control_rejected": true,
+  "decision": {
+    "headline": "The decision depends on the declared assumptions.",
+    "next_actions": [
+      "Verify finished copper, mask openings and pinned wetting boundaries for both revisions.",
+      "Measure or justify liquid solder volume, per-joint load and material properties before using these planning inputs.",
+      "Run the controlled physical coupon pilot. Compare liquid-state measurements before claiming equilibrium accuracy."
+    ],
+    "reasons": [
+      "The declared pad-face-gap criterion changes sides across the sampled assumptions for Reference and Candidate.",
+      "A board choice would depend on unverified geometry or volume assumptions. No physical pass follows."
+    ],
+    "status": "assumption_sensitive"
+  },
+  "physical_qualification": "unqualified",
+  "nominal": [
+    {
+      "analytical_gap_um": 223.34907200981604,
+      "design": "Reference",
+      "lower_diameter_mm": 0.22,
+      "mapping": "literal_rims",
+      "margin_um": 38.31880160132934,
+      "native_gap_um": 223.31880160132934,
+      "native_minus_analytical_um": -0.030270408486700262,
+      "status": "refinement_checked"
+    },
+    {
+      "analytical_gap_um": 207.51966907047608,
+      "design": "Candidate",
+      "lower_diameter_mm": 0.27,
+      "mapping": "literal_rims",
+      "margin_um": 22.521814859543525,
+      "native_gap_um": 207.52181485954353,
+      "native_minus_analytical_um": 0.0021457890674412283,
+      "status": "refinement_checked"
+    },
+    {
+      "analytical_gap_um": 178.24975366079877,
+      "design": "Reference",
+      "lower_diameter_mm": 0.22,
+      "mapping": "two_pad_cylinders",
+      "margin_um": -6.796618776462935,
+      "native_gap_um": 178.20338122353706,
+      "native_minus_analytical_um": -0.046372437261709365,
+      "status": "refinement_checked"
+    },
+    {
+      "analytical_gap_um": 167.31802279103346,
+      "design": "Candidate",
+      "lower_diameter_mm": 0.27,
+      "mapping": "two_pad_cylinders",
+      "margin_um": -17.68612202922887,
+      "native_gap_um": 167.31387797077113,
+      "native_minus_analytical_um": -0.004144820262325766,
+      "status": "refinement_checked"
+    }
+  ],
+  "calculation_code_sha256": {
+    "model.py": "543720e8a6999896410aaf22651846c71b4f4736923ffe0ada0767ce35619657",
+    "solver.py": "c7bcfcc2c5f24e6e783540b3fcabc45a8d15308ded887aca2ae41442ddf4c8a6",
+    "study.py": "d60bde9448b523bc9b1bb6e59903974af5fa7f37252e9b12fd3ec598b2f76590"
+  },
+  "replay": {
+    "passed": true,
+    "integrity_verified": true,
+    "verification_kind": "numerical_equivalence",
+    "exact_engine_provenance": true,
+    "calculation_source_matches": true,
+    "requests_regenerated": true,
+    "conclusion_matches": true,
+    "checks": [
+      {
+        "design": "Reference",
+        "mapping": "literal_rims",
+        "input_sha256": "1897636a1ec0b712abe8196aaddab905afa75033e485ec17f310bdb559de7b44",
+        "previous_status": "refinement_checked",
+        "current_status": "refinement_checked",
+        "gap_difference_um": 0.0,
+        "force_difference_uN": {
+          "x_uN": 0.0,
+          "z_uN": 0.0
+        },
+        "source_matches": true,
+        "binary_matches": true,
+        "passed": true
+      },
+      {
+        "design": "Candidate",
+        "mapping": "literal_rims",
+        "input_sha256": "46a50ae3c083849412a6276d9f96ea46cd3433c8a3e631a44ad038f0d03825e6",
+        "previous_status": "refinement_checked",
+        "current_status": "refinement_checked",
+        "gap_difference_um": 0.0,
+        "force_difference_uN": {
+          "x_uN": 0.0,
+          "z_uN": 0.0
+        },
+        "source_matches": true,
+        "binary_matches": true,
+        "passed": true
+      },
+      {
+        "design": "Reference",
+        "mapping": "two_pad_cylinders",
+        "input_sha256": "60ca2b02474706741074bebfcd9948a42d533ec50bb1fbbab2e2c500ee68b14d",
+        "previous_status": "refinement_checked",
+        "current_status": "refinement_checked",
+        "gap_difference_um": 0.0,
+        "force_difference_uN": {
+          "x_uN": 0.0,
+          "z_uN": 0.0
+        },
+        "source_matches": true,
+        "binary_matches": true,
+        "passed": true
+      },
+      {
+        "design": "Candidate",
+        "mapping": "two_pad_cylinders",
+        "input_sha256": "74f2e1b503b3626af016a06bf9da20a51e52d69c725273059bb683e341abd5fa",
+        "previous_status": "refinement_checked",
+        "current_status": "refinement_checked",
+        "gap_difference_um": 0.0,
+        "force_difference_uN": {
+          "x_uN": 0.0,
+          "z_uN": 0.0
+        },
+        "source_matches": true,
+        "binary_matches": true,
+        "passed": true
+      }
+    ],
+    "physical_qualification": "unqualified",
+    "study_sha256": "64143620a754a092a1af6bbec733d1e1c440b1a2eefc43c8c8a910363b5e71b0",
+    "decision": {
+      "status": "assumption_sensitive",
+      "headline": "The decision depends on the declared assumptions.",
+      "reasons": [
+        "The declared pad-face-gap criterion changes sides across the sampled assumptions for Reference and Candidate.",
+        "A board choice would depend on unverified geometry or volume assumptions. No physical pass follows."
+      ],
+      "next_actions": [
+        "Verify finished copper, mask openings and pinned wetting boundaries for both revisions.",
+        "Measure or justify liquid solder volume, per-joint load and material properties before using these planning inputs.",
+        "Run the controlled physical coupon pilot. Compare liquid-state measurements before claiming equilibrium accuracy."
+      ]
+    }
+  }
+}

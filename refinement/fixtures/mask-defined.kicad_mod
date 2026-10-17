@@ -1,0 +1,2 @@
+(footprint "Negative-control-mask-defined" (layer "F.Cu")
+ (pad "A1" smd circle (at 0 0) (size 0.27 0.27) (layers "F.Cu" "F.Mask") (solder_mask_margin -0.025)))

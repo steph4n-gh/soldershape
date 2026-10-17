@@ -1,0 +1,23 @@
+test_changed_files_cannot_be_stamped_as_the_loaded_code (test_study.StudyInputs.test_changed_files_cannot_be_stamped_as_the_loaded_code) ... ok
+test_independent_formula_retained_reference_values (test_study.StudyInputs.test_independent_formula_retained_reference_values) ... ok
+test_missing_evidence_mask_conflict_and_parameter_override_rejected (test_study.StudyInputs.test_missing_evidence_mask_conflict_and_parameter_override_rejected) ... ok
+test_nominal_methods_on_opposite_sides_cannot_screen_the_criterion (test_study.StudyInputs.test_nominal_methods_on_opposite_sides_cannot_screen_the_criterion) ... ok
+test_opposite_native_and_analytical_ordering_is_inconclusive (test_study.StudyInputs.test_opposite_native_and_analytical_ordering_is_inconclusive) ... ok
+test_two_sources_control_actual_requests_and_round_trip (test_study.StudyInputs.test_two_sources_control_actual_requests_and_round_trip) ... ok
+test_integrity_tampering_and_resealed_conclusions_are_rejected (test_study.SyntheticStudyArchive.test_integrity_tampering_and_resealed_conclusions_are_rejected) ... ok
+test_readable_sources_equivalent_mesh_labels_and_deterministic_archive (test_study.SyntheticStudyArchive.test_readable_sources_equivalent_mesh_labels_and_deterministic_archive) ... ok
+test_resealed_calculation_source_edit_is_rejected (test_study.SyntheticStudyArchive.test_resealed_calculation_source_edit_is_rejected) ... ok
+test_resealed_study_change_cannot_reuse_stored_native_requests (test_study.SyntheticStudyArchive.test_resealed_study_change_cannot_reuse_stored_native_requests) ... ok
+test_static_report_escapes_evidence_and_replay_never_executes_archived_commands (test_study.SyntheticStudyArchive.test_static_report_escapes_evidence_and_replay_never_executes_archived_commands) ... ok
+test_declared_hypotheses_reverse_criterion_without_physical_pass (test_study.SyntheticStudyPolicy.test_declared_hypotheses_reverse_criterion_without_physical_pass) ... ok
+test_failed_native_case_keeps_raw_evidence_and_blocks_conclusion (test_study.SyntheticStudyPolicy.test_failed_native_case_keeps_raw_evidence_and_blocks_conclusion) ... ok
+test_literal_only_unchanged_samples_and_unsupported_screens (test_study.SyntheticStudyPolicy.test_literal_only_unchanged_samples_and_unsupported_screens) ... ok
+test_nominal_disagreement_blocks_screened_conclusion (test_study.SyntheticStudyPolicy.test_nominal_disagreement_blocks_screened_conclusion) ... ok
+test_native_failure_is_retained_in_real_export (test_study_http.StudyHTTP.test_native_failure_is_retained_in_real_export) ... ok
+test_open_preserves_both_actual_footprint_revisions (test_study_http.StudyHTTP.test_open_preserves_both_actual_footprint_revisions) ... ok
+test_study_requires_token_and_declared_evidence (test_study_http.StudyHTTP.test_study_requires_token_and_declared_evidence) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.756s
+
+OK

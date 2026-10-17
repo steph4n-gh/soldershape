@@ -6,18 +6,18 @@ import csv
 from datetime import datetime, timezone
 import gzip
 import hashlib
+import io
 import json
 import math
 from pathlib import Path
-import shutil
 import statistics
 import sys
 
 ROOT = Path(__file__).resolve().parents[2]
 COUPONS = ROOT / "coupons"
 sys.path.insert(0, str(ROOT))
-from soldershape.model import LoadSpec, spherical_gap_mm
-from soldershape.solver import engine_info, solve
+from soldershape.model import LoadSpec, spherical_gap_mm, PYTHON_SOURCE_SHA256 as MODEL_SOURCE_SHA256
+from soldershape.solver import engine_info, solve, PYTHON_SOURCE_SHA256 as SOLVER_SOURCE_SHA256
 
 INPUT_NUMBERS = (
     "cap_mass_mg", "solder_kit_mass_mg", "lower_diameter_mm", "upper_diameter_mm",
@@ -37,6 +37,8 @@ METADATA_KEYS = {"alloy", "flux", "reflow_profile", "temperature_C", "temperatur
                  "liquid_density_g_cm3", "surface_tension_n_m", "coverage_factor", "pilot",
                  "measurement_method", "hot_method_evidence", "lab"}
 CODE_FILES = ("coupons/tools/analyze.py", "soldershape/model.py", "soldershape/solver.py")
+LOADED_CODE_SHA256 = {CODE_FILES[0]: hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+                      CODE_FILES[1]: MODEL_SOURCE_SHA256, CODE_FILES[2]: SOLVER_SOURCE_SHA256}
 
 
 class DataError(ValueError):
@@ -47,12 +49,22 @@ def sha(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
+def loaded_code_hashes():
+    if LOADED_CODE_SHA256 != {name: sha(ROOT / name) for name in CODE_FILES}:
+        raise DataError("Calculation files differ from loaded code. Restart Python before freezing or scoring.")
+    return dict(LOADED_CODE_SHA256)
+
+
 def utc_now():
     return datetime.now(timezone.utc).isoformat()
 
 
 def read_json(path):
-    return json.loads(Path(path).read_text(), parse_constant=lambda value: (_ for _ in ()).throw(DataError(f"Nonfinite JSON {value}.")))
+    return parse_json(Path(path).read_bytes())
+
+
+def parse_json(content):
+    return json.loads(content, parse_constant=lambda value: (_ for _ in ()).throw(DataError(f"Nonfinite JSON {value}.")))
 
 
 def write_json(path, value):
@@ -88,20 +100,24 @@ def text_required(value, name):
 
 
 def read_csv(path, columns=None):
-    with Path(path).open(newline="") as stream:
-        reader = csv.DictReader(stream)
-        if reader.fieldnames is None or len(set(reader.fieldnames)) != len(reader.fieldnames):
-            raise DataError("CSV needs unique column names.")
-        if columns is not None and set(reader.fieldnames) != set(columns):
-            raise DataError(f"CSV columns must be exactly {','.join(columns)}.")
-        rows = list(reader)
+    return parse_csv(Path(path).read_bytes(), columns)
+
+
+def parse_csv(content, columns=None):
+    reader = csv.DictReader(io.StringIO(content.decode("utf-8"), newline=""))
+    if reader.fieldnames is None or len(set(reader.fieldnames)) != len(reader.fieldnames):
+        raise DataError("CSV needs unique column names.")
+    if columns is not None and set(reader.fieldnames) != set(columns):
+        raise DataError(f"CSV columns must be exactly {','.join(columns)}.")
+    rows = list(reader)
     if any(None in row or any(value is None for value in row.values()) for row in rows):
         raise DataError("CSV has a missing or extra cell.")
     return rows
 
 
-def allocation():
-    rows = read_csv(COUPONS / "allocation.csv")
+def allocation(rows=None):
+    if rows is None:
+        rows = read_csv(COUPONS / "allocation.csv")
     rows = [row for row in rows if row.get("role") == "confirmatory"]
     required = {"cap_id", "run_id", "pair_id", "arm"}
     if not rows or not required <= set(rows[0]):
@@ -172,9 +188,8 @@ def validate_metadata(data, spec):
     return data
 
 
-def validate_inputs(path, spec, now):
-    expected = {row["cap_id"]: row for row in allocation()}
-    rows = read_csv(path, INPUT_COLUMNS)
+def validate_inputs(rows, spec, now, assignments):
+    expected = {row["cap_id"]: row for row in assignments}
     if len(rows) != len(expected) or {row["cap_id"] for row in rows} != set(expected):
         raise DataError("Inputs need each of the 24 allocated caps exactly once.")
     for row in rows:
@@ -275,16 +290,19 @@ def freeze(inputs, metadata, output):
     output = Path(output)
     if output.exists():
         raise DataError("Freeze directory must not exist. Existing freezes are never overwritten.")
-    spec = read_json(COUPONS / "experiment.json")
-    material = validate_metadata(read_json(metadata), spec)
+    code_hashes = loaded_code_hashes()
+    snapshot = {name: Path(source).read_bytes() for source, name in (
+        (inputs, "inputs.csv"), (metadata, "metadata.json"),
+        (COUPONS / "experiment.json", "experiment.json"), (COUPONS / "allocation.csv", "allocation.csv"))}
+    spec = parse_json(snapshot["experiment.json"])
+    material = validate_metadata(parse_json(snapshot["metadata.json"]), spec)
     if material["alloy"] != spec["assembly"]["alloy"]:
         raise DataError("Alloy differs from this experiment revision.")
-    rows = validate_inputs(inputs, spec, datetime.now(timezone.utc))
-    code_hashes = {name: sha(ROOT / name) for name in CODE_FILES}
+    assignments = allocation(parse_csv(snapshot["allocation.csv"]))
+    rows = validate_inputs(parse_csv(snapshot["inputs.csv"], INPUT_COLUMNS), spec, datetime.now(timezone.utc), assignments)
     output.mkdir(parents=True)
-    for source, name in ((inputs, "inputs.csv"), (metadata, "metadata.json"),
-                         (COUPONS / "experiment.json", "experiment.json"), (COUPONS / "allocation.csv", "allocation.csv")):
-        shutil.copyfile(source, output / name)
+    for name, content in snapshot.items():
+        (output / name).write_bytes(content)
     predictions, count = generate_predictions(rows, material, spec, output)
     if code_hashes != {name: sha(ROOT / name) for name in CODE_FILES}:
         raise DataError("Prediction code changed during the freeze. Partial receipts are preserved without a completed manifest.")
@@ -292,11 +310,16 @@ def freeze(inputs, metadata, output):
         if sha(output / name) != sha(COUPONS / name):
             raise DataError("Experiment or allocation changed during the freeze. No completed manifest was written.")
     write_json(output / "predictions.json", {"kind": "prospective_frozen_predictions", "caps": predictions})
-    files = {str(path.relative_to(output)): sha(path) for path in output.rglob("*") if path.is_file()}
+    files = {str(path.relative_to(output)): sha(path) for path in output.rglob("*")
+             if path.is_file() and str(path.relative_to(output)) not in snapshot}
+    files.update({name: hashlib.sha256(content).hexdigest() for name, content in snapshot.items()})
     manifest = {"schema": "soldershape.coupon.freeze.v1", "frozen_at_utc": utc_now(),
                 "experiment_id": spec["experiment_id"], "files": files,
                 "code_sha256": code_hashes, "engine": engine_info(), "distinct_native_requests": count,
                 "scope": "Central predictions at measured inputs. Input uncertainty is retained but not propagated through the native solver. No confirmatory outcomes supplied."}
+    for name, content in snapshot.items():
+        if not (output / name).is_file() or (output / name).read_bytes() != content:
+            raise DataError(f"Archived snapshot changed during the freeze: {name}. Partial receipts are preserved without a completed manifest.")
     write_json(output / "manifest.json", manifest)
     return manifest
 
@@ -331,28 +354,39 @@ def plan(output):
     return report
 
 
-def verify_freeze(directory):
+def frozen_snapshot(directory):
+    loaded_code_hashes()
     directory = Path(directory)
-    manifest = read_json(directory / "manifest.json")
+    manifest_bytes = (directory / "manifest.json").read_bytes()
+    manifest = parse_json(manifest_bytes)
     if manifest.get("schema") != "soldershape.coupon.freeze.v1":
         raise DataError("Not a prospective coupon freeze.")
+    snapshot = {}
     for name, digest in manifest["files"].items():
         path = directory / name
         if path.resolve().parent != directory.resolve() and directory.resolve() not in path.resolve().parents:
             raise DataError("Freeze manifest contains an unsafe path.")
-        if not path.is_file() or sha(path) != digest:
+        if not path.is_file():
             raise DataError(f"Frozen file changed or missing: {name}.")
+        content = path.read_bytes()
+        if hashlib.sha256(content).hexdigest() != digest:
+            raise DataError(f"Frozen file changed or missing: {name}.")
+        snapshot[name] = content
     for name, digest in manifest["code_sha256"].items():
         if sha(ROOT / name) != digest:
             raise DataError(f"Prediction code changed since freeze: {name}.")
     for name in ("experiment.json", "allocation.csv"):
         if sha(COUPONS / name) != manifest["files"][name]:
             raise DataError(f"Experiment or allocation changed since freeze: {name}.")
-    return manifest
+    return manifest, manifest_bytes, snapshot
 
 
-def outcome_rows(path, expected, frozen_at):
-    rows = read_csv(path, OUTCOME_COLUMNS)
+def verify_freeze(directory):
+    return frozen_snapshot(directory)[0]
+
+
+def outcome_rows(content, expected, frozen_at):
+    rows = parse_csv(content, OUTCOME_COLUMNS)
     seen = set()
     for row in rows:
         key = row["cap_id"], row["phase"]
@@ -417,13 +451,14 @@ def outcome_rows(path, expected, frozen_at):
 
 def score(directory, outcomes, output):
     directory = Path(directory)
-    manifest = verify_freeze(directory)
-    spec = read_json(directory / "experiment.json")
-    metadata = read_json(directory / "metadata.json")
-    inputs = {row["cap_id"]: row for row in read_csv(directory / "inputs.csv", INPUT_COLUMNS)}
-    assignments = allocation()
-    observed = outcome_rows(outcomes, {row["cap_id"] for row in assignments}, timestamp(manifest["frozen_at_utc"], "frozen_at_utc"))
-    predicted = {row["cap_id"]: row for row in read_json(directory / "predictions.json")["caps"]}
+    manifest, manifest_bytes, snapshot = frozen_snapshot(directory)
+    spec = parse_json(snapshot["experiment.json"])
+    metadata = validate_metadata(parse_json(snapshot["metadata.json"]), spec)
+    inputs = {row["cap_id"]: row for row in parse_csv(snapshot["inputs.csv"], INPUT_COLUMNS)}
+    assignments = allocation(parse_csv(snapshot["allocation.csv"]))
+    outcome_bytes = Path(outcomes).read_bytes()
+    observed = outcome_rows(outcome_bytes, {row["cap_id"] for row in assignments}, timestamp(manifest["frozen_at_utc"], "frozen_at_utc"))
+    predicted = {row["cap_id"]: row for row in parse_json(snapshot["predictions.json"])["caps"]}
     caps = []
     for assignment in assignments:
         cap = {key: assignment[key] for key in ("cap_id", "arm", "run_id", "pair_id")}
@@ -456,13 +491,17 @@ def score(directory, outcomes, output):
                 incoming = inputs[cap["cap_id"]]
                 offset_drift = row["observed_offset_mm"]-float(incoming["pre_offset_mm"])
                 offset_consistent = abs(offset_drift) <= row["observed_offset_U_mm"]+float(incoming["pre_offset_U_mm"])
-                model_eligible = geometry_ok and boundary_ok and offset_consistent and phase == "molten"
+                uncertainty_screen = predicted[cap["cap_id"]]["analytical_input_sensitivity"]
+                input_uncertainty_ok = uncertainty_screen["sum_abs_shifts_um"] <= spec["model"]["height_error_budget_um"]
+                model_eligible = geometry_ok and boundary_ok and offset_consistent and input_uncertainty_ok and phase == "molten"
                 assessment.update(full_cap_coverage=full, measurement_uncertainty_gate=uncertainty_ok,
                                   temperature_gate=temperature_ok, geometry_gate=geometry_ok,
                                   all_joints_wetted_gate=wetting_ok, frozen_wetting_boundary_gate=boundary_ok,
                                   guarded_gap_range_um=guarded_range, gap_range_gate=range_ok,
                                   range_uncertainty_source="lab supplied range budget" if row["range_U_um"] != "" else "sum of minimum and maximum expanded uncertainties",
                                   hot_method_gate=hot_method_ok, model_eligibility_gate=model_eligible,
+                                  coarse_input_uncertainty_screen_gate=input_uncertainty_ok,
+                                  analytical_input_sensitivity=uncertainty_screen,
                                   observed_minus_pre_offset_mm=offset_drift, frozen_offset_consistency_gate=offset_consistent)
                 if full and uncertainty_ok and temperature_ok and phase_method_ok:
                     low, high = row["min_gap_um"]-row["min_gap_U_um"], row["min_gap_um"]+row["min_gap_U_um"]
@@ -519,11 +558,13 @@ def score(directory, outcomes, output):
     hot = [cap["phases"]["molten"]["central_model_agreement"] for cap in caps]
     liquid_verdict = "disagrees_at_frozen_inputs" if "disagrees_at_frozen_inputs" in hot else "consistent_at_frozen_inputs" if all(value == "consistent_at_frozen_inputs" for value in hot) else "inconclusive"
     report = {"schema": "soldershape.coupon.score.v1", "scored_at_utc": utc_now(),
-              "freeze_manifest_sha256": sha(directory / "manifest.json"), "outcomes_sha256": sha(outcomes),
+              "freeze_manifest_sha256": hashlib.sha256(manifest_bytes).hexdigest(),
+              "outcomes_sha256": hashlib.sha256(outcome_bytes).hexdigest(), "outcomes_source": str(Path(outcomes)),
+              "outcomes_digest_scope": "SHA-256 of the exact outcome bytes parsed for this report. The source path may change after capture.",
               "attempted_caps": len(caps), "caps": caps, "runs": runs, "decisions": decisions,
               "liquid_model_verdict": liquid_verdict,
               "limitations": ["Cold geometry cannot qualify a molten equilibrium model.",
-                              "Central agreement does not propagate input uncertainty through the native solver. The analytical sensitivity screen is not a native prediction interval.",
+                              "Passing the coarse analytical input uncertainty screen is necessary but insufficient for model agreement. It does not propagate input uncertainty through the native solver or provide a native prediction interval.",
                               "The comparison is one coupon construction and process. It does not qualify manufacturing yield, fatigue or electrical reliability.",
                               "The single-joint model assumes equal cap load sharing. Tilt, sidewall wetting, warpage and final-offset drift can invalidate that assumption."]}
     write_json(output, report)

@@ -1,0 +1,9 @@
+{
+  "scope": "Software analysis repair and unchanged fabrication geometry. No physical measurements.",
+  "product_version": "0.4.0",
+  "coupon_tests": {"command": "python3 -m unittest discover -s coupons/tests -v", "count": 34, "passed": true},
+  "geometry": {"command": "python3 coupons/tools/verify_boards.py", "passed": true, "sha256": "9015bd4a21b7a26b3b89d791e19c4d54c504a6e759faf402d01f85bec561eb96"},
+  "historical_reports": "Existing verification.json and the original R1 archive remain evidence of their earlier source revision. They do not certify the repaired analyzer.",
+  "fabrication_released": false,
+  "physical_qualification": "unqualified"
+}

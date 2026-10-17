@@ -163,6 +163,177 @@ class AnalysisChecks(unittest.TestCase):
         with self.assertRaises(analysis.DataError):
             self.score(self.outcomes())
 
+    def test_freeze_preserves_validated_inputs_if_source_changes(self):
+        validate = analysis.validate_inputs
+
+        def change_source_after_validation(*args, **kwargs):
+            rows = validate(*args, **kwargs)
+            self.write_csv(self.input_path, analysis.INPUT_COLUMNS,
+                           [dict(row, cap_mass_mg=28) for row in self.inputs])
+            return rows
+
+        with patch.object(analysis, "validate_inputs", side_effect=change_source_after_validation):
+            self.freeze()
+        analysis.verify_freeze(self.output)
+        self.assertEqual(float(analysis.read_csv(self.input_path)[0]["cap_mass_mg"]), 28)
+        self.assertEqual(float(analysis.read_csv(self.output / "inputs.csv")[0]["cap_mass_mg"]), 14)
+        request = analysis.read_json(self.output / "predictions.json")["caps"][0]["models"][0]["request"]
+        self.assertAlmostEqual(request["normal_load_uN"], 14*9.80665/20)
+
+    def test_freeze_preserves_validated_metadata_if_source_changes(self):
+        validate = analysis.validate_inputs
+
+        def change_source_after_validation(*args, **kwargs):
+            rows = validate(*args, **kwargs)
+            self.metadata["surface_tension_n_m"]["value"] = .96
+            analysis.write_json(self.meta_path, self.metadata)
+            return rows
+
+        with patch.object(analysis, "validate_inputs", side_effect=change_source_after_validation):
+            self.freeze()
+        analysis.verify_freeze(self.output)
+        self.assertEqual(analysis.read_json(self.meta_path)["surface_tension_n_m"]["value"], .96)
+        self.assertEqual(analysis.read_json(self.output / "metadata.json")["surface_tension_n_m"]["value"], .48)
+        request = analysis.read_json(self.output / "predictions.json")["caps"][0]["models"][0]["request"]
+        self.assertEqual(request["surface_tension_n_m"], .48)
+
+    def test_score_hashes_the_exact_outcome_bytes_it_parses(self):
+        self.freeze()
+        rows = self.outcomes()
+        self.write_csv(self.outcome_path, analysis.OUTCOME_COLUMNS, rows)
+        original_digest = analysis.sha(self.outcome_path)
+        parse_outcomes = analysis.outcome_rows
+
+        def change_outcomes_after_parsing(*args, **kwargs):
+            parsed = parse_outcomes(*args, **kwargs)
+            self.write_csv(self.outcome_path, analysis.OUTCOME_COLUMNS, self.outcomes(shift=100))
+            return parsed
+
+        with patch.object(analysis, "outcome_rows", side_effect=change_outcomes_after_parsing):
+            report = analysis.score(self.output, self.outcome_path, self.base / "score.json")
+        self.assertEqual(report["caps"][0]["phases"]["molten"]["observed"]["mean_gap_um"], 200)
+        self.assertEqual(report["outcomes_sha256"], original_digest)
+        self.assertNotEqual(report["outcomes_sha256"], analysis.sha(self.outcome_path))
+
+    def test_archived_snapshot_changes_during_native_work_prevent_completed_freeze(self):
+        definitions = self.base / "definitions"
+        definitions.mkdir()
+        original = {name: (analysis.COUPONS / name).read_bytes() for name in ("experiment.json", "allocation.csv")}
+        generate = analysis.generate_predictions
+        for name in ("inputs.csv", "metadata.json", "experiment.json", "allocation.csv"):
+            with self.subTest(name=name):
+                for filename, content in original.items():
+                    (definitions / filename).write_bytes(content)
+                self.output = self.base / (name + "-archive-freeze")
+
+                def change_archive_after_predictions(*args, **kwargs):
+                    predictions = generate(*args, **kwargs)
+                    changed = (self.output / name).read_bytes() + b"\n"
+                    (self.output / name).write_bytes(changed)
+                    if name in original:
+                        (definitions / name).write_bytes(changed)
+                    return predictions
+
+                with patch.object(analysis, "COUPONS", definitions), patch.object(
+                        analysis, "generate_predictions", side_effect=change_archive_after_predictions):
+                    with self.assertRaisesRegex(analysis.DataError, "Archived snapshot changed"):
+                        self.freeze()
+                self.assertFalse((self.output / "manifest.json").exists())
+                self.assertTrue(list((self.output / "receipts").glob("*.json.gz")))
+
+    def test_score_uses_the_verified_prediction_bytes_when_archive_changes_after_read(self):
+        self.freeze()
+        self.write_csv(self.outcome_path, analysis.OUTCOME_COLUMNS, self.outcomes())
+        prediction_path = self.output / "predictions.json"
+        read_bytes = Path.read_bytes
+        changed = False
+
+        def change_predictions_after_read(path):
+            nonlocal changed
+            content = read_bytes(path)
+            if path == prediction_path and not changed:
+                changed = True
+                predictions = analysis.parse_json(content)
+                for cap in predictions["caps"]:
+                    for model in cap["models"]:
+                        model["predicted_pad_face_gap_um"] += 100
+                analysis.write_json(path, predictions)
+            return content
+
+        with patch.object(Path, "read_bytes", change_predictions_after_read):
+            report = analysis.score(self.output, self.outcome_path, self.base / "score.json")
+        self.assertTrue(changed)
+        self.assertEqual(report["liquid_model_verdict"], "consistent_at_frozen_inputs")
+        self.assertEqual(report["caps"][0]["phases"]["molten"]["models"][0]["mean_minus_prediction_um"], 0)
+
+    def test_numeric_metadata_strings_remain_scoreable(self):
+        self.metadata.update(temperature_C="210", temperature_U_C="2")
+        analysis.write_json(self.meta_path, self.metadata)
+        self.freeze()
+        report = self.score(self.outcomes())
+        self.assertEqual(report["liquid_model_verdict"], "consistent_at_frozen_inputs")
+
+    def test_definition_change_after_validation_prevents_completed_freeze(self):
+        definitions = self.base / "definitions"
+        definitions.mkdir()
+        original = {name: (analysis.COUPONS / name).read_bytes() for name in ("experiment.json", "allocation.csv")}
+        validate = analysis.validate_inputs
+        for name in original:
+            with self.subTest(name=name):
+                for filename, content in original.items():
+                    (definitions / filename).write_bytes(content)
+
+                def change_definition_after_validation(*args, **kwargs):
+                    rows = validate(*args, **kwargs)
+                    if name == "experiment.json":
+                        changed = analysis.read_json(definitions / name)
+                        changed["array"]["joint_count"] = 10
+                        analysis.write_json(definitions / name, changed)
+                    else:
+                        changed = analysis.read_csv(definitions / name)
+                        next(row for row in changed if row["role"] == "confirmatory")["cap_id"] = "CHANGED_AFTER_VALIDATION"
+                        self.write_csv(definitions / name, changed[0].keys(), changed)
+                    return rows
+
+                self.output = self.base / (name + "-freeze")
+                with patch.object(analysis, "COUPONS", definitions), patch.object(
+                        analysis, "validate_inputs", side_effect=change_definition_after_validation):
+                    with self.assertRaisesRegex(analysis.DataError, "Experiment or allocation changed"):
+                        self.freeze()
+                self.assertFalse((self.output / "manifest.json").exists())
+
+    def test_code_change_during_validation_prevents_completed_freeze(self):
+        source = self.base / "source.py"
+        source.write_text("original source\n")
+        validate = analysis.validate_inputs
+
+        def change_code_after_validation(*args, **kwargs):
+            rows = validate(*args, **kwargs)
+            source.write_text("changed source\n")
+            return rows
+
+        with patch.object(analysis, "ROOT", self.base), patch.object(analysis, "CODE_FILES", ("source.py",)), patch.object(
+                analysis, "LOADED_CODE_SHA256", {"source.py": analysis.sha(source)}), patch.object(
+                analysis, "validate_inputs", side_effect=change_code_after_validation):
+            with self.assertRaisesRegex(analysis.DataError, "Prediction code changed"):
+                self.freeze()
+        self.assertFalse((self.output / "manifest.json").exists())
+
+    def test_uncertainty_screen_blocks_model_agreement_but_keeps_measured_comparison(self):
+        for row in self.inputs:
+            row["solder_kit_mass_U_mg"] = 1.4
+        self.write_csv(self.input_path, analysis.INPUT_COLUMNS, self.inputs)
+        self.freeze()
+        report = self.score(self.outcomes())
+        value = report["caps"][0]["phases"]["molten"]
+        self.assertEqual(value["clearance"], "above_guardband")
+        self.assertFalse(value["coarse_input_uncertainty_screen_gate"])
+        self.assertGreater(value["analytical_input_sensitivity"]["sum_abs_shifts_um"], 80)
+        self.assertEqual(value["central_model_agreement"], "inconclusive")
+        self.assertEqual(report["liquid_model_verdict"], "inconclusive")
+        self.assertEqual(report["decisions"]["post_reflow"]["direction"], "C220_higher_in_all_three_runs")
+        self.assertEqual(report["decisions"]["molten"]["direction"], "C220_higher_in_all_three_runs")
+
     def test_offset_drift_keeps_clearance_but_blocks_model_agreement(self):
         self.freeze()
         rows = self.outcomes()

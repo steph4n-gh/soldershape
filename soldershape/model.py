@@ -4,7 +4,10 @@ from dataclasses import asdict, dataclass
 import hashlib
 import json
 import math
+from pathlib import Path
 import re
+
+PYTHON_SOURCE_SHA256 = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
 
 
 class InputError(ValueError):
@@ -182,6 +185,10 @@ def import_footprint(source):
     if len(encoded) > 2_000_000:
         raise InputError("Footprints are limited to 2 MB.")
     root = _sexpr(source)
+    mask_settings = [item[1:] for item in root[2:] if isinstance(item, list) and item and item[0] == "solder_mask_margin"]
+    if len(mask_settings) > 1 or mask_settings and len(mask_settings[0]) != 1:
+        raise InputError("Malformed footprint solder mask margin.")
+    footprint_mask = _number(mask_settings[0][0], "solder mask margin") if mask_settings else 0
     pads = []
     for item in root[2:]:
         if not isinstance(item, list) or not item or item[0] != "pad":
@@ -208,9 +215,17 @@ def import_footprint(source):
             raise InputError("Malformed pad layers.")
         elif not set(attrs.get("layers", [])) & {"F.Cu", "B.Cu", "*.Cu"}:
             reason = "Select a copper pad."
+        mask_margin = attrs.get("solder_mask_margin", [0])
+        if len(mask_margin) != 1:
+            raise InputError("Malformed pad solder mask margin.")
+        declared_mask = _number(mask_margin[0], "solder mask margin") or footprint_mask
+        if declared_mask < 0:
+            reason = "The declared solder mask opening is smaller than the copper pad. This copper-rim model cannot solve that boundary."
         pads.append({"index": len(pads), "identifier": item[1], "x_mm": x, "y_mm": y,
                      "angle_deg": _number(at[2], "pad rotation") if len(at) == 3 else 0,
                      "shape": item[3], "size_mm": [sx, sy], "supported": reason is None,
+                     "declared_mask_margin_mm": declared_mask if declared_mask != 0 else None,
+                     "mask_scope": "Board-level mask settings, drawn mask geometry and final CAM are not resolved by a footprint import.",
                      "unsupported_reason": reason})
         if len(pads) > 4096:
             raise InputError("Footprints are limited to 4096 pads.")

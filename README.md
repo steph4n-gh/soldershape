@@ -1,6 +1,6 @@
 # SolderShape
 
-Compare the equilibrium shape and upper-pad forces of a single molten BGA solder joint, starting from a KiCad footprint. Version 0.3 runs locally with the pinned native Surface Evolver engine. It does not contain a Rust or WASM solver rewrite.
+Review a PCB pad revision under explicit solder-joint assumptions. Version 0.4 compares two imported footprints, shows conditional gap margins and sampled assumption reversals, and exports a replayable decision brief. The local workbench also inspects individual equilibrium shapes and upper-pad forces using the pinned native Surface Evolver engine.
 
 SolderShape was selected over KnotForge because it connects an existing PCB-design input to a specific parameter-comparison workflow. [SELECTION.md](SELECTION.md) records the alternatives, evidence, counterargument, and reversal condition. Practitioner demand remains untested.
 
@@ -21,11 +21,31 @@ Open [the local workbench](http://127.0.0.1:8765). Load the example footprint or
 
 Use **Save editable case** to keep the footprint, selected pad, all inputs, and optional reference dimensions in JSON. **Open case** restores inputs and clears old computed results. Invalid files leave the current draft intact. The editable case and its formatted representation are limited to 2.1 MB.
 
-Use **Use current design as reference**, then change upper-pad diameter or solder volume and choose **Compare reference and candidate**. Both designs compute afresh at the current board pad, vertical condition, offset, surface tension, density, and gravity setting. Choose **Prescribed gap** for a fixture-held joint or **Supported normal load** to solve height from the downward load carried by one joint. Do not supply both constraints. The table shows the changed dimensions, each solved gap, and both forces. An aligned load comparison reports a height difference without claiming centering force. A centering-force delta requires checked numerical results, a nonzero offset, and no detected pad-plane excursion. Changing a selected board pad clears the reference. Comparing board-footprint revisions is outside this workflow.
+Use **Use current design as reference**, then change upper-pad diameter or solder volume and choose **Compare reference and candidate**. Both designs compute afresh at the current board pad, vertical condition, offset, surface tension, density, and gravity setting. Choose **Prescribed gap** for a fixture-held joint or **Supported normal load** to solve height from the downward load carried by one joint. Do not supply both constraints. The table shows the changed dimensions, each solved gap, and both forces. An aligned load comparison reports a height difference without claiming centering force. A centering-force delta requires checked numerical results, a nonzero offset, and no detected pad-plane excursion. Changing a selected board pad clears the reference. Use the separate design-study workflow below to compare two board-footprint revisions.
 
 Sweep offset to compare lateral restoring force. Positive lateral force acts toward positive local x on the upper pad. Positive vertical force acts upward. The result shows the actual solved mesh, numerical checks, and an export bundle. Changing any input clears old results and downloads.
 
 Stop the server with Ctrl+C. It binds to `127.0.0.1` and has no account or cloud service.
+
+## Review a pad revision before commissioning a test
+
+Open [Compare pad revisions](http://127.0.0.1:8765/study). Import a reference footprint and a candidate footprint independently. Each lower diameter comes from its own selected copper pad. Enter common upper-pad geometry, liquid volume and supported load. State the required pad-face gap and its source. Record input provenance and the user-supplied evidence for each circular wetting boundary.
+
+Load the coupon planning example to inspect the actual 220 versus 270 micrometer question. It contains artificial planning inputs, not measurements. With the optional two-pad effective-volume hypothesis, literal rims predict gaps above the declared 185 micrometer threshold while the competing approximation predicts gaps below it. The correct report is assumption-sensitive. It requests boundary and metal-height measurements instead of approving a pad.
+
+The study runs two nominal native cases, or four with the explicit two-pad approximation. It shows the published analytical comparator beside them. The three declared volume points are an analytical sampled sensitivity. They are not a native uncertainty interval or a guarantee between samples. The analytical screen requires zero offset, gravity off and linear compression at most one percent of unloaded height. This cutoff is software policy, not a physical accuracy bound. Nominal agreement does not validate the endpoint samples.
+
+Save and reopen the editable study. Download its source footprints, native receipts and meshes, sampled CSV, normalized inputs, and static decision brief in one hashed ZIP. The two-pad mesh is an equivalent computational domain that includes metal-cylinder volume. It is not a measured solder surface. Every edit clears the old report and export. Replay regenerates the native requests and analytical decision.
+
+```sh
+python3 -m soldershape study examples/coupon-planning.study.json --output output/pad-review.zip
+python3 -m soldershape replay output/pad-review.zip
+python3 tools/verify_study.py output/pad-review.zip
+```
+
+The [refinement results](refinement/REVIEW.md), [accuracy audit](refinement/accuracy-audit.md), [current alternatives](refinement/alternatives.md), and [product rationale](refinement/POSITIONING.md) state what is demonstrated and what remains a hypothesis. There is no proven solver, accuracy, customer, or data moat. The current useful difference is an auditable design-to-test workflow. Following supported package guidance or using the aligned analytical formula is often sufficient.
+
+A footprint import rejects a declared solder-mask opening smaller than the copper pad. It cannot resolve board-level rules, drawn mask openings or final CAM. A boundary evidence declaration remains a user-supplied assumption. Numerical acceptance does not verify actual wetting, package load sharing, cooled clearance or manufacturing readiness.
 
 ## Predict height under a supported load
 
@@ -105,11 +125,10 @@ The solver repair replaces unconditional Newton steps with energy-decreasing lin
 
 ```sh
 python3 tools/check_digitization.py
-python3 tools/validate_physical.py --stage full --workers 2
-python3 tools/compare_designs.py --solver-sha256 07b45f912cadedc9ae69313820a46a40248459696bbe70d9b769fea287deeb98
+python3 tools/compare_designs.py --solver-sha256 c7bcfcc2c5f24e6e783540b3fcabc45a8d15308ded887aca2ae41442ddf4c8a6 --output output/design-comparison-refinement
 ```
 
-Matching raw receipts are cached by input, source and engine identities. Add `--refresh` to the physical runner to recompute rather than reuse matching receipts. See [PRODUCT_RELEASE.md](PRODUCT_RELEASE.md) for completion checks and [PHYSICAL_VALIDATION.md](PHYSICAL_VALIDATION.md) for the frozen workflow. A realistic next physical qualification requires identified specimen/process inputs and a supported treatment of substrate contact. New interface features cannot resolve those missing measurements.
+Matching raw receipts are cached by input, source and engine identities. The physical campaign above is historical and remains bound to its recorded sources. It was not rerun during version 0.4 refinement. `tools/validate_physical.py --stage full --workers 2` reruns it on the current source and writes into `evidence/physical`; use an isolated copy to preserve the frozen record. Add `--refresh` to recompute rather than reuse matching receipts. See [PRODUCT_RELEASE.md](PRODUCT_RELEASE.md) for the earlier completion checks and [PHYSICAL_VALIDATION.md](PHYSICAL_VALIDATION.md) for the frozen workflow. A realistic next physical qualification requires identified specimen/process inputs and a supported treatment of substrate contact. New interface features cannot resolve those missing measurements.
 
 ## Project record
 

@@ -2,6 +2,8 @@
 
 Experiment `SS-C220-C270-R1` compares 220 and 270 micrometer board pads under the same twenty-joint cap. This is a package for a laboratory quote and staged feasibility study. No hardware has been ordered or measured. Fabrication release requires accepted DFM and methods. The supplied files describe unit boards. The fabricator must engineer and return its production panel.
 
+Read [the software refinement notes](REFINEMENT_NOTES.md) before using the analysis tools. The physical R1 board design is unchanged.
+
 Start with [LAB_RFQ.md](LAB_RFQ.md). Send the complete archive to a prospective assembly and metrology laboratory. Ask for separate prices for DFM, hardware and materials, profiling, the three-run pilot, confirmation, and optional hot-state measurement. The lab must demonstrate the measurement capability before confirmation. The prepared RFQ has not been sent.
 
 ## Hardware and sampling

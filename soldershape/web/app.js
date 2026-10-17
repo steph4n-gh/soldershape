@@ -193,7 +193,7 @@ function renderFootprint() {
   }
   $("pad-pitch").textContent = Number.isFinite(pitch) ? `${number(pitch, 5)} mm` : "—";
   $("pad-message").textContent = selected
-    ? selected.supported ? "Board diameter comes from this copper pad. Its edge is a pinned, fully wetted boundary." : selected.unsupported_reason
+    ? selected.supported ? "Board diameter comes from this copper pad. The model assumes a fully wetted pinned rim. Board mask rules and finished CAM remain unresolved." : selected.unsupported_reason
     : "Circular copper SMD pads are supported.";
   $("pad-message").className = `pad-message${selected && !selected.supported ? " unsupported" : ""}`;
   scheduleDraw();

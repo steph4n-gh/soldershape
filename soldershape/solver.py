@@ -21,6 +21,7 @@ MAX_OUTPUT_BYTES = 3_000_000
 MAX_MESH_BYTES = 4_000_000
 TIMEOUT_SECONDS = 90
 NUMBER = r"[-+\d.eE]+"
+PYTHON_SOURCE_SHA256 = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
 
 
 class SolverError(RuntimeError):

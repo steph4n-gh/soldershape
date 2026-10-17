@@ -1,0 +1,39 @@
+test_actual_kicad_geometry (test_boundaries.Boundaries.test_actual_kicad_geometry) ... ok
+test_failed_row_evidence_and_csv_survive_export (test_boundaries.Boundaries.test_failed_row_evidence_and_csv_survive_export) ... ok
+test_loaded_replay_rebalances_and_retains_current_failure (test_boundaries.Boundaries.test_loaded_replay_rebalances_and_retains_current_failure) ... ok
+test_malformed_footprints_are_rejected (test_boundaries.Boundaries.test_malformed_footprints_are_rejected) ... ok
+test_mask_defined_pad_cannot_be_solved_as_its_copper_rim (test_boundaries.Boundaries.test_mask_defined_pad_cannot_be_solved_as_its_copper_rim) ... ok
+test_numeric_and_boolean_domains (test_boundaries.Boundaries.test_numeric_and_boolean_domains) ... ok
+test_quoted_labels_and_duplicate_identifiers_keep_distinct_indices (test_boundaries.Boundaries.test_quoted_labels_and_duplicate_identifiers_keep_distinct_indices) ... ok
+test_replay_reports_each_failed_case_and_continues (test_boundaries.Boundaries.test_replay_reports_each_failed_case_and_continues) ... ok
+test_selected_diameter_comes_from_footprint (test_boundaries.Boundaries.test_selected_diameter_comes_from_footprint) ... ok
+test_unsupported_pad_is_visible_but_cannot_be_solved (test_boundaries.Boundaries.test_unsupported_pad_is_visible_but_cannot_be_solved) ... ok
+test_foreign_origin_is_rejected_even_with_token (test_boundaries.LocalHTTP.test_foreign_origin_is_rejected_even_with_token) ... ok
+test_live_import_returns_actual_geometry (test_boundaries.LocalHTTP.test_live_import_returns_actual_geometry) ... ok
+test_missing_local_session_is_rejected (test_boundaries.LocalHTTP.test_missing_local_session_is_rejected) ... ok
+test_unknown_fields_are_rejected (test_boundaries.LocalHTTP.test_unknown_fields_are_rejected) ... ok
+test_case_rejects_nonfinite_and_unexpected_fields (test_cases.CaseHTTP.test_case_rejects_nonfinite_and_unexpected_fields) ... ok
+test_compare_exports_both_failed_rows_and_input_only_case (test_cases.CaseHTTP.test_compare_exports_both_failed_rows_and_input_only_case) ... ok
+test_live_case_open_normalizes_and_returns_original_pad_geometry (test_cases.CaseHTTP.test_live_case_open_normalizes_and_returns_original_pad_geometry) ... ok
+test_open_leaves_foreign_listener_alone (test_cases.CaseHTTP.test_open_leaves_foreign_listener_alone) ... ok
+test_open_reuses_verified_existing_workbench (test_cases.CaseHTTP.test_open_reuses_verified_existing_workbench) ... ok
+test_case_cannot_override_shared_conditions_or_execute_code (test_cases.EditableCases.test_case_cannot_override_shared_conditions_or_execute_code) ... ok
+test_comparison_is_fresh_and_preserves_fixed_conditions (test_cases.EditableCases.test_comparison_is_fresh_and_preserves_fixed_conditions) ... ok
+test_failed_or_zero_offset_comparison_has_no_improvement_verdict (test_cases.EditableCases.test_failed_or_zero_offset_comparison_has_no_improvement_verdict) ... ok
+test_loaded_zero_offset_comparison_reports_height_without_centering_verdict (test_cases.EditableCases.test_loaded_zero_offset_comparison_reports_height_without_centering_verdict) ... ok
+test_pretty_saved_case_fits_the_reopen_limit (test_cases.EditableCases.test_pretty_saved_case_fits_the_reopen_limit) ... ok
+test_saved_inputs_round_trip_without_result_claims (test_cases.EditableCases.test_saved_inputs_round_trip_without_result_claims) ... ok
+test_surface_beyond_pad_planes_keeps_forces_but_blocks_design_verdict (test_cases.EditableCases.test_surface_beyond_pad_planes_keeps_forces_but_blocks_design_verdict) ... ok
+test_distinct_physical_requests_and_case_dispatch (test_load_solver.LoadInputs.test_distinct_physical_requests_and_case_dispatch) ... ok
+test_geometry_only_seed_reconstructs_spherical_volume (test_load_solver.LoadInputs.test_geometry_only_seed_reconstructs_spherical_volume) ... ok
+test_geometric_scaling_preserves_dimensionless_equilibrium (test_load_solver.NativeLoadEquilibrium.test_geometric_scaling_preserves_dimensionless_equilibrium) ... ok
+test_loaded_height_and_offset_have_independent_force_balance (test_load_solver.NativeLoadEquilibrium.test_loaded_height_and_offset_have_independent_force_balance) ... ok
+test_native_delta_sensitivity_and_separated_geometry_starts (test_load_solver.NativeLoadEquilibrium.test_native_delta_sensitivity_and_separated_geometry_starts) ... ok
+test_unattainable_load_keeps_request_without_a_successful_shape (test_load_solver.NativeLoadEquilibrium.test_unattainable_load_keeps_request_without_a_successful_shape) ... ok
+test_zero_load_agrees_with_unloaded_sphere (test_load_solver.NativeLoadEquilibrium.test_zero_load_agrees_with_unloaded_sphere) ... ok
+test_thin_bridges_and_re_equilibrated_energy_derivatives (test_solver.ThinBridgeRelaxation.test_thin_bridges_and_re_equilibrated_energy_derivatives) ... ok
+
+----------------------------------------------------------------------
+Ran 34 tests in 99.401s
+
+OK
