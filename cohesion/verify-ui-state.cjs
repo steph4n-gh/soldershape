@@ -24,6 +24,7 @@ function runtime(page = 'app', options = {}) {
     set id(value) { this._id = value; nodes.set(value, this); }
     get id() { return this._id; }
     get valueAsNumber() { return this.value === '' ? NaN : Number(this.value); }
+    get validity() { return { valid: true }; }
     get lastElementChild() { return this.children.at(-1); }
     setAttribute(name, value) { this[name] = value; }
     append(...children) { this.children.push(...children); for (const child of children) if (child && typeof child === 'object') child.parent = this; }
@@ -202,8 +203,9 @@ async function quotaOffer() {
     });
   }
   const report = { scope: 'Node VM boundary checks against actual UI scripts with mocked DOM, fetch and browser storage. These are not browser interaction, rendering, native computation or physical-validation proof.', command: 'node cohesion/verify-ui-state.cjs', source_sha256: Object.fromEntries(Object.entries(sources).map(([name, source]) => ['soldershape/web/' + name + '.js', crypto.createHash('sha256').update(source).digest('hex')])), passed: checks.filter(result => result.status === 'pass').length, failed: checks.filter(result => result.status === 'fail').length, checks };
-  fs.writeFileSync(path.join(__dirname, 'state-checks.json'), JSON.stringify(report, null, 2) + '\n');
-  console.log(`${report.passed}/${checks.length} UI boundary checks passed. Mocked runtime only. Results in cohesion/state-checks.json.`);
+  const outputPath = process.argv[2] ? path.resolve(root, process.argv[2]) : path.join(__dirname, 'state-checks.json');
+  fs.writeFileSync(outputPath, JSON.stringify(report, null, 2) + '\n');
+  console.log(`${report.passed}/${checks.length} UI boundary checks passed. Mocked runtime only. Results in ${path.relative(root, outputPath)}.`);
   for (const result of checks.filter(result => result.status === 'fail')) console.error(result.name + '\n' + result.error);
   process.exitCode = report.failed ? 1 : 0;
 })();

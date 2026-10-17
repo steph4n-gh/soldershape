@@ -1,0 +1,77 @@
+{
+  "scope": "Node VM boundary checks against actual UI scripts with mocked DOM, fetch and browser storage. These are not browser interaction, rendering, native computation or physical-validation proof.",
+  "command": "node cohesion/verify-ui-state.cjs",
+  "source_sha256": {
+    "soldershape/web/ui.js": "b79236f789ae8af589221e7cb48fda964c84f505d7472b838cd050b478058433",
+    "soldershape/web/app.js": "924b47a098f031d0863154b50f1fcdb36c2ba2c8c139d41e71bc18ef8ec55519",
+    "soldershape/web/study.js": "d266362508775c0076a02e3bd7aa3360878caa593c9a7264f508ca855e1fc5ee"
+  },
+  "passed": 6,
+  "failed": 8,
+  "checks": [
+    {
+      "name": "normalized handoff round trip and single-use consumption",
+      "status": "pass"
+    },
+    {
+      "name": "late edit rejects handoff before storage or navigation",
+      "status": "pass"
+    },
+    {
+      "name": "bounded draft failure preserves old bytes",
+      "status": "pass"
+    },
+    {
+      "name": "quota failure offers explicit replacement without altering prior work",
+      "status": "fail",
+      "error": "app.js:284\n    input.setAttribute(\"aria-invalid\", String(!input.disabled && !input.validity.valid));\n                                                                                 ^\n\nTypeError: Cannot read properties of undefined (reading 'valid')\n    at updateControls (app.js:284:82)\n    at renderResults (app.js:600:3)\n    at app.js:1162:1\n    at Script.runInContext (node:vm:150:12)\n    at Object.runInContext (node:vm:302:6)\n    at Object.run (/Volumes/Storage/oct16project/cohesion/verify-ui-state.cjs:62:189)\n    at quotaOffer (/Volumes/Storage/oct16project/cohesion/verify-ui-state.cjs:71:5)\n    at /Volumes/Storage/oct16project/cohesion/verify-ui-state.cjs:113:21\n    at check (/Volumes/Storage/oct16project/cohesion/verify-ui-state.cjs:66:47)\n    at /Volumes/Storage/oct16project/cohesion/verify-ui-state.cjs:112:9"
+    },
+    {
+      "name": "linked quota replacement consumes the transfer only after explicit acceptance",
+      "status": "fail",
+      "error": "app.js:284\n    input.setAttribute(\"aria-invalid\", String(!input.disabled && !input.validity.valid));\n                                                                                 ^\n\nTypeError: Cannot read properties of undefined (reading 'valid')\n    at updateControls (app.js:284:82)\n    at renderResults (app.js:600:3)\n    at app.js:1162:1\n    at Script.runInContext (node:vm:150:12)\n    at Object.runInContext (node:vm:302:6)\n    at Object.run (/Volumes/Storage/oct16project/cohesion/verify-ui-state.cjs:62:189)\n    at /Volumes/Storage/oct16project/cohesion/verify-ui-state.cjs:127:49\n    at async check (/Volumes/Storage/oct16project/cohesion/verify-ui-state.cjs:66:41)\n    at async /Volumes/Storage/oct16project/cohesion/verify-ui-state.cjs:122:3"
+    },
+    {
+      "name": "failed explicit replacement preserves the old draft and permits retry",
+      "status": "fail",
+      "error": "app.js:284\n    input.setAttribute(\"aria-invalid\", String(!input.disabled && !input.validity.valid));\n                                                                                 ^\n\nTypeError: Cannot read properties of undefined (reading 'valid')\n    at updateControls (app.js:284:82)\n    at renderResults (app.js:600:3)\n    at app.js:1162:1\n    at Script.runInContext (node:vm:150:12)\n    at Object.runInContext (node:vm:302:6)\n    at Object.run (/Volumes/Storage/oct16project/cohesion/verify-ui-state.cjs:62:189)\n    at quotaOffer (/Volumes/Storage/oct16project/cohesion/verify-ui-state.cjs:71:5)\n    at /Volumes/Storage/oct16project/cohesion/verify-ui-state.cjs:138:21\n    at check (/Volumes/Storage/oct16project/cohesion/verify-ui-state.cjs:66:47)\n    at /Volumes/Storage/oct16project/cohesion/verify-ui-state.cjs:137:9"
+    },
+    {
+      "name": "editing clears the pending replacement and rejects its late response",
+      "status": "fail",
+      "error": "app.js:284\n    input.setAttribute(\"aria-invalid\", String(!input.disabled && !input.validity.valid));\n                                                                                 ^\n\nTypeError: Cannot read properties of undefined (reading 'valid')\n    at updateControls (app.js:284:82)\n    at renderResults (app.js:600:3)\n    at app.js:1162:1\n    at Script.runInContext (node:vm:150:12)\n    at Object.runInContext (node:vm:302:6)\n    at Object.run (/Volumes/Storage/oct16project/cohesion/verify-ui-state.cjs:62:189)\n    at quotaOffer (/Volumes/Storage/oct16project/cohesion/verify-ui-state.cjs:71:5)\n    at /Volumes/Storage/oct16project/cohesion/verify-ui-state.cjs:149:21\n    at check (/Volumes/Storage/oct16project/cohesion/verify-ui-state.cjs:66:47)\n    at /Volumes/Storage/oct16project/cohesion/verify-ui-state.cjs:148:9"
+    },
+    {
+      "name": "unavailable storage blocks handoff but permits portable file opening",
+      "status": "fail",
+      "error": "app.js:284\n    input.setAttribute(\"aria-invalid\", String(!input.disabled && !input.validity.valid));\n                                                                                 ^\n\nTypeError: Cannot read properties of undefined (reading 'valid')\n    at updateControls (app.js:284:82)\n    at renderResults (app.js:600:3)\n    at app.js:1162:1\n    at Script.runInContext (node:vm:150:12)\n    at Object.runInContext (node:vm:302:6)\n    at Object.run (/Volumes/Storage/oct16project/cohesion/verify-ui-state.cjs:62:189)\n    at /Volumes/Storage/oct16project/cohesion/verify-ui-state.cjs:166:7\n    at async check (/Volumes/Storage/oct16project/cohesion/verify-ui-state.cjs:66:41)\n    at async /Volumes/Storage/oct16project/cohesion/verify-ui-state.cjs:160:3"
+    },
+    {
+      "name": "app startup locks while restoring and unlocks after successful import",
+      "status": "fail",
+      "error": "app.js:284\n    input.setAttribute(\"aria-invalid\", String(!input.disabled && !input.validity.valid));\n                                                                                 ^\n\nTypeError: Cannot read properties of undefined (reading 'valid')\n    at updateControls (app.js:284:82)\n    at renderResults (app.js:600:3)\n    at app.js:1162:1\n    at Script.runInContext (node:vm:150:12)\n    at Object.runInContext (node:vm:302:6)\n    at Object.run (/Volumes/Storage/oct16project/cohesion/verify-ui-state.cjs:62:189)\n    at /Volumes/Storage/oct16project/cohesion/verify-ui-state.cjs:179:11\n    at check (/Volumes/Storage/oct16project/cohesion/verify-ui-state.cjs:66:47)\n    at /Volumes/Storage/oct16project/cohesion/verify-ui-state.cjs:174:13"
+    },
+    {
+      "name": "app startup locks while restoring and unlocks after failed import",
+      "status": "fail",
+      "error": "app.js:284\n    input.setAttribute(\"aria-invalid\", String(!input.disabled && !input.validity.valid));\n                                                                                 ^\n\nTypeError: Cannot read properties of undefined (reading 'valid')\n    at updateControls (app.js:284:82)\n    at renderResults (app.js:600:3)\n    at app.js:1162:1\n    at Script.runInContext (node:vm:150:12)\n    at Object.runInContext (node:vm:302:6)\n    at Object.run (/Volumes/Storage/oct16project/cohesion/verify-ui-state.cjs:62:189)\n    at /Volumes/Storage/oct16project/cohesion/verify-ui-state.cjs:179:11\n    at check (/Volumes/Storage/oct16project/cohesion/verify-ui-state.cjs:66:47)\n    at /Volumes/Storage/oct16project/cohesion/verify-ui-state.cjs:174:13"
+    },
+    {
+      "name": "app startup releases lock after bootstrap failure",
+      "status": "fail",
+      "error": "app.js:284\n    input.setAttribute(\"aria-invalid\", String(!input.disabled && !input.validity.valid));\n                                                                                 ^\n\nTypeError: Cannot read properties of undefined (reading 'valid')\n    at updateControls (app.js:284:82)\n    at renderResults (app.js:600:3)\n    at app.js:1162:1\n    at Script.runInContext (node:vm:150:12)\n    at Object.runInContext (node:vm:302:6)\n    at Object.run (/Volumes/Storage/oct16project/cohesion/verify-ui-state.cjs:62:189)\n    at /Volumes/Storage/oct16project/cohesion/verify-ui-state.cjs:197:86\n    at check (/Volumes/Storage/oct16project/cohesion/verify-ui-state.cjs:66:47)\n    at /Volumes/Storage/oct16project/cohesion/verify-ui-state.cjs:196:11"
+    },
+    {
+      "name": "study startup locks while restoring and unlocks after successful import",
+      "status": "pass"
+    },
+    {
+      "name": "study startup locks while restoring and unlocks after failed import",
+      "status": "pass"
+    },
+    {
+      "name": "study startup releases lock after bootstrap failure",
+      "status": "pass"
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+test_board_browser_range_matches_canonical_boundary (test_web_inputs.BrowserInputRanges.test_board_browser_range_matches_canonical_boundary) ... 
+  test_board_browser_range_matches_canonical_boundary (test_web_inputs.BrowserInputRanges.test_board_browser_range_matches_canonical_boundary) (field='upper-diameter') ... FAIL
+  test_board_browser_range_matches_canonical_boundary (test_web_inputs.BrowserInputRanges.test_board_browser_range_matches_canonical_boundary) (field='held-gap') ... FAIL
+  test_board_browser_range_matches_canonical_boundary (test_web_inputs.BrowserInputRanges.test_board_browser_range_matches_canonical_boundary) (field='offset') ... FAIL
+  test_board_browser_range_matches_canonical_boundary (test_web_inputs.BrowserInputRanges.test_board_browser_range_matches_canonical_boundary) (field='candidate-volume') ... FAIL
+  test_board_browser_range_matches_canonical_boundary (test_web_inputs.BrowserInputRanges.test_board_browser_range_matches_canonical_boundary) (field='reference-volume') ... FAIL
+  test_board_browser_range_matches_canonical_boundary (test_web_inputs.BrowserInputRanges.test_board_browser_range_matches_canonical_boundary) (field='surface-tension') ... FAIL
+  test_board_browser_range_matches_canonical_boundary (test_web_inputs.BrowserInputRanges.test_board_browser_range_matches_canonical_boundary) (field='density') ... FAIL
+
+======================================================================
+FAIL: test_board_browser_range_matches_canonical_boundary (test_web_inputs.BrowserInputRanges.test_board_browser_range_matches_canonical_boundary) (field='upper-diameter')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Storage/oct16project/tests/test_web_inputs.py", line 35, in test_board_browser_range_matches_canonical_boundary
+    self.assertIn('max', bounds)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+AssertionError: 'max' not found in {'id': 'upper-diameter', 'type': 'number', 'min': '1', 'step': 'any', 'required': None}
+
+======================================================================
+FAIL: test_board_browser_range_matches_canonical_boundary (test_web_inputs.BrowserInputRanges.test_board_browser_range_matches_canonical_boundary) (field='held-gap')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Storage/oct16project/tests/test_web_inputs.py", line 35, in test_board_browser_range_matches_canonical_boundary
+    self.assertIn('max', bounds)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+AssertionError: 'max' not found in {'id': 'held-gap', 'type': 'number', 'min': '1', 'step': 'any', 'required': None}
+
+======================================================================
+FAIL: test_board_browser_range_matches_canonical_boundary (test_web_inputs.BrowserInputRanges.test_board_browser_range_matches_canonical_boundary) (field='offset')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Storage/oct16project/tests/test_web_inputs.py", line 34, in test_board_browser_range_matches_canonical_boundary
+    self.assertIn('min', bounds)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+AssertionError: 'min' not found in {'id': 'offset', 'type': 'number', 'step': 'any', 'required': None}
+
+======================================================================
+FAIL: test_board_browser_range_matches_canonical_boundary (test_web_inputs.BrowserInputRanges.test_board_browser_range_matches_canonical_boundary) (field='candidate-volume')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Storage/oct16project/tests/test_web_inputs.py", line 35, in test_board_browser_range_matches_canonical_boundary
+    self.assertIn('max', bounds)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+AssertionError: 'max' not found in {'id': 'candidate-volume', 'type': 'number', 'min': '0.001', 'step': 'any', 'required': None}
+
+======================================================================
+FAIL: test_board_browser_range_matches_canonical_boundary (test_web_inputs.BrowserInputRanges.test_board_browser_range_matches_canonical_boundary) (field='reference-volume')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Storage/oct16project/tests/test_web_inputs.py", line 35, in test_board_browser_range_matches_canonical_boundary
+    self.assertIn('max', bounds)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+AssertionError: 'max' not found in {'id': 'reference-volume', 'type': 'number', 'min': '0.001', 'step': 'any', 'required': None}
+
+======================================================================
+FAIL: test_board_browser_range_matches_canonical_boundary (test_web_inputs.BrowserInputRanges.test_board_browser_range_matches_canonical_boundary) (field='surface-tension')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Storage/oct16project/tests/test_web_inputs.py", line 35, in test_board_browser_range_matches_canonical_boundary
+    self.assertIn('max', bounds)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+AssertionError: 'max' not found in {'id': 'surface-tension', 'type': 'number', 'min': '0.0001', 'step': 'any', 'required': None}
+
+======================================================================
+FAIL: test_board_browser_range_matches_canonical_boundary (test_web_inputs.BrowserInputRanges.test_board_browser_range_matches_canonical_boundary) (field='density')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Volumes/Storage/oct16project/tests/test_web_inputs.py", line 35, in test_board_browser_range_matches_canonical_boundary
+    self.assertIn('max', bounds)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+AssertionError: 'max' not found in {'id': 'density', 'type': 'number', 'min': '0.001', 'step': 'any', 'required': None}
+
+----------------------------------------------------------------------
+Ran 1 test in 0.002s
+
+FAILED (failures=7)

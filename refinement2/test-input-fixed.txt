@@ -1,0 +1,6 @@
+test_board_browser_range_matches_canonical_boundary (test_web_inputs.BrowserInputRanges.test_board_browser_range_matches_canonical_boundary) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+OK

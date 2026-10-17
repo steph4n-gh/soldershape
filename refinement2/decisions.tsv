@@ -1,0 +1,4 @@
+Decision	Reason	Evidence	Result
+Refine interpretation and portable review	Navigation is connected but results still demand manual decoding	Browser fresh Joint details and source grounding	Bounded to existing computation and evidence
+Keep canonical numerical units	Avoid rewriting proven input/solver contracts for presentation	Existing case.v1 formats and 74 passing baseline checks	Add explicit dual-unit cues
+Match browser ranges to canonical boundary	HTML accepted impossible inputs and only the server explained rejection	test-input-baseline.txt; actual 1 µm browser attempt	Fixed all seven numeric field ranges; 1 µm remains visible and blocks actions

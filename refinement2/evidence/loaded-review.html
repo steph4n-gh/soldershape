@@ -1,0 +1,199 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SolderShape numerical review</title><style>body{font:16px/1.55 system-ui,sans-serif;max-width:920px;margin:40px auto;padding:0 20px;color:#152623}h1,h2{line-height:1.2}section{border-top:1px solid #acbfba;margin-top:28px;padding-top:16px}table{border-collapse:collapse;width:100%}th,td{text-align:left;vertical-align:top;border-bottom:1px solid #d5dfdc;padding:7px}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px}.qualification{padding:16px;background:#fff2cf}code{overflow-wrap:anywhere}</style>
+<h1>SolderShape numerical review</h1>
+<p>This report works as a standalone HTML file. Its evidence links work only when it sits in the extracted accompanying evidence ZIP. The linked source, CSV, receipts and manifest are separate files, not embedded in this HTML.</p>
+<p class="qualification">Physical force accuracy is unqualified. Numerical checks are not physical validation or production approval.</p>
+<h2>Compare these predictions under the declared condition.</h2>
+<ul><li>Candidate minus reference solved gap -16.5857 µm (-0.0165857 mm) under the same downward load.</li><li>Upward load support is expected in this supported-load comparison.</li><li>Zero offset has no lateral restoration comparison.</li><li>Candidate minus reference Z force -0.000143446 µN.</li><li>These forces and gaps do not select a production solder volume.</li></ul>
+<p>Footprint BGA-36_3.396x3.466mm_Layout6x6_P0.4mm_Ball0.25mm_Pad0.2mm_NSMD. Pad A1.</p>
+<p>Source footprint SHA-256 <code>71284db92e3b91db34a94fefdd45f8d0677c64ec0ad08a8fbec1431109925d48</code>.</p>
+<section><h2>Reference</h2><p>Checked prediction under supported load.</p>
+<p>Numerical status <strong>refinement_checked</strong>. Input SHA-256 <code>953e4190ebbf631ba3368acf38c8abf822160c9cefca43b493d9c9795ec59051</code>.</p>
+<ul><li>Solder volume 6 nL (0.006 mm³); offset 0 µm (0 mm).</li><li>Downward supported load 4 µN.</li><li>Solved wetted-plane gap 141.986 µm (0.141986 mm).</li><li>X force 5.55112e-09 µN.</li><li>Zero offset has no lateral restoration comparison.</li><li>Z force 3.99992 µN (upward).</li><li>Upward solder force balances the declared downward load within the numerical tolerance.</li></ul>
+<table><thead><tr><th>Declared input</th><th>Value</th></tr></thead><tbody>
+<tr><td>Lower pad diameter</td><td>200 µm (0.2 mm)</td></tr><tr><td>Upper pad diameter</td><td>200 µm (0.2 mm)</td></tr><tr><td>Solder volume</td><td>6 nL (0.006 mm³)</td></tr><tr><td>Offset</td><td>0 µm (0 mm)</td></tr><tr><td>Downward supported load</td><td>4 µN</td></tr><tr><td>Surface tension</td><td>0.48 N/m</td></tr><tr><td>Density</td><td>9 g/cm³</td></tr><tr><td>Gravity</td><td>Included</td></tr>
+</tbody></table>
+<details><summary>Exact canonical values</summary><pre>{
+  &quot;equilibrium&quot;: {
+    &quot;density_g_cm3&quot;: 9,
+    &quot;gravity&quot;: true,
+    &quot;lower_diameter_mm&quot;: 0.2,
+    &quot;offset_mm&quot;: 0,
+    &quot;standoff_mm&quot;: 0.14198599212772617,
+    &quot;surface_tension_n_m&quot;: 0.48,
+    &quot;upper_diameter_mm&quot;: 0.2,
+    &quot;volume_mm3&quot;: 0.006
+  },
+  &quot;forces&quot;: {
+    &quot;x_uN&quot;: 5.551115123125783e-09,
+    &quot;z_uN&quot;: 3.999920728584378
+  },
+  &quot;input&quot;: {
+    &quot;density_g_cm3&quot;: 9,
+    &quot;gravity&quot;: true,
+    &quot;lower_diameter_mm&quot;: 0.2,
+    &quot;normal_load_uN&quot;: 4,
+    &quot;offset_mm&quot;: 0,
+    &quot;surface_tension_n_m&quot;: 0.48,
+    &quot;upper_diameter_mm&quot;: 0.2,
+    &quot;volume_mm3&quot;: 0.006
+  },
+  &quot;load_balance&quot;: {
+    &quot;accepted_height_range_mm&quot;: [
+      0.02,
+      10.0
+    ],
+    &quot;check_kind&quot;: &quot;Numerical force balance on a locally stable branch; not physical validation or global uniqueness.&quot;,
+    &quot;height_change_mm&quot;: 8.909485402497364e-07,
+    &quot;height_change_tolerance_mm&quot;: 1.4198599212772617e-05,
+    &quot;native_height_mm&quot;: 0.14198599212772617,
+    &quot;native_levels&quot;: [
+      {
+        &quot;energy_erg&quot;: 0.5344064098119997,
+        &quot;facets&quot;: 432,
+        &quot;force_x_uN&quot;: -0.0,
+        &quot;force_z_uN&quot;: -0.0005153886058288837,
+        &quot;height_mm&quot;: 0.14198688307626642,
+        &quot;level&quot;: 0,
+        &quot;load_vertex_mm&quot;: 0.14198688307626642,
+        &quot;negative_eigenvalues&quot;: 0,
+        &quot;optimizing_parameter_force_raw&quot;: 25.650709091883428,
+        &quot;stationarity_energy_change_erg&quot;: 9.776438358866102e-08,
+        &quot;stationarity_energy_change_relative&quot;: 1.8294014030081303e-07,
+        &quot;upper_rim_mm&quot;: 0.14198688307626642,
+        &quot;volume_mm3&quot;: 0.005999999999705399,
+        &quot;volume_relative_error&quot;: 4.9100241197805775e-11
+      },
+      {
+        &quot;energy_erg&quot;: 0.534404051179439,
+        &quot;facets&quot;: 1632,
+        &quot;force_x_uN&quot;: 5.551115123125783e-09,
+        &quot;force_z_uN&quot;: 0.000131834274102806,
+        &quot;height_mm&quot;: 0.14198599212772617,
+        &quot;level&quot;: 1,
+        &quot;load_vertex_mm&quot;: 0.14198599212720764,
+        &quot;negative_eigenvalues&quot;: 0,
+        &quot;optimizing_parameter_force_raw&quot;: 25.217219437606825,
+        &quot;stationarity_energy_change_erg&quot;: 3.6058644958814057e-10,
+        &quot;stationarity_energy_change_relative&quot;: 6.747449776855546e-10,
+        &quot;upper_rim_mm&quot;: 0.14198599212720764,
+        &quot;volume_mm3&quot;: 0.005999999999983427,
+        &quot;volume_relative_error&quot;: 2.762315613154149e-12
+      }
+    ],
+    &quot;native_net_force_uN&quot;: 0.000131834274102806,
+    &quot;observed_static_force_refinement_uN&quot;: 0.005922771886532452,
+    &quot;pdelta_cm&quot;: 7.131412671146853e-08,
+    &quot;pdelta_rule&quot;: &quot;5e-6 times seed height in cm&quot;,
+    &quot;residual_uN&quot;: -7.927141562191764e-05,
+    &quot;seed_height_mm&quot;: 0.14262825342293706,
+    &quot;seed_kind&quot;: &quot;geometry-only aligned unloaded spherical segment&quot;,
+    &quot;sign_convention&quot;: &quot;Positive prescribed load acts downward; independent upward joint reaction must equal it.&quot;,
+    &quot;status&quot;: &quot;balanced&quot;,
+    &quot;target_uN&quot;: 4,
+    &quot;termination&quot;: &quot;independently_verified&quot;,
+    &quot;tolerance_kind&quot;: &quot;Numerical engineering tolerance, max(0.01 uN, twice observed fixed-gap force refinement); not a physical confidence interval.&quot;,
+    &quot;tolerance_uN&quot;: 0.011845543773064904,
+    &quot;trial_heights_constrained&quot;: false
+  }
+}
+</pre></details>
+<p>Links within the extracted evidence ZIP <a href="case-00/input.json">input JSON</a> and <a href="case-00/result.json">result JSON</a>.</p></section>
+<section><h2>Candidate</h2><p>Checked prediction under supported load.</p>
+<p>Numerical status <strong>refinement_checked</strong>. Input SHA-256 <code>a06e37a64f4b008fd8f055878dede8dbcec3e2668e822411dc1bdf38e38e29d9</code>.</p>
+<ul><li>Solder volume 5 nL (0.005 mm³); offset 0 µm (0 mm).</li><li>Downward supported load 4 µN.</li><li>Solved wetted-plane gap 125.4 µm (0.1254 mm).</li><li>X force -0 µN.</li><li>Zero offset has no lateral restoration comparison.</li><li>Z force 3.99978 µN (upward).</li><li>Upward solder force balances the declared downward load within the numerical tolerance.</li></ul>
+<table><thead><tr><th>Declared input</th><th>Value</th></tr></thead><tbody>
+<tr><td>Lower pad diameter</td><td>200 µm (0.2 mm)</td></tr><tr><td>Upper pad diameter</td><td>200 µm (0.2 mm)</td></tr><tr><td>Solder volume</td><td>5 nL (0.005 mm³)</td></tr><tr><td>Offset</td><td>0 µm (0 mm)</td></tr><tr><td>Downward supported load</td><td>4 µN</td></tr><tr><td>Surface tension</td><td>0.48 N/m</td></tr><tr><td>Density</td><td>9 g/cm³</td></tr><tr><td>Gravity</td><td>Included</td></tr>
+</tbody></table>
+<details><summary>Exact canonical values</summary><pre>{
+  &quot;equilibrium&quot;: {
+    &quot;density_g_cm3&quot;: 9,
+    &quot;gravity&quot;: true,
+    &quot;lower_diameter_mm&quot;: 0.2,
+    &quot;offset_mm&quot;: 0,
+    &quot;standoff_mm&quot;: 0.12540026678723787,
+    &quot;surface_tension_n_m&quot;: 0.48,
+    &quot;upper_diameter_mm&quot;: 0.2,
+    &quot;volume_mm3&quot;: 0.005
+  },
+  &quot;forces&quot;: {
+    &quot;x_uN&quot;: -0.0,
+    &quot;z_uN&quot;: 3.9997772823855526
+  },
+  &quot;input&quot;: {
+    &quot;density_g_cm3&quot;: 9,
+    &quot;gravity&quot;: true,
+    &quot;lower_diameter_mm&quot;: 0.2,
+    &quot;normal_load_uN&quot;: 4,
+    &quot;offset_mm&quot;: 0,
+    &quot;surface_tension_n_m&quot;: 0.48,
+    &quot;upper_diameter_mm&quot;: 0.2,
+    &quot;volume_mm3&quot;: 0.005
+  },
+  &quot;load_balance&quot;: {
+    &quot;accepted_height_range_mm&quot;: [
+      0.02,
+      10.0
+    ],
+    &quot;check_kind&quot;: &quot;Numerical force balance on a locally stable branch; not physical validation or global uniqueness.&quot;,
+    &quot;height_change_mm&quot;: 1.0092866284394653e-06,
+    &quot;height_change_tolerance_mm&quot;: 1.2540026678723787e-05,
+    &quot;native_height_mm&quot;: 0.12540026678723787,
+    &quot;native_levels&quot;: [
+      {
+        &quot;energy_erg&quot;: 0.4539663593762707,
+        &quot;facets&quot;: 432,
+        &quot;force_x_uN&quot;: -0.0,
+        &quot;force_z_uN&quot;: -0.0017640154914213943,
+        &quot;height_mm&quot;: 0.1254012760738663,
+        &quot;level&quot;: 0,
+        &quot;load_vertex_mm&quot;: 0.1254012760738663,
+        &quot;negative_eigenvalues&quot;: 0,
+        &quot;optimizing_parameter_force_raw&quot;: 26.47865518452642,
+        &quot;stationarity_energy_change_erg&quot;: 1.3685552519016042e-07,
+        &quot;stationarity_energy_change_relative&quot;: 3.0146622621595516e-07,
+        &quot;upper_rim_mm&quot;: 0.1254012760738663,
+        &quot;volume_mm3&quot;: 0.004999999999692953,
+        &quot;volume_relative_error&quot;: 6.140938045616842e-11
+      },
+      {
+        &quot;energy_erg&quot;: 0.45396418492891605,
+        &quot;facets&quot;: 1632,
+        &quot;force_x_uN&quot;: 2.7755575615628914e-09,
+        &quot;force_z_uN&quot;: -4.197165622355067e-05,
+        &quot;height_mm&quot;: 0.12540026678723787,
+        &quot;level&quot;: 1,
+        &quot;load_vertex_mm&quot;: 0.12540026678706628,
+        &quot;negative_eigenvalues&quot;: 0,
+        &quot;optimizing_parameter_force_raw&quot;: 26.12658742842459,
+        &quot;stationarity_energy_change_erg&quot;: 5.524763424524792e-10,
+        &quot;stationarity_energy_change_relative&quot;: 1.2170042501017756e-09,
+        &quot;upper_rim_mm&quot;: 0.12540026678706628,
+        &quot;volume_mm3&quot;: 0.004999999999994537,
+        &quot;volume_relative_error&quot;: 1.0928419085474983e-12
+      }
+    ],
+    &quot;native_net_force_uN&quot;: -4.197165622355067e-05,
+    &quot;observed_static_force_refinement_uN&quot;: 0.007538402726055882,
+    &quot;pdelta_cm&quot;: 6.294851050860453e-08,
+    &quot;pdelta_rule&quot;: &quot;5e-6 times seed height in cm&quot;,
+    &quot;residual_uN&quot;: -0.00022271761444736526,
+    &quot;seed_height_mm&quot;: 0.12589702101720907,
+    &quot;seed_kind&quot;: &quot;geometry-only aligned unloaded spherical segment&quot;,
+    &quot;sign_convention&quot;: &quot;Positive prescribed load acts downward; independent upward joint reaction must equal it.&quot;,
+    &quot;status&quot;: &quot;balanced&quot;,
+    &quot;target_uN&quot;: 4,
+    &quot;termination&quot;: &quot;independently_verified&quot;,
+    &quot;tolerance_kind&quot;: &quot;Numerical engineering tolerance, max(0.01 uN, twice observed fixed-gap force refinement); not a physical confidence interval.&quot;,
+    &quot;tolerance_uN&quot;: 0.015076805452111763,
+    &quot;trial_heights_constrained&quot;: false
+  }
+}
+</pre></details>
+<p>Links within the extracted evidence ZIP <a href="case-01/input.json">input JSON</a> and <a href="case-01/result.json">result JSON</a>.</p></section>
+<section><h2>Conventions</h2>
+<ul><li>The model assumes an isolated equilibrium joint with fully wetted pinned circular rims. Wetting chemistry, thermal reflow and neighboring joints are unresolved.</li><li>Forces act on the upper pad. Positive X follows the prescribed offset axis; positive Z is upward.</li><li>At nonzero offset, restoring force is -sign(offset) × X force. Positive restoring force points toward alignment.</li><li>Engineering values are displayed to six significant digits. Exact canonical inputs and forces are retained below.</li></ul>
+<h2>Next steps</h2>
+<ul><li>Check the declared dimensions, material and boundary assumptions against the actual process.</li><li>Measure physical joint geometry and forces before using these predictions for production decisions.</li><li>Replay the accompanying numerical evidence; replay verifies numerical agreement, not physical accuracy.</li></ul>
+<h3>Links within the extracted accompanying evidence ZIP</h3><p><a href="results.csv">CSV</a>, <a href="source.kicad_mod">source footprint</a> and <a href="manifest.json">SHA-256 manifest</a>.</p>
+<p>Replay <code>python3 -m soldershape replay FILE.zip</code>. Archived scripts and this HTML are evidence; replay never executes them.</p></section></html>

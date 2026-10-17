@@ -27,6 +27,10 @@ The same navigation leads to **Physical test**, where the existing kit, handbook
 
 Inputs survive navigation and reload in the current browser tab. Numerical results are never stored as draft data. Download editable JSON for a durable copy; closing the tab can discard its draft. A direct handoff retains one previous joint draft when browser storage permits. Generated exports expose a visible download link, which clears when inputs change. [UI verification](cohesion/RESULTS.md) records the tested flow, repairs and artifact identities.
 
+Board and Joint results explain the declared condition and force directions before the meshes. Expand **result and inputs** to inspect the selected row, its exact identity and unit equivalents. Joint inputs show µm and nL alongside their editable mm and mm³ values. Fresh source-bearing result ZIPs include `review.html` and `review.json` in the existing SHA-256 manifest. **Save review HTML** downloads the same readable brief separately. It includes exact canonical values and model assumptions. Its evidence links work after extracting the accompanying ZIP. Historical recordings retain their original bytes; compute afresh to obtain the new brief. Pad comparison retains its existing study-specific `decision.html`.
+
+[Second refinement verification](refinement2/RESULTS.md) records the live comparison, supported-load and offset workflows, retained failure, actual downloads, native replay and remaining limits.
+
 ## Run the workbench
 
 For an immediate visual example, open [the misalignment stress demo](http://127.0.0.1:8765/demo) after starting the service. It compares exact native meshes for 5 and 7 nL solder at large placement offsets, preserves a substrate-plane limit and a numerical failure, and exports editable inputs. [Demo instructions](demo/README.md) and [computed results](demo/RESULTS.md) explain its conditional scope. Recorded inspection does not require a compiled engine.

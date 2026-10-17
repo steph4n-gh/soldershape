@@ -5,7 +5,7 @@ from pathlib import Path
 import tempfile
 import zipfile
 
-from .artifacts import read_bundle
+from .artifacts import read_bundle, screen_pair
 from .model import InputError, import_footprint, parse_case, request_from_footprint
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -22,38 +22,6 @@ def demo_requests(protocol, source):
         parameters = {**protocol["parameters"], **{name: record[name] for name in ("volume_mm3", "offset_mm", "standoff_mm")}}
         records[key] = request_from_footprint(source, protocol["pad_index"], parameters)
     return records
-
-
-def screen_pair(reference, candidate):
-    if any(row["status"] != "refinement_checked" for row in (reference, candidate)):
-        return {"status": "numerical_failure", "headline": "At least one case has no checked equilibrium.",
-                "details": [row.get("error", "Numerical checks did not pass.") for row in (reference, candidate) if row["status"] != "refinement_checked"],
-                "reference_rule_met": None, "candidate_rule_met": None}
-    warnings = [warning for row in (reference, candidate) for warning in row.get("model_warnings", [])]
-    if warnings:
-        return {"status": "outside_model_scope", "headline": "Numerical success reaches a physical model limit.",
-                "details": warnings+["No volume preference follows. Missing substrate contact can change these forces."],
-                "reference_rule_met": None, "candidate_rule_met": None}
-    met = [row["forces"]["x_uN"]*row["input"]["offset_mm"] < 0 and row["forces"]["z_uN"] <= 0
-           for row in (reference, candidate)]
-    headline = "Inspect both force directions against the declared fixture objective."
-    if met[0] != met[1]:
-        labels = ["Reference", "Candidate"]
-        inputs = [row["input"] for row in (reference, candidate)]
-        if ({key: value for key, value in inputs[0].items() if key != "volume_mm3"}
-                == {key: value for key, value in inputs[1].items() if key != "volume_mm3"}
-                and inputs[0]["volume_mm3"] != inputs[1]["volume_mm3"]):
-            labels = ["Less solder", "More solder"]
-            if inputs[0]["volume_mm3"] > inputs[1]["volume_mm3"]:
-                labels.reverse()
-        passed = 0 if met[0] else 1
-        failed = 1-passed
-        failure = "pushes upward." if (reference, candidate)[failed]["forces"]["z_uN"] > 0 else "does not."
-        headline = f"{labels[passed]} meets this declared fixture objective. {labels[failed]} {failure}"
-    return {"status": "conditional_comparison", "headline": headline,
-            "details": ["The objective requires lateral restoration and no upward separating force at the held gap.",
-                        "This numerical screen does not select a production solder volume."],
-            "reference_rule_met": met[0], "candidate_rule_met": met[1]}
 
 
 def demo_archive(directory=ROOT / "demo"):

@@ -93,6 +93,49 @@
     try { sessionStorage.removeItem(transferKey); } catch { storageFailure(); }
     history.replaceState(null, "", "/");
   }
+  function renderReview(element, review, index = 0) {
+    element.replaceChildren();
+    if (!review) {
+      const empty = document.createElement("p"); empty.className = "review-empty";
+      empty.textContent = "No current result review. Compute this joint to explain its forces and keep an exact input snapshot.";
+      element.append(empty);
+      return;
+    }
+    const row = review.rows[index] || review.rows[0];
+    const aggregate = review.kind === "comparison";
+    const headline = document.createElement("h2"); headline.textContent = aggregate ? review.headline : row.headline;
+    const facts = document.createElement("ul"); facts.className = "review-facts";
+    for (const value of aggregate ? review.facts : row.facts) {
+      const item = document.createElement("li"); item.textContent = value; facts.append(item);
+    }
+    const qualification = document.createElement("p"); qualification.className = "review-qualification"; qualification.textContent = review.qualification;
+    const snapshot = document.createElement("details"); snapshot.className = "review-snapshot";
+    const summary = document.createElement("summary"); summary.textContent = `${row.label === "Result" ? "Result" : row.label + " result"} and inputs · ${row.numerical_status.replaceAll("_", " ")}`;
+    snapshot.append(summary);
+    if (aggregate) {
+      const selectedHeadline = document.createElement("h3"); selectedHeadline.textContent = row.headline;
+      const selectedFacts = document.createElement("ul"); selectedFacts.className = "review-facts";
+      for (const value of row.facts) {
+        const item = document.createElement("li"); item.textContent = value; selectedFacts.append(item);
+      }
+      snapshot.append(selectedHeadline, selectedFacts);
+    }
+    const context = document.createElement("p"); context.className = "review-context";
+    context.textContent = `${review.context.footprint_name} · pad ${review.context.pad_identifier || "unnumbered"}`;
+    const inputs = document.createElement("dl"); inputs.className = "review-inputs";
+    for (const input of row.inputs) {
+      const pair = document.createElement("div"), label = document.createElement("dt"), value = document.createElement("dd");
+      label.textContent = input.label; value.textContent = input.value; pair.append(label, value); inputs.append(pair);
+    }
+    const digest = document.createElement("p"); digest.className = "review-digest"; digest.textContent = `Input SHA-256 ${row.input_sha256}`;
+    snapshot.append(context, inputs, digest);
+    const warnings = document.createElement("ul"); warnings.className = "review-warnings";
+    for (const value of [...row.warnings, ...(row.error ? [row.error] : [])]) {
+      const item = document.createElement("li"); item.textContent = value; warnings.append(item);
+    }
+    warnings.hidden = !warnings.children.length;
+    element.append(headline, facts, qualification, snapshot, warnings);
+  }
   const oldHeader = document.querySelector("body > header");
   const engine = document.getElementById("engine-state");
   const header = document.createElement("header"); header.className = "workspace-header";
@@ -122,5 +165,5 @@
   footer.append(note, lab); main.append(footer);
   // A browser's page cache must not revive numerical evidence as current after navigation.
   window.addEventListener("pageshow", (event) => { if (event.persisted) location.reload(); });
-  window.SolderShapeUI = Object.freeze({ saveDraft, readDraft, discardDraft, warn, openCase, receiveCase, consumeCase, downloadFile, clearDownload });
+  window.SolderShapeUI = Object.freeze({ saveDraft, readDraft, discardDraft, warn, openCase, receiveCase, consumeCase, downloadFile, clearDownload, renderReview });
 })();

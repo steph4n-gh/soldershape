@@ -6,8 +6,8 @@ from pathlib import Path
 import tempfile
 import zipfile
 
-from . import model, solver
-from .artifacts import json_bytes, make_bundle, mesh_obj, mesh_stl, read_bundle, results_csv
+from . import artifacts, model, solver
+from .artifacts import json_bytes, make_bundle, mesh_obj, mesh_stl, read_bundle, results_csv, review_html, review_record, verify_review
 from .demo import screen_pair
 from .model import InputError, import_footprint, parse_case, request_from_footprint
 
@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DIRECTORY = ROOT / "board_demo"
 CODE_FILES = ("model.py", "solver.py", "board.py", "__main__.py", "artifacts.py", "demo.py")
 LOADED_CODE_SHA256 = {name: hashlib.sha256((Path(__file__).parent/name).read_bytes()).hexdigest() for name in CODE_FILES}
-LOADED_CODE_SHA256.update({"model.py": model.PYTHON_SOURCE_SHA256, "solver.py": solver.PYTHON_SOURCE_SHA256})
+LOADED_CODE_SHA256.update({"model.py": model.PYTHON_SOURCE_SHA256, "solver.py": solver.PYTHON_SOURCE_SHA256, "artifacts.py": artifacts.PYTHON_SOURCE_SHA256})
 SCOPE = [
     "Only the selected isolated joint is computed. Board traces and other pads supply context.",
     "The board supplies lower copper geometry. Upper pad, gap, offset, solder volume and material are hypothetical process inputs until measured independently.",
@@ -199,7 +199,7 @@ def bundle_board(report, directory=DIRECTORY):
     sources = _code_sources()
     if {name: _hash(data) for name, data in sources.items()} != report["calculation_code_sha256"]:
         raise InputError("Calculation source changed after computation. Recompute before export.")
-    with zipfile.ZipFile(io.BytesIO(make_bundle(report["results"], case["footprint_text"], case, report["comparison"]))) as archive:
+    with zipfile.ZipFile(io.BytesIO(make_bundle(report["results"], case["footprint_text"], case, report["comparison"], board_selection=selection))) as archive:
         files = {name: archive.read(name) for name in archive.namelist() if name != "manifest.json"}
         manifest = _json(archive.read("manifest.json"))
     files.update({"board-report.json": json_bytes(public_report(report)), "board-selection.json": json_bytes(selection),
@@ -232,7 +232,11 @@ def bundle_board(report, directory=DIRECTORY):
 def response_payload(report, bundle, recorded=False):
     visible = public_report(report)
     visible["recorded"] = recorded
-    return {"report": visible, "bundle_base64": base64.b64encode(bundle).decode(), "bundle_filename": "soldershape-board-comparison.zip"}
+    review = review_record(report["results"], report["comparison"], source=report["editable_case"]["footprint_text"], board_selection=report["selection"])
+    payload = {"report": visible, "review": review, "bundle_base64": base64.b64encode(bundle).decode(), "bundle_filename": "soldershape-board-comparison.zip"}
+    if not recorded:
+        payload["review_html"] = review_html(review).decode()
+    return payload
 
 
 def verify_board(path, replay=False, directory=DIRECTORY):
@@ -267,6 +271,7 @@ def verify_board(path, replay=False, directory=DIRECTORY):
                 raise InputError("Archived export differs from regenerated "+name)
         if archive.read("source.kicad_mod") != case["footprint_text"].encode() or archive.read("results.csv") != results_csv(results):
             raise InputError("Archived source or CSV differs from selected numerical results.")
+        verify_review(archive, results, board_selection=selection)
         for index, row in enumerate(results):
             if "mesh" in row:
                 for suffix, encoder in (("obj", mesh_obj), ("stl", mesh_stl)):

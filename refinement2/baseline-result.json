@@ -1,0 +1,41 @@
+{
+  "archive_sha256": "768067527e78f88b18c649804b374d26b0e682020d735b98770f36588da8354a",
+  "html_members": [],
+  "inputs": [
+    {
+      "density_g_cm3": 9,
+      "gravity": true,
+      "lower_diameter_mm": 0.2,
+      "offset_mm": 0.02,
+      "standoff_mm": 0.15,
+      "surface_tension_n_m": 0.48,
+      "upper_diameter_mm": 0.2,
+      "volume_mm3": 0.006
+    },
+    {
+      "density_g_cm3": 9,
+      "gravity": true,
+      "lower_diameter_mm": 0.2,
+      "offset_mm": 0.02,
+      "standoff_mm": 0.15,
+      "surface_tension_n_m": 0.48,
+      "upper_diameter_mm": 0.2,
+      "volume_mm3": 0.005
+    }
+  ],
+  "forces": [
+    {
+      "x_uN": -19.63342805000323,
+      "z_uN": -43.77622501901732
+    },
+    {
+      "x_uN": -20.36428851937,
+      "z_uN": -128.77095172947327
+    }
+  ],
+  "status": [
+    "refinement_checked",
+    "refinement_checked"
+  ],
+  "observation": "No readable HTML review in the generic result archive. Current UI shows only raw canonical-unit deltas."
+}

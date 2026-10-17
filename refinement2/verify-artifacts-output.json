@@ -1,0 +1,85 @@
+{
+  "passed": true,
+  "downloads": [
+    {
+      "archive": "refinement2/evidence/joint-comparison.zip",
+      "sha256": "0df51e43bd82eaba2b105363a80476ebd7b81b0cd26f81788eb41743d44e228d",
+      "cases": 2,
+      "members": 25,
+      "status": [
+        "refinement_checked",
+        "refinement_checked"
+      ],
+      "html_sha256": "52dd0d35e50c0de520c0adad1aa636cc3dd5bbffcd2f3b47bb4f5c7cf2658d0e",
+      "external_resources": [],
+      "relative_evidence_links_resolve_after_extraction": true
+    },
+    {
+      "archive": "refinement2/evidence/loaded-comparison.zip",
+      "sha256": "bb60fa370b82a19a91ef246bb8022ac3c47474875b66d15799e76ac49254773a",
+      "cases": 2,
+      "members": 33,
+      "status": [
+        "refinement_checked",
+        "refinement_checked"
+      ],
+      "html_sha256": "5a15a9932b94b905186475816a3922ac45a9b8d8b71382fb80dc3cdec367797a",
+      "external_resources": [],
+      "relative_evidence_links_resolve_after_extraction": true
+    },
+    {
+      "archive": "refinement2/evidence/board-comparison.zip",
+      "sha256": "b6bf18f68ce868fa1a1cd1151be0360f1c7d20667b25154d569af1a825e16d64",
+      "cases": 2,
+      "members": 41,
+      "status": [
+        "refinement_checked",
+        "refinement_checked"
+      ],
+      "html_sha256": "aad09d14ac50682d9c38c3c090e5ace81932679af6217884b42d69e0f70525fb",
+      "external_resources": [],
+      "relative_evidence_links_resolve_after_extraction": true
+    },
+    {
+      "archive": "refinement2/evidence/offset-sweep.zip",
+      "sha256": "a1fd0dc30a6a944915f66b9a8763fc7137af1f9a18d9bd8e7da624a2ccc0bb88",
+      "cases": 5,
+      "members": 51,
+      "status": [
+        "refinement_checked",
+        "refinement_checked",
+        "refinement_checked",
+        "refinement_checked",
+        "refinement_checked"
+      ],
+      "html_sha256": "6f4a3ba16bd4ebe591dfbffcdd4ac65b84a8a057ab099ac3c6a78d923e1eb635",
+      "external_resources": [],
+      "relative_evidence_links_resolve_after_extraction": true
+    },
+    {
+      "archive": "refinement2/evidence/failed-single.zip",
+      "sha256": "09390c591343a52ccf267dcb8fffcf65fee303e2a58797ea941ee9474488190a",
+      "cases": 1,
+      "members": 13,
+      "status": [
+        "failed"
+      ],
+      "html_sha256": "dc97b0a198d0e960cc78491101728c050ccd1779583d7082437044f47a7ecb3e",
+      "external_resources": [],
+      "relative_evidence_links_resolve_after_extraction": true
+    }
+  ],
+  "preserved": {
+    "soldershape/model.py": "543720e8a6999896410aaf22651846c71b4f4736923ffe0ada0767ce35619657",
+    "soldershape/solver.py": "c7bcfcc2c5f24e6e783540b3fcabc45a8d15308ded887aca2ae41442ddf4c8a6",
+    "soldershape/study.py": "d60bde9448b523bc9b1bb6e59903974af5fa7f37252e9b12fd3ec598b2f76590",
+    "demo/data/stress-cases.zip": "914ef334f8850be64a1c5b325647c1d9bc6adf6acfdcac6a3d04920bd4f27f24",
+    "board_demo/data/default-comparison.zip": "1b87dca00de964b62cce902e071dad063b2f935f79d340817ff9e810bfff9604",
+    "board_demo/data/browser-comparison.zip": "598e1bb2aa8b573ec8eeed8fd2cd54528c325f5ec589b07b58af8479244ff7b2",
+    "output/soldershape-force-lab-r1.zip": "0b4ee985fc0bde510385e92656bfac7c8df92e73f3be4a4e69e5770e9fa63274",
+    "output/pdf/soldershape-force-lab-handoff.pdf": "cf4bf5712ae9b15b44466ff22a584ad930d14b8eb132c6934a32c5c7acc8d08f",
+    "output/soldershape-coupon-r1-refined.zip": "f20c7e9cb70bb400c3ad2a6fbb97c088757a39f5ecdd9db3f6bf4683e16bb1ea"
+  },
+  "html_check": "Structural inspection and exact direct-download/ZIP equality. The browser policy blocked file URLs; no offline visual rendering was performed.",
+  "physical_qualification": "unqualified"
+}

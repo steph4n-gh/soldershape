@@ -260,7 +260,7 @@ function updateControls() {
   $("clear-reference-button").hidden = !state.baseline;
   $("clear-reference-button").disabled = !!state.caseAction;
   $("reference-values").textContent = state.baseline
-    ? `Upper pad Ø ${number(state.baseline.upper_diameter_mm, 5)} mm · solder ${number(state.baseline.volume_mm3, 6)} mm³`
+    ? `Upper pad Ø ${number(state.baseline.upper_diameter_mm, 5)} mm · ${number(state.baseline.upper_diameter_mm * 1000, 5)} µm. Liquid solder ${number(state.baseline.volume_mm3, 6)} mm³ · ${number(state.baseline.volume_mm3 * 1000, 6)} nL.`
     : "No reference saved.";
   $("save-case-button").disabled = !hasInputs;
   $("save-case-button").textContent = state.caseAction === "save" ? "Saving case…" : "Save editable case";
@@ -274,9 +274,15 @@ function updateControls() {
   count.textContent = "5 points";
   $("sweep-button").append(count);
   $("download-button").disabled = !state.response?.bundle_base64 || !!state.pending || !!state.caseAction;
+  $("save-review-button").disabled = !state.response?.review_html || !!state.pending || !!state.caseAction;
   $("pad-select").disabled = !state.footprint || state.importing || !!state.caseAction;
   $("example-button").disabled = !state.token || state.importing || !!state.caseAction;
   $("footprint-file").disabled = !state.token || state.importing || !!state.caseAction;
+  for (const [name, id, unit] of [["upper_diameter_mm", "upper-diameter-equivalent", "µm"], ["standoff_mm", "gap-equivalent", "µm"], ["volume_mm3", "volume-equivalent", "nL"], ["offset_mm", "offset-equivalent", "µm"]]) {
+    const input = $(name);
+    $(id).textContent = Number.isFinite(input.valueAsNumber) ? `${number(input.valueAsNumber * 1000, 6)} ${unit}` : "Unavailable";
+    input.setAttribute("aria-invalid", String(!input.disabled && !input.validity.valid));
+  }
   const offset = Math.abs($("offset_mm").valueAsNumber);
   $("sweep-note").textContent = Number.isFinite(offset)
     ? offset > 0
@@ -291,7 +297,7 @@ function renderFootprint() {
   $("pad-count").textContent = footprint ? `${footprint.pads.length} PADS / TOP VIEW` : "NO PADS";
   const selected = pad();
   $("lower-diameter").textContent = selected
-    ? selected.supported ? `${number(selected.size_mm[0], 5)} mm` : `${number(selected.size_mm[0])} × ${number(selected.size_mm[1])} mm`
+    ? selected.supported ? `${number(selected.size_mm[0], 5)} mm · ${number(selected.size_mm[0] * 1000, 5)} µm` : `${number(selected.size_mm[0])} × ${number(selected.size_mm[1])} mm`
     : "—";
   let pitch = Infinity;
   if (selected) {
@@ -299,7 +305,7 @@ function renderFootprint() {
       if (other.index !== selected.index) pitch = Math.min(pitch, Math.hypot(other.x_mm - selected.x_mm, other.y_mm - selected.y_mm));
     }
   }
-  $("pad-pitch").textContent = Number.isFinite(pitch) ? `${number(pitch, 5)} mm` : "—";
+  $("pad-pitch").textContent = Number.isFinite(pitch) ? `${number(pitch, 5)} mm · ${number(pitch * 1000, 5)} µm` : "—";
   $("pad-message").textContent = selected
     ? selected.supported ? "Board diameter comes from this copper pad. The model assumes a fully wetted pinned rim. Board mask rules and finished CAM remain unresolved." : selected.unsupported_reason
     : "Circular copper SMD pads are supported.";
@@ -455,6 +461,10 @@ function renderResults() {
   const hasMesh = !!result?.mesh;
   const diagnostics = result?.diagnostics || {};
   const comparison = state.response?.comparison;
+  SolderShapeUI.renderReview($("result-review"), state.response?.review, state.resultIndex);
+  $("review-export-note").textContent = state.response && !state.response.review
+    ? "This service returned numerical results without a readable review. Restart the updated local service and compute again to create one."
+    : "Save a readable snapshot for a colleague. The evidence ZIP includes the same review and the native numerical receipts.";
   const comparisonChecked = !!comparison && comparison.status === "compared"
     && state.response.results.length === 2
     && state.response.results.every((item) => item.status === "refinement_checked"
@@ -473,7 +483,7 @@ function renderResults() {
   $("check-mesh-volume").textContent = percent(diagnostics.mesh_volume_error_relative);
   $("check-eigenvalues").className = Number.isFinite(diagnostics.negative_eigenvalues) ? diagnostics.negative_eigenvalues === 0 ? "good" : "warn" : "";
   $("load-equilibrium").hidden = !loaded;
-  $("solved-gap").textContent = Number.isFinite(spec?.standoff_mm) ? `${number(spec.standoff_mm, 6)} mm` : "—";
+  $("solved-gap").textContent = Number.isFinite(spec?.standoff_mm) ? `${number(spec.standoff_mm, 6)} mm · ${number(spec.standoff_mm * 1000, 6)} µm` : "—";
   $("supported-load").textContent = loaded ? `${number(result.input.normal_load_uN)} µN` : "—";
   $("load-residual").textContent = Number.isFinite(result?.load_balance?.residual_uN) ? `${number(result.load_balance.residual_uN, 6)} µN` : "—";
   $("load-balance-note").textContent = result?.status === "failed"
@@ -526,7 +536,7 @@ function renderResults() {
     $("comparison-delta").textContent = comparisonChecked
       ? `Candidate minus reference: solder volume ${signed(delta.volume_mm3, 6)} mm³ (${signed(delta.volume_percent, 2)}%); gap ${signed(delta.gap_mm, 6)} mm; restoring force ${signed(delta.restoring_force_uN)} µN; vertical force ${signed(delta.vertical_force_uN)} µN.`
       : `Comparison inconclusive. ${comparison.reason || "Both designs must pass the numerical checks at a nonzero offset before comparing forces."}`;
-    $("comparison-scope").textContent = `${comparison.scope || `Both designs use the current board pad, ${loaded ? "normal load" : "gap"}, offset, and material.`} A larger restoring force means a stronger force toward alignment under these conditions. This does not select a manufacturing design.`;
+    $("comparison-scope").textContent = `${comparison.scope || `Both designs use the current board pad, ${loaded ? "normal load" : "gap"}, offset, and material.`} These numerical deltas do not select a manufacturing design.`;
   }
   const head = $("results-head");
   head.replaceChildren();
@@ -1140,6 +1150,10 @@ $("download-button").addEventListener("click", () => {
   } catch (error) {
     notice(`The case could not be downloaded. ${error.message}`, "error");
   }
+});
+$("save-review-button").addEventListener("click", () => {
+  if (!state.response?.review_html || state.pending || state.caseAction) return;
+  downloadBlob(new Blob([state.response.review_html], { type: "text/html;charset=utf-8" }), "soldershape-review.html");
 });
 
 const resizeObserver = new ResizeObserver(scheduleDraw);

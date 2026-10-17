@@ -16,7 +16,7 @@ import zipfile
 from urllib.parse import urlsplit
 from urllib.request import urlopen
 
-from .artifacts import make_bundle, read_bundle
+from .artifacts import make_bundle, read_bundle, review_html, review_record
 from .model import InputError, import_footprint, parse_case, request_from_footprint
 
 
@@ -291,8 +291,9 @@ class Handler(BaseHTTPRequestHandler):
                 else:
                     results = calculate(case["footprint_text"], case["pad_index"], case["parameters"], body.get("offsets_mm"))
                 bundle = make_bundle(results, case["footprint_text"], case, comparison)
+                review = review_record(results, comparison, source=case["footprint_text"])
                 self.respond(200, {"results": results, "bundle_base64": base64.b64encode(bundle).decode(),
-                                   "comparison": comparison,
+                                   "comparison": comparison, "review": review, "review_html": review_html(review).decode(),
                                    "bundle_filename": {"/api/sweep": "soldershape-sweep.zip", "/api/compare": "soldershape-comparison.zip"}.get(path, "soldershape-case.zip")})
             finally:
                 self.server.computation.release()

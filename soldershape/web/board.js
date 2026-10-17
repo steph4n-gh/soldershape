@@ -84,13 +84,23 @@ function invalidate() {
   scheduleDraw();
 }
 function updateCompute() {
-  const valid = !!state.token && !!pad()?.supported && $("comparison-form").checkValidity();
+  const numericInputs = [...$("comparison-form").querySelectorAll('input[type="number"]')];
+  for (const input of numericInputs) {
+    input.setAttribute("aria-invalid", String(!input.validity.valid));
+    if (input.validity.valid) input.removeAttribute("aria-describedby");
+    else input.setAttribute("aria-describedby", "input-validation");
+  }
+  const invalid = numericInputs.find((input) => !input.validity.valid);
+  $("input-validation").hidden = !invalid;
+  $("input-validation").textContent = invalid ? `${invalid.closest("label").firstChild.textContent.trim()}. ${invalid.validationMessage}` : "";
+  const valid = !!state.token && !!pad()?.supported && !invalid;
   $("compute-button").disabled = !valid || !state.engineReady || state.pending !== null || !!state.caseAction;
   $("compute-button").textContent = state.pending !== null ? "Native engine running…" : state.engineReady ? "Compute selected comparison ↗" : "Numerical engine unavailable";
   $("inspect-joint").disabled = !valid || !!state.caseAction;
   $("case-download").disabled = !valid || !!state.caseAction;
   $("inspect-joint").textContent = state.caseAction === "inspect" ? "Opening joint details…" : "Inspect this joint";
   $("case-download").textContent = state.caseAction === "save" ? "Preparing editable case…" : "Save editable case";
+  $("review-download").disabled = !state.response?.review_html || state.pending !== null || !!state.caseAction;
 }
 function readDraft() {
   for (const [id, key, scale] of fields) state.draft.parameters[key] = $(id).valueAsNumber / scale;
@@ -190,11 +200,18 @@ function renderRecord(role, record) {
 }
 function renderResults() {
   const report = state.response?.report;
+  SolderShapeUI.renderReview($("result-review"), state.response?.review, 1);
+  $("review-export-note").textContent = report?.recorded
+    ? "This is a review of a verified recording. Its original ZIP stays unchanged. Compute selected comparison to save a fresh readable review inside the new evidence ZIP."
+    : report && !state.response.review
+      ? "This service returned numerical results without a readable review. Restart the updated local service and compute again to create one."
+      : "Save a readable snapshot for a colleague. Fresh board-bound evidence includes the same review and the native numerical receipts.";
   renderRecord("reference", report?.results[0]); renderRecord("candidate", report?.results[1]);
   $("computed-badge").textContent = report?.results.some((item) => item.mesh) ? "1 selected joint computed · neighbors unsolved" : "0 joints computed in this view";
   $("result-origin").textContent = report ? report.recorded ? "Verified native recording" : "Fresh native computation" : "No current computation";
   $("bundle-download").disabled = !state.bundleUrl;
   const screen = report?.screen;
+  $("screen-panel").hidden = !!state.response?.review;
   const labels = { conditional_comparison: "CONDITIONAL FORCE COMPARISON", outside_model_scope: "COMPARISON BLOCKED BY MODEL SCOPE", numerical_failure: "COMPARISON BLOCKED BY NUMERICAL FAILURE" };
   $("screen-panel").className = `screen-panel${screen?.status === "outside_model_scope" ? " warn" : screen?.status === "numerical_failure" ? " failed" : ""}`;
   $("screen-status").textContent = screen ? labels[screen.status] || "CONDITIONAL FORCE COMPARISON" : "DECLARED FIXTURE OBJECTIVE";
@@ -344,6 +361,10 @@ for (const canvas of modelCanvases) {
 $("reset-view").addEventListener("click", () => { Object.assign(camera, initialCamera); scheduleDraw(); });
 $("mesh-edges").addEventListener("change", scheduleDraw);
 $("bundle-download").addEventListener("click", () => { if (state.bundleUrl) download(state.bundleUrl, state.response.bundle_filename || "soldershape-board-evidence.zip"); });
+$("review-download").addEventListener("click", () => {
+  if (!state.response?.review_html || state.pending !== null || state.caseAction) return;
+  download(new Blob([state.response.review_html], { type: "text/html;charset=utf-8" }), "soldershape-board-review.html");
+});
 $("case-download").addEventListener("click", () => exportCase("save"));
 $("inspect-joint").addEventListener("click", () => exportCase("inspect"));
 window.addEventListener("pagehide", saveDraft);
