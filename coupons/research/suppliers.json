@@ -1,0 +1,138 @@
+{
+  "schema": "soldershape.coupon.supplier-evidence.v1",
+  "checked_date": "2026-10-16",
+  "status": "research_only_no_quotes_or_orders",
+  "preferred_route": "custom_top_coupon_and_outside_lab_managed_fabrication_assembly_metrology",
+  "preferred_solder_quote": {
+    "supplier": "Indium Corporation",
+    "product_family": "Specialty solder spheres",
+    "alloy_identity": "Indalloy 106, 63Sn37Pb",
+    "requested_diameter_um": 320,
+    "optional_paper_volume_matching_diameter_um": 322,
+    "exact_diameter_availability": "unconfirmed_quote_required",
+    "exact_mpn": null,
+    "source": "https://www.indium.com/products/solder-spheres/",
+    "published_facts": [
+      "Indalloy 106 is listed as Sn37Pb or 63Sn.",
+      "The listed melting temperature is 183 C.",
+      "The approximate manufacturable diameter range is 102 to 1270 um."
+    ],
+    "required_vendor_response": [
+      "Exact controlled diameter and diameter tolerance",
+      "Lot measured diameter distribution and measurement temperature",
+      "Composition certificate and lot traceability",
+      "Sphericity and oxide handling",
+      "Minimum quantity and lead time"
+    ]
+  },
+  "catalog_solder_fallback": {
+    "supplier": "Chip Quik",
+    "mpn": "SMD2165-25000",
+    "alloy": "Sn63Pb37",
+    "quantity_per_bottle": 25000,
+    "page_label_diameter_mm": 0.3,
+    "page_label_diameter_inch": 0.012,
+    "availability_observation": "Manufacturer page displayed In Stock at this check; reconfirm before ordering.",
+    "source": "https://www.chipquik.com/store/index.php?cPath=1101",
+    "datasheet": "https://www.chipquik.com/datasheets/SMD2185.pdf",
+    "use_condition": "Revise and freeze predictions using the measured lot diameter. Do not assume the paper total volume."
+  },
+  "flux_candidate": {
+    "supplier": "Indium Corporation",
+    "product": "TACFlux 020B",
+    "classification": "ROL0",
+    "published_alloy_compatibility": "SnPb and Pb-free",
+    "published_packaging": ["10 cc syringe", "30 cc syringe", "100 g jar"],
+    "source": "https://www.indium.com/wp-content/uploads/2025/03/TACFlux-020B-PDS-98565-A4-R1-1.pdf",
+    "status": "quote_candidate_lab_process_confirmation_required"
+  },
+  "commercial_dummy_alternative": {
+    "supplier": "Practical Components",
+    "catalog_identity": "A-CABGA40-.5mm-5mm",
+    "joint_count": 40,
+    "pitch_mm": 0.5,
+    "body_mm": 5,
+    "matrix": "8 by 8 perimeter",
+    "source": "https://www.practicalcomponents.com/home/print-view.cfm?prid=1008&type=pkg",
+    "primary_bom_status": "excluded",
+    "reason": "It does not establish the required 20-joint geometry, 280 um upper pads, controlled mass, or exact ordered alloy."
+  },
+  "fabrication_evidence": [
+    {
+      "supplier": "JLCPCB",
+      "source": "https://jlcpcb.com/capabilities/Capabilities?type=1",
+      "facts": [
+        "3 by 3 mm minimum FR4 dimensions at thickness at least 0.6 mm",
+        "Manual review for thinner boards",
+        "0.20 to 0.25 mm BGA pads require ENIG"
+      ],
+      "quote_conditions": [
+        "Custom panel and singulation acceptance for any smaller top coupon",
+        "Common measured finish on both variants",
+        "Explicit exception if OSP is requested at 220 um",
+        "No pad enlargement or soldermask encroachment",
+        "Measured copper diameter and metal height"
+      ]
+    },
+    {
+      "supplier": "Eurocircuits",
+      "source": "https://www.eurocircuits.com/technical-guidelines/pcb-design-guidelines/soldermask/",
+      "facts": [
+        "0.40 mm minimum soldermask opening",
+        "DI mask annular ring minimum 0.030 mm",
+        "DI mask segment minimum 0.075 mm"
+      ],
+      "consequence": "Use an explicitly designed array-wide mask opening or obtain a written custom opening acceptance."
+    }
+  ],
+  "laboratory_candidates": [
+    {
+      "name": "BEST Inc.",
+      "sources": [
+        "https://www.solder.net/pcb-rework-services/",
+        "https://www.solder.net/services/bga-x-ray-capabilities/"
+      ],
+      "published_services": ["Prototype runs", "BGA work and reballing", "Outsourced BGA X-ray inspection"],
+      "unconfirmed": ["Custom loose-ball coupon assembly acceptance", "Calibrated hot-state gap metrology", "Dimensional uncertainty", "Cost and lead time"]
+    },
+    {
+      "name": "University of Maryland CALCE",
+      "sources": ["https://calce.umd.edu/services", "https://calce.umd.edu/failure-analysis"],
+      "published_services": ["Custom tests", "Material characterization", "3D X-ray", "Microsectioning"],
+      "unconfirmed": ["Turnkey assembly", "Calibrated hot-state gap metrology", "Dimensional uncertainty", "Cost and lead time"]
+    },
+    {
+      "name": "Elmet LLC",
+      "sources": ["https://www.elmetlabs.com/cross-sectional-analysis"],
+      "published_services": ["Polished cross-sections", "Optical and electron microscopy", "Measurement report and location-identified images"],
+      "unconfirmed": ["Assembly", "Hot-state metrology", "Center-plane accuracy and dimensional uncertainty", "Cost and lead time"]
+    }
+  ],
+  "derived_sphere_volumes": {
+    "formula": "pi * diameter_mm ** 3 / 6",
+    "paper_nominal_total_volume_mm3": 0.01745,
+    "paper_volume_equivalent_diameter_um": 321.80955613410445,
+    "values": [
+      {"diameter_um": 300, "volume_mm3": 0.014137166941154066, "relative_difference_percent": -18.984716669604207},
+      {"diameter_um": 304.8, "volume_mm3": 0.014826666204376065, "relative_difference_percent": -15.0334314935469},
+      {"diameter_um": 320, "volume_mm3": 0.01715728467880506, "relative_difference_percent": -1.6774516973922182},
+      {"diameter_um": 322, "volume_mm3": 0.017480998574621154, "relative_difference_percent": 0.1776422614392814}
+    ],
+    "temperature_caveat": "These are geometric volumes at the diameter measurement temperature. Liquid thermal expansion is not included."
+  },
+  "derived_supported_mass": {
+    "joint_count": 20,
+    "normal_load_per_joint_uN": 4,
+    "standard_gravity_m_s2": 9.80665,
+    "mass_mg": 8.157729703823426,
+    "caveat": "Equal load sharing is an approximation. Use measured coupon mass and quantify tilt and warpage."
+  },
+  "not_established": [
+    "A commercial dummy part with the exact required upper-pad dimensions",
+    "Exact 320 or 322 um Indium availability and minimum order",
+    "Acceptance of the generated fabrication package by any board house",
+    "A turnkey laboratory accepting all requested operations",
+    "Hot-state height measurement with the requested uncertainty",
+    "Price or lead time"
+  ]
+}

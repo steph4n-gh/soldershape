@@ -113,6 +113,8 @@ Matching raw receipts are cached by input, source and engine identities. Add `--
 
 ## Project record
 
+The [outside-lab coupon package](coupons/README.md) supplies editable boards, Gerbers, a parts and services list, blank measurement sheets, a staged RFQ, and prospective analysis for a physical 220 versus 270 micrometer pad comparison. It is prepared for a quote and pilot. No physical coupons have been ordered or measured.
+
 - [IMPLEMENTATION.md](IMPLEMENTATION.md) records the data model, interface, and architecture choice.
 - [WORKFLOW.md](WORKFLOW.md) records the selected playbook and completion checks.
 - [decisions.tsv](decisions.tsv) records decisions and evidence.

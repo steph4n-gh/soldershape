@@ -1,0 +1,79 @@
+{
+  "kind": "local_artifact_verification_not_physical_validation",
+  "verified_at_utc": "2026-10-17T00:40:01.862052+00:00",
+  "base_commit": "3f6ff5c2246a3f62c37f9cab4bd59bc4679d4f79",
+  "kicad_version": "10.0.6",
+  "drc_violations": {
+    "carrier": 0,
+    "cap": 0
+  },
+  "coupon_tests_passed": 25,
+  "analysis_tests_synthetic": 21,
+  "manufacturing_export_tests": 4,
+  "native_requests": [
+    {
+      "arm": "C220",
+      "mapping": "literal_rims",
+      "gravity": false,
+      "gap_um": 223.31880160132934,
+      "load_residual_uN": 0.00045759084097785063,
+      "receipt": "receipts/db2baf6ead4b9fd366ada4bbe9770a867061229c6f179f4655a350696d69f446.json.gz"
+    },
+    {
+      "arm": "C220",
+      "mapping": "two_pad_cylinders",
+      "gravity": false,
+      "gap_um": 178.20338122353706,
+      "load_residual_uN": 0.00023221425474861945,
+      "receipt": "receipts/a8a2b18a2db23073ac2e6894de78e4742c922f6e1ee93cc840cc615b15673452.json.gz"
+    },
+    {
+      "arm": "C220",
+      "mapping": "literal_rims",
+      "gravity": true,
+      "gap_um": 223.12928302486074,
+      "load_residual_uN": 0.0004304802738097635,
+      "receipt": "receipts/6583d8010c978331f92b10bb769896e23678f0bb9ba9cd49a9c291b6e2250d6c.json.gz"
+    },
+    {
+      "arm": "C270",
+      "mapping": "literal_rims",
+      "gravity": false,
+      "gap_um": 207.52181485954353,
+      "load_residual_uN": 0.00015727292307410323,
+      "receipt": "receipts/1c60790691835956b4aa053c3697f99a4b8d05f68c6c0484d9bdb7d458a19c68.json.gz"
+    },
+    {
+      "arm": "C270",
+      "mapping": "two_pad_cylinders",
+      "gravity": false,
+      "gap_um": 167.31387797077113,
+      "load_residual_uN": 0.0005230011317109984,
+      "receipt": "receipts/7937aa20316542a784cb8620e6cb28e2ee734f3ccf7f479b8d6d47b8b17f6a43.json.gz"
+    },
+    {
+      "arm": "C270",
+      "mapping": "literal_rims",
+      "gravity": true,
+      "gap_um": 207.39946135833006,
+      "load_residual_uN": 0.0001496133537681743,
+      "receipt": "receipts/e7beeb6cc945a43cabad2f6ae77efd66bb5cbd2fb858baade211ce44de6c109c.json.gz"
+    }
+  ],
+  "blank_freeze_cli_exit_code": 2,
+  "physical_outcomes_present": false,
+  "pdf_pages_visually_inspected": 8,
+  "fabrication_released": false,
+  "supplier_contacted": false,
+  "source_sha256": {
+    "coupons/tools/analyze.py": "c653cd2d4812837bcecc63fca386b5a6bf8b40a3f62cd8d9c724560161144683",
+    "coupons/tools/build_boards.py": "14d554edc84c0b0ba4aa8e30a851b29840c91ae7707a17b5c6020ba817676295",
+    "coupons/tools/make_lab_pdf.py": "b3b15b4d0244fc787c77b964dfc0064908f1034ecc237ceec13ddadfeffabb6b",
+    "coupons/tools/package_lab.py": "ba03038331cf159cf389051ae60464b6ecb30631d317d2a1e1bd4bf7da921a90",
+    "coupons/tools/verify_boards.py": "af6fbca731d2af22798464c4221b318dab0c2161ebdb6325956e52b58903e71b"
+  },
+  "pdf_sha256": "8101d0c3c2f2fbfaba8a216d9d694f63cf76ceaa79c7069d421cf70c4728261d",
+  "fresh_archive_engine_setup_passed": true,
+  "fresh_archive_native_C220_gap_um": 223.31880160132934,
+  "archive_tamper_control": "altered experiment seed rejected by member hash"
+}

@@ -1,0 +1,966 @@
+{
+  "kicad_version": "10.0.6",
+  "image": "kicad/kicad@sha256:18693567392b80da435f9fa952ce3a3e534c66eb5a6033f5b9c80aa3b19dd3ec",
+  "spec_sha256": "37032dfbc39ea9eae3e970be1e0de074f60095355ee55307cf19f774f67de3ed",
+  "boards": {
+    "carrier": {
+      "pads": [
+        {
+          "reference": "S02",
+          "pad": "A1",
+          "attribute": 1,
+          "x_mm": 27.0,
+          "y_mm": 11.25,
+          "diameter_mm": 0.27,
+          "layer": 0
+        },
+        {
+          "reference": "S02",
+          "pad": "A2",
+          "attribute": 1,
+          "x_mm": 27.5,
+          "y_mm": 11.25,
+          "diameter_mm": 0.27,
+          "layer": 0
+        },
+        {
+          "reference": "S02",
+          "pad": "A3",
+          "attribute": 1,
+          "x_mm": 28.0,
+          "y_mm": 11.25,
+          "diameter_mm": 0.27,
+          "layer": 0
+        },
+        {
+          "reference": "S02",
+          "pad": "A4",
+          "attribute": 1,
+          "x_mm": 28.5,
+          "y_mm": 11.25,
+          "diameter_mm": 0.27,
+          "layer": 0
+        },
+        {
+          "reference": "S02",
+          "pad": "A5",
+          "attribute": 1,
+          "x_mm": 29.0,
+          "y_mm": 11.25,
+          "diameter_mm": 0.27,
+          "layer": 0
+        },
+        {
+          "reference": "S02",
+          "pad": "B1",
+          "attribute": 1,
+          "x_mm": 27.0,
+          "y_mm": 11.75,
+          "diameter_mm": 0.27,
+          "layer": 0
+        },
+        {
+          "reference": "S02",
+          "pad": "B2",
+          "attribute": 1,
+          "x_mm": 27.5,
+          "y_mm": 11.75,
+          "diameter_mm": 0.27,
+          "layer": 0
+        },
+        {
+          "reference": "S02",
+          "pad": "B3",
+          "attribute": 1,
+          "x_mm": 28.0,
+          "y_mm": 11.75,
+          "diameter_mm": 0.27,
+          "layer": 0
+        },
+        {
+          "reference": "S02",
+          "pad": "B4",
+          "attribute": 1,
+          "x_mm": 28.5,
+          "y_mm": 11.75,
+          "diameter_mm": 0.27,
+          "layer": 0
+        },
+        {
+          "reference": "S02",
+          "pad": "B5",
+          "attribute": 1,
+          "x_mm": 29.0,
+          "y_mm": 11.75,
+          "diameter_mm": 0.27,
+          "layer": 0
+        },
+        {
+          "reference": "S02",
+          "pad": "C1",
+          "attribute": 1,
+          "x_mm": 27.0,
+          "y_mm": 12.25,
+          "diameter_mm": 0.27,
+          "layer": 0
+        },
+        {
+          "reference": "S02",
+          "pad": "C2",
+          "attribute": 1,
+          "x_mm": 27.5,
+          "y_mm": 12.25,
+          "diameter_mm": 0.27,
+          "layer": 0
+        },
+        {
+          "reference": "S02",
+          "pad": "C3",
+          "attribute": 1,
+          "x_mm": 28.0,
+          "y_mm": 12.25,
+          "diameter_mm": 0.27,
+          "layer": 0
+        },
+        {
+          "reference": "S02",
+          "pad": "C4",
+          "attribute": 1,
+          "x_mm": 28.5,
+          "y_mm": 12.25,
+          "diameter_mm": 0.27,
+          "layer": 0
+        },
+        {
+          "reference": "S02",
+          "pad": "C5",
+          "attribute": 1,
+          "x_mm": 29.0,
+          "y_mm": 12.25,
+          "diameter_mm": 0.27,
+          "layer": 0
+        },
+        {
+          "reference": "S02",
+          "pad": "D1",
+          "attribute": 1,
+          "x_mm": 27.0,
+          "y_mm": 12.75,
+          "diameter_mm": 0.27,
+          "layer": 0
+        },
+        {
+          "reference": "S02",
+          "pad": "D2",
+          "attribute": 1,
+          "x_mm": 27.5,
+          "y_mm": 12.75,
+          "diameter_mm": 0.27,
+          "layer": 0
+        },
+        {
+          "reference": "S02",
+          "pad": "D3",
+          "attribute": 1,
+          "x_mm": 28.0,
+          "y_mm": 12.75,
+          "diameter_mm": 0.27,
+          "layer": 0
+        },
+        {
+          "reference": "S02",
+          "pad": "D4",
+          "attribute": 1,
+          "x_mm": 28.5,
+          "y_mm": 12.75,
+          "diameter_mm": 0.27,
+          "layer": 0
+        },
+        {
+          "reference": "S02",
+          "pad": "D5",
+          "attribute": 1,
+          "x_mm": 29.0,
+          "y_mm": 12.75,
+          "diameter_mm": 0.27,
+          "layer": 0
+        },
+        {
+          "reference": "S03",
+          "pad": "A1",
+          "attribute": 1,
+          "x_mm": 11.0,
+          "y_mm": 27.25,
+          "diameter_mm": 0.27,
+          "layer": 0
+        },
+        {
+          "reference": "S03",
+          "pad": "A2",
+          "attribute": 1,
+          "x_mm": 11.5,
+          "y_mm": 27.25,
+          "diameter_mm": 0.27,
+          "layer": 0
+        },
+        {
+          "reference": "S03",
+          "pad": "A3",
+          "attribute": 1,
+          "x_mm": 12.0,
+          "y_mm": 27.25,
+          "diameter_mm": 0.27,
+          "layer": 0
+        },
+        {
+          "reference": "S03",
+          "pad": "A4",
+          "attribute": 1,
+          "x_mm": 12.5,
+          "y_mm": 27.25,
+          "diameter_mm": 0.27,
+          "layer": 0
+        },
+        {
+          "reference": "S03",
+          "pad": "A5",
+          "attribute": 1,
+          "x_mm": 13.0,
+          "y_mm": 27.25,
+          "diameter_mm": 0.27,
+          "layer": 0
+        },
+        {
+          "reference": "S03",
+          "pad": "B1",
+          "attribute": 1,
+          "x_mm": 11.0,
+          "y_mm": 27.75,
+          "diameter_mm": 0.27,
+          "layer": 0
+        },
+        {
+          "reference": "S03",
+          "pad": "B2",
+          "attribute": 1,
+          "x_mm": 11.5,
+          "y_mm": 27.75,
+          "diameter_mm": 0.27,
+          "layer": 0
+        },
+        {
+          "reference": "S03",
+          "pad": "B3",
+          "attribute": 1,
+          "x_mm": 12.0,
+          "y_mm": 27.75,
+          "diameter_mm": 0.27,
+          "layer": 0
+        },
+        {
+          "reference": "S03",
+          "pad": "B4",
+          "attribute": 1,
+          "x_mm": 12.5,
+          "y_mm": 27.75,
+          "diameter_mm": 0.27,
+          "layer": 0
+        },
+        {
+          "reference": "S03",
+          "pad": "B5",
+          "attribute": 1,
+          "x_mm": 13.0,
+          "y_mm": 27.75,
+          "diameter_mm": 0.27,
+          "layer": 0
+        },
+        {
+          "reference": "S03",
+          "pad": "C1",
+          "attribute": 1,
+          "x_mm": 11.0,
+          "y_mm": 28.25,
+          "diameter_mm": 0.27,
+          "layer": 0
+        },
+        {
+          "reference": "S03",
+          "pad": "C2",
+          "attribute": 1,
+          "x_mm": 11.5,
+          "y_mm": 28.25,
+          "diameter_mm": 0.27,
+          "layer": 0
+        },
+        {
+          "reference": "S03",
+          "pad": "C3",
+          "attribute": 1,
+          "x_mm": 12.0,
+          "y_mm": 28.25,
+          "diameter_mm": 0.27,
+          "layer": 0
+        },
+        {
+          "reference": "S03",
+          "pad": "C4",
+          "attribute": 1,
+          "x_mm": 12.5,
+          "y_mm": 28.25,
+          "diameter_mm": 0.27,
+          "layer": 0
+        },
+        {
+          "reference": "S03",
+          "pad": "C5",
+          "attribute": 1,
+          "x_mm": 13.0,
+          "y_mm": 28.25,
+          "diameter_mm": 0.27,
+          "layer": 0
+        },
+        {
+          "reference": "S03",
+          "pad": "D1",
+          "attribute": 1,
+          "x_mm": 11.0,
+          "y_mm": 28.75,
+          "diameter_mm": 0.27,
+          "layer": 0
+        },
+        {
+          "reference": "S03",
+          "pad": "D2",
+          "attribute": 1,
+          "x_mm": 11.5,
+          "y_mm": 28.75,
+          "diameter_mm": 0.27,
+          "layer": 0
+        },
+        {
+          "reference": "S03",
+          "pad": "D3",
+          "attribute": 1,
+          "x_mm": 12.0,
+          "y_mm": 28.75,
+          "diameter_mm": 0.27,
+          "layer": 0
+        },
+        {
+          "reference": "S03",
+          "pad": "D4",
+          "attribute": 1,
+          "x_mm": 12.5,
+          "y_mm": 28.75,
+          "diameter_mm": 0.27,
+          "layer": 0
+        },
+        {
+          "reference": "S03",
+          "pad": "D5",
+          "attribute": 1,
+          "x_mm": 13.0,
+          "y_mm": 28.75,
+          "diameter_mm": 0.27,
+          "layer": 0
+        },
+        {
+          "reference": "S01",
+          "pad": "A1",
+          "attribute": 1,
+          "x_mm": 11.0,
+          "y_mm": 11.25,
+          "diameter_mm": 0.22,
+          "layer": 0
+        },
+        {
+          "reference": "S01",
+          "pad": "A2",
+          "attribute": 1,
+          "x_mm": 11.5,
+          "y_mm": 11.25,
+          "diameter_mm": 0.22,
+          "layer": 0
+        },
+        {
+          "reference": "S01",
+          "pad": "A3",
+          "attribute": 1,
+          "x_mm": 12.0,
+          "y_mm": 11.25,
+          "diameter_mm": 0.22,
+          "layer": 0
+        },
+        {
+          "reference": "S01",
+          "pad": "A4",
+          "attribute": 1,
+          "x_mm": 12.5,
+          "y_mm": 11.25,
+          "diameter_mm": 0.22,
+          "layer": 0
+        },
+        {
+          "reference": "S01",
+          "pad": "A5",
+          "attribute": 1,
+          "x_mm": 13.0,
+          "y_mm": 11.25,
+          "diameter_mm": 0.22,
+          "layer": 0
+        },
+        {
+          "reference": "S01",
+          "pad": "B1",
+          "attribute": 1,
+          "x_mm": 11.0,
+          "y_mm": 11.75,
+          "diameter_mm": 0.22,
+          "layer": 0
+        },
+        {
+          "reference": "S01",
+          "pad": "B2",
+          "attribute": 1,
+          "x_mm": 11.5,
+          "y_mm": 11.75,
+          "diameter_mm": 0.22,
+          "layer": 0
+        },
+        {
+          "reference": "S01",
+          "pad": "B3",
+          "attribute": 1,
+          "x_mm": 12.0,
+          "y_mm": 11.75,
+          "diameter_mm": 0.22,
+          "layer": 0
+        },
+        {
+          "reference": "S01",
+          "pad": "B4",
+          "attribute": 1,
+          "x_mm": 12.5,
+          "y_mm": 11.75,
+          "diameter_mm": 0.22,
+          "layer": 0
+        },
+        {
+          "reference": "S01",
+          "pad": "B5",
+          "attribute": 1,
+          "x_mm": 13.0,
+          "y_mm": 11.75,
+          "diameter_mm": 0.22,
+          "layer": 0
+        },
+        {
+          "reference": "S01",
+          "pad": "C1",
+          "attribute": 1,
+          "x_mm": 11.0,
+          "y_mm": 12.25,
+          "diameter_mm": 0.22,
+          "layer": 0
+        },
+        {
+          "reference": "S01",
+          "pad": "C2",
+          "attribute": 1,
+          "x_mm": 11.5,
+          "y_mm": 12.25,
+          "diameter_mm": 0.22,
+          "layer": 0
+        },
+        {
+          "reference": "S01",
+          "pad": "C3",
+          "attribute": 1,
+          "x_mm": 12.0,
+          "y_mm": 12.25,
+          "diameter_mm": 0.22,
+          "layer": 0
+        },
+        {
+          "reference": "S01",
+          "pad": "C4",
+          "attribute": 1,
+          "x_mm": 12.5,
+          "y_mm": 12.25,
+          "diameter_mm": 0.22,
+          "layer": 0
+        },
+        {
+          "reference": "S01",
+          "pad": "C5",
+          "attribute": 1,
+          "x_mm": 13.0,
+          "y_mm": 12.25,
+          "diameter_mm": 0.22,
+          "layer": 0
+        },
+        {
+          "reference": "S01",
+          "pad": "D1",
+          "attribute": 1,
+          "x_mm": 11.0,
+          "y_mm": 12.75,
+          "diameter_mm": 0.22,
+          "layer": 0
+        },
+        {
+          "reference": "S01",
+          "pad": "D2",
+          "attribute": 1,
+          "x_mm": 11.5,
+          "y_mm": 12.75,
+          "diameter_mm": 0.22,
+          "layer": 0
+        },
+        {
+          "reference": "S01",
+          "pad": "D3",
+          "attribute": 1,
+          "x_mm": 12.0,
+          "y_mm": 12.75,
+          "diameter_mm": 0.22,
+          "layer": 0
+        },
+        {
+          "reference": "S01",
+          "pad": "D4",
+          "attribute": 1,
+          "x_mm": 12.5,
+          "y_mm": 12.75,
+          "diameter_mm": 0.22,
+          "layer": 0
+        },
+        {
+          "reference": "S01",
+          "pad": "D5",
+          "attribute": 1,
+          "x_mm": 13.0,
+          "y_mm": 12.75,
+          "diameter_mm": 0.22,
+          "layer": 0
+        },
+        {
+          "reference": "FID3",
+          "pad": "",
+          "attribute": 1,
+          "x_mm": 4.0,
+          "y_mm": 36.0,
+          "diameter_mm": 1.0,
+          "layer": 0
+        },
+        {
+          "reference": "FID2",
+          "pad": "",
+          "attribute": 1,
+          "x_mm": 36.0,
+          "y_mm": 4.0,
+          "diameter_mm": 1.0,
+          "layer": 0
+        },
+        {
+          "reference": "FID1",
+          "pad": "",
+          "attribute": 1,
+          "x_mm": 4.0,
+          "y_mm": 4.0,
+          "diameter_mm": 1.0,
+          "layer": 0
+        },
+        {
+          "reference": "H36",
+          "pad": "",
+          "attribute": 3,
+          "x_mm": 36.0,
+          "y_mm": 20.0,
+          "diameter_mm": 3.2,
+          "layer": 0
+        },
+        {
+          "reference": "S04",
+          "pad": "A1",
+          "attribute": 1,
+          "x_mm": 27.0,
+          "y_mm": 27.25,
+          "diameter_mm": 0.22,
+          "layer": 0
+        },
+        {
+          "reference": "S04",
+          "pad": "A2",
+          "attribute": 1,
+          "x_mm": 27.5,
+          "y_mm": 27.25,
+          "diameter_mm": 0.22,
+          "layer": 0
+        },
+        {
+          "reference": "S04",
+          "pad": "A3",
+          "attribute": 1,
+          "x_mm": 28.0,
+          "y_mm": 27.25,
+          "diameter_mm": 0.22,
+          "layer": 0
+        },
+        {
+          "reference": "S04",
+          "pad": "A4",
+          "attribute": 1,
+          "x_mm": 28.5,
+          "y_mm": 27.25,
+          "diameter_mm": 0.22,
+          "layer": 0
+        },
+        {
+          "reference": "S04",
+          "pad": "A5",
+          "attribute": 1,
+          "x_mm": 29.0,
+          "y_mm": 27.25,
+          "diameter_mm": 0.22,
+          "layer": 0
+        },
+        {
+          "reference": "S04",
+          "pad": "B1",
+          "attribute": 1,
+          "x_mm": 27.0,
+          "y_mm": 27.75,
+          "diameter_mm": 0.22,
+          "layer": 0
+        },
+        {
+          "reference": "S04",
+          "pad": "B2",
+          "attribute": 1,
+          "x_mm": 27.5,
+          "y_mm": 27.75,
+          "diameter_mm": 0.22,
+          "layer": 0
+        },
+        {
+          "reference": "S04",
+          "pad": "B3",
+          "attribute": 1,
+          "x_mm": 28.0,
+          "y_mm": 27.75,
+          "diameter_mm": 0.22,
+          "layer": 0
+        },
+        {
+          "reference": "S04",
+          "pad": "B4",
+          "attribute": 1,
+          "x_mm": 28.5,
+          "y_mm": 27.75,
+          "diameter_mm": 0.22,
+          "layer": 0
+        },
+        {
+          "reference": "S04",
+          "pad": "B5",
+          "attribute": 1,
+          "x_mm": 29.0,
+          "y_mm": 27.75,
+          "diameter_mm": 0.22,
+          "layer": 0
+        },
+        {
+          "reference": "S04",
+          "pad": "C1",
+          "attribute": 1,
+          "x_mm": 27.0,
+          "y_mm": 28.25,
+          "diameter_mm": 0.22,
+          "layer": 0
+        },
+        {
+          "reference": "S04",
+          "pad": "C2",
+          "attribute": 1,
+          "x_mm": 27.5,
+          "y_mm": 28.25,
+          "diameter_mm": 0.22,
+          "layer": 0
+        },
+        {
+          "reference": "S04",
+          "pad": "C3",
+          "attribute": 1,
+          "x_mm": 28.0,
+          "y_mm": 28.25,
+          "diameter_mm": 0.22,
+          "layer": 0
+        },
+        {
+          "reference": "S04",
+          "pad": "C4",
+          "attribute": 1,
+          "x_mm": 28.5,
+          "y_mm": 28.25,
+          "diameter_mm": 0.22,
+          "layer": 0
+        },
+        {
+          "reference": "S04",
+          "pad": "C5",
+          "attribute": 1,
+          "x_mm": 29.0,
+          "y_mm": 28.25,
+          "diameter_mm": 0.22,
+          "layer": 0
+        },
+        {
+          "reference": "S04",
+          "pad": "D1",
+          "attribute": 1,
+          "x_mm": 27.0,
+          "y_mm": 28.75,
+          "diameter_mm": 0.22,
+          "layer": 0
+        },
+        {
+          "reference": "S04",
+          "pad": "D2",
+          "attribute": 1,
+          "x_mm": 27.5,
+          "y_mm": 28.75,
+          "diameter_mm": 0.22,
+          "layer": 0
+        },
+        {
+          "reference": "S04",
+          "pad": "D3",
+          "attribute": 1,
+          "x_mm": 28.0,
+          "y_mm": 28.75,
+          "diameter_mm": 0.22,
+          "layer": 0
+        },
+        {
+          "reference": "S04",
+          "pad": "D4",
+          "attribute": 1,
+          "x_mm": 28.5,
+          "y_mm": 28.75,
+          "diameter_mm": 0.22,
+          "layer": 0
+        },
+        {
+          "reference": "S04",
+          "pad": "D5",
+          "attribute": 1,
+          "x_mm": 29.0,
+          "y_mm": 28.75,
+          "diameter_mm": 0.22,
+          "layer": 0
+        },
+        {
+          "reference": "H4",
+          "pad": "",
+          "attribute": 3,
+          "x_mm": 4.0,
+          "y_mm": 20.0,
+          "diameter_mm": 3.2,
+          "layer": 0
+        }
+      ],
+      "thickness_mm": 1.6,
+      "track_count": 0,
+      "footprint_count": 9
+    },
+    "cap": {
+      "pads": [
+        {
+          "reference": "CAP",
+          "pad": "A1",
+          "attribute": 1,
+          "x_mm": 0.5,
+          "y_mm": 0.75,
+          "diameter_mm": 0.28,
+          "layer": 0
+        },
+        {
+          "reference": "CAP",
+          "pad": "A2",
+          "attribute": 1,
+          "x_mm": 1.0,
+          "y_mm": 0.75,
+          "diameter_mm": 0.28,
+          "layer": 0
+        },
+        {
+          "reference": "CAP",
+          "pad": "A3",
+          "attribute": 1,
+          "x_mm": 1.5,
+          "y_mm": 0.75,
+          "diameter_mm": 0.28,
+          "layer": 0
+        },
+        {
+          "reference": "CAP",
+          "pad": "A4",
+          "attribute": 1,
+          "x_mm": 2.0,
+          "y_mm": 0.75,
+          "diameter_mm": 0.28,
+          "layer": 0
+        },
+        {
+          "reference": "CAP",
+          "pad": "A5",
+          "attribute": 1,
+          "x_mm": 2.5,
+          "y_mm": 0.75,
+          "diameter_mm": 0.28,
+          "layer": 0
+        },
+        {
+          "reference": "CAP",
+          "pad": "B1",
+          "attribute": 1,
+          "x_mm": 0.5,
+          "y_mm": 1.25,
+          "diameter_mm": 0.28,
+          "layer": 0
+        },
+        {
+          "reference": "CAP",
+          "pad": "B2",
+          "attribute": 1,
+          "x_mm": 1.0,
+          "y_mm": 1.25,
+          "diameter_mm": 0.28,
+          "layer": 0
+        },
+        {
+          "reference": "CAP",
+          "pad": "B3",
+          "attribute": 1,
+          "x_mm": 1.5,
+          "y_mm": 1.25,
+          "diameter_mm": 0.28,
+          "layer": 0
+        },
+        {
+          "reference": "CAP",
+          "pad": "B4",
+          "attribute": 1,
+          "x_mm": 2.0,
+          "y_mm": 1.25,
+          "diameter_mm": 0.28,
+          "layer": 0
+        },
+        {
+          "reference": "CAP",
+          "pad": "B5",
+          "attribute": 1,
+          "x_mm": 2.5,
+          "y_mm": 1.25,
+          "diameter_mm": 0.28,
+          "layer": 0
+        },
+        {
+          "reference": "CAP",
+          "pad": "C1",
+          "attribute": 1,
+          "x_mm": 0.5,
+          "y_mm": 1.75,
+          "diameter_mm": 0.28,
+          "layer": 0
+        },
+        {
+          "reference": "CAP",
+          "pad": "C2",
+          "attribute": 1,
+          "x_mm": 1.0,
+          "y_mm": 1.75,
+          "diameter_mm": 0.28,
+          "layer": 0
+        },
+        {
+          "reference": "CAP",
+          "pad": "C3",
+          "attribute": 1,
+          "x_mm": 1.5,
+          "y_mm": 1.75,
+          "diameter_mm": 0.28,
+          "layer": 0
+        },
+        {
+          "reference": "CAP",
+          "pad": "C4",
+          "attribute": 1,
+          "x_mm": 2.0,
+          "y_mm": 1.75,
+          "diameter_mm": 0.28,
+          "layer": 0
+        },
+        {
+          "reference": "CAP",
+          "pad": "C5",
+          "attribute": 1,
+          "x_mm": 2.5,
+          "y_mm": 1.75,
+          "diameter_mm": 0.28,
+          "layer": 0
+        },
+        {
+          "reference": "CAP",
+          "pad": "D1",
+          "attribute": 1,
+          "x_mm": 0.5,
+          "y_mm": 2.25,
+          "diameter_mm": 0.28,
+          "layer": 0
+        },
+        {
+          "reference": "CAP",
+          "pad": "D2",
+          "attribute": 1,
+          "x_mm": 1.0,
+          "y_mm": 2.25,
+          "diameter_mm": 0.28,
+          "layer": 0
+        },
+        {
+          "reference": "CAP",
+          "pad": "D3",
+          "attribute": 1,
+          "x_mm": 1.5,
+          "y_mm": 2.25,
+          "diameter_mm": 0.28,
+          "layer": 0
+        },
+        {
+          "reference": "CAP",
+          "pad": "D4",
+          "attribute": 1,
+          "x_mm": 2.0,
+          "y_mm": 2.25,
+          "diameter_mm": 0.28,
+          "layer": 0
+        },
+        {
+          "reference": "CAP",
+          "pad": "D5",
+          "attribute": 1,
+          "x_mm": 2.5,
+          "y_mm": 2.25,
+          "diameter_mm": 0.28,
+          "layer": 0
+        }
+      ],
+      "thickness_mm": 0.8,
+      "track_count": 0,
+      "footprint_count": 1
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "status": "files_geometry_verified",
+  "fabrication_released": false,
+  "checks": [
+    {
+      "board": "carrier",
+      "copper_flashes": 83,
+      "mask_array_windows": 4,
+      "dimensions_mm": [
+        40,
+        40
+      ],
+      "drc_violations": 0
+    },
+    {
+      "board": "cap",
+      "copper_flashes": 20,
+      "mask_array_windows": 1,
+      "dimensions_mm": [
+        3,
+        3
+      ],
+      "drc_violations": 0
+    }
+  ],
+  "files": {
+    "hardware/cap.kicad_pcb": "bb44eff41333166c46d8cc448e45040745bb9ea4ce6b1efad5326ba9c81655f6",
+    "hardware/cap.kicad_pro": "ac0b5dcc810bff127a431adae2c3e6e36b2917a17dc1056e56e108ba1f12b706",
+    "hardware/cap.svg": "9720016275640c9f2611e2f553e2c5ece421a27b13e7796e039d98fe1aa53693",
+    "hardware/carrier.kicad_pcb": "9976208a4eccc9283be8ffb97ab59692ff616cf91db48a98f28a62d219f37369",
+    "hardware/carrier.kicad_pro": "a868a1c29fab70b489e74fd1727d7c8b42eb17d9270f833a1d8cfa3b3451f188",
+    "hardware/carrier.svg": "24130db97b813dc5cae331bccc76321ee9c61715efad9512908decd787332276",
+    "fabrication/cap/cap-B_Cu.gbl": "ed6b78974ff286e66903dfb823421f636fe1d3e16f9b88acb5e3856554f624fc",
+    "fabrication/cap/cap-B_Mask.gbs": "00a51a8ffa07d84e8595a4e190b868c011cfa12fd947b66193084c0be3ea6ab3",
+    "fabrication/cap/cap-B_Silkscreen.gbo": "441adf4c44173029297a289050b6c9f7b7d567251ece26cee41f799825d86d98",
+    "fabrication/cap/cap-Edge_Cuts.gm1": "d56ddab57551ab0f469541cafc7232cfae6c0fe5a8718227842b6c58a2c6f206",
+    "fabrication/cap/cap-F_Cu.gtl": "9f4f9893eebf0184396629b7dfed706f7318fcf1b99665001429e6e15606a1d3",
+    "fabrication/cap/cap-F_Mask.gts": "7e5a2d6c6c4063e1d93c28023861fc2634b38deeb320bd134d0e6c41ee553f09",
+    "fabrication/cap/cap-F_Silkscreen.gto": "314d4bc5380723d0fdb91149ff616d8c11c419cfd3f8b966ff37dd3a2c8f89da",
+    "fabrication/cap/cap-job.gbrjob": "1b1fd7cacbb8e4a7753ed4a31935fc6712299bdbef3df870d784ab04c09c3a72",
+    "fabrication/cap/cap.drl": "5ba607fd2d2d8a6d38447a5e3cfc82d1ddbb321ddd40a15af4d246086411d569",
+    "fabrication/carrier/carrier-B_Cu.gbl": "b77abd64953a7f4cdd6b26e4a8e93f778801a6ba7e3ee9d7757b9134a12867c1",
+    "fabrication/carrier/carrier-B_Mask.gbs": "18bc6e15e786e75911cdb51f11ab200f939d0e919eca2ca5fa06e62a99670261",
+    "fabrication/carrier/carrier-B_Silkscreen.gbo": "92085feb768c9624a6dcb712acbae6482635e430cfafaae8ed70429e18ea09c1",
+    "fabrication/carrier/carrier-Edge_Cuts.gm1": "15a09d92fc4eedea04afde72e30c99122a0df865590123ab83e3a168b25fc974",
+    "fabrication/carrier/carrier-F_Cu.gtl": "684ff37567c5828440cde293667a6762172e6418b6c5cc4861c98523c663cb77",
+    "fabrication/carrier/carrier-F_Mask.gts": "64d3bb703e3c2cd5a562a76c047ee7f802cb31e7c8b24dc6d3b42f8ba4303772",
+    "fabrication/carrier/carrier-F_Silkscreen.gto": "26975f224e4ff29e8f16c469060560ff82ee170e4bbd2a08f9ec6dae3fc47d63",
+    "fabrication/carrier/carrier-job.gbrjob": "9d17dbdb0d74c3375f985a7a22428f559dd158569e493e9230759929ae17e33f",
+    "fabrication/carrier/carrier.drl": "eae3dc7b758ed39588dc2527952674f9110ea37589fd31f97c85eac7cb2a3ed2"
+  },
+  "geometry_sha256": "9015bd4a21b7a26b3b89d791e19c4d54c504a6e759faf402d01f85bec561eb96"
+}

@@ -1,0 +1,25 @@
+{
+  "alloy": null,
+  "coverage_factor": null,
+  "flux": null,
+  "hot_method_evidence": null,
+  "lab": null,
+  "liquid_density_g_cm3": {
+    "value": null,
+    "U": null,
+    "source": null
+  },
+  "measurement_method": null,
+  "pilot": {
+    "qualified": null,
+    "evidence": null
+  },
+  "reflow_profile": null,
+  "surface_tension_n_m": {
+    "value": null,
+    "U": null,
+    "source": null
+  },
+  "temperature_C": null,
+  "temperature_U_C": null
+}
