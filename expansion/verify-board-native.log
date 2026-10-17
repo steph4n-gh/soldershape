@@ -1,0 +1,1 @@
+{"status": "passed", "components": 235, "pads": 1177, "track_objects": 5365, "supported_pads": 381, "svg_u1_circle_matches": 381, "maximum_error": {"board_position_mm": 0.0, "local_position_mm": 0.0, "transformed_position_mm": 2.842170943040401e-14}}

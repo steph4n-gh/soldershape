@@ -1,0 +1,442 @@
+{
+  "kind": "standard_force_uncertainty_source_components",
+  "budget_complete": null,
+  "completeness_evidence": null,
+  "coverage_factor": null,
+  "coverage_justification": null,
+  "components": [
+    {
+      "id": "B1-x-40-P1-V7",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-40-P1-V7": 1
+      }
+    },
+    {
+      "id": "B1-x-40-P1-V5",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-40-P1-V5": 1
+      }
+    },
+    {
+      "id": "B1-x-40-P2-V5",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-40-P2-V5": 1
+      }
+    },
+    {
+      "id": "B1-x-40-P2-V7",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-40-P2-V7": 1
+      }
+    },
+    {
+      "id": "B1-x-120-P1-V7",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-120-P1-V7": 1
+      }
+    },
+    {
+      "id": "B1-x-120-P1-V5",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-120-P1-V5": 1
+      }
+    },
+    {
+      "id": "B1-x-120-P2-V5",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-120-P2-V5": 1
+      }
+    },
+    {
+      "id": "B1-x-120-P2-V7",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-120-P2-V7": 1
+      }
+    },
+    {
+      "id": "B1-z-40-P1-V5",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-40-P1-V5": 1
+      }
+    },
+    {
+      "id": "B1-z-40-P1-V7",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-40-P1-V7": 1
+      }
+    },
+    {
+      "id": "B1-z-40-P2-V7",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-40-P2-V7": 1
+      }
+    },
+    {
+      "id": "B1-z-40-P2-V5",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-40-P2-V5": 1
+      }
+    },
+    {
+      "id": "B1-z-120-P1-V5",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-120-P1-V5": 1
+      }
+    },
+    {
+      "id": "B1-z-120-P1-V7",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-120-P1-V7": 1
+      }
+    },
+    {
+      "id": "B1-z-120-P2-V7",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-120-P2-V7": 1
+      }
+    },
+    {
+      "id": "B1-z-120-P2-V5",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-120-P2-V5": 1
+      }
+    },
+    {
+      "id": "B2-x-40-P1-V5",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-40-P1-V5": 1
+      }
+    },
+    {
+      "id": "B2-x-40-P1-V7",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-40-P1-V7": 1
+      }
+    },
+    {
+      "id": "B2-x-40-P2-V7",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-40-P2-V7": 1
+      }
+    },
+    {
+      "id": "B2-x-40-P2-V5",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-40-P2-V5": 1
+      }
+    },
+    {
+      "id": "B2-x-120-P1-V5",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-120-P1-V5": 1
+      }
+    },
+    {
+      "id": "B2-x-120-P1-V7",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-120-P1-V7": 1
+      }
+    },
+    {
+      "id": "B2-x-120-P2-V7",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-120-P2-V7": 1
+      }
+    },
+    {
+      "id": "B2-x-120-P2-V5",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-120-P2-V5": 1
+      }
+    },
+    {
+      "id": "B2-z-40-P1-V7",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-40-P1-V7": 1
+      }
+    },
+    {
+      "id": "B2-z-40-P1-V5",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-40-P1-V5": 1
+      }
+    },
+    {
+      "id": "B2-z-40-P2-V5",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-40-P2-V5": 1
+      }
+    },
+    {
+      "id": "B2-z-40-P2-V7",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-40-P2-V7": 1
+      }
+    },
+    {
+      "id": "B2-z-120-P1-V7",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-120-P1-V7": 1
+      }
+    },
+    {
+      "id": "B2-z-120-P1-V5",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-120-P1-V5": 1
+      }
+    },
+    {
+      "id": "B2-z-120-P2-V5",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-120-P2-V5": 1
+      }
+    },
+    {
+      "id": "B2-z-120-P2-V7",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-120-P2-V7": 1
+      }
+    },
+    {
+      "id": "B3-x-40-P1-V7",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-40-P1-V7": 1
+      }
+    },
+    {
+      "id": "B3-x-40-P1-V5",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-40-P1-V5": 1
+      }
+    },
+    {
+      "id": "B3-x-40-P2-V5",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-40-P2-V5": 1
+      }
+    },
+    {
+      "id": "B3-x-40-P2-V7",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-40-P2-V7": 1
+      }
+    },
+    {
+      "id": "B3-x-120-P1-V7",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-120-P1-V7": 1
+      }
+    },
+    {
+      "id": "B3-x-120-P1-V5",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-120-P1-V5": 1
+      }
+    },
+    {
+      "id": "B3-x-120-P2-V5",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-120-P2-V5": 1
+      }
+    },
+    {
+      "id": "B3-x-120-P2-V7",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-120-P2-V7": 1
+      }
+    },
+    {
+      "id": "B3-z-40-P1-V5",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-40-P1-V5": 1
+      }
+    },
+    {
+      "id": "B3-z-40-P1-V7",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-40-P1-V7": 1
+      }
+    },
+    {
+      "id": "B3-z-40-P2-V7",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-40-P2-V7": 1
+      }
+    },
+    {
+      "id": "B3-z-40-P2-V5",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-40-P2-V5": 1
+      }
+    },
+    {
+      "id": "B3-z-120-P1-V5",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-120-P1-V5": 1
+      }
+    },
+    {
+      "id": "B3-z-120-P1-V7",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-120-P1-V7": 1
+      }
+    },
+    {
+      "id": "B3-z-120-P2-V7",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-120-P2-V7": 1
+      }
+    },
+    {
+      "id": "B3-z-120-P2-V5",
+      "standard_u": null,
+      "source_unit": "uN",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-120-P2-V5": 1
+      }
+    }
+  ],
+  "instructions": "Coefficients convert the named source unit into uN. Include assembled transfer calibration, hot zero, repeatability, residual cross-axis/torque, tare and compliance. Shared sources use the same ID, unit and standard uncertainty in both budgets. Certify independence of differently named sources with metadata evidence. No sqrt(n) reduction of shared terms."
+}

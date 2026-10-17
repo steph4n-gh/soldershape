@@ -1,0 +1,1004 @@
+{
+  "schema": "soldershape.fixture-geometry.v1",
+  "spec_sha256": "a16ba57d416b4e5881522dd7b3ff62d5c9134e69ddeb257af1b99f005029ca36",
+  "cadquery_version": "2.6.1",
+  "python_version": "3.13.5",
+  "configurations": {
+    "x-040um": {
+      "datums": {
+        "upper_pad_xyz": [
+          0.04,
+          0,
+          0.15
+        ],
+        "lower_pad_xyz": [
+          0,
+          0,
+          0.0
+        ],
+        "cap_top_z": 0.4505,
+        "rod_center_z": 1.0005000000000002,
+        "rod_start_x": -20.76,
+        "rod_end_x": -0.76,
+        "base_top_z": -23.3005,
+        "thermal_top_z": -0.30049999999999993,
+        "axis": "x",
+        "offset_mm": 0.04
+      },
+      "parts": {
+        "upper_cap": {
+          "bbox_mm": [
+            -1.61,
+            -1.0,
+            0.1505,
+            0.3899999999999999,
+            1.0,
+            0.4505
+          ],
+          "volume_mm3": 1.2,
+          "solid_count": 1,
+          "material": "silica",
+          "moving": true,
+          "role": "custom part"
+        },
+        "upper_island": {
+          "bbox_mm": [
+            -0.060000000000000005,
+            -0.1,
+            0.15,
+            0.14,
+            0.1,
+            0.1505
+          ],
+          "volume_mm3": 1.570796326794897e-05,
+          "solid_count": 1,
+          "material": "metal_placeholder",
+          "moving": true,
+          "role": "illustrative thin-film envelope"
+        },
+        "stalk": {
+          "bbox_mm": [
+            -20.76,
+            -0.5,
+            0.5005000000000002,
+            -0.7600000000000016,
+            0.5,
+            1.5005000000000002
+          ],
+          "volume_mm3": 15.707963267948967,
+          "solid_count": 1,
+          "material": "silica",
+          "moving": true,
+          "role": "custom part"
+        },
+        "hot_bond": {
+          "bbox_mm": [
+            -1.56,
+            -0.4,
+            0.4505,
+            -0.76,
+            0.4,
+            0.6505000000000083
+          ],
+          "volume_mm3": 0.06890023196277084,
+          "solid_count": 1,
+          "material": "bond_placeholder",
+          "moving": true,
+          "role": "unqualified conformal bond envelope"
+        },
+        "cool_tab": {
+          "bbox_mm": [
+            -23.26,
+            -0.75,
+            0.1505,
+            -20.76,
+            0.75,
+            0.4505
+          ],
+          "volume_mm3": 1.125,
+          "solid_count": 1,
+          "material": "silica",
+          "moving": true,
+          "role": "sensor-tip attachment target; vendor interface unresolved"
+        },
+        "cool_bond": {
+          "bbox_mm": [
+            -23.26,
+            -0.4,
+            0.4505,
+            -20.76,
+            0.4,
+            0.6505000000000001
+          ],
+          "volume_mm3": 0.3999999999999999,
+          "solid_count": 1,
+          "material": "bond_placeholder",
+          "moving": true,
+          "role": "unqualified tab-to-stalk end bond envelope"
+        },
+        "lower_chip": {
+          "bbox_mm": [
+            -5.0,
+            -5.0,
+            -0.5005,
+            5.0,
+            5.0,
+            -0.0004999999999999449
+          ],
+          "volume_mm3": 49.99999999999999,
+          "solid_count": 1,
+          "material": "silica",
+          "moving": false,
+          "role": "custom part"
+        },
+        "lower_island": {
+          "bbox_mm": [
+            -0.1,
+            -0.1,
+            -0.0005,
+            0.1,
+            0.1,
+            0.0
+          ],
+          "volume_mm3": 1.5707963267948967e-05,
+          "solid_count": 1,
+          "material": "metal_placeholder",
+          "moving": false,
+          "role": "illustrative thin-film envelope"
+        },
+        "thermal_carrier": {
+          "bbox_mm": [
+            -12.0,
+            -12.0,
+            -3.3005,
+            12.0,
+            12.0,
+            -0.3005
+          ],
+          "volume_mm3": 1707.1919999999996,
+          "solid_count": 1,
+          "material": "alumina",
+          "moving": false,
+          "role": "heater mating face unresolved"
+        },
+        "pedestal": {
+          "bbox_mm": [
+            -6.0,
+            -6.0,
+            -23.3005,
+            6.0,
+            6.0,
+            -3.3004999999999995
+          ],
+          "volume_mm3": 2880.0,
+          "solid_count": 1,
+          "material": "alumina",
+          "moving": false,
+          "role": "insulating support; heater integration unresolved"
+        },
+        "indexed_bracket": {
+          "bbox_mm": [
+            -56.0,
+            -20.0,
+            -23.3005,
+            -16.0,
+            20.0,
+            36.6995
+          ],
+          "volume_mm3": 32900.21023641287,
+          "solid_count": 1,
+          "material": "aluminum",
+          "moving": false,
+          "role": "custom part"
+        },
+        "sensor_adapter_blank": {
+          "bbox_mm": [
+            -46.0,
+            -15.0,
+            -14.0,
+            -43.0,
+            15.0,
+            16.0
+          ],
+          "volume_mm3": 2604.5741231472102,
+          "solid_count": 1,
+          "material": "aluminum",
+          "moving": false,
+          "role": "internal mounting only; vendor pattern unmachined"
+        },
+        "shield_1": {
+          "bbox_mm": [
+            -23.75,
+            -6.0,
+            -23.3005,
+            -17.75,
+            6.0,
+            6.0
+          ],
+          "volume_mm3": 193.44061192394597,
+          "solid_count": 1,
+          "material": "steel",
+          "moving": false,
+          "role": "custom part"
+        },
+        "shield_2": {
+          "bbox_mm": [
+            -15.25,
+            -6.0,
+            -23.3005,
+            -9.25,
+            6.0,
+            6.0
+          ],
+          "volume_mm3": 193.44061192394602,
+          "solid_count": 1,
+          "material": "steel",
+          "moving": false,
+          "role": "custom part"
+        },
+        "base": {
+          "bbox_mm": [
+            -60.0,
+            -40.0,
+            -31.3005,
+            20.0,
+            40.0,
+            -23.3005
+          ],
+          "volume_mm3": 50397.134581448576,
+          "solid_count": 1,
+          "material": "aluminum",
+          "moving": false,
+          "role": "internal fixture pattern; lab stage adapter unresolved"
+        }
+      }
+    },
+    "x-120um": {
+      "datums": {
+        "upper_pad_xyz": [
+          0.12,
+          0,
+          0.15
+        ],
+        "lower_pad_xyz": [
+          0,
+          0,
+          0.0
+        ],
+        "cap_top_z": 0.4505,
+        "rod_center_z": 1.0005000000000002,
+        "rod_start_x": -20.68,
+        "rod_end_x": -0.68,
+        "base_top_z": -23.3005,
+        "thermal_top_z": -0.30049999999999993,
+        "axis": "x",
+        "offset_mm": 0.12
+      },
+      "parts": {
+        "upper_cap": {
+          "bbox_mm": [
+            -1.53,
+            -1.0,
+            0.1505,
+            0.47,
+            1.0,
+            0.4505
+          ],
+          "volume_mm3": 1.2,
+          "solid_count": 1,
+          "material": "silica",
+          "moving": true,
+          "role": "custom part"
+        },
+        "upper_island": {
+          "bbox_mm": [
+            0.01999999999999999,
+            -0.1,
+            0.15,
+            0.22,
+            0.1,
+            0.1505
+          ],
+          "volume_mm3": 1.570796326794897e-05,
+          "solid_count": 1,
+          "material": "metal_placeholder",
+          "moving": true,
+          "role": "illustrative thin-film envelope"
+        },
+        "stalk": {
+          "bbox_mm": [
+            -20.68,
+            -0.5,
+            0.5005000000000002,
+            -0.6799999999999997,
+            0.5,
+            1.5005000000000002
+          ],
+          "volume_mm3": 15.707963267948967,
+          "solid_count": 1,
+          "material": "silica",
+          "moving": true,
+          "role": "custom part"
+        },
+        "hot_bond": {
+          "bbox_mm": [
+            -1.4800000000000004,
+            -0.4,
+            0.4505,
+            -0.6799999999999997,
+            0.4,
+            0.6505000000000083
+          ],
+          "volume_mm3": 0.06890023196277073,
+          "solid_count": 1,
+          "material": "bond_placeholder",
+          "moving": true,
+          "role": "unqualified conformal bond envelope"
+        },
+        "cool_tab": {
+          "bbox_mm": [
+            -23.18,
+            -0.75,
+            0.1505,
+            -20.68,
+            0.75,
+            0.4505
+          ],
+          "volume_mm3": 1.1250000000000002,
+          "solid_count": 1,
+          "material": "silica",
+          "moving": true,
+          "role": "sensor-tip attachment target; vendor interface unresolved"
+        },
+        "cool_bond": {
+          "bbox_mm": [
+            -23.18,
+            -0.4,
+            0.4505,
+            -20.68,
+            0.4,
+            0.6505000000000001
+          ],
+          "volume_mm3": 0.3999999999999999,
+          "solid_count": 1,
+          "material": "bond_placeholder",
+          "moving": true,
+          "role": "unqualified tab-to-stalk end bond envelope"
+        },
+        "lower_chip": {
+          "bbox_mm": [
+            -5.0,
+            -5.0,
+            -0.5005,
+            5.0,
+            5.0,
+            -0.0004999999999999449
+          ],
+          "volume_mm3": 49.99999999999999,
+          "solid_count": 1,
+          "material": "silica",
+          "moving": false,
+          "role": "custom part"
+        },
+        "lower_island": {
+          "bbox_mm": [
+            -0.1,
+            -0.1,
+            -0.0005,
+            0.1,
+            0.1,
+            0.0
+          ],
+          "volume_mm3": 1.5707963267948967e-05,
+          "solid_count": 1,
+          "material": "metal_placeholder",
+          "moving": false,
+          "role": "illustrative thin-film envelope"
+        },
+        "thermal_carrier": {
+          "bbox_mm": [
+            -12.0,
+            -12.0,
+            -3.3005,
+            12.0,
+            12.0,
+            -0.3005
+          ],
+          "volume_mm3": 1707.1919999999996,
+          "solid_count": 1,
+          "material": "alumina",
+          "moving": false,
+          "role": "heater mating face unresolved"
+        },
+        "pedestal": {
+          "bbox_mm": [
+            -6.0,
+            -6.0,
+            -23.3005,
+            6.0,
+            6.0,
+            -3.3004999999999995
+          ],
+          "volume_mm3": 2880.0,
+          "solid_count": 1,
+          "material": "alumina",
+          "moving": false,
+          "role": "insulating support; heater integration unresolved"
+        },
+        "indexed_bracket": {
+          "bbox_mm": [
+            -56.0,
+            -20.0,
+            -23.3005,
+            -16.0,
+            20.0,
+            36.6995
+          ],
+          "volume_mm3": 32900.21023641287,
+          "solid_count": 1,
+          "material": "aluminum",
+          "moving": false,
+          "role": "custom part"
+        },
+        "sensor_adapter_blank": {
+          "bbox_mm": [
+            -46.0,
+            -15.0,
+            -14.0,
+            -43.0,
+            15.0,
+            16.0
+          ],
+          "volume_mm3": 2604.5741231472102,
+          "solid_count": 1,
+          "material": "aluminum",
+          "moving": false,
+          "role": "internal mounting only; vendor pattern unmachined"
+        },
+        "shield_1": {
+          "bbox_mm": [
+            -23.75,
+            -6.0,
+            -23.3005,
+            -17.75,
+            6.0,
+            6.0
+          ],
+          "volume_mm3": 193.44061192394597,
+          "solid_count": 1,
+          "material": "steel",
+          "moving": false,
+          "role": "custom part"
+        },
+        "shield_2": {
+          "bbox_mm": [
+            -15.25,
+            -6.0,
+            -23.3005,
+            -9.25,
+            6.0,
+            6.0
+          ],
+          "volume_mm3": 193.44061192394602,
+          "solid_count": 1,
+          "material": "steel",
+          "moving": false,
+          "role": "custom part"
+        },
+        "base": {
+          "bbox_mm": [
+            -60.0,
+            -40.0,
+            -31.3005,
+            20.0,
+            40.0,
+            -23.3005
+          ],
+          "volume_mm3": 50397.134581448576,
+          "solid_count": 1,
+          "material": "aluminum",
+          "moving": false,
+          "role": "internal fixture pattern; lab stage adapter unresolved"
+        }
+      }
+    },
+    "z-040um": {
+      "datums": {
+        "upper_pad_xyz": [
+          0.04,
+          0,
+          0.15
+        ],
+        "lower_pad_xyz": [
+          0,
+          0,
+          0.0
+        ],
+        "cap_top_z": 0.4505,
+        "rod_center_z": 1.0005000000000002,
+        "rod_start_x": -20.76,
+        "rod_end_x": -0.76,
+        "base_top_z": -23.3005,
+        "thermal_top_z": -0.30049999999999993,
+        "axis": "z",
+        "offset_mm": 0.04
+      },
+      "parts": {
+        "upper_cap": {
+          "bbox_mm": [
+            -1.61,
+            -1.0,
+            0.1505,
+            0.3899999999999999,
+            1.0,
+            0.4505
+          ],
+          "volume_mm3": 1.2,
+          "solid_count": 1,
+          "material": "silica",
+          "moving": true,
+          "role": "custom part"
+        },
+        "upper_island": {
+          "bbox_mm": [
+            -0.060000000000000005,
+            -0.1,
+            0.15,
+            0.14,
+            0.1,
+            0.1505
+          ],
+          "volume_mm3": 1.570796326794897e-05,
+          "solid_count": 1,
+          "material": "metal_placeholder",
+          "moving": true,
+          "role": "illustrative thin-film envelope"
+        },
+        "stalk": {
+          "bbox_mm": [
+            -20.76,
+            -0.5,
+            0.5005000000000002,
+            -0.7600000000000016,
+            0.5,
+            1.5005000000000002
+          ],
+          "volume_mm3": 15.707963267948967,
+          "solid_count": 1,
+          "material": "silica",
+          "moving": true,
+          "role": "custom part"
+        },
+        "hot_bond": {
+          "bbox_mm": [
+            -1.56,
+            -0.4,
+            0.4505,
+            -0.76,
+            0.4,
+            0.6505000000000083
+          ],
+          "volume_mm3": 0.06890023196277084,
+          "solid_count": 1,
+          "material": "bond_placeholder",
+          "moving": true,
+          "role": "unqualified conformal bond envelope"
+        },
+        "cool_tab": {
+          "bbox_mm": [
+            -23.26,
+            -0.75,
+            0.1505,
+            -20.76,
+            0.75,
+            0.4505
+          ],
+          "volume_mm3": 1.125,
+          "solid_count": 1,
+          "material": "silica",
+          "moving": true,
+          "role": "sensor-tip attachment target; vendor interface unresolved"
+        },
+        "cool_bond": {
+          "bbox_mm": [
+            -23.26,
+            -0.4,
+            0.4505,
+            -20.76,
+            0.4,
+            0.6505000000000001
+          ],
+          "volume_mm3": 0.3999999999999999,
+          "solid_count": 1,
+          "material": "bond_placeholder",
+          "moving": true,
+          "role": "unqualified tab-to-stalk end bond envelope"
+        },
+        "lower_chip": {
+          "bbox_mm": [
+            -5.0,
+            -5.0,
+            -0.5005,
+            5.0,
+            5.0,
+            -0.0004999999999999449
+          ],
+          "volume_mm3": 49.99999999999999,
+          "solid_count": 1,
+          "material": "silica",
+          "moving": false,
+          "role": "custom part"
+        },
+        "lower_island": {
+          "bbox_mm": [
+            -0.1,
+            -0.1,
+            -0.0005,
+            0.1,
+            0.1,
+            0.0
+          ],
+          "volume_mm3": 1.5707963267948967e-05,
+          "solid_count": 1,
+          "material": "metal_placeholder",
+          "moving": false,
+          "role": "illustrative thin-film envelope"
+        },
+        "thermal_carrier": {
+          "bbox_mm": [
+            -12.0,
+            -12.0,
+            -3.3005,
+            12.0,
+            12.0,
+            -0.3005
+          ],
+          "volume_mm3": 1707.1919999999996,
+          "solid_count": 1,
+          "material": "alumina",
+          "moving": false,
+          "role": "heater mating face unresolved"
+        },
+        "pedestal": {
+          "bbox_mm": [
+            -6.0,
+            -6.0,
+            -23.3005,
+            6.0,
+            6.0,
+            -3.3004999999999995
+          ],
+          "volume_mm3": 2880.0,
+          "solid_count": 1,
+          "material": "alumina",
+          "moving": false,
+          "role": "insulating support; heater integration unresolved"
+        },
+        "indexed_bracket": {
+          "bbox_mm": [
+            -56.0,
+            -20.0,
+            -23.3005,
+            -16.0,
+            20.0,
+            36.6995
+          ],
+          "volume_mm3": 32900.21023641287,
+          "solid_count": 1,
+          "material": "aluminum",
+          "moving": false,
+          "role": "custom part"
+        },
+        "sensor_adapter_blank": {
+          "bbox_mm": [
+            -46.0,
+            -15.0,
+            26.7,
+            -16.0,
+            15.0,
+            29.7
+          ],
+          "volume_mm3": 2604.5741231472102,
+          "solid_count": 1,
+          "material": "aluminum",
+          "moving": false,
+          "role": "internal mounting only; vendor pattern unmachined"
+        },
+        "shield_1": {
+          "bbox_mm": [
+            -23.75,
+            -6.0,
+            -23.3005,
+            -17.75,
+            6.0,
+            6.0
+          ],
+          "volume_mm3": 193.44061192394597,
+          "solid_count": 1,
+          "material": "steel",
+          "moving": false,
+          "role": "custom part"
+        },
+        "shield_2": {
+          "bbox_mm": [
+            -15.25,
+            -6.0,
+            -23.3005,
+            -9.25,
+            6.0,
+            6.0
+          ],
+          "volume_mm3": 193.44061192394602,
+          "solid_count": 1,
+          "material": "steel",
+          "moving": false,
+          "role": "custom part"
+        },
+        "base": {
+          "bbox_mm": [
+            -60.0,
+            -40.0,
+            -31.3005,
+            20.0,
+            40.0,
+            -23.3005
+          ],
+          "volume_mm3": 50397.134581448576,
+          "solid_count": 1,
+          "material": "aluminum",
+          "moving": false,
+          "role": "internal fixture pattern; lab stage adapter unresolved"
+        }
+      }
+    },
+    "z-120um": {
+      "datums": {
+        "upper_pad_xyz": [
+          0.12,
+          0,
+          0.15
+        ],
+        "lower_pad_xyz": [
+          0,
+          0,
+          0.0
+        ],
+        "cap_top_z": 0.4505,
+        "rod_center_z": 1.0005000000000002,
+        "rod_start_x": -20.68,
+        "rod_end_x": -0.68,
+        "base_top_z": -23.3005,
+        "thermal_top_z": -0.30049999999999993,
+        "axis": "z",
+        "offset_mm": 0.12
+      },
+      "parts": {
+        "upper_cap": {
+          "bbox_mm": [
+            -1.53,
+            -1.0,
+            0.1505,
+            0.47,
+            1.0,
+            0.4505
+          ],
+          "volume_mm3": 1.2,
+          "solid_count": 1,
+          "material": "silica",
+          "moving": true,
+          "role": "custom part"
+        },
+        "upper_island": {
+          "bbox_mm": [
+            0.01999999999999999,
+            -0.1,
+            0.15,
+            0.22,
+            0.1,
+            0.1505
+          ],
+          "volume_mm3": 1.570796326794897e-05,
+          "solid_count": 1,
+          "material": "metal_placeholder",
+          "moving": true,
+          "role": "illustrative thin-film envelope"
+        },
+        "stalk": {
+          "bbox_mm": [
+            -20.68,
+            -0.5,
+            0.5005000000000002,
+            -0.6799999999999997,
+            0.5,
+            1.5005000000000002
+          ],
+          "volume_mm3": 15.707963267948967,
+          "solid_count": 1,
+          "material": "silica",
+          "moving": true,
+          "role": "custom part"
+        },
+        "hot_bond": {
+          "bbox_mm": [
+            -1.4800000000000004,
+            -0.4,
+            0.4505,
+            -0.6799999999999997,
+            0.4,
+            0.6505000000000083
+          ],
+          "volume_mm3": 0.06890023196277073,
+          "solid_count": 1,
+          "material": "bond_placeholder",
+          "moving": true,
+          "role": "unqualified conformal bond envelope"
+        },
+        "cool_tab": {
+          "bbox_mm": [
+            -23.18,
+            -0.75,
+            0.1505,
+            -20.68,
+            0.75,
+            0.4505
+          ],
+          "volume_mm3": 1.1250000000000002,
+          "solid_count": 1,
+          "material": "silica",
+          "moving": true,
+          "role": "sensor-tip attachment target; vendor interface unresolved"
+        },
+        "cool_bond": {
+          "bbox_mm": [
+            -23.18,
+            -0.4,
+            0.4505,
+            -20.68,
+            0.4,
+            0.6505000000000001
+          ],
+          "volume_mm3": 0.3999999999999999,
+          "solid_count": 1,
+          "material": "bond_placeholder",
+          "moving": true,
+          "role": "unqualified tab-to-stalk end bond envelope"
+        },
+        "lower_chip": {
+          "bbox_mm": [
+            -5.0,
+            -5.0,
+            -0.5005,
+            5.0,
+            5.0,
+            -0.0004999999999999449
+          ],
+          "volume_mm3": 49.99999999999999,
+          "solid_count": 1,
+          "material": "silica",
+          "moving": false,
+          "role": "custom part"
+        },
+        "lower_island": {
+          "bbox_mm": [
+            -0.1,
+            -0.1,
+            -0.0005,
+            0.1,
+            0.1,
+            0.0
+          ],
+          "volume_mm3": 1.5707963267948967e-05,
+          "solid_count": 1,
+          "material": "metal_placeholder",
+          "moving": false,
+          "role": "illustrative thin-film envelope"
+        },
+        "thermal_carrier": {
+          "bbox_mm": [
+            -12.0,
+            -12.0,
+            -3.3005,
+            12.0,
+            12.0,
+            -0.3005
+          ],
+          "volume_mm3": 1707.1919999999996,
+          "solid_count": 1,
+          "material": "alumina",
+          "moving": false,
+          "role": "heater mating face unresolved"
+        },
+        "pedestal": {
+          "bbox_mm": [
+            -6.0,
+            -6.0,
+            -23.3005,
+            6.0,
+            6.0,
+            -3.3004999999999995
+          ],
+          "volume_mm3": 2880.0,
+          "solid_count": 1,
+          "material": "alumina",
+          "moving": false,
+          "role": "insulating support; heater integration unresolved"
+        },
+        "indexed_bracket": {
+          "bbox_mm": [
+            -56.0,
+            -20.0,
+            -23.3005,
+            -16.0,
+            20.0,
+            36.6995
+          ],
+          "volume_mm3": 32900.21023641287,
+          "solid_count": 1,
+          "material": "aluminum",
+          "moving": false,
+          "role": "custom part"
+        },
+        "sensor_adapter_blank": {
+          "bbox_mm": [
+            -46.0,
+            -15.0,
+            26.7,
+            -16.0,
+            15.0,
+            29.7
+          ],
+          "volume_mm3": 2604.5741231472102,
+          "solid_count": 1,
+          "material": "aluminum",
+          "moving": false,
+          "role": "internal mounting only; vendor pattern unmachined"
+        },
+        "shield_1": {
+          "bbox_mm": [
+            -23.75,
+            -6.0,
+            -23.3005,
+            -17.75,
+            6.0,
+            6.0
+          ],
+          "volume_mm3": 193.44061192394597,
+          "solid_count": 1,
+          "material": "steel",
+          "moving": false,
+          "role": "custom part"
+        },
+        "shield_2": {
+          "bbox_mm": [
+            -15.25,
+            -6.0,
+            -23.3005,
+            -9.25,
+            6.0,
+            6.0
+          ],
+          "volume_mm3": 193.44061192394602,
+          "solid_count": 1,
+          "material": "steel",
+          "moving": false,
+          "role": "custom part"
+        },
+        "base": {
+          "bbox_mm": [
+            -60.0,
+            -40.0,
+            -31.3005,
+            20.0,
+            40.0,
+            -23.3005
+          ],
+          "volume_mm3": 50397.134581448576,
+          "solid_count": 1,
+          "material": "aluminum",
+          "moving": false,
+          "role": "internal fixture pattern; lab stage adapter unresolved"
+        }
+      }
+    }
+  }
+}

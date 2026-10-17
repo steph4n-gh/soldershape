@@ -1,0 +1,783 @@
+{
+  "kind": "UNQUALIFIED_PLANNING_NOT_FROZEN_PHYSICAL_PREDICTIONS",
+  "warning": "Example gamma and density do not identify an alloy or temperature. Local finite differences are numerical sensitivity, not physical validation or an uncertainty bound.",
+  "code_sha256": {
+    "force_lab/tools/analyze.py": "2613c2d36a4732555b6f423371066a5e80549ad81e0d8f89e200f899ec6acd02",
+    "soldershape/model.py": "543720e8a6999896410aaf22651846c71b4f4736923ffe0ada0767ce35619657",
+    "soldershape/solver.py": "c7bcfcc2c5f24e6e783540b3fcabc45a8d15308ded887aca2ae41442ddf4c8a6"
+  },
+  "engine": {
+    "ready": true,
+    "version": "2.70a",
+    "source_url": "https://kenbrakke.com/evolver/downloads/evolver-2.70.tar.gz",
+    "source_sha256": "be7d60d9eb690f1fb124e2ecc12237a7a35be1935bfa5e92be3fe912207a3b6b",
+    "reference_url": "https://kenbrakke.com/evolver/downloads/bga-files.zip",
+    "reference_sha256": "96389e8200320cc8acfbf60b8ed23e2d05941613af5b55824c36890113c6e659",
+    "binary_sha256": "c930b47b33a4cafb3cf98b1c0cb7e3bd9805abcf67aceefe243daea091072f8e",
+    "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+    "build_commands": [
+      [
+        "/usr/bin/cc",
+        "-c",
+        "/Volumes/Storage/oct16project/.engine/headless-title.c",
+        "-o",
+        "/Volumes/Storage/oct16project/.engine/headless-title.o"
+      ],
+      [
+        "/usr/bin/make",
+        "-C",
+        "/Volumes/Storage/oct16project/.engine/src",
+        "-j4",
+        "CC=/usr/bin/cc -O2 -std=gnu89 -w",
+        "CFLAGS=-DGENERIC",
+        "GRAPH=nulgraph.o",
+        "GRAPHLIB=../headless-title.o"
+      ]
+    ],
+    "numerical_source_modified": false,
+    "patch": {
+      "purpose": "Supply missing no-op title callback for the headless graphics target.",
+      "source": "void set_graphics_title(int which, char *title) { (void)which; (void)title; }\n",
+      "sha256": "4f49b4ab182ffd99e0244abae08ea8e48d74ce2e24c57f1c40088ba18126526a"
+    },
+    "license_note": "Local upstream evaluation. Component notices require review before redistribution; upstream source is not vendored in this project."
+  },
+  "protocol_sha256": "3320633962e270b1258c30a8f7ab013bc53f81359080507b54092f8eaefb6276",
+  "cases": [
+    {
+      "request": {
+        "lower_diameter_mm": 0.2,
+        "upper_diameter_mm": 0.2,
+        "standoff_mm": 0.15,
+        "volume_mm3": 0.005,
+        "offset_mm": 0.12,
+        "surface_tension_n_m": 0.48,
+        "density_g_cm3": 9.0,
+        "gravity": true
+      },
+      "request_sha256": "d1d6de033337174dcc6ce0999a9015a596a5178f643f79b3fd9f35fe166ef749",
+      "status": "refinement_checked",
+      "model_warnings": [],
+      "forces_uN": {
+        "x_uN": -92.263283646421,
+        "z_uN": -89.98074058445366
+      },
+      "refinement_changes_uN": {
+        "x": 0.0004447942014706996,
+        "z": 0.004175001085599206
+      },
+      "jacobian": {
+        "lower_diameter_mm": {
+          "x": -162.8330692504676,
+          "z": -1225.7126572970947
+        },
+        "upper_diameter_mm": {
+          "x": -162.8616130844307,
+          "z": -1227.4989321288672
+        },
+        "standoff_mm": {
+          "x": 450.8816653370218,
+          "z": -2012.85679520727
+        },
+        "offset_mm": {
+          "x": -379.09989591966564,
+          "z": 450.62179913441014
+        },
+        "volume_mm3": {
+          "x": -3223.0014213041613,
+          "z": 43160.7075264867
+        },
+        "surface_tension_n_m": {
+          "x": -192.21519931278408,
+          "z": -187.00058908765982
+        },
+        "density_g_cm3": {
+          "x": 1.3877787807814457e-06,
+          "z": -0.02449555373345902
+        }
+      },
+      "sensitivity_checks": [
+        {
+          "parameter": "lower_diameter_mm",
+          "step": 0.0005,
+          "scheme": "forward",
+          "request_sha256": [
+            "d1d6de033337174dcc6ce0999a9015a596a5178f643f79b3fd9f35fe166ef749",
+            "01c767a06802e56e102dfac25240eebedefc701ff2bbc090edf24164794e0f5f"
+          ],
+          "statuses": [
+            "refinement_checked",
+            "refinement_checked"
+          ],
+          "qualified": true,
+          "midpoint_nonlinearity_uN": {
+            "x": null,
+            "z": null
+          },
+          "force_change_uN": {
+            "x": -0.0814165346252338,
+            "z": -0.6128563286485473
+          },
+          "numerical_change_floor_uN": {
+            "x": 0.0008769873716119037,
+            "z": 0.00833959197996137
+          },
+          "resolved_force_change": {
+            "x": true,
+            "z": true
+          }
+        },
+        {
+          "parameter": "upper_diameter_mm",
+          "step": 0.0005,
+          "scheme": "forward",
+          "request_sha256": [
+            "d1d6de033337174dcc6ce0999a9015a596a5178f643f79b3fd9f35fe166ef749",
+            "08d3e30a7718d2738194050dd4ba23af2e9a3a8790176aca705e06a3529fd99b"
+          ],
+          "statuses": [
+            "refinement_checked",
+            "refinement_checked"
+          ],
+          "qualified": true,
+          "midpoint_nonlinearity_uN": {
+            "x": null,
+            "z": null
+          },
+          "force_change_uN": {
+            "x": -0.08143080654221535,
+            "z": -0.6137494660644336
+          },
+          "numerical_change_floor_uN": {
+            "x": 0.0008780809412911594,
+            "z": 0.00834018039816442
+          },
+          "resolved_force_change": {
+            "x": true,
+            "z": true
+          }
+        },
+        {
+          "parameter": "standoff_mm",
+          "step": 0.0005,
+          "scheme": "central",
+          "request_sha256": [
+            "48117f3206a811d747e94fd96ef177dd5d88db37a1660af5b9804b34f583049c",
+            "23f1300e0bcd5f991d35a7a49da6a30aa4f6d0ad8ef706a4ced6b88175f21361"
+          ],
+          "statuses": [
+            "refinement_checked",
+            "refinement_checked"
+          ],
+          "qualified": true,
+          "midpoint_nonlinearity_uN": {
+            "x": 0.0015478396342416545,
+            "z": 0.00879500772688857
+          },
+          "force_change_uN": {
+            "x": 0.4508816653370218,
+            "z": -2.01285679520727
+          },
+          "numerical_change_floor_uN": {
+            "x": 0.0008889944336232247,
+            "z": 0.008349626393680865
+          },
+          "resolved_force_change": {
+            "x": true,
+            "z": true
+          }
+        },
+        {
+          "parameter": "offset_mm",
+          "step": 0.0005,
+          "scheme": "forward",
+          "request_sha256": [
+            "d1d6de033337174dcc6ce0999a9015a596a5178f643f79b3fd9f35fe166ef749",
+            "075723b36d9c6520fe068b4afebb53353008340895ca8e5b007aae3504478fda"
+          ],
+          "statuses": [
+            "refinement_checked",
+            "refinement_checked"
+          ],
+          "qualified": true,
+          "midpoint_nonlinearity_uN": {
+            "x": null,
+            "z": null
+          },
+          "force_change_uN": {
+            "x": -0.18954994795983282,
+            "z": 0.22531089956720507
+          },
+          "numerical_change_floor_uN": {
+            "x": 0.000895050700222555,
+            "z": 0.008346867641506606
+          },
+          "resolved_force_change": {
+            "x": true,
+            "z": true
+          }
+        },
+        {
+          "parameter": "volume_mm3",
+          "step": 5e-05,
+          "scheme": "central",
+          "request_sha256": [
+            "0bd361c26c19f3816e0ed5cd7bbcac11defa43a364de2f12e68cc7abab70e625",
+            "f62b5f1eee74deb6cd1acb7d42c3c9e6e12e07eda74e4766bcf33bad8cec1460"
+          ],
+          "statuses": [
+            "refinement_checked",
+            "refinement_checked"
+          ],
+          "qualified": true,
+          "midpoint_nonlinearity_uN": {
+            "x": 0.013195100567742202,
+            "z": 0.016232200768712346
+          },
+          "force_change_uN": {
+            "x": -0.32230014213041613,
+            "z": 4.31607075264867
+          },
+          "numerical_change_floor_uN": {
+            "x": 0.0009038159110019706,
+            "z": 0.008353436461078445
+          },
+          "resolved_force_change": {
+            "x": true,
+            "z": true
+          }
+        },
+        {
+          "parameter": "surface_tension_n_m",
+          "step": 0.001,
+          "scheme": "forward",
+          "request_sha256": [
+            "d1d6de033337174dcc6ce0999a9015a596a5178f643f79b3fd9f35fe166ef749",
+            "ecec9e17d811bf35821b8d07c019fc7da505f4e8cfb66c64b8b0d7c04f4d6c54"
+          ],
+          "statuses": [
+            "refinement_checked",
+            "refinement_checked"
+          ],
+          "qualified": true,
+          "midpoint_nonlinearity_uN": {
+            "x": null,
+            "z": null
+          },
+          "force_change_uN": {
+            "x": -0.19221519931278408,
+            "z": -0.18700058908765982
+          },
+          "numerical_change_floor_uN": {
+            "x": 0.0008904321724401143,
+            "z": 0.008358661910762066
+          },
+          "resolved_force_change": {
+            "x": true,
+            "z": true
+          }
+        },
+        {
+          "parameter": "density_g_cm3",
+          "step": 0.1,
+          "scheme": "forward",
+          "request_sha256": [
+            "d1d6de033337174dcc6ce0999a9015a596a5178f643f79b3fd9f35fe166ef749",
+            "aef9bd1d1d76da982c09bae2289bd9da053b74a9d2f2c0100d5bc6cc88cea390"
+          ],
+          "statuses": [
+            "refinement_checked",
+            "refinement_checked"
+          ],
+          "qualified": true,
+          "midpoint_nonlinearity_uN": {
+            "x": null,
+            "z": null
+          },
+          "force_change_uN": {
+            "x": 1.3877787807814457e-07,
+            "z": -0.002449555373345902
+          },
+          "numerical_change_floor_uN": {
+            "x": 0.0008895884029413992,
+            "z": 0.008349998470436049
+          },
+          "resolved_force_change": {
+            "x": false,
+            "z": false
+          }
+        }
+      ],
+      "eligible": true
+    },
+    {
+      "request": {
+        "lower_diameter_mm": 0.2,
+        "upper_diameter_mm": 0.2,
+        "standoff_mm": 0.15,
+        "volume_mm3": 0.007,
+        "offset_mm": 0.12,
+        "surface_tension_n_m": 0.48,
+        "density_g_cm3": 9.0,
+        "gravity": true
+      },
+      "request_sha256": "cf07cd24d9b241db392ecc2aa509334d6f93983aced63872226ee0a61b07d2c1",
+      "status": "refinement_checked",
+      "model_warnings": [],
+      "forces_uN": {
+        "x_uN": -82.19306382173386,
+        "z_uN": 7.619480890674879
+      },
+      "refinement_changes_uN": {
+        "x": 0.0001007416372544867,
+        "z": 0.0003259244725963839
+      },
+      "jacobian": {
+        "lower_diameter_mm": {
+          "x": -490.74756480749215,
+          "z": -1078.8833752310225
+        },
+        "upper_diameter_mm": {
+          "x": -490.4191719390383,
+          "z": -1082.4942571948277
+        },
+        "standoff_mm": {
+          "x": -404.7822299568793,
+          "z": -3599.4680213038405
+        },
+        "offset_mm": {
+          "x": -453.4989272997336,
+          "z": -404.24073718033424
+        },
+        "volume_mm3": {
+          "x": 10932.300731347765,
+          "z": 48843.220986268425
+        },
+        "surface_tension_n_m": {
+          "x": -171.23563123000451,
+          "z": 16.51715801169118
+        },
+        "density_g_cm3": {
+          "x": 4.940492459581947e-06,
+          "z": -0.03430648357985788
+        }
+      },
+      "sensitivity_checks": [
+        {
+          "parameter": "lower_diameter_mm",
+          "step": 0.0005,
+          "scheme": "forward",
+          "request_sha256": [
+            "cf07cd24d9b241db392ecc2aa509334d6f93983aced63872226ee0a61b07d2c1",
+            "4e4b47d70693153e546f6d2f99226548384cd7fb1f5d9fb819a050692d9d83f5"
+          ],
+          "statuses": [
+            "refinement_checked",
+            "refinement_checked"
+          ],
+          "qualified": true,
+          "midpoint_nonlinearity_uN": {
+            "x": null,
+            "z": null
+          },
+          "force_change_uN": {
+            "x": -0.24537378240374608,
+            "z": -0.5394416876155113
+          },
+          "numerical_change_floor_uN": {
+            "x": 0.00019919066396312246,
+            "z": 0.0006521228002043244
+          },
+          "resolved_force_change": {
+            "x": true,
+            "z": true
+          }
+        },
+        {
+          "parameter": "upper_diameter_mm",
+          "step": 0.0005,
+          "scheme": "forward",
+          "request_sha256": [
+            "cf07cd24d9b241db392ecc2aa509334d6f93983aced63872226ee0a61b07d2c1",
+            "4cdbccb588b1b67c4e2111e44215b2449dc6378a5c1371358d1040cb8461b183"
+          ],
+          "statuses": [
+            "refinement_checked",
+            "refinement_checked"
+          ],
+          "qualified": true,
+          "midpoint_nonlinearity_uN": {
+            "x": null,
+            "z": null
+          },
+          "force_change_uN": {
+            "x": -0.24520958596951914,
+            "z": -0.5412471285974139
+          },
+          "numerical_change_floor_uN": {
+            "x": 0.0002005340338229189,
+            "z": 0.0006527075176645525
+          },
+          "resolved_force_change": {
+            "x": true,
+            "z": true
+          }
+        },
+        {
+          "parameter": "standoff_mm",
+          "step": 0.0005,
+          "scheme": "central",
+          "request_sha256": [
+            "4b76015512462068333e38d632b8b2c2859f85e9abe78ff1f53f64aeccb6fb80",
+            "8db78af2594c89ac2c4517eec3e1975928ad68d73dcfa8cc37d32621c4670fee"
+          ],
+          "statuses": [
+            "refinement_checked",
+            "refinement_checked"
+          ],
+          "qualified": true,
+          "midpoint_nonlinearity_uN": {
+            "x": 0.0038190006712568447,
+            "z": 0.006514704642218483
+          },
+          "force_change_uN": {
+            "x": -0.4047822299568793,
+            "z": -3.5994680213038404
+          },
+          "numerical_change_floor_uN": {
+            "x": 0.00020005663792233008,
+            "z": 0.0006515041324064441
+          },
+          "resolved_force_change": {
+            "x": true,
+            "z": true
+          }
+        },
+        {
+          "parameter": "offset_mm",
+          "step": 0.0005,
+          "scheme": "forward",
+          "request_sha256": [
+            "cf07cd24d9b241db392ecc2aa509334d6f93983aced63872226ee0a61b07d2c1",
+            "2971fa0a43586eccb2b456a5bb9df9e2cad67b1715f4c029b8a32255cef5cb6d"
+          ],
+          "statuses": [
+            "refinement_checked",
+            "refinement_checked"
+          ],
+          "qualified": true,
+          "midpoint_nonlinearity_uN": {
+            "x": null,
+            "z": null
+          },
+          "force_change_uN": {
+            "x": -0.2267494636498668,
+            "z": -0.20212036859016713
+          },
+          "numerical_change_floor_uN": {
+            "x": 0.00020303758674344863,
+            "z": 0.0006524595678563117
+          },
+          "resolved_force_change": {
+            "x": true,
+            "z": true
+          }
+        },
+        {
+          "parameter": "volume_mm3",
+          "step": 5e-05,
+          "scheme": "central",
+          "request_sha256": [
+            "abcf083b328c1a59fbce18d2efb99eab634d5afa4ddd3f6302efff820bcb4180",
+            "bfcc93035c05750085140e74e15d0119bf1824bc7c1fcac978bb68abbb2084e3"
+          ],
+          "statuses": [
+            "refinement_checked",
+            "refinement_checked"
+          ],
+          "qualified": true,
+          "midpoint_nonlinearity_uN": {
+            "x": 0.004636629968857164,
+            "z": 0.004814413682533214
+          },
+          "force_change_uN": {
+            "x": 1.0932300731347766,
+            "z": 4.884322098626843
+          },
+          "numerical_change_floor_uN": {
+            "x": 0.00020004553569208383,
+            "z": 0.0006515010753105344
+          },
+          "resolved_force_change": {
+            "x": true,
+            "z": true
+          }
+        },
+        {
+          "parameter": "surface_tension_n_m",
+          "step": 0.001,
+          "scheme": "forward",
+          "request_sha256": [
+            "cf07cd24d9b241db392ecc2aa509334d6f93983aced63872226ee0a61b07d2c1",
+            "64a25a6e2d753d0540b2e8d84d867bccedf59a4f8c52f2d8a4ad1450e002f843"
+          ],
+          "statuses": [
+            "refinement_checked",
+            "refinement_checked"
+          ],
+          "qualified": true,
+          "midpoint_nonlinearity_uN": {
+            "x": null,
+            "z": null
+          },
+          "force_change_uN": {
+            "x": -0.17123563123000451,
+            "z": 0.01651715801169118
+          },
+          "numerical_change_floor_uN": {
+            "x": 0.00020168311465340594,
+            "z": 0.0006525224804931895
+          },
+          "resolved_force_change": {
+            "x": true,
+            "z": true
+          }
+        },
+        {
+          "parameter": "density_g_cm3",
+          "step": 0.1,
+          "scheme": "forward",
+          "request_sha256": [
+            "cf07cd24d9b241db392ecc2aa509334d6f93983aced63872226ee0a61b07d2c1",
+            "ec1ed009ee75b3659b958c4e3c7c7f02e861ee8573cd5a34944205f8dce291af"
+          ],
+          "statuses": [
+            "refinement_checked",
+            "refinement_checked"
+          ],
+          "qualified": true,
+          "midpoint_nonlinearity_uN": {
+            "x": null,
+            "z": null
+          },
+          "force_change_uN": {
+            "x": 4.940492459581947e-07,
+            "z": -0.0034306483579857883
+          },
+          "numerical_change_floor_uN": {
+            "x": 0.00020146662116360403,
+            "z": 0.0006518489451927678
+          },
+          "resolved_force_change": {
+            "x": false,
+            "z": true
+          }
+        }
+      ],
+      "eligible": true
+    }
+  ],
+  "distinct_native_requests": 20,
+  "input_units": {
+    "lower_diameter_mm": "mm",
+    "upper_diameter_mm": "mm",
+    "standoff_mm": "mm",
+    "offset_mm": "mm",
+    "volume_mm3": "mm3",
+    "surface_tension_n_m": "N/m",
+    "density_g_cm3": "g/cm3"
+  },
+  "planning_targets": {
+    "lateral_contrast_uN": 10.070219824687143,
+    "normal_7nL_uN": 7.619480890674879,
+    "max_combined_contrast_guard_uN": 3.356739941562381,
+    "max_prediction_contrast_U_with_two_independent_measured_U2_uN": 1.8076789082357012,
+    "max_prediction_normal_U_with_measurement_U2_uN": 2.23606797749979,
+    "one_source_at_a_time_limits": {
+      "lower_diameter_mm": {
+        "contrast_max_expanded_U_if_fully_shared": null,
+        "contrast_max_each_expanded_U_if_independent_equal": 0.0034960931786153573,
+        "normal_7nL_max_expanded_U_if_only_source": 0.0020725761735099295,
+        "resolution": {
+          "shared_contrast": true,
+          "independent_contrast": true,
+          "normal_7nL": true
+        },
+        "max_expanded_U_within_registered_local_domain": {
+          "contrast": 0.004,
+          "normal_7nL": 0.004
+        },
+        "null_limit_explanation": "Null means the finite force change is unresolved above the saved refinement floor, or its algebraic budget crossing lies outside the protocol's 2 percent relative-U domain. Retain the raw Jacobian, but do not infer an allowable input tolerance."
+      },
+      "upper_diameter_mm": {
+        "contrast_max_expanded_U_if_fully_shared": null,
+        "contrast_max_each_expanded_U_if_independent_equal": 0.003498140940706686,
+        "normal_7nL_max_expanded_U_if_only_source": 0.002065662669928919,
+        "resolution": {
+          "shared_contrast": true,
+          "independent_contrast": true,
+          "normal_7nL": true
+        },
+        "max_expanded_U_within_registered_local_domain": {
+          "contrast": 0.004,
+          "normal_7nL": 0.004
+        },
+        "null_limit_explanation": "Null means the finite force change is unresolved above the saved refinement floor, or its algebraic budget crossing lies outside the protocol's 2 percent relative-U domain. Retain the raw Jacobian, but do not infer an allowable input tolerance."
+      },
+      "standoff_mm": {
+        "contrast_max_expanded_U_if_fully_shared": 0.0021126039303257086,
+        "contrast_max_each_expanded_U_if_independent_equal": 0.0029833465604675305,
+        "normal_7nL_max_expanded_U_if_only_source": 0.0006212217928497711,
+        "resolution": {
+          "shared_contrast": true,
+          "independent_contrast": true,
+          "normal_7nL": true
+        },
+        "max_expanded_U_within_registered_local_domain": {
+          "contrast": 0.003,
+          "normal_7nL": 0.003
+        },
+        "null_limit_explanation": "Null means the finite force change is unresolved above the saved refinement floor, or its algebraic budget crossing lies outside the protocol's 2 percent relative-U domain. Retain the raw Jacobian, but do not infer an allowable input tolerance."
+      },
+      "offset_mm": {
+        "contrast_max_expanded_U_if_fully_shared": null,
+        "contrast_max_each_expanded_U_if_independent_equal": null,
+        "normal_7nL_max_expanded_U_if_only_source": null,
+        "resolution": {
+          "shared_contrast": true,
+          "independent_contrast": true,
+          "normal_7nL": true
+        },
+        "max_expanded_U_within_registered_local_domain": {
+          "contrast": 0.0024,
+          "normal_7nL": 0.0024
+        },
+        "null_limit_explanation": "Null means the finite force change is unresolved above the saved refinement floor, or its algebraic budget crossing lies outside the protocol's 2 percent relative-U domain. Retain the raw Jacobian, but do not infer an allowable input tolerance."
+      },
+      "volume_mm3": {
+        "contrast_max_expanded_U_if_fully_shared": null,
+        "contrast_max_each_expanded_U_if_independent_equal": null,
+        "normal_7nL_max_expanded_U_if_only_source": 4.578051840865344e-05,
+        "resolution": {
+          "shared_contrast": true,
+          "independent_contrast": true,
+          "normal_7nL": true
+        },
+        "max_expanded_U_within_registered_local_domain": {
+          "contrast": 0.0001,
+          "normal_7nL": 0.00014000000000000001
+        },
+        "null_limit_explanation": "Null means the finite force change is unresolved above the saved refinement floor, or its algebraic budget crossing lies outside the protocol's 2 percent relative-U domain. Retain the raw Jacobian, but do not infer an allowable input tolerance."
+      },
+      "surface_tension_n_m": {
+        "contrast_max_expanded_U_if_fully_shared": null,
+        "contrast_max_each_expanded_U_if_independent_equal": 0.007022120803358836,
+        "normal_7nL_max_expanded_U_if_only_source": null,
+        "resolution": {
+          "shared_contrast": true,
+          "independent_contrast": true,
+          "normal_7nL": true
+        },
+        "max_expanded_U_within_registered_local_domain": {
+          "contrast": 0.0096,
+          "normal_7nL": 0.0096
+        },
+        "null_limit_explanation": "Null means the finite force change is unresolved above the saved refinement floor, or its algebraic budget crossing lies outside the protocol's 2 percent relative-U domain. Retain the raw Jacobian, but do not infer an allowable input tolerance."
+      },
+      "density_g_cm3": {
+        "contrast_max_expanded_U_if_fully_shared": null,
+        "contrast_max_each_expanded_U_if_independent_equal": null,
+        "normal_7nL_max_expanded_U_if_only_source": null,
+        "resolution": {
+          "shared_contrast": false,
+          "independent_contrast": false,
+          "normal_7nL": true
+        },
+        "max_expanded_U_within_registered_local_domain": {
+          "contrast": 0.18,
+          "normal_7nL": 0.18
+        },
+        "null_limit_explanation": "Null means the finite force change is unresolved above the saved refinement floor, or its algebraic budget crossing lies outside the protocol's 2 percent relative-U domain. Retain the raw Jacobian, but do not infer an allowable input tolerance."
+      }
+    },
+    "warning": "Each limit spends the entire input budget on one source. They are not simultaneous tolerances, ignore numerical/discrepancy allowance, and are not measured capability. Shared and independent limits differ because covariance matters."
+  },
+  "planning_budget_scenarios": {
+    "initial_budget_negative_control": {
+      "kind": "UNMEASURED_ALLOCATION_NOT_INSTRUMENT_CAPABILITY",
+      "expanded_input_U": {
+        "lower_diameter_mm": 0.0005,
+        "upper_diameter_mm": 0.0005,
+        "standoff_mm": 0.0005,
+        "offset_mm": 0.0005,
+        "volume_mm3": 0.0001,
+        "surface_tension_n_m": 0.0048,
+        "density_g_cm3": 0.09
+      },
+      "coverage_factor": 2,
+      "covariance_assumptions": "Geometry and volume independent between specimens and inputs; gamma and density fully shared between volumes; all source groups otherwise independent. No ensemble averaging.",
+      "lateral_contrast_input_U_uN": 1.273536866166379,
+      "normal_7nL_input_U_uN": 5.265618532491466,
+      "lateral_contrast_measurement_U_uN": 2.8284271247461903,
+      "normal_measurement_U_uN": 2.0,
+      "contrast_numerical_guard_uN": 0.02374410668082305,
+      "normal_numerical_guard_uN": 0.01165504279734808,
+      "contrast_combined_decision_guard_uN": 3.125662247039282,
+      "normal_combined_decision_guard_uN": 5.644304377676769,
+      "contrast_gate_passes_local_screen": true,
+      "normal_gate_passes_local_screen": false,
+      "scope": "First-order planning only. Numerical guard adds observed refinement changes and central-step midpoint nonlinearities. Forward-step nonlinearities, mixed interactions, hysteresis and physical discrepancy are unbounded. A passed allocation still needs measured capability and a fresh full-central physical freeze."
+    },
+    "tighter_budget_candidate_unmeasured": {
+      "kind": "UNMEASURED_ALLOCATION_NOT_INSTRUMENT_CAPABILITY",
+      "expanded_input_U": {
+        "lower_diameter_mm": 0.00025,
+        "upper_diameter_mm": 0.00025,
+        "standoff_mm": 0.00025,
+        "offset_mm": 0.0005,
+        "volume_mm3": 2e-05,
+        "surface_tension_n_m": 0.0048,
+        "density_g_cm3": 0.09
+      },
+      "coverage_factor": 2,
+      "covariance_assumptions": "Geometry and volume independent between specimens and inputs; gamma and density fully shared between volumes; all source groups otherwise independent. No ensemble averaging.",
+      "lateral_contrast_input_U_uN": 0.45364292545534257,
+      "normal_7nL_input_U_uN": 1.3989850027327644,
+      "lateral_contrast_measurement_U_uN": 2.8284271247461903,
+      "normal_measurement_U_uN": 2.0,
+      "contrast_numerical_guard_uN": 0.02374410668082305,
+      "normal_numerical_guard_uN": 0.01165504279734808,
+      "contrast_combined_decision_guard_uN": 2.8883194510932686,
+      "normal_combined_decision_guard_uN": 2.4523842448742994,
+      "contrast_gate_passes_local_screen": true,
+      "normal_gate_passes_local_screen": true,
+      "scope": "First-order planning only. Numerical guard adds observed refinement changes and central-step midpoint nonlinearities. Forward-step nonlinearities, mixed interactions, hysteresis and physical discrepancy are unbounded. A passed allocation still needs measured capability and a fresh full-central physical freeze."
+    }
+  },
+  "files": {
+    "receipts/8db78af2594c89ac2c4517eec3e1975928ad68d73dcfa8cc37d32621c4670fee.json.gz": "a812d79592b1775ee1730168631c678f089d3385050a02f489b62ed1022ca1a0",
+    "receipts/4e4b47d70693153e546f6d2f99226548384cd7fb1f5d9fb819a050692d9d83f5.json.gz": "24a2f42bf6bed30de96a8290b1b921e0af0849a0490eaad85d167817a6b82e83",
+    "receipts/0bd361c26c19f3816e0ed5cd7bbcac11defa43a364de2f12e68cc7abab70e625.json.gz": "0e1bea83294b8a9bb58b4b74f2ec0ac3cda5e6c4ecfd905abef6fd3330c78dd7",
+    "receipts/f62b5f1eee74deb6cd1acb7d42c3c9e6e12e07eda74e4766bcf33bad8cec1460.json.gz": "5cd8619398f59959e8ab0a36a0c7264bc96720de339a0d1aa1e6b01c39b4b014",
+    "receipts/d1d6de033337174dcc6ce0999a9015a596a5178f643f79b3fd9f35fe166ef749.json.gz": "40d4cc6366e9fd7f89c47a7c04d835690041d447d0f13dd5ab08b40a18dc624d",
+    "receipts/aef9bd1d1d76da982c09bae2289bd9da053b74a9d2f2c0100d5bc6cc88cea390.json.gz": "731c506a5d53711f12f7f7a0d727fb8199e3968f15abab195166b46b032eecaf",
+    "receipts/4b76015512462068333e38d632b8b2c2859f85e9abe78ff1f53f64aeccb6fb80.json.gz": "14215cf2a2582f1d2dc224cee7a4f77a02b16e22c5c37573cb936096ee80843e",
+    "receipts/075723b36d9c6520fe068b4afebb53353008340895ca8e5b007aae3504478fda.json.gz": "f434399ba90727412ade32991b2162c227306ff7423e53ca37889edf6b8475c3",
+    "receipts/ecec9e17d811bf35821b8d07c019fc7da505f4e8cfb66c64b8b0d7c04f4d6c54.json.gz": "25ae7dfb86e11aa84ce9b0ac61590b7a288955c1e23c7f69daac4cc981b05bd2",
+    "receipts/08d3e30a7718d2738194050dd4ba23af2e9a3a8790176aca705e06a3529fd99b.json.gz": "a1d7dfb014c652a362196a3122ab2857f7a59575a217fd38bc29ddf4999693d9",
+    "receipts/01c767a06802e56e102dfac25240eebedefc701ff2bbc090edf24164794e0f5f.json.gz": "9b25507c3d75fc79fb39f83261690e9c3959b8f0e5feb8ff2daf073c9befd839",
+    "receipts/64a25a6e2d753d0540b2e8d84d867bccedf59a4f8c52f2d8a4ad1450e002f843.json.gz": "72b6cb4de3913730b019d6c3ba040d29625d8d8f6c0f7ff34de16be033ab18ff",
+    "receipts/ec1ed009ee75b3659b958c4e3c7c7f02e861ee8573cd5a34944205f8dce291af.json.gz": "e97d08ffc1ac4f00e4535f1f159d79facd188d575f716584481df3dd5147a5d2",
+    "receipts/48117f3206a811d747e94fd96ef177dd5d88db37a1660af5b9804b34f583049c.json.gz": "63fa3c41ab47db6a8f254b55670b19522377b84869ef9376e97770eec13ef268",
+    "receipts/4cdbccb588b1b67c4e2111e44215b2449dc6378a5c1371358d1040cb8461b183.json.gz": "9ab5fa45a4bebb12bc604df318297e21f0125812ef4bea972daac9a68b8d47cd",
+    "receipts/2971fa0a43586eccb2b456a5bb9df9e2cad67b1715f4c029b8a32255cef5cb6d.json.gz": "ac7954eab9086eda4d7791318257bd6298e7b28bd2d046c304223edde69e77ad",
+    "receipts/bfcc93035c05750085140e74e15d0119bf1824bc7c1fcac978bb68abbb2084e3.json.gz": "caf3b26919458b6783bd5010a09e5de2c69e0771dbc14bc6ccfda16ef4df3d21",
+    "receipts/23f1300e0bcd5f991d35a7a49da6a30aa4f6d0ad8ef706a4ced6b88175f21361.json.gz": "c50cd497513a3da8e835587bbd5bf1e3f2fa6fab97ad90ccb9c53be02124ddf3",
+    "receipts/cf07cd24d9b241db392ecc2aa509334d6f93983aced63872226ee0a61b07d2c1.json.gz": "b7070633aedd204c3242e3c91a1c2c7a590db224589e864ef5711af908856711",
+    "receipts/abcf083b328c1a59fbce18d2efb99eab634d5afa4ddd3f6302efff820bcb4180.json.gz": "fcdfd9ea6f2cd9841a1d3c32af212facd6fbd7e184800142870793993431f9a3",
+    "source/soldershape/solver.py": "c7bcfcc2c5f24e6e783540b3fcabc45a8d15308ded887aca2ae41442ddf4c8a6",
+    "source/soldershape/model.py": "543720e8a6999896410aaf22651846c71b4f4736923ffe0ada0767ce35619657",
+    "source/force_lab/protocol.json": "3320633962e270b1258c30a8f7ab013bc53f81359080507b54092f8eaefb6276",
+    "source/force_lab/tools/analyze.py": "2613c2d36a4732555b6f423371066a5e80549ad81e0d8f89e200f899ec6acd02"
+  }
+}

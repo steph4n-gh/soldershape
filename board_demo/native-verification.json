@@ -1,0 +1,174 @@
+{
+  "schema": "soldershape.board-native-verification.v1",
+  "status": "passed",
+  "kicad_version": "10.0.6",
+  "verifier_sha256": "5e88abe83b7d3c2e9a2cc16087c415bfd6275bfed18d471a11eedf0b6e42c1e6",
+  "context_sha256": "4a32d07a6e3b4697295d5ef41c2568ee5deefb1ae1f510d85955b83b7ca8bf85",
+  "source_sha256": "1172f7b0fc262422bab01c62fb4dc84f16d9f1ea8902dc6fe2da859bba9035fc",
+  "svg_sha256": "11b3ee0e214b7312b652629cf8168df0a7b18edf23a6fed8a5427ece469f9bda",
+  "counts": {
+    "components": 235,
+    "pads": 1177,
+    "track_objects": 5365,
+    "supported_pads": 381
+  },
+  "verified_rotated_pads": 681,
+  "verified_back_side_pads": 414,
+  "maximum_error": {
+    "board_position_mm": 0.0,
+    "local_position_mm": 0.0,
+    "transformed_position_mm": 2.842170943040401e-14
+  },
+  "svg_u1_circle_matches": 381,
+  "svg_full_native_reexport_match": true,
+  "svg_mapping": "SVG x=board_x-94.1 and SVG y=board_y-61.42, in millimeters. Matches every supported U1 circle at 0.0001 mm SVG precision.",
+  "examples": [
+    {
+      "reference": "J1",
+      "uuid": "00000000-0000-0000-0000-000058e6be3d",
+      "rotation_deg": -90.0,
+      "pad": {
+        "identifier": "1",
+        "net": "2V5_3V3",
+        "local_xy_mm": [
+          0.0,
+          0.0
+        ],
+        "board_xy_mm": [
+          97.91,
+          62.69
+        ],
+        "size_mm": [
+          1.7272,
+          1.7272
+        ],
+        "shape": "oval",
+        "native_attribute": 0,
+        "index": 0,
+        "supported": false,
+        "unsupported_reason": "Only circular SMD pads are supported by this model.",
+        "declared_mask_margin_mm": null
+      },
+      "original_declaration": "(pad \"1\" thru_hole oval (at 0 0 270) (size 1.7272 1.7272) (drill 1.016) (layers \"*.Cu\" \"*.Mask\")"
+    },
+    {
+      "reference": "U1",
+      "uuid": "00000000-0000-0000-0000-000058d8d57e",
+      "rotation_deg": 0.0,
+      "pad": {
+        "identifier": "J16",
+        "net": "SDRAM_D0",
+        "local_xy_mm": [
+          4.4,
+          -1.2
+        ],
+        "board_xy_mm": [
+          142.88,
+          86.6
+        ],
+        "size_mm": [
+          0.4,
+          0.4
+        ],
+        "shape": "circle",
+        "native_attribute": 1,
+        "index": 173,
+        "supported": true,
+        "unsupported_reason": null,
+        "declared_mask_margin_mm": 0.05
+      },
+      "original_declaration": "(pad \"J16\" smd circle (at 4.4 -1.2) (size 0.4 0.4) (layers \"F.Cu\" \"F.Paste\" \"F.Mask\")"
+    },
+    {
+      "reference": "U2",
+      "uuid": "00000000-0000-0000-0000-00005a111cac",
+      "rotation_deg": 90.0,
+      "pad": {
+        "identifier": "1",
+        "net": "+3V3",
+        "local_xy_mm": [
+          -5.73,
+          -10.4
+        ],
+        "board_xy_mm": [
+          154.693,
+          93.53
+        ],
+        "size_mm": [
+          1.2,
+          0.56
+        ],
+        "shape": "rect",
+        "native_attribute": 1,
+        "index": 0,
+        "supported": false,
+        "unsupported_reason": "Only circular SMD pads are supported by this model.",
+        "declared_mask_margin_mm": null
+      },
+      "original_declaration": "(pad \"1\" smd rect (at -5.73 -10.4 90) (size 1.2 0.56) (layers \"F.Cu\" \"F.Paste\" \"F.Mask\")"
+    }
+  ],
+  "required_logo_context": [
+    {
+      "reference": "EMARD",
+      "uuid": "00000000-0000-0000-0000-00005f8c9523",
+      "side": "front",
+      "board_position_mm": [
+        125.58,
+        88.8
+      ],
+      "bounds_mm": [
+        123.43,
+        82.25,
+        4.3,
+        12.3
+      ]
+    },
+    {
+      "reference": "EMARD",
+      "uuid": "00000000-0000-0000-0000-00005f8d5e02",
+      "side": "back",
+      "board_position_mm": [
+        147.58,
+        89.3
+      ],
+      "bounds_mm": [
+        145.43,
+        82.75,
+        4.3,
+        12.3
+      ]
+    },
+    {
+      "reference": "fer",
+      "uuid": "00000000-0000-0000-0000-00005f8cf911",
+      "side": "front",
+      "board_position_mm": [
+        159.78,
+        65.0
+      ],
+      "bounds_mm": [
+        155.28,
+        62.9,
+        9.2,
+        4.2
+      ]
+    },
+    {
+      "reference": "radiona",
+      "uuid": "00000000-0000-0000-0000-00005f8cbeae",
+      "side": "front",
+      "board_position_mm": [
+        149.78,
+        87.6
+      ],
+      "bounds_mm": [
+        148.63,
+        79.45,
+        4.3,
+        16.3
+      ]
+    }
+  ],
+  "scope": "Native coordinate, copper geometry, importer-order and selected source-text agreement. No physical solder validation or board fabrication qualification."
+}

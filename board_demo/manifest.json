@@ -1,0 +1,981 @@
+{
+  "schema": "soldershape.board-files.v1",
+  "files": {
+    "assets/board.svg": {
+      "sha256": "11b3ee0e214b7312b652629cf8168df0a7b18edf23a6fed8a5427ece469f9bda",
+      "bytes": 888925
+    },
+    "assets/footprints.pretty/AE1--00000000-0000-0000-0000-00005b1f6f6f.kicad_mod": {
+      "sha256": "f18f4f5355e205fb9bab625b3aa3f2462c72a654821a1c66b3448a62f4c86bc7",
+      "bytes": 1395
+    },
+    "assets/footprints.pretty/AUDIO1--00000000-0000-0000-0000-000058d82b6c.kicad_mod": {
+      "sha256": "7d0f589f395a96210d24003079aaeb55f123f2292122ad2c60253efc2114d34a",
+      "bytes": 4693
+    },
+    "assets/footprints.pretty/B0--00000000-0000-0000-0000-00005b3e0be4.kicad_mod": {
+      "sha256": "7c70b4b014debc3f32b273dc7cc5896f234bfcff43b77893a6e7190729061242",
+      "bytes": 3488
+    },
+    "assets/footprints.pretty/B1--00000000-0000-0000-0000-00005b3e0bfd.kicad_mod": {
+      "sha256": "b5470b80682212c9a6879f0a9f7849ef28dbeac84a8060ef40dc0e0c8b15f74c",
+      "bytes": 3485
+    },
+    "assets/footprints.pretty/B2--00000000-0000-0000-0000-00005b3e0c16.kicad_mod": {
+      "sha256": "2bc9471624ab32b9b96c0f9d3187da6f7a052ad1f8733be75cd84309244d04a4",
+      "bytes": 3488
+    },
+    "assets/footprints.pretty/B3--00000000-0000-0000-0000-00005b3e0c2f.kicad_mod": {
+      "sha256": "67e31e8bbaff6add0d2cb7b93cc60b7ef13fefaf7d22b0f18a3e1979ec230fc3",
+      "bytes": 3488
+    },
+    "assets/footprints.pretty/B4--00000000-0000-0000-0000-00005b3e0c48.kicad_mod": {
+      "sha256": "a1ed956f7e167885ae3de3979021a2bdc17bdf1d75b5a76d2f3632d14aae97c5",
+      "bytes": 3483
+    },
+    "assets/footprints.pretty/B5--00000000-0000-0000-0000-00005b3e0c61.kicad_mod": {
+      "sha256": "e1c4bd5718a221362c4f76df8123ccf5078bb8cc374123c47618d71f9f6a2f21",
+      "bytes": 3484
+    },
+    "assets/footprints.pretty/B6--00000000-0000-0000-0000-00005b3e0c7a.kicad_mod": {
+      "sha256": "cf51b623a380ac9c362a8eb2afea33d7d2c2bb1830dfdb2efb2d9095c9b199c8",
+      "bytes": 3483
+    },
+    "assets/footprints.pretty/BAT1--00000000-0000-0000-0000-000058d7add9.kicad_mod": {
+      "sha256": "b171b7c5f19aec227d999894a8e137270fc5adf366cc7a47c3c1e88e7ee68653",
+      "bytes": 9341
+    },
+    "assets/footprints.pretty/C1--00000000-0000-0000-0000-00005b17cda2.kicad_mod": {
+      "sha256": "234a1cb96a2dd8debdb4745509ec1aed872ed513030f7debab19a5318a96c04c",
+      "bytes": 2778
+    },
+    "assets/footprints.pretty/C10--00000000-0000-0000-0000-00005af6f35b.kicad_mod": {
+      "sha256": "238ba5d8b28fa771f94e2e63c621c70cd0c61ad194b8a82a23153a7ac835c921",
+      "bytes": 2770
+    },
+    "assets/footprints.pretty/C11--00000000-0000-0000-0000-00005af6f36b.kicad_mod": {
+      "sha256": "f9f548529f41989c1c5ad6d7305faed7a43a50702b0e30094250581c55467e49",
+      "bytes": 2786
+    },
+    "assets/footprints.pretty/C12--00000000-0000-0000-0000-00005aff23de.kicad_mod": {
+      "sha256": "b76d1b5d563a326d66ff9839d20475216de12fa8d818a7af85ddd6d6ed0790f9",
+      "bytes": 2780
+    },
+    "assets/footprints.pretty/C13--00000000-0000-0000-0000-00005cfd2a7e.kicad_mod": {
+      "sha256": "6e99edb8a2d05f33108233aa442a1bfeacf2ec9f86428226920aae2ed1253aad",
+      "bytes": 2787
+    },
+    "assets/footprints.pretty/C14--00000000-0000-0000-0000-00005af6f39b.kicad_mod": {
+      "sha256": "864c0eb514d22298d31a9dcd941100b9ccaae086adf746e74d398a803dde2db4",
+      "bytes": 2772
+    },
+    "assets/footprints.pretty/C15--00000000-0000-0000-0000-00005af6f3ab.kicad_mod": {
+      "sha256": "208d46349b3c21554fd40183d7efdbef8c8e6fc2f59b9b50e0a9c9c2aac12ac0",
+      "bytes": 2782
+    },
+    "assets/footprints.pretty/C16--00000000-0000-0000-0000-00005af6f3bb.kicad_mod": {
+      "sha256": "495b052c2ead516c4f06f86398bdb8907bc112126049eeb9e14ba513acd0c48b",
+      "bytes": 2781
+    },
+    "assets/footprints.pretty/C17--00000000-0000-0000-0000-00005af6f3cb.kicad_mod": {
+      "sha256": "bc8bf94c968de0b3d408e29e4aa069a0c62946e81a466555117723529ea608f5",
+      "bytes": 2782
+    },
+    "assets/footprints.pretty/C18--00000000-0000-0000-0000-00005f9db0c7.kicad_mod": {
+      "sha256": "d0cd5863a06da34fabb8d309bb8537d6600073f63bfbf28adeec15c63683ea80",
+      "bytes": 2769
+    },
+    "assets/footprints.pretty/C19--00000000-0000-0000-0000-00005af6f3eb.kicad_mod": {
+      "sha256": "658a71c54ac01b1de485af751e21d51db5b97a77febefe9958838c3dc38f2b6f",
+      "bytes": 2779
+    },
+    "assets/footprints.pretty/C2--00000000-0000-0000-0000-00005af6f2db.kicad_mod": {
+      "sha256": "d29bd072801f480793cbb10c013e32df115e2ec32324b49343c3818c5899b93a",
+      "bytes": 2766
+    },
+    "assets/footprints.pretty/C20--00000000-0000-0000-0000-00005af6f3fb.kicad_mod": {
+      "sha256": "cfb7958a41e04d9ef2a71f50cd1e3fa5b892b62d1a4beeed81e0170c97c60a38",
+      "bytes": 2788
+    },
+    "assets/footprints.pretty/C21--00000000-0000-0000-0000-00005b17ea2b.kicad_mod": {
+      "sha256": "628879c7d956cb18e40104724c2021082053fd577f689fd549c1d67a2b52357b",
+      "bytes": 2785
+    },
+    "assets/footprints.pretty/C22--00000000-0000-0000-0000-00005af6f41b.kicad_mod": {
+      "sha256": "c2a5cd4759d0dc1598d20449c819ee903a9820692e781a6f54f0255c57ce9afc",
+      "bytes": 2783
+    },
+    "assets/footprints.pretty/C23--00000000-0000-0000-0000-00005af6f42b.kicad_mod": {
+      "sha256": "1544a4094156b0b3863b4418b24abf8f5d06f4e59436cad5447481ed8d6e84d8",
+      "bytes": 2785
+    },
+    "assets/footprints.pretty/C24--00000000-0000-0000-0000-00005affdb79.kicad_mod": {
+      "sha256": "569ecc2eb88e13d4bbd19dfefe678ebf6c4c26df579ef892aeb20c10197903a0",
+      "bytes": 2781
+    },
+    "assets/footprints.pretty/C25--00000000-0000-0000-0000-00005af6f44b.kicad_mod": {
+      "sha256": "29e514149caa002e5b96362fac8f198deaaabb62f3cd18d0b5e68c1624836564",
+      "bytes": 2766
+    },
+    "assets/footprints.pretty/C26--00000000-0000-0000-0000-00005b1d7785.kicad_mod": {
+      "sha256": "f5bdd7b24b039529d985ce231c6b5e688250e84551109e508f8632bab2293489",
+      "bytes": 2768
+    },
+    "assets/footprints.pretty/C27--00000000-0000-0000-0000-00005af6f46b.kicad_mod": {
+      "sha256": "cf65850b00df314f868972860cfded4d2743dcc557b5fc5b758e7fd4449c4c1e",
+      "bytes": 2766
+    },
+    "assets/footprints.pretty/C28--00000000-0000-0000-0000-00005af6f47b.kicad_mod": {
+      "sha256": "b2ab00f612a70c93d7841f574dad5ad6d2c709ec25b2baf4ebb9cddb01e86ef1",
+      "bytes": 2766
+    },
+    "assets/footprints.pretty/C29--00000000-0000-0000-0000-00005ec51c37.kicad_mod": {
+      "sha256": "bb629961f613edeac5de479d0c99989051a4602443710ca0a4b09c118ce1a509",
+      "bytes": 2765
+    },
+    "assets/footprints.pretty/C3--00000000-0000-0000-0000-00005af6f2eb.kicad_mod": {
+      "sha256": "41c1da76614a94414092d9d1fed1fc5e1c48e4bc1a4628e0309ee4fe8a8becef",
+      "bytes": 2779
+    },
+    "assets/footprints.pretty/C30--00000000-0000-0000-0000-00005af6f49b.kicad_mod": {
+      "sha256": "e585f8827ce9761a0114d5dfafd41f0c27bf1a43759439d8691fd7f35ff051d0",
+      "bytes": 2767
+    },
+    "assets/footprints.pretty/C31--00000000-0000-0000-0000-00005afee6e4.kicad_mod": {
+      "sha256": "c133d2940721528ccf2e4253c76e83c2d7a401fcac7bef3f989057c0d61110ad",
+      "bytes": 2763
+    },
+    "assets/footprints.pretty/C32--00000000-0000-0000-0000-00005af6f4bb.kicad_mod": {
+      "sha256": "3b977a8eb93246aec3f0f2e06223585d354fa317d7db4931ca19643a43fac152",
+      "bytes": 2769
+    },
+    "assets/footprints.pretty/C33--00000000-0000-0000-0000-00005af6f4cb.kicad_mod": {
+      "sha256": "f7c66e22ba986ad5c3a7ef8c965b18e4e5a7ca200afb63ca93e56aad13b858c5",
+      "bytes": 2762
+    },
+    "assets/footprints.pretty/C34--00000000-0000-0000-0000-00005af6f4db.kicad_mod": {
+      "sha256": "8b371febf632acde1aeba2a7970a49cec8ba518213685b0dd65b8be08ea346a0",
+      "bytes": 2763
+    },
+    "assets/footprints.pretty/C35--00000000-0000-0000-0000-00005af6f4eb.kicad_mod": {
+      "sha256": "1d7a9997886a9fe7c660be6fb3eb7d9b91f7f3e751f07b050799b2a2545babdd",
+      "bytes": 2770
+    },
+    "assets/footprints.pretty/C38--00000000-0000-0000-0000-00005af6f55b.kicad_mod": {
+      "sha256": "d9820116902135bf9bedaa009bc515525055e7e2120c5e5576eaad6b1f229bd4",
+      "bytes": 2715
+    },
+    "assets/footprints.pretty/C39--00000000-0000-0000-0000-00005af6f51b.kicad_mod": {
+      "sha256": "21e0888d8ace8877ab65ddf037b0d8c777a1923fb3422abf15eabfccb74ca5a3",
+      "bytes": 2728
+    },
+    "assets/footprints.pretty/C4--00000000-0000-0000-0000-00005af6f2fb.kicad_mod": {
+      "sha256": "697871b88012b69e3d9ae2da21edca69bab31de67ac5da37b6d69150cdd94af6",
+      "bytes": 2779
+    },
+    "assets/footprints.pretty/C40--00000000-0000-0000-0000-00005af6f56b.kicad_mod": {
+      "sha256": "2907c8dd340f24f9a3c99705e99d09fc39c2a93d67c58d5638e4924aebe302dc",
+      "bytes": 2726
+    },
+    "assets/footprints.pretty/C41--00000000-0000-0000-0000-00005af6f52b.kicad_mod": {
+      "sha256": "1614ecc3018fa9d1932cb0c5fb9b7f1a2e43df8a25e5b8587c914c4a6c8d90a3",
+      "bytes": 2725
+    },
+    "assets/footprints.pretty/C42--00000000-0000-0000-0000-00005af6f57b.kicad_mod": {
+      "sha256": "cc50d6c7c7834123e3fce46e0bc53ad895b2af8f24c9dae9cad5757a043376cc",
+      "bytes": 2726
+    },
+    "assets/footprints.pretty/C43--00000000-0000-0000-0000-00005af6f53b.kicad_mod": {
+      "sha256": "e16735fb0b35779299ace0acc89c0316ff0e09a75be510e50703880dae507678",
+      "bytes": 2726
+    },
+    "assets/footprints.pretty/C44--00000000-0000-0000-0000-00005afdd148.kicad_mod": {
+      "sha256": "f792c2007aee7e6903e19534b396c1e18bb27debcc2130d01287e629d3fe2813",
+      "bytes": 2725
+    },
+    "assets/footprints.pretty/C45--00000000-0000-0000-0000-00005af6f54b.kicad_mod": {
+      "sha256": "12652dcfd8264eb4d347634a33097ba6f78c2452971cc8a56b26c7ab3ab47e69",
+      "bytes": 2714
+    },
+    "assets/footprints.pretty/C46--00000000-0000-0000-0000-00005af6f59b.kicad_mod": {
+      "sha256": "0ed82f83e9dde033f1540bdf8ffe5a2f51fa9e7703c71e399e77fa6d3e2c477a",
+      "bytes": 2775
+    },
+    "assets/footprints.pretty/C47--00000000-0000-0000-0000-00005af6de28.kicad_mod": {
+      "sha256": "444649cdcfbeb377f72ea5727c6b2d8361430154e12ca517445153a3fcbe5d99",
+      "bytes": 2780
+    },
+    "assets/footprints.pretty/C48--00000000-0000-0000-0000-00005af6f5ab.kicad_mod": {
+      "sha256": "c7b50937d4fee4d13205516b73129e52d2d37c35bf50ad777ab8d01d80973af1",
+      "bytes": 2761
+    },
+    "assets/footprints.pretty/C49--00000000-0000-0000-0000-00005af6f5bb.kicad_mod": {
+      "sha256": "67b57beb1a6c2fc5eb75efef7e1d24ab44493e9ad225475a9bdeefc3f1a79aac",
+      "bytes": 2764
+    },
+    "assets/footprints.pretty/C5--00000000-0000-0000-0000-00005af6f30b.kicad_mod": {
+      "sha256": "da5a31449340104c7cb1f4cab1217424ac31a4bcd91a11c7f2a7287e71cc2d5a",
+      "bytes": 2777
+    },
+    "assets/footprints.pretty/C50--00000000-0000-0000-0000-00005af6f5cb.kicad_mod": {
+      "sha256": "fc11fa7fdc04e638da34a825e490369d4438e28c3ae218fb3a83fc933cc32a34",
+      "bytes": 2766
+    },
+    "assets/footprints.pretty/C51--00000000-0000-0000-0000-00005af6f5db.kicad_mod": {
+      "sha256": "95ab7b888786f69ed66fb5ed0ce83fc296eb4eb6b471e603e1ddeca1245f2907",
+      "bytes": 2768
+    },
+    "assets/footprints.pretty/C52--00000000-0000-0000-0000-00005af6f5eb.kicad_mod": {
+      "sha256": "aec8abad71f7e5209b6ef41564cb9b2cc33eea76cbb956f678e9c889b72e9d57",
+      "bytes": 2762
+    },
+    "assets/footprints.pretty/C53--00000000-0000-0000-0000-00005e9f4817.kicad_mod": {
+      "sha256": "cdb3b9cdba17319c4e3d1989b5895b823bdbaa8697ea988d52ca3f62b75596d8",
+      "bytes": 2769
+    },
+    "assets/footprints.pretty/C54--00000000-0000-0000-0000-00005af6f60b.kicad_mod": {
+      "sha256": "1a1faa9500795d04af6ea291905f987c59c5cf4110790857216a9052bed28cda",
+      "bytes": 2784
+    },
+    "assets/footprints.pretty/C55--00000000-0000-0000-0000-00005b1118a2.kicad_mod": {
+      "sha256": "2889b48b922058c207454f8f5d420a96a25bfdeebad2e9665b9a1e085430abc3",
+      "bytes": 2779
+    },
+    "assets/footprints.pretty/C56--00000000-0000-0000-0000-00005b3ed088.kicad_mod": {
+      "sha256": "3ba86d8658a9872fa857fd756ec67d131a82480e8d0457b800f597ebef5d2960",
+      "bytes": 2768
+    },
+    "assets/footprints.pretty/C57--00000000-0000-0000-0000-00005b3ed097.kicad_mod": {
+      "sha256": "f7a6ea0568bbc1eb53706b6ac34b58fd3672cccbde597d5493bfaba4673943c3",
+      "bytes": 2764
+    },
+    "assets/footprints.pretty/C58--00000000-0000-0000-0000-00005cfaef31.kicad_mod": {
+      "sha256": "7d55fd4b2ca9da91cc03062eb8aa959e5dbe5cb9711a650b0f225cd02312297e",
+      "bytes": 2786
+    },
+    "assets/footprints.pretty/C59--00000000-0000-0000-0000-00005b46e4e4.kicad_mod": {
+      "sha256": "8fbff0e3ab709ab609377ba2777ac92ad7767ae023431484453af8b85ef08704",
+      "bytes": 2720
+    },
+    "assets/footprints.pretty/C6--00000000-0000-0000-0000-00005af6f31b.kicad_mod": {
+      "sha256": "56ef2351f6b0e02221483fbc33e6747932f30ee7b45162c05ac3e4fb63613275",
+      "bytes": 2764
+    },
+    "assets/footprints.pretty/C60--00000000-0000-0000-0000-00005b5b621f.kicad_mod": {
+      "sha256": "605f88046904beda44f77c1bd0b22276ded18bebf7e17bab814a21993097b742",
+      "bytes": 2764
+    },
+    "assets/footprints.pretty/C61--00000000-0000-0000-0000-00005cf8f3a6.kicad_mod": {
+      "sha256": "88de0e30d65c2d48df2bb1d27602f019308471f3f7d72a0b10e8eb24f9f542ae",
+      "bytes": 2779
+    },
+    "assets/footprints.pretty/C62--00000000-0000-0000-0000-00005cf7bede.kicad_mod": {
+      "sha256": "17b23905f9daf706720903cd0192409313938c7c0818e750b4e775c8630c306f",
+      "bytes": 2716
+    },
+    "assets/footprints.pretty/C63--00000000-0000-0000-0000-00005f912bad.kicad_mod": {
+      "sha256": "d3e4350ea0b8b0919fa292a1135d7948cccfca8f12ab76248fdd46008644a38a",
+      "bytes": 2787
+    },
+    "assets/footprints.pretty/C64--00000000-0000-0000-0000-00005f8c92a9.kicad_mod": {
+      "sha256": "e4506fa53115a32de327b256d585b813d85dd2784f71ecf4574e5872b72e46d3",
+      "bytes": 2782
+    },
+    "assets/footprints.pretty/C65--00000000-0000-0000-0000-00005f8c8fc1.kicad_mod": {
+      "sha256": "1ddc3fd42ef35a9f9a73a16d1e0bf38198284564677c33fec27c1dc575f25e17",
+      "bytes": 2791
+    },
+    "assets/footprints.pretty/C66--00000000-0000-0000-0000-00005f8c8fd2.kicad_mod": {
+      "sha256": "9cb7b1c5630209c12ed0308f05fc757268ec98112722fe9498d65056e962edc8",
+      "bytes": 2795
+    },
+    "assets/footprints.pretty/C67--00000000-0000-0000-0000-00005f8c8fe3.kicad_mod": {
+      "sha256": "500c3c73650878046f9bf223a57d756c713bad3d211e06175fd66e887c0a61a1",
+      "bytes": 2797
+    },
+    "assets/footprints.pretty/C68--00000000-0000-0000-0000-00005f8c8ff4.kicad_mod": {
+      "sha256": "d1a61e2ea367dd072a27eddab2007dad68ebcb3450aed9b474bee104d9e14108",
+      "bytes": 2798
+    },
+    "assets/footprints.pretty/C69--00000000-0000-0000-0000-00005f8c9005.kicad_mod": {
+      "sha256": "9db062f6fb304396e3d053e6300680266764408d7595ecdd325d15288cb87bfa",
+      "bytes": 2788
+    },
+    "assets/footprints.pretty/C7--00000000-0000-0000-0000-00005af6f32b.kicad_mod": {
+      "sha256": "ec9b1ad85d2a6e51d32d5b7fadc574d7a50e21e483526d3ca75fb2f4676ddbba",
+      "bytes": 2780
+    },
+    "assets/footprints.pretty/C70--00000000-0000-0000-0000-00005f8d282b.kicad_mod": {
+      "sha256": "ccab983b01c3a8246266e10327a351864c11b5b6be3090729c2cfd3e0b243af1",
+      "bytes": 2783
+    },
+    "assets/footprints.pretty/C71--00000000-0000-0000-0000-00005f8f63c0.kicad_mod": {
+      "sha256": "e5cdb007662f3729424b4709304d39dfb4bc3aa89b27dfd964baa52aa96ce8b9",
+      "bytes": 2804
+    },
+    "assets/footprints.pretty/C72--00000000-0000-0000-0000-00005f8d9e04.kicad_mod": {
+      "sha256": "f8f666b7885aba0abb479736f7f51422ca70dc3cb86d378e04d5d2961da1457e",
+      "bytes": 2782
+    },
+    "assets/footprints.pretty/C8--00000000-0000-0000-0000-00005af6f33b.kicad_mod": {
+      "sha256": "e2e474425dce549b13a086549a92b4590991669deeccd4367bb0570959ae4f70",
+      "bytes": 2783
+    },
+    "assets/footprints.pretty/C9--00000000-0000-0000-0000-00005af6f34b.kicad_mod": {
+      "sha256": "fde05c68da0fa54b9d7c89c293850d7c78e068e22d7d2f6ffd79b39f202f136f",
+      "bytes": 2779
+    },
+    "assets/footprints.pretty/D0--00000000-0000-0000-0000-00005b030783.kicad_mod": {
+      "sha256": "44e8eb746d48d2b785fae2b54d6e6365a6095ba0cd78b5508624b56a1e04a168",
+      "bytes": 2928
+    },
+    "assets/footprints.pretty/D1--00000000-0000-0000-0000-00005af34002.kicad_mod": {
+      "sha256": "dacce43435ca2fd7e14e1036ce77b21ad487368d9cc36bd807bd6018eabacfbe",
+      "bytes": 2934
+    },
+    "assets/footprints.pretty/D10--00000000-0000-0000-0000-000060c69cc4.kicad_mod": {
+      "sha256": "da7d3aa6e0e1679aab7af45bfa738412f5cc6c7aa972bad77f53817cf15e5727",
+      "bytes": 3218
+    },
+    "assets/footprints.pretty/D11--00000000-0000-0000-0000-00005b030813.kicad_mod": {
+      "sha256": "72d1a758121aedc271b48b3a323f70bb43ac7f3aeef1f19d01d7123f76a803c2",
+      "bytes": 2991
+    },
+    "assets/footprints.pretty/D12--00000000-0000-0000-0000-00005b14c28b.kicad_mod": {
+      "sha256": "3f7d9731c59e964c4769aa4c5edd63e8a4144ff3c4ec4681edd6a07926f4711b",
+      "bytes": 3219
+    },
+    "assets/footprints.pretty/D13--00000000-0000-0000-0000-00005b14c2a2.kicad_mod": {
+      "sha256": "ae6dbbe83aa65c608dbadaec0744087e08b34e5dabbf0da3af183a6d5dda301e",
+      "bytes": 3221
+    },
+    "assets/footprints.pretty/D14--00000000-0000-0000-0000-00005b14c2b9.kicad_mod": {
+      "sha256": "e32f16a8f45aa08e915539cddcc0240bbea3b4eac9ea72349adc35561fd64da6",
+      "bytes": 3218
+    },
+    "assets/footprints.pretty/D15--00000000-0000-0000-0000-00005b14c2d0.kicad_mod": {
+      "sha256": "f4d6d9e6b814485d50891ac5c62f77c788c5194876cc202e7d0c60a2aaced10a",
+      "bytes": 3212
+    },
+    "assets/footprints.pretty/D16--00000000-0000-0000-0000-00005b14c2e7.kicad_mod": {
+      "sha256": "96a21778d01500c91c80e36bb45f0a5b82d5092e81516bbda427af9da8b0ca4a",
+      "bytes": 3221
+    },
+    "assets/footprints.pretty/D17--00000000-0000-0000-0000-00005aff22c4.kicad_mod": {
+      "sha256": "a4b0e41c7547a437704855539d12c85e6635e8db11bdddfcc54e64b96de1e187",
+      "bytes": 3216
+    },
+    "assets/footprints.pretty/D18--00000000-0000-0000-0000-00005b030825.kicad_mod": {
+      "sha256": "dcbbb420953805046980ba3cce54e24ed6907a74c3c6db30af909abfaec6849c",
+      "bytes": 2932
+    },
+    "assets/footprints.pretty/D19--00000000-0000-0000-0000-00005af7e688.kicad_mod": {
+      "sha256": "a138a6ad928e63a603a3dc3f81e12c395b27b0bd90c90882812674fa25150bff",
+      "bytes": 2925
+    },
+    "assets/footprints.pretty/D2--00000000-0000-0000-0000-00005b0307a7.kicad_mod": {
+      "sha256": "eead824880bf088b9513fb8401684f6973eb78ef4a3a8b7a16c6afb591531050",
+      "bytes": 2933
+    },
+    "assets/footprints.pretty/D20--00000000-0000-0000-0000-00005b14c315.kicad_mod": {
+      "sha256": "b5374902f2881c6ae7f0fa3a3f144f849a4f8c2c50674bcd28b12a901c6cb61a",
+      "bytes": 3215
+    },
+    "assets/footprints.pretty/D21--00000000-0000-0000-0000-00005aff0f56.kicad_mod": {
+      "sha256": "5cf767e1e35892e90a43b55d73af55564000e60589878d0136ddefc677838ec0",
+      "bytes": 3215
+    },
+    "assets/footprints.pretty/D22--00000000-0000-0000-0000-00005b030837.kicad_mod": {
+      "sha256": "89f41ccdd3dd2c285791cc2c57d0f32e14c6c12890cf60eab5232d7786521fb9",
+      "bytes": 2932
+    },
+    "assets/footprints.pretty/D23--00000000-0000-0000-0000-00005b14c343.kicad_mod": {
+      "sha256": "b8f0eab93925d421486a46a38d7817ee3ea05c9da87a114493a2c646b4a97fd1",
+      "bytes": 3214
+    },
+    "assets/footprints.pretty/D24--00000000-0000-0000-0000-00005b14c35a.kicad_mod": {
+      "sha256": "9d0bc33fbe079af0e279edade35deef1afd0f9e8e8b7d8b2143ebe368fa72083",
+      "bytes": 3213
+    },
+    "assets/footprints.pretty/D25--00000000-0000-0000-0000-00005b857e00.kicad_mod": {
+      "sha256": "58d399c5bec0a0204044d8b993036dd3d1b1ef790f21e24dc27c93f9ea37c600",
+      "bytes": 3219
+    },
+    "assets/footprints.pretty/D26--00000000-0000-0000-0000-00005b857e5d.kicad_mod": {
+      "sha256": "10bf9d8ed23bdd8a67aa2dded2a0857f74c902584a1196a9fea1f0ebfe7e9383",
+      "bytes": 3215
+    },
+    "assets/footprints.pretty/D27--00000000-0000-0000-0000-00005b2710e0.kicad_mod": {
+      "sha256": "d9412acbc3ca23c63e325327326f5a3650f1bbd3425b0a124a0798730f14e59a",
+      "bytes": 3218
+    },
+    "assets/footprints.pretty/D28--00000000-0000-0000-0000-00005b538c6c.kicad_mod": {
+      "sha256": "15c3d554f18f0801f6bd4d89c31870a09080195f15a90d4b19c9df78f3f2fd1f",
+      "bytes": 3280
+    },
+    "assets/footprints.pretty/D29--00000000-0000-0000-0000-00005b58fbef.kicad_mod": {
+      "sha256": "f828b2b5b12d6596d1b6e8323189c3548da9b5ac5a3ef0487ab245aa69b3f314",
+      "bytes": 3218
+    },
+    "assets/footprints.pretty/D3--00000000-0000-0000-0000-00005b0307b9.kicad_mod": {
+      "sha256": "39ed55d5e9c8c33ebdab02c71d46d941918fb000945be183d76f2a9582b76aa5",
+      "bytes": 2931
+    },
+    "assets/footprints.pretty/D30--00000000-0000-0000-0000-00005f8d833a.kicad_mod": {
+      "sha256": "a707a4500edaa111a22121087c153db2e0f252099dabc5763a2f97d6cd1c911e",
+      "bytes": 3199
+    },
+    "assets/footprints.pretty/D4--00000000-0000-0000-0000-00005b7db89e.kicad_mod": {
+      "sha256": "0222bffe8b525ca748eb814204e74a590de60a91db099eb3cb17399d4e0a6df8",
+      "bytes": 2931
+    },
+    "assets/footprints.pretty/D5--00000000-0000-0000-0000-00005b0307dd.kicad_mod": {
+      "sha256": "2a8b3b256609fd7651005d0f339917f6b32356309446071a030afebb84d2141b",
+      "bytes": 2934
+    },
+    "assets/footprints.pretty/D51--00000000-0000-0000-0000-00005b857b7c.kicad_mod": {
+      "sha256": "c5b3133bd40522a38d19d6a5230fb2591cd3c6dba821cd49204ea35d0f7ff7b5",
+      "bytes": 3712
+    },
+    "assets/footprints.pretty/D52--00000000-0000-0000-0000-00005b5fa651.kicad_mod": {
+      "sha256": "6e3723fcb83c734b2e4cd6dfc78d999efa48f7a7df38164c36c477377152ac35",
+      "bytes": 3712
+    },
+    "assets/footprints.pretty/D6--00000000-0000-0000-0000-00005b0307ef.kicad_mod": {
+      "sha256": "0618ec6f474b418d888f5359260180e0f7577a3f13951cbb6245c5d8e8f2657b",
+      "bytes": 2932
+    },
+    "assets/footprints.pretty/D7--00000000-0000-0000-0000-00005b030801.kicad_mod": {
+      "sha256": "d8f5e694d0e2772e6d1baf4466bfc9aee935981f8a2b3ae593044286ff506122",
+      "bytes": 2931
+    },
+    "assets/footprints.pretty/D8--00000000-0000-0000-0000-00005f46fab1.kicad_mod": {
+      "sha256": "34562804ffb1e9729efd27d8d25b89b6b4a79b7949a87a093fd39ceb0caf0fc4",
+      "bytes": 3369
+    },
+    "assets/footprints.pretty/D9--00000000-0000-0000-0000-00005b5fa61d.kicad_mod": {
+      "sha256": "58286fa44a8f67ca9cb432a3f6cda8574f95bae3d46400861f29dd8b6a260de8",
+      "bytes": 3701
+    },
+    "assets/footprints.pretty/D_M--00000000-0000-0000-0000-00006161958d.kicad_mod": {
+      "sha256": "c84434298f9444ebf64ed2876f4e859d7dadcd854aec6e21c3909a18782e34f9",
+      "bytes": 2460
+    },
+    "assets/footprints.pretty/EMARD--00000000-0000-0000-0000-00005f8c9523.kicad_mod": {
+      "sha256": "8495aae0524ec22769514e3bcd8ceb32bc903f54f62cfe24d6372b2a72d6d479",
+      "bytes": 3291
+    },
+    "assets/footprints.pretty/EMARD--00000000-0000-0000-0000-00005f8d5e02.kicad_mod": {
+      "sha256": "14cb17fc3d875761a634b503b4e3c41ea1d870232cb6ee378fb6100756b58b27",
+      "bytes": 3339
+    },
+    "assets/footprints.pretty/GPDI1--00000000-0000-0000-0000-00005afabac2.kicad_mod": {
+      "sha256": "2fd9d216b4d969b96e8bd06686fbb10a7a75500c8683fcc0de10893ee0ee3820",
+      "bytes": 9696
+    },
+    "assets/footprints.pretty/H1--00000000-0000-0000-0000-000058e6b6ec.kicad_mod": {
+      "sha256": "1e673fb35277b0b7ac932b8689585ae80fd64991a934bff9bfe8e6510b11eab9",
+      "bytes": 1093
+    },
+    "assets/footprints.pretty/H2--00000000-0000-0000-0000-000058e6b6f1.kicad_mod": {
+      "sha256": "42bab3e989e6b102acdb55d240d11d6bc22baff7c117c5af36fe24ef22f9bac1",
+      "bytes": 1093
+    },
+    "assets/footprints.pretty/H3--00000000-0000-0000-0000-000058e6b6f6.kicad_mod": {
+      "sha256": "80ec2ea5b61ad71dc30a74f71c6ca3ade8f8fc7c9b1ea01a50e7683c922ff554",
+      "bytes": 1093
+    },
+    "assets/footprints.pretty/H4--00000000-0000-0000-0000-000058e6b6fb.kicad_mod": {
+      "sha256": "88ecb45a531b67c2550ea4dea40256d94e5a5e0c5f29e5d96e58a7b623b23c9a",
+      "bytes": 1093
+    },
+    "assets/footprints.pretty/HR--00000000-0000-0000-0000-00005f8ceb32.kicad_mod": {
+      "sha256": "420e3a964bf730c07c0e70dbd3804acb9390c0176a7e9dedd4e7127cf365d1ba",
+      "bytes": 9970
+    },
+    "assets/footprints.pretty/J1--00000000-0000-0000-0000-000058e6be3d.kicad_mod": {
+      "sha256": "2448eb5b520e2706661efea8a074617b4dde88bc556dddfea0651b2ff13a6f4a",
+      "bytes": 16965
+    },
+    "assets/footprints.pretty/J2--00000000-0000-0000-0000-000058e6be69.kicad_mod": {
+      "sha256": "f31cc5868a9ada5e906dfacc773fc3796de7a6aca528608b394b9e412c56dbb3",
+      "bytes": 16964
+    },
+    "assets/footprints.pretty/J3--00000000-0000-0000-0000-00005b2694b6.kicad_mod": {
+      "sha256": "fad8825261bffaf3c650eac1b819e129a8efb0c2374a18609feafe42a84897df",
+      "bytes": 3249
+    },
+    "assets/footprints.pretty/J4--00000000-0000-0000-0000-00005b1aff04.kicad_mod": {
+      "sha256": "d280f163e66bcdac7eb7b3b6a51acfb4eb0c3d530090124cbab4f9e8278fef2e",
+      "bytes": 3365
+    },
+    "assets/footprints.pretty/J5--00000000-0000-0000-0000-00005b0aee1c.kicad_mod": {
+      "sha256": "1277eba6771dcb1d461ae4a7517c94684ad8c01d3424c56b6f712ea8e3770c4e",
+      "bytes": 3369
+    },
+    "assets/footprints.pretty/L1--00000000-0000-0000-0000-00005b191548.kicad_mod": {
+      "sha256": "957212de00450ec37cc1001e943e0389937d1d5f1c5f6871fef932214ee1827c",
+      "bytes": 2581
+    },
+    "assets/footprints.pretty/L2--00000000-0000-0000-0000-00005b1b067d.kicad_mod": {
+      "sha256": "cabfa16a784535fe47c17ccd56fd7753f091de4c291500a8f8f233fec8a98a97",
+      "bytes": 2587
+    },
+    "assets/footprints.pretty/L3--00000000-0000-0000-0000-00005b191568.kicad_mod": {
+      "sha256": "f33bc55a1adfbbeb8a59e3670ea72eb6c35bb68eb3098571776aad47efd8da87",
+      "bytes": 2585
+    },
+    "assets/footprints.pretty/L4--00000000-0000-0000-0000-00005cf9443e.kicad_mod": {
+      "sha256": "add93bc494976368eab1cfc3ce59021dbdb035b3393c606636dcab1233fde96b",
+      "bytes": 2837
+    },
+    "assets/footprints.pretty/L5--00000000-0000-0000-0000-00005cf9164e.kicad_mod": {
+      "sha256": "f5feaff9f82ce8375c24f77d4dd1cb2414bff0b576357ddf7ff91118eed2383a",
+      "bytes": 2843
+    },
+    "assets/footprints.pretty/LCD1--00000000-0000-0000-0000-000058f0da19.kicad_mod": {
+      "sha256": "d9b9e3f6b0756209ffd29b8fb5bab12df4fdd0eba6580a3c6c5af6051f8c8b28",
+      "bytes": 6586
+    },
+    "assets/footprints.pretty/OSHW--00000000-0000-0000-0000-000061619fd3.kicad_mod": {
+      "sha256": "06e13819c86d6d27d8bae4342e6061ef374260e1093d0a5866236765e3dd52f1",
+      "bytes": 1597
+    },
+    "assets/footprints.pretty/Q1--00000000-0000-0000-0000-00005b26c525.kicad_mod": {
+      "sha256": "a9e0d3df4ba227ad645e5491406a5ca25c1938abcf5a5b1cf7adeb35a3213514",
+      "bytes": 2916
+    },
+    "assets/footprints.pretty/Q2--00000000-0000-0000-0000-00005b23285c.kicad_mod": {
+      "sha256": "fab03207ad0980386786b726d90c9dd93b37c0565fb7576318c4d5ac53cdf65b",
+      "bytes": 2918
+    },
+    "assets/footprints.pretty/R1--00000000-0000-0000-0000-00005b191578.kicad_mod": {
+      "sha256": "c64821b16da99deac3da3eea1144a02063f8ee65cf6f7d0faf905b8bd0f0c7f9",
+      "bytes": 2674
+    },
+    "assets/footprints.pretty/R10--00000000-0000-0000-0000-00005b191608.kicad_mod": {
+      "sha256": "5356b44a89229f873a9f66f51107c53fd4ed65a049ebac2c5503bc9809cda227",
+      "bytes": 2760
+    },
+    "assets/footprints.pretty/R11--00000000-0000-0000-0000-00005b191618.kicad_mod": {
+      "sha256": "3380927bb2fcb1825954df6f1056a8bd3e96103879bfd1b7ae91538d0cecddfa",
+      "bytes": 2764
+    },
+    "assets/footprints.pretty/R12--00000000-0000-0000-0000-00005b191628.kicad_mod": {
+      "sha256": "27860bdeb2b01e04cf2cf9eb2842d0df1400b8cea41451fea7f05176421c8a50",
+      "bytes": 2762
+    },
+    "assets/footprints.pretty/R13--00000000-0000-0000-0000-00005b191935.kicad_mod": {
+      "sha256": "d77b4c9ebda37ea3619856f5fc5de45aaa0e0ac75dc5b5eae6d6f550514f3c8d",
+      "bytes": 2770
+    },
+    "assets/footprints.pretty/R14--00000000-0000-0000-0000-00005b191648.kicad_mod": {
+      "sha256": "5591c990cbc16d7ccda363f406a81a90f07ca0ac71ac658ce0b1637ef89dd825",
+      "bytes": 2762
+    },
+    "assets/footprints.pretty/R15--00000000-0000-0000-0000-00005b191658.kicad_mod": {
+      "sha256": "7d738daeff1c5b9c07dd9dcdc3df964e6006ccde25075e67bbc215864a4a49b0",
+      "bytes": 2760
+    },
+    "assets/footprints.pretty/R16--00000000-0000-0000-0000-00005b191668.kicad_mod": {
+      "sha256": "abf7f0891f0bd92a7bfbfe9d68046d4c50f16001771c2f0f3578bcfc197d0e0c",
+      "bytes": 2760
+    },
+    "assets/footprints.pretty/R17--00000000-0000-0000-0000-00005b191678.kicad_mod": {
+      "sha256": "ce907a96c6c25a064dd03ae9cd87191474b1d3f846949253c11ea732e9172f68",
+      "bytes": 2760
+    },
+    "assets/footprints.pretty/R18--00000000-0000-0000-0000-00005b191688.kicad_mod": {
+      "sha256": "30422c376f81c1395df72bc4921121f4e8444bd513c518716f83b198e27839f5",
+      "bytes": 2766
+    },
+    "assets/footprints.pretty/R19--00000000-0000-0000-0000-00005b191698.kicad_mod": {
+      "sha256": "edac123464467cedccbb3aa7d36397379b34ad0c3f054f6ee26ec25727f7fcf0",
+      "bytes": 2760
+    },
+    "assets/footprints.pretty/R2--00000000-0000-0000-0000-00005b191588.kicad_mod": {
+      "sha256": "eb5053511d1f0957d854a0352113f5df6f69edc12160cda3ba037856e0219e89",
+      "bytes": 2763
+    },
+    "assets/footprints.pretty/R20--00000000-0000-0000-0000-00005b1916a8.kicad_mod": {
+      "sha256": "25f31b97f763f4cd34a4e3522d568c2bd68fd1a2b72e15c7d3f6a39a7525df38",
+      "bytes": 2760
+    },
+    "assets/footprints.pretty/R21--00000000-0000-0000-0000-00005b1916b8.kicad_mod": {
+      "sha256": "78b449692d91206bf1a73d29e254acbb142aaf6150d46d73096e2ff18c872ccf",
+      "bytes": 2765
+    },
+    "assets/footprints.pretty/R22--00000000-0000-0000-0000-00005b1916c8.kicad_mod": {
+      "sha256": "41e90a0ddfbb8748098f30aeff6da3e5a6c101f80b6b374a270e4b417ab2bdfc",
+      "bytes": 2763
+    },
+    "assets/footprints.pretty/R23--00000000-0000-0000-0000-00005b1916d8.kicad_mod": {
+      "sha256": "54396cdf6d71b93f5e1b544f8caee38cd4fa52655b2dbfd8f5733c73aaac4798",
+      "bytes": 2762
+    },
+    "assets/footprints.pretty/R24--00000000-0000-0000-0000-00005b1916e8.kicad_mod": {
+      "sha256": "598c20261fc09681c585eda5491c879e4822770834170f9fca075f4a01820154",
+      "bytes": 2757
+    },
+    "assets/footprints.pretty/R25--00000000-0000-0000-0000-00005b1916f8.kicad_mod": {
+      "sha256": "d2ad6eb587f58e30a26fbbee8da337d93643d2564ee4c3471e9caf0498735743",
+      "bytes": 2766
+    },
+    "assets/footprints.pretty/R26--00000000-0000-0000-0000-00005b191708.kicad_mod": {
+      "sha256": "e5eb07492445f32d72d15fccb10ee2deded91a2079d4eae229b97974b214b59d",
+      "bytes": 2762
+    },
+    "assets/footprints.pretty/R27--00000000-0000-0000-0000-00005b191718.kicad_mod": {
+      "sha256": "779130395ee93e73ac7da10acbf21ae196b41a9165c55b614a5aa33130619764",
+      "bytes": 2758
+    },
+    "assets/footprints.pretty/R28--00000000-0000-0000-0000-00005b191728.kicad_mod": {
+      "sha256": "23583e3bc0d5c80cfab4e4576ef9694b5b289550988799eb2d858ee89a8a575a",
+      "bytes": 2761
+    },
+    "assets/footprints.pretty/R29--00000000-0000-0000-0000-00005b191738.kicad_mod": {
+      "sha256": "f4e20bcffdd21a02eed374ff8fb1a7d100c78dbdcb42c6892a8b3f49d8922594",
+      "bytes": 2763
+    },
+    "assets/footprints.pretty/R3--00000000-0000-0000-0000-00005b191598.kicad_mod": {
+      "sha256": "47bd109a88595edb97fed40e81c21bb9091b0742a7f246a1ad75c1df0f8cda8d",
+      "bytes": 2768
+    },
+    "assets/footprints.pretty/R30--00000000-0000-0000-0000-00005b191748.kicad_mod": {
+      "sha256": "b4ab656600becfe3507cd425f9b3c698b7feada328a36d2152fdbc20b305dad4",
+      "bytes": 2762
+    },
+    "assets/footprints.pretty/R31--00000000-0000-0000-0000-00005f8d166c.kicad_mod": {
+      "sha256": "942e0083b318474955c4a377d8a61c999a089468d784c1e1730d3efcd29f827d",
+      "bytes": 2759
+    },
+    "assets/footprints.pretty/R32--00000000-0000-0000-0000-00005f8980c9.kicad_mod": {
+      "sha256": "2be9e088f299dec5aba997e0c1dbc797107a8fe5c3a9a0bf41b82c637b864128",
+      "bytes": 2765
+    },
+    "assets/footprints.pretty/R33--00000000-0000-0000-0000-00005b191778.kicad_mod": {
+      "sha256": "da1b243fec7440ec1dff8f7ca5f488ae5c8affc29f6df97c56c966c5bd1f2997",
+      "bytes": 2764
+    },
+    "assets/footprints.pretty/R34--00000000-0000-0000-0000-00005b8930bb.kicad_mod": {
+      "sha256": "6238bcf33b3b4e2b871603f6f80fed1cfc2dd5e82d2f114ab1541662481741ac",
+      "bytes": 2768
+    },
+    "assets/footprints.pretty/R35--00000000-0000-0000-0000-00005b191798.kicad_mod": {
+      "sha256": "7b405cf1e51658fcbb0a6fdead40b043fcce39af1907e853399f6649668a7dc8",
+      "bytes": 2763
+    },
+    "assets/footprints.pretty/R36--00000000-0000-0000-0000-00005aff1768.kicad_mod": {
+      "sha256": "fae075b6403f63a77c75faef14f21702f4339549cf0132e7fd1ee95c3e9cc742",
+      "bytes": 2707
+    },
+    "assets/footprints.pretty/R37--00000000-0000-0000-0000-00005b07006b.kicad_mod": {
+      "sha256": "89ec90fd48a438d7583878e6a28694101dc49325d355a297b3ddf1b449a15d83",
+      "bytes": 2708
+    },
+    "assets/footprints.pretty/R38--00000000-0000-0000-0000-00005b2677da.kicad_mod": {
+      "sha256": "abeeac119cf780f8e3c7721ed89620e533478ee8f8fdd23280d847bfc86a0913",
+      "bytes": 2756
+    },
+    "assets/footprints.pretty/R39--00000000-0000-0000-0000-00005b1917b8.kicad_mod": {
+      "sha256": "1e238ecfdd40d1c02e2ab1e9eb6f908eb5bac1e36f9bb6559a5ab08fa8ef9913",
+      "bytes": 2761
+    },
+    "assets/footprints.pretty/R4--00000000-0000-0000-0000-00005b1915a8.kicad_mod": {
+      "sha256": "6ae156de55a6e6c559fb9ee677403e9b0e53c98fa13ad4f85ffe3702cc6ffa51",
+      "bytes": 2763
+    },
+    "assets/footprints.pretty/R40--00000000-0000-0000-0000-00005b052c7b.kicad_mod": {
+      "sha256": "90f8ceaa001795710723eb7b5d5425e7c5daf747a0f8a0e835a768368a3fb139",
+      "bytes": 2765
+    },
+    "assets/footprints.pretty/R41--00000000-0000-0000-0000-00005afbf58a.kicad_mod": {
+      "sha256": "3f2761f6316cf5d62d81f9fbaface367349bbedef733543ced5bb4da39ad3865",
+      "bytes": 2705
+    },
+    "assets/footprints.pretty/R42--00000000-0000-0000-0000-00005afbf59a.kicad_mod": {
+      "sha256": "50058cd29137af6814591dfdfef9257c0d69a5115ea74e09a1a3558ead51ae58",
+      "bytes": 2718
+    },
+    "assets/footprints.pretty/R43--00000000-0000-0000-0000-00005afbf5aa.kicad_mod": {
+      "sha256": "85bee943d46be376b15b59a51a01b714277990d57b4c0ab27713ce6b4a88a5bb",
+      "bytes": 2718
+    },
+    "assets/footprints.pretty/R44--00000000-0000-0000-0000-00005afbf5ba.kicad_mod": {
+      "sha256": "f6d8ca58b3d9ba48784a3b54c729d854b7d57fb40285cc2efeb808b47284d4f1",
+      "bytes": 2718
+    },
+    "assets/footprints.pretty/R45--00000000-0000-0000-0000-00005afbf5ca.kicad_mod": {
+      "sha256": "3afc767065001c74e7a666a702060da9e8581311ae0527ef69a8eb8f2321eb20",
+      "bytes": 2718
+    },
+    "assets/footprints.pretty/R46--00000000-0000-0000-0000-00005afbf5da.kicad_mod": {
+      "sha256": "d26022099ace2c0e98058ea89a54174c82311996e23eceb89544d2aeb9dda3ae",
+      "bytes": 2718
+    },
+    "assets/footprints.pretty/R47--00000000-0000-0000-0000-00005afbf5ea.kicad_mod": {
+      "sha256": "428875e0c7fb6c9dac0b56c07feeeaa72af80fcb4b88e7c9fc4058dcf6ac5083",
+      "bytes": 2718
+    },
+    "assets/footprints.pretty/R48--00000000-0000-0000-0000-00005afde81f.kicad_mod": {
+      "sha256": "1c3f8f27265ed0e95a25aede1bd91ecdf814ed5ac08f58c50bc35e969ede27e8",
+      "bytes": 2705
+    },
+    "assets/footprints.pretty/R49--00000000-0000-0000-0000-00005b147213.kicad_mod": {
+      "sha256": "a18dff8b85d394ad620368e61c4c39976e7b2324fc435151ec9e7d9416e6903f",
+      "bytes": 2760
+    },
+    "assets/footprints.pretty/R5--00000000-0000-0000-0000-00005b1915b8.kicad_mod": {
+      "sha256": "c4000bb9221deb4b7b4ba6dbaa8e307326dec994c0e4ed9dcd8b305f298bc1af",
+      "bytes": 2763
+    },
+    "assets/footprints.pretty/R50--00000000-0000-0000-0000-00005b147223.kicad_mod": {
+      "sha256": "ccc054d64d651579f71b40e82cc6d8e0f62a3ae6909efc57c610c5fe9baa83e8",
+      "bytes": 2761
+    },
+    "assets/footprints.pretty/R51--00000000-0000-0000-0000-00005b147233.kicad_mod": {
+      "sha256": "768d8bae06bcb27d7b8fb53d3abbc5a5a36a42e67671565b916bd608bfd7fe3d",
+      "bytes": 2765
+    },
+    "assets/footprints.pretty/R52--00000000-0000-0000-0000-00005b147243.kicad_mod": {
+      "sha256": "1f8ea1a4351e309ab3769b2694e7cd27ede61fbac39d694f1f7b80376be7cf0d",
+      "bytes": 2762
+    },
+    "assets/footprints.pretty/R53--00000000-0000-0000-0000-00005b147253.kicad_mod": {
+      "sha256": "83827a9a32d9000954be568b779ad468c81b1b9249d61393f7b8bd751167f423",
+      "bytes": 2762
+    },
+    "assets/footprints.pretty/R54--00000000-0000-0000-0000-00005b147263.kicad_mod": {
+      "sha256": "6b2db664387f75ebc68a9250c7ffac23e3113eb761e1b8c982415f3948e3a4e0",
+      "bytes": 2760
+    },
+    "assets/footprints.pretty/R55--00000000-0000-0000-0000-00005f8c718d.kicad_mod": {
+      "sha256": "fef5baf60898d566f14f137a360025b3e7c850b87d5e2f9b67397fa0c4246e5f",
+      "bytes": 2843
+    },
+    "assets/footprints.pretty/R56--00000000-0000-0000-0000-000060aacebf.kicad_mod": {
+      "sha256": "cb72e4df902404e3af6e8a5aed95f7151f3d78c8d1deb30ffa1167c3547abf8d",
+      "bytes": 2826
+    },
+    "assets/footprints.pretty/R57--00000000-0000-0000-0000-00005b147293.kicad_mod": {
+      "sha256": "788b757fab68d6290b9fefc2d5601b44877bdcda33d5b16176747e8b8616d3bd",
+      "bytes": 2765
+    },
+    "assets/footprints.pretty/R58--00000000-0000-0000-0000-00005b1472a3.kicad_mod": {
+      "sha256": "a8ec557d7eefef9dcb852da5e0cb24f254440233779f536f7e2b483fbd8d9ed7",
+      "bytes": 2759
+    },
+    "assets/footprints.pretty/R59--00000000-0000-0000-0000-00005b1472b3.kicad_mod": {
+      "sha256": "502f0d588021136112cb141476f5b3460aacc11664b48398acb5ca0addbbf39e",
+      "bytes": 2758
+    },
+    "assets/footprints.pretty/R6--00000000-0000-0000-0000-00005b1915c8.kicad_mod": {
+      "sha256": "e05e221c1fbfa2575abe5012d6b3c3688f5b119e2038f8ae46f8f26b1c7ea858",
+      "bytes": 2763
+    },
+    "assets/footprints.pretty/R60--00000000-0000-0000-0000-00005b1472c3.kicad_mod": {
+      "sha256": "68fb2c131a3650b94c0f4186848dd2bc73638644c217b796ecde6e4e429507b2",
+      "bytes": 2759
+    },
+    "assets/footprints.pretty/R61--00000000-0000-0000-0000-00005b1472d3.kicad_mod": {
+      "sha256": "557ac9c221d6d683d0e16e4a1c13f5b7bf16f4214f924e14bf15c57876f3664f",
+      "bytes": 2759
+    },
+    "assets/footprints.pretty/R62--00000000-0000-0000-0000-00005f9e94bd.kicad_mod": {
+      "sha256": "ceb2c6e59f04b6787ddccabb28a3a4f0b2fdae183c29342c78da60082967bf4b",
+      "bytes": 2705
+    },
+    "assets/footprints.pretty/R63--00000000-0000-0000-0000-00005b1917c8.kicad_mod": {
+      "sha256": "31d0fa0767c9d081a2ac81c5f627880e770e187ec283eb6b128e12a94af57368",
+      "bytes": 2764
+    },
+    "assets/footprints.pretty/R64--00000000-0000-0000-0000-00005b1917d8.kicad_mod": {
+      "sha256": "484e0d838b7bf0152b1385ce6cc943f66a8a122fabc26fe07c43ad2e19b3ae5a",
+      "bytes": 2760
+    },
+    "assets/footprints.pretty/R65--00000000-0000-0000-0000-00005b1118b3.kicad_mod": {
+      "sha256": "b2bb60bddc530869af7cf618bb3cca083dce2a3ddf45811307e31086840b94b3",
+      "bytes": 2758
+    },
+    "assets/footprints.pretty/R66--00000000-0000-0000-0000-00005b274987.kicad_mod": {
+      "sha256": "9bdf186389e0b46a68557b497962b32a9e50f9184b7b233631535d7834c84abf",
+      "bytes": 2767
+    },
+    "assets/footprints.pretty/R67--00000000-0000-0000-0000-00005f8c5d10.kicad_mod": {
+      "sha256": "703cd6f9e04fc3e1c2844f3efeee9fcdf10286f67677e4a7735fd93e77955b17",
+      "bytes": 2779
+    },
+    "assets/footprints.pretty/R7--00000000-0000-0000-0000-00005b1915d8.kicad_mod": {
+      "sha256": "1bfd706a10154762571bd64a4500f0e98984c66525a3ff5711a95cf67a153ea0",
+      "bytes": 2751
+    },
+    "assets/footprints.pretty/R8--00000000-0000-0000-0000-00005b1915e8.kicad_mod": {
+      "sha256": "6ed95a3be27b855548812ecdde8343a455ae10eb175b106cd2c8122a38bac6ea",
+      "bytes": 2768
+    },
+    "assets/footprints.pretty/R9--00000000-0000-0000-0000-00005b0d6fdc.kicad_mod": {
+      "sha256": "03f9b38674551407fcba43160ca83813360162158446643f0be725fcc4632fa5",
+      "bytes": 2759
+    },
+    "assets/footprints.pretty/RA1--00000000-0000-0000-0000-00005b1917e8.kicad_mod": {
+      "sha256": "17ded3ce5c71f95e5a3cfae1b352b64361b429806ae189052cbf9ff8ce39bd3d",
+      "bytes": 2760
+    },
+    "assets/footprints.pretty/RA2--00000000-0000-0000-0000-00005b1917f8.kicad_mod": {
+      "sha256": "df97888cbaceb695b8c60d34d7a1b68098a86c2b33f2415eacb06a4ef5ec3446",
+      "bytes": 2759
+    },
+    "assets/footprints.pretty/RA3--00000000-0000-0000-0000-00005b191808.kicad_mod": {
+      "sha256": "78338747442fc5eb85e63b01be5753501704612ea5ec64872cb5cb9f2a863108",
+      "bytes": 2761
+    },
+    "assets/footprints.pretty/RB1--00000000-0000-0000-0000-00005b191818.kicad_mod": {
+      "sha256": "8f15ffbd3860411b5081b9e6a514a8013767b1e1443f0ed07c5e64e4b87b7f78",
+      "bytes": 2761
+    },
+    "assets/footprints.pretty/RB2--00000000-0000-0000-0000-00005b191828.kicad_mod": {
+      "sha256": "00d26f950bb0043d68b102f3f938913130dcb00e85e29f7c02f9d27f8f9a159a",
+      "bytes": 2761
+    },
+    "assets/footprints.pretty/RB3--00000000-0000-0000-0000-00005b191838.kicad_mod": {
+      "sha256": "29a1fd6a553c09c4c88ca3ed7404a4f7644a041438b4026c414088724f0b882c",
+      "bytes": 2766
+    },
+    "assets/footprints.pretty/REF__--00000000-0000-0000-0000-00005f8d43ad.kicad_mod": {
+      "sha256": "3f219e2cb6552da9311d7c8e460340a339bdf8d2775160f24c0e7ebfa99abbeb",
+      "bytes": 1087
+    },
+    "assets/footprints.pretty/RP1--00000000-0000-0000-0000-00005b550ce2.kicad_mod": {
+      "sha256": "0b86d34de9dbe60a248b50eb76a468bcac164ff9d3c61f12ec566f383b2a05b5",
+      "bytes": 2853
+    },
+    "assets/footprints.pretty/RP2--00000000-0000-0000-0000-00005b552fe6.kicad_mod": {
+      "sha256": "34ebed7463f67f739b6a3327ff74414911468546dbe63cf96447eb72dcc6fa63",
+      "bytes": 2860
+    },
+    "assets/footprints.pretty/RP3--00000000-0000-0000-0000-00005b550cf3.kicad_mod": {
+      "sha256": "cb15ee12b898e990e3a00340cf9c40127dbcbb58d6a044f043504eb3a6f7da45",
+      "bytes": 2854
+    },
+    "assets/footprints.pretty/RV2--00000000-0000-0000-0000-00005b22cbe2.kicad_mod": {
+      "sha256": "ad3b68cf28526c7571242cabd46c08f464fff698d89898240936964bfa776037",
+      "bytes": 2516
+    },
+    "assets/footprints.pretty/RV3--00000000-0000-0000-0000-00005b22cbf0.kicad_mod": {
+      "sha256": "159c3c8ed5fcb167c277f18345497bca1b26dd2601dff5554776aa31b3eaf632",
+      "bytes": 2444
+    },
+    "assets/footprints.pretty/SD1--00000000-0000-0000-0000-00005f88e826.kicad_mod": {
+      "sha256": "0f1120fcf9e8b8b9785084f40eedbc503eff40c7ffb2ab9839601503fb8c07a4",
+      "bytes": 6336
+    },
+    "assets/footprints.pretty/SW1--00000000-0000-0000-0000-00005b542784.kicad_mod": {
+      "sha256": "b56474c67b867c33b096a21c943576dcd842cd7c109b1fac8e14e96f465c0b04",
+      "bytes": 8078
+    },
+    "assets/footprints.pretty/U1--00000000-0000-0000-0000-000058d8d57e.kicad_mod": {
+      "sha256": "14b691bcc05e1c93fa1ae8aeb70361e646a4f4ffba255ebd4b9002ae0ba2160a",
+      "bytes": 63037
+    },
+    "assets/footprints.pretty/U10--00000000-0000-0000-0000-00005e9fdaa8.kicad_mod": {
+      "sha256": "8fe9a36f23368f5c551698162b7b7f981520522434585aaaa6b71fa92d616b45",
+      "bytes": 3713
+    },
+    "assets/footprints.pretty/U11--00000000-0000-0000-0000-00005b17ed8a.kicad_mod": {
+      "sha256": "50bd8a6f45ebf3010d3929c424c48dff61cd9d5e2ad1e3391f0c995f7e505c15",
+      "bytes": 3525
+    },
+    "assets/footprints.pretty/U2--00000000-0000-0000-0000-00005a111cac.kicad_mod": {
+      "sha256": "4ed2df0fe56cd3352814c0cc147e2037b8027359ed229124747f17de02deecc0",
+      "bytes": 8327
+    },
+    "assets/footprints.pretty/U3--00000000-0000-0000-0000-000058d5976e.kicad_mod": {
+      "sha256": "ed7680b154b707b86a770215c90bf43a4d1e756e78598473041f799ff08ff854",
+      "bytes": 2587
+    },
+    "assets/footprints.pretty/U4--00000000-0000-0000-0000-000058d599cd.kicad_mod": {
+      "sha256": "154a21a7ef8cdd350bbd66db32cfab9f777ce503efe9deead1ee0d562acae8cb",
+      "bytes": 2587
+    },
+    "assets/footprints.pretty/U5--00000000-0000-0000-0000-000058d66e99.kicad_mod": {
+      "sha256": "be2caa59b91f56ad2229ce6646b14a54143b0012bd570321f3cc3de8f96fbe52",
+      "bytes": 2591
+    },
+    "assets/footprints.pretty/U6--00000000-0000-0000-0000-00005f9e9207.kicad_mod": {
+      "sha256": "f76c02f25c56638410493a9cbfb74c08590bd022af1035d2a74a4a037d63ae46",
+      "bytes": 6172
+    },
+    "assets/footprints.pretty/U7--00000000-0000-0000-0000-00005a0babf2.kicad_mod": {
+      "sha256": "0b8596b4dac6387fd007385b4d46a1c26c44e36a50d2d2a8d4ce9e09a285ef83",
+      "bytes": 3512
+    },
+    "assets/footprints.pretty/U8--00000000-0000-0000-0000-00005ba5a627.kicad_mod": {
+      "sha256": "8080aaea30d0f7989ce99b8ba21f9dc0dbc57b6da66dc4a63b9de2845ca6cc34",
+      "bytes": 6730
+    },
+    "assets/footprints.pretty/U9--00000000-0000-0000-0000-000060ab149a.kicad_mod": {
+      "sha256": "574c7639b410580e8ce06604dda14e2502f41b3b516bc72e3a4468d0a8e2d697",
+      "bytes": 9003
+    },
+    "assets/footprints.pretty/US1--00000000-0000-0000-0000-00005b24abd3.kicad_mod": {
+      "sha256": "6d55383ebfaa89f701b8955810d8ffd737cb4b161baf1432c98bc33909e2b2ae",
+      "bytes": 4173
+    },
+    "assets/footprints.pretty/US2--00000000-0000-0000-0000-00005b24abf4.kicad_mod": {
+      "sha256": "969d867ac75ea0a8e889cb522f25b5e9db5497a3a18615feb5664b82b9cd9dfa",
+      "bytes": 4173
+    },
+    "assets/footprints.pretty/Y1--00000000-0000-0000-0000-00005b2837b5.kicad_mod": {
+      "sha256": "d70dc884e4a72ae1374587e57b5d60eef085ce5f7085275644138ba1a409f814",
+      "bytes": 3347
+    },
+    "assets/footprints.pretty/Y2--00000000-0000-0000-0000-0000618f0205.kicad_mod": {
+      "sha256": "e5b132104d0b40a90e47a267e74a17fe9b0be2126c487476ef79975f43f522c0",
+      "bytes": 3785
+    },
+    "assets/footprints.pretty/fer--00000000-0000-0000-0000-00005f8cf911.kicad_mod": {
+      "sha256": "49c0f648952c9061b11409924f89eef2ad153fbbce9116d75378c439ee2a895b",
+      "bytes": 2072
+    },
+    "assets/footprints.pretty/koncar--00000000-0000-0000-0000-00005f8d1f97.kicad_mod": {
+      "sha256": "928ab098de906d6339a150a11e8f5b918c8c7bf688194aa30eb273e725fa43e8",
+      "bytes": 7386
+    },
+    "assets/footprints.pretty/radiona--00000000-0000-0000-0000-00005f8cbeae.kicad_mod": {
+      "sha256": "dbdfcb43a31352cca59fb7052eb78a1da17bcbd99ddc27afeb82865b31b4e2c1",
+      "bytes": 5426
+    },
+    "context.json": {
+      "sha256": "4a32d07a6e3b4697295d5ef41c2568ee5deefb1ae1f510d85955b83b7ca8bf85",
+      "bytes": 780943
+    },
+    "source/LICENSE.md": {
+      "sha256": "cdaaa3f0c2d1dbb538844077fd7a1d9d43c890d0745b20d8aa0717b583d6af9f",
+      "bytes": 1214
+    },
+    "source/README.md": {
+      "sha256": "c43b15e70b04bc1dabb97335a6aa7666a4f27df1c26c35a364ce86d5e3cbc44b",
+      "bytes": 7318
+    },
+    "source/provenance.json": {
+      "sha256": "0dea8cdd5c847bed1cf54dc1c02bce68996859bb2ce46ca4a7a5c84e1ef70554",
+      "bytes": 973
+    },
+    "source/ulx3s.kicad_pcb": {
+      "sha256": "1172f7b0fc262422bab01c62fb4dc84f16d9f1ea8902dc6fe2da859bba9035fc",
+      "bytes": 4490683
+    },
+    "tools/extract.py": {
+      "sha256": "336207d52913c53a5c2208a471d821884709086a57db5cc2683f6092bc02267b",
+      "bytes": 9737
+    },
+    "tools/verify_native.py": {
+      "sha256": "5e88abe83b7d3c2e9a2cc16087c415bfd6275bfed18d471a11eedf0b6e42c1e6",
+      "bytes": 14164
+    },
+    "native-verification.json": {
+      "sha256": "25e84cd3213c284ff0c3a64dd5dabf28c4221e8b79aa4f1a3a5f6fcb2b3e26c6",
+      "bytes": 4514
+    }
+  }
+}

@@ -1,0 +1,1 @@
+specimen_id,utc,elapsed_s,axis,raw_force_value,raw_force_unit,calibrated_force_uN,blank_correction_uN,corrected_force_uN,upper_rim_x_um,upper_rim_y_um,upper_rim_z_um,lower_rim_x_um,lower_rim_y_um,lower_rim_z_um,tilt_deg,lower_temperature_C,upper_temperature_C,sensor_body_temperature_C,purge_state,image_ids,calibration_id,blank_id

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="760" viewBox="0 0 840 760"><rect width="100%" height="100%" fill="white"/><g font-family="Arial,sans-serif" fill="#12283c"><text x="36" y="35" font-size="23">Q1 | upper cap</text><text x="36" y="61" font-size="13">SolderShape Q1 | millimeters | QUOTE STAGE | vendor interfaces UNRELEASED</text><g transform="translate(36 70)"><svg
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   width="760.0"
+   height="440.0"
+
+>
+    <g transform="scale(128.30660557435692, -128.30660557435692)   translate(1.690808452627821,-1.3934441990555428)" stroke-width="0.007793830999764659"  fill="none">
+       <!-- hidden lines -->
+       <g  stroke="rgb(160,160,160)" fill="none" stroke-dasharray="0.007793830999764659,0.007793830999764659" >
+
+       </g>
+
+       <!-- solid lines -->
+       <g  stroke="rgb(0,0,0)" fill="none">
+			<path d="M-1.244861488278917,-1.4123349608597344 L-1.4569935226348814,-1.2898604737205754 " />
+			<path d="M-1.4569935226348814,-1.2898604737205754 L-1.4569935226348814,0.34313268813487685 " />
+			<path d="M0.1693520740941781,-0.5958383799320082 L-0.04277996026178616,-0.47336389279284924 " />
+			<path d="M-0.04277996026178619,-0.4733638927928492 L-0.04277996026178621,1.159629269062603 " />
+			<path d="M0.16935207409417805,1.0371547819234441 L-0.042779960261786217,1.159629269062603 " />
+			<path d="M0.1693520740941781,-0.5958383799320082 L0.16935207409417807,1.0371547819234441 " />
+			<path d="M-1.244861488278917,-1.4123349608597344 L0.1693520740941781,-0.595838379932008 " />
+			<path d="M-1.4569935226348814,-1.2898604737205754 L-0.042779960261786196,-0.47336389279284913 " />
+			<path d="M-1.4569935226348814,0.3431326881348768 L-0.042779960261786196,1.159629269062603 " />
+
+       </g>
+    </g>
+    
+</svg>
+</g><text x="36" y="510" font-size="15">Transparent fused silica 2.000 X x 2.000 Y x 0.300 Z.</text><text x="36" y="533" font-size="15">Island diameter 0.200 on underside; center 0.350 from free +X edge, centered Y.</text><text x="36" y="556" font-size="15">No opaque support or bond over the island. Hot bond extends X=-1.600 to -0.800 relative to pad.</text><text x="36" y="579" font-size="15">Thin-film process and complete contact-line observation require lab qualification.</text><text x="36" y="622" font-size="12">Source model.py + spec.json. Linear dimensions govern. Do not scale this drawing.</text></g></svg>

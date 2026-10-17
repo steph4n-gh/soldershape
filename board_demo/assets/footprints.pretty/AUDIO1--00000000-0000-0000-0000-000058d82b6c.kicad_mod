@@ -1,0 +1,321 @@
+(footprint "AUDIO1--00000000-0000-0000-0000-000058d82b6c"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(descr "CUI 6-pin audio jack SMT")
+	(tags "audio jack")
+	(property "Reference" "AUDIO1"
+		(at -3.560502 0.28335 270)
+		(layer "F.SilkS")
+		(effects
+			(font
+				(size 0.6096 0.6096)
+				(thickness 0.1524)
+			)
+		)
+	)
+	(property "Value" "JACK_TRS_6PINS"
+		(at 1.519498 0.28335 270)
+		(layer "F.SilkS")
+		(hide yes)
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(attr smd)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_line
+		(start -3.8 -5.4)
+		(end -3.8 -5.7)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start -3.8 -1.9)
+		(end -3.8 -2.8)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start -3 -1.9)
+		(end -3.8 -1.9)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start -3 3.7)
+		(end -3 -1.9)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start -3 7.9)
+		(end -3 6.9)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start -3 7.9)
+		(end 3 7.9)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start -2.5 -9.1)
+		(end -2.5 -8.1)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start 2.5 -9.1)
+		(end -2.5 -9.1)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start 2.5 -7.5)
+		(end 2.5 -9.1)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start 3 -7.5)
+		(end -2.2 -7.5)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start 3 -7.5)
+		(end 3 -6.2)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start 3 -3.8)
+		(end 3 -3.5)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start 3 -0.9)
+		(end 3 7.9)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start -3.8 -7.5)
+		(end -3.8 -1.9)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.Fab")
+	)
+	(fp_line
+		(start -3.8 -1.9)
+		(end -3 -1.9)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.Fab")
+	)
+	(fp_line
+		(start -3 -1.9)
+		(end -3 7.9)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.Fab")
+	)
+	(fp_line
+		(start -3 7.9)
+		(end 3 7.9)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.Fab")
+	)
+	(fp_line
+		(start -2.5 -9.1)
+		(end 2.5 -9.1)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.Fab")
+	)
+	(fp_line
+		(start -2.5 -7.5)
+		(end -2.5 -9.1)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.Fab")
+	)
+	(fp_line
+		(start 2.5 -9.1)
+		(end 2.5 -7.5)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.Fab")
+	)
+	(fp_line
+		(start 2.9 -7.5)
+		(end -3.8 -7.5)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.Fab")
+	)
+	(fp_line
+		(start 3 7.9)
+		(end 3 -7.5)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.Fab")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 0.1 90)
+		(layer "F.Fab")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "" np_thru_hole circle
+		(at 0 -3 270)
+		(size 1.7 1.7)
+		(drill 1.7)
+		(layers "*.Cu" "*.Mask" "F.SilkS")
+		(clearance 0.4)
+	)
+	(pad "" np_thru_hole circle
+		(at 0 4 270)
+		(size 1.7 1.7)
+		(drill 1.7)
+		(layers "*.Cu" "*.Mask" "F.SilkS")
+		(clearance 0.4)
+	)
+	(pad "1" smd rect
+		(at -3.8 -6.9 270)
+		(size 2 2.8)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(solder_paste_margin -0.127)
+	)
+	(pad "2" smd rect
+		(at -3.8 5.3 270)
+		(size 2.8 2.8)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(solder_paste_margin -0.127)
+	)
+	(pad "3" smd rect
+		(at 3.8 -2.2 270)
+		(size 2.2 2.8)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(solder_paste_margin -0.127)
+	)
+	(pad "4" smd rect
+		(at -3.8 -4.1 270)
+		(size 2.2 2.8)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(solder_paste_margin -0.127)
+	)
+	(pad "5" smd rect
+		(at 0.75 9.4 270)
+		(size 2.8 2.8)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(solder_paste_margin -0.127)
+	)
+	(pad "6" smd rect
+		(at 3.8 -5 270)
+		(size 2 2.8)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(solder_paste_margin -0.127)
+	)
+	(embedded_fonts no)
+	(model "${KIPRJMOD}/footprints/audio-jack/audio-jack.3dshapes/cui_sj_43516_smt_tr.wrl"
+		(offset
+			(xyz 0 7.5 2.6)
+		)
+		(scale
+			(xyz 0.3937 0.3937 0.3937)
+		)
+		(rotate
+			(xyz -90 0 -90)
+		)
+	)
+)

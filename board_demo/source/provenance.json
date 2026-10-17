@@ -1,0 +1,22 @@
+{
+  "repository": "https://github.com/emard/ulx3s",
+  "commit": "6a92cec6b177191c5b0f80e260013a1f8ec147dd",
+  "files": {
+    "ulx3s.kicad_pcb": {
+      "url": "https://raw.githubusercontent.com/emard/ulx3s/6a92cec6b177191c5b0f80e260013a1f8ec147dd/ulx3s.kicad_pcb",
+      "sha256": "1172f7b0fc262422bab01c62fb4dc84f16d9f1ea8902dc6fe2da859bba9035fc",
+      "bytes": 4490683
+    },
+    "LICENSE.md": {
+      "url": "https://raw.githubusercontent.com/emard/ulx3s/6a92cec6b177191c5b0f80e260013a1f8ec147dd/LICENSE.md",
+      "sha256": "cdaaa3f0c2d1dbb538844077fd7a1d9d43c890d0745b20d8aa0717b583d6af9f",
+      "bytes": 1214
+    },
+    "README.md": {
+      "url": "https://raw.githubusercontent.com/emard/ulx3s/6a92cec6b177191c5b0f80e260013a1f8ec147dd/README.md",
+      "sha256": "c43b15e70b04bc1dabb97335a6aa7666a4f27df1c26c35a364ce86d5e3cbc44b",
+      "bytes": 7318
+    }
+  },
+  "purpose": "Unmodified attributed board context; no manufacture or board-wide solder simulation."
+}

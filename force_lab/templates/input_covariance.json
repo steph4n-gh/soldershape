@@ -1,0 +1,2186 @@
+{
+  "kind": "standard_uncertainty_source_components",
+  "budget_complete": null,
+  "completeness_evidence": null,
+  "components": [
+    {
+      "id": "B1-x-40-P1-V7.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-40-P1-V7.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B1-x-40-P1-V7.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-40-P1-V7.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B1-x-40-P1-V7.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-40-P1-V7.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B1-x-40-P1-V7.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-40-P1-V7.offset_mm": 1
+      }
+    },
+    {
+      "id": "B1-x-40-P1-V7.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-40-P1-V7.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B1-x-40-P1-V5.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-40-P1-V5.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B1-x-40-P1-V5.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-40-P1-V5.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B1-x-40-P1-V5.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-40-P1-V5.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B1-x-40-P1-V5.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-40-P1-V5.offset_mm": 1
+      }
+    },
+    {
+      "id": "B1-x-40-P1-V5.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-40-P1-V5.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B1-x-40-P2-V5.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-40-P2-V5.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B1-x-40-P2-V5.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-40-P2-V5.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B1-x-40-P2-V5.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-40-P2-V5.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B1-x-40-P2-V5.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-40-P2-V5.offset_mm": 1
+      }
+    },
+    {
+      "id": "B1-x-40-P2-V5.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-40-P2-V5.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B1-x-40-P2-V7.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-40-P2-V7.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B1-x-40-P2-V7.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-40-P2-V7.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B1-x-40-P2-V7.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-40-P2-V7.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B1-x-40-P2-V7.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-40-P2-V7.offset_mm": 1
+      }
+    },
+    {
+      "id": "B1-x-40-P2-V7.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-40-P2-V7.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B1-x-120-P1-V7.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-120-P1-V7.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B1-x-120-P1-V7.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-120-P1-V7.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B1-x-120-P1-V7.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-120-P1-V7.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B1-x-120-P1-V7.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-120-P1-V7.offset_mm": 1
+      }
+    },
+    {
+      "id": "B1-x-120-P1-V7.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-120-P1-V7.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B1-x-120-P1-V5.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-120-P1-V5.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B1-x-120-P1-V5.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-120-P1-V5.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B1-x-120-P1-V5.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-120-P1-V5.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B1-x-120-P1-V5.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-120-P1-V5.offset_mm": 1
+      }
+    },
+    {
+      "id": "B1-x-120-P1-V5.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-120-P1-V5.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B1-x-120-P2-V5.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-120-P2-V5.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B1-x-120-P2-V5.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-120-P2-V5.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B1-x-120-P2-V5.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-120-P2-V5.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B1-x-120-P2-V5.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-120-P2-V5.offset_mm": 1
+      }
+    },
+    {
+      "id": "B1-x-120-P2-V5.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-120-P2-V5.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B1-x-120-P2-V7.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-120-P2-V7.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B1-x-120-P2-V7.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-120-P2-V7.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B1-x-120-P2-V7.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-120-P2-V7.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B1-x-120-P2-V7.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-120-P2-V7.offset_mm": 1
+      }
+    },
+    {
+      "id": "B1-x-120-P2-V7.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B1-x-120-P2-V7.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B1-z-40-P1-V5.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-40-P1-V5.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B1-z-40-P1-V5.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-40-P1-V5.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B1-z-40-P1-V5.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-40-P1-V5.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B1-z-40-P1-V5.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-40-P1-V5.offset_mm": 1
+      }
+    },
+    {
+      "id": "B1-z-40-P1-V5.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-40-P1-V5.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B1-z-40-P1-V7.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-40-P1-V7.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B1-z-40-P1-V7.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-40-P1-V7.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B1-z-40-P1-V7.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-40-P1-V7.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B1-z-40-P1-V7.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-40-P1-V7.offset_mm": 1
+      }
+    },
+    {
+      "id": "B1-z-40-P1-V7.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-40-P1-V7.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B1-z-40-P2-V7.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-40-P2-V7.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B1-z-40-P2-V7.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-40-P2-V7.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B1-z-40-P2-V7.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-40-P2-V7.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B1-z-40-P2-V7.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-40-P2-V7.offset_mm": 1
+      }
+    },
+    {
+      "id": "B1-z-40-P2-V7.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-40-P2-V7.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B1-z-40-P2-V5.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-40-P2-V5.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B1-z-40-P2-V5.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-40-P2-V5.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B1-z-40-P2-V5.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-40-P2-V5.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B1-z-40-P2-V5.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-40-P2-V5.offset_mm": 1
+      }
+    },
+    {
+      "id": "B1-z-40-P2-V5.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-40-P2-V5.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B1-z-120-P1-V5.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-120-P1-V5.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B1-z-120-P1-V5.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-120-P1-V5.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B1-z-120-P1-V5.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-120-P1-V5.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B1-z-120-P1-V5.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-120-P1-V5.offset_mm": 1
+      }
+    },
+    {
+      "id": "B1-z-120-P1-V5.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-120-P1-V5.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B1-z-120-P1-V7.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-120-P1-V7.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B1-z-120-P1-V7.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-120-P1-V7.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B1-z-120-P1-V7.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-120-P1-V7.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B1-z-120-P1-V7.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-120-P1-V7.offset_mm": 1
+      }
+    },
+    {
+      "id": "B1-z-120-P1-V7.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-120-P1-V7.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B1-z-120-P2-V7.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-120-P2-V7.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B1-z-120-P2-V7.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-120-P2-V7.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B1-z-120-P2-V7.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-120-P2-V7.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B1-z-120-P2-V7.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-120-P2-V7.offset_mm": 1
+      }
+    },
+    {
+      "id": "B1-z-120-P2-V7.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-120-P2-V7.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B1-z-120-P2-V5.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-120-P2-V5.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B1-z-120-P2-V5.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-120-P2-V5.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B1-z-120-P2-V5.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-120-P2-V5.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B1-z-120-P2-V5.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-120-P2-V5.offset_mm": 1
+      }
+    },
+    {
+      "id": "B1-z-120-P2-V5.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B1-z-120-P2-V5.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B2-x-40-P1-V5.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-40-P1-V5.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B2-x-40-P1-V5.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-40-P1-V5.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B2-x-40-P1-V5.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-40-P1-V5.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B2-x-40-P1-V5.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-40-P1-V5.offset_mm": 1
+      }
+    },
+    {
+      "id": "B2-x-40-P1-V5.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-40-P1-V5.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B2-x-40-P1-V7.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-40-P1-V7.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B2-x-40-P1-V7.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-40-P1-V7.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B2-x-40-P1-V7.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-40-P1-V7.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B2-x-40-P1-V7.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-40-P1-V7.offset_mm": 1
+      }
+    },
+    {
+      "id": "B2-x-40-P1-V7.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-40-P1-V7.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B2-x-40-P2-V7.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-40-P2-V7.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B2-x-40-P2-V7.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-40-P2-V7.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B2-x-40-P2-V7.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-40-P2-V7.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B2-x-40-P2-V7.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-40-P2-V7.offset_mm": 1
+      }
+    },
+    {
+      "id": "B2-x-40-P2-V7.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-40-P2-V7.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B2-x-40-P2-V5.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-40-P2-V5.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B2-x-40-P2-V5.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-40-P2-V5.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B2-x-40-P2-V5.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-40-P2-V5.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B2-x-40-P2-V5.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-40-P2-V5.offset_mm": 1
+      }
+    },
+    {
+      "id": "B2-x-40-P2-V5.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-40-P2-V5.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B2-x-120-P1-V5.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-120-P1-V5.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B2-x-120-P1-V5.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-120-P1-V5.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B2-x-120-P1-V5.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-120-P1-V5.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B2-x-120-P1-V5.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-120-P1-V5.offset_mm": 1
+      }
+    },
+    {
+      "id": "B2-x-120-P1-V5.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-120-P1-V5.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B2-x-120-P1-V7.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-120-P1-V7.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B2-x-120-P1-V7.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-120-P1-V7.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B2-x-120-P1-V7.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-120-P1-V7.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B2-x-120-P1-V7.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-120-P1-V7.offset_mm": 1
+      }
+    },
+    {
+      "id": "B2-x-120-P1-V7.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-120-P1-V7.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B2-x-120-P2-V7.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-120-P2-V7.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B2-x-120-P2-V7.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-120-P2-V7.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B2-x-120-P2-V7.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-120-P2-V7.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B2-x-120-P2-V7.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-120-P2-V7.offset_mm": 1
+      }
+    },
+    {
+      "id": "B2-x-120-P2-V7.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-120-P2-V7.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B2-x-120-P2-V5.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-120-P2-V5.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B2-x-120-P2-V5.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-120-P2-V5.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B2-x-120-P2-V5.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-120-P2-V5.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B2-x-120-P2-V5.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-120-P2-V5.offset_mm": 1
+      }
+    },
+    {
+      "id": "B2-x-120-P2-V5.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B2-x-120-P2-V5.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B2-z-40-P1-V7.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-40-P1-V7.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B2-z-40-P1-V7.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-40-P1-V7.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B2-z-40-P1-V7.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-40-P1-V7.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B2-z-40-P1-V7.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-40-P1-V7.offset_mm": 1
+      }
+    },
+    {
+      "id": "B2-z-40-P1-V7.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-40-P1-V7.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B2-z-40-P1-V5.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-40-P1-V5.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B2-z-40-P1-V5.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-40-P1-V5.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B2-z-40-P1-V5.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-40-P1-V5.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B2-z-40-P1-V5.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-40-P1-V5.offset_mm": 1
+      }
+    },
+    {
+      "id": "B2-z-40-P1-V5.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-40-P1-V5.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B2-z-40-P2-V5.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-40-P2-V5.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B2-z-40-P2-V5.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-40-P2-V5.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B2-z-40-P2-V5.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-40-P2-V5.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B2-z-40-P2-V5.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-40-P2-V5.offset_mm": 1
+      }
+    },
+    {
+      "id": "B2-z-40-P2-V5.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-40-P2-V5.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B2-z-40-P2-V7.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-40-P2-V7.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B2-z-40-P2-V7.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-40-P2-V7.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B2-z-40-P2-V7.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-40-P2-V7.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B2-z-40-P2-V7.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-40-P2-V7.offset_mm": 1
+      }
+    },
+    {
+      "id": "B2-z-40-P2-V7.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-40-P2-V7.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B2-z-120-P1-V7.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-120-P1-V7.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B2-z-120-P1-V7.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-120-P1-V7.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B2-z-120-P1-V7.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-120-P1-V7.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B2-z-120-P1-V7.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-120-P1-V7.offset_mm": 1
+      }
+    },
+    {
+      "id": "B2-z-120-P1-V7.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-120-P1-V7.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B2-z-120-P1-V5.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-120-P1-V5.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B2-z-120-P1-V5.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-120-P1-V5.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B2-z-120-P1-V5.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-120-P1-V5.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B2-z-120-P1-V5.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-120-P1-V5.offset_mm": 1
+      }
+    },
+    {
+      "id": "B2-z-120-P1-V5.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-120-P1-V5.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B2-z-120-P2-V5.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-120-P2-V5.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B2-z-120-P2-V5.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-120-P2-V5.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B2-z-120-P2-V5.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-120-P2-V5.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B2-z-120-P2-V5.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-120-P2-V5.offset_mm": 1
+      }
+    },
+    {
+      "id": "B2-z-120-P2-V5.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-120-P2-V5.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B2-z-120-P2-V7.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-120-P2-V7.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B2-z-120-P2-V7.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-120-P2-V7.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B2-z-120-P2-V7.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-120-P2-V7.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B2-z-120-P2-V7.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-120-P2-V7.offset_mm": 1
+      }
+    },
+    {
+      "id": "B2-z-120-P2-V7.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B2-z-120-P2-V7.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B3-x-40-P1-V7.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-40-P1-V7.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B3-x-40-P1-V7.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-40-P1-V7.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B3-x-40-P1-V7.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-40-P1-V7.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B3-x-40-P1-V7.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-40-P1-V7.offset_mm": 1
+      }
+    },
+    {
+      "id": "B3-x-40-P1-V7.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-40-P1-V7.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B3-x-40-P1-V5.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-40-P1-V5.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B3-x-40-P1-V5.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-40-P1-V5.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B3-x-40-P1-V5.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-40-P1-V5.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B3-x-40-P1-V5.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-40-P1-V5.offset_mm": 1
+      }
+    },
+    {
+      "id": "B3-x-40-P1-V5.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-40-P1-V5.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B3-x-40-P2-V5.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-40-P2-V5.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B3-x-40-P2-V5.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-40-P2-V5.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B3-x-40-P2-V5.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-40-P2-V5.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B3-x-40-P2-V5.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-40-P2-V5.offset_mm": 1
+      }
+    },
+    {
+      "id": "B3-x-40-P2-V5.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-40-P2-V5.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B3-x-40-P2-V7.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-40-P2-V7.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B3-x-40-P2-V7.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-40-P2-V7.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B3-x-40-P2-V7.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-40-P2-V7.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B3-x-40-P2-V7.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-40-P2-V7.offset_mm": 1
+      }
+    },
+    {
+      "id": "B3-x-40-P2-V7.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-40-P2-V7.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B3-x-120-P1-V7.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-120-P1-V7.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B3-x-120-P1-V7.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-120-P1-V7.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B3-x-120-P1-V7.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-120-P1-V7.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B3-x-120-P1-V7.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-120-P1-V7.offset_mm": 1
+      }
+    },
+    {
+      "id": "B3-x-120-P1-V7.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-120-P1-V7.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B3-x-120-P1-V5.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-120-P1-V5.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B3-x-120-P1-V5.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-120-P1-V5.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B3-x-120-P1-V5.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-120-P1-V5.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B3-x-120-P1-V5.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-120-P1-V5.offset_mm": 1
+      }
+    },
+    {
+      "id": "B3-x-120-P1-V5.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-120-P1-V5.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B3-x-120-P2-V5.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-120-P2-V5.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B3-x-120-P2-V5.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-120-P2-V5.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B3-x-120-P2-V5.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-120-P2-V5.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B3-x-120-P2-V5.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-120-P2-V5.offset_mm": 1
+      }
+    },
+    {
+      "id": "B3-x-120-P2-V5.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-120-P2-V5.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B3-x-120-P2-V7.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-120-P2-V7.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B3-x-120-P2-V7.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-120-P2-V7.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B3-x-120-P2-V7.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-120-P2-V7.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B3-x-120-P2-V7.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-120-P2-V7.offset_mm": 1
+      }
+    },
+    {
+      "id": "B3-x-120-P2-V7.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B3-x-120-P2-V7.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B3-z-40-P1-V5.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-40-P1-V5.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B3-z-40-P1-V5.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-40-P1-V5.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B3-z-40-P1-V5.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-40-P1-V5.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B3-z-40-P1-V5.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-40-P1-V5.offset_mm": 1
+      }
+    },
+    {
+      "id": "B3-z-40-P1-V5.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-40-P1-V5.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B3-z-40-P1-V7.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-40-P1-V7.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B3-z-40-P1-V7.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-40-P1-V7.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B3-z-40-P1-V7.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-40-P1-V7.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B3-z-40-P1-V7.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-40-P1-V7.offset_mm": 1
+      }
+    },
+    {
+      "id": "B3-z-40-P1-V7.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-40-P1-V7.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B3-z-40-P2-V7.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-40-P2-V7.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B3-z-40-P2-V7.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-40-P2-V7.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B3-z-40-P2-V7.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-40-P2-V7.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B3-z-40-P2-V7.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-40-P2-V7.offset_mm": 1
+      }
+    },
+    {
+      "id": "B3-z-40-P2-V7.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-40-P2-V7.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B3-z-40-P2-V5.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-40-P2-V5.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B3-z-40-P2-V5.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-40-P2-V5.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B3-z-40-P2-V5.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-40-P2-V5.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B3-z-40-P2-V5.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-40-P2-V5.offset_mm": 1
+      }
+    },
+    {
+      "id": "B3-z-40-P2-V5.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-40-P2-V5.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B3-z-120-P1-V5.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-120-P1-V5.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B3-z-120-P1-V5.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-120-P1-V5.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B3-z-120-P1-V5.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-120-P1-V5.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B3-z-120-P1-V5.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-120-P1-V5.offset_mm": 1
+      }
+    },
+    {
+      "id": "B3-z-120-P1-V5.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-120-P1-V5.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B3-z-120-P1-V7.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-120-P1-V7.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B3-z-120-P1-V7.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-120-P1-V7.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B3-z-120-P1-V7.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-120-P1-V7.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B3-z-120-P1-V7.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-120-P1-V7.offset_mm": 1
+      }
+    },
+    {
+      "id": "B3-z-120-P1-V7.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-120-P1-V7.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B3-z-120-P2-V7.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-120-P2-V7.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B3-z-120-P2-V7.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-120-P2-V7.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B3-z-120-P2-V7.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-120-P2-V7.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B3-z-120-P2-V7.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-120-P2-V7.offset_mm": 1
+      }
+    },
+    {
+      "id": "B3-z-120-P2-V7.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-120-P2-V7.volume_mm3": 1
+      }
+    },
+    {
+      "id": "B3-z-120-P2-V5.lower_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-120-P2-V5.lower_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B3-z-120-P2-V5.upper_diameter_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-120-P2-V5.upper_diameter_mm": 1
+      }
+    },
+    {
+      "id": "B3-z-120-P2-V5.standoff_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-120-P2-V5.standoff_mm": 1
+      }
+    },
+    {
+      "id": "B3-z-120-P2-V5.offset_mm",
+      "standard_u": null,
+      "source_unit": "mm",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-120-P2-V5.offset_mm": 1
+      }
+    },
+    {
+      "id": "B3-z-120-P2-V5.volume_mm3",
+      "standard_u": null,
+      "source_unit": "mm3",
+      "evidence": null,
+      "coefficients": {
+        "B3-z-120-P2-V5.volume_mm3": 1
+      }
+    },
+    {
+      "id": "metadata.surface_tension_n_m",
+      "standard_u": null,
+      "source_unit": "N/m",
+      "evidence": null,
+      "coefficients": {
+        "metadata.surface_tension_n_m": 1
+      }
+    },
+    {
+      "id": "metadata.density_g_cm3",
+      "standard_u": null,
+      "source_unit": "g/cm3",
+      "evidence": null,
+      "coefficients": {
+        "metadata.density_g_cm3": 1
+      }
+    }
+  ],
+  "instructions": "Each independent physical source has one ID, source unit, standard uncertainty and signed coefficients. Use the same ID, unit and standard uncertainty in calibration.json when that source also affects corrected force. Coefficients convert source units into each affected variable's units. Replace independent entries when sharing is known. Unknown covariance is not independence."
+}

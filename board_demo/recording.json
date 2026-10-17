@@ -1,0 +1,14 @@
+{
+  "archive_sha256": "1b87dca00de964b62cce902e071dad063b2f935f79d340817ff9e810bfff9604",
+  "calculation_code_sha256": {
+    "__main__.py": "11af7bf08d57050da7343f4e4766512e45e7e9636b189e197a35e4943e98f5b5",
+    "artifacts.py": "091b86a66e020cbc35d946d176f5997676bf91f8547502b918d791f1d75a3b55",
+    "board.py": "8779e75f73052a7dcf394df934d373791c9fc82675e398c22e2dfc5e781573ae",
+    "demo.py": "f072e5574871dd11cb07a8aa6e799d665dc881f80318c99addf4dfab53fe8f92",
+    "model.py": "543720e8a6999896410aaf22651846c71b4f4736923ffe0ada0767ce35619657",
+    "solver.py": "c7bcfcc2c5f24e6e783540b3fcabc45a8d15308ded887aca2ae41442ddf4c8a6"
+  },
+  "physical_qualification": "unqualified",
+  "recording_method": "Two fresh native calculations at the actual selected 400 micrometer copper pad with hypothetical process inputs.",
+  "schema": "soldershape.board-recording.v1"
+}

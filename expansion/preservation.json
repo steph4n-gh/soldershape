@@ -1,0 +1,27 @@
+[
+  {
+    "path": "soldershape/model.py",
+    "sha256": "543720e8a6999896410aaf22651846c71b4f4736923ffe0ada0767ce35619657",
+    "unchanged": true
+  },
+  {
+    "path": "soldershape/solver.py",
+    "sha256": "c7bcfcc2c5f24e6e783540b3fcabc45a8d15308ded887aca2ae41442ddf4c8a6",
+    "unchanged": true
+  },
+  {
+    "path": "demo/data/stress-cases.zip",
+    "sha256": "914ef334f8850be64a1c5b325647c1d9bc6adf6acfdcac6a3d04920bd4f27f24",
+    "unchanged": true
+  },
+  {
+    "path": "output/soldershape-coupon-r1.zip",
+    "sha256": "08d54302986bdf12efd7553212f62480f1c3877892a55342b16e33b0d60ef9ef",
+    "unchanged": true
+  },
+  {
+    "path": "output/soldershape-coupon-r1-refined.zip",
+    "sha256": "f20c7e9cb70bb400c3ad2a6fbb97c088757a39f5ecdd9db3f6bf4683e16bb1ea",
+    "unchanged": true
+  }
+]

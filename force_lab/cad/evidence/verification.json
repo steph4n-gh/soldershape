@@ -1,0 +1,263 @@
+{
+  "schema": "soldershape.fixture-verification.v1",
+  "status": "digital geometry verified; quote stage; physical integration not accepted",
+  "spec_sha256": "a16ba57d416b4e5881522dd7b3ff62d5c9134e69ddeb257af1b99f005029ca36",
+  "manifest_sha256": "a547d1f5e4bb1e599eb99d7dfc3cf46d18355f0a5eaf60fb8d30bf22197872ff",
+  "verifier_sha256": "a5e7aa851ae5f8fbf5b2858cb4d4816b91535f80cbced70b8525e4d92266019f",
+  "configurations": [
+    {
+      "configuration": "x-040um",
+      "neutral_solids": 15,
+      "neutral_volume_mm3": 90944.49405977248,
+      "neutral_bbox_mm": [
+        -60.0,
+        -40.0,
+        -31.3005,
+        20.0,
+        40.0,
+        36.6995
+      ],
+      "unintended_intersections": [],
+      "minimum_upper_to_fixed_clearance_mm": 0.15,
+      "wet_face_gap_mm": 0.15,
+      "pad_offset_mm": 0.04,
+      "external_optical_aperture_mm": 8.0,
+      "datums": {
+        "upper_pad_xyz": [
+          0.04,
+          0,
+          0.15
+        ],
+        "lower_pad_xyz": [
+          0,
+          0,
+          0.0
+        ],
+        "cap_top_z": 0.4505,
+        "rod_center_z": 1.0005000000000002,
+        "rod_start_x": -20.76,
+        "rod_end_x": -0.76,
+        "base_top_z": -23.3005,
+        "thermal_top_z": -0.30049999999999993,
+        "axis": "x",
+        "offset_mm": 0.04
+      }
+    },
+    {
+      "configuration": "x-120um",
+      "neutral_solids": 15,
+      "neutral_volume_mm3": 90944.49405977248,
+      "neutral_bbox_mm": [
+        -60.0,
+        -40.0,
+        -31.3005,
+        20.0,
+        40.0,
+        36.6995
+      ],
+      "unintended_intersections": [],
+      "minimum_upper_to_fixed_clearance_mm": 0.15,
+      "wet_face_gap_mm": 0.15,
+      "pad_offset_mm": 0.12,
+      "external_optical_aperture_mm": 8.0,
+      "datums": {
+        "upper_pad_xyz": [
+          0.12,
+          0,
+          0.15
+        ],
+        "lower_pad_xyz": [
+          0,
+          0,
+          0.0
+        ],
+        "cap_top_z": 0.4505,
+        "rod_center_z": 1.0005000000000002,
+        "rod_start_x": -20.68,
+        "rod_end_x": -0.68,
+        "base_top_z": -23.3005,
+        "thermal_top_z": -0.30049999999999993,
+        "axis": "x",
+        "offset_mm": 0.12
+      }
+    },
+    {
+      "configuration": "z-040um",
+      "neutral_solids": 15,
+      "neutral_volume_mm3": 90944.49405977255,
+      "neutral_bbox_mm": [
+        -60.0,
+        -40.0,
+        -31.3005,
+        20.0,
+        40.0,
+        36.6995
+      ],
+      "unintended_intersections": [],
+      "minimum_upper_to_fixed_clearance_mm": 0.15,
+      "wet_face_gap_mm": 0.15,
+      "pad_offset_mm": 0.04,
+      "external_optical_aperture_mm": 8.0,
+      "datums": {
+        "upper_pad_xyz": [
+          0.04,
+          0,
+          0.15
+        ],
+        "lower_pad_xyz": [
+          0,
+          0,
+          0.0
+        ],
+        "cap_top_z": 0.4505,
+        "rod_center_z": 1.0005000000000002,
+        "rod_start_x": -20.76,
+        "rod_end_x": -0.76,
+        "base_top_z": -23.3005,
+        "thermal_top_z": -0.30049999999999993,
+        "axis": "z",
+        "offset_mm": 0.04
+      }
+    },
+    {
+      "configuration": "z-120um",
+      "neutral_solids": 15,
+      "neutral_volume_mm3": 90944.49405977255,
+      "neutral_bbox_mm": [
+        -60.0,
+        -40.0,
+        -31.3005,
+        20.0,
+        40.0,
+        36.6995
+      ],
+      "unintended_intersections": [],
+      "minimum_upper_to_fixed_clearance_mm": 0.15,
+      "wet_face_gap_mm": 0.15,
+      "pad_offset_mm": 0.12,
+      "external_optical_aperture_mm": 8.0,
+      "datums": {
+        "upper_pad_xyz": [
+          0.12,
+          0,
+          0.15
+        ],
+        "lower_pad_xyz": [
+          0,
+          0,
+          0.0
+        ],
+        "cap_top_z": 0.4505,
+        "rod_center_z": 1.0005000000000002,
+        "rod_start_x": -20.68,
+        "rod_end_x": -0.68,
+        "base_top_z": -23.3005,
+        "thermal_top_z": -0.30049999999999993,
+        "axis": "z",
+        "offset_mm": 0.12
+      }
+    }
+  ],
+  "neutral_part_count": 16,
+  "independently_read_base_holes_xyz_radius_mm": [
+    [
+      -49.99999999999985,
+      -30.0,
+      2.25
+    ],
+    [
+      -49.99999999999985,
+      30.0,
+      2.25
+    ],
+    [
+      -39.99999999999989,
+      -10.0,
+      1.65
+    ],
+    [
+      -39.99999999999989,
+      10.0,
+      1.65
+    ],
+    [
+      -19.99999999999992,
+      -4.0,
+      1.25
+    ],
+    [
+      -19.99999999999992,
+      4.0,
+      1.25
+    ],
+    [
+      -12.999999999999918,
+      -4.0,
+      1.25
+    ],
+    [
+      -12.999999999999918,
+      4.0,
+      1.25
+    ],
+    [
+      10.000000000000147,
+      -30.0,
+      2.25
+    ],
+    [
+      10.000000000000147,
+      30.0,
+      2.25
+    ]
+  ],
+  "independently_read_pocket_bounds_mm": [
+    -5.1,
+    -5.1,
+    -0.5005,
+    5.1,
+    5.1,
+    -0.5005
+  ],
+  "load_path": [
+    "upper_island",
+    "upper_cap",
+    "hot_bond",
+    "stalk",
+    "cool_bond",
+    "cool_tab",
+    "UNRESOLVED supplier-approved sensor attachment"
+  ],
+  "modeled_moving_mass_mg": 40.39420566439091,
+  "moving_part_masses_mg": {
+    "upper_cap": 2.6412,
+    "upper_island": 0.00030316369107141516,
+    "stalk": 34.57322715275568,
+    "hot_bond": 0.10335034794415626,
+    "cool_tab": 2.476125,
+    "cool_bond": 0.5999999999999999
+  },
+  "unallocated_tip_attachment_mass_to_100mg_target_mg": 59.60579433560909,
+  "modeled_deadweight_uN": 396.1318369786991,
+  "modeled_gravity_moment_at_tab_uNm": 4.3897705977948815,
+  "reference_joint_force_uN": 124.0,
+  "reference_normal_joint_moment_at_tab_uNm": 2.734200000000001,
+  "worst_sum_gravity_and_reference_normal_moment_uNm": 7.123970597794882,
+  "rod_only_transverse_stiffness_N_m": 1334.5632854605078,
+  "rod_only_reference_deflection_um": 0.09291428990361611,
+  "rod_uniform_200K_expansion_um": 1.88,
+  "tilt_envelope_deg": 0.1,
+  "lower_bound_cap_to_lower_plane_under_tilt_mm": 0.14712020819626778,
+  "lower_bound_rod_to_shield_under_tilt_mm": 1.460730111767288,
+  "continuous_offset_sweep_mm": [
+    0.04,
+    0.12
+  ],
+  "sweep_argument": "All moving parts translate only in X. Rod aperture cross-section is constant along X; cap remains above lower plane, and no other fixed body overlaps its swept bounds. Tilt bounds subtract the maximum entire-carrier displacement from radial aperture clearance.",
+  "limitations": [
+    "Sensor head, tip attachment, calibrated stiffness, total moments, cross loads, body temperature, both index orientations and overload margin require supplier acceptance.",
+    "Coarse/fine stage, chamber, heater, purge, vacuum and electrical interfaces require lab drawings. Internal fixture holes are not vendor patterns.",
+    "Stalk/cap/tab bonds and thin-film wettable island plus nonwetting surround require process qualification.",
+    "A lab must demonstrate actual hot rim registration, full contact-line visibility, stable pinning and no parasitic upper load path."
+  ]
+}

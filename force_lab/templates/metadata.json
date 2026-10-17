@@ -1,0 +1,31 @@
+{
+  "lab": null,
+  "alloy": null,
+  "atmosphere": null,
+  "oxide_removal": null,
+  "temperature_C": null,
+  "temperature_U_C": null,
+  "liquidus_C": null,
+  "coverage_factor": null,
+  "coverage_justification": null,
+  "process_evidence": null,
+  "independent_input_evidence": null,
+  "hot_commissioning_evidence": null,
+  "sign_calibration_evidence": null,
+  "contact_line_method_evidence": null,
+  "input_observed_at_utc": null,
+  "cross_domain_independence_evidence": null,
+  "surface_tension_n_m": {
+    "value": null,
+    "evidence": null
+  },
+  "density_g_cm3": {
+    "value": null,
+    "evidence": null
+  },
+  "commissioning_passed": null,
+  "inputs_independent_of_forces": null,
+  "unlinked_sources_independent": null,
+  "gravity_orientation": "horizontal pads; gravity is -z",
+  "interface": "solder/gas; pinned circular rims"
+}

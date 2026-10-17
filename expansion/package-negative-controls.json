@@ -1,0 +1,17 @@
+[
+  {
+    "control": "missing-member",
+    "rejected": true,
+    "reason": "Package member set differs from its manifest."
+  },
+  {
+    "control": "false-validation",
+    "rejected": true,
+    "reason": "Only an explicitly unqualified quotation package is supported."
+  },
+  {
+    "control": "empty-sealed-package",
+    "rejected": true,
+    "reason": "The quotation package is incomplete."
+  }
+]

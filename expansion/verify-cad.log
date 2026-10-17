@@ -1,0 +1,12 @@
+{
+  "status": "digital geometry verified; quote stage; physical integration not accepted",
+  "neutral_part_count": 16,
+  "modeled_moving_mass_mg": 40.39420566439091,
+  "modeled_deadweight_uN": 396.1318369786991,
+  "modeled_gravity_moment_at_tab_uNm": 4.3897705977948815,
+  "worst_sum_gravity_and_reference_normal_moment_uNm": 7.123970597794882,
+  "rod_only_transverse_stiffness_N_m": 1334.5632854605078,
+  "rod_only_reference_deflection_um": 0.09291428990361611,
+  "lower_bound_cap_to_lower_plane_under_tilt_mm": 0.14712020819626778,
+  "lower_bound_rod_to_shield_under_tilt_mm": 1.460730111767288
+}

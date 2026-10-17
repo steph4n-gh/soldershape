@@ -1,0 +1,667 @@
+(footprint "BAT1--00000000-0000-0000-0000-000058d7add9"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(descr "http://www.keyelco.com/product-pdf.cfm?p=777")
+	(tags "Keystone type 3000 coin cell retainer")
+	(property "Reference" "BAT1"
+		(at -0.907 12.685 90)
+		(layer "F.SilkS")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "CR1225"
+		(at 0 7.5 180)
+		(layer "F.Fab")
+		(hide yes)
+		(effects
+			(font
+				(size 0.5 0.5)
+				(thickness 0.125)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 180)
+		(layer "B.Fab")
+		(hide yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify mirror)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 180)
+		(layer "B.Fab")
+		(hide yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify mirror)
+		)
+	)
+	(attr smd)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_line
+		(start -5.2 -2.9)
+		(end -5.2 -1.9)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start -5.2 1.9)
+		(end -5.2 2.9)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start -3.6 -8.2)
+		(end -2.6 -8.2)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start -3.1 -8.7)
+		(end -3.1 -7.7)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start -2 -6.75)
+		(end -4.1 -6.75)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start -2 6.75)
+		(end -4.1 6.75)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start 2 -6.75)
+		(end 3.45 -6.75)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start 2.6 8.2)
+		(end 3.6 8.2)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start 3.1 7.7)
+		(end 3.1 8.7)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start 3.45 -6.75)
+		(end 6.05 -4.15)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start 3.45 6.75)
+		(end 2 6.75)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start 6.05 -4.15)
+		(end 6.85 -4.15)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start 6.05 4.15)
+		(end 3.45 6.75)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start 6.85 -4.15)
+		(end 6.85 4.15)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start 6.85 4.15)
+		(end 6.05 4.15)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_arc
+		(start -5.6 -5.3)
+		(mid -5.125305 -6.346016)
+		(end -4.05 -6.75)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_arc
+		(start -5.58416 5.414615)
+		(mid -5.514615 4.90584)
+		(end -5.2 4.5)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_arc
+		(start -5.2 -4.5)
+		(mid -5.514615 -4.90584)
+		(end -5.58416 -5.414615)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_arc
+		(start -5.2 -4.5)
+		(mid -4.389968 -3.687765)
+		(end -3.754793 -2.732553)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_arc
+		(start -4.05 6.75)
+		(mid -5.125305 6.346016)
+		(end -5.6 5.3)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_arc
+		(start -3.8 2.8)
+		(mid -4.421478 3.713871)
+		(end -5.204552 4.493736)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_circle
+		(center -5.2 -2.4)
+		(end -4.4 -2.4)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.SilkS")
+	)
+	(fp_circle
+		(center -5.2 2.4)
+		(end -4.4 2.4)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.SilkS")
+	)
+	(fp_circle
+		(center -3.1 -8.2)
+		(end -2.3 -8.2)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.SilkS")
+	)
+	(fp_circle
+		(center 3.1 8.2)
+		(end 3.9 8.2)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start -2.15 -10.15)
+		(end -2.15 -7.25)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+	)
+	(fp_line
+		(start -2.15 -7.25)
+		(end -4.1 -7.25)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+	)
+	(fp_line
+		(start -2.15 7.25)
+		(end -4.1 7.25)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+	)
+	(fp_line
+		(start -2.15 10.15)
+		(end -2.15 7.25)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+	)
+	(fp_line
+		(start 2.15 -10.15)
+		(end -2.15 -10.15)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+	)
+	(fp_line
+		(start 2.15 -7.25)
+		(end 2.15 -10.15)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+	)
+	(fp_line
+		(start 2.15 -7.25)
+		(end 3.8 -7.25)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+	)
+	(fp_line
+		(start 2.15 7.25)
+		(end 2.15 10.15)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+	)
+	(fp_line
+		(start 2.15 7.25)
+		(end 3.8 7.25)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+	)
+	(fp_line
+		(start 2.15 10.15)
+		(end -2.15 10.15)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+	)
+	(fp_line
+		(start 3.8 -7.25)
+		(end 6.4 -4.65)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+	)
+	(fp_line
+		(start 3.8 7.25)
+		(end 6.4 4.65)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+	)
+	(fp_line
+		(start 6.4 -4.65)
+		(end 7.35 -4.65)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+	)
+	(fp_line
+		(start 6.4 4.65)
+		(end 7.35 4.65)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+	)
+	(fp_line
+		(start 7.35 -4.65)
+		(end 7.35 4.65)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+	)
+	(fp_arc
+		(start -6.75 0)
+		(mid -6.40882 -2.11885)
+		(end -5.41977 -4.023505)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+	)
+	(fp_arc
+		(start -6.1 -5.3)
+		(mid -5.496866 -6.682224)
+		(end -4.1 -7.250625)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+	)
+	(fp_arc
+		(start -6.0991 5.299994)
+		(mid -5.984223 4.714391)
+		(end -5.65 4.22)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+	)
+	(fp_arc
+		(start -5.65 -4.22)
+		(mid -5.984224 -4.714391)
+		(end -6.0991 -5.299994)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+	)
+	(fp_arc
+		(start -5.65 -4.22)
+		(mid -5.534157 -4.123743)
+		(end -5.42096 -4.024388)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+	)
+	(fp_arc
+		(start -5.425503 4.017714)
+		(mid -5.536336 4.120428)
+		(end -5.65 4.22)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+	)
+	(fp_arc
+		(start -5.424574 4.017026)
+		(mid -6.410085 2.115021)
+		(end -6.75 0)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+	)
+	(fp_arc
+		(start -4.1 7.250625)
+		(mid -5.496866 6.682224)
+		(end -6.1 5.3)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+	)
+	(fp_line
+		(start 3.4 -6.6)
+		(end -4.1 -6.6)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+	)
+	(fp_line
+		(start 3.4 6.6)
+		(end -4.1 6.6)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+	)
+	(fp_line
+		(start 6 -4)
+		(end 3.4 -6.6)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+	)
+	(fp_line
+		(start 6 4)
+		(end 3.4 6.6)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+	)
+	(fp_line
+		(start 6.7 -4)
+		(end 6 -4)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+	)
+	(fp_line
+		(start 6.7 -4)
+		(end 6.7 4)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+	)
+	(fp_line
+		(start 6.7 4)
+		(end 6 4)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+	)
+	(fp_arc
+		(start -5.45 -5.3)
+		(mid -5.019239 -6.239949)
+		(end -4.05 -6.6)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+	)
+	(fp_arc
+		(start -5.447558 5.378013)
+		(mid -5.378013 4.942443)
+		(end -5.1 4.6)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+	)
+	(fp_arc
+		(start -5.1 -4.6)
+		(mid -5.378013 -4.942442)
+		(end -5.447558 -5.378013)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+	)
+	(fp_arc
+		(start -5.1 -4.6)
+		(mid -2.933429 0.006214)
+		(end -5.109589 4.607905)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+	)
+	(fp_arc
+		(start -4.05 6.6)
+		(mid -5.019238 6.239949)
+		(end -5.45 5.3)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+	)
+	(fp_circle
+		(center 0 0)
+		(end -6.25 0)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.Fab")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 0 -90)
+		(layer "F.Fab")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" smd rect
+		(at 0 -7.9 270)
+		(size 3.7 3.5)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(solder_paste_margin -0.2)
+		(clearance 0.7)
+	)
+	(pad "1" smd rect
+		(at 0 7.9 270)
+		(size 3.7 3.5)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(solder_paste_margin -0.2)
+		(clearance 0.7)
+	)
+	(pad "2" smd circle
+		(at 0 0 270)
+		(size 9 9)
+		(layers "F.Cu" "F.Mask")
+	)
+	(embedded_fonts no)
+	(model "${KIPRJMOD}/footprints/battery/keystone3000tr.3dshapes/keystone3000tr.wrl"
+		(offset
+			(xyz 0 0 3)
+		)
+		(scale
+			(xyz 0.3931 0.3931 0.3931)
+		)
+		(rotate
+			(xyz -90 0 -90)
+		)
+	)
+)

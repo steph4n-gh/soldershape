@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="760" viewBox="0 0 840 760"><rect width="100%" height="100%" fill="white"/><g font-family="Arial,sans-serif" fill="#12283c"><text x="36" y="35" font-size="23">Q1 | cool tab</text><text x="36" y="61" font-size="13">SolderShape Q1 | millimeters | QUOTE STAGE | vendor interfaces UNRELEASED</text><g transform="translate(36 70)"><svg
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   width="760.0"
+   height="440.0"
+
+>
+    <g transform="scale(139.36751984800844, -139.36751984800844)   translate(16.98111352484095,7.463688029962724)" stroke-width="0.007175272983910318"  fill="none">
+       <!-- hidden lines -->
+       <g  stroke="rgb(160,160,160)" fill="none" stroke-dasharray="0.007175272983910318,0.007175272983910318" >
+
+       </g>
+
+       <!-- solid lines -->
+       <g  stroke="rgb(0,0,0)" fill="none">
+			<path d="M-16.553723300967675,-10.046786304170439 L-16.76585533532364,-9.92431181703128 " />
+			<path d="M-16.76585533532364,-9.924311817031281 L-16.76585533532364,-8.699566945639692 " />
+			<path d="M-14.785956348001305,-9.026165578010781 L-14.998088382357269,-8.903691090871622 " />
+			<path d="M-14.998088382357269,-8.903691090871623 L-14.998088382357269,-7.678946219480034 " />
+			<path d="M-14.785956348001305,-7.801420706619193 L-14.998088382357269,-7.678946219480034 " />
+			<path d="M-14.785956348001305,-9.026165578010781 L-14.785956348001305,-7.801420706619192 " />
+			<path d="M-16.553723300967675,-10.046786304170439 L-14.785956348001307,-9.026165578010781 " />
+			<path d="M-16.76585533532364,-9.924311817031281 L-14.99808838235727,-8.903691090871623 " />
+			<path d="M-16.76585533532364,-8.699566945639694 L-14.99808838235727,-7.678946219480036 " />
+
+       </g>
+    </g>
+    
+</svg>
+</g><text x="36" y="510" font-size="15">Fused silica 2.500 X x 1.500 Y x 0.300 Z.</text><text x="36" y="533" font-size="15">At the cool rod end. Thin supplier-approved bond touches the rod end face.</text><text x="36" y="556" font-size="15">Unresolved sensor-tip attachment. Do not substitute a massive clamp without recalculating loads.</text><text x="36" y="599" font-size="12">Source model.py + spec.json. Linear dimensions govern. Do not scale this drawing.</text></g></svg>

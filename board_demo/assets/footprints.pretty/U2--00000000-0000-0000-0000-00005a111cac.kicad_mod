@@ -1,0 +1,488 @@
+(footprint "U2--00000000-0000-0000-0000-00005a111cac"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(descr "TSOPII-54: Plastic Thin Small Outline Package; 54 leads; body width 10.16mm; (see 128m-as4c4m32s-tsopii.pdf and http://www.infineon.com/cms/packages/SMD_-_Surface_Mounted_Devices/P-PG-TSOPII/P-TSOPII-54-1.html)")
+	(tags "TSOPII 0.8")
+	(property "Reference" "U2"
+		(at 6.98 -9.993 90)
+		(layer "F.SilkS")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "MT48LC16M16A2TG"
+		(at -2 0.127 90)
+		(layer "F.Fab")
+		(hide yes)
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(attr smd)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_line
+		(start -5.08 -11.11)
+		(end -0.635 -11.11)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start -5.08 -11.1)
+		(end -5.08 -10.9)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start -5.08 -10.9)
+		(end -5.9 -10.9)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start -5.08 11.1)
+		(end -5.08 10.9)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start -0.2 0)
+		(end 0.2 0)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start 0 -0.2)
+		(end 0 0.2)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start 0.635 -11.11)
+		(end 5.08 -11.11)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start 5.08 -11.1)
+		(end 5.08 -10.9)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start 5.08 11.1)
+		(end 5.08 10.9)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start 5.08 11.11)
+		(end -5.08 11.11)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_arc
+		(start 0.635 -11.049)
+		(mid 0 -10.414)
+		(end -0.635 -11.049)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start -5.08 -9.906)
+		(end -4.064 -11.049)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.Fab")
+	)
+	(fp_line
+		(start -5.08 11.049)
+		(end -5.08 -9.906)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.Fab")
+	)
+	(fp_line
+		(start -4.064 -11.049)
+		(end 5.08 -11.049)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.Fab")
+	)
+	(fp_line
+		(start 5.08 -11.049)
+		(end 5.08 11.049)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.Fab")
+	)
+	(fp_line
+		(start 5.08 11.049)
+		(end -5.08 11.049)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.Fab")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 0 270)
+		(layer "F.Fab")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" smd rect
+		(at -5.73 -10.4)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "2" smd oval
+		(at -5.73 -9.6)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "3" smd oval
+		(at -5.73 -8.8)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "4" smd oval
+		(at -5.73 -8)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "5" smd oval
+		(at -5.73 -7.2)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "6" smd oval
+		(at -5.73 -6.4)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "7" smd oval
+		(at -5.73 -5.6)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "8" smd oval
+		(at -5.73 -4.8)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "9" smd oval
+		(at -5.73 -4)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "10" smd oval
+		(at -5.73 -3.2)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "11" smd oval
+		(at -5.73 -2.4)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "12" smd oval
+		(at -5.73 -1.6)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "13" smd oval
+		(at -5.73 -0.8)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "14" smd oval
+		(at -5.73 0)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "15" smd oval
+		(at -5.73 0.8)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "16" smd oval
+		(at -5.73 1.6)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "17" smd oval
+		(at -5.73 2.4)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "18" smd oval
+		(at -5.73 3.2)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "19" smd oval
+		(at -5.73 4)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "20" smd oval
+		(at -5.73 4.8)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "21" smd oval
+		(at -5.73 5.6)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "22" smd oval
+		(at -5.73 6.4)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "23" smd oval
+		(at -5.73 7.2)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "24" smd oval
+		(at -5.73 8)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "25" smd oval
+		(at -5.73 8.8)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "26" smd oval
+		(at -5.73 9.6)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "27" smd oval
+		(at -5.73 10.4)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "28" smd oval
+		(at 5.73 10.4)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "29" smd oval
+		(at 5.73 9.6)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "30" smd oval
+		(at 5.73 8.8)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "31" smd oval
+		(at 5.73 8)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "32" smd oval
+		(at 5.73 7.2)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "33" smd oval
+		(at 5.73 6.4)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "34" smd oval
+		(at 5.73 5.6)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "35" smd oval
+		(at 5.73 4.8)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "36" smd oval
+		(at 5.73 4)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "37" smd oval
+		(at 5.73 3.2)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "38" smd oval
+		(at 5.73 2.4)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "39" smd oval
+		(at 5.73 1.6)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "40" smd oval
+		(at 5.73 0.8)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "41" smd oval
+		(at 5.73 0)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "42" smd oval
+		(at 5.73 -0.8)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "43" smd oval
+		(at 5.73 -1.6)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "44" smd oval
+		(at 5.73 -2.4)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "45" smd oval
+		(at 5.73 -3.2)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "46" smd oval
+		(at 5.73 -4)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "47" smd oval
+		(at 5.73 -4.8)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "48" smd oval
+		(at 5.73 -5.6)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "49" smd oval
+		(at 5.73 -6.4)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "50" smd oval
+		(at 5.73 -7.2)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "51" smd oval
+		(at 5.73 -8)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "52" smd oval
+		(at 5.73 -8.8)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "53" smd oval
+		(at 5.73 -9.6)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(pad "54" smd oval
+		(at 5.73 -10.4)
+		(size 1.2 0.56)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+	)
+	(embedded_fonts no)
+	(model "./footprints/sdram/TSOP54.3dshapes/TSOP54.wrl"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 0.3937 0.3937 0.3937)
+		)
+		(rotate
+			(xyz 0 0 90)
+		)
+	)
+)

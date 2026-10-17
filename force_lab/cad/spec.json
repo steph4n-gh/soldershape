@@ -1,0 +1,152 @@
+{
+  "schema": "soldershape.force-fixture-cad.v1",
+  "revision": "q1",
+  "units": "mm",
+  "status": "quote-stage; not lab accepted or fabrication released",
+  "joint": {
+    "diameter": 0.2,
+    "lower_wet_face_z": 0.0,
+    "upper_wet_face_z": 0.15,
+    "offsets": [
+      0.04,
+      0.12
+    ],
+    "diagnostic_offset": 0.2,
+    "diagnostic_gap": 0.06,
+    "initial_tilt_limit_deg": 0.1,
+    "thin_film_thickness": 0.0005,
+    "thin_film_status": "illustrative 0.5 um metal thickness; composition, thickness, adhesion, nonwetting chemistry and dissolution require lab qualification"
+  },
+  "upper_cap": {
+    "length": 2.0,
+    "width": 2.0,
+    "thickness": 0.3,
+    "pad_free_edge_setback": 0.35
+  },
+  "stalk": {
+    "length": 20.0,
+    "diameter": 1.0,
+    "end_relative_to_pad_x": -0.8,
+    "bottom_clearance_above_cap": 0.05
+  },
+  "hot_bond": {
+    "length": 0.8,
+    "width": 0.8,
+    "height": 0.2
+  },
+  "cool_tab": {
+    "length": 2.5,
+    "width": 1.5,
+    "thickness": 0.3
+  },
+  "lower_chip": {
+    "length": 10.0,
+    "width": 10.0,
+    "thickness": 0.5
+  },
+  "thermal_carrier": {
+    "length": 24.0,
+    "width": 24.0,
+    "thickness": 3.0,
+    "pocket_length": 10.2,
+    "pocket_width": 10.2,
+    "pocket_depth": 0.2
+  },
+  "pedestal": {
+    "length": 12.0,
+    "width": 12.0,
+    "height": 20.0
+  },
+  "base": {
+    "length": 80.0,
+    "width": 80.0,
+    "thickness": 8.0,
+    "center_x": -20.0,
+    "mount_pitch": 60.0,
+    "mount_hole_diameter": 4.5
+  },
+  "bracket": {
+    "back_x": -56.0,
+    "wall_thickness": 10.0,
+    "width": 40.0,
+    "height": 60.0,
+    "foot_length": 20.0,
+    "foot_thickness": 6.0,
+    "shelf_length": 30.0,
+    "shelf_thickness": 6.0,
+    "shelf_top_z": 26.7,
+    "hole_pitch": 20.0,
+    "clearance_diameter": 4.5,
+    "base_hole_x": -40.0,
+    "face_hole_z": 1.0
+  },
+  "adapter_blank": {
+    "length": 30.0,
+    "width": 30.0,
+    "thickness": 3.0,
+    "fixture_hole_pitch": 20.0,
+    "fixture_hole_diameter": 4.5,
+    "vendor_interface": "UNMACHINED; no vendor hole pattern or sensor compatibility claimed"
+  },
+  "shields": {
+    "x_positions": [
+      -18.0,
+      -15.0
+    ],
+    "width": 12.0,
+    "top_z": 6.0,
+    "thickness": 0.5,
+    "foot_length": 6.0,
+    "aperture_diameter": 4.0,
+    "foot_hole_diameter": 3.4,
+    "hole_y": 4.0
+  },
+  "optics": {
+    "external_aperture_diameter": 8.0,
+    "external_aperture_start": 12.5,
+    "external_aperture_length": 20.0,
+    "directions": [
+      "+x",
+      "+y"
+    ],
+    "gap_ray_radius": 0.005,
+    "status": "8 mm external apertures plus narrow gap-level rays; complete contact-line visibility through glass must be demonstrated by the lab"
+  },
+  "materials": {
+    "silica": {
+      "density_g_cm3": 2.201,
+      "youngs_modulus_gpa": 72.5,
+      "cte_per_k": 4.7e-07
+    },
+    "alumina": {
+      "density_g_cm3": 3.9
+    },
+    "aluminum": {
+      "density_g_cm3": 2.7
+    },
+    "steel": {
+      "density_g_cm3": 8.0
+    },
+    "bond_placeholder": {
+      "density_g_cm3": 1.5,
+      "status": "planning density only; supplier-approved chemistry and thermal limits unresolved"
+    },
+    "metal_placeholder": {
+      "density_g_cm3": 19.3,
+      "status": "planning density only; not a released metallization stack"
+    }
+  },
+  "loads": {
+    "moving_mass_target_mg": 100.0,
+    "candidate_sensor_range_uN": 2000.0,
+    "reference_transverse_force_uN": 124.0,
+    "uniform_temperature_change_k": 200.0,
+    "gravity_m_s2": 9.80665
+  },
+  "unreleased_interfaces": [
+    "Sensor head, tip attachment, calibrated stiffness, total moments, cross loads, body temperature, both index orientations and overload margin require supplier acceptance.",
+    "Coarse/fine stage, chamber, heater, purge, vacuum and electrical interfaces require lab drawings. Internal fixture holes are not vendor patterns.",
+    "Stalk/cap/tab bonds and thin-film wettable island plus nonwetting surround require process qualification.",
+    "A lab must demonstrate actual hot rim registration, full contact-line visibility, stable pinning and no parasitic upper load path."
+  ]
+}

@@ -2,6 +2,7 @@
 
 import argparse
 import base64
+import hashlib
 from dataclasses import replace
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import json
@@ -21,6 +22,7 @@ from .model import InputError, import_footprint, parse_case, request_from_footpr
 
 ROOT = Path(__file__).resolve().parents[1]
 WEB = Path(__file__).resolve().parent / "web"
+PYTHON_SOURCE_SHA256 = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
 
 
 def normalize_case(data):
@@ -50,14 +52,16 @@ def calculate(source, index, parameters, offsets=None):
     return results
 
 
-def calculate_comparison(case):
+def calculate_comparison(case, existing_results=None):
     if case["baseline"] is None:
         raise InputError("Set a reference design before comparing.")
-    results = []
-    for role, parameters in (("Reference", {**case["parameters"], **case["baseline"]}), ("Candidate", case["parameters"])):
-        result = calculate(case["footprint_text"], case["pad_index"], parameters)[0]
-        result["design"] = role
-        results.append(result)
+    results = existing_results
+    if results is None:
+        results = []
+        for role, parameters in (("Reference", {**case["parameters"], **case["baseline"]}), ("Candidate", case["parameters"])):
+            result = calculate(case["footprint_text"], case["pad_index"], parameters)[0]
+            result["design"] = role
+            results.append(result)
     offset = case["parameters"]["offset_mm"]
     checked = all(result["status"] == "refinement_checked" for result in results)
     scope_clear = not any(result.get("model_warnings") for result in results)
@@ -140,6 +144,27 @@ class Handler(BaseHTTPRequestHandler):
         if path == "/api/study/example":
             self.respond(200, json.loads((ROOT / "examples/coupon-planning.study.json").read_text()))
             return
+        if path in {"/api/board", "/api/board/recorded", "/board/evidence.zip", "/board.svg", "/board/source.kicad_pcb", "/board/license.txt"}:
+            from .board import DIRECTORY, default_request, read_board, recorded_board
+            try:
+                context = read_board()
+                if path == "/api/board":
+                    preview = (DIRECTORY/"recording.json").is_file() and (DIRECTORY/"data/default-comparison.zip").is_file()
+                    self.respond(200, {"context": context, "default_request": default_request(context), "recorded_preview": preview})
+                elif path == "/board.svg":
+                    self.respond(200, (DIRECTORY/context["svg"]["file"]).read_bytes(), "image/svg+xml")
+                elif path in {"/board/source.kicad_pcb", "/board/license.txt"}:
+                    filename = "ulx3s.kicad_pcb" if path.endswith(".kicad_pcb") else "LICENSE.md"
+                    self.respond(200, (DIRECTORY/"source"/filename).read_bytes(), "text/plain; charset=utf-8")
+                else:
+                    payload, _ = recorded_board()
+                    if path == "/board/evidence.zip":
+                        self.respond(200, base64.b64decode(payload["bundle_base64"]), "application/zip")
+                    else:
+                        self.respond(200, payload)
+            except (InputError, OSError, ValueError, KeyError, zipfile.BadZipFile) as error:
+                self.respond(422, {"error": "Board evidence could not be verified. "+str(error)})
+            return
         if path in {"/api/demo", "/demo/evidence.zip"}:
             from .demo import demo_archive, read_demo
             try:
@@ -155,6 +180,8 @@ class Handler(BaseHTTPRequestHandler):
                   "/study": ("study.html", "text/html"), "/study.js": ("study.js", "text/javascript"),
                   "/study.css": ("study.css", "text/css"), "/demo": ("demo.html", "text/html"),
                   "/demo.js": ("demo.js", "text/javascript"), "/demo.css": ("demo.css", "text/css"),
+                  "/board": ("board.html", "text/html"), "/board.js": ("board.js", "text/javascript"),
+                  "/board.css": ("board.css", "text/css"),
                   "/mesh-view.js": ("mesh-view.js", "text/javascript")}
         if path not in assets:
             self.respond(404, {"error": "Not found."})
@@ -167,7 +194,7 @@ class Handler(BaseHTTPRequestHandler):
             self.respond(403, {"error": "Reload the workbench to establish a local session."})
             return
         path = urlsplit(self.path).path
-        if path not in {"/api/import", "/api/case", "/api/solve", "/api/sweep", "/api/compare", "/api/study", "/api/study/case"}:
+        if path not in {"/api/import", "/api/case", "/api/solve", "/api/sweep", "/api/compare", "/api/study", "/api/study/case", "/api/board/compare"}:
             self.respond(404, {"error": "Unknown operation."})
             return
         if self.headers.get_content_type() != "application/json":
@@ -181,6 +208,18 @@ class Handler(BaseHTTPRequestHandler):
             body = json.loads(self.rfile.read(length), parse_constant=lambda value: (_ for _ in ()).throw(InputError("Non-finite JSON numbers are not accepted.")))
             if not isinstance(body, dict):
                 raise InputError("Expected a JSON object.")
+            if path == "/api/board/compare":
+                from .board import board_case, bundle_board, response_payload, run_board
+                board_case(body)
+                if not self.server.computation.acquire(blocking=False):
+                    self.respond(409, {"error": "Another computation is running. Wait for it to finish."})
+                    return
+                try:
+                    report = run_board(body)
+                    self.respond(200, response_payload(report, bundle_board(report)))
+                finally:
+                    self.server.computation.release()
+                return
             if path == "/api/import":
                 if set(body) != {"footprint_text"}:
                     raise InputError("Request fields do not match this operation.")
@@ -246,6 +285,11 @@ def replay(path):
     from .solver import SolverError, solve
     cases = read_bundle(path)
     with zipfile.ZipFile(path) as archive:
+        if "board-report.json" in archive.namelist():
+            from .board import verify_board
+            report = verify_board(path, replay=True)
+            print(json.dumps(report, indent=2))
+            return 0 if report["passed"] else 1
         if "study.json" in archive.namelist():
             from .study import replay_study
             report = replay_study(path)

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c191d">
+  <title>SolderShape | Real board, one joint</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/board.css">
+  <script src="/mesh-view.js" defer></script>
+  <script src="/board.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="SolderShape home"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>Solder<span>Shape</span></a>
+    <nav aria-label="Workbench navigation"><a href="/">Joint workbench</a><a href="/study">Pad study</a><a href="/demo">Extreme demo</a><a href="/board" aria-current="page">Board explorer</a></nav>
+    <span class="local-label">LOCAL ENGINEERING EXPERIMENT</span>
+  </header>
+  <main>
+    <section class="intro" aria-labelledby="page-title">
+      <div><p class="eyebrow">A REAL BOARD. ONE TRACEABLE JOINT.</p><h1 id="page-title">Follow the copper. <br><span>Question the solder.</span></h1><p class="subtitle">Explore the ULX3S FPGA board. Attach a native equilibrium comparison to an actual pad, with every assumption and source byte in the record.</p></div>
+      <div class="qualification"><span><i aria-hidden="true"></i>Selected joint computation</span><strong>Physical accuracy unqualified</strong><p>No package motion, bridging, or yield prediction.</p></div>
+    </section>
+    <p id="load-notice" class="notice" role="status" aria-live="polite">Loading the verified native board extraction.</p>
+    <div id="explorer" hidden>
+      <section class="exploration-grid" aria-label="Board and selected joint">
+        <article class="board-panel panel">
+          <header class="panel-heading"><div><p class="eyebrow">ORIGINAL KICAD BOARD</p><h2>ULX3S <span class="dim">/ FPGA development board</span></h2></div><span id="component-count" class="small-stat"></span></header>
+          <div class="board-toolbar"><span id="board-size"></span><span id="pad-count"></span><span class="board-view-label">FRONT COPPER · ORIGINAL SILKSCREEN</span></div>
+          <div class="board-stage" id="board-stage"><div class="board-graphic" id="board-graphic"><img id="board-image" src="/board.svg" alt="Original native KiCad export of the complete ULX3S front copper, silkscreen and board outline, including the original project logos."><svg id="board-overlay" aria-label="Select a board component" role="img"></svg></div><div class="board-scale" aria-hidden="true"><span id="scale-bar"></span>10 mm</div></div>
+          <div class="board-bottom"><span><i class="copper-dot"></i>Actual source copper</span><span><i class="selected-dot"></i>Selected component</span><strong id="computed-badge">0 joints computed in this view</strong></div>
+          <p class="attribution">Board by EMARD and the ULX3S contributors. Original source and silkscreen retained. <a id="source-link" href="https://github.com/emard/ulx3s" target="_blank" rel="noreferrer">Inspect source ↗</a> · <a href="/board/source.kicad_pcb" download>Original KiCad board ↓</a> · <a href="/board/license.txt" target="_blank" rel="noreferrer">License</a></p>
+        </article>
+        <article class="selection-panel panel">
+          <header class="panel-heading"><div><p class="eyebrow">01 / SELECT AN ACTUAL PAD</p><h2 id="selected-heading">Select a component</h2></div><span id="selection-status" class="status-pill"></span></header>
+          <div class="selection-fields"><label>Find component<input id="component-search" type="search" placeholder="U1, SDRAM, connector…" autocomplete="off"></label><label>Component<select id="component-select"></select></label><label>Pad<select id="pad-select"></select></label></div>
+          <div class="pad-view"><canvas id="pad-canvas" role="img" tabindex="0" aria-label="Actual selected footprint pads. Click a pad or use the pad selector above."></canvas><span class="pad-view-hint">ACTUAL FOOTPRINT · LOCAL +X →</span></div>
+          <div class="selection-details"><div><span>Net</span><strong id="pad-net"></strong></div><div><span>Source copper</span><strong id="pad-copper"></strong></div><div><span>Board position</span><strong id="pad-position"></strong></div><div><span>Local +X in board axes</span><strong id="pad-axis"></strong></div></div>
+          <p class="selection-scope" id="selection-scope"></p>
+        </article>
+      </section>
+      <section class="question-panel panel" aria-labelledby="question-heading">
+        <div class="question-copy"><p class="eyebrow">02 / DECLARE THE PROCESS ASSUMPTIONS</p><h2 id="question-heading">Does more solder improve this held-gap force tradeoff?</h2><p>The board supplies the lower copper geometry. These liquid volumes, opposing pad, material and assembly conditions are hypothetical. Measure them before a physical design decision.</p><span class="assumption-label">HYPOTHETICAL PROCESS INPUTS</span></div>
+        <form id="comparison-form">
+          <div class="input-grid">
+            <label>Upper pad diameter <span>µm</span><input id="upper-diameter" type="number" min="1" step="any" required></label>
+            <label>Held gap <span>µm</span><input id="held-gap" type="number" min="1" step="any" required></label>
+            <label>Local +X offset <span>µm</span><input id="offset" type="number" step="any" required></label>
+            <label class="reference-input">Reference liquid volume <span>nL</span><input id="reference-volume" type="number" min="0.001" step="any" required></label>
+            <label class="candidate-input">Candidate liquid volume <span>nL</span><input id="candidate-volume" type="number" min="0.001" step="any" required></label>
+            <label>Surface tension <span>N/m</span><input id="surface-tension" type="number" min="0.0001" step="any" required></label>
+            <label>Liquid density <span>g/cm³</span><input id="density" type="number" min="0.001" step="any" required></label>
+            <label class="gravity-label"><input id="gravity" type="checkbox">Include gravity <span>Along model −Z</span></label>
+          </div>
+          <div class="compute-row"><p id="run-notice" role="status" aria-live="polite">Choose a supported circular front pad.</p><button id="compute-button" type="submit" class="button primary" disabled>Compute selected comparison <span aria-hidden="true">↗</span></button></div>
+        </form>
+      </section>
+      <section class="results-section" aria-label="Selected joint computation">
+        <div class="results-heading"><div><p class="eyebrow">03 / INSPECT THE ACTUAL NATIVE MESHES</p><h2>One joint. Two explicit liquid volumes.</h2></div><div class="mesh-controls"><span id="result-origin" class="result-origin">No current computation</span><label><input id="mesh-edges" type="checkbox"> Mesh edges</label><button id="reset-view" type="button">Reset view</button></div></div>
+        <div class="comparison">
+          <article class="joint-card reference-card panel"><header><div><p class="eyebrow">REFERENCE</p><h3 id="reference-title">Reference liquid volume</h3></div><span id="reference-status" class="status-pill">Awaiting computation</span></header><div class="force-row"><div><span>X · lateral</span><strong id="reference-force-x">Unavailable</strong><small>µN</small></div><div><span>Z · vertical</span><strong id="reference-force-z">Unavailable</strong><small>µN</small></div></div><div class="mesh-view"><canvas id="reference-canvas" tabindex="0" role="img" aria-label="Reference exact native joint mesh. Drag or use arrow keys to orbit both views. Scroll or use plus and minus to zoom."></canvas><div class="mesh-empty" id="reference-empty"><strong>Compute the selected joint</strong><p>Only a native result can supply this geometry.</p></div><span class="mesh-hint">DRAG TO ORBIT · LINKED CAMERA</span></div><p class="mesh-footer" id="reference-mesh">No current mesh</p><ul id="reference-warnings" class="warnings" hidden></ul></article>
+          <article class="joint-card candidate-card panel"><header><div><p class="eyebrow">CANDIDATE</p><h3 id="candidate-title">Candidate liquid volume</h3></div><span id="candidate-status" class="status-pill">Awaiting computation</span></header><div class="force-row"><div><span>X · lateral</span><strong id="candidate-force-x">Unavailable</strong><small>µN</small></div><div><span>Z · vertical</span><strong id="candidate-force-z">Unavailable</strong><small>µN</small></div></div><div class="mesh-view"><canvas id="candidate-canvas" tabindex="0" role="img" aria-label="Candidate exact native joint mesh. Drag or use arrow keys to orbit both views. Scroll or use plus and minus to zoom."></canvas><div class="mesh-empty" id="candidate-empty"><strong>Compute the selected joint</strong><p>Every selection or assumption edit clears the prior result.</p></div><span class="mesh-hint">SAME PHYSICAL SCALE · EXACT TRIANGLES</span></div><p class="mesh-footer" id="candidate-mesh">No current mesh</p><ul id="candidate-warnings" class="warnings" hidden></ul></article>
+        </div>
+        <section id="screen-panel" class="screen-panel" aria-live="polite"><span aria-hidden="true" class="screen-symbol">↔</span><div><p class="eyebrow" id="screen-status">DECLARED FIXTURE OBJECTIVE</p><h2 id="screen-headline">Seek lateral restoration without an upward separating force.</h2><ul id="screen-details"><li>The gap remains held by an external fixture. No assembly motion is simulated.</li></ul></div></section>
+        <p class="force-convention">Forces act on the upper pad. Negative X opposes a positive local offset. Positive Z points away from the board. Force arrows indicate direction, not magnitude.</p>
+      </section>
+      <section class="handoff panel" aria-labelledby="handoff-heading"><div><p class="eyebrow">04 / KEEP THE BOARD AND THE EVIDENCE TOGETHER</p><h2 id="handoff-heading">A reproducible question for the lab.</h2><p>The evidence archive binds the selected pad to its source board, editable case, two native meshes, signed forces and raw numerical receipts. A successful replay establishes numerical agreement.</p></div><div class="handoff-actions"><button id="case-download" class="button secondary" type="button" disabled>Save editable case</button><button id="bundle-download" class="button primary" type="button" disabled>Download board-bound evidence ↓</button></div><p id="result-identity" class="digest"></p></section>
+      <div class="limits-grid"><section class="limits-panel"><p class="eyebrow">WHAT STILL NEEDS MEASUREMENT</p><h2>Copper size is only one boundary.</h2><p>Actual wettable rim and mask opening, liquid solder volume, opposing package pad, hot gap and offset, alloy, temperature and surface tension. Board mask rules and assembly conditions are not qualified by this view.</p></section><section class="limits-panel"><p class="eyebrow">PHYSICAL VALIDATION REMAINS OPEN</p><h2>This model has not earned production trust.</h2><p>Published-data force validation has unresolved failures. A hot force fixture must test the predictions with measured inputs and controlled pinned contact lines. No whole-board forces, self-alignment, capture range, bridging, or yield follow from one joint.</p></section></div>
+      <footer class="source-footer"><p id="board-digest" class="digest"></p><p id="extraction-digest" class="digest"></p><p>The full original front silkscreen remains in the native view. ULX3S source uses its included modified MIT license. Board selection is engineering context. Unsolved pads carry no force or risk classification.</p></footer>
+    </div>
+  </main>
+</body>
+</html>

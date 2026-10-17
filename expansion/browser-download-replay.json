@@ -1,0 +1,74 @@
+{
+  "passed": true,
+  "integrity_verified": true,
+  "selection_verified": true,
+  "archive_sha256": "598e1bb2aa8b573ec8eeed8fd2cd54528c325f5ec589b07b58af8479244ff7b2",
+  "case_count": 2,
+  "selection": {
+    "repository": "https://github.com/emard/ulx3s",
+    "commit": "6a92cec6b177191c5b0f80e260013a1f8ec147dd",
+    "board_sha256": "1172f7b0fc262422bab01c62fb4dc84f16d9f1ea8902dc6fe2da859bba9035fc",
+    "license_sha256": "cdaaa3f0c2d1dbb538844077fd7a1d9d43c890d0745b20d8aa0717b583d6af9f",
+    "reference": "U1",
+    "value": "LFE5U-85F-6BG381C",
+    "component_uuid": "00000000-0000-0000-0000-000058d8d57e",
+    "component_rotation_deg": 0.0,
+    "component_side": "front",
+    "footprint_file": "assets/footprints.pretty/U1--00000000-0000-0000-0000-000058d8d57e.kicad_mod",
+    "footprint_sha256": "14b691bcc05e1c93fa1ae8aeb70361e646a4f4ffba255ebd4b9002ae0ba2160a",
+    "pad_index": 173,
+    "pad_identifier": "J16",
+    "pad_net": "SDRAM_D0",
+    "lower_diameter_mm": 0.4,
+    "local_xy_mm": [
+      4.4,
+      -1.2
+    ],
+    "board_xy_mm": [
+      142.88,
+      86.6
+    ],
+    "local_x_board": [
+      1.0,
+      -0.0
+    ]
+  },
+  "screen": {
+    "candidate_rule_met": false,
+    "details": [
+      "The objective requires lateral restoration and no upward separating force at the held gap.",
+      "This numerical screen does not select a production solder volume."
+    ],
+    "headline": "Less solder meets this declared fixture objective. More solder pushes upward.",
+    "reference_rule_met": true,
+    "status": "conditional_comparison"
+  },
+  "replayed": true,
+  "checks": [
+    {
+      "input_sha256": "aff574b47d6d35f67a387c11f062b2be6f8a53fe0e968ba60d374c8fcfcce558",
+      "previous_status": "refinement_checked",
+      "current_status": "refinement_checked",
+      "force_difference_uN": {
+        "x_uN": 0.0,
+        "z_uN": 0.0
+      },
+      "exact_engine_provenance": true,
+      "passed": true
+    },
+    {
+      "input_sha256": "fa2a6fc5f13337c050f9a0a136c79c537c14430ef05bbebefaca2b54c73f01cf",
+      "previous_status": "refinement_checked",
+      "current_status": "refinement_checked",
+      "force_difference_uN": {
+        "x_uN": 0.0,
+        "z_uN": 0.0
+      },
+      "exact_engine_provenance": true,
+      "passed": true
+    }
+  ],
+  "physical_qualification": "unqualified",
+  "verification_kind": "numerical_equivalence",
+  "native_board_readback": "Retained receipt verified by identity. Rerun board_demo/tools/verify_native.py for an independent native inspection."
+}

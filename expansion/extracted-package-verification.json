@@ -1,0 +1,50 @@
+{
+  "package": {
+    "verified": true,
+    "archive_sha256": "0b4ee985fc0bde510385e92656bfac7c8df92e73f3be4a4e69e5770e9fa63274",
+    "members": 128,
+    "bytes": 18779732,
+    "status": {
+      "fabrication_released": false,
+      "lab_accepted": false,
+      "physically_validated": false,
+      "prepared_for_quote": true
+    }
+  },
+  "checks": [
+    {
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "force_lab/tools/analyze.py",
+        "verify-plan",
+        "force_lab/planning/native-120"
+      ],
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "force_lab/tests",
+        "-v"
+      ],
+      "returncode": 0,
+      "passed": true
+    },
+    {
+      "command": [
+        "/Volumes/Storage/oct16project/output/cad-env/bin/python",
+        "force_lab/tools/verify_cad.py"
+      ],
+      "returncode": 0,
+      "passed": true
+    }
+  ],
+  "cad_readback_exercised": true,
+  "engine_cache_present": false,
+  "scope": "Static recorded-evidence verification, synthetic behavior controls and optional neutral CAD readback. No physical observations or fresh solver replay."
+}

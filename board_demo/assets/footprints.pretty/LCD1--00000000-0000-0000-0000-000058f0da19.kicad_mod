@@ -1,0 +1,453 @@
+(footprint "LCD1--00000000-0000-0000-0000-000058f0da19"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(descr "SPI LCD 1.3\"")
+	(tags "SPI LCD socket")
+	(property "Reference" "LCD1"
+		(at 13.6 2.09 0)
+		(layer "F.SilkS")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "ST7789"
+		(at 14.5 0.49 0)
+		(layer "F.SilkS")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Field4" "0.96\""
+		(at 16.764 14.732 90)
+		(layer "Eco2.User")
+		(hide yes)
+		(effects
+			(font
+				(size 2 2)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Field5" "OLED DISPLAY"
+		(at 0 2.286 180)
+		(layer "Eco2.User")
+		(hide yes)
+		(effects
+			(font
+				(size 2 2)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Field6" "LCD DISPLAY"
+		(at 1.27 10.16 0)
+		(layer "F.Fab")
+		(hide yes)
+		(effects
+			(font
+				(size 2 2)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Field7" "1.3\""
+		(at 1.27 13.97 0)
+		(layer "F.Fab")
+		(hide yes)
+		(effects
+			(font
+				(size 2 2)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr through_hole)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_line
+		(start -9.17 -1.55)
+		(end -9.17 1.55)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start -9.17 1.55)
+		(end -7.62 1.55)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start -7.62 -1.55)
+		(end -9.17 -1.55)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start -6.35 1.27)
+		(end -6.35 -1.27)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start -6.35 1.27)
+		(end 11.43 1.27)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start 11.43 -1.27)
+		(end -6.35 -1.27)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start 11.43 1.27)
+		(end 11.43 -1.27)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start -15.24 -2.54)
+		(end 17.145 -2.54)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "Eco2.User")
+	)
+	(fp_line
+		(start -15.24 32.385)
+		(end -15.24 -2.54)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "Eco2.User")
+	)
+	(fp_line
+		(start -13.97 3.81)
+		(end 15.875 3.81)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "Eco2.User")
+	)
+	(fp_line
+		(start -13.97 24.765)
+		(end -13.97 3.81)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "Eco2.User")
+	)
+	(fp_line
+		(start 15.875 3.81)
+		(end 15.875 24.765)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "Eco2.User")
+	)
+	(fp_line
+		(start 15.875 24.765)
+		(end -13.97 24.765)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "Eco2.User")
+	)
+	(fp_line
+		(start 17.145 -2.54)
+		(end 17.145 32.385)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "Eco2.User")
+	)
+	(fp_line
+		(start 17.145 32.385)
+		(end -15.24 32.385)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "Eco2.User")
+	)
+	(fp_circle
+		(center -12.065 0.635)
+		(end -10.16 0.635)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(fill no)
+		(layer "Eco2.User")
+	)
+	(fp_circle
+		(center -12.065 29.21)
+		(end -10.16 29.21)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(fill no)
+		(layer "Eco2.User")
+	)
+	(fp_circle
+		(center 13.97 0.635)
+		(end 15.875 0.635)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(fill no)
+		(layer "Eco2.User")
+	)
+	(fp_circle
+		(center 13.97 29.21)
+		(end 15.875 29.21)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(fill no)
+		(layer "Eco2.User")
+	)
+	(fp_line
+		(start -9.37 -1.75)
+		(end -9.37 1.75)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+	)
+	(fp_line
+		(start -9.37 -1.75)
+		(end 9.38 -1.75)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+	)
+	(fp_line
+		(start -9.37 1.75)
+		(end 9.38 1.75)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+	)
+	(fp_line
+		(start 9.38 -1.75)
+		(end 9.38 1.75)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+	)
+	(fp_text user "GND"
+		(at -7.62 2.54 0)
+		(layer "F.SilkS")
+		(effects
+			(font
+				(size 1 0.75)
+				(thickness 0.15)
+			)
+		)
+	)
+	(fp_text user "VCC"
+		(at -5.08 2.54 0)
+		(layer "F.SilkS")
+		(effects
+			(font
+				(size 1 0.75)
+				(thickness 0.15)
+			)
+		)
+	)
+	(fp_text user "SCL"
+		(at -2.54 2.54 0)
+		(layer "F.SilkS")
+		(effects
+			(font
+				(size 1 0.75)
+				(thickness 0.15)
+			)
+		)
+	)
+	(fp_text user "SDA"
+		(at 0 2.54 0)
+		(layer "F.SilkS")
+		(effects
+			(font
+				(size 1 0.75)
+				(thickness 0.15)
+			)
+		)
+	)
+	(fp_text user "RES"
+		(at 2.54 2.54 0)
+		(layer "F.SilkS")
+		(effects
+			(font
+				(size 1 0.75)
+				(thickness 0.15)
+			)
+		)
+	)
+	(fp_text user "DC"
+		(at 5.08 2.54 0)
+		(layer "F.SilkS")
+		(effects
+			(font
+				(size 1 0.75)
+				(thickness 0.15)
+			)
+		)
+	)
+	(fp_text user "CS"
+		(at 7.62 2.54 0)
+		(layer "F.SilkS")
+		(effects
+			(font
+				(size 1 0.75)
+				(thickness 0.15)
+			)
+		)
+	)
+	(fp_text user "BL"
+		(at 10.16 2.54 180)
+		(layer "F.SilkS")
+		(effects
+			(font
+				(size 1 0.75)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" thru_hole rect
+		(at -7.62 0)
+		(size 1.7272 2.032)
+		(drill 1.016)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+	)
+	(pad "2" thru_hole oval
+		(at -5.08 0)
+		(size 1.7272 2.032)
+		(drill 1.016)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+	)
+	(pad "3" thru_hole oval
+		(at -2.54 0)
+		(size 1.7272 2.032)
+		(drill 1.016)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+	)
+	(pad "4" thru_hole oval
+		(at 0.035 0)
+		(size 1.7272 2.032)
+		(drill 1.016)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+	)
+	(pad "5" thru_hole oval
+		(at 2.54 0)
+		(size 1.7272 2.032)
+		(drill 1.016)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+	)
+	(pad "6" thru_hole oval
+		(at 5.08 0)
+		(size 1.7272 2.032)
+		(drill 1.016)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+	)
+	(pad "7" thru_hole oval
+		(at 7.62 0)
+		(size 1.7272 2.032)
+		(drill 1.016)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+	)
+	(pad "8" thru_hole oval
+		(at 10.16 0)
+		(size 1.7272 2.032)
+		(drill 1.016)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+	)
+	(embedded_fonts no)
+	(model "./footprints/oled/oled.3dshapes/oled.wrl_hidden"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 0.3937 0.3937 0.3937)
+		)
+		(rotate
+			(xyz 0 0 180)
+		)
+	)
+)

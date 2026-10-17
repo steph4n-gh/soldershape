@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="760" viewBox="0 0 840 760"><rect width="100%" height="100%" fill="white"/><g font-family="Arial,sans-serif" fill="#12283c"><text x="36" y="35" font-size="23">Q1 | pedestal</text><text x="36" y="61" font-size="13">SolderShape Q1 | millimeters | QUOTE STAGE | vendor interfaces UNRELEASED</text><g transform="translate(36 70)"><svg
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   width="760.0"
+   height="440.0"
+
+>
+    <g transform="scale(14.434493127115154, -14.434493127115154)   translate(3.987189689083663,-8.079400678944133)" stroke-width="0.06927849777568586"  fill="none">
+       <!-- hidden lines -->
+       <g  stroke="rgb(160,160,160)" fill="none" stroke-dasharray="0.06927849777568586,0.06927849777568586" >
+
+       </g>
+
+       <!-- solid lines -->
+       <g  stroke="rgb(0,0,0)" fill="none">
+			<path d="M12.233300867917865,-16.860858520302777 L-1.908834755813087,-8.695892711025515 " />
+			<path d="M-1.9088347558130858,-8.695892711025515 L-1.908834755813086,1.1020662601071987 " />
+			<path d="M20.718582242156437,-11.96187903473642 L6.576446618425485,-3.796913225459157 " />
+			<path d="M6.576446618425486,-3.7969132254591575 L6.576446618425486,6.001045745673556 " />
+			<path d="M20.718582242156437,-2.163920063603706 L6.576446618425485,6.001045745673557 " />
+			<path d="M20.718582242156437,-11.96187903473642 L20.718582242156437,-2.1639200636037064 " />
+			<path d="M12.233300867917865,-16.860858520302777 L20.718582242156437,-11.96187903473642 " />
+			<path d="M-1.9088347558130858,-8.695892711025515 L6.576446618425485,-3.796913225459157 " />
+			<path d="M-1.9088347558130858,1.102066260107198 L6.576446618425485,6.001045745673555 " />
+
+       </g>
+    </g>
+    
+</svg>
+</g><text x="36" y="510" font-size="15">12.000 X x 12.000 Y x 20.000 Z. Center X=Y=0.</text><text x="36" y="533" font-size="15">Top meets thermal-carrier underside. Bottom meets base top Z=-23.3005.</text><text x="36" y="556" font-size="15">Alumina. Lab approves bond/clamp, heater integration and temperature gradient.</text><text x="36" y="599" font-size="12">Source model.py + spec.json. Linear dimensions govern. Do not scale this drawing.</text></g></svg>

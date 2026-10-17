@@ -36,12 +36,20 @@ def screen_pair(reference, candidate):
                 "reference_rule_met": None, "candidate_rule_met": None}
     met = [row["forces"]["x_uN"]*row["input"]["offset_mm"] < 0 and row["forces"]["z_uN"] <= 0
            for row in (reference, candidate)]
-    if met == [True, False]:
-        headline = "Less solder meets this declared fixture objective. More solder pushes upward."
-    elif met == [False, True]:
-        headline = "More solder meets this declared fixture objective. Less solder does not."
-    else:
-        headline = "Inspect both force directions against the declared fixture objective."
+    headline = "Inspect both force directions against the declared fixture objective."
+    if met[0] != met[1]:
+        labels = ["Reference", "Candidate"]
+        inputs = [row["input"] for row in (reference, candidate)]
+        if ({key: value for key, value in inputs[0].items() if key != "volume_mm3"}
+                == {key: value for key, value in inputs[1].items() if key != "volume_mm3"}
+                and inputs[0]["volume_mm3"] != inputs[1]["volume_mm3"]):
+            labels = ["Less solder", "More solder"]
+            if inputs[0]["volume_mm3"] > inputs[1]["volume_mm3"]:
+                labels.reverse()
+        passed = 0 if met[0] else 1
+        failed = 1-passed
+        failure = "pushes upward." if (reference, candidate)[failed]["forces"]["z_uN"] > 0 else "does not."
+        headline = f"{labels[passed]} meets this declared fixture objective. {labels[failed]} {failure}"
     return {"status": "conditional_comparison", "headline": headline,
             "details": ["The objective requires lateral restoration and no upward separating force at the held gap.",
                         "This numerical screen does not select a production solder volume."],

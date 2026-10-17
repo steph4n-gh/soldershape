@@ -1,0 +1,39 @@
+{
+  "url": "http://127.0.0.1:8768/board",
+  "source_board_sha256": "1172f7b0fc262422bab01c62fb4dc84f16d9f1ea8902dc6fe2da859bba9035fc",
+  "selection": {
+    "reference": "U1",
+    "pad": "J16",
+    "net": "SDRAM_D0",
+    "pad_index": 173,
+    "board_position_mm": [
+      142.88,
+      86.6
+    ]
+  },
+  "changed_input": {
+    "offset_mm": 0.16,
+    "standoff_mm": 0.3,
+    "reference_volume_mm3": 0.04,
+    "candidate_volume_mm3": 0.056
+  },
+  "observed_force_strings": {
+    "reference_x": "-143.028",
+    "reference_z": "-218.095",
+    "candidate_x": "-121.104",
+    "candidate_z": "+47.477"
+  },
+  "checks": {
+    "recorded_preview_explicit": true,
+    "fresh_native_computation": true,
+    "actual_meshes_and_camera_controls": true,
+    "unsupported_u2_clears_and_disables": true,
+    "pending_edit_discards_late_response": true,
+    "actual_zip_download_and_native_replay": true,
+    "editable_case_download": true
+  },
+  "download_sha256": "598e1bb2aa8b573ec8eeed8fd2cd54528c325f5ec589b07b58af8479244ff7b2",
+  "screenshot": "expansion/board-workflow.png",
+  "physical_qualification": "unqualified",
+  "retained_initial_development_failure": "First browser attempt failed closed after source changed in its running server; restarted only the new 8768 service and verified final build."
+}

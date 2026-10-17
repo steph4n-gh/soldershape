@@ -1,0 +1,8 @@
+{
+  "kind": "development-negative-control",
+  "physical_data": false,
+  "change": "Shelf top initially 16.7 mm, moved to 26.7 mm to clear the vertical 30 mm adapter blank.",
+  "initial_overlap_mm3": 477.0,
+  "initial_shelf_top_z_mm": 16.7,
+  "current_shelf_top_z_mm": 26.7
+}

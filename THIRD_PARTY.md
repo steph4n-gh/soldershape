@@ -19,3 +19,11 @@ KiCad libraries use CC-BY-SA 4.0 with an electronic-design exception. The origin
 ## KnotForge investigation
 
 Ridgerunner was inspected as an alternative. It is not part of the runtime or bundled product. Its core files state GPL-3.0-or-later, with inconsistent older package metadata. Bundled example-knot provenance also needs review before redistribution. The dependency build failures and source hashes are retained in `evidence/knot-build-experiment.md` and `evidence/knot-feasibility.md`.
+
+## ULX3S board context
+
+The board atlas uses the unmodified [EMARD ULX3S hardware source](https://github.com/emard/ulx3s) at commit `6a92cec6b177191c5b0f80e260013a1f8ec147dd`. Exact source URLs, byte counts and SHA-256 values are in `board_demo/source/provenance.json`. The original board, README and license bytes remain under `board_demo/source/`.
+
+Its modified MIT notice credits EMARD, copyright 2016-2018. It additionally requires the EMARD, RADIONA and FER logotypes to remain visible and unmodified in their original top-silkscreen locations, shapes and sizes. The atlas retains the complete native front silkscreen and the original source. Its original notice accompanies board-bound exports. The board authors do not endorse the hypothetical solder comparison, and no manufacture of this board is authorized by this work.
+
+The force fixture uses separately pinned CadQuery and document-generation dependencies only to create local engineering artifacts. Their distributions and transitive notices remain in the local environment. No third-party interpreter, CAD kernel or vendor hardware drawing is redistributed in the handoff. Candidate instrument specifications are attributed to primary sources in `expansion/research/metrology.md` and `force_lab/BOM.csv`; unresolved interfaces are engineering placeholders rather than vendor-certified compatibility.

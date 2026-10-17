@@ -1,0 +1,1 @@
+blank_id,utc,axis,configuration,heater_state,purge_state,target_gap_um,target_offset_um,measured_gap_um,measured_offset_um,raw_force_value,raw_unit,corrected_force_uN,dwell_drift_uN,dwell_coordinate_drift_um,sensor_body_temperature_C,upper_temperature_C,lower_temperature_C,timeseries_file,calibration_id,operator,evidence_files

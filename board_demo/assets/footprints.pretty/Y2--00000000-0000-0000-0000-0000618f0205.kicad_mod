@@ -1,0 +1,261 @@
+(footprint "Y2--00000000-0000-0000-0000-0000618f0205"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(descr "Abracon ABS07 Plastic SMD Crystal https://www.mouser.com/datasheet/2/3/ABS07_120_32_768kHz_T-218607.pdf")
+	(tags "plastic smd crystal")
+	(property "Reference" "Y2"
+		(at 0.623 -1.905 180)
+		(layer "F.SilkS")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "32768Hz"
+		(at 0.496 1.478 0)
+		(layer "F.Fab")
+		(hide yes)
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 180)
+		(layer "B.Fab")
+		(hide yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify mirror)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 180)
+		(layer "B.Fab")
+		(hide yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify mirror)
+		)
+	)
+	(attr smd)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_line
+		(start -2.4 -1.2)
+		(end -0.4 -1.2)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start -2.4 1.2)
+		(end -2.4 -1.2)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start -1.8 1.2)
+		(end -2.4 1.2)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start -1.8 1.2)
+		(end -1.8 4.6)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start -0.4 -1.2)
+		(end -0.4 -0.8)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start 0.4 -0.8)
+		(end -0.4 -0.8)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start 0.4 0)
+		(end -0.4 0)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start 0.4 6.4)
+		(end -0.4 6.4)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start 1.8 1)
+		(end 1.8 4.6)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+	)
+	(fp_line
+		(start -2.2 -1.6)
+		(end -2.2 7.2)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+	)
+	(fp_line
+		(start 2.2 -1.6)
+		(end -2.2 -1.6)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+	)
+	(fp_line
+		(start 2.2 -1.6)
+		(end 2.2 7.2)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+	)
+	(fp_line
+		(start 2.2 7.2)
+		(end -2.2 7.2)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+	)
+	(fp_line
+		(start -2.2 -1.2)
+		(end -2.2 6.8)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.Fab")
+	)
+	(fp_line
+		(start -2.2 6.8)
+		(end 2.2 6.8)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.Fab")
+	)
+	(fp_line
+		(start 2.2 -1.2)
+		(end -2.2 -1.2)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.Fab")
+	)
+	(fp_line
+		(start 2.2 -0.2)
+		(end -2.2 -0.2)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.Fab")
+	)
+	(fp_line
+		(start 2.2 6.8)
+		(end 2.2 -1.2)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.Fab")
+	)
+	(fp_text user "${REFERENCE}"
+		(at -0.012 0 -90)
+		(layer "F.Fab")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" smd rect
+		(at -1.4 0 270)
+		(size 1.8 1.4)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(solder_paste_margin -0.1)
+	)
+	(pad "2" smd rect
+		(at -1.4 5.6 270)
+		(size 1.8 1.4)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(solder_paste_margin -0.1)
+	)
+	(pad "3" smd rect
+		(at 1.4 5.6 270)
+		(size 1.8 1.4)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(solder_paste_margin -0.1)
+	)
+	(pad "4" smd rect
+		(at 1.4 0 270)
+		(size 1.8 1.4)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(solder_paste_margin -0.1)
+	)
+	(embedded_fonts no)
+	(model "${KISYS3DMOD}/Resistor_SMD.3dshapes/R_1206_3216Metric.wrl"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)

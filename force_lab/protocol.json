@@ -1,0 +1,64 @@
+{
+  "schema": "soldershape.force-protocol.v2",
+  "experiment_id": "force-r1",
+  "status": "QUOTE_READY_PROTOCOL_NOT_PHYSICALLY_VALIDATED",
+  "question": "At a held 150 um gap and 200 um circular rims, do 5 and 7 nL produce the predicted lateral contrast and normal sign?",
+  "allocation": {
+    "blocks": 3,
+    "independent_pairs_per_block_axis_offset": 2,
+    "axes": [
+      "x",
+      "z"
+    ],
+    "offsets_mm": [
+      0.04,
+      0.12
+    ],
+    "volumes_mm3": [
+      0.005,
+      0.007
+    ]
+  },
+  "planning_inputs_only": {
+    "lower_diameter_mm": 0.2,
+    "upper_diameter_mm": 0.2,
+    "standoff_mm": 0.15,
+    "offset_mm": 0.12,
+    "surface_tension_n_m": 0.48,
+    "density_g_cm3": 9.0,
+    "gravity": true
+  },
+  "local_steps": {
+    "lower_diameter_mm": 0.0005,
+    "upper_diameter_mm": 0.0005,
+    "standoff_mm": 0.0005,
+    "offset_mm": 0.0005,
+    "volume_mm3": 5e-05,
+    "surface_tension_n_m": 0.001,
+    "density_g_cm3": 0.1
+  },
+  "gates": {
+    "coverage_factor": 2.0,
+    "max_individual_force_U_uN": 2.0,
+    "max_observed_contrast_U_uN": 3.0,
+    "min_contrast_to_combined_guard": 3.0,
+    "max_normal_combined_guard_uN": 3.0,
+    "max_tilt_deg": 0.1,
+    "max_drift_um": 0.5,
+    "max_input_relative_U": 0.02,
+    "max_transverse_bound_mm": 0.0005
+  },
+  "sign_convention": {
+    "x": "Force exerted by solder on upper rim. Positive offset has negative restoring x force.",
+    "z": "Force exerted by solder on upper rim. Positive z is upward separating force. Gravity points downward."
+  },
+  "scope": [
+    "Only independent, isolated, fixed-gap, pinned circular-rim equilibria.",
+    "Three preparation blocks and six independent specimens per volume, axis and offset. Reversals and dwell frames are within-specimen diagnostics.",
+    "200 um offset is a separate model-scope diagnostic. 60 um compressed gap is a separate numerical-failure control. Neither enters confirmatory scoring.",
+    "Gamma and density are example values without an alloy or temperature. Independently measure actual process inputs before freezing.",
+    "Local input covariance propagation is a first-order uncertainty screen, not a validated coverage claim or a bound on model discrepancy.",
+    "No force fitting, production-yield claim, wetting prediction or PCB design release follows from numerical agreement.",
+    "Before freeze and during scoring, independently measured transverse displacement must satisfy abs(y) + expanded U_y <= 0.0005 mm. This near-zero apparatus-domain bound does not model arbitrary y offsets."
+  ]
+}
