@@ -1,0 +1,52 @@
+{
+  "passed": true,
+  "checked_at": "2026-10-17T16:38:06.658782+00:00",
+  "repository": "https://github.com/steph4n-gh/soldershape",
+  "research_release": "https://github.com/steph4n-gh/soldershape/releases/tag/v0.4.0-preview.1",
+  "release_source_commit": "ecac5fc41c136a878d2f34ed6673d54d5e0a341f",
+  "release_ci": [
+    {
+      "conclusion": "success",
+      "databaseId": 39049561478,
+      "headBranch": "v0.4.0-preview.1",
+      "status": "completed",
+      "url": "https://github.com/steph4n-gh/soldershape/actions/runs/39049561478"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 39049361888,
+      "headBranch": "main",
+      "status": "completed",
+      "url": "https://github.com/steph4n-gh/soldershape/actions/runs/39049361888"
+    }
+  ],
+  "private_vulnerability_reporting_enabled": true,
+  "site": {
+    "id": "appgprj_6ad2e53e69d4819198ce8a1bc6913741",
+    "title": "SolderShape",
+    "status": "active",
+    "current_live_url": "https://soldershape.steph4n.dev",
+    "latest_version_number": 3,
+    "access_mode": "public",
+    "access_revision": 2,
+    "updated_at": "2026-10-17T16:31:36.527538+00:00"
+  },
+  "public_deployment": "appgdep_6ad3a2bcc33c8191aa7b31d768245b4b",
+  "site_source_commit": "e00393660155e4bebd364c5e238c49c6ae50ec53",
+  "saved_version": "appgprj_6ad2e53e69d4819198ce8a1bc6913741~appgver_feeab9caad188191a06ebccfd28ae885",
+  "public_files": 108,
+  "raw_exact_files": 101,
+  "html_files_with_pinned_provider_script": 7,
+  "browser_choices": 4,
+  "mobile_no_horizontal_overflow": true,
+  "actual_evidence_download_matches": true,
+  "video_playback_completed_with_captions": true,
+  "package_sha256": "844f6dbd00c0f191ed17e6f7a70172e43003f38a7556171f502b4ec498688b4a",
+  "package_bytes": 423695221,
+  "manifest_members_verified": 1502,
+  "portable_tests_passed": 41,
+  "fresh_native_replayed_rows": 2,
+  "native_force_difference_uN": 0.0,
+  "physical_qualification": "unqualified",
+  "client_limit": "Default Python User-Agent receives Cloudflare 1010; explicit honest checker User-Agent and ordinary browser succeed anonymously."
+}

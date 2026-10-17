@@ -1,0 +1,10 @@
+{
+  "requested_url": "https://soldershape.steph4n.dev/",
+  "final_url": "https://soldershape.steph4n.dev/",
+  "status": 200,
+  "content_type": "text/html",
+  "bytes": 12676,
+  "sha256": "a6bdcb6db18f43ea166534654864f18395d7e47b472ab1199bc57df265754de5",
+  "authentication_sent": false,
+  "body_matches_canonical": false
+}

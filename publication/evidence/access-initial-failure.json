@@ -1,0 +1,30 @@
+[
+  {
+    "url": "https://soldershape.steph4n.dev/",
+    "final_url": "https://soldershape.steph4n.dev/",
+    "status": 401,
+    "headers": {
+      "Content-Type": "text/html; charset=utf-8",
+      "Server": "cloudflare",
+      "Cache-Control": "no-store"
+    },
+    "bytes": 4369,
+    "sha256": "9eec9831b4bb37318828972b705aacc7e6d05b8b257b1cc60138ba1b68d6b268",
+    "body_has_unauthorized": false,
+    "expected_source_present": false
+  },
+  {
+    "url": "https://soldershape.steph4n1.chatgpt.site/",
+    "final_url": "https://soldershape.steph4n1.chatgpt.site/",
+    "status": 200,
+    "headers": {
+      "Content-Type": "text/html",
+      "Server": "cloudflare",
+      "Cache-Control": "public, max-age=0, must-revalidate"
+    },
+    "bytes": 12676,
+    "sha256": "f08d9d817f8bbcbc6d759378cbaf4e4b98fa774ba6817ac24cb4bd914f1e18a4",
+    "body_has_unauthorized": false,
+    "expected_source_present": true
+  }
+]

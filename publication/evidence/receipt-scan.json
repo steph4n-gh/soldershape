@@ -1,0 +1,6 @@
+{
+  "passed": true,
+  "findings": 0,
+  "scope": "Staged publication records and anonymous deployment verifier; no product or Site source change.",
+  "whitespace_check": "Passed excluding the untouched GitHub raw CI log, whose four trailing spaces are preserved as received."
+}

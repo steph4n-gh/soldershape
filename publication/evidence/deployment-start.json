@@ -1,0 +1,15 @@
+{
+  "id": "appgdep_6ad3a259714c8191b1e02d54acee1bd6",
+  "project_id": "appgprj_6ad2e53e69d4819198ce8a1bc6913741",
+  "title": "SolderShape",
+  "version_id": "appgprj_6ad2e53e69d4819198ce8a1bc6913741~appgver_feeab9caad188191a06ebccfd28ae885",
+  "type": "publish",
+  "status": "succeeded",
+  "url": "https://soldershape.steph4n1.chatgpt.site",
+  "has_mcp": false,
+  "screenshot_asset_pointer": null,
+  "provider_deployment_id": "site---6ad2e53e69d4819198ce8a1bc6913741",
+  "failure_message": null,
+  "env_set_revision": 0,
+  "updated_at": "2026-10-17T16:29:31.859303+00:00"
+}

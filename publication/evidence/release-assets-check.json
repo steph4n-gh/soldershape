@@ -1,0 +1,36 @@
+{
+  "passed": true,
+  "source_commit": "ecac5fc41c136a878d2f34ed6673d54d5e0a341f",
+  "assets": [
+    {
+      "name": "SHA256SUMS",
+      "bytes": 320,
+      "sha256": "28caf6a353f7dc7268686af93aa5cff3f2e2821e2ef232797d1dc76dd2810bbc",
+      "server_digest_matches": true,
+      "download_url": "https://github.com/steph4n-gh/soldershape/releases/download/v0.4.0-preview.1/SHA256SUMS"
+    },
+    {
+      "name": "soldershape-coupon-r1-noticed.zip",
+      "bytes": 4159198,
+      "sha256": "c026038bae917917afadc2166e99b602a5cf9448012b4410fc83bd5da427a546",
+      "server_digest_matches": true,
+      "download_url": "https://github.com/steph4n-gh/soldershape/releases/download/v0.4.0-preview.1/soldershape-coupon-r1-noticed.zip"
+    },
+    {
+      "name": "soldershape-force-lab-r1-noticed.zip",
+      "bytes": 18801781,
+      "sha256": "8f464edcfff0ce3b871050d76dc3a540a2c9fd590abd44f676fbc75a531a7f98",
+      "server_digest_matches": true,
+      "download_url": "https://github.com/steph4n-gh/soldershape/releases/download/v0.4.0-preview.1/soldershape-force-lab-r1-noticed.zip"
+    },
+    {
+      "name": "soldershape-research-candidate-ecac5fc41c13.tar.gz",
+      "bytes": 423695221,
+      "sha256": "844f6dbd00c0f191ed17e6f7a70172e43003f38a7556171f502b4ec498688b4a",
+      "server_digest_matches": true,
+      "download_url": "https://github.com/steph4n-gh/soldershape/releases/download/v0.4.0-preview.1/soldershape-research-candidate-ecac5fc41c13.tar.gz"
+    }
+  ],
+  "prerelease": true,
+  "draft": false
+}

@@ -1,0 +1,15 @@
+{
+  "current_time": 36,
+  "duration": 36,
+  "ended": true,
+  "error": null,
+  "paused": true,
+  "source": "https://soldershape.steph4n.dev/media/walkthrough.mp4",
+  "tracks": [
+    {
+      "kind": "captions",
+      "mode": "showing"
+    }
+  ],
+  "url": "https://soldershape.steph4n.dev/"
+}

@@ -1,0 +1,8 @@
+{
+  "normalized_script_sha256": "6a75d68b52efbad75a56e87a7ed4a35db2a3a1eb32339a68733bba7110a10715",
+  "dynamic_fields": [
+    "r",
+    "t"
+  ],
+  "scope": "Cloudflare managed JS detection inserted at the edge. Origin HTML remains separately verified."
+}

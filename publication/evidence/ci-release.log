@@ -1,0 +1,285 @@
+boundaries	Set up job	﻿2026-10-17T16:25:52.3507792Z Current runner version: '2.337.0'
+boundaries	Set up job	2026-10-17T16:25:52.3535449Z ##[group]Runner Image Provisioner
+boundaries	Set up job	2026-10-17T16:25:52.3536595Z Hosted Compute Agent
+boundaries	Set up job	2026-10-17T16:25:52.3537278Z Version: 20261012.601
+boundaries	Set up job	2026-10-17T16:25:52.3537938Z Commit: f3dc54e1fb89da6852db922499a0233137369e1d
+boundaries	Set up job	2026-10-17T16:25:52.3538659Z Build Date: 2026-10-12T17:48:21Z
+boundaries	Set up job	2026-10-17T16:25:52.3539459Z Worker ID: {65c8ee4d-bb16-4c6c-930a-8689f7777de7}
+boundaries	Set up job	2026-10-17T16:25:52.3540232Z Region: eastus
+boundaries	Set up job	2026-10-17T16:25:52.3540826Z Cloud: Azure
+boundaries	Set up job	2026-10-17T16:25:52.3541358Z ##[endgroup]
+boundaries	Set up job	2026-10-17T16:25:52.3543864Z ##[group]Operating System
+boundaries	Set up job	2026-10-17T16:25:52.3544654Z Ubuntu
+boundaries	Set up job	2026-10-17T16:25:52.3545181Z 24.04.5
+boundaries	Set up job	2026-10-17T16:25:52.3545728Z LTS
+boundaries	Set up job	2026-10-17T16:25:52.3546521Z ##[endgroup]
+boundaries	Set up job	2026-10-17T16:25:52.3547128Z ##[group]Runner Image
+boundaries	Set up job	2026-10-17T16:25:52.3547829Z Image: ubuntu-24.04
+boundaries	Set up job	2026-10-17T16:25:52.3548439Z Version: 20261012.334.1
+boundaries	Set up job	2026-10-17T16:25:52.3549559Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md
+boundaries	Set up job	2026-10-17T16:25:52.3551369Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261012.334
+boundaries	Set up job	2026-10-17T16:25:52.3552469Z ##[endgroup]
+boundaries	Set up job	2026-10-17T16:25:52.3553634Z ##[group]GITHUB_TOKEN Permissions
+boundaries	Set up job	2026-10-17T16:25:52.3556446Z Contents: read
+boundaries	Set up job	2026-10-17T16:25:52.3557176Z Metadata: read
+boundaries	Set up job	2026-10-17T16:25:52.3557818Z ##[endgroup]
+boundaries	Set up job	2026-10-17T16:25:52.3560002Z Secret source: Actions
+boundaries	Set up job	2026-10-17T16:25:52.3561054Z Cache mode: write
+boundaries	Set up job	2026-10-17T16:25:52.3562036Z Prepare workflow directory
+boundaries	Set up job	2026-10-17T16:25:52.4036270Z Prepare all required actions
+boundaries	Set up job	2026-10-17T16:25:52.4107445Z Getting action download info
+boundaries	Set up job	2026-10-17T16:25:52.6094882Z Download action repository 'actions/checkout@11d5960a326750d5838078e36cf38b85af677262' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+boundaries	Set up job	2026-10-17T16:25:52.7296673Z Download action repository 'actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+boundaries	Set up job	2026-10-17T16:25:52.9230985Z Complete job name: boundaries
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	﻿2026-10-17T16:25:53.0038036Z ##[group]Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.0039140Z with:
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.0039608Z   repository: steph4n-gh/soldershape
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.0043283Z   token: ***
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.0043715Z   ssh-strict: true
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.0044147Z   ssh-user: git
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.0044629Z   persist-credentials: true
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.0045157Z   clean: true
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.0045599Z   sparse-checkout-cone-mode: true
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.0046409Z   fetch-depth: 1
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.0046856Z   fetch-tags: false
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.0047307Z   show-progress: true
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.0047764Z   lfs: false
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.0048170Z   submodules: false
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.0048627Z   set-safe-directory: true
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.0049133Z   allow-unsafe-pr-checkout: false
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.0050009Z ##[endgroup]
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.1087250Z Syncing repository: steph4n-gh/soldershape
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.1089947Z ##[group]Getting Git version info
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.1091244Z Working directory is '/home/runner/work/soldershape/soldershape'
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.1092908Z [command]/usr/bin/git version
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.1214576Z git version 2.55.0
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.1238426Z ##[endgroup]
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.1254144Z Temporarily overriding HOME='/home/runner/work/_temp/6f255616-b404-44b7-aa26-375cb61396bf' before making global git config changes
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.1256806Z Adding repository directory to the temporary git global config as a safe directory
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.1259304Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/soldershape/soldershape
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.1317956Z Deleting the contents of '/home/runner/work/soldershape/soldershape'
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.1328502Z ##[group]Initializing the repository
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.1336826Z [command]/usr/bin/git init /home/runner/work/soldershape/soldershape
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.1461348Z hint: Using 'master' as the name for the initial branch. This default branch name
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.1463508Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.1465046Z hint: to use in all of your new repositories, which will suppress this warning,
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.1466417Z hint: call:
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.1467235Z hint:
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.1468293Z hint: 	git config --global init.defaultBranch <name>
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.1469322Z hint:
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.1470486Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.1471897Z hint: 'development'. The just-created branch can be renamed via this command:
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.1473120Z hint:
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.1474010Z hint: 	git branch -m <name>
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.1474882Z hint:
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.1476284Z hint: Disable this message with "git config set advice.defaultBranchName false"
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.1482649Z Initialized empty Git repository in /home/runner/work/soldershape/soldershape/.git/
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.1493702Z [command]/usr/bin/git remote add origin https://github.com/steph4n-gh/soldershape
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.1549025Z ##[endgroup]
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.1550137Z ##[group]Disabling automatic garbage collection
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.1553489Z [command]/usr/bin/git config --local gc.auto 0
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.1588195Z ##[endgroup]
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.1589405Z ##[group]Setting up auth
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.1596285Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.1635621Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.2062717Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.2103107Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.2338643Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.2377071Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.2607949Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.2649829Z ##[endgroup]
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.2650720Z ##[group]Fetching the repository
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:53.2659543Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +ecac5fc41c136a878d2f34ed6673d54d5e0a341f:refs/remotes/origin/main
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:58.1758753Z From https://github.com/steph4n-gh/soldershape
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:58.1761100Z  * [new ref]         ecac5fc41c136a878d2f34ed6673d54d5e0a341f -> origin/main
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:58.1767265Z ##[endgroup]
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:58.1769553Z ##[group]Determining the checkout info
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:58.1772243Z ##[endgroup]
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:58.1773960Z [command]/usr/bin/git sparse-checkout disable
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:58.1833007Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:58.1872004Z ##[group]Checking out the ref
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:58.1876272Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:59.5267679Z Switched to a new branch 'main'
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:59.5279875Z branch 'main' set up to track 'origin/main'.
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:59.5339368Z ##[endgroup]
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:59.5732584Z [command]/usr/bin/git log -1 --format=%H
+boundaries	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:25:59.5766763Z ecac5fc41c136a878d2f34ed6673d54d5e0a341f
+boundaries	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	﻿2026-10-17T16:25:59.6216831Z ##[group]Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+boundaries	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-17T16:25:59.6217431Z with:
+boundaries	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-17T16:25:59.6217701Z   python-version: 3.12
+boundaries	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-17T16:25:59.6218053Z   check-latest: false
+boundaries	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-17T16:25:59.6220786Z   token: ***
+boundaries	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-17T16:25:59.6303868Z   update-environment: true
+boundaries	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-17T16:25:59.6304451Z   allow-prereleases: false
+boundaries	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-17T16:25:59.6304971Z   freethreaded: false
+boundaries	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-17T16:25:59.6305516Z ##[endgroup]
+boundaries	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-17T16:25:59.7795385Z ##[group]Installed versions
+boundaries	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-17T16:25:59.9280096Z (node:2312) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+boundaries	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-17T16:25:59.9281379Z (Use `node --trace-deprecation ...` to show where the warning was created)
+boundaries	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-17T16:25:59.9282193Z Successfully set up CPython (3.12.15)
+boundaries	Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-17T16:25:59.9282878Z ##[endgroup]
+boundaries	Run python3 -m compileall -q soldershape tools	﻿2026-10-17T16:26:00.0615423Z ##[group]Run python3 -m compileall -q soldershape tools
+boundaries	Run python3 -m compileall -q soldershape tools	2026-10-17T16:26:00.0616347Z [36;1mpython3 -m compileall -q soldershape tools[0m
+boundaries	Run python3 -m compileall -q soldershape tools	2026-10-17T16:26:00.4007532Z shell: /usr/bin/bash -e {0}
+boundaries	Run python3 -m compileall -q soldershape tools	2026-10-17T16:26:00.4007996Z env:
+boundaries	Run python3 -m compileall -q soldershape tools	2026-10-17T16:26:00.4008402Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+boundaries	Run python3 -m compileall -q soldershape tools	2026-10-17T16:26:00.4009065Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+boundaries	Run python3 -m compileall -q soldershape tools	2026-10-17T16:26:00.4009725Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+boundaries	Run python3 -m compileall -q soldershape tools	2026-10-17T16:26:00.4010299Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+boundaries	Run python3 -m compileall -q soldershape tools	2026-10-17T16:26:00.4010887Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+boundaries	Run python3 -m compileall -q soldershape tools	2026-10-17T16:26:00.4011462Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+boundaries	Run python3 -m compileall -q soldershape tools	2026-10-17T16:26:00.4011948Z ##[endgroup]
+boundaries	Run python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v	﻿2026-10-17T16:26:00.5775444Z ##[group]Run python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v
+boundaries	Run python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v	2026-10-17T16:26:00.5776509Z [36;1mpython3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v[0m
+boundaries	Run python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v	2026-10-17T16:26:00.5843223Z shell: /usr/bin/bash -e {0}
+boundaries	Run python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v	2026-10-17T16:26:00.5843527Z env:
+boundaries	Run python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v	2026-10-17T16:26:00.5843828Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+boundaries	Run python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v	2026-10-17T16:26:00.5844326Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+boundaries	Run python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v	2026-10-17T16:26:00.5844848Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+boundaries	Run python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v	2026-10-17T16:26:00.5845301Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+boundaries	Run python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v	2026-10-17T16:26:00.5845735Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+boundaries	Run python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v	2026-10-17T16:26:00.5846569Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+boundaries	Run python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v	2026-10-17T16:26:00.5847086Z ##[endgroup]
+boundaries	Run python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v	2026-10-17T16:26:00.9664517Z test_actual_kicad_geometry (tests.test_boundaries.Boundaries.test_actual_kicad_geometry) ... ok
+boundaries	Run python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v	2026-10-17T16:26:00.9746465Z test_failed_row_evidence_and_csv_survive_export (tests.test_boundaries.Boundaries.test_failed_row_evidence_and_csv_survive_export) ... ok
+boundaries	Run python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v	2026-10-17T16:26:00.9799825Z test_loaded_replay_rebalances_and_retains_current_failure (tests.test_boundaries.Boundaries.test_loaded_replay_rebalances_and_retains_current_failure) ... ok
+boundaries	Run python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v	2026-10-17T16:26:00.9814906Z test_malformed_footprints_are_rejected (tests.test_boundaries.Boundaries.test_malformed_footprints_are_rejected) ... ok
+boundaries	Run python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v	2026-10-17T16:26:00.9821141Z test_mask_defined_pad_cannot_be_solved_as_its_copper_rim (tests.test_boundaries.Boundaries.test_mask_defined_pad_cannot_be_solved_as_its_copper_rim) ... ok
+boundaries	Run python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v	2026-10-17T16:26:00.9839489Z test_numeric_and_boolean_domains (tests.test_boundaries.Boundaries.test_numeric_and_boolean_domains) ... ok
+boundaries	Run python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v	2026-10-17T16:26:00.9841481Z test_quoted_labels_and_duplicate_identifiers_keep_distinct_indices (tests.test_boundaries.Boundaries.test_quoted_labels_and_duplicate_identifiers_keep_distinct_indices) ... ok
+boundaries	Run python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v	2026-10-17T16:26:00.9895591Z test_replay_reports_each_failed_case_and_continues (tests.test_boundaries.Boundaries.test_replay_reports_each_failed_case_and_continues) ... ok
+boundaries	Run python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v	2026-10-17T16:26:00.9926693Z test_selected_diameter_comes_from_footprint (tests.test_boundaries.Boundaries.test_selected_diameter_comes_from_footprint) ... ok
+boundaries	Run python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v	2026-10-17T16:26:00.9928732Z test_unsupported_pad_is_visible_but_cannot_be_solved (tests.test_boundaries.Boundaries.test_unsupported_pad_is_visible_but_cannot_be_solved) ... ok
+boundaries	Run python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v	2026-10-17T16:26:01.0161565Z test_foreign_origin_is_rejected_even_with_token (tests.test_boundaries.LocalHTTP.test_foreign_origin_is_rejected_even_with_token) ... ok
+boundaries	Run python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v	2026-10-17T16:26:01.0189783Z test_live_import_returns_actual_geometry (tests.test_boundaries.LocalHTTP.test_live_import_returns_actual_geometry) ... ok
+boundaries	Run python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v	2026-10-17T16:26:01.0198498Z test_missing_local_session_is_rejected (tests.test_boundaries.LocalHTTP.test_missing_local_session_is_rejected) ... ok
+boundaries	Run python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v	2026-10-17T16:26:01.0207050Z test_unknown_fields_are_rejected (tests.test_boundaries.LocalHTTP.test_unknown_fields_are_rejected) ... ok
+boundaries	Run python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v	2026-10-17T16:26:01.5240948Z test_case_rejects_nonfinite_and_unexpected_fields (tests.test_cases.CaseHTTP.test_case_rejects_nonfinite_and_unexpected_fields) ... ok
+boundaries	Run python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v	2026-10-17T16:26:01.5401018Z test_compare_exports_both_failed_rows_and_input_only_case (tests.test_cases.CaseHTTP.test_compare_exports_both_failed_rows_and_input_only_case) ... ok
+boundaries	Run python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v	2026-10-17T16:26:01.5500590Z test_live_case_open_normalizes_and_returns_original_pad_geometry (tests.test_cases.CaseHTTP.test_live_case_open_normalizes_and_returns_original_pad_geometry) ... ok
+boundaries	Run python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v	2026-10-17T16:26:01.6299749Z test_open_leaves_foreign_listener_alone (tests.test_cases.CaseHTTP.test_open_leaves_foreign_listener_alone) ... ok
+boundaries	Run python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v	2026-10-17T16:26:01.6331889Z test_open_reuses_verified_existing_workbench (tests.test_cases.CaseHTTP.test_open_reuses_verified_existing_workbench) ... ok
+boundaries	Run python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v	2026-10-17T16:26:02.1409971Z test_case_cannot_override_shared_conditions_or_execute_code (tests.test_cases.EditableCases.test_case_cannot_override_shared_conditions_or_execute_code) ... ok
+boundaries	Run python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v	2026-10-17T16:26:02.1471563Z test_comparison_is_fresh_and_preserves_fixed_conditions (tests.test_cases.EditableCases.test_comparison_is_fresh_and_preserves_fixed_conditions) ... ok
+boundaries	Run python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v	2026-10-17T16:26:02.1597864Z test_failed_or_zero_offset_comparison_has_no_improvement_verdict (tests.test_cases.EditableCases.test_failed_or_zero_offset_comparison_has_no_improvement_verdict) ... ok
+boundaries	Run python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v	2026-10-17T16:26:02.1660483Z test_loaded_zero_offset_comparison_reports_height_without_centering_verdict (tests.test_cases.EditableCases.test_loaded_zero_offset_comparison_reports_height_without_centering_verdict) ... ok
+boundaries	Run python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v	2026-10-17T16:26:02.6542271Z test_pretty_saved_case_fits_the_reopen_limit (tests.test_cases.EditableCases.test_pretty_saved_case_fits_the_reopen_limit) ... ok
+boundaries	Run python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v	2026-10-17T16:26:02.6601883Z test_saved_inputs_round_trip_without_result_claims (tests.test_cases.EditableCases.test_saved_inputs_round_trip_without_result_claims) ... ok
+boundaries	Run python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v	2026-10-17T16:26:02.6663231Z test_surface_beyond_pad_planes_keeps_forces_but_blocks_design_verdict (tests.test_cases.EditableCases.test_surface_beyond_pad_planes_keeps_forces_but_blocks_design_verdict) ... ok
+boundaries	Run python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v	2026-10-17T16:26:02.6701065Z test_board_browser_range_matches_canonical_boundary (tests.test_web_inputs.BrowserInputRanges.test_board_browser_range_matches_canonical_boundary) ... ok
+boundaries	Run python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v	2026-10-17T16:26:02.6702243Z 
+boundaries	Run python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v	2026-10-17T16:26:02.6702523Z ----------------------------------------------------------------------
+boundaries	Run python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v	2026-10-17T16:26:02.6703111Z Ran 27 tests in 1.706s
+boundaries	Run python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v	2026-10-17T16:26:02.6703341Z 
+boundaries	Run python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v	2026-10-17T16:26:02.6703469Z OK
+boundaries	Run python3 -m unittest prelab.test_campaign.CouponRequests prelab.test_finite -v	﻿2026-10-17T16:26:02.6925558Z ##[group]Run python3 -m unittest prelab.test_campaign.CouponRequests prelab.test_finite -v
+boundaries	Run python3 -m unittest prelab.test_campaign.CouponRequests prelab.test_finite -v	2026-10-17T16:26:02.6926586Z [36;1mpython3 -m unittest prelab.test_campaign.CouponRequests prelab.test_finite -v[0m
+boundaries	Run python3 -m unittest prelab.test_campaign.CouponRequests prelab.test_finite -v	2026-10-17T16:26:02.6991057Z shell: /usr/bin/bash -e {0}
+boundaries	Run python3 -m unittest prelab.test_campaign.CouponRequests prelab.test_finite -v	2026-10-17T16:26:02.6991318Z env:
+boundaries	Run python3 -m unittest prelab.test_campaign.CouponRequests prelab.test_finite -v	2026-10-17T16:26:02.6991594Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+boundaries	Run python3 -m unittest prelab.test_campaign.CouponRequests prelab.test_finite -v	2026-10-17T16:26:02.6992056Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+boundaries	Run python3 -m unittest prelab.test_campaign.CouponRequests prelab.test_finite -v	2026-10-17T16:26:02.6992489Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+boundaries	Run python3 -m unittest prelab.test_campaign.CouponRequests prelab.test_finite -v	2026-10-17T16:26:02.6992887Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+boundaries	Run python3 -m unittest prelab.test_campaign.CouponRequests prelab.test_finite -v	2026-10-17T16:26:02.6993272Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+boundaries	Run python3 -m unittest prelab.test_campaign.CouponRequests prelab.test_finite -v	2026-10-17T16:26:02.6993664Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+boundaries	Run python3 -m unittest prelab.test_campaign.CouponRequests prelab.test_finite -v	2026-10-17T16:26:02.6993985Z ##[endgroup]
+boundaries	Run python3 -m unittest prelab.test_campaign.CouponRequests prelab.test_finite -v	2026-10-17T16:26:02.8360068Z test_all_rows_remain_accounted_for_when_native_inputs_recur (prelab.test_campaign.CouponRequests.test_all_rows_remain_accounted_for_when_native_inputs_recur) ... ok
+boundaries	Run python3 -m unittest prelab.test_campaign.CouponRequests prelab.test_finite -v	2026-10-17T16:26:02.8362188Z test_both_metal_cylinders_are_counted_once (prelab.test_campaign.CouponRequests.test_both_metal_cylinders_are_counted_once) ... ok
+boundaries	Run python3 -m unittest prelab.test_campaign.CouponRequests prelab.test_finite -v	2026-10-17T16:26:02.8367332Z test_identical_and_reversed_geometries_have_matching_native_requests (prelab.test_campaign.CouponRequests.test_identical_and_reversed_geometries_have_matching_native_requests) ... ok
+boundaries	Run python3 -m unittest prelab.test_campaign.CouponRequests prelab.test_finite -v	2026-10-17T16:26:02.8370179Z test_mass_changes_load_and_does_not_add_solder_weight (prelab.test_campaign.CouponRequests.test_mass_changes_load_and_does_not_add_solder_weight) ... ok
+boundaries	Run python3 -m unittest prelab.test_campaign.CouponRequests prelab.test_finite -v	2026-10-17T16:26:02.8372934Z test_nominal_units_and_liquid_volume (prelab.test_campaign.CouponRequests.test_nominal_units_and_liquid_volume) ... ok
+boundaries	Run python3 -m unittest prelab.test_campaign.CouponRequests prelab.test_finite -v	2026-10-17T16:26:02.8376935Z test_opposed_screened_spheres_are_not_a_second_volume_factor (prelab.test_campaign.CouponRequests.test_opposed_screened_spheres_are_not_a_second_volume_factor) ... ok
+boundaries	Run python3 -m unittest prelab.test_campaign.CouponRequests prelab.test_finite -v	2026-10-17T16:26:02.8380660Z test_published_paper_cannot_be_relabelled_as_actual_coupon (prelab.test_campaign.CouponRequests.test_published_paper_cannot_be_relabelled_as_actual_coupon) ... ok
+boundaries	Run python3 -m unittest prelab.test_campaign.CouponRequests prelab.test_finite -v	2026-10-17T16:26:02.8385118Z test_curved_patch_penetration_is_detected (prelab.test_finite.FinitePadTests.test_curved_patch_penetration_is_detected) ... ok
+boundaries	Run python3 -m unittest prelab.test_campaign.CouponRequests prelab.test_finite -v	2026-10-17T16:26:02.8386980Z test_exact_liquid_volume_bookkeeping (prelab.test_finite.FinitePadTests.test_exact_liquid_volume_bookkeeping) ... ok
+boundaries	Run python3 -m unittest prelab.test_campaign.CouponRequests prelab.test_finite -v	2026-10-17T16:26:02.8390581Z test_model_assigns_inherited_obstacles_only_to_free_interface (prelab.test_finite.FinitePadTests.test_model_assigns_inherited_obstacles_only_to_free_interface) ... ok
+boundaries	Run python3 -m unittest prelab.test_campaign.CouponRequests prelab.test_finite -v	2026-10-17T16:26:02.8393840Z test_prescribed_rim_samples_are_not_new_wall_contact (prelab.test_finite.FinitePadTests.test_prescribed_rim_samples_are_not_new_wall_contact) ... ok
+boundaries	Run python3 -m unittest prelab.test_campaign.CouponRequests prelab.test_finite -v	2026-10-17T16:26:02.8396307Z test_reject_unmodelled_gravity_and_invalid_depth (prelab.test_finite.FinitePadTests.test_reject_unmodelled_gravity_and_invalid_depth) ... ok
+boundaries	Run python3 -m unittest prelab.test_campaign.CouponRequests prelab.test_finite -v	2026-10-17T16:26:02.8409888Z test_relaxed_energy_units_and_sign_against_linear_energy (prelab.test_finite.FinitePadTests.test_relaxed_energy_units_and_sign_against_linear_energy) ... ok
+boundaries	Run python3 -m unittest prelab.test_campaign.CouponRequests prelab.test_finite -v	2026-10-17T16:26:02.8411579Z test_sampling_precedes_flattening_without_extra_mesh_refinement (prelab.test_finite.FinitePadTests.test_sampling_precedes_flattening_without_extra_mesh_refinement) ... ok
+boundaries	Run python3 -m unittest prelab.test_campaign.CouponRequests prelab.test_finite -v	2026-10-17T16:26:02.8412246Z 
+boundaries	Run python3 -m unittest prelab.test_campaign.CouponRequests prelab.test_finite -v	2026-10-17T16:26:02.8412413Z ----------------------------------------------------------------------
+boundaries	Run python3 -m unittest prelab.test_campaign.CouponRequests prelab.test_finite -v	2026-10-17T16:26:02.8412757Z Ran 14 tests in 0.008s
+boundaries	Run python3 -m unittest prelab.test_campaign.CouponRequests prelab.test_finite -v	2026-10-17T16:26:02.8412895Z 
+boundaries	Run python3 -m unittest prelab.test_campaign.CouponRequests prelab.test_finite -v	2026-10-17T16:26:02.8413008Z OK
+boundaries	Run python3 decision_walkthrough/verify.py	﻿2026-10-17T16:26:02.8602132Z ##[group]Run python3 decision_walkthrough/verify.py
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:02.8602567Z [36;1mpython3 decision_walkthrough/verify.py[0m
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:02.8666470Z shell: /usr/bin/bash -e {0}
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:02.8666752Z env:
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:02.8667046Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:02.8667564Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:02.8668045Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:02.8668486Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:02.8668925Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:02.8669363Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:02.8669730Z ##[endgroup]
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:04.5857570Z {
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:04.5858040Z   "passed": true,
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:04.5858924Z   "original_archive_sha256": "1b87dca00de964b62cce902e071dad063b2f935f79d340817ff9e810bfff9604",
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:04.5860357Z   "changed_archive_sha256": "e04880f9666586e421ce17177ef04b00eb5498b96cc130425acac938ba935777",
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:04.5861315Z   "only_changed_input": "standoff_mm",
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:04.5861848Z   "cases": [
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:04.5862164Z     {
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:04.5862409Z       "held_gap_um": 300,
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:04.5863061Z       "forces_uN": [
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:04.5863319Z         {
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:04.5863564Z           "x_uN": -184.52638094190732,
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:04.5863893Z           "z_uN": -181.28387853829275
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:04.5864196Z         },
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:04.5864421Z         {
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:04.5864653Z           "x_uN": -164.3854725452698,
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:04.5864967Z           "z_uN": 13.385897738397528
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:04.5865266Z         }
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:04.5865481Z       ],
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:04.5865725Z       "reference_rule_met": true,
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:04.5866444Z       "candidate_rule_met": false
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:04.5866751Z     },
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:04.5866966Z     {
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:04.5867206Z       "held_gap_um": 330,
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:04.5867488Z       "forces_uN": [
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:04.5867745Z         {
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:04.5867978Z           "x_uN": -169.062859622926,
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:04.5868306Z           "z_uN": -227.38953775806067
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:04.5868619Z         },
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:04.5868842Z         {
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:04.5869075Z           "x_uN": -170.45539126847586,
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:04.5869405Z           "z_uN": -82.27612770208692
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:04.5869711Z         }
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:04.5869936Z       ],
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:04.5870204Z       "reference_rule_met": true,
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:04.5870532Z       "candidate_rule_met": true
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:04.5870832Z     }
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:04.5871049Z   ],
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:04.5871308Z   "physical_qualification": "unqualified",
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:04.5872041Z   "scope": "Two sampled held-gap hypotheses on one identified source pad. Not a process tolerance or physical error bound."
+boundaries	Run python3 decision_walkthrough/verify.py	2026-10-17T16:26:04.5872734Z }
+boundaries	Run node --check soldershape/web/app.js && node --check soldershape/web/board.js && node --check soldershape/web/study.js && node --check soldershape/web/ui.js && node --check website/dist/site.js	﻿2026-10-17T16:26:04.6029801Z ##[group]Run node --check soldershape/web/app.js && node --check soldershape/web/board.js && node --check soldershape/web/study.js && node --check soldershape/web/ui.js && node --check website/dist/site.js
+boundaries	Run node --check soldershape/web/app.js && node --check soldershape/web/board.js && node --check soldershape/web/study.js && node --check soldershape/web/ui.js && node --check website/dist/site.js	2026-10-17T16:26:04.6031177Z [36;1mnode --check soldershape/web/app.js && node --check soldershape/web/board.js && node --check soldershape/web/study.js && node --check soldershape/web/ui.js && node --check website/dist/site.js[0m
+boundaries	Run node --check soldershape/web/app.js && node --check soldershape/web/board.js && node --check soldershape/web/study.js && node --check soldershape/web/ui.js && node --check website/dist/site.js	2026-10-17T16:26:04.6096234Z shell: /usr/bin/bash -e {0}
+boundaries	Run node --check soldershape/web/app.js && node --check soldershape/web/board.js && node --check soldershape/web/study.js && node --check soldershape/web/ui.js && node --check website/dist/site.js	2026-10-17T16:26:04.6096495Z env:
+boundaries	Run node --check soldershape/web/app.js && node --check soldershape/web/board.js && node --check soldershape/web/study.js && node --check soldershape/web/ui.js && node --check website/dist/site.js	2026-10-17T16:26:04.6096762Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+boundaries	Run node --check soldershape/web/app.js && node --check soldershape/web/board.js && node --check soldershape/web/study.js && node --check soldershape/web/ui.js && node --check website/dist/site.js	2026-10-17T16:26:04.6097217Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+boundaries	Run node --check soldershape/web/app.js && node --check soldershape/web/board.js && node --check soldershape/web/study.js && node --check soldershape/web/ui.js && node --check website/dist/site.js	2026-10-17T16:26:04.6097648Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+boundaries	Run node --check soldershape/web/app.js && node --check soldershape/web/board.js && node --check soldershape/web/study.js && node --check soldershape/web/ui.js && node --check website/dist/site.js	2026-10-17T16:26:04.6098025Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+boundaries	Run node --check soldershape/web/app.js && node --check soldershape/web/board.js && node --check soldershape/web/study.js && node --check soldershape/web/ui.js && node --check website/dist/site.js	2026-10-17T16:26:04.6098408Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+boundaries	Run node --check soldershape/web/app.js && node --check soldershape/web/board.js && node --check soldershape/web/study.js && node --check soldershape/web/ui.js && node --check website/dist/site.js	2026-10-17T16:26:04.6098792Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+boundaries	Run node --check soldershape/web/app.js && node --check soldershape/web/board.js && node --check soldershape/web/study.js && node --check soldershape/web/ui.js && node --check website/dist/site.js	2026-10-17T16:26:04.6099155Z ##[endgroup]
+boundaries	Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	﻿2026-10-17T16:26:04.9312366Z Post job cleanup.
+boundaries	Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-17T16:26:05.0517409Z (node:2375) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+boundaries	Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065	2026-10-17T16:26:05.0518483Z (Use `node --trace-deprecation ...` to show where the warning was created)
+boundaries	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	﻿2026-10-17T16:26:05.0711427Z Post job cleanup.
+boundaries	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:26:05.1606733Z [command]/usr/bin/git version
+boundaries	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:26:05.1646119Z git version 2.55.0
+boundaries	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:26:05.1691716Z Temporarily overriding HOME='/home/runner/work/_temp/ee42a985-4d6f-4bac-9f96-f4165bbda26e' before making global git config changes
+boundaries	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:26:05.1693217Z Adding repository directory to the temporary git global config as a safe directory
+boundaries	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:26:05.1698618Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/soldershape/soldershape
+boundaries	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:26:05.1743752Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+boundaries	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:26:05.1782783Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+boundaries	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:26:05.2047323Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+boundaries	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:26:05.2076013Z http.https://github.com/.extraheader
+boundaries	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:26:05.2089755Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+boundaries	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:26:05.2125678Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+boundaries	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:26:05.2403298Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+boundaries	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-17T16:26:05.2442806Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+boundaries	Complete job	﻿2026-10-17T16:26:05.2871486Z Cleaning up orphan processes
+boundaries	Complete job	2026-10-17T16:26:05.3161166Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

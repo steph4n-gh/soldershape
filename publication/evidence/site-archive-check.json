@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "logical_files": 109,
+  "canonical_static_files": 108,
+  "appledouble_members": 0,
+  "site_source_commit": "e00393660155e4bebd364c5e238c49c6ae50ec53",
+  "archive_sha256": "2d6321b68e99ea6f0e51864cb5c44b4d0c50e79977669bfc4419b36d151bb03a"
+}

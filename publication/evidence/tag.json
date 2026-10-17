@@ -1,0 +1,24 @@
+{
+  "node_id": "TA_kwDOVNkqL9oAKDA5MDJlYzdjNjhlYzBhMTg0YjlmNzNlODlkMzQ2NmZjYzA0ZTkzN2E",
+  "sha": "0902ec7c68ec0a184b9f73e89d3466fcc04e937a",
+  "url": "https://api.github.com/repos/steph4n-gh/soldershape/git/tags/0902ec7c68ec0a184b9f73e89d3466fcc04e937a",
+  "tagger": {
+    "name": "steph4n-gh",
+    "email": "284007938+steph4n-gh@users.noreply.github.com",
+    "date": "2026-10-17T16:28:30Z"
+  },
+  "object": {
+    "sha": "ecac5fc41c136a878d2f34ed6673d54d5e0a341f",
+    "type": "commit",
+    "url": "https://api.github.com/repos/steph4n-gh/soldershape/git/commits/ecac5fc41c136a878d2f34ed6673d54d5e0a341f"
+  },
+  "tag": "v0.4.0-preview.1",
+  "message": "SolderShape research preview 1. Physical force accuracy remains unqualified.\n",
+  "verification": {
+    "verified": false,
+    "reason": "unsigned",
+    "signature": null,
+    "payload": null,
+    "verified_at": null
+  }
+}

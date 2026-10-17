@@ -1,0 +1,46 @@
+[
+  {
+    "documentWidth": 1265,
+    "gap": "300 µm held gap",
+    "review": "media/evidence/review.html",
+    "rule": "Numerical fixture rule met. Physical accuracy unqualified.",
+    "sourceLink": "https://github.com/steph4n-gh/soldershape",
+    "url": "https://soldershape.steph4n.dev/",
+    "viewport": 1280,
+    "x": "−184.526",
+    "z": "−181.284"
+  },
+  {
+    "documentWidth": 1265,
+    "gap": "300 µm held gap",
+    "review": "media/evidence/review.html",
+    "rule": "Numerical fixture rule not met. Physical accuracy unqualified.",
+    "sourceLink": "https://github.com/steph4n-gh/soldershape",
+    "url": "https://soldershape.steph4n.dev/",
+    "viewport": 1280,
+    "x": "−164.385",
+    "z": "+13.386"
+  },
+  {
+    "documentWidth": 1265,
+    "gap": "330 µm held gap",
+    "review": "media/gap-330-evidence/review.html",
+    "rule": "Numerical fixture rule met. Physical accuracy unqualified.",
+    "sourceLink": "https://github.com/steph4n-gh/soldershape",
+    "url": "https://soldershape.steph4n.dev/",
+    "viewport": 1280,
+    "x": "−170.455",
+    "z": "−82.276"
+  },
+  {
+    "documentWidth": 1265,
+    "gap": "330 µm held gap",
+    "review": "media/gap-330-evidence/review.html",
+    "rule": "Numerical fixture rule met. Physical accuracy unqualified.",
+    "sourceLink": "https://github.com/steph4n-gh/soldershape",
+    "url": "https://soldershape.steph4n.dev/",
+    "viewport": 1280,
+    "x": "−169.063",
+    "z": "−227.390"
+  }
+]

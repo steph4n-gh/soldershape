@@ -1,0 +1,11 @@
+{
+  "documentWidth": 375,
+  "gap": "330 µm held gap",
+  "review": "media/gap-330-evidence/review.html",
+  "rule": "Numerical fixture rule met. Physical accuracy unqualified.",
+  "sourceLink": "https://github.com/steph4n-gh/soldershape",
+  "url": "https://soldershape.steph4n.dev/",
+  "viewport": 390,
+  "x": "−170.455",
+  "z": "−82.276"
+}
