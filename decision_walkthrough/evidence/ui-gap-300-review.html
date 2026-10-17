@@ -1,0 +1,84 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SolderShape numerical review</title><style>body{font:16px/1.55 system-ui,sans-serif;max-width:920px;margin:40px auto;padding:0 20px;color:#152623}h1,h2{line-height:1.2}section{border-top:1px solid #acbfba;margin-top:28px;padding-top:16px}table{border-collapse:collapse;width:100%}th,td{text-align:left;vertical-align:top;border-bottom:1px solid #d5dfdc;padding:7px}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px}.qualification{padding:16px;background:#fff2cf}code{overflow-wrap:anywhere}</style>
+<h1>SolderShape numerical review</h1>
+<p>This report works as a standalone HTML file. Its evidence links work only when it sits in the extracted accompanying evidence ZIP. The linked source, CSV, receipts and manifest are separate files, not embedded in this HTML.</p>
+<p class="qualification">Physical force accuracy is unqualified. Numerical checks are not physical validation or production approval.</p>
+<h2>Less solder meets this declared fixture objective. More solder pushes upward.</h2>
+<ul><li>Candidate minus reference restoring force -20.1409 µN.</li><li>Candidate minus reference Z force 194.67 µN.</li><li>The objective requires lateral restoration and no upward separating force at the held gap.</li><li>This numerical screen does not select a production solder volume.</li></ul>
+<p>Footprint U1--00000000-0000-0000-0000-000058d8d57e. Pad J16.</p>
+<p>Source footprint SHA-256 <code>14b691bcc05e1c93fa1ae8aeb70361e646a4f4ffba255ebd4b9002ae0ba2160a</code>.</p>
+<p>Board component U1. Pad J16. Board SHA-256 <code>1172f7b0fc262422bab01c62fb4dc84f16d9f1ea8902dc6fe2da859bba9035fc</code>.</p>
+<section><h2>Reference</h2><p>Checked prediction at a held gap.</p>
+<p>Numerical status <strong>refinement_checked</strong>. Input SHA-256 <code>60df5cfa24f690fdad0eed5ca0196cd7f885d8a2acbd63186dc1b7e11c00a007</code>.</p>
+<ul><li>Solder volume 40 nL (0.04 mm³); offset 240 µm (0.24 mm).</li><li>Held wetted-plane gap 300 µm (0.3 mm).</li><li>X force -184.526 µN.</li><li>Restoring force 184.526 µN (toward alignment).</li><li>Z force -181.284 µN (downward).</li><li>The solder pulls the upper pad downward at this held gap.</li></ul>
+<table><thead><tr><th>Declared input</th><th>Value</th></tr></thead><tbody>
+<tr><td>Lower pad diameter</td><td>400 µm (0.4 mm)</td></tr><tr><td>Upper pad diameter</td><td>400 µm (0.4 mm)</td></tr><tr><td>Solder volume</td><td>40 nL (0.04 mm³)</td></tr><tr><td>Offset</td><td>240 µm (0.24 mm)</td></tr><tr><td>Held wetted-plane gap</td><td>300 µm (0.3 mm)</td></tr><tr><td>Surface tension</td><td>0.48 N/m</td></tr><tr><td>Density</td><td>9 g/cm³</td></tr><tr><td>Gravity</td><td>Included</td></tr>
+</tbody></table>
+<details><summary>Exact canonical values</summary><pre>{
+  &quot;equilibrium&quot;: {
+    &quot;density_g_cm3&quot;: 9,
+    &quot;gravity&quot;: true,
+    &quot;lower_diameter_mm&quot;: 0.4,
+    &quot;offset_mm&quot;: 0.24,
+    &quot;standoff_mm&quot;: 0.3,
+    &quot;surface_tension_n_m&quot;: 0.48,
+    &quot;upper_diameter_mm&quot;: 0.4,
+    &quot;volume_mm3&quot;: 0.04
+  },
+  &quot;forces&quot;: {
+    &quot;x_uN&quot;: -184.52638094190732,
+    &quot;z_uN&quot;: -181.28387853829275
+  },
+  &quot;input&quot;: {
+    &quot;density_g_cm3&quot;: 9,
+    &quot;gravity&quot;: true,
+    &quot;lower_diameter_mm&quot;: 0.4,
+    &quot;offset_mm&quot;: 0.24,
+    &quot;standoff_mm&quot;: 0.3,
+    &quot;surface_tension_n_m&quot;: 0.48,
+    &quot;upper_diameter_mm&quot;: 0.4,
+    &quot;volume_mm3&quot;: 0.04
+  }
+}
+</pre></details>
+<p>Links within the extracted evidence ZIP <a href="case-00/input.json">input JSON</a> and <a href="case-00/result.json">result JSON</a>.</p></section>
+<section><h2>Candidate</h2><p>Checked prediction at a held gap.</p>
+<p>Numerical status <strong>refinement_checked</strong>. Input SHA-256 <code>d390c18cbe600b8aebe02b95c65f2c4b864e3139cae5cc03ad4fbf8bd508d7eb</code>.</p>
+<ul><li>Solder volume 56 nL (0.056 mm³); offset 240 µm (0.24 mm).</li><li>Held wetted-plane gap 300 µm (0.3 mm).</li><li>X force -164.385 µN.</li><li>Restoring force 164.385 µN (toward alignment).</li><li>Z force 13.3859 µN (upward).</li><li>The solder pushes the upper pad upward at this held gap.</li></ul>
+<table><thead><tr><th>Declared input</th><th>Value</th></tr></thead><tbody>
+<tr><td>Lower pad diameter</td><td>400 µm (0.4 mm)</td></tr><tr><td>Upper pad diameter</td><td>400 µm (0.4 mm)</td></tr><tr><td>Solder volume</td><td>56 nL (0.056 mm³)</td></tr><tr><td>Offset</td><td>240 µm (0.24 mm)</td></tr><tr><td>Held wetted-plane gap</td><td>300 µm (0.3 mm)</td></tr><tr><td>Surface tension</td><td>0.48 N/m</td></tr><tr><td>Density</td><td>9 g/cm³</td></tr><tr><td>Gravity</td><td>Included</td></tr>
+</tbody></table>
+<details><summary>Exact canonical values</summary><pre>{
+  &quot;equilibrium&quot;: {
+    &quot;density_g_cm3&quot;: 9,
+    &quot;gravity&quot;: true,
+    &quot;lower_diameter_mm&quot;: 0.4,
+    &quot;offset_mm&quot;: 0.24,
+    &quot;standoff_mm&quot;: 0.3,
+    &quot;surface_tension_n_m&quot;: 0.48,
+    &quot;upper_diameter_mm&quot;: 0.4,
+    &quot;volume_mm3&quot;: 0.056
+  },
+  &quot;forces&quot;: {
+    &quot;x_uN&quot;: -164.3854725452698,
+    &quot;z_uN&quot;: 13.385897738397528
+  },
+  &quot;input&quot;: {
+    &quot;density_g_cm3&quot;: 9,
+    &quot;gravity&quot;: true,
+    &quot;lower_diameter_mm&quot;: 0.4,
+    &quot;offset_mm&quot;: 0.24,
+    &quot;standoff_mm&quot;: 0.3,
+    &quot;surface_tension_n_m&quot;: 0.48,
+    &quot;upper_diameter_mm&quot;: 0.4,
+    &quot;volume_mm3&quot;: 0.056
+  }
+}
+</pre></details>
+<p>Links within the extracted evidence ZIP <a href="case-01/input.json">input JSON</a> and <a href="case-01/result.json">result JSON</a>.</p></section>
+<section><h2>Conventions</h2>
+<ul><li>The model assumes an isolated equilibrium joint with fully wetted pinned circular rims. Wetting chemistry, thermal reflow and neighboring joints are unresolved.</li><li>Forces act on the upper pad. Positive X follows the prescribed offset axis; positive Z is upward.</li><li>At nonzero offset, restoring force is -sign(offset) × X force. Positive restoring force points toward alignment.</li><li>Engineering values are displayed to six significant digits. Exact canonical inputs and forces are retained below.</li></ul>
+<h2>Next steps</h2>
+<ul><li>Check the declared dimensions, material and boundary assumptions against the actual process.</li><li>Measure physical joint geometry and forces before using these predictions for production decisions.</li><li>Replay the accompanying numerical evidence; replay verifies numerical agreement, not physical accuracy.</li></ul>
+<h3>Links within the extracted accompanying evidence ZIP</h3><p><a href="results.csv">CSV</a>, <a href="source.kicad_mod">source footprint</a> and <a href="manifest.json">SHA-256 manifest</a>.</p>
+<p>Replay <code>python3 tools/verify_board.py FILE.zip --replay</code>. Archived scripts and this HTML are evidence; replay never executes them.</p></section></html>

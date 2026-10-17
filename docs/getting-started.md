@@ -2,6 +2,8 @@
 
 This guide produces a two-volume comparison at an actual ULX3S pad, a readable review and a reproducible evidence archive. The process inputs are hypothetical. A successful calculation does not qualify them for manufacturing.
 
+The design question is whether adding solder helps a displaced joint restore laterally without pushing upward while a fixture holds its gap. Use the result to choose a measured test candidate. A freely supported package needs a different objective because upward force can support its weight.
+
 ## Start the local workbench
 
 Install Python 3.12 or newer, a C compiler and `make`. On macOS, Apple's command line developer tools provide the compiler and `make`. The initial engine setup needs internet access and builds a pinned upstream source archive.
@@ -36,6 +38,21 @@ The recorded engine produces the following predictions.
 | Z force on upper pad | −181.284 µN | +13.386 µN |
 
 Negative X opposes this positive offset. Positive Z points upward. Under this declared fixture objective, less solder meets the rule requiring restoration without an upward separating force. More solder pushes upward. This result does not select a production volume.
+
+## Test an assumption before choosing
+
+Keep both volumes and every other input unchanged. Set **Held gap** to **330 µm**, then compute again. The retained native experiment predicts the following values.
+
+| Quantity | 40 nL reference | 56 nL candidate |
+| --- | ---: | ---: |
+| X force on upper pad | −169.063 µN | −170.455 µN |
+| Z force on upper pad | −227.390 µN | −82.276 µN |
+
+Both cases now restore laterally and pull downward under the fixture objective. This single gap change removes the original reason to exclude 56 nL from that numerical screen. It does not establish which volume is better across an uncertain process.
+
+The [native sensitivity archive](../decision_walkthrough/evidence/gap-330-probe.zip) preserves this request and both results. Numerical refinement and archive replay test computation. To trust the forces physically, a lab still needs independent hot wetting boundaries, liquid volume, gap, offset, material properties, and force measurements.
+
+The separate 220 versus 270 µm coupon asks about supported component clearance. Its 185 µm target does not apply to this 400 µm board-pad force example. The existing 200 µm force fixture also needs a matching specimen and measurement plan before it can test this board question.
 
 ## Inspect and keep the result
 

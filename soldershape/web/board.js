@@ -2,12 +2,13 @@
 
 const $ = (id) => document.getElementById(id);
 const SVG_NS = "http://www.w3.org/2000/svg";
-const state = { context: null, component: null, padIndex: null, draft: null, revision: 0, phase: "loading", pending: null, response: null, bundleUrl: null, token: null, engineReady: false, caseAction: null, padHits: [] };
+const state = { context: null, component: null, padIndex: null, draft: null, workedExample: null, previousInputs: null, revision: 0, phase: "loading", pending: null, response: null, bundleUrl: null, token: null, engineReady: false, caseAction: null, padHits: [] };
 const fields = [
   ["upper-diameter", "upper_diameter_mm", 1000], ["held-gap", "standoff_mm", 1000],
   ["offset", "offset_mm", 1000], ["candidate-volume", "volume_mm3", 1000],
   ["surface-tension", "surface_tension_n_m", 1], ["density", "density_g_cm3", 1],
 ];
+const inputIds = [...fields.map(([id]) => id), "reference-volume"];
 const initialCamera = { yaw: -.58, elevation: .4, zoom: 1 };
 const camera = { ...initialCamera, drag: null };
 const modelCanvases = [$("reference-canvas"), $("candidate-canvas")];
@@ -28,10 +29,30 @@ function notice(message, kind = "") { $("run-notice").textContent = message; $("
 function sourceIdentity() {
   return { board_sha256: state.context.source.board_sha256, extractor_sha256: state.context.extraction.extractor_sha256 };
 }
+function captureInputs() {
+  const values = Object.fromEntries(inputIds.map((id) => [id, $(id).value]));
+  return { component_uuid: state.component, pad_index: state.padIndex, search: $("component-search").value, values, gravity: $("gravity").checked };
+}
+function applyInputs(inputs) {
+  state.component = inputs.component_uuid;
+  state.padIndex = inputs.pad_index;
+  $("component-search").value = inputs.search;
+  for (const id of inputIds) $(id).value = inputs.values[id];
+  $("gravity").checked = inputs.gravity;
+  readDraft();
+}
+function applyRequest(request) {
+  state.draft = clone(request);
+  state.component = state.context.components.find((item) => item.reference === request.reference).uuid;
+  state.padIndex = request.pad_index;
+  $("component-search").value = "";
+  for (const [id, key, scale] of fields) $(id).value = number(request.parameters[key] * scale, 8);
+  $("reference-volume").value = number(request.baseline.volume_mm3 * 1000, 8);
+  $("gravity").checked = request.parameters.gravity;
+}
 function saveDraft() {
   if (!state.context || !state.draft) return;
-  const values = Object.fromEntries([...fields.map(([id]) => id), "reference-volume"].map((id) => [id, $(id).value]));
-  window.SolderShapeUI.saveDraft("board", { component_uuid: state.component, pad_index: state.padIndex, search: $("component-search").value, values, gravity: $("gravity").checked }, sourceIdentity());
+  window.SolderShapeUI.saveDraft("board", captureInputs(), sourceIdentity());
 }
 function restoreDraft() {
   const saved = window.SolderShapeUI.readDraft("board");
@@ -39,21 +60,69 @@ function restoreDraft() {
   const identity = sourceIdentity(), inputs = saved.inputs;
   const selected = state.context.components.find((item) => item.uuid === inputs?.component_uuid);
   const matchesSource = saved.sourceIdentity?.board_sha256 === identity.board_sha256 && saved.sourceIdentity?.extractor_sha256 === identity.extractor_sha256;
-  const ids = [...fields.map(([id]) => id), "reference-volume"];
   const validSelection = selected && (selected.pads.some((item) => item.index === inputs.pad_index) || inputs.pad_index === null && !selected.pads.length);
-  const validInputs = typeof inputs?.search === "string" && typeof inputs?.gravity === "boolean" && ids.every((id) => typeof inputs?.values?.[id] === "string");
+  const validInputs = typeof inputs?.search === "string" && typeof inputs?.gravity === "boolean" && inputIds.every((id) => typeof inputs?.values?.[id] === "string");
   if (!matchesSource || !validSelection || !validInputs) {
     window.SolderShapeUI.warn("The saved board inputs no longer match this source board or extraction. The initial comparison is shown instead. Save the previous raw draft below before replacing it.");
     SolderShapeUI.downloadFile(new Blob([JSON.stringify(saved, null, 2) + "\n"], { type: "application/json" }), "soldershape-unmatched-board-draft.json");
     return false;
   }
-  state.component = selected.uuid;
-  state.padIndex = inputs.pad_index;
-  $("component-search").value = inputs.search;
-  for (const id of ids) $(id).value = inputs.values[id];
-  $("gravity").checked = inputs.gravity;
-  readDraft();
+  applyInputs(inputs);
   return true;
+}
+function matchesWorkedExample() {
+  if (!state.workedExample || !pad()?.supported || !$("comparison-form").checkValidity()) return false;
+  const request = boardRequest(), example = state.workedExample;
+  if (![.3, .33].includes(request.parameters.standoff_mm)) return false;
+  return ["schema", "board_sha256", "reference", "pad_index"].every((key) => request[key] === example[key])
+    && Object.entries(example.parameters).every(([key, value]) => key === "standoff_mm" || request.parameters[key] === value)
+    && Object.entries(example.baseline).every(([key, value]) => request.baseline[key] === value);
+}
+function loadWorkedExample() {
+  if (!state.workedExample || state.pending !== null || state.caseAction) return;
+  if (!state.previousInputs) state.previousInputs = captureInputs();
+  applyRequest(state.workedExample);
+  invalidate();
+  renderSelection();
+  notice("U1 / J16 example loaded. Prior forces were cleared. Compute the 40 versus 56 nL comparison at the 300 µm held gap.");
+}
+function restorePreviousInputs() {
+  if (!state.previousInputs || state.pending !== null || state.caseAction) return;
+  const inputs = state.previousInputs;
+  state.previousInputs = null;
+  applyInputs(inputs);
+  invalidate();
+  renderSelection();
+  notice("Your previous inputs are restored. Forces were cleared. Compute to evaluate these inputs.");
+}
+function tryHeldGap() {
+  if (!matchesWorkedExample() || !state.engineReady || state.pending !== null || state.caseAction) return;
+  $("held-gap").value = "330";
+  readDraft();
+  invalidate();
+  $("comparison-form").requestSubmit();
+}
+function renderDecisionContext() {
+  const matches = matchesWorkedExample(), busy = state.pending !== null || !!state.caseAction;
+  $("load-worked-example").disabled = !state.workedExample || busy;
+  $("restore-previous-inputs").hidden = !state.previousInputs;
+  $("restore-previous-inputs").disabled = busy;
+  $("example-status").textContent = matches
+    ? "U1 / J16 example inputs are selected. The fixture holds the gap. These inputs are assumptions about this source copper."
+    : "Your current selection or assumptions differ from the example. Load it explicitly to compare the two example volumes. Your previous inputs can then be restored.";
+  const atTrialGap = matches && state.draft.parameters.standoff_mm === .33;
+  $("try-held-gap").disabled = !matches || atTrialGap || !state.engineReady || busy;
+  $("try-held-gap").textContent = atTrialGap ? "330 µm held gap selected" : "Try a 330 µm held gap";
+  $("gap-trial-status").textContent = !matches ? "Load the worked example to isolate the gap change. Other inputs stay editable."
+    : !state.engineReady ? "The native engine is unavailable. Save these inputs or return when it is ready."
+      : busy ? "Wait for the current action to finish. Editing inputs discards a pending result."
+        : atTrialGap ? "This is the 330 µm trial. Read its current result below, or compute if the result was cleared. Load the example to return to 300 µm."
+          : "This action changes only the held gap from 300 to 330 µm and runs a fresh comparison.";
+  $("numerical-trust").textContent = state.response?.report.recorded
+    ? "A verified native recording belongs to the shown inputs. Read the check status beside each mesh. Compute for a fresh result."
+    : state.response ? "These native records belong to the shown inputs. Read each mesh's check status. Refinement and replay test numerical consistency."
+      : state.pending !== null ? "A native comparison is pending. No prior result applies to the current inputs."
+        : "No current result. Compute to obtain native records and their numerical check status.";
 }
 function svgElement(name, attributes = {}) {
   const element = document.createElementNS(SVG_NS, name);
@@ -101,6 +170,7 @@ function updateCompute() {
   $("inspect-joint").textContent = state.caseAction === "inspect" ? "Opening joint details…" : "Inspect this joint";
   $("case-download").textContent = state.caseAction === "save" ? "Preparing editable case…" : "Save editable case";
   $("review-download").disabled = !state.response?.review_html || state.pending !== null || !!state.caseAction;
+  renderDecisionContext();
 }
 function readDraft() {
   for (const [id, key, scale] of fields) state.draft.parameters[key] = $(id).valueAsNumber / scale;
@@ -211,6 +281,12 @@ function renderResults() {
   $("result-origin").textContent = report ? report.recorded ? "Verified native recording" : "Fresh native computation" : "No current computation";
   $("bundle-download").disabled = !state.bundleUrl;
   const screen = report?.screen;
+  for (const role of ["reference", "candidate"]) {
+    const rule = screen?.status === "conditional_comparison" ? screen[role + "_rule_met"] : null;
+    $(role + "-outcome").textContent = typeof rule === "boolean"
+      ? `Numerical fixture rule ${rule ? "met" : "not met"}. Physical accuracy unqualified.`
+      : "No current eligible fixture comparison.";
+  }
   $("screen-panel").hidden = !!state.response?.review;
   const labels = { conditional_comparison: "CONDITIONAL FORCE COMPARISON", outside_model_scope: "COMPARISON BLOCKED BY MODEL SCOPE", numerical_failure: "COMPARISON BLOCKED BY NUMERICAL FAILURE" };
   $("screen-panel").className = `screen-panel${screen?.status === "outside_model_scope" ? " warn" : screen?.status === "numerical_failure" ? " failed" : ""}`;
@@ -345,6 +421,9 @@ function scheduleDraw() {
 }
 function download(url, filename) { SolderShapeUI.downloadFile(url, filename); }
 $("comparison-form").addEventListener("submit", compute);
+$("load-worked-example").addEventListener("click", loadWorkedExample);
+$("restore-previous-inputs").addEventListener("click", restorePreviousInputs);
+$("try-held-gap").addEventListener("click", tryHeldGap);
 for (const input of $("comparison-form").querySelectorAll("input")) input.addEventListener("input", () => { readDraft(); invalidate(); });
 $("component-search").addEventListener("input", () => { renderComponentOptions(); saveDraft(); });
 $("component-select").addEventListener("change", () => selectComponent($("component-select").value));
@@ -372,12 +451,8 @@ window.addEventListener("resize", () => { if (state.context) renderBoardOverlay(
 async function load() {
   try {
     const [bootstrap, data] = await Promise.all([api("/api/bootstrap"), api("/api/board")]);
-    state.token = bootstrap.token; state.engineReady = !!bootstrap.engine.ready; state.context = data.context; state.draft = clone(data.default_request);
-    for (const [id, key, scale] of fields) $(id).value = number(state.draft.parameters[key] * scale, 8);
-    $("reference-volume").value = number(state.draft.baseline.volume_mm3 * 1000, 8); $("gravity").checked = state.draft.parameters.gravity;
-    const initial = state.context.components.find((item) => item.reference === state.draft.reference && item.pads.some((item) => item.index === state.draft.pad_index)) || state.context.components.find((item) => item.pads.some((pad) => pad.supported));
-    state.component = initial.uuid; state.padIndex = state.draft.pad_index;
-    if (!initial.pads.some((item) => item.index === state.padIndex)) state.padIndex = initial.pads.find((item) => item.supported)?.index ?? initial.pads[0]?.index ?? null;
+    state.token = bootstrap.token; state.engineReady = !!bootstrap.engine.ready; state.context = data.context; state.workedExample = clone(data.default_request);
+    applyRequest(state.workedExample);
     const restored = restoreDraft();
     state.phase = "draft";
     $("component-count").textContent = `${state.context.components.length} actual components`;
@@ -391,7 +466,7 @@ async function load() {
     $("engine-notice").textContent = bootstrap.engine.error || "The numerical engine is unavailable. You can still inspect and save editable inputs.";
     $("explorer").hidden = false; $("load-notice").hidden = true;
     renderSelection(); renderResults();
-    notice(restored ? "Board inputs restored in this tab. Prior forces were cleared. Inspect or compute the current joint." : "The source pad is selected. Inspect its editable inputs or compute fresh forces for these hypothetical process inputs.");
+    notice(restored ? "Your saved inputs are restored. Prior forces were cleared. The worked example replaces these inputs only when you choose to load it." : "The source pad is selected. Inspect its editable assumptions or compute fresh forces for this proposed test.");
     const revision = state.revision;
     if (data.recorded_preview && !restored) {
       try { const recorded = await api("/api/board/recorded"); if (acceptResponse(recorded, revision)) notice("Verified recording of the initial hypothesis. Use Compute selected comparison for fresh native results."); }

@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "original_archive_sha256": "1b87dca00de964b62cce902e071dad063b2f935f79d340817ff9e810bfff9604",
+  "changed_archive_sha256": "e04880f9666586e421ce17177ef04b00eb5498b96cc130425acac938ba935777",
+  "only_changed_input": "standoff_mm",
+  "cases": [
+    {
+      "held_gap_um": 300,
+      "forces_uN": [
+        {
+          "x_uN": -184.52638094190732,
+          "z_uN": -181.28387853829275
+        },
+        {
+          "x_uN": -164.3854725452698,
+          "z_uN": 13.385897738397528
+        }
+      ],
+      "reference_rule_met": true,
+      "candidate_rule_met": false
+    },
+    {
+      "held_gap_um": 330,
+      "forces_uN": [
+        {
+          "x_uN": -169.062859622926,
+          "z_uN": -227.38953775806067
+        },
+        {
+          "x_uN": -170.45539126847586,
+          "z_uN": -82.27612770208692
+        }
+      ],
+      "reference_rule_met": true,
+      "candidate_rule_met": true
+    }
+  ],
+  "physical_qualification": "unqualified",
+  "scope": "Two sampled held-gap hypotheses on one identified source pad. Not a process tolerance or physical error bound."
+}

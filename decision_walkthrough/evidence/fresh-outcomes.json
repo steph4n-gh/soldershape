@@ -1,0 +1,16 @@
+{
+  "forces": [
+    "-169.063",
+    "-227.39",
+    "-170.455",
+    "-82.276"
+  ],
+  "gap": "330",
+  "notice": "Native computation complete. Inspect both force directions and the scope checks. Physical accuracy remains unqualified.",
+  "origin": "Fresh native computation",
+  "outcomes": [
+    "Numerical fixture rule met. Physical accuracy unqualified.",
+    "Numerical fixture rule met. Physical accuracy unqualified."
+  ],
+  "overflow": false
+}

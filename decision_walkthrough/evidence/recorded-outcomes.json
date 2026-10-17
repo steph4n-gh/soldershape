@@ -1,0 +1,14 @@
+{
+  "forces": [
+    "-184.526",
+    "-181.284",
+    "-164.385",
+    "+13.386"
+  ],
+  "notice": "Verified recording of the initial hypothesis. Use Compute selected comparison for fresh native results.",
+  "origin": "Verified native recording",
+  "outcomes": [
+    "Numerical fixture rule met. Physical accuracy unqualified.",
+    "Numerical fixture rule not met. Physical accuracy unqualified."
+  ]
+}

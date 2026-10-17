@@ -1,0 +1,13 @@
+{
+  "baseline": "e98f802",
+  "files": {
+    "soldershape/model.py": "543720e8a6999896410aaf22651846c71b4f4736923ffe0ada0767ce35619657",
+    "soldershape/solver.py": "c7bcfcc2c5f24e6e783540b3fcabc45a8d15308ded887aca2ae41442ddf4c8a6",
+    "soldershape/board.py": "244acf76b99785c09ff270c27210920b7179c7022738a7cfb54d97c8c558ff44",
+    "soldershape/artifacts.py": "928e157a18b0ee524b11a7d40d49f440f7a71547c4e68dbe9c41e63b17adbd1e",
+    "board_demo/data/default-comparison.zip": "1b87dca00de964b62cce902e071dad063b2f935f79d340817ff9e810bfff9604",
+    "prelab/protocol.json": "ed83ff11424914a0980d3b0ce35ac361698e295953561c4d4b81785467645d34",
+    "coupons/experiment.json": "37032dfbc39ea9eae3e970be1e0de074f60095355ee55307cf19f774f67de3ed"
+  },
+  "scope": "Calculation source and historical evidence expected to remain unchanged during the UI walkthrough work."
+}

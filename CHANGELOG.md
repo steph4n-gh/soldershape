@@ -5,6 +5,7 @@
 - Add source-identified native coupon stress scenarios, finite-copper research controls and a coupled twenty-joint analytical check.
 - Retain boundary-dependent clearance outcomes, ranking reversals, active-contact failures and the measurements needed for qualification.
 - Link the computational findings and measurement addendum from Physical test. Production numerical equations and frozen lab packages remain unchanged.
+- Guide a solder-volume decision through Board explorer, including a one-input gap experiment, reversible example loading, current numerical fixture outcomes and a matching Lab handoff.
 
 ## 0.4.0 development snapshot
 

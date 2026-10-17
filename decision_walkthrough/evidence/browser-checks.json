@@ -1,0 +1,89 @@
+{
+  "recorded_utc": "2026-10-17T04:46:51.467486+00:00",
+  "scope": "Root observations and assertions made through the actual CUA browser interface. This record summarizes executed interactions; it is not an automated browser replay or a physical validation certificate.",
+  "url": "http://127.0.0.1:8769/board",
+  "checks": [
+    {
+      "name": "custom inputs survive reload",
+      "passed": true,
+      "observation": "Held gap345µm, offset250µm, candidate57nL and component searchU1 survived reload exactly. Results and trial were inactive."
+    },
+    {
+      "name": "explicit example load and reversible replacement",
+      "passed": true,
+      "observation": "Repeated loads after an intervening edit retained the original custom input snapshot. Restore returned exact values, consumed the snapshot and left exports disabled."
+    },
+    {
+      "name": "fresh baseline300µm comparison",
+      "passed": true,
+      "observation": "Actual browser computation produced X/Z forces−184.526/−181.284µN for40nL and−164.385/+13.386µN for56nL. Downloaded HTML equals review.html inside ui-gap-300.zip."
+    },
+    {
+      "name": "one-input330µm trial",
+      "passed": true,
+      "observation": "The button changed only gap to330µm, cleared old forces and exports before acceptance, and ran both native cases. ui-gap-330.zip matches the original probe request and exact forces."
+    },
+    {
+      "name": "inspect-only selection",
+      "passed": true,
+      "observation": "Selecting U2 pad1 disabled compute and trial and cleared current forces and evidence."
+    },
+    {
+      "name": "stale pending response",
+      "passed": true,
+      "observation": "Editing offset to250µm during a run cleared results immediately. After native completion the UI reported the previous response was discarded. Both fixture verdicts remained ineligible."
+    },
+    {
+      "name": "walkthrough anchors",
+      "passed": true,
+      "observation": "The four visible section links target existing IDs. Desktop DOM inspection found zero broken local anchors."
+    },
+    {
+      "name": "narrow layout",
+      "passed": true,
+      "observation": "At a temporary390x844 viewport there was no document horizontal overflow and all four walkthrough links remained visible. Lab handoff also had no document overflow. The viewport override was reset."
+    },
+    {
+      "name": "matching lab handoff",
+      "passed": true,
+      "observation": "The actual board link reached /lab#board-question, with separate400µm board,200µm fixture and220/270µm height-coupon explanations."
+    },
+    {
+      "name": "coupon findings",
+      "passed": true,
+      "observation": "The separate findings link reached the existing Which choice survives report."
+    },
+    {
+      "name": "editable case and joint details",
+      "passed": true,
+      "observation": "The downloaded editable case retains300µm gap,250µm offset,56nL candidate and40nL reference. Inspect this joint opened J16 with exactly those values and fresh computation required."
+    },
+    {
+      "name": "recorded outcomes",
+      "passed": true,
+      "observation": "A fresh tab labeled the original response Verified native recording. The40nL card showed fixture rule met and56nL showed not met. Starting the330µm trial cleared both verdicts."
+    },
+    {
+      "name": "fresh per-volume outcomes",
+      "passed": true,
+      "observation": "The final fresh330 micrometer comparison shows both backend fixture rules met and physical accuracy unqualified. Both verdicts cleared while the native comparison was pending.",
+      "evidence": "decision_walkthrough/evidence/fresh-outcomes.json"
+    }
+  ],
+  "artifacts": {
+    "default-decision.png": "0195d2995b37f5404e78c4aef1ffe40bd21a1c742d35953a342d6f27c70151cc",
+    "ui-gap-330.zip": "e04880f9666586e421ce17177ef04b00eb5498b96cc130425acac938ba935777",
+    "board-walkthrough.png": "6317d56532de4a48a7cae2e7c1d3cbf7d4465ec95b0b4a50d2040db8add36d69",
+    "lab-narrow.png": "121ce85d4df9cbd576f17131a933ffbc6495bbb0fd0915cc8e451496b1035d52",
+    "ui-gap-300-review.html": "aad09d14ac50682d9c38c3c090e5ace81932679af6217884b42d69e0f70525fb",
+    "gap-330-probe.zip": "e04880f9666586e421ce17177ef04b00eb5498b96cc130425acac938ba935777",
+    "changed-decision.png": "8902760f0a04a3ae7675990d920c27d3b473b5222e765a7eb1306bdfe25cea9f",
+    "board-narrow.png": "613524a04593f21accf24a87a47dccc18c375e662bdb69d0df96af0ea5dc595b",
+    "ui-gap-300.zip": "25c6bc2e128da589a2e113f68da4ce7eafdd69adbaea14c9a81f9236aa0e300e"
+  },
+  "limits": [
+    "Browser availability and native-failure states were reviewed in source and existing software tests, not separately induced on the running user service.",
+    "The CUA runtime reset during an optional history-back check. Explicit visible navigation completed the handoff; earlier checks are summarized from tool observations. No unrelated tabs or user drafts were reset.",
+    "All physical force accuracy remains unqualified."
+  ]
+}

@@ -41,6 +41,15 @@ For a Board archive, use its verifier to retain selected-pad binding.
 python3 tools/verify_board.py board_demo/data/default-comparison.zip --replay
 ```
 
+The guided Board example also has a retained one-input experiment. Its offline check verifies both bound archives and confirms that only held gap changes from 300 to 330 µm.
+
+```sh
+python3 decision_walkthrough/verify.py
+python3 tools/verify_board.py decision_walkthrough/evidence/gap-330-probe.zip --replay
+```
+
+These two sampled requests do not establish manufacturing tolerance or physical force accuracy. [Walkthrough verification](../decision_walkthrough/RESULTS.md) records the actual browser checks.
+
 CLI help lists the commands and flags.
 
 ```sh

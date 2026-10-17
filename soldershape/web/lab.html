@@ -29,6 +29,12 @@
       <details><summary>Check the download before sharing</summary><p>On macOS, run <code>shasum -a 256 soldershape-force-lab-r1.zip</code> and compare with the release identity above. Extract the ZIP, then start with <code>force_lab/README.md</code> and <code>force_lab/RFQ.md</code>. The kit is self-contained; no browser session is needed.</p></details>
     </section>
     <div class="results-column">
+      <section id="board-question" class="panel lab-panel" aria-labelledby="board-test-heading">
+        <p class="eyebrow">FROM BOARD EXPLORER</p><h2 id="board-test-heading">Test the 400 µm board-joint question.</h2>
+        <p>The ULX3S U1 / J16 example compares 40 and 56 nL at a 300 µm held gap and +240 µm offset. Its 330 µm trial changes the gap alone. The objective is lateral restoration without an upward separating force while a fixture holds the gap. It does not select the solder amount for a free package.</p>
+        <ol><li><a href="/board#lab-handoff">Save the editable board case and fresh board-bound evidence</a>. Keep the source-pad identity, exact inputs and numerical review with the test request.</li><li>Measure the hot wettable rims, upper pad, liquid solder volume, held gap and offset. Identify the alloy, temperature, density and surface tension before freezing predictions.</li><li>Adapt and qualify the 200 µm fixture for the 400 µm joint. Agree on force uncertainty, hot blanks, calibration and independent confirmation specimens before measuring hot force versus displacement.</li></ol>
+        <p>The 200 µm kit is a starting design for the separate worked example. It is not a qualified fixture or ready fabrication package for this board question.</p>
+      </section>
       <section class="panel lab-panel" aria-labelledby="status-heading">
         <p class="eyebrow">02 / WHAT IS READY</p><h2 id="status-heading">Quote first. Qualify before fabrication.</h2>
         <dl class="lab-status"><div><dt>Quote-ready package</dt><dd>Prepared</dd></div><div><dt>Lab integration accepted</dt><dd class="pending">Pending</dd></div><div><dt>Fabrication released</dt><dd class="pending">Pending</dd></div><div><dt>Physically validated</dt><dd class="pending">No</dd></div></dl>
@@ -38,7 +44,7 @@
       </section>
       <section class="panel lab-panel" aria-labelledby="height-heading">
         <p class="eyebrow">SEPARATE GAP EXPERIMENT</p><h2 id="height-heading">220 vs 270 µm pad comparison</h2>
-        <p>The height coupon compares twenty-joint caps with 220 or 270 µm lower pads. Its computational pre-lab checks separate pad ranking from the 185 µm clearance target. Wetting assumptions change the clearance outcome. Opposite arm variations can erase or reverse the predicted ranking.</p>
+        <p>These are two lower copper pad diameters on a twenty-joint height coupon. The design question is whether pad sizing preserves enough supported component clearance despite process variation. Its declared target is 185 µm. Wetting assumptions change the clearance outcome. Opposite arm variations can erase or reverse the predicted ranking. Neither size has production qualification, and this separate height test does not validate the board example's forces.</p>
         <p><a href="/lab/prelab.html">Read the pre-lab findings →</a> · <a href="/lab/prelab-measurements.txt" download="SolderShape-prelab-measurements.md">Measurements the lab must identify ↓</a></p>
         <p><a href="/study">Open the pad comparison tool →</a> · <a href="/lab/height-coupon.zip" download="soldershape-coupon-r1-refined.zip">Download height-coupon package ↓</a></p>
       </section>
