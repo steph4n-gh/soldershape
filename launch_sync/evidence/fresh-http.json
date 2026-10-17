@@ -1,0 +1,48 @@
+{
+  "passed": true,
+  "routes": [
+    {
+      "route": "/board",
+      "status": 200,
+      "bytes": 14850
+    },
+    {
+      "route": "/",
+      "status": 200,
+      "bytes": 16095
+    },
+    {
+      "route": "/study",
+      "status": 200,
+      "bytes": 15168
+    },
+    {
+      "route": "/demo",
+      "status": 200,
+      "bytes": 8726
+    },
+    {
+      "route": "/lab",
+      "status": 200,
+      "bytes": 6856
+    },
+    {
+      "route": "/lab/kit.zip",
+      "status": 200,
+      "bytes": 18801781,
+      "matches_release_file": true
+    },
+    {
+      "route": "/lab/height-coupon.zip",
+      "status": 200,
+      "bytes": 4159198,
+      "matches_release_file": true
+    },
+    {
+      "route": "/lab/handbook.pdf",
+      "status": 200,
+      "bytes": 234759,
+      "matches_release_file": true
+    }
+  ]
+}

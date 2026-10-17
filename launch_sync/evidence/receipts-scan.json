@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "findings": 0,
+  "scope": "staged receipt-only update",
+  "tool": "gitleaks 8.30.1",
+  "main_workbench_http_status": 200
+}

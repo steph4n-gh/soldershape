@@ -1,0 +1,31 @@
+[
+  {
+    "forces": [
+      "-184.526",
+      "-181.284",
+      "-164.385",
+      "+13.386"
+    ],
+    "gap": "300",
+    "objective": "Less solder meets this declared fixture objective. More solder pushes upward.",
+    "origin": "Fresh native computation",
+    "review": "Less solder meets this declared fixture objective. More solder pushes upward.Candidate minus reference restoring force -20.1409 µN.Candidate minus reference Z force 194.67 µN.The objective requires lateral restoration and no upward separating force at the held gap.This numerical screen does not select a production solder volume.Physical force accuracy is unqualified. Numerical checks are not physical validation or production approval.Candidate result and inputs · refinement checkedChecked prediction at a held gap.Solder volume 56 nL (0.056 mm³); offset 240 µm (0.24 mm).Held wetted-plane gap 300 µm (0.3 mm).X force -164.385 µN.Restoring force 164.385 µN (toward alignment).Z force 13.3859 µN (upward).The solder pushes the upper pad upward at this held gap.U1--00000000-0000-0000-0000-000058d8d57e · pad J16Lower pad diameter400 µm (0.4 mm)Upper pad diameter400 µm (0.4 mm)Solder volume56 nL (0.056 mm³)Offset240 µm (0.24 mm)Held wetted-plane gap300 µm (0.3 mm)Surface tension0.48 N/mDensity9 g/cm³GravityIncludedInput SHA-256 d390c18cbe600b8aebe02b95c65f2c4b864e3139cae5cc03ad4fbf8bd508d7eb",
+    "url": "http://127.0.0.1:8771/board"
+  },
+  {
+    "forces": [
+      "-169.063",
+      "-227.39",
+      "-170.455",
+      "-82.276"
+    ],
+    "gap": "330",
+    "objective": "Inspect both force directions against the declared fixture objective.",
+    "origin": "Fresh native computation",
+    "rules": [
+      "Numerical fixture rule met. Physical accuracy unqualified.",
+      "Numerical fixture rule met. Physical accuracy unqualified."
+    ],
+    "url": "http://127.0.0.1:8771/board"
+  }
+]

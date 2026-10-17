@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "source_commit": "55d12b26b33aa73bdf7a82c473a0583880dfc774",
+  "files": 1470,
+  "git_metadata_present": false,
+  "engine_present": false,
+  "standalone_lab_notices_match": true,
+  "physical_qualification": "unqualified"
+}

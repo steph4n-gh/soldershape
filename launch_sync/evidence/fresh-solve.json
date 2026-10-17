@@ -1,0 +1,96 @@
+{
+  "results": [
+    {
+      "design": "Reference",
+      "input": {
+        "lower_diameter_mm": 0.2,
+        "upper_diameter_mm": 0.2,
+        "standoff_mm": 0.15,
+        "volume_mm3": 0.006,
+        "offset_mm": 0.02,
+        "surface_tension_n_m": 0.48,
+        "density_g_cm3": 9.0,
+        "gravity": true
+      },
+      "equilibrium": {
+        "lower_diameter_mm": 0.2,
+        "upper_diameter_mm": 0.2,
+        "standoff_mm": 0.15,
+        "volume_mm3": 0.006,
+        "offset_mm": 0.02,
+        "surface_tension_n_m": 0.48,
+        "density_g_cm3": 9.0,
+        "gravity": true
+      },
+      "status": "refinement_checked",
+      "forces": {
+        "x_uN": -19.63342805000323,
+        "z_uN": -43.77622501901732
+      }
+    },
+    {
+      "design": "Candidate",
+      "input": {
+        "lower_diameter_mm": 0.2,
+        "upper_diameter_mm": 0.2,
+        "standoff_mm": 0.15,
+        "volume_mm3": 0.005,
+        "offset_mm": 0.02,
+        "surface_tension_n_m": 0.48,
+        "density_g_cm3": 9.0,
+        "gravity": true
+      },
+      "equilibrium": {
+        "lower_diameter_mm": 0.2,
+        "upper_diameter_mm": 0.2,
+        "standoff_mm": 0.15,
+        "volume_mm3": 0.005,
+        "offset_mm": 0.02,
+        "surface_tension_n_m": 0.48,
+        "density_g_cm3": 9.0,
+        "gravity": true
+      },
+      "status": "refinement_checked",
+      "forces": {
+        "x_uN": -20.36428851937,
+        "z_uN": -128.77095172947327
+      }
+    }
+  ],
+  "comparison": {
+    "status": "compared",
+    "designs": [
+      {
+        "role": "Reference",
+        "input_sha256": "ea92580bd3559839abb3cf543c8b3db1e1822ee60580542ec46fbb4a594de73b",
+        "upper_diameter_mm": 0.2,
+        "volume_mm3": 0.006,
+        "gap_mm": 0.15,
+        "status": "refinement_checked",
+        "force_x_uN": -19.63342805000323,
+        "force_z_uN": -43.77622501901732,
+        "restoring_force_uN": 19.63342805000323
+      },
+      {
+        "role": "Candidate",
+        "input_sha256": "53f398e8cd9b5212fad425cdb49567af253df26fe7970e9712a56353192fcc13",
+        "upper_diameter_mm": 0.2,
+        "volume_mm3": 0.005,
+        "gap_mm": 0.15,
+        "status": "refinement_checked",
+        "force_x_uN": -20.36428851937,
+        "force_z_uN": -128.77095172947327,
+        "restoring_force_uN": 20.36428851937
+      }
+    ],
+    "scope": "Both designs use the current board pad, prescribed wetted-plane gap, offset and material. Predictions assume pinned circular rims and an isolated joint. Process-specific accuracy, alignment time and manufacturing yield are not qualified.",
+    "delta": {
+      "volume_mm3": -0.001,
+      "volume_percent": -16.666666666666664,
+      "restoring_force_uN": 0.7308604693667711,
+      "gap_mm": 0.0,
+      "vertical_force_uN": -84.99472671045595
+    }
+  },
+  "output": "/Volumes/Storage/oct16project/output/launch-sync-fresh/soldershape/output/launch-smoke-centering.zip"
+}

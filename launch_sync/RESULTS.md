@@ -8,7 +8,38 @@ The final browser-downloaded example matches the served package bytes. All 100 m
 
 Site version 2 is saved from source commit `b79a95f6ecac61838ee468eabcc522a05bce2d75`. Its 108 canonical static files and helper-injected hosting manifest match the reviewed source. The source helper archive also contains macOS AppleDouble metadata. The saved version has no deployment ID. The current hostname remains owner-only with zero external visitors. No public audience or public source repository was created.
 
-The next step is to build the complete candidate from this source freeze, extract it without Git or an engine cache, verify every member and run the newcomer checks. The final candidate receipt and fresh-extraction evidence are produced after the source commit. A later receipt-only commit records those results without changing the qualified application or Site source.
+The complete candidate pins application source `55d12b26b33aa73bdf7a82c473a0583880dfc774`. Its 420,695,686 bytes have SHA-256 `6e408af0ec6b62a00ba36904658d9489e2b4decc988e89f5d826bd5dda320ca9`. All 1,470 members matched the release manifest in a fresh extraction without Git metadata or an engine cache. A deliberate README modification was rejected and the original bytes restored. The extracted package passed all 41 portable checks and the asset and walkthrough verifiers before native setup. Source files occupied 452,185,741 bytes at the freeze. The complete package is large because it retains the research evidence.
+
+Fresh setup downloaded and built the pinned engine without modifying its numerical source. The CLI two-volume example solved and replayed with zero force difference. The real extracted application computed both 300 and 330 µm Board scenarios through the normal UI. The downloaded 330 µm Board ZIP passed source-pad binding, all-member integrity and both native replays with zero force difference. The five workbench pages and all three optional prebuilt lab downloads returned HTTP 200. The download bodies matched the exact candidate files. These are Apple Silicon macOS checks. They do not establish physical accuracy or native support on another operating system.
+
+The [final check receipt](evidence/final-check.json), [candidate identity](evidence/candidate-receipt.json), [fresh member check](evidence/fresh-manifest.json), [fresh browser observations](evidence/fresh-board-browser.json) and [fresh Board replay](evidence/fresh-board-replay.json) retain the results. The [actual fresh Board archive](evidence/fresh-board-gap-330.zip) is preserved separately. This later receipt-only update does not alter the qualified application, Site or candidate bytes.
+
+Temporary preview servers on 8770 and 8771 were stopped after QA. The main local workbench remains on 8769. Existing user drafts and historical numerical records were preserved.
+
+## Setup and verification commands
+
+From the source root, the normal application setup remains:
+
+```sh
+python3 tools/setup_engine.py
+python3 -m soldershape serve --port 8769
+```
+
+The current workbench already uses 8769. Choose a free port for a second instance. For package verification, extract the candidate into a new directory and replace `/path/to/fresh/soldershape` below. The manifest check must run before setup, tests or imports create caches in that directory.
+
+```sh
+python3 launch_sync/verify_candidate.py /path/to/fresh/soldershape --receipt output/fresh-check-new.json
+cd /path/to/fresh/soldershape
+python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs prelab.test_campaign.CouponRequests prelab.test_finite -v
+python3 decision_walkthrough/verify.py
+python3 launch/check_launch.py --inventory launch_sync/evidence/media-inventory.json --receipt output/site-check-new.json
+python3 tools/setup_engine.py
+python3 -m soldershape solve-case examples/centering-volume.soldershape.json --output output/centering-new.zip
+python3 -m soldershape replay output/centering-new.zip
+python3 -m soldershape serve --port 8771
+```
+
+In the browser, compute the 300 µm pair, choose **Try a 330 µm held gap**, and download the board-bound evidence. Verify its actual location with `python3 tools/verify_board.py /path/to/download.zip --replay`. The [getting-started guide](../docs/getting-started.md) explains the complete decision and the lab boundary.
 
 ## Remaining publication steps
 
@@ -22,4 +53,4 @@ Create the public repository, configure private vulnerability reporting, run hos
 - [Full application tests](evidence/tests-settled.txt) and [portable tests](evidence/portable-tests.txt).
 - [Saved Site version](evidence/site-save.json), [archive check](evidence/site-archive-check.json) and [unchanged access state](evidence/site-state-final.json).
 
-Laziness Protocol reused the static Site, native verifier and existing package builders. Model the Domain kept each gap's rows, screen and evidence together. Prove It Works required actual controls, downloads and playback. Build the Lever made asset and candidate checks repeatable.
+Laziness Protocol reused the static Site, native verifier and existing package builders. Model the Domain kept each gap's rows, screen and evidence together. Prove It Works required actual controls, downloads and playback. Build the Lever made asset and candidate checks repeatable. Experience First kept one question across the documentation and launch page. Separate Before Serializing Shared State gave the documentation, tooling and audit workers disjoint writable paths.

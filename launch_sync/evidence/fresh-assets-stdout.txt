@@ -1,0 +1,151 @@
+{
+  "passed": true,
+  "maintained_markdown_files": 21,
+  "markdown_local_links": 84,
+  "site_html_files": 7,
+  "site_local_references": 108,
+  "broken_links": [],
+  "served_asset_hashes": 100,
+  "inner_evidence_members_match": {
+    "gap-300": 42,
+    "gap-330": 42
+  },
+  "application_ui_commit": "3644c08bbf0ef1976bc634bba323779055583e6b",
+  "scenarios": {
+    "gap-300": {
+      "passed": true,
+      "integrity_verified": true,
+      "selection_verified": true,
+      "archive_sha256": "25c6bc2e128da589a2e113f68da4ce7eafdd69adbaea14c9a81f9236aa0e300e",
+      "case_count": 2,
+      "selection": {
+        "repository": "https://github.com/emard/ulx3s",
+        "commit": "6a92cec6b177191c5b0f80e260013a1f8ec147dd",
+        "board_sha256": "1172f7b0fc262422bab01c62fb4dc84f16d9f1ea8902dc6fe2da859bba9035fc",
+        "license_sha256": "cdaaa3f0c2d1dbb538844077fd7a1d9d43c890d0745b20d8aa0717b583d6af9f",
+        "reference": "U1",
+        "value": "LFE5U-85F-6BG381C",
+        "component_uuid": "00000000-0000-0000-0000-000058d8d57e",
+        "component_rotation_deg": 0.0,
+        "component_side": "front",
+        "footprint_file": "assets/footprints.pretty/U1--00000000-0000-0000-0000-000058d8d57e.kicad_mod",
+        "footprint_sha256": "14b691bcc05e1c93fa1ae8aeb70361e646a4f4ffba255ebd4b9002ae0ba2160a",
+        "pad_index": 173,
+        "pad_identifier": "J16",
+        "pad_net": "SDRAM_D0",
+        "lower_diameter_mm": 0.4,
+        "local_xy_mm": [
+          4.4,
+          -1.2
+        ],
+        "board_xy_mm": [
+          142.88,
+          86.6
+        ],
+        "local_x_board": [
+          1.0,
+          -0.0
+        ]
+      },
+      "screen": {
+        "candidate_rule_met": false,
+        "details": [
+          "The objective requires lateral restoration and no upward separating force at the held gap.",
+          "This numerical screen does not select a production solder volume."
+        ],
+        "headline": "Less solder meets this declared fixture objective. More solder pushes upward.",
+        "reference_rule_met": true,
+        "status": "conditional_comparison"
+      },
+      "replayed": false,
+      "checks": [],
+      "physical_qualification": "unqualified",
+      "verification_kind": "archive_binding_to_trusted_native_extraction",
+      "native_board_readback": "Retained receipt verified by identity. Rerun board_demo/tools/verify_native.py for an independent native inspection."
+    },
+    "gap-330": {
+      "passed": true,
+      "integrity_verified": true,
+      "selection_verified": true,
+      "archive_sha256": "e04880f9666586e421ce17177ef04b00eb5498b96cc130425acac938ba935777",
+      "case_count": 2,
+      "selection": {
+        "repository": "https://github.com/emard/ulx3s",
+        "commit": "6a92cec6b177191c5b0f80e260013a1f8ec147dd",
+        "board_sha256": "1172f7b0fc262422bab01c62fb4dc84f16d9f1ea8902dc6fe2da859bba9035fc",
+        "license_sha256": "cdaaa3f0c2d1dbb538844077fd7a1d9d43c890d0745b20d8aa0717b583d6af9f",
+        "reference": "U1",
+        "value": "LFE5U-85F-6BG381C",
+        "component_uuid": "00000000-0000-0000-0000-000058d8d57e",
+        "component_rotation_deg": 0.0,
+        "component_side": "front",
+        "footprint_file": "assets/footprints.pretty/U1--00000000-0000-0000-0000-000058d8d57e.kicad_mod",
+        "footprint_sha256": "14b691bcc05e1c93fa1ae8aeb70361e646a4f4ffba255ebd4b9002ae0ba2160a",
+        "pad_index": 173,
+        "pad_identifier": "J16",
+        "pad_net": "SDRAM_D0",
+        "lower_diameter_mm": 0.4,
+        "local_xy_mm": [
+          4.4,
+          -1.2
+        ],
+        "board_xy_mm": [
+          142.88,
+          86.6
+        ],
+        "local_x_board": [
+          1.0,
+          -0.0
+        ]
+      },
+      "screen": {
+        "candidate_rule_met": true,
+        "details": [
+          "The objective requires lateral restoration and no upward separating force at the held gap.",
+          "This numerical screen does not select a production solder volume."
+        ],
+        "headline": "Inspect both force directions against the declared fixture objective.",
+        "reference_rule_met": true,
+        "status": "conditional_comparison"
+      },
+      "replayed": false,
+      "checks": [],
+      "physical_qualification": "unqualified",
+      "verification_kind": "archive_binding_to_trusted_native_extraction",
+      "native_board_readback": "Retained receipt verified by identity. Rerun board_demo/tools/verify_native.py for an independent native inspection."
+    }
+  },
+  "scenario_change": "held_wetted_plane_gap_only",
+  "caption_intervals": [
+    [
+      0.0,
+      6.0
+    ],
+    [
+      6.0,
+      12.0
+    ],
+    [
+      12.0,
+      18.0
+    ],
+    [
+      18.0,
+      24.0
+    ],
+    [
+      24.0,
+      30.0
+    ],
+    [
+      30.0,
+      36.0
+    ]
+  ],
+  "capture_manifest_sha256": "39046d8b8b204ca7841d6da0c2aadb424e4dffeed73cbbe191f0821f8dd3a0ff",
+  "inventory_sha256": "04205274b1e2ca1efdb8fe69d0f834348deed7d33ea7c89d2f9c231dace91614",
+  "example_sha256": "dafe4a60ea0f1146856b67b39638af88272b580c35052b36690f9362b735883f",
+  "actual_browser_download_matches": false,
+  "http_targets_passed": [],
+  "physical_qualification": "unqualified"
+}

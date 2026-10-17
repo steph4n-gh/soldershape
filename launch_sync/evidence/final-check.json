@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "candidate_source_commit": "55d12b26b33aa73bdf7a82c473a0583880dfc774",
+  "candidate_sha256": "6e408af0ec6b62a00ba36904658d9489e2b4decc988e89f5d826bd5dda320ca9",
+  "candidate_bytes": 420695686,
+  "manifest_members": 1470,
+  "full_application_tests": 100,
+  "fresh_portable_tests": 41,
+  "fresh_native_engine": true,
+  "fresh_native_source_sha256": "be7d60d9eb690f1fb124e2ecc12237a7a35be1935bfa5e92be3fe912207a3b6b",
+  "fresh_native_binary_sha256": "c930b47b33a4cafb3cf98b1c0cb7e3bd9805abcf67aceefe243daea091072f8e",
+  "fresh_board_gaps_um": [
+    300,
+    330
+  ],
+  "board_download_replay_cases": 2,
+  "board_replay_max_force_difference_uN": 0.0,
+  "cli_replay_passed": true,
+  "served_asset_hashes": 100,
+  "local_site_references": 108,
+  "http_targets": 34,
+  "actual_browser_download_matches": true,
+  "video_playback_ended": true,
+  "video_seconds": 36,
+  "saved_site_version": 2,
+  "site_deployed": false,
+  "public_audience_changed": false,
+  "public_repository_created": false,
+  "physical_qualification": "unqualified",
+  "qualification_platform": "Apple Silicon macOS",
+  "independent_review": "No blocking source finding remains. Inherited parent model, not model diversity."
+}
