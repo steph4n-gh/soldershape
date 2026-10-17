@@ -1,0 +1,60 @@
+{
+  "source_commit": "f4bfa6b1b456c5822b119ea30b1768f399c99f13",
+  "status": {
+    "prepared_for_quote": true,
+    "lab_accepted": false,
+    "fabrication_released": false,
+    "physically_validated": false
+  },
+  "running_url": "http://127.0.0.1:8768/board",
+  "files": {
+    "output/soldershape-force-lab-r1.zip": {
+      "bytes": 18779732,
+      "sha256": "0b4ee985fc0bde510385e92656bfac7c8df92e73f3be4a4e69e5770e9fa63274"
+    },
+    "output/pdf/soldershape-force-lab-handoff.pdf": {
+      "bytes": 234759,
+      "sha256": "cf4bf5712ae9b15b44466ff22a584ad930d14b8eb132c6934a32c5c7acc8d08f"
+    },
+    "board_demo/data/default-comparison.zip": {
+      "bytes": 5697470,
+      "sha256": "1b87dca00de964b62cce902e071dad063b2f935f79d340817ff9e810bfff9604"
+    },
+    "board_demo/data/browser-comparison.zip": {
+      "bytes": 2862067,
+      "sha256": "598e1bb2aa8b573ec8eeed8fd2cd54528c325f5ec589b07b58af8479244ff7b2"
+    },
+    "force_lab/planning/native-120/plan.json": {
+      "bytes": 30951,
+      "sha256": "928978bb11345a7167bd5a1944f89d80edbf7d819cbc147b8b27e016f25c4a1b"
+    },
+    "soldershape/model.py": {
+      "bytes": 11681,
+      "sha256": "543720e8a6999896410aaf22651846c71b4f4736923ffe0ada0767ce35619657"
+    },
+    "soldershape/solver.py": {
+      "bytes": 23580,
+      "sha256": "c7bcfcc2c5f24e6e783540b3fcabc45a8d15308ded887aca2ae41442ddf4c8a6"
+    },
+    "expansion/board-workflow.png": {
+      "bytes": 364051,
+      "sha256": "f2e87663e73c3f39bdcf9e507052a980925991971fd6b99cc76dec90545029cc"
+    }
+  },
+  "tests": {
+    "application": 70,
+    "original_coupon": 34,
+    "force_analysis": 30,
+    "total_across_suites": 134
+  },
+  "checks": {
+    "independent_source_to_board_readback": true,
+    "actual_browser_download_native_replay": true,
+    "extracted_handoff_without_engine_cache": true,
+    "all_38_pdf_pages_rendered_and_visually_inspected": true,
+    "neutral_cad_readback": true,
+    "historical_artifacts_unchanged": true
+  },
+  "source_whitespace_check": "Passed excluding unmodified upstream board-source bytes and native-generated CAD exports, whose original formatting and hashes were preserved.",
+  "completion_report": "expansion/RESULTS.md"
+}
