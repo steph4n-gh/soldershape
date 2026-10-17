@@ -1,0 +1,69 @@
+{
+  "project_id": "appgprj_6ad2e53e69d4819198ce8a1bc6913741",
+  "source_commit": "0ec772da50d26a0f124664bba4b2fe943ba80990",
+  "canonical_source": "website",
+  "publishing_mirror": "output/launch-site",
+  "deployment": {
+    "id": "appgdep_6ad2e94721808191ade77c2b2a656ac3",
+    "version_id": "appgprj_6ad2e53e69d4819198ce8a1bc6913741~appgver_bb4fa8f11c888191b80011379de55d84",
+    "status": "succeeded",
+    "url": "https://soldershape.steph4n1.chatgpt.site"
+  },
+  "access": {
+    "mode": "custom",
+    "owner_only": true,
+    "external_visitors": 0
+  },
+  "custom_domain": {
+    "id": "appgdom_6ad2e95eed28819193754a4189293124",
+    "project_id": "appgprj_6ad2e53e69d4819198ce8a1bc6913741",
+    "hostname": "soldershape.steph4n.dev",
+    "worker_name": "site---6ad2e53e69d4819198ce8a1bc6913741",
+    "status": "active",
+    "provider_status": "active",
+    "ssl_status": "active",
+    "cname_target": "custom-domains.chatgpt.site.",
+    "apex_proxy_ipv4_targets": [
+      "162.159.143.30",
+      "172.66.3.26"
+    ],
+    "validation_records": [
+      {
+        "record_type": "TXT",
+        "name": "_openai-site-verification.soldershape.steph4n.dev",
+        "value": "openai-site-verification=cEQiXap717T6Oz-EkVSRSsXPEBFKrZ--gen0jfc5MFI"
+      }
+    ],
+    "last_error": null,
+    "created_at": "2026-10-17T03:19:58.926685+00:00",
+    "updated_at": "2026-10-17T03:23:23.826990+00:00"
+  },
+  "dns": [
+    {
+      "action": "created",
+      "id": "5ac149a14dacefea7da93485da4c65fe",
+      "type": "CNAME",
+      "name": "soldershape.steph4n.dev",
+      "content": "custom-domains.chatgpt.site",
+      "ttl": 1,
+      "proxied": false
+    },
+    {
+      "action": "created",
+      "id": "6f75ff515e9a3f4374b50c79bcb4fece",
+      "type": "TXT",
+      "name": "_openai-site-verification.soldershape.steph4n.dev",
+      "content": "openai-site-verification=cEQiXap717T6Oz-EkVSRSsXPEBFKrZ--gen0jfc5MFI",
+      "ttl": 1
+    },
+    {
+      "action": "created",
+      "id": "700925be878dcc7f1b16649362545147",
+      "type": "TXT",
+      "name": "_cf-custom-hostname.soldershape.steph4n.dev",
+      "content": "487fcbe9-d8d9-4f1a-a755-102dbd14b3cf",
+      "ttl": 1
+    }
+  ],
+  "public_access_enabled": false
+}

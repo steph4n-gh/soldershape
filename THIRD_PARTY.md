@@ -1,5 +1,7 @@
 # Third-party provenance
 
+SolderShape's original code, documentation, media and project-authored design files use the root MIT `LICENSE`. That grant does not replace the separate notices below. A design-file license does not establish fabrication readiness, process qualification or fitness for a particular assembly.
+
 ## Surface Evolver
 
 The local setup downloads [Surface Evolver 2.70](https://kenbrakke.com/evolver/downloads/evolver-2.70.tar.gz), SHA-256 `be7d60d9eb690f1fb124e2ecc12237a7a35be1935bfa5e92be3fe912207a3b6b`, and the [official BGA examples](https://kenbrakke.com/evolver/downloads/bga-files.zip), SHA-256 `96389e8200320cc8acfbf60b8ed23e2d05941613af5b55824c36890113c6e659`.
@@ -24,6 +26,8 @@ Ridgerunner was inspected as an alternative. It is not part of the runtime or bu
 
 The board atlas uses the unmodified [EMARD ULX3S hardware source](https://github.com/emard/ulx3s) at commit `6a92cec6b177191c5b0f80e260013a1f8ec147dd`. Exact source URLs, byte counts and SHA-256 values are in `board_demo/source/provenance.json`. The original board, README and license bytes remain under `board_demo/source/`.
 
-Its modified MIT notice credits EMARD, copyright 2016-2018. It additionally requires the EMARD, RADIONA and FER logotypes to remain visible and unmodified in their original top-silkscreen locations, shapes and sizes. The atlas retains the complete native front silkscreen and the original source. Its original notice accompanies board-bound exports. The board authors do not endorse the hypothetical solder comparison, and no manufacture of this board is authorized by this work.
+Its modified MIT notice credits EMARD, copyright 2016-2018. It additionally requires the EMARD, RADIONA and FER logotypes to remain visible and unmodified in their original top-silkscreen locations, shapes and sizes. The atlas retains the complete native front silkscreen and the original source. Its original notice accompanies board-bound exports. The board authors do not endorse the hypothetical solder comparison. This package is not a ULX3S fabrication release.
+
+New ordinary exports carry the original KiCad or Board notice when their source bytes exactly match a known bundled footprint. Arbitrary user sources are not assigned one of these licenses. Historical generic ZIPs remain unchanged; distribute them with the appropriate original notice and provenance in an outer package. The known historical notice gaps are listed in `launch/provenance-audit.md`.
 
 The force fixture uses separately pinned CadQuery and document-generation dependencies only to create local engineering artifacts. Their distributions and transitive notices remain in the local environment. No third-party interpreter, CAD kernel or vendor hardware drawing is redistributed in the handoff. Candidate instrument specifications are attributed to primary sources in `expansion/research/metrology.md` and `force_lab/BOM.csv`; unresolved interfaces are engineering placeholders rather than vendor-certified compatibility.

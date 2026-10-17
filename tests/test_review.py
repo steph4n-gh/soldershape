@@ -239,7 +239,7 @@ class ReviewArchives(unittest.TestCase):
             row['evidence'] = json.loads(archive.read('case-00/evidence.json'))
         content = make_bundle([row]*7, self.source, self.report['editable_case'], self.report['comparison'])
         with zipfile.ZipFile(io.BytesIO(content)) as archive:
-            self.assertEqual(len(archive.namelist()), 98)
+            self.assertEqual(len(archive.namelist()), 99)
             self.assertIn('review.html', archive.namelist())
         self.assertEqual(len(self.read(content)), 7)
 

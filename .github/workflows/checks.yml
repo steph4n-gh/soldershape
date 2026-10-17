@@ -1,0 +1,15 @@
+name: Source and boundary checks
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  boundaries:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - run: python3 -m compileall -q soldershape tools
+      - run: python3 -m unittest tests.test_boundaries tests.test_cases tests.test_web_inputs -v
+      - run: node --check soldershape/web/app.js && node --check soldershape/web/board.js && node --check soldershape/web/study.js && node --check soldershape/web/ui.js

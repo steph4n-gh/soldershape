@@ -32,7 +32,7 @@ def build(output):
              if path.is_file() and not excluded.intersection(path.parts)
              and path.suffix not in {".pyc", ".kicad_prl", ".lck"}]
     paths += [ROOT / "soldershape" / name for name in ("__init__.py", "model.py", "solver.py")]
-    paths += [ROOT / "tools/setup_engine.py", ROOT / "THIRD_PARTY.md",
+    paths += [ROOT / "tools/setup_engine.py", ROOT / "THIRD_PARTY.md", ROOT / "LICENSE",
               ROOT / "output/pdf/soldershape-lab-handoff.pdf"]
     members = {str(path.relative_to(ROOT)): path.read_bytes() for path in sorted(paths)}
     members["START_HERE.txt"] = (

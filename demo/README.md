@@ -5,10 +5,10 @@ Open a local, recorded comparison of two solder volumes under a held gap. Inspec
 1. From the repository root, start the local server.
 
    ```sh
-   python3 -m soldershape serve --port 8767
+   python3 -m soldershape serve --port 8765
    ```
 
-2. Open http://127.0.0.1:8767/demo. The first view compares 5 and 7 nL at 120 micrometers of offset. The smaller volume restores more strongly and pulls downward. The larger volume pushes upward at the prescribed 150 micrometer gap. These are conditional computed forces.
+2. Open http://127.0.0.1:8765/demo. The first view compares 5 and 7 nL at 120 micrometers of offset. The smaller volume restores more strongly and pulls downward. The larger volume pushes upward at the prescribed 150 micrometer gap. These are conditional computed forces.
 3. Orbit either exact mesh to rotate both views. Use Mesh edges, the arrow keys, plus and minus, or Reset view. The camera changes the view only.
 4. Select **40 µm offset**, **200 µm limit**, or **60 µm gap failure**. These are separate recorded equilibria. At 200 micrometers, the larger-volume result has a substrate-plane warning. The compressed control has no checked equilibrium. Both block the comparison.
 5. Choose **Download all native evidence**. Verify the actual downloaded file from the repository root.

@@ -289,10 +289,21 @@ def verify_review(archive, results, *, board_selection=None):
 
 
 
+def _source_notices(source):
+    root = Path(__file__).resolve().parents[1]
+    example = root/"examples/BGA-36_3.396x3.466mm_Layout6x6_P0.4mm_Ball0.25mm_Pad0.2mm_NSMD.kicad_mod"
+    if source == example.read_bytes():
+        return {"KICAD-LICENSE.md": (root/"examples/KICAD-LICENSE.md").read_bytes()}
+    if any(source == path.read_bytes() for path in (root/"board_demo/assets/footprints.pretty").glob("*.kicad_mod")):
+        return {"BOARD-LICENSE.md": (root/"board_demo/source/LICENSE.md").read_bytes()}
+    return {}
+
+
 def make_bundle(results, source="", editable_case=None, comparison=None, *, board_selection=None):
     files = {"results.csv": results_csv(results)}
     if source:
         files["source.kicad_mod"] = source.encode()
+        files.update(_source_notices(files["source.kicad_mod"]))
         review = review_record(results, comparison, source=source, board_selection=board_selection)
         files["review.json"] = json_bytes(review)
         files["review.html"] = review_html(review)

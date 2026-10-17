@@ -1,0 +1,10 @@
+{
+  "density_g_cm3": 9,
+  "gravity": true,
+  "lower_diameter_mm": 0.4,
+  "offset_mm": 0.24,
+  "standoff_mm": 0.3,
+  "surface_tension_n_m": 0.48,
+  "upper_diameter_mm": 0.4,
+  "volume_mm3": 0.04
+}

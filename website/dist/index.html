@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Compare solder-joint assumptions at an actual KiCad pad. Inspect the forces, keep the evidence, and plan a physical test. A local research workbench around Surface Evolver.">
+  <meta name="theme-color" content="#102b2b">
+  <meta property="og:title" content="SolderShape · Question the solder">
+  <meta property="og:description" content="One actual PCB pad. Two explicit solder assumptions. A comparison you can inspect and replay.">
+  <meta property="og:image" content="media/comparison-review.png">
+  <title>SolderShape · Question the solder</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="site.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav wrap">
+  <a class="brand" href="./" aria-label="SolderShape home"><span class="brand-mark" aria-hidden="true">S</span>SolderShape</a>
+  <nav aria-label="Main navigation"><a href="#comparison">The comparison</a><a href="#evidence">Evidence &amp; limits</a><a class="nav-cta" href="start.html">Run locally <span aria-hidden="true">↗</span></a></nav>
+</header>
+<main id="main">
+<section class="hero wrap" aria-labelledby="hero-title">
+  <div class="hero-copy"><p class="eyebrow"><span class="status-dot"></span> RESEARCH PREVIEW · LOCAL NATIVE COMPUTATION</p>
+    <h1 id="hero-title">Follow the copper.<br><em>Question the solder.</em></h1>
+    <p class="lead">A PCB pad gives you a boundary. What happens when you change the solder?</p>
+    <p class="hero-detail">Compare equilibrium shapes and forces at an actual KiCad pad. Keep the assumptions and numerical evidence together, then plan what to measure.</p>
+    <div class="actions"><a class="button primary" href="#comparison">See a real comparison <span aria-hidden="true">↓</span></a><a class="text-link" href="start.html">Read the local guide ↗</a></div>
+    <p class="boundary-note">Physical force accuracy remains unqualified.<br>One isolated joint is computed. The board supplies context.</p>
+  </div>
+  <figure class="board-figure"><div class="figure-top"><span>ULX3S / SOURCE COPPER</span><span>01 / ACTUAL BOARD</span></div><img src="media/board.svg" width="1280" height="692" alt="Complete original native front view of the ULX3S board, retaining the EMARD, RADIONA and FER silkscreen."><figcaption><span>235 components · 1,177 pads · 1 selected joint</span><span>EMARD &amp; ULX3S contributors</span></figcaption></figure>
+</section>
+<section class="question-strip"><div class="wrap strip-grid"><p>THE QUESTION</p><h2>Does 40% more solder<br>make a better joint?</h2><p>Under these held-gap assumptions, the larger volume produces <strong>weaker lateral restoration</strong> and an <strong>upward separating force</strong>.</p></div></section>
+<section id="comparison" class="wrap comparison-section" aria-labelledby="comparison-title">
+  <div class="section-heading"><div><p class="eyebrow">02 / INSPECT THE TRADEOFF</p><h2 id="comparison-title">Two volumes.<br>A different force direction.</h2></div><p>U1 / pad J16. 400 µm wetting diameters, 300 µm held gap, 240 µm offset. Volumes, material and assembly conditions are hypothetical. Both numerical rows passed the recorded refinement checks.</p></div>
+  <div class="result-layout">
+    <div class="result-card"><p class="record-label"><span class="status-dot"></span> RECORDED NATIVE RESULT · NOT LIVE COMPUTE</p>
+      <div class="result-tabs" role="group" aria-label="Choose a recorded solder volume"><button type="button" aria-pressed="true" data-case="0">Reference <strong>40 nL</strong></button><button type="button" aria-pressed="false" data-case="1">Candidate <strong>56 nL</strong></button></div>
+      <div class="forces"><div><span>X · lateral</span><strong id="force-x">−184.526</strong><small>µN</small></div><div><span>Z · vertical</span><strong id="force-z">−181.284</strong><small>µN</small></div></div>
+      <div id="case-explanation" class="case-explanation" aria-live="polite"><h3>Reference · 40 nL</h3><p>Restoring force 184.526 µN toward alignment. The solder pulls the upper pad downward at this held gap.</p></div>
+      <p class="objective">Declared fixture objective. Lateral restoration without upward separation. This numerical screen does not select a production volume.</p>
+      <noscript><p>The reference is shown above. Candidate X/Z forces are −164.385/+13.386 µN at 56 nL. It pushes upward at this held gap.</p></noscript>
+    </div>
+    <figure class="app-figure"><img src="media/comparison-review.png" width="1097" height="1022" loading="lazy" alt="Actual SolderShape application showing the comparison review, numerical qualifications and the two native joint meshes."><figcaption>Actual application capture. Mesh arrows indicate direction, not magnitude.</figcaption></figure>
+  </div>
+  <p class="comparison-footnote">The result comes from the pinned native Surface Evolver engine. SolderShape adds the KiCad workflow, interpretation and reproducible export. It does not introduce a new solver.</p>
+</section>
+<section class="workflow-section"><div class="wrap"><div class="section-heading"><div><p class="eyebrow">03 / KEEP THE QUESTION REPRODUCIBLE</p><h2>From a pad<br>to a testable assumption.</h2></div><p>A useful review keeps the input, the result and its limits together. Every assumption edit clears the current result. A saved input is never presented as a fresh computation.</p></div>
+  <ol class="workflow"><li><span>01</span><h3>Choose an actual pad</h3><p>Select source copper from the board or a KiCad footprint. Declare the wetting boundary and opposing pad.</p></li><li><span>02</span><h3>Compare the assumptions</h3><p>Prescribe a gap or supported load. Change volume or diameter and inspect each native equilibrium.</p></li><li><span>03</span><h3>Keep the evidence</h3><p>Export exact inputs, readable review, CSV, meshes, raw logs and hashes. Replay the trusted requests.</p></li><li><span>04</span><h3>Plan the measurement</h3><p>Use the study and lab materials to specify what must be measured before a physical decision.</p></li></ol>
+  <div class="walkthrough"><div><p class="eyebrow">A LOOK INSIDE THE WORKBENCH</p><h3>24 seconds.<br>Three real application views.</h3><p>This visual walkthrough uses still captures from the running app. The pauses are editorial. They do not represent solver speed.</p><a class="text-link" href="transcript.html">Read the transcript ↗</a><p class="small">No audio. The video and screenshots retain the original board attribution.</p></div><video controls preload="metadata" poster="media/board-explorer.png" width="1080" height="1080" aria-label="SolderShape visual walkthrough, 24 seconds"><source src="media/walkthrough.mp4" type="video/mp4"><track kind="captions" label="English" srclang="en" src="media/walkthrough.vtt" default><p><a href="media/walkthrough.mp4">Download the walkthrough</a> or <a href="transcript.html">read the transcript</a>.</p></video></div>
+</div></section>
+<section id="evidence" class="wrap evidence-section" aria-labelledby="evidence-title"><div class="section-heading"><div><p class="eyebrow">04 / KNOW WHAT THE EVIDENCE SAYS</p><h2 id="evidence-title">Numerical agreement.<br>Physical questions still open.</h2></div><p>The model assumes an isolated equilibrium joint between fully wetted, pinned circular rims. Wetting chemistry, thermal reflow, substrate obstacles and neighboring-joint effects remain outside it.</p></div>
+  <div class="evidence-grid"><article><span class="evidence-state">ESTABLISHED FOR THE RECORDED CASE</span><h3>You can inspect and replay it.</h3><p>The archive retains both native computations, the original board, selected-pad mapping, input identity, meshes, logs and a SHA-256 manifest. Local replay reproduced both forces with zero difference on the recorded engine.</p><a class="button primary" href="media/soldershape-recorded-example.zip" download>Download the recorded example <span aria-hidden="true">↓</span></a><a class="text-link" href="media/evidence/review.html">Open the numerical review ↗</a><p class="small">The outer package includes notices and an unchanged inner evidence ZIP. Replay instructions are inside. HTML evidence links work from the extracted inner ZIP.</p></article><article class="limits"><span class="evidence-state">PHYSICAL QUALIFICATION REMAINS OPEN</span><h3>It has not earned production trust.</h3><p>Published-data force validation has unresolved failures. No new solder specimens were measured. The outside-lab force fixture and height coupon are planning material, not validated manufacturing tools.</p><p>No package motion, bridging, yield, fatigue or reliability prediction follows from this comparison.</p><a class="text-link" href="validation.html">Read the scope and validation status ↗</a></article></div>
+</section>
+<section class="closing"><div class="wrap closing-inner"><div><p class="eyebrow">FOR ENGINEERS WHO WANT THE ASSUMPTIONS VISIBLE</p><h2>Inspect the model.<br>Measure what matters.</h2><p>The workbench runs locally with Python and the pinned native engine. Original SolderShape material uses MIT. Bundled boards and footprints retain their own terms.</p></div><div><a class="button light" href="start.html">Read the local setup guide ↗</a><p class="small">Public source repository and release tag are being prepared. This website is a recorded introduction, not a hosted solver.</p></div></div></section>
+</main>
+<footer class="wrap"><div class="footer-top"><a class="brand" href="./">SolderShape</a><nav aria-label="Footer navigation"><a href="start.html">Local setup</a><a href="validation.html">Model &amp; validation</a><a href="credits.html">Credits &amp; licenses</a><a href="transcript.html">Media transcript</a></nav></div><p>Numerical computation by Ken Brakke's Surface Evolver. Board by EMARD and the ULX3S contributors. Original logos and silkscreen retained. No upstream endorsement is implied.</p><p>Research preview · Physical force accuracy unqualified · Source release pending.</p></footer>
+</body></html>

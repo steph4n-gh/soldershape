@@ -17,14 +17,14 @@ Both cases pass the existing refinement checks and have no pad-plane excursion w
 
 ## Run
 
-From `/Volumes/Storage/oct16project`:
+From the repository root:
 
 ```sh
 python3 tools/setup_engine.py
-python3 -m soldershape serve --port 8768
+python3 -m soldershape serve --port 8765
 ```
 
-Open `http://127.0.0.1:8768/board`. Inspect a package and pad, change the geometry or process assumptions, and choose the fresh comparison action. Changes invalidate earlier results and downloads. Unsupported pads remain inspectable but cannot be computed. Front circular SMD copper pads still require independent confirmation of their actual wetting boundary.
+Open `http://127.0.0.1:8765/board`. Inspect a package and pad, change the geometry or process assumptions, and choose the fresh comparison action. Changes invalidate earlier results and downloads. Unsupported pads remain inspectable but cannot be computed. Front circular SMD copper pads still require independent confirmation of their actual wetting boundary.
 
 The initial preview is a retained pair of fresh native calculations. Its recording identity and every exported member are verified before display. The fresh comparison action always runs the native engine again.
 
