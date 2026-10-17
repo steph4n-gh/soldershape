@@ -1,0 +1,229 @@
+{
+  "source": "https://imapsjmep.org/article/39820.pdf",
+  "equation": 9,
+  "scope": "Aligned small-load spring approximation, same paper copper-volume mapping. Not process qualification.",
+  "nominal_mean_absolute_error_um": 3.436185519947024,
+  "nominal_max_native_difference_um": 0.10848803831837017,
+  "rows": [
+    {
+      "id": "vanveen2004-q170",
+      "scenario": "primary",
+      "gamma_N_m": 0.35,
+      "stiffness_N_m": 2.3787523177440755,
+      "analytical_rim_um": 210.765016990713,
+      "native_rim_um": 210.62169444906155,
+      "measured_rim_um": 204,
+      "native_minus_analytical_um": -0.1433225416514574
+    },
+    {
+      "id": "vanveen2004-q170",
+      "scenario": "primary",
+      "gamma_N_m": 0.4,
+      "stiffness_N_m": 2.7185740774218012,
+      "analytical_rim_um": 210.97521121575707,
+      "native_rim_um": 210.84760407122963,
+      "measured_rim_um": 204,
+      "native_minus_analytical_um": -0.12760714452744537
+    },
+    {
+      "id": "vanveen2004-q170",
+      "scenario": "primary",
+      "gamma_N_m": 0.48,
+      "stiffness_N_m": 3.2622888929061613,
+      "analytical_rim_um": 211.22043781164183,
+      "native_rim_um": 211.11194977332346,
+      "measured_rim_um": 204,
+      "native_minus_analytical_um": -0.10848803831837017
+    },
+    {
+      "id": "vanveen2004-q170",
+      "scenario": "primary",
+      "gamma_N_m": 0.55,
+      "stiffness_N_m": 3.7380393564549768,
+      "analytical_rim_um": 211.3764910999321,
+      "native_rim_um": 211.28037023339044,
+      "measured_rim_um": 204,
+      "native_minus_analytical_um": -0.09612086654166774
+    },
+    {
+      "id": "vanveen2004-q220",
+      "scenario": "primary",
+      "gamma_N_m": 0.35,
+      "stiffness_N_m": 2.948840583151919,
+      "analytical_rim_um": 201.4336038243039,
+      "native_rim_um": 201.4005135609877,
+      "measured_rim_um": 198,
+      "native_minus_analytical_um": -0.03309026331621112
+    },
+    {
+      "id": "vanveen2004-q220",
+      "scenario": "primary",
+      "gamma_N_m": 0.4,
+      "stiffness_N_m": 3.370103523602193,
+      "analytical_rim_um": 201.60316198992896,
+      "native_rim_um": 201.57260713414678,
+      "measured_rim_um": 198,
+      "native_minus_analytical_um": -0.030554855782185086
+    },
+    {
+      "id": "vanveen2004-q220",
+      "scenario": "primary",
+      "gamma_N_m": 0.48,
+      "stiffness_N_m": 4.044124228322631,
+      "analytical_rim_um": 201.8009798498249,
+      "native_rim_um": 201.7743720613889,
+      "measured_rim_um": 198,
+      "native_minus_analytical_um": -0.02660778843599587
+    },
+    {
+      "id": "vanveen2004-q220",
+      "scenario": "primary",
+      "gamma_N_m": 0.55,
+      "stiffness_N_m": 4.633892344953016,
+      "analytical_rim_um": 201.9268639424859,
+      "native_rim_um": 201.90258858060932,
+      "measured_rim_um": 198,
+      "native_minus_analytical_um": -0.024275361876590296
+    },
+    {
+      "id": "vanveen2004-q220",
+      "scenario": "volume-0.95",
+      "gamma_N_m": 0.48,
+      "stiffness_N_m": 4.216121534800398,
+      "analytical_rim_um": 195.40196177902376,
+      "native_rim_um": 195.37751958328593,
+      "measured_rim_um": 198,
+      "native_minus_analytical_um": -0.024442195737833572
+    },
+    {
+      "id": "vanveen2004-q220",
+      "scenario": "volume-1.05",
+      "gamma_N_m": 0.48,
+      "stiffness_N_m": 3.8918387235452587,
+      "analytical_rim_um": 207.98539551052198,
+      "native_rim_um": 207.9559231184151,
+      "measured_rim_um": 198,
+      "native_minus_analytical_um": -0.02947239210689645
+    },
+    {
+      "id": "vanveen2004-q270",
+      "scenario": "primary",
+      "gamma_N_m": 0.35,
+      "stiffness_N_m": 3.7569195316280193,
+      "analytical_rim_um": 190.3962046270734,
+      "native_rim_um": 190.39327884046662,
+      "measured_rim_um": 192,
+      "native_minus_analytical_um": -0.0029257866067666782
+    },
+    {
+      "id": "vanveen2004-q270",
+      "scenario": "primary",
+      "gamma_N_m": 0.4,
+      "stiffness_N_m": 4.293622321860595,
+      "analytical_rim_um": 190.52929238575192,
+      "native_rim_um": 190.52571993379897,
+      "measured_rim_um": 192,
+      "native_minus_analytical_um": -0.003572451952948086
+    },
+    {
+      "id": "vanveen2004-q270",
+      "scenario": "primary",
+      "gamma_N_m": 0.48,
+      "stiffness_N_m": 5.152346786232713,
+      "analytical_rim_um": 190.68456143754355,
+      "native_rim_um": 190.68060357009125,
+      "measured_rim_um": 192,
+      "native_minus_analytical_um": -0.003957867452299979
+    },
+    {
+      "id": "vanveen2004-q270",
+      "scenario": "primary",
+      "gamma_N_m": 0.55,
+      "stiffness_N_m": 5.903730692558317,
+      "analytical_rim_um": 190.7833690159564,
+      "native_rim_um": 190.77934998177625,
+      "measured_rim_um": 192,
+      "native_minus_analytical_um": -0.004019034180146264
+    },
+    {
+      "id": "vanveen2004-q270",
+      "scenario": "volume-0.95",
+      "gamma_N_m": 0.48,
+      "stiffness_N_m": 5.414275908752394,
+      "analytical_rim_um": 184.3548681678003,
+      "native_rim_um": 184.35185706590377,
+      "measured_rim_um": 192,
+      "native_minus_analytical_um": -0.003011101896532864
+    },
+    {
+      "id": "vanveen2004-q270",
+      "scenario": "volume-1.05",
+      "gamma_N_m": 0.48,
+      "stiffness_N_m": 4.921798931069975,
+      "analytical_rim_um": 196.8157020932782,
+      "native_rim_um": 196.81067780343858,
+      "measured_rim_um": 192,
+      "native_minus_analytical_um": -0.005024289839610674
+    },
+    {
+      "id": "vanveen2004-q320",
+      "scenario": "primary",
+      "gamma_N_m": 0.35,
+      "stiffness_N_m": 4.8342638520422385,
+      "analytical_rim_um": 178.18379106780827,
+      "native_rim_um": 178.18043351610254,
+      "measured_rim_um": 177,
+      "native_minus_analytical_um": -0.0033575517057329307
+    },
+    {
+      "id": "vanveen2004-q320",
+      "scenario": "primary",
+      "gamma_N_m": 0.4,
+      "stiffness_N_m": 5.524872973762559,
+      "analytical_rim_um": 178.28721943152672,
+      "native_rim_um": 178.28361310844807,
+      "measured_rim_um": 177,
+      "native_minus_analytical_um": -0.0036063230786567146
+    },
+    {
+      "id": "vanveen2004-q320",
+      "scenario": "primary",
+      "gamma_N_m": 0.48,
+      "stiffness_N_m": 6.6298475685150695,
+      "analytical_rim_um": 178.40788585586492,
+      "native_rim_um": 178.40420211231296,
+      "measured_rim_um": 177,
+      "native_minus_analytical_um": -0.003683743551960106
+    },
+    {
+      "id": "vanveen2004-q320",
+      "scenario": "primary",
+      "gamma_N_m": 0.55,
+      "stiffness_N_m": 7.596700338923518,
+      "analytical_rim_um": 178.48467358044377,
+      "native_rim_um": 178.4811238621564,
+      "measured_rim_um": 177,
+      "native_minus_analytical_um": -0.0035497182873598376
+    },
+    {
+      "id": "vanveen2004-q320",
+      "scenario": "volume-0.95",
+      "gamma_N_m": 0.48,
+      "stiffness_N_m": 7.010853861312372,
+      "analytical_rim_um": 172.2179149717851,
+      "native_rim_um": 172.2147843615289,
+      "measured_rim_um": 177,
+      "native_minus_analytical_um": -0.0031306102561927673
+    },
+    {
+      "id": "vanveen2004-q320",
+      "scenario": "volume-1.05",
+      "gamma_N_m": 0.48,
+      "stiffness_N_m": 6.29506929655803,
+      "analytical_rim_um": 184.42160234296557,
+      "native_rim_um": 184.41733178518325,
+      "measured_rim_um": 177,
+      "native_minus_analytical_um": -0.004270557782319884
+    }
+  ]
+}

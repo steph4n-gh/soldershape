@@ -1,0 +1,227 @@
+{
+  "base_commit": "dccbcf6",
+  "url": "http://127.0.0.1:8765/",
+  "browser": "Codex in-app browser",
+  "checks": [
+    "Loaded editable case opened through file chooser and selected supported-normal-load mode.",
+    "No height preview before a loaded solve.",
+    "Aligned comparison displayed both solved gaps and no centering verdict.",
+    "Both result rows selected successfully.",
+    "Input change cleared old geometry and disabled results download.",
+    "Five-point offset sweep solved a separate height per row.",
+    "Actual CSV exports contain prescribed load and computed gap.",
+    "Static and native-height standalone evidence files are nonempty.",
+    "Downloaded comparison and sweep both replayed from height-free requests.",
+    "Saved editable case normalized exactly to original example.",
+    "Browser warnings and errors were empty."
+  ],
+  "bundles": {
+    "comparison": {
+      "sha256": "86f4350e23c2856cf79cc86ceffe566e08b4514d7bafef8008d135615a651e94",
+      "cases": 2,
+      "replay": {
+        "replay": [
+          {
+            "input_sha256": "953e4190ebbf631ba3368acf38c8abf822160c9cefca43b493d9c9795ec59051",
+            "status": "refinement_checked",
+            "force_difference_uN": {
+              "x_uN": 0.0,
+              "z_uN": 0.0
+            },
+            "gap_difference_mm": 0.0,
+            "source_matches": true,
+            "binary_matches": true,
+            "passed": true
+          },
+          {
+            "input_sha256": "a06e37a64f4b008fd8f055878dede8dbcec3e2668e822411dc1bdf38e38e29d9",
+            "status": "refinement_checked",
+            "force_difference_uN": {
+              "x_uN": 0.0,
+              "z_uN": 0.0
+            },
+            "gap_difference_mm": 0.0,
+            "source_matches": true,
+            "binary_matches": true,
+            "passed": true
+          }
+        ],
+        "passed": true
+      },
+      "points": [
+        {
+          "offset_mm": 0,
+          "gap_mm": 0.14198599212772617,
+          "forces": {
+            "x_uN": 5.551115123125783e-09,
+            "z_uN": 3.999920728584378
+          },
+          "balance": {
+            "residual_uN": -7.927141562191764e-05,
+            "tolerance_uN": 0.011845543773064904,
+            "status": "balanced"
+          }
+        },
+        {
+          "offset_mm": 0,
+          "gap_mm": 0.12540026678723787,
+          "forces": {
+            "x_uN": -0.0,
+            "z_uN": 3.9997772823855526
+          },
+          "balance": {
+            "residual_uN": -0.00022271761444736526,
+            "tolerance_uN": 0.015076805452111763,
+            "status": "balanced"
+          }
+        }
+      ]
+    },
+    "sweep": {
+      "sha256": "a160d226dffdc6af64766ff353cafd4eea29a8897925de749019c98a65bc4279",
+      "cases": 5,
+      "replay": {
+        "replay": [
+          {
+            "input_sha256": "21d4f1dcd414138694332daee79d3ecd8a69d3106d56f2ec598f1980ab25252e",
+            "status": "refinement_checked",
+            "force_difference_uN": {
+              "x_uN": 0.0,
+              "z_uN": 0.0
+            },
+            "gap_difference_mm": 0.0,
+            "source_matches": true,
+            "binary_matches": true,
+            "passed": true
+          },
+          {
+            "input_sha256": "48b40e06a40c4eb196a418aaa0e58eff6302848500eff96dbac62143fe51c85b",
+            "status": "refinement_checked",
+            "force_difference_uN": {
+              "x_uN": 0.0,
+              "z_uN": 0.0
+            },
+            "gap_difference_mm": 0.0,
+            "source_matches": true,
+            "binary_matches": true,
+            "passed": true
+          },
+          {
+            "input_sha256": "a06e37a64f4b008fd8f055878dede8dbcec3e2668e822411dc1bdf38e38e29d9",
+            "status": "refinement_checked",
+            "force_difference_uN": {
+              "x_uN": 0.0,
+              "z_uN": 0.0
+            },
+            "gap_difference_mm": 0.0,
+            "source_matches": true,
+            "binary_matches": true,
+            "passed": true
+          },
+          {
+            "input_sha256": "1c3be169104bf64aba13c546ff7e23517330e7e8d360e2996e3a4b13e727a45f",
+            "status": "refinement_checked",
+            "force_difference_uN": {
+              "x_uN": 0.0,
+              "z_uN": 0.0
+            },
+            "gap_difference_mm": 0.0,
+            "source_matches": true,
+            "binary_matches": true,
+            "passed": true
+          },
+          {
+            "input_sha256": "7cd93e7a3886141f9444f8180a9b7e6b48645fc4eda493796a330b909c167d91",
+            "status": "refinement_checked",
+            "force_difference_uN": {
+              "x_uN": 0.0,
+              "z_uN": 0.0
+            },
+            "gap_difference_mm": 0.0,
+            "source_matches": true,
+            "binary_matches": true,
+            "passed": true
+          }
+        ],
+        "passed": true
+      },
+      "points": [
+        {
+          "offset_mm": -0.02,
+          "gap_mm": 0.12529785745720953,
+          "forces": {
+            "x_uN": 22.230149168689373,
+            "z_uN": 3.999919353954855
+          },
+          "balance": {
+            "residual_uN": -8.064604514501639e-05,
+            "tolerance_uN": 0.01476247951664078,
+            "status": "balanced"
+          }
+        },
+        {
+          "offset_mm": -0.01,
+          "gap_mm": 0.1253749409072313,
+          "forces": {
+            "x_uN": 11.217458539825031,
+            "z_uN": 3.999960315575106
+          },
+          "balance": {
+            "residual_uN": -3.96844248942152e-05,
+            "tolerance_uN": 0.014996217832949021,
+            "status": "balanced"
+          }
+        },
+        {
+          "offset_mm": 0,
+          "gap_mm": 0.12540026678723787,
+          "forces": {
+            "x_uN": -0.0,
+            "z_uN": 3.9997772823855526
+          },
+          "balance": {
+            "residual_uN": -0.00022271761444736526,
+            "tolerance_uN": 0.015076805452111763,
+            "status": "balanced"
+          }
+        },
+        {
+          "offset_mm": 0.01,
+          "gap_mm": 0.1253749409600221,
+          "forces": {
+            "x_uN": -11.217458537049474,
+            "z_uN": 3.9999598689159277
+          },
+          "balance": {
+            "residual_uN": -4.013108407230348e-05,
+            "tolerance_uN": 0.01499621782663585,
+            "status": "balanced"
+          }
+        },
+        {
+          "offset_mm": 0.02,
+          "gap_mm": 0.1252978573970087,
+          "forces": {
+            "x_uN": -22.2301491603627,
+            "z_uN": 3.9999198675803833
+          },
+          "balance": {
+            "residual_uN": -8.013241961668527e-05,
+            "tolerance_uN": 0.014762466232729032,
+            "status": "balanced"
+          }
+        }
+      ]
+    }
+  },
+  "representative_offset_mesh_intersection_check": {
+    "proper_intersections": 0,
+    "pairs_checked": 316,
+    "scope": "Nonadjacent triangle pairs; proper transverse crossings. Coplanar overlaps and tangential contacts are not certified."
+  },
+  "screenshots": [
+    "evidence/model-repair/loaded-workbench.png",
+    "evidence/model-repair/loaded-sweep.png"
+  ],
+  "passed": true
+}

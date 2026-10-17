@@ -1,6 +1,6 @@
 # SolderShape
 
-Compare the equilibrium shape and upper-pad forces of a single molten BGA solder joint, starting from a KiCad footprint. Version 0.2 runs locally with the pinned native Surface Evolver engine. It does not contain a Rust or WASM solver rewrite.
+Compare the equilibrium shape and upper-pad forces of a single molten BGA solder joint, starting from a KiCad footprint. Version 0.3 runs locally with the pinned native Surface Evolver engine. It does not contain a Rust or WASM solver rewrite.
 
 SolderShape was selected over KnotForge because it connects an existing PCB-design input to a specific parameter-comparison workflow. [SELECTION.md](SELECTION.md) records the alternatives, evidence, counterargument, and reversal condition. Practitioner demand remains untested.
 
@@ -21,13 +21,26 @@ Open [the local workbench](http://127.0.0.1:8765). Load the example footprint or
 
 Use **Save editable case** to keep the footprint, selected pad, all inputs, and optional reference dimensions in JSON. **Open case** restores inputs and clears old computed results. Invalid files leave the current draft intact. The editable case and its formatted representation are limited to 2.1 MB.
 
-Use **Use current design as reference**, then change upper-pad diameter or solder volume and choose **Compare reference and candidate**. Both designs compute afresh at the current board pad, gap, offset, surface tension, density, and gravity setting. The table shows the exact changed dimensions and both forces. A centering-force delta requires checked numerical results, a nonzero offset, and no detected pad-plane excursion. Changing a selected board pad clears the reference. Comparing board-footprint revisions is outside this workflow.
+Use **Use current design as reference**, then change upper-pad diameter or solder volume and choose **Compare reference and candidate**. Both designs compute afresh at the current board pad, vertical condition, offset, surface tension, density, and gravity setting. Choose **Prescribed gap** for a fixture-held joint or **Supported normal load** to solve height from the downward load carried by one joint. Do not supply both constraints. The table shows the changed dimensions, each solved gap, and both forces. An aligned load comparison reports a height difference without claiming centering force. A centering-force delta requires checked numerical results, a nonzero offset, and no detected pad-plane excursion. Changing a selected board pad clears the reference. Comparing board-footprint revisions is outside this workflow.
 
 Sweep offset to compare lateral restoring force. Positive lateral force acts toward positive local x on the upper pad. Positive vertical force acts upward. The result shows the actual solved mesh, numerical checks, and an export bundle. Changing any input clears old results and downloads.
 
 Stop the server with Ctrl+C. It binds to `127.0.0.1` and has no account or cloud service.
 
-## Try the complete comparison
+## Predict height under a supported load
+
+Open `examples/loaded-volume.soldershape.json` and choose **Compare reference and candidate**. At a 4 µN downward load, the reference volume of 0.006 mm³ predicts a 0.141986 mm gap. Reducing volume to 0.005 mm³ predicts 0.125400 mm. Both forces are checked in a fresh fixed-gap computation after the native height optimization. The input file contains no measured or prescribed height. Each sweep offset solves its own height.
+
+```sh
+python3 -m soldershape solve-case examples/loaded-volume.soldershape.json --output output/loaded-volume.zip
+python3 -m soldershape replay output/loaded-volume.zip
+```
+
+The archive separates the prescribed request from `equilibrium`. Standalone root model and command files reproduce the final fixed-gap check. `load-height/` contains the native height model and logs. Replay solves height again from the request. The numerical residual tolerance is reported and is not a physical confidence interval. Final heights must be between 0.02 and 10 mm. Native trial heights are unbounded, and failed branches remain failures.
+
+The [physical root-cause report](evidence/model-repair/report.md) evaluates an independent published four-pad standoff experiment without fitting surface tension or using measured heights as inputs. It distinguishes preliminary clearance screening from process qualification. The original force-validation failure remains unresolved.
+
+## Try the complete fixed-gap comparison
 
 Open `examples/centering-volume.soldershape.json` through **Open case**, then choose **Compare reference and candidate**. The reference uses 0.006 mm³ and the candidate uses 0.005 mm³ at 0.2 mm wetted diameters, a prescribed 0.15 mm gap, and a 0.02 mm offset. Select each row to inspect its mesh. **Download results** includes both cases, their independent geometry and solver evidence, the editable case, and `comparison.json`.
 
@@ -50,28 +63,31 @@ python3 -m soldershape replay output/joint.zip
 
 Add `--offsets=-0.04,-0.02,0,0.02,0.04` to compute an independent five-point sweep. Each row retains its own model, logs, and geometry. A failed row remains in the export. The solve command exits with code 1 when any row fails a numerical check, and with code 2 for an invalid request.
 
-The ZIP contains a CSV, original footprint, normalized inputs, result JSON, engine provenance, generated Evolver model and commands, raw output, and OBJ and STL meshes in millimeters. `manifest.json` hashes every member. STL has no formal unit field, so the filename and manifest explicitly say millimeters. Replay verifies bundle integrity and regenerates trusted models from validated numeric inputs. It never executes scripts read from the archive. Replay reports whether engine source and executable hashes match and compares forces within its declared tolerance; it does not promise cross-platform bitwise equality.
+Replay accepts at most 40 MB compressed, 160 MB uncompressed, 100 members, and seven cases. The ZIP contains a CSV, original footprint, normalized inputs, result JSON, engine provenance, generated Evolver model and commands, raw output, and OBJ and STL meshes in millimeters. `manifest.json` hashes every member. STL has no formal unit field, so the filename and manifest explicitly say millimeters. Replay verifies bundle integrity and regenerates trusted models from validated numeric inputs. It never executes scripts read from the archive. Replay reports whether engine source and executable hashes match and compares forces within its declared tolerance; it does not promise cross-platform bitwise equality.
 
 ## Verify the result
 
 ```sh
 python3 tools/verify.py
 python3 -m unittest discover -s tests -v
+python3 tools/validate_loaded.py
+python3 tools/check_loaded_formula.py
+python3 tools/verify_loaded_archive.py
 ```
 
-The numerical check runs the author's published BGA force example, an analytic cylinder, opposite placement offsets, surface-tension scaling, a solder-volume comparison, unequal pad diameters, mesh checks, ZIP integrity, and a full export/replay operation. Its measured output is [evidence/acceptance.json](evidence/acceptance.json). The reference script and raw output are beside it. [ACCEPTANCE.md](ACCEPTANCE.md) defines the checks before implementation.
+The numerical check runs the author's published BGA force example, an analytic cylinder, opposite placement offsets, surface-tension scaling, a solder-volume comparison, unequal pad diameters, mesh checks, ZIP integrity, and a full export/replay operation. Load-controlled checks additionally verify independent normal reaction, unloaded sphere agreement, geometric scaling, optimizer derivative and initialization sensitivity, and retained failures. Its measured output is [evidence/acceptance.json](evidence/acceptance.json). The reference script and raw output are beside it. [ACCEPTANCE.md](ACCEPTANCE.md) defines the checks before implementation.
 
-The completed browser workflow is recorded in [evidence/browser-workflow.json](evidence/browser-workflow.json), with a [screenshot of the actual computed result](evidence/workbench.jpg). [Independent review](evidence/review.md) found and verified the repair of a failed-case replay defect. The original release passed 12 boundary tests. The expanded suite now has 24 tests, including editable-case boundaries, launcher reuse, pad-plane warning behavior, and an independent force-derivative regression. A separate [inert archive check](evidence/inert-archive-replay.json) confirms that replay ignores archived command text and recomputes trusted numeric inputs.
+The completed browser workflow is recorded in [evidence/browser-workflow.json](evidence/browser-workflow.json), with a [screenshot of the actual computed result](evidence/workbench.jpg). [Independent review](evidence/review.md) found and verified the repair of a failed-case replay defect. The original release passed 12 boundary tests. The expanded suite covers editable cases, launcher reuse, pad-plane warnings, independent force derivatives, and load-controlled computation and replay. A separate [inert archive check](evidence/inert-archive-replay.json) confirms that replay ignores archived command text and recomputes trusted numeric inputs.
 
 The default 0.2 mm pad, 0.15 mm standoff, 0.006 mm³ volume, and 0.02 mm offset produce about −19.63 µN lateral force and −43.78 µN vertical force on the upper pad in this model. At the same gap and offset, changing volume from 0.005 to 0.007 mm³ changes vertical force from about −128.77 to +43.54 µN. These computed comparisons illustrate model sensitivity. They do not establish which geometry is best for an actual assembly.
 
 ## Understand the limits
 
-The model has one connected joint between parallel circular pads. Both circular rims are pinned and fully wetted. The footprint's selected copper diameter supplies the lower wetted diameter as an explicit assumption. Solder-mask apertures, contact-angle motion, neighboring joints, component tilt, and free component motion are not modeled. Offset follows the selected pad's local x direction. Rectangular, oval, custom, and through-hole pads remain visible but cannot be solved as circles.
+The model has one connected joint between parallel circular pads. Both circular rims are pinned and fully wetted. The footprint's selected copper diameter supplies the lower wetted diameter as an explicit assumption. Solder-mask apertures, contact-angle motion, neighboring joints, component tilt, and free lateral component motion are not modeled. Load control solves only the isolated joint's vertical equilibrium under a prescribed per-joint load. It does not calculate package tilt or the load carried by each joint. Offset follows the selected pad's local x direction. Rectangular, oval, custom, and through-hole pads remain visible but cannot be solved as circles.
 
 The gap is the separation of wetted pad planes. Ordinary volume input is liquid solder excluding pad metal. The published benchmark uses a documented paper-specific effective-volume transformation; the product does not silently apply it to user designs. The curved surface can extend beyond the pad planes because substrate obstacles are not modeled. Detected vertex excursions produce a separate model-scope warning and block a comparison verdict. The vertex check does not certify continuous-surface clearance.
 
-Inputs use millimeters, cubic millimeters, N/m, and g/cm³. The native model uses cgs units. The application converts forces from dynes to micronewtons. The material defaults of 0.48 N/m and 9 g/cm³ follow the upstream example class and are not a calibrated recommendation for a modern alloy. The footprint does not determine solder volume or final standoff; you supply them.
+Inputs use millimeters, cubic millimeters, N/m, and g/cm³. The native model uses cgs units. The application converts forces from dynes to micronewtons. The material defaults of 0.48 N/m and 9 g/cm³ follow the upstream example class and are not a calibrated recommendation for a modern alloy. The footprint does not determine solder volume or final standoff. Supply liquid solder volume and either the gap or the downward load carried by this joint.
 
 `refinement_checked` means the declared volume, force-refinement, energy-change, local-Hessian, and tessellation checks passed. It is not proof of a unique or globally minimal equilibrium. The diagnostic records each threshold and the normalization used near zero force. A bounded extra refinement can resolve a sensitive case; it does not turn every failed geometry into a qualified result. `not_converged` and `failed` retain their evidence.
 

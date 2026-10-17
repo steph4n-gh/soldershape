@@ -44,14 +44,6 @@ def calculate(source, index, parameters, offsets=None):
         except SolverError as error:
             result = {"input": point.to_dict(), "input_sha256": point.sha256, "status": "failed",
                       "error": str(error), "evidence": getattr(error, "evidence", {})}
-        if "mesh" in result:
-            heights = [vertex[2] for vertex in result["mesh"]["vertices_mm"]]
-            below, above = max(0, -min(heights)), max(0, max(heights)-point.standoff_mm)
-            tolerance = max(1e-7, point.standoff_mm*1e-6)
-            result["diagnostics"]["pad_plane_excursion_mm"] = {"below_lower": below, "above_upper": above, "tolerance": tolerance}
-            result["model_warnings"] = []
-            if max(below, above) > tolerance:
-                result["model_warnings"].append("Model scope: the surface extends beyond the wetted pad planes. Substrate obstacles are not modeled; check physical clearance before interpreting these forces.")
         result["footprint"] = footprint
         results.append(result)
     return results
@@ -68,22 +60,26 @@ def calculate_comparison(case):
     offset = case["parameters"]["offset_mm"]
     checked = all(result["status"] == "refinement_checked" for result in results)
     scope_clear = not any(result.get("model_warnings") for result in results)
-    comparable = checked and offset != 0 and scope_clear
+    loaded = "normal_load_uN" in case["parameters"]
+    comparable = checked and (offset != 0 or loaded) and scope_clear
     designs = []
     for result in results:
         forces = result.get("forces", {})
         lateral = forces.get("x_uN")
         designs.append({"role": result["design"], "input_sha256": result["input_sha256"],
                         "upper_diameter_mm": result["input"]["upper_diameter_mm"], "volume_mm3": result["input"]["volume_mm3"],
+                        "gap_mm": result.get("equilibrium", result["input"]).get("standoff_mm"),
                         "status": result["status"], "force_x_uN": lateral, "force_z_uN": forces.get("z_uN"),
                         "restoring_force_uN": -math.copysign(1, offset)*lateral if lateral is not None and offset != 0 else None})
     reference, candidate = designs
+    condition = "supported normal load" if loaded else "prescribed wetted-plane gap"
     comparison = {"status": "compared" if comparable else "inconclusive", "designs": designs,
-                  "scope": "Both designs use the current board pad, wetted-plane gap, offset and material. Forces are conditional equilibrium predictions. Physical accuracy, free standoff, alignment time and manufacturing yield are not qualified."}
+                  "scope": f"Both designs use the current board pad, {condition}, offset and material. Predictions assume pinned circular rims and an isolated joint. Process-specific accuracy, alignment time and manufacturing yield are not qualified."}
     if comparable:
         comparison["delta"] = {"volume_mm3": candidate["volume_mm3"]-reference["volume_mm3"],
                                "volume_percent": (candidate["volume_mm3"]/reference["volume_mm3"]-1)*100,
-                               "restoring_force_uN": candidate["restoring_force_uN"]-reference["restoring_force_uN"],
+                               "restoring_force_uN": candidate["restoring_force_uN"]-reference["restoring_force_uN"] if offset != 0 else None,
+                               "gap_mm": candidate["gap_mm"]-reference["gap_mm"],
                                "vertical_force_uN": candidate["force_z_uN"]-reference["force_z_uN"]}
     else:
         if not checked:
@@ -220,6 +216,10 @@ def replay(path):
             checks.append({"input_sha256": spec.sha256, "previous_status": saved["status"],
                            "current_status": "failed", "error": str(error), "passed": False})
             continue
+        if current["status"] == "failed":
+            checks.append({"input_sha256": spec.sha256, "previous_status": saved["status"],
+                           "current_status": "failed", "error": current.get("error", "Solver failed."), "passed": False})
+            continue
         if saved["status"] == "failed":
             checks.append({"input_sha256": spec.sha256, "previous_status": "failed", "current_status": current["status"], "passed": False})
             continue
@@ -228,7 +228,13 @@ def replay(path):
         passed = current["status"] == saved["status"] and all(
             differences[axis] <= max(abs(saved["forces"][axis]) * .01, force_scale * .0001)
             for axis in differences)
+        gap_difference = None
+        if "normal_load_uN" in spec.to_dict():
+            gap_difference = abs(current["equilibrium"]["standoff_mm"] - saved["equilibrium"]["standoff_mm"])
+            passed = passed and gap_difference <= max(1e-5, saved["equilibrium"]["standoff_mm"]*.001)
+            passed = passed and current["load_balance"]["status"] == saved["load_balance"]["status"]
         checks.append({"input_sha256": spec.sha256, "status": current["status"], "force_difference_uN": differences,
+                       "gap_difference_mm": gap_difference,
                        "source_matches": current["engine"].get("source_sha256") == saved["engine"].get("source_sha256"),
                        "binary_matches": current["engine"].get("binary_sha256") == saved["engine"].get("binary_sha256"), "passed": passed})
     print(json.dumps({"replay": checks, "passed": all(row["passed"] for row in checks)}, indent=2))
@@ -302,7 +308,7 @@ def main():
                 results = calculate(case["footprint_text"], case["pad_index"], case["parameters"])
             args.output.parent.mkdir(parents=True, exist_ok=True)
             args.output.write_bytes(make_bundle(results, case["footprint_text"], case, comparison))
-            print(json.dumps({"results": [{key: row[key] for key in ("design", "input", "status", "forces", "error") if key in row} for row in results],
+            print(json.dumps({"results": [{key: row[key] for key in ("design", "input", "equilibrium", "load_balance", "status", "forces", "error") if key in row} for row in results],
                               "comparison": comparison, "output": str(args.output.resolve())}, indent=2))
             return 0 if all(row["status"] == "refinement_checked" for row in results) else 1
         source = args.footprint.read_text()
@@ -316,7 +322,7 @@ def main():
         args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_bytes(make_bundle(results, source))
         for result in results:
-            print(json.dumps({k: result[k] for k in ("input", "status", "forces", "diagnostics", "error") if k in result}, indent=2))
+            print(json.dumps({k: result[k] for k in ("input", "equilibrium", "load_balance", "status", "forces", "diagnostics", "error") if k in result}, indent=2))
         print(str(args.output.resolve()))
         return 0 if all(row["status"] == "refinement_checked" for row in results) else 1
     except (OSError, InputError, ValueError) as error:

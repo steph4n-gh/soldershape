@@ -1,0 +1,349 @@
+{
+  "schema": 1,
+  "verdict": "ISSUES",
+  "scope": "Independent source and mapping audit. No product edits and no frozen evidence edits.",
+  "source_hashes": {
+    ".research/physical/sources/nist2002.pdf": "4917aa35b4b804292826f8ce92b1f7c51eaed83e6f0777aeefb26195e7204990",
+    ".research/physical/nist-extraction/Im5.tiff": "b94f74557d2aa0ed45f8c885e8e3b775b82f044f09c263bf62ad79ec35f838a6",
+    ".research/physical/nist-extraction/Im5.png": "f3924c0644fd3795c7444d46c5f887fed60fa19cd6a117321e7c0d269178a09f",
+    ".research/physical/nist-extraction/underfill.zip": "fa1ceb86bd9f37214194370b809ee92e73614ed3c1c7b1e43a80460d759bfcc5",
+    ".research/physical/nist-extraction/force.fe": "87c60d81cabd03e55367eca392387d1e71de42850937ae7715cda213fdd717e7",
+    ".research/physical/nist-extraction/param.cmd": "e90b97274fb21f09ff2c96e63cfb847e07351bfa0ca068a7d3c4db2674533c10",
+    ".research/physical/nist-extraction/readme.txt": "309258d00a1b262e922a60fcf82fce4aca2f6fcfa53a1191fef395e38b8456c5"
+  },
+  "primary_urls": [
+    "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=853827",
+    "https://www.ctcms.nist.gov/solder/underfill/index.html"
+  ],
+  "source_mapping": {
+    "status": "PASS",
+    "article_diameter_mm": 0.64,
+    "article_copper_thickness_mm": 0.005,
+    "nominal_solder_volume_mm3": 0.0086,
+    "effective_volume_mm3": 0.01181699087727595,
+    "gap_reference": "Measured upper-to-lower Si/Cu interface separation",
+    "pad_correction_sign": "positive",
+    "force_unit": "per-joint micronewtons for shear and millinewtons for normal",
+    "joint_count": 8,
+    "direction": "Applied normal force points downward; equilibrium reaction on upper wafer points upward",
+    "geometry_samples": "Three sectioned joints, two edge-based lateral measurements per joint",
+    "source_locations": {
+      "article_thickness": "journal228,PDF2,numberedtext39and75",
+      "interface_gap": "journal229,PDF3,numberedtext17to20",
+      "pad_volume_sign": "journal231,PDF5,numberedtext24to26",
+      "load_equations": "journal229,PDF3,numberedtext42to55",
+      "all_data_gamma_fit": "journal231,PDF5,numberedtext72to80"
+    }
+  },
+  "archive_discrepancies": {
+    "status": "ISSUES",
+    "copper_thickness_mm": 0.004,
+    "nominal_solder_volume_mm3": 0.029,
+    "gamma_N_per_m": 0.45,
+    "active_mass_kg": 0.00157,
+    "commented_mass_kg": 0.0015,
+    "is_figure5_saved_configuration": false,
+    "interpretation": "Example parameters differ from publication. Test alternate correction for numerical reproduction, but do not replace measured5\u00b5m solely by fitting."
+  },
+  "load_inference": {
+    "status": "inferred_under_half_degree_grid_assumption_not_specimen_provenance",
+    "source": "Archive pev uses tilt0 to4.5 in0.5 degree increments, and force.fe contains commented mass0.0015kg. Figure5 experimental subsets at odd half degrees are an assumption.",
+    "rows": [
+      {
+        "observed_shear_uN": 15.85,
+        "assumed_tilt_degrees": 0.5,
+        "inferred_total_mass_g": 1.4826932764571963,
+        "inferred_normal_uN": 1816.2301045495572,
+        "expected_shear_uN_at_mass_1p5g": 16.035008978262105,
+        "expected_shear_uN_at_mass_1p57g": 16.78330939724767
+      },
+      {
+        "observed_shear_uN": 48,
+        "assumed_tilt_degrees": 1.5,
+        "inferred_total_mass_g": 1.4968770617773886,
+        "inferred_normal_uN": 1833.0460462572294,
+        "expected_shear_uN_at_mass_1p5g": 48.100142515716925,
+        "expected_shear_uN_at_mass_1p57g": 50.34481583311704
+      },
+      {
+        "observed_shear_uN": 80.15,
+        "assumed_tilt_degrees": 2.5,
+        "inferred_total_mass_g": 1.4999883166760617,
+        "inferred_normal_uN": 1835.7368087067607,
+        "expected_shear_uN_at_mass_1p5g": 80.15062428380492,
+        "expected_shear_uN_at_mass_1p57g": 83.89098675038247
+      },
+      {
+        "observed_shear_uN": 112.025,
+        "assumed_tilt_degrees": 3.5,
+        "inferred_total_mass_g": 1.4979716187906857,
+        "inferred_normal_uN": 1831.5925597100656,
+        "expected_shear_uN_at_mass_1p5g": 112.17669139529951,
+        "expected_shear_uN_at_mass_1p57g": 117.41160366041348
+      },
+      {
+        "observed_shear_uN": 144.25,
+        "assumed_tilt_degrees": 4.5,
+        "inferred_total_mass_g": 1.5008470458196386,
+        "inferred_normal_uN": 1832.870033193201,
+        "expected_shear_uN_at_mass_1p5g": 144.1685883999151,
+        "expected_shear_uN_at_mass_1p57g": 150.89645585857778
+      }
+    ]
+  },
+  "simulation_curve_readings": {
+    "status": "manual_curve_readings_for_numerical_reproduction_only_not_physical_observations",
+    "source_image_sha256": "b94f74557d2aa0ed45f8c885e8e3b775b82f044f09c263bf62ad79ec35f838a6",
+    "calibration": "Same affineaxiscalibration as frozenexperimentalextraction. Scalarboundsarenonstatisticalpixelreadingbounds.",
+    "rows": [
+      {
+        "nominal_shear_uN": 16,
+        "height_pixel": [
+          202,
+          259
+        ],
+        "offset_pixel": [
+          202,
+          577
+        ],
+        "solid_curve_height_um": 34.36231003039514,
+        "lateral_filled_node_xy": [
+          202,
+          577
+        ],
+        "lateral_curve_force_uN": 15.818844984802432,
+        "lateral_curve_offset_um": 1.692401215805471,
+        "reading_bound_um": 0.3
+      },
+      {
+        "nominal_shear_uN": 32,
+        "height_pixel": [
+          292,
+          257
+        ],
+        "offset_pixel": [
+          292,
+          563
+        ],
+        "solid_curve_height_um": 34.51306990881459,
+        "lateral_filled_node_xy": [
+          292,
+          563
+        ],
+        "lateral_curve_force_uN": 31.811550151975684,
+        "lateral_curve_offset_um": 3.075987841945289,
+        "reading_bound_um": 0.3
+      },
+      {
+        "nominal_shear_uN": 48,
+        "height_pixel": [
+          383,
+          256
+        ],
+        "offset_pixel": [
+          383,
+          548
+        ],
+        "solid_curve_height_um": 34.56048632218845,
+        "lateral_filled_node_xy": [
+          383,
+          548
+        ],
+        "lateral_curve_force_uN": 47.98297872340425,
+        "lateral_curve_offset_um": 4.561702127659576,
+        "reading_bound_um": 0.3
+      },
+      {
+        "nominal_shear_uN": 64,
+        "height_pixel": [
+          473,
+          255
+        ],
+        "offset_pixel": [
+          473,
+          532
+        ],
+        "solid_curve_height_um": 34.60851063829788,
+        "lateral_filled_node_xy": [
+          473,
+          532
+        ],
+        "lateral_curve_force_uN": 63.97811550151976,
+        "lateral_curve_offset_um": 6.1507598784194535,
+        "reading_bound_um": 0.3
+      },
+      {
+        "nominal_shear_uN": 80,
+        "height_pixel": [
+          563,
+          254
+        ],
+        "offset_pixel": [
+          563,
+          518
+        ],
+        "solid_curve_height_um": 34.65653495440729,
+        "lateral_filled_node_xy": [
+          563,
+          518
+        ],
+        "lateral_curve_force_uN": 79.97082066869301,
+        "lateral_curve_offset_um": 7.534346504559272,
+        "reading_bound_um": 0.3
+      },
+      {
+        "nominal_shear_uN": 96,
+        "height_pixel": [
+          653,
+          253
+        ],
+        "offset_pixel": [
+          653,
+          502
+        ],
+        "solid_curve_height_um": 34.70455927051672,
+        "lateral_filled_node_xy": [
+          653,
+          502
+        ],
+        "lateral_curve_force_uN": 95.9659574468085,
+        "lateral_curve_offset_um": 9.123404255319151,
+        "reading_bound_um": 0.3
+      },
+      {
+        "nominal_shear_uN": 112,
+        "height_pixel": [
+          744,
+          255
+        ],
+        "offset_pixel": [
+          744,
+          484
+        ],
+        "solid_curve_height_um": 34.44376899696049,
+        "lateral_filled_node_xy": [
+          744,
+          484
+        ],
+        "lateral_curve_force_uN": 112.14103343465047,
+        "lateral_curve_offset_um": 10.917325227963527,
+        "reading_bound_um": 0.3
+      },
+      {
+        "nominal_shear_uN": 128,
+        "height_pixel": [
+          834,
+          254
+        ],
+        "offset_pixel": [
+          834,
+          467
+        ],
+        "solid_curve_height_um": 34.491793313069905,
+        "lateral_filled_node_xy": [
+          834,
+          467
+        ],
+        "lateral_curve_force_uN": 128.1373860182371,
+        "lateral_curve_offset_um": 12.609118541033435,
+        "reading_bound_um": 0.3
+      },
+      {
+        "nominal_shear_uN": 144,
+        "height_pixel": [
+          924,
+          253
+        ],
+        "offset_pixel": [
+          924,
+          452
+        ],
+        "solid_curve_height_um": 34.53981762917933,
+        "lateral_filled_node_xy": [
+          924,
+          452
+        ],
+        "lateral_curve_force_uN": 144.13130699088146,
+        "lateral_curve_offset_um": 14.095440729483284,
+        "reading_bound_um": 0.3
+      }
+    ]
+  },
+  "mapping_probes": {
+    "solver_sha256": "07b45f912cadedc9ae69313820a46a40248459696bbe70d9b769fea287deeb98",
+    "cases": [
+      {
+        "pad_thickness_um": 4,
+        "h_mm": 0.0345,
+        "x_mm": 0.0016,
+        "status": "refinement_checked",
+        "forces": {
+          "x_uN": -18.37171797764575,
+          "z_uN": 992.0778788812642
+        },
+        "receipt": ".research/model-repair/source/probe-pad4-h0.0345-x0.0016.json",
+        "sha256": "52d399373ece2827739acb84570d47f3a81c81a9fb91a011d3b2108f657feb1d"
+      },
+      {
+        "pad_thickness_um": 5,
+        "h_mm": 0.0345,
+        "x_mm": 0.0016,
+        "status": "refinement_checked",
+        "forces": {
+          "x_uN": -4.232329278708313,
+          "z_uN": 7404.720088063155
+        },
+        "receipt": ".research/model-repair/source/probe-pad5-h0.0345-x0.0016.json",
+        "sha256": "bda0c9fb10a0bf189ba5eeee65aa15bcf286a2134b22b5791b401526bf22ab58"
+      },
+      {
+        "pad_thickness_um": 4,
+        "h_mm": 0.0347,
+        "x_mm": 0.0102,
+        "status": "refinement_checked",
+        "forces": {
+          "x_uN": -114.5639908382498,
+          "z_uN": -194.4696959261958
+        },
+        "receipt": ".research/model-repair/source/probe-pad4-h0.0347-x0.0102.json",
+        "sha256": "27bc52e361837ede097478b1ff666c2aaf136863342e8f122bed7b7384971d8b"
+      },
+      {
+        "pad_thickness_um": 5,
+        "h_mm": 0.0347,
+        "x_mm": 0.0102,
+        "status": "refinement_checked",
+        "forces": {
+          "x_uN": -36.30832051508548,
+          "z_uN": 6878.092470390721
+        },
+        "receipt": ".research/model-repair/source/probe-pad5-h0.0347-x0.0102.json",
+        "sha256": "4a1d307b0419bc84933a8cc572b0cd2054639651daa5c67d0f80f34b28838a22"
+      }
+    ]
+  },
+  "solidification": {
+    "status": "INCONCLUSIVE",
+    "nominal_ball_volume_is_solid": true,
+    "paper_reports_volume_contraction_fraction": 0.045,
+    "article_explicit_molten_volume_correction": false,
+    "candidate_liquid_solder_volume_mm3": 0.009005235602094241,
+    "candidate_copper_corrected_liquid_volume_mm3": 0.012222226479370189,
+    "caution": "Do not label approximate volume or dimension scalings specimen-specific corrections. Copper volume remains unchanged."
+  },
+  "boundary_conditions": {
+    "status": "ISSUES",
+    "published_model": "Force-controlled upper displacement with contact energy inside pad, at perimeter, and on silicon",
+    "current_product": "Prescribed displacement with permanently pinned circular contact lines",
+    "equivalent_only_when": "The imposed geometry belongs to the same admissible pinned branch and respects solidplanes and contact-angle limits",
+    "h6_experimental_offset_um": 31,
+    "h6_published_curve_offset_um": 14.095440729483284,
+    "h4_normal_sign_caution": "Inverse force of mean geometry need not equal mean force across heterogeneous specimens or geometry errorbars."
+  },
+  "qualification": {
+    "absolute_independent_material_validation": "INCONCLUSIVE",
+    "gamma_0p4": "Fitted on all experimental points. Any agreement remains calibration-dependent.",
+    "frozen_inverse_result": "Preserve without changes",
+    "next_test": "Forward solve at declared compressive load, compare both displacements against numerical sourcecurve before experimentaldata. Keep4\u00b5m and5\u00b5m tracks explicit."
+  }
+}

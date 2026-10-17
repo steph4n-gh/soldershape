@@ -61,6 +61,73 @@ class JointSpec:
         return hashlib.sha256(json.dumps(self.to_dict(), sort_keys=True, separators=(",", ":")).encode()).hexdigest()
 
 
+@dataclass(frozen=True)
+class LoadSpec:
+    lower_diameter_mm: float
+    upper_diameter_mm: float
+    volume_mm3: float
+    offset_mm: float
+    normal_load_uN: float
+    surface_tension_n_m: float = 0.48
+    density_g_cm3: float = 9.0
+    gravity: bool = True
+
+    def __post_init__(self):
+        self.at_gap(1.0)
+        load = self.normal_load_uN
+        if isinstance(load, bool) or not isinstance(load, (int, float)) or not math.isfinite(load):
+            raise InputError("normal_load_uN must be a finite number.")
+        if not 0 <= load <= 100000:
+            raise InputError("normal_load_uN must be between 0 and 100000.")
+
+    def at_gap(self, standoff_mm):
+        return JointSpec(self.lower_diameter_mm, self.upper_diameter_mm, standoff_mm,
+                         self.volume_mm3, self.offset_mm, self.surface_tension_n_m,
+                         self.density_g_cm3, self.gravity)
+
+    @classmethod
+    def from_dict(cls, data):
+        if not isinstance(data, dict):
+            raise InputError("Joint parameters must be an object.")
+        if set(data) - set(cls.__dataclass_fields__):
+            raise InputError("Unknown loaded joint parameters: " + ", ".join(sorted(set(data) - set(cls.__dataclass_fields__))))
+        try:
+            return cls(**data)
+        except TypeError as error:
+            raise InputError("Missing required loaded joint parameters.") from error
+
+    def to_dict(self):
+        return asdict(self)
+
+    @property
+    def sha256(self):
+        return hashlib.sha256(json.dumps(self.to_dict(), sort_keys=True, separators=(",", ":")).encode()).hexdigest()
+
+
+def joint_spec_from_dict(data):
+    if not isinstance(data, dict):
+        raise InputError("Joint parameters must be an object.")
+    if "standoff_mm" in data and "normal_load_uN" in data:
+        raise InputError("Specify a wetted-plane gap or a normal load, not both.")
+    return LoadSpec.from_dict(data) if "normal_load_uN" in data else JointSpec.from_dict(data)
+
+
+def spherical_gap_mm(lower_diameter_mm, upper_diameter_mm, volume_mm3):
+    values = (lower_diameter_mm, upper_diameter_mm, volume_mm3)
+    if any(isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value) or value <= 0 for value in values):
+        raise InputError("Spherical seed dimensions and volume must be finite and positive.")
+    a, b = lower_diameter_mm/2, upper_diameter_mm/2
+    low, high = 0.0, (6*volume_mm3/math.pi)**(1/3)
+    for _ in range(80):
+        height = (low + high)/2
+        volume = math.pi*height*(a*a+b*b)/2 + math.pi*height**3/6
+        if volume < volume_mm3:
+            low = height
+        else:
+            high = height
+    return (low + high)/2
+
+
 def _number(value, name):
     try:
         result = float(value)
@@ -161,7 +228,7 @@ def request_from_footprint(source, pad_index, parameters):
         raise InputError(pad["unsupported_reason"])
     if not isinstance(parameters, dict) or "lower_diameter_mm" in parameters:
         raise InputError("The board-pad diameter comes from the selected footprint pad.")
-    spec = JointSpec.from_dict({**parameters, "lower_diameter_mm": pad["size_mm"][0]})
+    spec = joint_spec_from_dict({**parameters, "lower_diameter_mm": pad["size_mm"][0]})
     return spec, {"name": footprint["name"], "sha256": footprint["sha256"], "pad": pad}
 
 

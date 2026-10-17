@@ -12,7 +12,7 @@ import subprocess
 import tempfile
 import time
 
-from .model import JointSpec
+from .model import InputError, JointSpec, LoadSpec, spherical_gap_mm
 
 ROOT = Path(__file__).resolve().parents[1]
 ENGINE = ROOT / ".engine"
@@ -42,7 +42,7 @@ def engine_info():
     return {"ready": True, **info}
 
 
-def _model(spec):
+def _model(spec, normal_load_uN=None):
     lower, upper = spec.lower_diameter_mm / 20, spec.upper_diameter_mm / 20
     lines = [
         'evolver_version "2.70"',
@@ -83,10 +83,17 @@ def _model(spec):
         "do_xforce := { new_offset := offset+dx; do_offset; energy_plus := total_energy-body[1].pressure*(body[1].volume-body[1].target); new_offset := offset-2*dx; do_offset; energy_minus := total_energy-body[1].pressure*(body[1].volume-body[1].target); xforce := -(energy_plus-energy_minus)/(2*dx); new_offset := offset+dx; do_offset; }",
         "do_zforce := { set vertex z z+dz*z/height; height := height+dz; recalc; energy_plus := total_energy-body[1].pressure*(body[1].volume-body[1].target); set vertex z z-2*dz*z/height; height := height-2*dz; recalc; energy_minus := total_energy-body[1].pressure*(body[1].volume-body[1].target); zforce := -(energy_plus-energy_minus)/(2*dz); set vertex z z+dz*z/height; height := height+dz; recalc; }",
     ])
-    return "\n".join(lines) + "\n"
+    model = "\n".join(lines) + "\n"
+    if normal_load_uN is not None:
+        delta_cm = 5e-6 * spec.standoff_mm / 10
+        model = model.replace("parameter height = ", "optimizing_parameter height = ", 1)
+        model = model.replace("\nparameter lower_radius", f" pdelta = {delta_cm:.17g}\nparameter lower_radius", 1)
+        model = model.replace("parameter lower_radius", f"parameter pad_weight = {normal_load_uN/10:.17g}\nquantity pad_energy energy method vertex_scalar_integral\nscalar_integrand: pad_weight*z\nparameter lower_radius", 1)
+        model = model.replace("\nedges\n", "\n13 0 0 height constraint 2 fixed bare pad_energy\nedges\n", 1)
+    return model
 
 
-def _commands(level_count=2):
+def _commands(level_count=2, loaded=False):
     lines = ["M 2", "u", "g 3", "r", "g 30", "r", "g 30", "hessian_seek", "hessian_seek"]
     for level in range(level_count):
         if level:
@@ -97,12 +104,18 @@ def _commands(level_count=2):
             "do_xforce", "do_zforce", "eigenprobe 0",
             f'printf "SS_LEVEL {level} %d %.17g %.17g %.17g %.17g %.17g %d %.17g\\n",facet_count,xforce,zforce,total_energy,body[1].volume,(body[1].volume-body[1].target)/body[1].target,eigen_neg,stationarity_delta',
         ])
+        if loaded:
+            lines.append(f'printf "SS_HEIGHT {level} %.17g %.17g %.17g %.17g\\n",height,vertex[7].z,vertex[13].z,height.p_force')
     lines.extend([
         "r", "linear", "recalc",
         '{ foreach vertex vv do printf "VERTEX %d %.17g %.17g %.17g\\n",vv.id,vv.x,vv.y,vv.z; foreach facet ff do printf "TRIANGLE %d %d %d %d\\n",ff.id,ff.vertex[1].id,ff.vertex[2].id,ff.vertex[3].id; } >>> "mesh.txt"',
         'printf "SS_DONE %d %.17g\\n",facet_count,body[1].volume', "quit 0",
     ])
-    return "\n".join(lines) + "\n"
+    commands = "\n".join(lines) + "\n"
+    if loaded:
+        commands = commands.replace("g 30", "g 150", 2)
+        commands = commands.replace("foreach vertex vv do printf", "foreach vertex vv where id != 13 do printf")
+    return commands
 
 
 def _run(directory, evidence):
@@ -187,11 +200,12 @@ def _mesh(path, target_volume):
     return {"vertices_mm": [vertices[index] for index in ordered], "triangles": triangles}, checks
 
 
-def _solve_with_levels(spec: JointSpec, level_count: int) -> dict:
+def _solve_with_levels(spec: JointSpec, level_count: int, normal_load_uN=None) -> dict:
     engine = engine_info()
     if not engine["ready"]:
         raise SolverError(engine["error"])
-    evidence = {"model_fe": _model(spec), "commands": _commands(level_count), "stdout": "", "stderr": ""}
+    loaded = normal_load_uN is not None
+    evidence = {"model_fe": _model(spec, normal_load_uN), "commands": _commands(level_count, loaded), "stdout": "", "stderr": ""}
     try:
         with tempfile.TemporaryDirectory(prefix="soldershape-") as temporary:
             directory = Path(temporary)
@@ -208,6 +222,19 @@ def _solve_with_levels(spec: JointSpec, level_count: int) -> dict:
                 if not all(math.isfinite(value) for value in values):
                     raise SolverError("Engine returned a nonfinite numerical result.", evidence)
                 levels.append({"level": int(level), "facets": int(facets), "force_x_uN": float(fx)*10, "force_z_uN": float(fz)*10, "energy_erg": float(energy), "volume_mm3": float(volume)*1000, "volume_relative_error": abs(float(residual)), "negative_eigenvalues": int(negatives), "stationarity_energy_change_erg": float(stationarity), "stationarity_energy_change_relative": float(stationarity)/max(abs(float(energy)), 1e-30)})
+            equilibrium = spec
+            if loaded:
+                heights = re.findall(rf"SS_HEIGHT (\d+) ({NUMBER}) ({NUMBER}) ({NUMBER}) ({NUMBER})\n", evidence["stdout"])
+                if len(heights) != level_count or [int(row[0]) for row in heights] != list(range(level_count)):
+                    raise SolverError("Engine did not return every load-height refinement level.", evidence)
+                for level, row in zip(levels, heights):
+                    values = [float(value) for value in row[1:]]
+                    if not all(math.isfinite(value) for value in values):
+                        raise SolverError("Engine returned a nonfinite loaded height.", evidence)
+                    height, rim, load_vertex, parameter_force = values
+                    level.update({"height_mm": height*10, "upper_rim_mm": rim*10,
+                                  "load_vertex_mm": load_vertex*10, "optimizing_parameter_force_raw": parameter_force})
+                equilibrium = JointSpec(**{**spec.to_dict(), "standoff_mm": levels[-1]["height_mm"]})
             if not re.search(rf"SS_DONE \d+ ({NUMBER})\n", evidence["stdout"]):
                 raise SolverError("Engine did not complete mesh export.", evidence)
             mesh, checks = _mesh(directory / "mesh.txt", spec.volume_mm3)
@@ -237,15 +264,29 @@ def _solve_with_levels(spec: JointSpec, level_count: int) -> dict:
         warnings.append("A force component changes by more than 1 percent under refinement, with a 1 percent capillary-scale normalization floor.")
     if checks["volume_relative_error"] > .001:
         warnings.append("Flat display/export tessellation volume differs from the requested volume by more than 0.1 percent.")
+    height_checks = {}
+    if loaded:
+        height_change = abs(final["height_mm"] - previous["height_mm"])
+        height_tolerance = max(1e-5, 1e-4*final["height_mm"])
+        rim_error = max(abs(final["upper_rim_mm"]-final["height_mm"]), abs(final["load_vertex_mm"]-final["height_mm"]))
+        if height_change > height_tolerance:
+            warnings.append("Loaded height changes beyond the declared height refinement tolerance.")
+        if rim_error > max(1e-7, final["height_mm"]*1e-6):
+            warnings.append("The moving upper rim or load vertex differs from the optimized height.")
+        height_checks = {"height_change_mm": height_change, "height_change_tolerance_mm": height_tolerance,
+                         "moving_constraint_error_mm": rim_error}
     diagnostics = {"volume_relative_error": final["volume_relative_error"], "force_change_relative": change, "force_component_changes": deltas, "force_normalization": "max(abs(final component), 0.01 * capillary force scale)", "capillary_force_scale_uN": force_scale, "negative_eigenvalues": final["negative_eigenvalues"], "stationarity_energy_change_relative": final["stationarity_energy_change_relative"], "stationarity_threshold_relative": 1e-7, "force_change_threshold_relative": .01, "mesh_volume_error_relative": checks["volume_relative_error"], "finite_difference_displacement_mm": {"x": 1e-5*min(spec.lower_diameter_mm, spec.upper_diameter_mm)/2, "z": 1e-5*spec.standoff_mm}, "solver_termination": evidence["termination"], "warnings": warnings}
-    return {"input": spec.to_dict(), "input_sha256": spec.sha256, "status": "not_converged" if warnings else "refinement_checked", "forces": {"x_uN": final["force_x_uN"], "z_uN": final["force_z_uN"]}, "diagnostics": diagnostics, "levels": levels, "mesh": mesh, "mesh_checks": checks, "engine": engine, "evidence": evidence}
+    diagnostics.update(height_checks)
+    result = {"input": spec.to_dict(), "input_sha256": spec.sha256, "equilibrium": equilibrium.to_dict(), "status": "not_converged" if warnings else "refinement_checked", "forces": {"x_uN": final["force_x_uN"], "z_uN": final["force_z_uN"]}, "diagnostics": diagnostics, "levels": levels, "mesh": mesh, "mesh_checks": checks, "engine": engine, "evidence": evidence}
+    _annotate_planes(result, equilibrium)
+    return result
 
 
-def solve(spec: JointSpec) -> dict:
-    result = _solve_with_levels(spec, 2)
+def _solve_fixed(spec, normal_load_uN=None):
+    result = _solve_with_levels(spec, 2, normal_load_uN)
     if result["status"] == "not_converged" and not result["diagnostics"]["negative_eigenvalues"]:
         preliminary = result
-        result = _solve_with_levels(spec, 3)
+        result = _solve_with_levels(spec, 3, normal_load_uN)
         result["diagnostics"]["additional_refinement_reason"] = preliminary["diagnostics"]["warnings"]
         result["diagnostics"]["initial_refinement_check"] = {
             "status": preliminary["status"],
@@ -255,3 +296,73 @@ def solve(spec: JointSpec) -> dict:
         }
         result["evidence"]["preliminary_attempt"] = preliminary["evidence"]
     return result
+
+
+def _annotate_planes(result, equilibrium):
+    heights = [vertex[2] for vertex in result["mesh"]["vertices_mm"]]
+    below = max(0, -min(heights))
+    above = max(0, max(heights)-equilibrium.standoff_mm)
+    tolerance = max(1e-7, equilibrium.standoff_mm*1e-6)
+    result["diagnostics"]["pad_plane_excursion_mm"] = {"below_lower": below, "above_upper": above, "tolerance": tolerance}
+    result["model_warnings"] = []
+    if max(below, above) > tolerance:
+        result["model_warnings"].append("Model scope: the surface extends beyond the wetted pad planes. Substrate obstacles are not modeled; check physical clearance before interpreting these forces.")
+
+
+def solve_loaded(spec: LoadSpec) -> dict:
+    if not isinstance(spec, LoadSpec):
+        raise InputError("solve_loaded requires a load-controlled request.")
+    seed = spherical_gap_mm(spec.lower_diameter_mm, spec.upper_diameter_mm, spec.volume_mm3)
+    seed = max(.02, min(10.0, seed))
+    balance = {"status": "not_balanced", "target_uN": spec.normal_load_uN,
+               "residual_uN": None, "tolerance_uN": None, "seed_height_mm": seed,
+               "seed_kind": "geometry-only aligned unloaded spherical segment",
+               "pdelta_cm": 5e-6*seed/10, "pdelta_rule": "5e-6 times seed height in cm",
+               "accepted_height_range_mm": [.02, 10.0],
+               "trial_heights_constrained": False,
+               "sign_convention": "Positive prescribed load acts downward; independent upward joint reaction must equal it.",
+               "check_kind": "Numerical force balance on a locally stable branch; not physical validation or global uniqueness."}
+    evidence = {"load_request": spec.to_dict(), "load_balance": balance}
+    failed = {"input": spec.to_dict(), "input_sha256": spec.sha256, "status": "failed",
+              "load_balance": balance, "evidence": evidence}
+    try:
+        native = _solve_fixed(spec.at_gap(seed), spec.normal_load_uN)
+        evidence["native_height_solve"] = native
+        balance["native_levels"] = native["levels"]
+        balance["native_height_mm"] = native["equilibrium"]["standoff_mm"]
+        balance["native_net_force_uN"] = native["forces"]["z_uN"]
+        balance["height_change_mm"] = native["diagnostics"]["height_change_mm"]
+        balance["height_change_tolerance_mm"] = native["diagnostics"]["height_change_tolerance_mm"]
+        if native["status"] != "refinement_checked" or native["model_warnings"]:
+            balance["termination"] = "native_height_not_qualified"
+            failed["error"] = "Loaded native equilibrium failed numerical or sampled pad-plane checks."
+            return failed
+        fixed = solve(spec.at_gap(balance["native_height_mm"]))
+        evidence["fixed_gap_verification"] = fixed
+        residual = fixed["forces"]["z_uN"] - spec.normal_load_uN
+        observed = fixed["diagnostics"]["force_component_changes"]["z"]["absolute_uN"]
+        tolerance = max(.01, 2*observed)
+        balance.update({"residual_uN": residual, "tolerance_uN": tolerance,
+                        "observed_static_force_refinement_uN": observed,
+                        "tolerance_kind": "Numerical engineering tolerance, max(0.01 uN, twice observed fixed-gap force refinement); not a physical confidence interval."})
+        if fixed["status"] != "refinement_checked" or fixed["model_warnings"] or abs(residual) > tolerance:
+            balance["termination"] = "independent_fixed_gap_not_balanced"
+            failed["error"] = "Fresh fixed-gap verification failed numerical, pad-plane or load-balance checks."
+            return failed
+        balance.update({"status": "balanced", "termination": "independently_verified"})
+        result = {**fixed, "input": spec.to_dict(), "input_sha256": spec.sha256,
+                  "load_balance": balance, "evidence": evidence}
+        return result
+    except SolverError as error:
+        balance["termination"] = "engine_failure"
+        evidence["failed_native_attempt"] = error.evidence
+        failed["error"] = str(error)
+        return failed
+
+
+def solve(spec: JointSpec | LoadSpec) -> dict:
+    if isinstance(spec, LoadSpec):
+        return solve_loaded(spec)
+    if not isinstance(spec, JointSpec):
+        raise InputError("Solve requires a fixed-gap or load-controlled request.")
+    return _solve_fixed(spec)

@@ -1,0 +1,211 @@
+[
+  {
+    "case": "thin",
+    "spec": {
+      "lower_diameter_mm": 0.64,
+      "upper_diameter_mm": 0.64,
+      "standoff_mm": 0.0351,
+      "volume_mm3": 0.01181699087727595,
+      "offset_mm": 0,
+      "surface_tension_n_m": 1,
+      "density_g_cm3": 9,
+      "gravity": false
+    },
+    "independent": [
+      {
+        "segments": 24,
+        "success": true,
+        "message": "Optimization terminated successfully",
+        "force_z_uN_at_gamma1": 15988.477214009079,
+        "normalized_volume_error": 3.3306690738754696e-15,
+        "normalized_stationarity": 3.196117027734533e-05,
+        "area_mm2": 0.08774561190497762,
+        "radii_extent_mm": [
+          0.32,
+          0.330348713732844
+        ]
+      },
+      {
+        "segments": 48,
+        "success": true,
+        "message": "Optimization terminated successfully",
+        "force_z_uN_at_gamma1": 15951.260929423142,
+        "normalized_volume_error": 2.220446049250313e-16,
+        "normalized_stationarity": 3.16612359308452e-05,
+        "area_mm2": 0.0877206197464552,
+        "radii_extent_mm": [
+          0.32,
+          0.33032928750098817
+        ]
+      },
+      {
+        "segments": 96,
+        "success": true,
+        "message": "Optimization terminated successfully",
+        "force_z_uN_at_gamma1": 15941.8541360894,
+        "normalized_volume_error": 2.220446049250313e-16,
+        "normalized_stationarity": 4.4946157326964464e-05,
+        "area_mm2": 0.08771436621484519,
+        "radii_extent_mm": [
+          0.32,
+          0.3303243916342496
+        ]
+      }
+    ],
+    "native": {
+      "status": "refinement_checked",
+      "forces": {
+        "x_uN": -0.0,
+        "z_uN": 15938.721700226095
+      },
+      "diagnostics": {
+        "volume_relative_error": 2.8671696747541476e-16,
+        "force_change_relative": 4.973987459005271e-06,
+        "force_component_changes": {
+          "x": {
+            "absolute_uN": 1.3877787807814457e-08,
+            "normalization_uN": 20.10619298297468,
+            "relative": 6.902245402481589e-10,
+            "capillary_relative": 6.902245402481589e-12
+          },
+          "z": {
+            "absolute_uN": 0.07927900184949976,
+            "normalization_uN": 15938.721700226095,
+            "relative": 4.973987459005271e-06,
+            "capillary_relative": 3.9430140711685624e-05
+          }
+        },
+        "force_normalization": "max(abs(final component), 0.01 * capillary force scale)",
+        "capillary_force_scale_uN": 2010.6192982974678,
+        "negative_eigenvalues": 0,
+        "stationarity_energy_change_relative": 1.4797636642352954e-08,
+        "stationarity_threshold_relative": 1e-07,
+        "force_change_threshold_relative": 0.01,
+        "mesh_volume_error_relative": 0.00013593209967233122,
+        "finite_difference_displacement_mm": {
+          "x": 3.2000000000000003e-06,
+          "z": 3.51e-07
+        },
+        "solver_termination": "completed",
+        "warnings": [],
+        "pad_plane_excursion_mm": {
+          "below_lower": 0,
+          "above_upper": 0,
+          "tolerance": 1e-07
+        },
+        "additional_refinement_reason": [
+          "Additional relaxation changed energy by more than 1e-7 relative."
+        ],
+        "initial_refinement_check": {
+          "status": "not_converged",
+          "force_change_relative": 0.00014095674696788996,
+          "stationarity_energy_change_relative": 5.548323259975149e-07,
+          "mesh_volume_error_relative": 0.0005431169541749714
+        }
+      }
+    },
+    "relative_force_difference": 0.00019652993020513598,
+    "relative_force_threshold": 0.001,
+    "passed": true
+  },
+  {
+    "case": "ordinary",
+    "spec": {
+      "lower_diameter_mm": 0.2,
+      "upper_diameter_mm": 0.2,
+      "standoff_mm": 0.15,
+      "volume_mm3": 0.006,
+      "offset_mm": 0,
+      "surface_tension_n_m": 1,
+      "density_g_cm3": 9,
+      "gravity": false
+    },
+    "independent": [
+      {
+        "segments": 24,
+        "success": true,
+        "message": "Optimization terminated successfully",
+        "force_z_uN_at_gamma1": -90.30090604799766,
+        "normalized_volume_error": 1.1102230246251565e-15,
+        "normalized_stationarity": 1.3509135034117616e-07,
+        "area_mm2": 0.11042462803900427,
+        "radii_extent_mm": [
+          0.1,
+          0.11888690823581852
+        ]
+      },
+      {
+        "segments": 48,
+        "success": true,
+        "message": "Optimization terminated successfully",
+        "force_z_uN_at_gamma1": -90.69244750946464,
+        "normalized_volume_error": 5.551115123125783e-15,
+        "normalized_stationarity": 3.2128589465209597e-06,
+        "area_mm2": 0.11041892402598137,
+        "radii_extent_mm": [
+          0.1,
+          0.11886252030708724
+        ]
+      },
+      {
+        "segments": 96,
+        "success": true,
+        "message": "Optimization terminated successfully",
+        "force_z_uN_at_gamma1": -90.7902728400706,
+        "normalized_volume_error": 3.3306690738754696e-16,
+        "normalized_stationarity": 3.832350483463925e-06,
+        "area_mm2": 0.1104175007268659,
+        "radii_extent_mm": [
+          0.1,
+          0.11885643308715053
+        ]
+      }
+    ],
+    "native": {
+      "status": "refinement_checked",
+      "forces": {
+        "x_uN": -0.0,
+        "z_uN": -90.82199468046781
+      },
+      "diagnostics": {
+        "volume_relative_error": 0.0,
+        "force_change_relative": 0.0001374893370016787,
+        "force_component_changes": {
+          "x": {
+            "absolute_uN": 2.220446049250313e-08,
+            "normalization_uN": 6.283185307179586,
+            "relative": 3.533949646070574e-09,
+            "capillary_relative": 3.533949646070574e-11
+          },
+          "z": {
+            "absolute_uN": 0.012487055833787508,
+            "normalization_uN": 90.82199468046781,
+            "relative": 0.0001374893370016787,
+            "capillary_relative": 1.9873766606117705e-05
+          }
+        },
+        "force_normalization": "max(abs(final component), 0.01 * capillary force scale)",
+        "capillary_force_scale_uN": 628.3185307179587,
+        "negative_eigenvalues": 0,
+        "stationarity_energy_change_relative": 1.2596166895252426e-08,
+        "stationarity_threshold_relative": 1e-07,
+        "force_change_threshold_relative": 0.01,
+        "mesh_volume_error_relative": 0.0007818914234047902,
+        "finite_difference_displacement_mm": {
+          "x": 1.0000000000000002e-06,
+          "z": 1.5e-06
+        },
+        "solver_termination": "completed",
+        "warnings": [],
+        "pad_plane_excursion_mm": {
+          "below_lower": 0,
+          "above_upper": 2.7755575615628914e-17,
+          "tolerance": 1.5e-07
+        }
+      }
+    },
+    "relative_force_difference": 0.00034927487013269864,
+    "relative_force_threshold": 0.001,
+    "passed": true
+  }
+]

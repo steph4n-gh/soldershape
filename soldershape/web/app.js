@@ -2,7 +2,7 @@
 
 const $ = (id) => document.getElementById(id);
 const form = $("joint-form");
-const parameterNames = ["upper_diameter_mm", "standoff_mm", "volume_mm3", "offset_mm", "surface_tension_n_m", "density_g_cm3"];
+const parameterNames = ["upper_diameter_mm", "volume_mm3", "offset_mm", "surface_tension_n_m", "density_g_cm3"];
 const state = {
   token: null,
   engineReady: false,
@@ -43,6 +43,29 @@ function pad() {
 
 function selectedResult() {
   return state.response?.results[state.resultIndex] || null;
+}
+
+function resultSpec(result) {
+  return result?.equilibrium || result?.input || null;
+}
+
+function loadMode() {
+  return $("load_mode").value === "load";
+}
+
+function updateLoadMode() {
+  const loaded = loadMode();
+  $("gap-field").hidden = loaded;
+  $("standoff_mm").disabled = loaded;
+  $("standoff_mm").required = !loaded;
+  $("load-field").hidden = !loaded;
+  $("load-help").hidden = !loaded;
+  $("normal_load_uN").disabled = !loaded;
+  $("normal_load_uN").required = loaded;
+  $("reference-help").textContent = `Stores upper pad diameter and solder volume. Comparison recomputes both designs using the current board pad, ${loaded ? "normal load" : "gap"}, offset, and material.`;
+  $("geometry-help").textContent = loaded
+    ? "Enter liquid solder volume, excluding pad metal. The solved gap separates the two wetted pad planes. The curved surface can extend beyond those planes."
+    : "Enter liquid solder volume, excluding pad metal. The gap is the separation of the two wetted pad planes. The curved surface can extend beyond those planes.";
 }
 
 function freeze(value) {
@@ -96,6 +119,8 @@ function invalidate() {
 function readParameters() {
   const parameters = {};
   for (const name of parameterNames) parameters[name] = $(name).valueAsNumber;
+  const verticalCondition = loadMode() ? "normal_load_uN" : "standoff_mm";
+  parameters[verticalCondition] = $(verticalCondition).valueAsNumber;
   parameters.gravity = $("gravity").checked;
   return parameters;
 }
@@ -112,7 +137,7 @@ function editableCase(parameters = readParameters()) {
 
 function previewSpec() {
   const selected = pad();
-  if (!selected?.supported) return null;
+  if (!selected?.supported || loadMode()) return null;
   const parameters = readParameters();
   if (!Object.values(parameters).every((value) => typeof value === "boolean" || Number.isFinite(value))) return null;
   return { ...parameters, lower_diameter_mm: selected.size_mm[0] };
@@ -147,7 +172,7 @@ function updateControls() {
   const offset = Math.abs($("offset_mm").valueAsNumber);
   $("sweep-note").textContent = Number.isFinite(offset)
     ? offset > 0
-      ? `Five independent solves between −${number(offset, 5)} and +${number(offset, 5)} mm.`
+      ? `Five independent solves between −${number(offset, 5)} and +${number(offset, 5)} mm${loadMode() ? ", each with a gap solved under the current normal load" : " at the current prescribed gap"}.`
       : "Set a nonzero lateral offset to define the sweep range."
     : "The lateral offset sets the sweep range.";
 }
@@ -313,13 +338,15 @@ function selectResult(index) {
 
 function renderResults() {
   const result = selectedResult();
+  const spec = resultSpec(result);
+  const loaded = Number.isFinite(result?.input?.normal_load_uN);
   const hasMesh = !!result?.mesh;
   const diagnostics = result?.diagnostics || {};
   const comparison = state.response?.comparison;
   const comparisonChecked = !!comparison && comparison.status === "compared"
     && state.response.results.length === 2
     && state.response.results.every((item) => item.status === "refinement_checked"
-      && Number.isFinite(item.input?.offset_mm) && item.input.offset_mm !== 0
+      && Number.isFinite(item.input?.offset_mm) && (item.input.offset_mm !== 0 || Number.isFinite(item.input?.normal_load_uN))
       && Number.isFinite(item.forces?.x_uN) && Number.isFinite(item.forces?.z_uN));
   $("force-heading").textContent = comparison && result?.design ? `${result.design} force on the upper pad` : "Force on the upper pad";
   $("force-x").textContent = number(result?.forces?.x_uN);
@@ -333,6 +360,13 @@ function renderResults() {
   $("check-closed").className = result?.mesh_checks ? result.mesh_checks.closed ? "good" : "warn" : "";
   $("check-mesh-volume").textContent = percent(diagnostics.mesh_volume_error_relative);
   $("check-eigenvalues").className = Number.isFinite(diagnostics.negative_eigenvalues) ? diagnostics.negative_eigenvalues === 0 ? "good" : "warn" : "";
+  $("load-equilibrium").hidden = !loaded;
+  $("solved-gap").textContent = Number.isFinite(spec?.standoff_mm) ? `${number(spec.standoff_mm, 6)} mm` : "—";
+  $("supported-load").textContent = loaded ? `${number(result.input.normal_load_uN)} µN` : "—";
+  $("load-residual").textContent = Number.isFinite(result?.load_balance?.residual_uN) ? `${number(result.load_balance.residual_uN, 6)} µN` : "—";
+  $("load-balance-note").textContent = result?.status === "failed"
+    ? "No equilibrium gap is available for this failed point."
+    : `Residual is the upward solder force minus the prescribed downward load.${Number.isFinite(result?.load_balance?.tolerance_uN) ? ` Numerical tolerance ${number(result.load_balance.tolerance_uN, 6)} µN.` : ""} A numerical balance does not establish physical accuracy.`;
   const numericalWarnings = result?.status === "failed" ? [result.error || "This point failed. No computed geometry is available."] : diagnostics.warnings || [];
   const warnings = [...numericalWarnings, ...(result?.model_warnings || [])];
   const warningList = $("result-warnings");
@@ -364,8 +398,8 @@ function renderResults() {
     : "The result bundle records the exact model, engine identity, and raw output.";
   $("input-digest").textContent = result?.input_sha256 ? `Input SHA-256 ${result.input_sha256}` : "";
   $("model-caption").textContent = hasMesh
-    ? `${result.design ? `${result.design} · ` : ""}computed mesh · offset ${number(result.input.offset_mm, 5)} mm · ${statusLabel(result.status).toLowerCase()}`
-    : result?.status === "failed" ? "Failed point. No computed mesh is available." : "Boundary preview. Solve to compute the joint.";
+    ? `${result.design ? `${result.design} · ` : ""}computed mesh · gap ${number(spec?.standoff_mm, 5)} mm · offset ${number(spec?.offset_mm, 5)} mm · ${statusLabel(result.status).toLowerCase()}`
+    : result?.status === "failed" ? "Failed point. No computed mesh is available." : loadMode() ? "Solve to compute the gap and geometry." : "Boundary preview. Solve to compute the joint.";
   $("mesh-summary").textContent = hasMesh
     ? `${result.mesh.vertices_mm.length.toLocaleString()} vertices · ${result.mesh.triangles.length.toLocaleString()} triangles · pinned pad boundaries`
     : "Circular, fully wetted, pinned boundaries";
@@ -378,15 +412,15 @@ function renderResults() {
     const delta = comparison.delta || {};
     const signed = (value, digits = 3) => Number.isFinite(value) ? `${value > 0 ? "+" : ""}${number(value, digits)}` : "—";
     $("comparison-delta").textContent = comparisonChecked
-      ? `Candidate minus reference: solder volume ${signed(delta.volume_mm3, 6)} mm³ (${signed(delta.volume_percent, 2)}%); restoring force ${signed(delta.restoring_force_uN)} µN; vertical force ${signed(delta.vertical_force_uN)} µN.`
+      ? `Candidate minus reference: solder volume ${signed(delta.volume_mm3, 6)} mm³ (${signed(delta.volume_percent, 2)}%); gap ${signed(delta.gap_mm, 6)} mm; restoring force ${signed(delta.restoring_force_uN)} µN; vertical force ${signed(delta.vertical_force_uN)} µN.`
       : `Comparison inconclusive. ${comparison.reason || "Both designs must pass the numerical checks at a nonzero offset before comparing forces."}`;
-    $("comparison-scope").textContent = `${comparison.scope || "Both designs use the current board pad, gap, offset, and material."} A larger restoring force means a stronger force toward alignment in this prescribed geometry. This does not select a manufacturing design.`;
+    $("comparison-scope").textContent = `${comparison.scope || `Both designs use the current board pad, ${loaded ? "normal load" : "gap"}, offset, and material.`} A larger restoring force means a stronger force toward alignment under these conditions. This does not select a manufacturing design.`;
   }
   const head = $("results-head");
   head.replaceChildren();
   const headers = comparison
-    ? ["Design", "Upper pad · mm", "Volume · mm³", "X force · µN", "Z force · µN", "Numerical status", "View geometry"]
-    : ["Offset · mm", "X force · µN", "Z force · µN", "Numerical status", "View geometry"];
+    ? ["Design", "Upper pad · mm", "Volume · mm³", "Gap · mm", "X force · µN", "Z force · µN", "Numerical status", "View geometry"]
+    : ["Offset · mm", "Gap · mm", "X force · µN", "Z force · µN", "Numerical status", "View geometry"];
   for (const label of headers) {
     const cell = document.createElement("th");
     cell.scope = "col";
@@ -397,13 +431,15 @@ function renderResults() {
   sweepBody.replaceChildren();
   if (state.response) {
     state.response.results.forEach((item, index) => {
+      const geometry = resultSpec(item);
       const row = document.createElement("tr");
       row.className = `result-row${index === state.resultIndex ? " selected" : ""}`;
       if (comparison) {
         tableCell(row, item.design || comparison.designs?.[index]?.role || `Design ${index + 1}`);
-        tableCell(row, number(item.input?.upper_diameter_mm, 5));
-        tableCell(row, number(item.input?.volume_mm3, 6));
-      } else tableCell(row, number(item.input?.offset_mm, 5));
+        tableCell(row, number(geometry?.upper_diameter_mm, 5));
+        tableCell(row, number(geometry?.volume_mm3, 6));
+      } else tableCell(row, number(geometry?.offset_mm, 5));
+      tableCell(row, number(geometry?.standoff_mm, 6));
       tableCell(row, number(item.forces?.x_uN));
       tableCell(row, number(item.forces?.z_uN));
       const status = tableCell(row, statusLabel(item.status), `row-status ${statusClass(item.status)}`);
@@ -419,15 +455,25 @@ function renderResults() {
       row.addEventListener("click", () => selectResult(index));
       sweepBody.append(row);
     });
+    const gapDescription = state.response.results.map((item, index) => {
+      const geometry = resultSpec(item);
+      const gap = Number.isFinite(geometry?.standoff_mm) ? `${number(geometry.standoff_mm, 6)} mm` : "unavailable";
+      return `${item.design || comparison?.designs?.[index]?.role || `Design ${index + 1}`} gap ${gap}.`;
+    }).join(" ");
+    const condition = loaded
+      ? `under normal load ${number(result.input.normal_load_uN)} µN per joint at offset ${number(spec?.offset_mm, 5)} mm. ${gapDescription}`
+      : `at gap ${number(spec?.standoff_mm, 5)} mm and offset ${number(spec?.offset_mm, 5)} mm.`;
     $("sweep-description").textContent = comparison
-      ? `Both designs freshly computed at gap ${number(result?.input?.standoff_mm, 5)} mm and offset ${number(result?.input?.offset_mm, 5)} mm. Select a design to inspect its mesh.`
-      : `${state.response.results.length} independently computed point${state.response.results.length === 1 ? ". Run a sweep to compare offsets." : "s. Select a row to inspect its mesh."}`;
+      ? `Both designs freshly computed ${condition} Select a design to inspect its mesh.`
+      : `${state.response.results.length} independently computed point${state.response.results.length === 1 ? ". Run a sweep to compare offsets." : `s at the current ${loaded ? "normal load, each with its own solved gap" : "prescribed gap"}. Select a row to inspect its mesh.`}`;
   } else {
     const row = document.createElement("tr");
     row.className = "placeholder-row";
-    tableCell(row, "Computed points will appear here.").colSpan = 5;
+    tableCell(row, "Computed points will appear here.").colSpan = headers.length;
     sweepBody.append(row);
-    $("sweep-description").textContent = "Compare independent equilibria at five offsets.";
+    $("sweep-description").textContent = loadMode()
+      ? "Compare five offsets under the current normal load. The gap is solved at each offset."
+      : "Compare independent equilibria at five offsets with the current prescribed gap.";
   }
   updateControls();
   scheduleDraw();
@@ -523,13 +569,14 @@ function drawFootprint() {
 function drawModel() {
   const { context: ctx, width, height } = canvasContext($("model-canvas"));
   const result = selectedResult();
-  const spec = result?.input || previewSpec();
+  const geometry = result ? resultSpec(result) : previewSpec();
+  const spec = Number.isFinite(geometry?.standoff_mm) ? geometry : null;
   const emptyModel = $("empty-model");
   emptyModel.hidden = !!spec;
   if (!spec) {
     const selected = pad();
-    emptyModel.querySelector("strong").textContent = selected ? selected.supported ? "Complete the joint parameters" : "Select a circular copper pad" : "Start with a board pad";
-    emptyModel.querySelector("span:last-child").textContent = selected ? selected.supported ? "Enter valid dimensions to preview the boundaries." : selected.unsupported_reason : "Import a footprint or load the example.";
+    emptyModel.querySelector("strong").textContent = result?.status === "failed" ? "No computed geometry" : selected ? selected.supported ? loadMode() ? "Solve to compute the gap and geometry" : "Complete the joint parameters" : "Select a circular copper pad" : "Start with a board pad";
+    emptyModel.querySelector("span:last-child").textContent = result?.status === "failed" ? "Inspect the failure evidence before changing the inputs." : selected ? selected.supported ? loadMode() ? "The supported load determines the equilibrium gap." : "Enter valid dimensions to preview the boundaries." : selected.unsupported_reason : "Import a footprint or load the example.";
   }
   if (!spec || width < 1 || height < 1) return;
   const lowerRadius = spec.lower_diameter_mm / 2;
@@ -823,9 +870,13 @@ $("footprint-canvas").addEventListener("click", (event) => {
   if (match) choosePad(match.index);
 });
 
-for (const name of [...parameterNames, "gravity"]) {
+for (const name of [...parameterNames, "standoff_mm", "normal_load_uN", "gravity"]) {
   $(name).addEventListener("input", invalidate);
 }
+$("load_mode").addEventListener("change", () => {
+  updateLoadMode();
+  invalidate();
+});
 form.addEventListener("submit", (event) => { event.preventDefault(); compute("solve"); });
 $("sweep-button").addEventListener("click", () => compute("sweep"));
 $("compare-button").addEventListener("click", () => compute("compare"));
@@ -897,6 +948,10 @@ $("case-file").addEventListener("change", async (event) => {
     state.padIndex = data.case.pad_index;
     state.baseline = data.case.baseline ? freeze({ ...data.case.baseline }) : null;
     for (const name of parameterNames) $(name).value = String(data.case.parameters[name]);
+    const verticalCondition = Number.isFinite(data.case.parameters.normal_load_uN) ? "normal_load_uN" : "standoff_mm";
+    $("load_mode").value = verticalCondition === "normal_load_uN" ? "load" : "gap";
+    $(verticalCondition).value = String(data.case.parameters[verticalCondition]);
+    updateLoadMode();
     $("gravity").checked = data.case.parameters.gravity;
     populatePads();
     renderFootprint();
@@ -970,6 +1025,7 @@ $("download-button").addEventListener("click", () => {
 
 const resizeObserver = new ResizeObserver(scheduleDraw);
 for (const id of ["footprint-canvas", "model-canvas", "force-chart"]) resizeObserver.observe($(id));
+updateLoadMode();
 renderResults();
 bootstrap().then((data) => {
   if (state.revision === 0 && data.example?.text) {

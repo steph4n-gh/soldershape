@@ -95,7 +95,12 @@
         "z": 3e-06
       },
       "solver_termination": "completed",
-      "warnings": []
+      "warnings": [],
+      "pad_plane_excursion_mm": {
+        "below_lower": 0,
+        "above_upper": 5.551115123125783e-17,
+        "tolerance": 3e-07
+      }
     }
   },
   "offset_sweep": [
@@ -135,7 +140,12 @@
           "z": 1.5e-06
         },
         "solver_termination": "completed",
-        "warnings": []
+        "warnings": [],
+        "pad_plane_excursion_mm": {
+          "below_lower": 0,
+          "above_upper": 2.7755575615628914e-17,
+          "tolerance": 1.5e-07
+        }
       }
     },
     {
@@ -174,7 +184,12 @@
           "z": 1.5e-06
         },
         "solver_termination": "completed",
-        "warnings": []
+        "warnings": [],
+        "pad_plane_excursion_mm": {
+          "below_lower": 0,
+          "above_upper": 2.7755575615628914e-17,
+          "tolerance": 1.5e-07
+        }
       }
     },
     {
@@ -213,7 +228,12 @@
           "z": 1.5e-06
         },
         "solver_termination": "completed",
-        "warnings": []
+        "warnings": [],
+        "pad_plane_excursion_mm": {
+          "below_lower": 0,
+          "above_upper": 2.7755575615628914e-17,
+          "tolerance": 1.5e-07
+        }
       }
     },
     {
@@ -252,7 +272,12 @@
           "z": 1.5e-06
         },
         "solver_termination": "completed",
-        "warnings": []
+        "warnings": [],
+        "pad_plane_excursion_mm": {
+          "below_lower": 0,
+          "above_upper": 2.7755575615628914e-17,
+          "tolerance": 1.5e-07
+        }
       }
     },
     {
@@ -291,7 +316,12 @@
           "z": 1.5e-06
         },
         "solver_termination": "completed",
-        "warnings": []
+        "warnings": [],
+        "pad_plane_excursion_mm": {
+          "below_lower": 0,
+          "above_upper": 2.7755575615628914e-17,
+          "tolerance": 1.5e-07
+        }
       }
     }
   ],
@@ -360,7 +390,12 @@
         "z": 1.5e-06
       },
       "solver_termination": "completed",
-      "warnings": []
+      "warnings": [],
+      "pad_plane_excursion_mm": {
+        "below_lower": 0,
+        "above_upper": 2.7755575615628914e-17,
+        "tolerance": 1.5e-07
+      }
     }
   },
   "mesh_intersection_checks": [
@@ -412,6 +447,7 @@
           "x_uN": 0.0,
           "z_uN": 0.0
         },
+        "gap_difference_mm": null,
         "source_matches": true,
         "binary_matches": true,
         "passed": true
@@ -421,7 +457,7 @@
   },
   "artifacts": {
     "sweep": "output/acceptance-sweep.zip",
-    "sweep_sha256": "19bb6d149aeeb423cbf2abffed24a0a4f5d80967f7ec48cb8a218a3fa8eed4bb",
+    "sweep_sha256": "b9f1325f3b6304380f19d046cd5a5b1ef8b08a969c09a2fcc8a06be725028d44",
     "case": "output/acceptance-case.zip"
   },
   "passed": true

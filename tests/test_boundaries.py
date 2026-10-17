@@ -12,7 +12,7 @@ import zipfile
 
 from soldershape.__main__ import Server, replay
 from soldershape.artifacts import make_bundle, read_bundle
-from soldershape.model import InputError, JointSpec, import_footprint, request_from_footprint
+from soldershape.model import InputError, JointSpec, LoadSpec, import_footprint, request_from_footprint
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -94,6 +94,35 @@ class Boundaries(unittest.TestCase):
             self.assertEqual(len(report["replay"]), 2)
             self.assertFalse(report["passed"])
             self.assertTrue(all(r["current_status"] == "failed" and not r["passed"] for r in report["replay"]))
+
+    def test_loaded_replay_rebalances_and_retains_current_failure(self):
+        spec = LoadSpec(.27, .28, .01745, 0, 4, gravity=False)
+        saved = {"input": spec.to_dict(), "input_sha256": spec.sha256, "status": "refinement_checked",
+                 "equilibrium": spec.at_gap(.22).to_dict(), "forces": {"x_uN": 0, "z_uN": 4}, "engine": {},
+                 "load_balance": {"target_uN": 4, "residual_uN": 0, "tolerance_uN": .01, "status": "balanced"}}
+        saved["evidence"] = {"fixed_gap_verification": {"evidence": {"model_fe": "static model", "commands": "static commands"}},
+                             "native_height_solve": {"evidence": {"model_fe": "loaded model", "commands": "loaded commands"}}}
+        failed = {"input": spec.to_dict(), "input_sha256": spec.sha256, "status": "failed", "error": "Load has no checked equilibrium."}
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary) / "loaded.zip"
+            path.write_bytes(make_bundle([saved]))
+            with zipfile.ZipFile(path) as archive:
+                self.assertEqual(archive.read("case-00/model.fe"), b"static model")
+                self.assertEqual(archive.read("case-00/run.cmd"), b"static commands")
+                self.assertEqual(archive.read("case-00/load-height/model.fe"), b"loaded model")
+                self.assertEqual(archive.read("case-00/load-height/run.cmd"), b"loaded commands")
+            output = io.StringIO()
+            with patch("soldershape.solver.solve", return_value=failed) as solver, redirect_stdout(output):
+                code = replay(path)
+            self.assertEqual(code, 1)
+            self.assertIsInstance(solver.call_args.args[0], LoadSpec)
+            self.assertNotIn("standoff_mm", solver.call_args.args[0].to_dict())
+            self.assertEqual(json.loads(output.getvalue())["replay"][0]["error"], failed["error"])
+            path.write_bytes(make_bundle([failed]))
+            self.assertIsInstance(read_bundle(path)[0][0], LoadSpec)
+            with zipfile.ZipFile(path) as archive:
+                self.assertNotIn("standoff_mm", json.loads(archive.read("case-00/input.json")))
+                self.assertNotIn("case-00/mesh-mm.stl", archive.namelist())
 
 
 class LocalHTTP(unittest.TestCase):

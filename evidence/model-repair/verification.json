@@ -1,0 +1,77 @@
+{
+  "version": "0.3.0",
+  "base_commit": "dccbcf6",
+  "numerical_and_product_checks_passed": true,
+  "physical_accuracy_qualified": false,
+  "tests": 33,
+  "numerical_acceptance": true,
+  "engine": {
+    "ready": true,
+    "version": "2.70a",
+    "source_url": "https://kenbrakke.com/evolver/downloads/evolver-2.70.tar.gz",
+    "source_sha256": "be7d60d9eb690f1fb124e2ecc12237a7a35be1935bfa5e92be3fe912207a3b6b",
+    "reference_url": "https://kenbrakke.com/evolver/downloads/bga-files.zip",
+    "reference_sha256": "96389e8200320cc8acfbf60b8ed23e2d05941613af5b55824c36890113c6e659",
+    "binary_sha256": "c930b47b33a4cafb3cf98b1c0cb7e3bd9805abcf67aceefe243daea091072f8e",
+    "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+    "build_commands": [
+      [
+        "/usr/bin/cc",
+        "-c",
+        "/Volumes/Storage/oct16project/.engine/headless-title.c",
+        "-o",
+        "/Volumes/Storage/oct16project/.engine/headless-title.o"
+      ],
+      [
+        "/usr/bin/make",
+        "-C",
+        "/Volumes/Storage/oct16project/.engine/src",
+        "-j4",
+        "CC=/usr/bin/cc -O2 -std=gnu89 -w",
+        "CFLAGS=-DGENERIC",
+        "GRAPH=nulgraph.o",
+        "GRAPHLIB=../headless-title.o"
+      ]
+    ],
+    "numerical_source_modified": false,
+    "patch": {
+      "purpose": "Supply missing no-op title callback for the headless graphics target.",
+      "source": "void set_graphics_title(int which, char *title) { (void)which; (void)title; }\n",
+      "sha256": "4f49b4ab182ffd99e0244abae08ea8e48d74ce2e24c57f1c40088ba18126526a"
+    },
+    "license_note": "Local upstream evaluation. Component notices require review before redistribution; upstream source is not vendored in this project."
+  },
+  "source_hashes": {
+    "soldershape/model.py": "022b5187838be94d1535ffbc8132d35ee69b9c9263521e5d62c872b17a072a4a",
+    "soldershape/solver.py": "31e551899bbd040ad78aa2e2daf489a9fa3d2295df9db3f63e90149ff631c702",
+    "soldershape/__main__.py": "aa6db0f906b5dabe31b58365d4b462980476813afa8ee2df412bb4073bb08673",
+    "soldershape/artifacts.py": "091b86a66e020cbc35d946d176f5997676bf91f8547502b918d791f1d75a3b55",
+    "soldershape/web/app.js": "72696cc6be1637dd8f3f4f0caa00e60afdb9dd2b356318bc3c90532d56d8882f"
+  },
+  "forward_native_scenarios_checked": 31,
+  "primary_material_scenarios_checked": 16,
+  "physical_nominal_mean_absolute_error_um": 3.4024800942335176,
+  "practical_verdict": "Conditional clearance screening and q220 coupon selection. Analytical spring correction reaches the same aligned decisions. No manufacturing or force signoff.",
+  "checks": [
+    "Native reference, analytic cylinder, force derivatives, independent capillary discretization.",
+    "Height-free loaded requests, independent fixed-gap reaction, scale and initialization controls.",
+    "Real browser comparison and sweep exported and replayed.",
+    "Seven-row archive roundtrip verified.",
+    "Original evidence/physical negative study unchanged."
+  ],
+  "reviews": [
+    "evidence/model-repair/product-review.md",
+    "evidence/model-repair/science-review.md"
+  ],
+  "commands": [
+    "python3 tools/setup_engine.py",
+    "python3 -m unittest discover -s tests -v",
+    "python3 tools/verify.py",
+    "python3 tools/validate_loaded.py",
+    "python3 tools/check_loaded_formula.py",
+    "python3 tools/verify_loaded_archive.py",
+    "python3 -m soldershape solve-case examples/loaded-volume.soldershape.json --output output/loaded-volume.zip",
+    "python3 -m soldershape replay output/loaded-volume.zip",
+    "python3 -m soldershape serve"
+  ]
+}

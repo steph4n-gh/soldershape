@@ -68,8 +68,10 @@ class EditableCases(unittest.TestCase):
     def test_surface_beyond_pad_planes_keeps_forces_but_blocks_design_verdict(self):
         def computed(spec):
             return {"input": spec.to_dict(), "input_sha256": spec.sha256, "status": "refinement_checked",
-                    "forces": {"x_uN": -10, "z_uN": -20}, "diagnostics": {},
-                    "mesh": {"vertices_mm": [[0, 0, -.001], [0, 0, .151]]}}
+                    "forces": {"x_uN": -10, "z_uN": -20},
+                    "mesh": {"vertices_mm": [[0, 0, -.001], [0, 0, .151]]},
+                    "model_warnings": ["Substrate clearance is unknown."],
+                    "diagnostics": {"pad_plane_excursion_mm": {"below_lower": .001}}}
         with patch("soldershape.solver.solve", side_effect=computed):
             rows, comparison = calculate_comparison(parse_case(CASE))
         self.assertEqual(rows[0]["status"], "refinement_checked")
@@ -78,6 +80,21 @@ class EditableCases(unittest.TestCase):
         self.assertIn("Substrate", rows[0]["model_warnings"][0])
         self.assertEqual(comparison["status"], "inconclusive")
         self.assertNotIn("delta", comparison)
+
+    def test_loaded_zero_offset_comparison_reports_height_without_centering_verdict(self):
+        parameters = {key: value for key, value in CASE["parameters"].items() if key != "standoff_mm"}
+        case = parse_case({**CASE, "parameters": {**parameters, "normal_load_uN": 4, "offset_mm": 0}})
+        def computed(spec):
+            gap = .2 if spec.volume_mm3 == .005 else .22
+            return {"input": spec.to_dict(), "input_sha256": spec.sha256, "equilibrium": spec.at_gap(gap).to_dict(),
+                    "status": "refinement_checked", "forces": {"x_uN": 0, "z_uN": 4}}
+        with patch("soldershape.solver.solve", side_effect=computed):
+            rows, comparison = calculate_comparison(case)
+        self.assertNotIn("standoff_mm", rows[0]["input"])
+        self.assertEqual(comparison["status"], "compared")
+        self.assertAlmostEqual(comparison["delta"]["gap_mm"], .02)
+        self.assertIsNone(comparison["delta"]["restoring_force_uN"])
+        self.assertIn("normal load", comparison["scope"])
 
     def test_pretty_saved_case_fits_the_reopen_limit(self):
         prefix, suffix = '(footprint "', '" (pad "1" smd circle (at 0 0) (size .2 .2) (layers "F.Cu")))'

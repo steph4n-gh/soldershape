@@ -1,0 +1,216 @@
+{
+  "schema_version": 1,
+  "freeze_utc": "2026-10-16T23:50:02.409850+00:00",
+  "scope": "Independent physical geometry dataset frozen before any current SolderShape prediction. No solver was called by extraction.",
+  "source": {
+    "title": "Influence Of Solder Joint Shape On The Thermo-Mechanical Reliability Of CSP's",
+    "authors": [
+      "Co van Veen",
+      "Bart Vandevelde",
+      "Eric Beyne"
+    ],
+    "year": 2004,
+    "journal": "Journal of Microelectronics and Electronic Packaging",
+    "volume": 1,
+    "issue": 2,
+    "pages": "53-63",
+    "url": "https://imapsjmep.org/article/39820.pdf",
+    "pdf_sha256": "26bdf5220f2bd2bc429254c65197bc8cf39c8e1751ac624be3166ca9b8023db3",
+    "input_pages_printed": [
+      60,
+      61
+    ],
+    "input_pages_zero_based": [
+      7,
+      8
+    ],
+    "table": 3,
+    "visual_check": "Rendered and inspected pages 60 and 61. Table headings explicitly say diameters. Symbols section elsewhere calls p and q radii. Divide table diameters by two for radii."
+  },
+  "experiment": {
+    "physical_measurement": "Post-reflow cross-section standoff between bond pads. Liquid geometry is inferred, not observed in situ.",
+    "solder_volume_mm3": 0.01745,
+    "volume_provenance": "Total solder from screen printing and ball placement. Do not replace by a 300 micrometer sphere volume.",
+    "substrate_copper_thickness_um": 34,
+    "substrate_pad_definition": "NSMD",
+    "load_per_joint_uN": 4,
+    "alloy": "Pure eutectic solder. Exact composition is not restated in validation section.",
+    "flux": null,
+    "temperature_C": null,
+    "surface_tension_N_m": null,
+    "joint_volume_uncertainty_mm3": null,
+    "pad_diameter_uncertainty_um": null,
+    "load_uncertainty_uN": null,
+    "array": {
+      "joint_count": 20,
+      "layout": "5 by 4 area array",
+      "pitch_mm": 0.5,
+      "CSP_size_mm": [
+        2.5,
+        2,
+        0.63
+      ],
+      "scope_note": "Table 3 refers to specific CSP and references 6 and 7. These are the same references as the array described on printed page 55. Per-ball load 4 uN is explicitly stated on page 60, not calculated here from package dimensions. The single-joint approximation omits chip tilt and joint-to-joint load redistribution."
+    },
+    "chip_pad_metallization_thickness_um": null,
+    "chip_pad_definition": null,
+    "measured_height_reference": "Distance between bond pads, explicitly stated on printed page 60. It excludes the 34 micrometer substrate copper thickness. Upper pad thickness is not supplied.",
+    "substrate_wettable_surface": "Copper pad, 34 micrometers thick, non solder mask defined. Vertical side wetting is not separately quantified.",
+    "contact_line_pinning": "Full fixed circular rims are a model assumption for replay. The paper models fixed top and bottom circular pads. It does not publish measured contact-line locations or contact-angle uncertainty for every specimen.",
+    "liquid_volume_measurement_uncertainty": "Not reported. Post-reflow measurements and nominal deposited volume are not an in-situ measurement of liquid volume."
+  },
+  "records": [
+    {
+      "id": "vanveen2004-q170",
+      "substrate_pad_diameter_um": 170,
+      "chip_pad_diameter_um": 280,
+      "measured_rim_standoff_um": 204,
+      "measured_standoff_uncertainty_um": null,
+      "published_surface_evolver_standoff_um": 211,
+      "published_analytical_unloaded_standoff_um": 211.5,
+      "published_analytical_loaded_standoff_um": 210.0,
+      "reported_offset_um": 60,
+      "reported_offset_note": "Approximately 60 micrometers in Figure 9."
+    },
+    {
+      "id": "vanveen2004-q220",
+      "substrate_pad_diameter_um": 220,
+      "chip_pad_diameter_um": 280,
+      "measured_rim_standoff_um": 198,
+      "measured_standoff_uncertainty_um": null,
+      "published_surface_evolver_standoff_um": 202,
+      "published_analytical_unloaded_standoff_um": 201.8,
+      "published_analytical_loaded_standoff_um": 200.6,
+      "reported_offset_um": null,
+      "reported_offset_note": "Not reported. Zero offset is a model assumption, not a measured zero."
+    },
+    {
+      "id": "vanveen2004-q270",
+      "substrate_pad_diameter_um": 270,
+      "chip_pad_diameter_um": 280,
+      "measured_rim_standoff_um": 192,
+      "measured_standoff_uncertainty_um": null,
+      "published_surface_evolver_standoff_um": 191,
+      "published_analytical_unloaded_standoff_um": 190.5,
+      "published_analytical_loaded_standoff_um": 189.6,
+      "reported_offset_um": null,
+      "reported_offset_note": "Not reported. Zero offset is a model assumption, not a measured zero."
+    },
+    {
+      "id": "vanveen2004-q320",
+      "substrate_pad_diameter_um": 320,
+      "chip_pad_diameter_um": 280,
+      "measured_rim_standoff_um": 177,
+      "measured_standoff_uncertainty_um": null,
+      "published_surface_evolver_standoff_um": 179,
+      "published_analytical_unloaded_standoff_um": 178.0,
+      "published_analytical_loaded_standoff_um": 177.3,
+      "reported_offset_um": null,
+      "reported_offset_note": "Not reported. Zero offset is a model assumption, not a measured zero."
+    }
+  ],
+  "preprediction_protocol": {
+    "primary_mapping": {
+      "lower_diameter_mm": "substrate_pad_diameter_um / 1000",
+      "upper_diameter_mm": 0.28,
+      "effective_volume_mm3": "0.01745 + pi * (lower_diameter_mm/2)^2 * 0.034",
+      "gap_mm": "reported_rim_standoff_mm + 0.034",
+      "output_rim_standoff_mm": "solved_effective_gap_mm - 0.034",
+      "meaning": "Published approximation includes the substrate pad cylinder in volume. It does not create liquid solder inside actual copper.",
+      "copper_volume_count": "One substrate pad cylinder only. The paper adds the substrate copper pad volume and subtracts its 34 micrometer thickness. Do not add a second pad slab because upper metallization thickness is unknown."
+    },
+    "literal_rim_sensitivity": {
+      "volume_mm3": 0.01745,
+      "gap_mm": "reported_rim_standoff_mm",
+      "meaning": "Separate approximation. Do not combine its gap correction with the primary effective volume."
+    },
+    "load_balance": "Find the isolated-joint gap with upward reaction 4 uN at the specified offset. Treat 4 uN as the published approximate load per ball. No chip-load sharing or tilt is solved. Preserve all failed or inadmissible solves. Also solve the unloaded case as the gamma-independent reference.",
+    "material_scenarios_N_m": [
+      0.35,
+      0.4,
+      0.48,
+      0.55
+    ],
+    "material_scenario_meaning": "Prespecified stress scenarios, not an independently measured interval or confidence band. The unknown flux and temperature prevent a defensible process-specific gamma interval. No gamma fitting is allowed. Zero-load height is gamma-independent when gravity is disabled.",
+    "aligned_offset_mm": 0,
+    "misalignment_sensitivity_mm": {
+      "vanveen2004-q170": 0.06
+    },
+    "misalignment_note": "Use reported approximate q170 offset in a separate run. Missing offsets remain a limitation. Never tune offsets per row.",
+    "baseline": "Truncated sphere using volume and unequal circular diameters, with the paper pad-volume mapping. Report unloaded baseline beside native Evolver.",
+    "comparison": "All four measured heights. Report micrometer residuals and the measured 27 micrometer q170-to-q320 reduction. Do not claim statistical coverage without measurement uncertainty.",
+    "process_specific_use": "Assess whether changing substrate pad diameter from 270 to 320 micrometers crosses a post-reflow clearance boundary. Measured heights are 192 and 177 micrometers. Qualification requires process uncertainty smaller than the design margin.",
+    "physical_gate": "Missing volume, offset and height uncertainties prevent a formal physical pass. Agreement supports an external trend and conditional geometry consistency only.",
+    "stop_condition": "If disagreement remains after numerical, mapping and reported-offset controls, or missing uncertainties can reverse the selected design, stop claiming qualified PCB recommendations. Require a same-process coupon test before expanding the model.",
+    "gravity_scenarios": {
+      "primary": false,
+      "secondary": "If gravity is included, state density and its source. The paper does not state a same-process density, so do not silently inject density into a claimed independent prediction."
+    },
+    "rounding_note": "Integer micrometer table resolution is not measurement uncertainty. No fabricated error bars or probabilistic pass threshold.",
+    "scoring": {
+      "prediction_status": "all four rows required and all failure statuses visible",
+      "physical_precision": "Report absolute height residual in micrometers for every row. Missing experimental uncertainty means no statistical physical pass.",
+      "trend": "Prespecified measured ordering h170 > h220 > h270 > h320. Compare entire ordering and measured h270-h320=15 micrometers.",
+      "design_boundary": "An illustrative clearance of 185 micrometers lies between measured q270=192 and q320=177. Report each gamma and mapping result. A robust engineering recommendation requires independent process uncertainty below its margin, which this source does not provide.",
+      "baseline": "Compare full nonlinear native solver with unloaded truncated-sphere prediction and published analytical loaded approximation. If the formula reaches the same decision with equal or smaller observed residual, acknowledge that numerical complexity adds no demonstrated value for this aligned use case.",
+      "misalignment": "Keep all four zero-offset cases. In addition run q170 at independently reported approximate offset 60 micrometers. Do not silently replace the zero-offset result or fit offset to measured height."
+    }
+  },
+  "source_shortlist": [
+    {
+      "title": "NIST Underfill Misalignment Predictor",
+      "url": "https://www.ctcms.nist.gov/solder/underfill/index.html",
+      "decision": "Exact upstream alternative for Josell. Same observations and fitted gamma add no independent physical evidence. Archived defaults differ from Figure 5."
+    },
+    {
+      "title": "Van Veen, Vandevelde and Beyne 2004",
+      "url": "https://imapsjmep.org/article/39820.pdf",
+      "decision": "Selected independent physical standoff table and circular pad geometry. Missing process and uncertainty metadata limit qualification."
+    },
+    {
+      "title": "Jesudoss et al. 2008",
+      "url": "https://cora.ucc.ie/server/api/core/bitstreams/26a09f61-c21b-4e2d-8827-1e2bead11d49/content",
+      "decision": "Full text checked. Rectangular-pad cross-section comparison is qualitative. Volume sweeps are simulation results, not a new measured force series. Excluded from circular-model score."
+    },
+    {
+      "title": "Krammer 2014",
+      "url": "https://doi.org/10.1016/j.microrel.2013.10.010",
+      "decision": "Publisher experiment snippets inspected. Physical initial and final component positions differ from measured forces. Reported 450 and 150 uN are calculated. Geometry includes sidewall wetting and differs from current model."
+    },
+    {
+      "title": "Lo et al. 2008",
+      "url": "https://doi.org/10.1109/ECTC.2008.4550239",
+      "decision": "Author-institution record confirms physical pad and load standoff comparison. Accessible record lacks specimen table and uncertainty. No values extracted."
+    },
+    {
+      "title": "Mastrangeli et al. 2017",
+      "url": "https://acris.aalto.fi/ws/portalfiles/portal/11230847/Surface_tension_driven_self_alignment_Sof_matter.pdf",
+      "decision": "Review traced primary references only. Not an independent experimental scoring source."
+    }
+  ],
+  "local_source_downloads": [
+    {
+      "file": "van-veen-2004.pdf",
+      "url": "https://imapsjmep.org/article/39820.pdf",
+      "sha256": "26bdf5220f2bd2bc429254c65197bc8cf39c8e1751ac624be3166ca9b8023db3",
+      "bytes": 544215
+    },
+    {
+      "file": "jesudoss-2008.pdf",
+      "url": "https://cora.ucc.ie/server/api/core/bitstreams/26a09f61-c21b-4e2d-8827-1e2bead11d49/content",
+      "sha256": "aa82a1e91a1128b68747985c54d96561373c5c7a42c5a67f796fcd7abc40ae75",
+      "bytes": 686626
+    },
+    {
+      "file": "capillary-review-2017.pdf",
+      "url": "https://acris.aalto.fi/ws/portalfiles/portal/11230847/Surface_tension_driven_self_alignment_Sof_matter.pdf",
+      "sha256": "ec7938b6187807e6a5f46c7a370f86cfe16a6c422585c75e3442d37523d506fe",
+      "bytes": 3797995
+    }
+  ],
+  "protocol_revision_before_predictions": {
+    "prior_sha256": "d14637653dec782f5a515cc499c10501c39822ee197c7d292a5358a1aeb7d1dd",
+    "revision_utc": "2026-10-16T23:50:43.825048+00:00",
+    "reason": "Coordinator requested explicit array geometry, wetting surfaces, thickness count and broader material scenarios before any prediction. No SolderShape solver has been called."
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "replay": [
+    {
+      "input_sha256": "953e4190ebbf631ba3368acf38c8abf822160c9cefca43b493d9c9795ec59051",
+      "status": "refinement_checked",
+      "force_difference_uN": {
+        "x_uN": 0.0,
+        "z_uN": 0.0
+      },
+      "gap_difference_mm": 0.0,
+      "source_matches": true,
+      "binary_matches": true,
+      "passed": true
+    },
+    {
+      "input_sha256": "a06e37a64f4b008fd8f055878dede8dbcec3e2668e822411dc1bdf38e38e29d9",
+      "status": "refinement_checked",
+      "force_difference_uN": {
+        "x_uN": 0.0,
+        "z_uN": 0.0
+      },
+      "gap_difference_mm": 0.0,
+      "source_matches": true,
+      "binary_matches": true,
+      "passed": true
+    }
+  ],
+  "passed": true
+}

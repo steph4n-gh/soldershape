@@ -1,0 +1,523 @@
+{
+  "schema": 1,
+  "scope": "Independent upstream implementation comparison and conditional forward loads. Not new independent physical validation.",
+  "source": {
+    "url": "https://www.ctcms.nist.gov/solder/underfill/underfill.zip",
+    "sha256": "fa1ceb86bd9f37214194370b809ee92e73614ed3c1c7b1e43a80460d759bfcc5"
+  },
+  "engine": {
+    "ready": true,
+    "version": "2.70a",
+    "source_url": "https://kenbrakke.com/evolver/downloads/evolver-2.70.tar.gz",
+    "source_sha256": "be7d60d9eb690f1fb124e2ecc12237a7a35be1935bfa5e92be3fe912207a3b6b",
+    "reference_url": "https://kenbrakke.com/evolver/downloads/bga-files.zip",
+    "reference_sha256": "96389e8200320cc8acfbf60b8ed23e2d05941613af5b55824c36890113c6e659",
+    "binary_sha256": "c930b47b33a4cafb3cf98b1c0cb7e3bd9805abcf67aceefe243daea091072f8e",
+    "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+    "build_commands": [
+      [
+        "/usr/bin/cc",
+        "-c",
+        "/Volumes/Storage/oct16project/.engine/headless-title.c",
+        "-o",
+        "/Volumes/Storage/oct16project/.engine/headless-title.o"
+      ],
+      [
+        "/usr/bin/make",
+        "-C",
+        "/Volumes/Storage/oct16project/.engine/src",
+        "-j4",
+        "CC=/usr/bin/cc -O2 -std=gnu89 -w",
+        "CFLAGS=-DGENERIC",
+        "GRAPH=nulgraph.o",
+        "GRAPHLIB=../headless-title.o"
+      ]
+    ],
+    "numerical_source_modified": false,
+    "patch": {
+      "purpose": "Supply missing no-op title callback for the headless graphics target.",
+      "source": "void set_graphics_title(int which, char *title) { (void)which; (void)title; }\n",
+      "sha256": "4f49b4ab182ffd99e0244abae08ea8e48d74ce2e24c57f1c40088ba18126526a"
+    },
+    "license_note": "Local upstream evaluation. Component notices require review before redistribution; upstream source is not vendored in this project."
+  },
+  "frozen_product_comparison": {
+    "solver_sha256": "07b45f912cadedc9ae69313820a46a40248459696bbe70d9b769fea287deeb98",
+    "predictions_sha256": "e3b2416de22fe1a45fca3cbf23518d94382b3938a772dedc491bd4242997644f"
+  },
+  "script_sha256": "76d2d037764be34985cf153967a1d23820ed4f2d0fa989041fdddf8961680b6e",
+  "raw_receipts_sha256": "886e0c7b22b2a72355a5bfa906949e50a4f8c0cae976a20dd8c788ddaaffba70",
+  "fixed_displacement_comparisons": [
+    {
+      "id": "h2-x2",
+      "native": {
+        "height_mm": 0.0351,
+        "offset_mm": 0.0071,
+        "pad_thickness_um": 5,
+        "force_refinement_relative_changes": {
+          "x": 0.0009634910571461334,
+          "z": 0.0001079767939963769
+        },
+        "gamma_N_per_m": 1,
+        "levels": [
+          {
+            "level": 0,
+            "force_x_uN": -97.86638166531247,
+            "force_z_uN": 15649.659474490454,
+            "energy_native": -0.5525646956837844,
+            "volume_mm3": 0.01181699087727595
+          },
+          {
+            "level": 1,
+            "force_x_uN": -99.48437772354802,
+            "force_z_uN": 15618.190423120865,
+            "energy_native": -0.5536292028043521,
+            "volume_mm3": 0.01181699087727595
+          },
+          {
+            "level": 2,
+            "force_x_uN": -99.58032247371918,
+            "force_z_uN": 15616.504203063587,
+            "energy_native": -0.5537485501397108,
+            "volume_mm3": 0.01181699087727595
+          }
+        ],
+        "eigen_counts": [
+          [
+            0,
+            0,
+            167
+          ],
+          [
+            0,
+            0,
+            719
+          ],
+          [
+            0,
+            0,
+            2975
+          ]
+        ],
+        "warnings": [],
+        "geometry": {
+          "minimum_z_mm": 0.0,
+          "maximum_z_mm": 0.0351,
+          "sampled_plane_intrusion_mm": 0,
+          "sampled_contact_angles_degrees": [
+            140.47518681405185,
+            166.26815366327364
+          ],
+          "contact_angle_samples": 192,
+          "scope": "Flat export vertices and adjacent facet normals. These are sampled checks, not curved-element bounds."
+        },
+        "files_sha256": {
+          "joint.fe": "dff3d13c2c4081f690ec247405c759184d274b590abafb3e23886fa8797f4a8f",
+          "commands.cmd": "0bbcfe6dbb8d50e6949a82b520242a0d46e64de48a92b7b64330ecb9b5fd632e",
+          "stdout.txt": "af44090131c23edb7505a2ef96b3aa7eec3b3b6bd70de7159c97a60222d3a9b7",
+          "stderr.txt": "fe636a775d7d914ee45a759965689d11de43e7c6bb923676bbcf80ab23857f8d",
+          "mesh.txt": "7de4eb500d97982e611ff3b46921853558171e42618241ba9a235c2b2148c103"
+        }
+      },
+      "product_forces_uN": {
+        "x_uN": -99.58637717764896,
+        "z_uN": 15616.408320394146
+      },
+      "product_status": "refinement_checked",
+      "component_relative_differences": {
+        "x": 6.079851583491754e-05,
+        "z": 6.1398669574522645e-06
+      }
+    },
+    {
+      "id": "h4-x4",
+      "native": {
+        "height_mm": 0.0372,
+        "offset_mm": 0.0151,
+        "pad_thickness_um": 5,
+        "force_refinement_relative_changes": {
+          "x": 6.045587075913908e-05,
+          "z": 0.001810302820943258
+        },
+        "gamma_N_per_m": 1,
+        "levels": [
+          {
+            "level": 0,
+            "force_x_uN": -365.7201208540073,
+            "force_z_uN": -5511.191825945964,
+            "energy_native": -0.5624575693782148,
+            "volume_mm3": 0.01181699087727595
+          },
+          {
+            "level": 1,
+            "force_x_uN": -366.1063468834521,
+            "force_z_uN": -5664.337175445949,
+            "energy_native": -0.5632646815013717,
+            "volume_mm3": 0.01181699087727595
+          },
+          {
+            "level": 2,
+            "force_x_uN": -366.12848149961087,
+            "force_z_uN": -5674.609937824144,
+            "energy_native": -0.5633667875419501,
+            "volume_mm3": 0.01181699087727595
+          }
+        ],
+        "eigen_counts": [
+          [
+            0,
+            0,
+            167
+          ],
+          [
+            0,
+            0,
+            719
+          ],
+          [
+            0,
+            0,
+            2975
+          ]
+        ],
+        "warnings": [],
+        "geometry": {
+          "minimum_z_mm": 0.0,
+          "maximum_z_mm": 0.0372,
+          "sampled_plane_intrusion_mm": 0,
+          "sampled_contact_angles_degrees": [
+            54.732012397286425,
+            105.69465421860282
+          ],
+          "contact_angle_samples": 192,
+          "scope": "Flat export vertices and adjacent facet normals. These are sampled checks, not curved-element bounds."
+        },
+        "files_sha256": {
+          "joint.fe": "3d72a5023c2cb29b928d443db94a550ff9cbca0626813422c682cc426d13226c",
+          "commands.cmd": "0bbcfe6dbb8d50e6949a82b520242a0d46e64de48a92b7b64330ecb9b5fd632e",
+          "stdout.txt": "9e32cdd7ab5708070aff3c0662ade9a8ab4b389a7b773a2c99d7f2086a6261b4",
+          "stderr.txt": "fe636a775d7d914ee45a759965689d11de43e7c6bb923676bbcf80ab23857f8d",
+          "mesh.txt": "8ef9186fa7072e11641211093350b11fd0ef1e835711f012c6d8f0c7b990d870"
+        }
+      },
+      "product_forces_uN": {
+        "x_uN": -366.13016066860956,
+        "z_uN": -5675.287309801484
+      },
+      "product_status": "refinement_checked",
+      "component_relative_differences": {
+        "x": 4.58626242543164e-06,
+        "z": 0.00011935465825143189
+      }
+    },
+    {
+      "id": "h6-x6",
+      "native": {
+        "height_mm": 0.0351,
+        "offset_mm": 0.031,
+        "pad_thickness_um": 5,
+        "force_refinement_relative_changes": {
+          "x": 0.0007339417834538431,
+          "z": 0.00016348126209079602
+        },
+        "gamma_N_per_m": 1,
+        "levels": [
+          {
+            "level": 0,
+            "force_x_uN": -449.16398842416197,
+            "force_z_uN": 10825.208917986056,
+            "energy_native": -0.5461745777508378,
+            "volume_mm3": 0.01181699087727595
+          },
+          {
+            "level": 1,
+            "force_x_uN": -454.49185223290664,
+            "force_z_uN": 10807.681135883247,
+            "energy_native": -0.5471348159278012,
+            "volume_mm3": 0.01181699087727595
+          },
+          {
+            "level": 2,
+            "force_x_uN": -454.82566779468846,
+            "force_z_uN": 10805.91457133108,
+            "energy_native": -0.5472476192317464,
+            "volume_mm3": 0.01181699087727595
+          }
+        ],
+        "eigen_counts": [
+          [
+            0,
+            0,
+            167
+          ],
+          [
+            0,
+            0,
+            719
+          ],
+          [
+            0,
+            0,
+            2975
+          ]
+        ],
+        "warnings": [],
+        "geometry": {
+          "minimum_z_mm": -0.00026499331906969963,
+          "maximum_z_mm": 0.0353649933190697,
+          "sampled_plane_intrusion_mm": 0.00026499331906969963,
+          "sampled_contact_angles_degrees": [
+            104.77091719780388,
+            179.3017626104823
+          ],
+          "contact_angle_samples": 192,
+          "scope": "Flat export vertices and adjacent facet normals. These are sampled checks, not curved-element bounds."
+        },
+        "files_sha256": {
+          "joint.fe": "84a411d393148db407d2321aa996703b124f9a41f90bfd8151e616f156aa39f7",
+          "commands.cmd": "0bbcfe6dbb8d50e6949a82b520242a0d46e64de48a92b7b64330ecb9b5fd632e",
+          "stdout.txt": "18b82b6cec5f99892fb9ee9536012772cbcedd16da13a59a24caf6154b464948",
+          "stderr.txt": "fe636a775d7d914ee45a759965689d11de43e7c6bb923676bbcf80ab23857f8d",
+          "mesh.txt": "b26784241bee970fe5ba000f231459d032b1ac6229528b0b391f7ce01a3c4ffa"
+        }
+      },
+      "product_forces_uN": {
+        "x_uN": -454.84730912433156,
+        "z_uN": 10805.791421735294
+      },
+      "product_status": "refinement_checked",
+      "component_relative_differences": {
+        "x": 4.757932873070427e-05,
+        "z": 1.1396628990963573e-05
+      }
+    }
+  ],
+  "forward_load_cases": [
+    {
+      "pad_thickness_um": 4,
+      "height_um": 34.32317311425148,
+      "offset_um": 13.604072983030024,
+      "normal_load_uN": 1831.8356007346229,
+      "shear_load_uN": 144.16858839991508,
+      "last_trial": {
+        "result": {
+          "height_mm": 0.03432317311425148,
+          "offset_mm": 0.013604072983030024,
+          "pad_thickness_um": 4,
+          "force_refinement_relative_changes": {
+            "x": 0.0005673633793987989,
+            "z": 0.0017153685329069901
+          },
+          "gamma_N_per_m": 0.4,
+          "levels": [
+            {
+              "level": 0,
+              "force_x_uN": -142.85850280515433,
+              "force_z_uN": 1879.767938714296,
+              "energy_native": -0.22701583791013663,
+              "volume_mm3": 0.011173592701820759
+            },
+            {
+              "level": 1,
+              "force_x_uN": -144.08627069251168,
+              "force_z_uN": 1834.9699533214812,
+              "energy_native": -0.22740356809024992,
+              "volume_mm3": 0.011173592701820759
+            },
+            {
+              "level": 2,
+              "force_x_uN": -144.16806637385093,
+              "force_z_uN": 1831.8276937379355,
+              "energy_native": -0.22744878891868486,
+              "volume_mm3": 0.011173592701820759
+            }
+          ],
+          "eigen_counts": [
+            [
+              0,
+              0,
+              167
+            ],
+            [
+              0,
+              0,
+              719
+            ],
+            [
+              0,
+              0,
+              2975
+            ]
+          ],
+          "warnings": [],
+          "geometry": {
+            "minimum_z_mm": 0.0,
+            "maximum_z_mm": 0.03432317311425148,
+            "sampled_plane_intrusion_mm": 0,
+            "sampled_contact_angles_degrees": [
+              91.517929643295,
+              138.4436682194718
+            ],
+            "contact_angle_samples": 192,
+            "scope": "Flat export vertices and adjacent facet normals. These are sampled checks, not curved-element bounds."
+          },
+          "files_sha256": {
+            "joint.fe": "b201eeaed93391326b9316ba17beef2d6e3b0eadd6c3851f20d0290d51e99a3c",
+            "commands.cmd": "0bbcfe6dbb8d50e6949a82b520242a0d46e64de48a92b7b64330ecb9b5fd632e",
+            "stdout.txt": "6ec2ac066209c76c5bf47edb3e3d754680ef2ac46a2f9cbc0309324f3cd0ecc0",
+            "stderr.txt": "fe636a775d7d914ee45a759965689d11de43e7c6bb923676bbcf80ab23857f8d",
+            "mesh.txt": "5672bfc32fb26f341249e04a3b5c1d40bc57024b240bb4275536092b3bf0a805"
+          }
+        },
+        "residual_uN": [
+          -0.007906996687324863,
+          -0.0005220260641465302
+        ]
+      },
+      "normal_force_sensitivity_uN_per_um": -5309.530419041287,
+      "shear_magnitude_sensitivity_uN_per_um": 27.552710417637975,
+      "load_assumption": "Source-commented mass 0.0015 kg at tilt 4.5 degrees, eight joints. This does not establish the measured specimen's actual normal load."
+    },
+    {
+      "pad_thickness_um": 5,
+      "height_um": 36.24862543733229,
+      "offset_um": 14.453868199179585,
+      "normal_load_uN": 1831.8356007346229,
+      "shear_load_uN": 144.16858839991508,
+      "last_trial": {
+        "result": {
+          "height_mm": 0.03624862543733229,
+          "offset_mm": 0.014453868199179584,
+          "pad_thickness_um": 5,
+          "force_refinement_relative_changes": {
+            "x": 0.0005339803284358466,
+            "z": 0.0015305446635197277
+          },
+          "gamma_N_per_m": 0.4,
+          "levels": [
+            {
+              "level": 0,
+              "force_x_uN": -142.92553252026607,
+              "force_z_uN": 1874.5540504548953,
+              "energy_native": -0.22528285277837842,
+              "volume_mm3": 0.01181699087727595
+            },
+            {
+              "level": 1,
+              "force_x_uN": -144.0857572375193,
+              "force_z_uN": 1834.5539031495364,
+              "energy_native": -0.22567033298779812,
+              "volume_mm3": 0.01181699087727595
+            },
+            {
+              "level": 2,
+              "force_x_uN": -144.16273730333273,
+              "force_z_uN": 1831.7503274609405,
+              "energy_native": -0.22571553433968194,
+              "volume_mm3": 0.01181699087727595
+            }
+          ],
+          "eigen_counts": [
+            [
+              0,
+              0,
+              167
+            ],
+            [
+              0,
+              0,
+              719
+            ],
+            [
+              0,
+              0,
+              2975
+            ]
+          ],
+          "warnings": [],
+          "geometry": {
+            "minimum_z_mm": 0.0,
+            "maximum_z_mm": 0.03624862543733229,
+            "sampled_plane_intrusion_mm": 0,
+            "sampled_contact_angles_degrees": [
+              92.17065651469855,
+              139.13730414026685
+            ],
+            "contact_angle_samples": 192,
+            "scope": "Flat export vertices and adjacent facet normals. These are sampled checks, not curved-element bounds."
+          },
+          "files_sha256": {
+            "joint.fe": "79d41c4118905971d6e407d76fad0810287a276aafccc846c0bb63775eb14e1f",
+            "commands.cmd": "0bbcfe6dbb8d50e6949a82b520242a0d46e64de48a92b7b64330ecb9b5fd632e",
+            "stdout.txt": "167a8e92397c8887ed960dfa526da3a00438cba6bd7e373838d0a57a35ab7fb6",
+            "stderr.txt": "fe636a775d7d914ee45a759965689d11de43e7c6bb923676bbcf80ab23857f8d",
+            "mesh.txt": "0ae3e1a5b1d9e51c689a2795e7606db541c3930db4ee5d6a5624cdbac891b5d8"
+          }
+        },
+        "residual_uN": [
+          -0.08527327368233273,
+          -0.005851096582347282
+        ]
+      },
+      "normal_force_sensitivity_uN_per_um": -4491.216618206744,
+      "shear_magnitude_sensitivity_uN_per_um": 26.208506600914735,
+      "load_assumption": "Source-commented mass 0.0015 kg at tilt 4.5 degrees, eight joints. This does not establish the measured specimen's actual normal load."
+    }
+  ],
+  "rejected_native_forward_controls": [
+    {
+      "pad_thickness_um": 4,
+      "result": {
+        "status": "timeout",
+        "seconds": 90.0058899577707
+      },
+      "last_progress_rows": [
+        "2196 -0.166505 0.0343969 -0.0135319 -0.013669 0 0 0.00214981 0.000343969",
+        "3025 -0.166509 0.0343969 -0.013669 -0.0136704 0 0 0.00214981 0.000343969",
+        "3033 -0.166524 0.0343484 -0.0135537 -0.013699 0 0 0.00214981 0.000343969",
+        "3045 -0.166524 0.0343502 -0.013567 -0.013683 0 0 0.00214678 0.000343484",
+        "3055 -0.166524 0.0343248 -0.0135659 -0.0135775 0 0 0.00214688 0.000343502"
+      ],
+      "rejection": "Timed out before final convergence."
+    },
+    {
+      "pad_thickness_um": 5,
+      "result": {
+        "status": "completed",
+        "seconds": 58.38091820804402,
+        "result_lines": [
+          "Enter command: Enter command: UP_FORWARD 3047 0.00025917099331797971 -0.15957518769981699 0.14416858839991509 1.8318356007346228 0.011816990877275948 0.097117628364103176 0.49455596299317733"
+        ],
+        "warnings": [
+          "WARNING 1903: Edge 280 not deleted due to adjacent configuration involving facet 135.",
+          "WARNING 1903: Edge 294 not deleted due to adjacent configuration involving facet 175.",
+          "WARNING 1903: Edge 218 not deleted due to adjacent configuration involving facet 124."
+        ],
+        "returncode": 0
+      },
+      "last_progress_rows": [
+        "2977 -0.146221 0.000247568 -0.157996 -0.159839 0.124094 0.495484 6.12791e-05 2.45116e-06",
+        "3007 -0.146082 0.000254049 -0.159839 -0.160468 0.0811714 0.491796 6.18919e-05 2.47568e-06",
+        "3033 -0.146103 0.000251573 -0.160468 -0.160122 0.0894248 0.490164 6.35123e-05 6.48142e-06",
+        "3047 -0.146108 0.000254089 -0.160122 -0.159451 0.0812983 0.494995 6.28934e-05 2.51573e-06",
+        "3047 -0.146144 0.000259171 -0.159451 -0.159575 0.0971176 0.494556 6.35223e-05 2.54089e-06"
+      ],
+      "rejection": "Collapsed gap and large offset, warning-bearing result. Not physically qualified."
+    }
+  ],
+  "source_height_floor": {
+    "file": "bracketz.cmd",
+    "code": "if(hgt+mv<0.06)then mv:=0.06-hgt;",
+    "effect": "Unmodified distributed example cannot model Figure5 standoffs near0.035mm. Diagnostic free-contact controls replace this with0.0001mm and preserve that adaptation."
+  },
+  "inferences": [
+    "Agreement with the independent source representation rules out large force-conversion, cap-volume, or pressure-sign defects for these three cases.",
+    "A prescribed displacement can imply a normal load inconsistent with a chosen assembly load. The paper predicts displacements under specified force.",
+    "The source-derived forward load scenario does not recover the last31um offset. Its actual specimen-specific normal load remains unverified.",
+    "Sampled plane and contact-angle checks support the pinned assumption at these conditional forward solutions. They do not certify arbitrary user geometries."
+  ],
+  "commands": [
+    "python3 evidence/model-repair/upstream-replay.py",
+    "python3 evidence/model-repair/upstream-replay.py --fixed-only"
+  ]
+}

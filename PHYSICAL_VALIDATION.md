@@ -40,3 +40,7 @@ The numerical repair changes three command-list lines to use energy-decreasing N
 The user subsequently authorized completion of the local product workflow. That work is separately framed in `PRODUCT_RELEASE.md`. It adds editable input files and a controlled design comparison, without changing physics to force agreement with the paper. The simple cylinder alternative exposes boundary-condition sensitivity; it is not a qualified same-boundary competitor. Native Surface Evolver remains the numerical baseline, with identical underlying computation. The product benefit is a direct KiCad, comparison and reproducible-export workflow.
 
 See `evidence/physical/validation-report.md`, `evidence/physical/independent-review.md`, `evidence/design-comparison/report.md`, and `evidence/product-browser.json`. `python3 tools/check_digitization.py` recalculates every recorded manual pixel reading without research dependencies. Its optional `--pdf PATH` verifies primary-source identity; it does not claim an independent redigitization.
+
+## Subsequent root-cause investigation
+
+The preserved inverse-force study above is unchanged. The later load-controlled model repair, independent four-specimen forward predictions, practical clearance screen, and remaining physical failures are recorded in [evidence/model-repair/report.md](evidence/model-repair/report.md) and [PHYSICAL_ROOT_CAUSE.md](PHYSICAL_ROOT_CAUSE.md).

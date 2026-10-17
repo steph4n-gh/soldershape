@@ -8,7 +8,8 @@ import math
 from pathlib import Path
 import zipfile
 
-from .model import InputError, JointSpec
+from .model import InputError, JointSpec, LoadSpec, joint_spec_from_dict
+from . import __version__
 
 
 def json_bytes(value):
@@ -18,7 +19,7 @@ def json_bytes(value):
 def results_csv(results):
     output = io.StringIO(newline="")
     fields = ["row", "design", "status", "pad", "lower_diameter_mm", "upper_diameter_mm", "standoff_mm", "volume_mm3",
-              "offset_mm", "surface_tension_n_m", "density_g_cm3", "gravity", "force_x_uN", "force_z_uN",
+              "offset_mm", "normal_load_uN", "load_residual_uN", "surface_tension_n_m", "density_g_cm3", "gravity", "force_x_uN", "force_z_uN",
               "volume_relative_error", "force_change_relative", "error"]
     writer = csv.DictWriter(output, fieldnames=fields)
     writer.writeheader()
@@ -28,6 +29,8 @@ def results_csv(results):
         if label.startswith(("=", "+", "-", "@")):
             label = "'" + label
         row.update(row=i, design=result.get("design", ""), status=result["status"], pad=label,
+                   standoff_mm=result.get("equilibrium", result["input"]).get("standoff_mm", ""),
+                   load_residual_uN=result.get("load_balance", {}).get("residual_uN", ""),
                    force_x_uN=result.get("forces", {}).get("x_uN", ""),
                    force_z_uN=result.get("forces", {}).get("z_uN", ""),
                    volume_relative_error=result.get("diagnostics", {}).get("volume_relative_error", ""),
@@ -77,14 +80,19 @@ def make_bundle(results, source="", editable_case=None, comparison=None):
         files[prefix + "result.json"] = json_bytes({k: v for k, v in result.items() if k != "evidence"})
         evidence = result.get("evidence", {})
         files[prefix + "evidence.json"] = json_bytes(evidence)
-        for key, filename in (("model_fe", "model.fe"), ("commands", "run.cmd"), ("stdout", "stdout.txt"), ("stderr", "stderr.txt")):
-            files[prefix + filename] = str(evidence.get(key, "")).encode()
+        static_evidence = evidence.get("fixed_gap_verification", {}).get("evidence", evidence)
+        native_evidence = evidence.get("native_height_solve", {}).get("evidence", evidence.get("failed_native_attempt", {}))
+        for stage, receipt in (("", static_evidence), ("load-height/", native_evidence)):
+            if stage and not receipt:
+                continue
+            for key, filename in (("model_fe", "model.fe"), ("commands", "run.cmd"), ("stdout", "stdout.txt"), ("stderr", "stderr.txt")):
+                files[prefix + stage + filename] = str(receipt.get(key, "")).encode()
         if "mesh" in result:
             files[prefix + "mesh-mm.obj"] = mesh_obj(result["mesh"])
             files[prefix + "mesh-mm.stl"] = mesh_stl(result["mesh"])
-    manifest = {"schema": 1, "application": "SolderShape 0.2.0", "case_count": len(results),
+    manifest = {"schema": 1, "application": f"SolderShape {__version__}", "case_count": len(results),
                 "units": {"length": "mm", "volume": "mm^3", "force": "micronewton", "energy": "erg"},
-                "assumptions": "Fully wetted pinned circular pads; prescribed wetted-plane gap and offset; equilibrium. Material/process accuracy is not qualified. Numerical checks are not physical validation.",
+                "assumptions": "Fully wetted pinned circular pads; prescribed offset and either gap or supported normal load; isolated equilibrium joint. Material/process accuracy is not qualified. Numerical checks are not physical validation.",
                 "replay": "python3 -m soldershape replay FILE.zip; archived scripts are evidence and are never executed by replay",
                 "files": {name: hashlib.sha256(data).hexdigest() for name, data in sorted(files.items())}}
     files["manifest.json"] = json_bytes(manifest)
@@ -104,7 +112,7 @@ def read_bundle(path):
         with zipfile.ZipFile(path) as archive:
             members = archive.infolist()
             names = [info.filename for info in members]
-            if len(members) > 100 or len(set(names)) != len(names) or sum(i.file_size for i in members) > 120_000_000:
+            if len(members) > 100 or len(set(names)) != len(names) or sum(i.file_size for i in members) > 160_000_000:
                 raise InputError("Bundle exceeds the member or uncompressed size limit.")
             if any(name.startswith("/") or ".." in name.split("/") or "\\" in name for name in names):
                 raise InputError("Bundle contains an unsafe filename.")
@@ -121,13 +129,26 @@ def read_bundle(path):
                 raise InputError("Invalid bundle case count.")
             cases = []
             for i in range(count):
-                spec = JointSpec.from_dict(json.loads(archive.read(f"case-{i:02d}/input.json")))
+                spec = joint_spec_from_dict(json.loads(archive.read(f"case-{i:02d}/input.json")))
                 saved = json.loads(archive.read(f"case-{i:02d}/result.json"))
                 if not isinstance(saved, dict) or saved.get("status") not in ("failed", "not_converged", "refinement_checked"):
                     raise InputError("Invalid saved result status.")
                 if saved.get("input_sha256") != spec.sha256 or saved.get("input") != spec.to_dict():
                     raise InputError("Saved result does not match its normalized input.")
                 if saved["status"] != "failed":
+                    if isinstance(spec, LoadSpec):
+                        equilibrium = JointSpec.from_dict(saved.get("equilibrium"))
+                        if equilibrium != spec.at_gap(equilibrium.standoff_mm):
+                            raise InputError("Saved loaded geometry does not match its request.")
+                        balance = saved.get("load_balance")
+                        if not isinstance(balance, dict) or balance.get("target_uN") != spec.normal_load_uN or balance.get("status") not in ("balanced", "not_balanced"):
+                            raise InputError("Saved result is missing its load balance.")
+                        for key in ("residual_uN", "tolerance_uN"):
+                            value = balance.get(key)
+                            if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value):
+                                raise InputError("Saved result contains an invalid load balance.")
+                        if balance["tolerance_uN"] < 0 or saved["status"] == "refinement_checked" and (balance["status"] != "balanced" or abs(balance["residual_uN"]) > balance["tolerance_uN"]):
+                            raise InputError("Saved result did not pass its load balance.")
                     forces, engine = saved.get("forces"), saved.get("engine")
                     if not isinstance(forces, dict) or not isinstance(engine, dict):
                         raise InputError("Saved result is missing forces or engine provenance.")
