@@ -1,0 +1,42 @@
+{
+  "/board": {
+    "status": 200,
+    "bytes": 12395,
+    "sha256": "4e9a8cd2fdda2422fde48d6f8dcd3f0cd0e5cb9111233a0712c5f0c47a25055c"
+  },
+  "/": {
+    "status": 200,
+    "bytes": 16095,
+    "sha256": "866425f9d6877e56fc1012f40643fbc201a7420ba8fc4c01dd4f14227fb82eef"
+  },
+  "/study": {
+    "status": 200,
+    "bytes": 15168,
+    "sha256": "5e57ed0272694e8961c8d98c48dade8e9c3d4b5c0cb8574e6441216e992fc296"
+  },
+  "/demo": {
+    "status": 200,
+    "bytes": 8726,
+    "sha256": "cecc5574891ac4c20882de8d8dafa2fcd9ef51230fb3d376194f4a8a25708ba1"
+  },
+  "/lab": {
+    "status": 200,
+    "bytes": 4891,
+    "sha256": "858327c57a44656da42754dc6a557b091ce32809900c39ac70ec4637213221c5"
+  },
+  "/lab/kit.zip": {
+    "status": 200,
+    "bytes": 18779732,
+    "sha256": "0b4ee985fc0bde510385e92656bfac7c8df92e73f3be4a4e69e5770e9fa63274"
+  },
+  "/lab/handbook.pdf": {
+    "status": 200,
+    "bytes": 234759,
+    "sha256": "cf4bf5712ae9b15b44466ff22a584ad930d14b8eb132c6934a32c5c7acc8d08f"
+  },
+  "/lab/height-coupon.zip": {
+    "status": 200,
+    "bytes": 4157369,
+    "sha256": "f20c7e9cb70bb400c3ad2a6fbb97c088757a39f5ecdd9db3f6bf4683e16bb1ea"
+  }
+}

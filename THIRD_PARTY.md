@@ -30,4 +30,6 @@ Its modified MIT notice credits EMARD, copyright 2016-2018. It additionally requ
 
 New ordinary exports carry the original KiCad or Board notice when their source bytes exactly match a known bundled footprint. Arbitrary user sources are not assigned one of these licenses. Historical generic ZIPs remain unchanged; distribute them with the appropriate original notice and provenance in an outer package. The known historical notice gaps are listed in `launch/provenance-audit.md`.
 
+New evidence archives also include `PROJECT-LICENSE.txt` for copied SolderShape code and documentation. The manifest states that this grant does not license user inputs or replace third-party terms. Study keeps its distinct decision brief and now carries this project notice alongside its archived calculation source. Existing archived ZIPs are not rewritten.
+
 The force fixture uses separately pinned CadQuery and document-generation dependencies only to create local engineering artifacts. Their distributions and transitive notices remain in the local environment. No third-party interpreter, CAD kernel or vendor hardware drawing is redistributed in the handoff. Candidate instrument specifications are attributed to primary sources in `expansion/research/metrology.md` and `force_lab/BOM.csv`; unresolved interfaces are engineering placeholders rather than vendor-certified compatibility.

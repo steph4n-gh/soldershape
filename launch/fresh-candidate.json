@@ -1,0 +1,27 @@
+{
+  "source_commit": "e89f071fe1265adef4a244597b8cbbd30f9bd24c",
+  "initial_engine_cache_present": false,
+  "initial_git_metadata_present": false,
+  "source_members_verified": 1100,
+  "fresh_engine_ready": true,
+  "fresh_cli_statuses": [
+    "refinement_checked",
+    "refinement_checked"
+  ],
+  "fresh_replay_passed": true,
+  "browser_board_download_sha256": "b6ea368090d4f50f3245a42314af2d0a3334c212b35a734a1ee60433ddd692f5",
+  "browser_board_binding_passed": true,
+  "browser_board_force_difference_from_recorded_uN": [
+    {
+      "x_uN": 0.0,
+      "z_uN": 0.0
+    },
+    {
+      "x_uN": 0.0,
+      "z_uN": 0.0
+    }
+  ],
+  "original_board_notice_present": true,
+  "source_root": "output/launch-smoke-e89f071/soldershape",
+  "physical_qualification": "unqualified"
+}

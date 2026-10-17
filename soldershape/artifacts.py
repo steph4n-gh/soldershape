@@ -300,7 +300,8 @@ def _source_notices(source):
 
 
 def make_bundle(results, source="", editable_case=None, comparison=None, *, board_selection=None):
-    files = {"results.csv": results_csv(results)}
+    files = {"results.csv": results_csv(results),
+             "PROJECT-LICENSE.txt": (Path(__file__).resolve().parents[1]/"LICENSE").read_bytes()}
     if source:
         files["source.kicad_mod"] = source.encode()
         files.update(_source_notices(files["source.kicad_mod"]))
@@ -328,6 +329,7 @@ def make_bundle(results, source="", editable_case=None, comparison=None, *, boar
             files[prefix + "mesh-mm.obj"] = mesh_obj(result["mesh"])
             files[prefix + "mesh-mm.stl"] = mesh_stl(result["mesh"])
     manifest = {"schema": 1, "application": f"SolderShape {__version__}", "case_count": len(results),
+                "project_license": {"file": "PROJECT-LICENSE.txt", "scope": "SolderShape code and documentation only. User inputs and third-party material retain their own terms."},
                 "units": {"length": "mm", "volume": "mm^3", "force": "micronewton", "energy": "erg"},
                 "assumptions": "Fully wetted pinned circular pads; prescribed offset and either gap or supported normal load; isolated equilibrium joint. Material/process accuracy is not qualified. Numerical checks are not physical validation.",
                 "replay": "python3 -m soldershape replay FILE.zip; archived scripts are evidence and are never executed by replay",

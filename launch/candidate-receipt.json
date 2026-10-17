@@ -1,0 +1,14 @@
+{
+  "source_commit": "e89f071fe1265adef4a244597b8cbbd30f9bd24c",
+  "candidate": "/Volumes/Storage/oct16project/output/launch-release/soldershape-research-candidate-e89f071fe126.tar.gz",
+  "bytes": 199450002,
+  "sha256": "172f3003c6680d2e8e8a61a501c2aeedb8a26f17338d9338903553fd3e076d9e",
+  "files": 1100,
+  "prebuilt_lab_files": {
+    "output/soldershape-force-lab-r1.zip": "0b4ee985fc0bde510385e92656bfac7c8df92e73f3be4a4e69e5770e9fa63274",
+    "output/pdf/soldershape-force-lab-handoff.pdf": "cf4bf5712ae9b15b44466ff22a584ad930d14b8eb132c6934a32c5c7acc8d08f",
+    "output/soldershape-coupon-r1-refined.zip": "f20c7e9cb70bb400c3ad2a6fbb97c088757a39f5ecdd9db3f6bf4683e16bb1ea"
+  },
+  "native_engine_included": false,
+  "status": "unpublished_research_preview_candidate"
+}

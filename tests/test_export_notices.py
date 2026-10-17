@@ -36,6 +36,15 @@ class ExportNotices(unittest.TestCase):
         self.assertEqual(files['KICAD-LICENSE.md'], (ROOT/'examples/KICAD-LICENSE.md').read_bytes())
         self.assertNotIn('BOARD-LICENSE.md', files)
 
+    def test_project_license_travels_with_copied_code_without_licensing_inputs(self):
+        for source in ('', KICAD_SOURCE.read_text(), '(footprint "User footprint")'):
+            with self.subTest(source=source[:40]):
+                files = self.files(source)
+                self.assertEqual(files['PROJECT-LICENSE.txt'], (ROOT/'LICENSE').read_bytes())
+                self.assertEqual(json.loads(files['manifest.json'])['project_license'], {
+                    'file': 'PROJECT-LICENSE.txt',
+                    'scope': 'SolderShape code and documentation only. User inputs and third-party material retain their own terms.'})
+
     def test_generic_exports_of_extracted_board_footprints_carry_original_notice(self):
         for prefix in ('U1--', 'C1--'):
             source = next((ROOT/'board_demo/assets/footprints.pretty').glob(prefix+'*.kicad_mod')).read_bytes()
@@ -61,6 +70,7 @@ class ExportNotices(unittest.TestCase):
             report = json.loads(archive.read('study-report.json'))
         with zipfile.ZipFile(io.BytesIO(bundle_study(report))) as archive:
             names = archive.namelist()
+            self.assertEqual(archive.read('PROJECT-LICENSE.txt'), (ROOT/'LICENSE').read_bytes())
             self.assertIn('decision.html', names)
             self.assertEqual(archive.read('reference.kicad_mod'), report['study']['reference']['footprint_text'].encode())
             self.assertEqual(archive.read('candidate.kicad_mod'), report['study']['candidate']['footprint_text'].encode())

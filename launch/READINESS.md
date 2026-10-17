@@ -11,12 +11,12 @@ The project is suitable for a clearly labeled research preview after the publica
 - Three actual UI screenshots, a 24-second still-capture walkthrough, captions and transcript. Editorial timing is explicit.
 - Static Sites introduction, a recorded comparison selector, local guide, validation explanation and attribution pages. It does not run the native solver or accept board uploads.
 - Attributed example wrapper with an unchanged original Board ZIP and all notices. The website also serves that ZIP's original extracted evidence, so its review links work.
-- New known-source generic exports retain the exact original KiCad or ULX3S notice in their existing manifest. Unknown user sources receive no assigned third-party source license. Historical archives remain untouched.
+- New known-source generic exports retain the exact original KiCad or ULX3S notice in their existing manifest. All new evidence archives also carry the project MIT notice with an explicit scope excluding user and third-party input rights. Unknown user sources receive no assigned third-party source license. Historical archives remain untouched.
 - New coupon package builds include the project license. Existing frozen lab packages remain unchanged.
 
 ## Verification
 
-The full application suite passes 99 tests in `launch/tests-full.txt`. The portable boundary/case/input set passes 27 tests in `launch/portable-tests.txt`. JavaScript syntax checks pass. The CI workflow is prepared; hosted GitHub CI has not run because no public repository is configured.
+The initial application suite passed 99 tests in `launch/tests-full.txt`. The final suite passes 100 tests in `launch/tests-final.txt`; eight independent notice/capacity/compatibility checks also pass in `launch/project-notice-review.md`. The portable boundary/case/input set passes 27 tests in `launch/portable-tests.txt`. JavaScript syntax checks pass. The CI workflow is prepared; hosted GitHub CI has not run because no public repository is configured.
 
 The provenance and documentation audits describe the pre-repair state. `launch/review.md` independently checks the repairs and bounded claims. `launch/media-inventory.json` records the served files. `launch/site-receipt.json` records actual deployment and DNS state. `launch/checks.json` records doc links, evidence/media identities and package checks when complete.
 
@@ -49,3 +49,9 @@ Experience First replaced an engineering-history introduction with a complete ne
 The custom hostname is active with TLS. Sites access remains owner-only. Its identity gate was observed at the real hostname. The owner sign-in flow encountered the identity provider's browser security verification; deployed content was not visually inspected beyond that gate. The same exact pushed static source passed local browser controls, full video playback, actual download, narrow-layout and HTTP link checks. No bypass token or security-warning workaround was used.
 
 Original Board notices and extracted native logs retain trailing spaces. The staged whitespace checker reports those preserved bytes. Source formatting passes with only `website/dist/media/evidence` and the copied original `BOARD-LICENSE.md` excluded; their exact bytes are verified against the archived source.
+
+## Clean candidate evidence
+
+The first complete candidate at source commit `e89f071` extracted without Git metadata or an engine cache. All 1,100 members matched its release manifest. It downloaded and built the pinned native engine, solved and replayed the two-volume CLI example, and completed the default Board comparison through the actual browser. The downloaded Board archive passed identity verification and reproduced the recorded X/Z forces with zero difference. All five workbench pages and three prebuilt lab download routes returned HTTP 200. Receipts are in `launch/fresh-candidate.json`, `launch/fresh-http.json` and `launch/fresh-replay.json`.
+
+The final project-license attachment is a subsequent packaging correction. It adds a notice and scope metadata, not numerical logic. Seven fully evidenced loaded rows with a known footprint use exactly 100 members under the unchanged limit. The final complete candidate and its separate smoke check are recorded in `launch/candidate-receipt.json` and `launch/final-candidate-check.json`.

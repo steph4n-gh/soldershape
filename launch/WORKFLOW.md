@@ -3,12 +3,12 @@
 - [x] Audit newcomer documentation, claims, source notices and tracked media.
 - [x] Choose original-code license under owner authorization. MIT selected.
 - [x] Repair known-origin notice loss for new exports.
-- [ ] Prepare concise README, guide, validation reference and contributor materials.
-- [ ] Capture real screenshots and assemble a labeled walkthrough.
-- [ ] Build a source-bound recorded-example download.
-- [ ] Verify docs, media, downloads and the running site.
-- [ ] Deploy the completed owner-private Sites preview and connect the unused hostname.
-- [ ] Record public launch blockers and hand back the reviewable result.
+- [x] Prepare concise README, guide, validation reference and contributor materials.
+- [x] Capture real screenshots and assemble a labeled walkthrough.
+- [x] Build a source-bound recorded-example download.
+- [x] Verify docs, media, downloads and the running site.
+- [x] Deploy the completed owner-private Sites preview and connect the unused hostname.
+- [x] Record public launch blockers and hand back the reviewable result.
 
 The public explanation targets PCB and assembly engineers deciding what to compare and measure. It does not promise production qualification, package motion or yield. The product remains local Python plus the pinned native engine. Sites hosts the introduction and recorded evidence.
 
